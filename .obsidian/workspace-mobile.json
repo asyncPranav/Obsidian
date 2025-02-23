@@ -11,10 +11,14 @@
             "id": "f5cd836ed01eadcf",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Testing guys.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Testing guys"
             }
           }
         ]
@@ -149,6 +153,7 @@
   },
   "active": "f5cd836ed01eadcf",
   "lastOpenFiles": [
+    "Testing guys.md",
     "Java notes/07 - Instance Methods.md",
     "Java notes/06 - super Keyword.md",
     "Java notes/05 - this Keyword.md",
@@ -174,7 +179,6 @@
     "C notes/Note 01 - Precedence and Associativity.md",
     "C doubts/test note.md",
     "C doubts/Doubt 19 - Short Circuit Evaluation.md",
-    "C doubts/Doubt 18 - Short Circuit Evaluation.md",
     "Java notes",
     "Java doubts",
     "C notes",
