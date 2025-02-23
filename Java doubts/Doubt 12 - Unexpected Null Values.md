@@ -4,7 +4,7 @@
 # 🛠️ Unexpected Null Values in Constructor Chaining with Default Initialization
 
 
-#DOUBT - **i am passing string "N/A" through this chaining then but why null issue happens , i am not getting it**
+#DOUBT - **i am passing string "N/A" as default value through Constructor chaining using 'this' keyword then why null issue happens , i am not getting it**
 
 
 ###### ChatGPT said:
