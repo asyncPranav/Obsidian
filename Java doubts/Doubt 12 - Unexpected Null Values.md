@@ -7,8 +7,6 @@
 #DOUBT - **i am passing string "N/A" as default value through Constructor chaining using 'this' keyword then why null issue happens , i am not getting it**
 
 
-###### ChatGPT said:
-
 Ah, I see where the confusion is! Let's break it down:
 
 ### 🔍 **What's Happening?**
@@ -21,19 +19,22 @@ When you pass `"N/A"` through constructor chaining, you expect the fields to be 
 
 When you use this line:
 
-java
-
-CopyEdit
-
-`this(customerId, "N/A", "N/A", "N/A");`
+```java
+this(customerId, "N/A", "N/A", "N/A");
+```
 
 You're indeed **passing `"N/A"`** to the **full constructor**, but the problem lies in **how the constructor handles these values**:
 
-java
-
-CopyEdit
-
-`public Customer1(String customerId, String customerName, String customerAddress, String customerPhone) {     this.customerId = customerId;     this.customerName = customerName;          // Using setters (Method 2)     setCustomerAddress(customerAddress);     setCustomerPhone(customerPhone); }`
+```java
+public Customer1(String customerId, String customerName, String customerAddress, String customerPhone) {
+    this.customerId = customerId;
+    this.customerName = customerName;
+    
+    // Using setters (Method 2)
+    setCustomerAddress(customerAddress);
+    setCustomerPhone(customerPhone);
+}
+```
 
 #### 🚩 **The Issue:**
 
@@ -47,21 +48,18 @@ CopyEdit
 
 1. **First Constructor Call:**
 
-java
-
-CopyEdit
-
-`public Customer1(String customerId) {     this(customerId, "N/A", "N/A", "N/A"); }`
+```java
+public Customer1(String customerId) {
+    this(customerId, "N/A", "N/A", "N/A");
+}
+```
 
 - Passes `"N/A"` as intended.
 
 1. **Chained Constructor Execution:**
 
-java
-
-CopyEdit
-
-`public Customer1(String customerId, String customerName, String customerAddress, String customerPhone) {     this.customerId = customerId;     this.customerName = customerName;     setCustomerAddress(customerAddress);     setCustomerPhone(customerPhone); }`
+```java
+```
 
 - The **setters** are called with **"N/A"**.
 - However, if any **previous constructor** was called with **null** or **empty strings**, the **setters** might **overwrite** the **default `"N/A"`** with **null**.
