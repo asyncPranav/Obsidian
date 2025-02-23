@@ -59,6 +59,12 @@ public Customer1(String customerId) {
 1. **Chained Constructor Execution:**
 
 ```java
+public Customer1(String customerId, String customerName, String customerAddress, String customerPhone) {
+    this.customerId = customerId;
+    this.customerName = customerName;
+    setCustomerAddress(customerAddress);
+    setCustomerPhone(customerPhone);
+}
 ```
 
 - The **setters** are called with **"N/A"**.
@@ -70,21 +76,39 @@ public Customer1(String customerId) {
 
 To **avoid null or empty strings**, add **validation**:
 
-java
+```java
+public void setCustomerAddress(String customerAddress) {
+    this.customerAddress = (customerAddress != null && !customerAddress.isEmpty()) 
+                                ? customerAddress 
+                                : "N/A";
+}
 
-CopyEdit
-
-`public void setCustomerAddress(String customerAddress) {     this.customerAddress = (customerAddress != null && !customerAddress.isEmpty())                                  ? customerAddress                                  : "N/A"; }  public void setCustomerPhone(String customerPhone) {     this.customerPhone = (customerPhone != null && !customerPhone.isEmpty())                                  ? customerPhone                                  : "N/A"; }`
+public void setCustomerPhone(String customerPhone) {
+    this.customerPhone = (customerPhone != null && !customerPhone.isEmpty()) 
+                                ? customerPhone 
+                                : "N/A";
+}
+```
 
 ---
 
 ### 🧪 **Example Test Scenario:**
 
-java
-
-CopyEdit
-
-`public class TestCustomer1 {     public static void main(String[] args) {         Customer1 c1 = new Customer1("C101");         Customer1 c2 = new Customer1("C102", "John");         Customer1 c3 = new Customer1("C103", "Jane", null, "");         Customer1 c4 = new Customer1(null, null, "123 Street", "9876543210");          c1.displayCustomer();         c2.displayCustomer();         c3.displayCustomer();         c4.displayCustomer();     } }`
+```java
+public class TestCustomer1 {
+    public static void main(String[] args) {
+        Customer1 c1 = new Customer1("C101");
+        Customer1 c2 = new Customer1("C102", "John");
+        Customer1 c3 = new Customer1("C103", "Jane", null, "");
+        Customer1 c4 = new Customer1(null, null, "123 Street", "9876543210");
+		
+        c1.displayCustomer();
+        c2.displayCustomer();
+        c3.displayCustomer();
+        c4.displayCustomer();
+    }
+}
+```
 
 ### 🎯 **Expected Output:**
 
