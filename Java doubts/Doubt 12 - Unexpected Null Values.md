@@ -112,11 +112,27 @@ public class TestCustomer1 {
 
 ### 🎯 **Expected Output:**
 
-plaintext
+```shell
+Customer ID : C101
+Customer Name : N/A
+Customer Address : N/A
+Customer Phone no : N/A
 
-CopyEdit
+Customer ID : C102
+Customer Name : John
+Customer Address : N/A
+Customer Phone no : N/A
 
-`Customer ID : C101 Customer Name : N/A Customer Address : N/A Customer Phone no : N/A  Customer ID : C102 Customer Name : John Customer Address : N/A Customer Phone no : N/A  Customer ID : C103 Customer Name : Jane Customer Address : N/A Customer Phone no : N/A  Customer ID : N/A Customer Name : N/A Customer Address : 123 Street Customer Phone no : 9876543210`
+Customer ID : C103
+Customer Name : Jane
+Customer Address : N/A
+Customer Phone no : N/A
+
+Customer ID : N/A
+Customer Name : N/A
+Customer Address : 123 Street
+Customer Phone no : 9876543210
+```
 
 ---
 
@@ -124,11 +140,3 @@ CopyEdit
 
 - **Constructor chaining** works, but **always validate input** in **setter methods**.
 - **Setters** should handle **nulls and empty strings** properly to **avoid unexpected null values**.
-
-##### You said:
-
-give a title to this problem
-
-###### ChatGPT said:
-
-### **Title:** 🛠️ **"Unexpected Null Values in Constructor Chaining with Default Initialization"**
