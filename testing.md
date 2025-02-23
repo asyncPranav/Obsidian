@@ -1,1 +1,0 @@
-kks amsa a xmaxx xamxa xalx axxlax axlax alsas 
