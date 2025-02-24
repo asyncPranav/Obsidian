@@ -12,6 +12,30 @@ In **Java**, **constructor chaining** is when **one constructor** calls **anothe
 ### 💻 **The Code Example:**
 
 ```java
+class Studentt {
+    
+    // Properties
+    private String studentName;
+    private int rollNo;
+    private String[] subjects;
+    private float[] marks;
+
+    // 🟠 Constructor 1: Initializes only studentName and rollNo
+    public Studentt(String studentName, int rollNo) {
+        // Calls Constructor 2 with default empty arrays
+        this(studentName, rollNo, new String[0], new float[0]); 
+        System.out.println("Constructor 1 called");
+    }
+
+    // 🔵 Constructor 2: Initializes all properties
+    public Studentt(String studentName, int rollNo, String[] subjects, float[] marks) {
+        this.studentName = studentName;
+        this.rollNo = rollNo;
+        this.subjects = subjects;
+        this.marks = marks;
+        System.out.println("Constructor 2 called");
+    }
+}
 
 ```
 
@@ -19,30 +43,23 @@ In **Java**, **constructor chaining** is when **one constructor** calls **anothe
 
 ### 🟢 **Execution Scenario 1: Calling Constructor 1**
 
-java
-
-CopyEdit
-
-`Studentt student1 = new Studentt("John", 101);`
-
+```java
+Studentt student1 = new Studentt("John", 101);
+```
 #### 📂 **Step-by-Step Execution:**
 
 1. **Constructor 1 is Invoked:**
     
-    java
-    
-    CopyEdit
-    
-    `public Studentt(String studentName, int rollNo)`
+```java
+public Studentt(String studentName, int rollNo)
+```
     
     - The **parameters** are: **`studentName = "John"`** and **`rollNo = 101`**.
 2. **Constructor Chaining Using `this()`**:
     
-    java
-    
-    CopyEdit
-    
-    `this(studentName, rollNo, new String[0], new float[0]);`
+```java
+this(studentName, rollNo, new String[0], new float[0]);
+```
     
     - **Calls Constructor 2** with:
         - **`subjects = new String[0]`** (an **empty string array**).
