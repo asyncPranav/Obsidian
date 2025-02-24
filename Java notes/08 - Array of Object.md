@@ -65,7 +65,7 @@ students  |   [0]   |   [1]   |   [2]     |   <-- Array of Student references
 Student[] students = new Student[3];
 ```
 
-#### **Diagram Explanation:**
+##### **Diagram Explanation:**
 
 ```java
           +-------------------------------+
@@ -80,7 +80,7 @@ students  |   [0]   |   [1]   |   [2]     |   <-- Array of Student references
 ```
 ---
 
-#### **1. First Level of `null` (Array Elements)**
+##### **1. First Level of `null` (Array Elements)**
 
 - The **array** `students` is declared to hold **3 `Student` references**.
 - At this point, the array has **3 slots** (`[0]`, `[1]`, `[2]`), but since **no objects are assigned yet**, each slot contains **`null`**.
@@ -124,6 +124,42 @@ students  |   [0]   |   [1]   |   [2]     |
 - A **single layer of `null`s** is sufficient to represent the **initial state** of the **array of objects**.
 
 
+---
+
+
+### 🚀 **After Initialization:**
+
+```java
+students[0] = new Student("John", 18);
+students[1] = new Student("Alice", 19);
+students[2] = new Student("Bob", 20);
+```
+
+The **diagram** would then look like this:
+
+```java
+          +-------------------------------+
+students  |   [0]   |   [1]   |   [2]     |
+          +-------------------------------+
+          |   Ref   |   Ref   |   Ref     |   <-- Now holds references to objects
+          +-------------------------------+
+             |          |         |
+             |          |         |
+             ↓          ↓         ↓
+          +---------+ +---------+ +---------+
+          | Student | | Student | | Student |
+          |  "John" | | "Alice" | |  "Bob"  |
+          |    18   | |    19   | |    20   |
+          +---------+ +---------+ +---------+
+```
+
+---
+
+### 💡 **Key Points:**
+
+- **`Ref`** indicates that the array **stores references**, not actual objects.
+- The **objects** are created in **heap memory**, while the array holds **pointers** to these objects.
+- If you try to **access an uninitialized index**, e.g., `students[3]`, you'll get an **ArrayIndexOutOfBoundsException**.
 
 
 ---
