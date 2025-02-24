@@ -72,25 +72,26 @@ public Studentt(String studentName, int rollNo, String[] subjects, float[] marks
     
 - **Properties are initialized**:
     
-    java
-    
-    CopyEdit
-    
-    `this.studentName = "John"; this.rollNo = 101; this.subjects = new String[0]; // Empty array this.marks = new float[0];     // Empty array`
+```java
+this.studentName = "John";
+this.rollNo = 101;
+this.subjects = new String[0]; // Empty array
+this.marks = new float[0];     // Empty array
+```
     
 - **Prints:** `"Constructor 2 called"`.
-1. **Control Returns to Constructor 1:**
+
+4. **Control Returns to Constructor 1:**
     
     - **Remaining statements** in **Constructor 1** are executed.
     - **Prints:** `"Constructor 1 called"`.
 
 #### ✅ **Final Output:**
 
-sql
-
-CopyEdit
-
-`Constructor 2 called   Constructor 1 called`
+```shell
+Constructor 2 called  
+Constructor 1 called
+```
 
 ---
 
