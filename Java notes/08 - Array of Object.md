@@ -38,7 +38,7 @@ Student[] students = new Student[5];
 ```java
 Student[] students = new Student[5];
 ```
-
+								|
 ```java
           +-------------------------------+
 students  |   [0]   |   [1]   |   [2]     |   <-- Array of Student references
