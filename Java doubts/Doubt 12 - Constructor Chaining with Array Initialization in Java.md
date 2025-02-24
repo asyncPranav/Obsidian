@@ -97,21 +97,26 @@ Constructor 1 called
 
 ### 📦 **Memory Representation:**
 
-sql
-
-CopyEdit
-
-    `Studentt student1        |        ↓     +------------------------------+     | studentName |   "John"       |     | rollNo      |    101         |     | subjects    |    [] (empty)  |     | marks       |    [] (empty)  |     +------------------------------+`
-
+```java
+    Studentt student1
+       |
+       ↓
+    +------------------------------+
+    | studentName |   "John"       |
+    | rollNo      |    101         |
+    | subjects    |    [] (empty)  |
+    | marks       |    [] (empty)  |
+    +------------------------------+
+```
 ---
 
 ### 🟢 **Execution Scenario 2: Calling Constructor 2 Directly**
 
-java
-
-CopyEdit
-
-`String[] subjects = {"Math", "Science"}; float[] marks = {85.5f, 92.0f}; Studentt student2 = new Studentt("Alice", 102, subjects, marks);`
+```java
+String[] subjects = {"Math", "Science"};
+float[] marks = {85.5f, 92.0f};
+Studentt student2 = new Studentt("Alice", 102, subjects, marks);
+```
 
 #### 📂 **Step-by-Step Execution:**
 
