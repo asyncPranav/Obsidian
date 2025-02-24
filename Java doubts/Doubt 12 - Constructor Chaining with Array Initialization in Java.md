@@ -19,14 +19,14 @@ class Studentt {
     private int rollNo;
     private String[] subjects;
     private float[] marks;
-
+	
     // 🟠 Constructor 1: Initializes only studentName and rollNo
     public Studentt(String studentName, int rollNo) {
         // Calls Constructor 2 with default empty arrays
         this(studentName, rollNo, new String[0], new float[0]); 
         System.out.println("Constructor 1 called");
     }
-
+	
     // 🔵 Constructor 2: Initializes all properties
     public Studentt(String studentName, int rollNo, String[] subjects, float[] marks) {
         this.studentName = studentName;
@@ -185,7 +185,7 @@ public Studentt(String studentName, int rollNo) {
 
 - This would cause a **compilation error**:
 
-```txt
+```shell
 Call to 'this()' must be the first statement in constructor
 ```
 
