@@ -141,11 +141,9 @@ System.out.println("Total Students: " + students.length);
     - An array of objects consumes memory for the array itself (references) and the objects.
     - Unused references can be set to `null` for garbage collection.
     
-    java
-    
-    CopyEdit
-    
-    `students[0] = null; // Eligible for garbage collection if no other reference exists`
+```java
+students[0] = null; // Eligible for garbage collection if no other reference exists
+```
     
 
 ---
