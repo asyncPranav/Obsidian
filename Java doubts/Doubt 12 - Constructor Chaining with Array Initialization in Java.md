@@ -160,8 +160,8 @@ Constructor 2 called
     | studentName |   "Alice"           |
     | rollNo      |    102              |
     | subjects    | ["Math", "Science"] |
-    | marks       | [85.5, 92.0]   |
-    +------------------------------+
+    | marks       | [85.5, 92.0]        |
+    +-----------------------------------+
 ```
 
 ---
@@ -176,19 +176,18 @@ Constructor 2 called
 
 ### ❓ **Common Pitfall:**
 
-java
-
-CopyEdit
-
-`public Studentt(String studentName, int rollNo) {     System.out.println("Before this() call"); // ❌ Invalid!     this(studentName, rollNo, new String[0], new float[0]);  }`
+```java
+public Studentt(String studentName, int rollNo) {
+    System.out.println("Before this() call"); // ❌ Invalid!
+    this(studentName, rollNo, new String[0], new float[0]); 
+}
+```
 
 - This would cause a **compilation error**:
 
-vbnet
-
-CopyEdit
-
-`Call to 'this()' must be the first statement in constructor`
+```txt
+Call to 'this()' must be the first statement in constructor
+```
 
 ---
 
