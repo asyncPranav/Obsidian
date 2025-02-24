@@ -122,22 +122,23 @@ Studentt student2 = new Studentt("Alice", 102, subjects, marks);
 
 1. **Constructor 2 is Invoked Directly:**
     
-    java
+```java
+public Studentt(String studentName, int rollNo, String[] subjects, float[] marks)
+```
     
-    CopyEdit
-    
-    `public Studentt(String studentName, int rollNo, String[] subjects, float[] marks)`
-    
-    - **Parameters received:** `"Alice"`, `102`, `["Math", "Science"]`, `[85.5f, 92.0f]`.
+- **Parameters received:** `"Alice"`, `102`, `["Math", "Science"]`, `[85.5f, 92.0f]`.
+
 2. **Properties Initialization:**
     
-    java
+```java
+this.studentName = "Alice";
+this.rollNo = 102;
+this.subjects = subjects;  // ["Math", "Science"]
+this.marks = marks;        // [85.5, 92.0]
+```
     
-    CopyEdit
-    
-    `this.studentName = "Alice"; this.rollNo = 102; this.subjects = subjects;  // ["Math", "Science"] this.marks = marks;        // [85.5, 92.0]`
-    
-    - **Prints:** `"Constructor 2 called"`.
+- **Prints:** `"Constructor 2 called"`.
+
 3. **No Further Chaining Needed:**
     
     - Since **Constructor 2** is the **target constructor**, the **process completes here**.
