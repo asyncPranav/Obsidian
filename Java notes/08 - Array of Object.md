@@ -146,9 +146,9 @@ The **diagram** would then look like this:
           +-------------------------------+
           |   Ref   |   Ref   |   Ref     |   <-- Now holds references to objects
           +-------------------------------+
-             |          |           |
-             |          |           |
-             ↓          ↓           ↓
+             |            |           |
+             |            |           |
+             ↓            ↓           ↓
           +---------+ +---------+ +---------+
           | Student | | Student | | Student |
           |  "John" | | "Alice" | |  "Bob"  |
