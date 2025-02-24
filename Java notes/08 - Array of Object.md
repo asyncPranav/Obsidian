@@ -138,19 +138,23 @@ students[2] = new Student("Bob", 20);
 The **diagram** would then look like this:
 
 ```java
+       students (Reference to Array)
+                |
+                ↓
           +-------------------------------+
-students  |   [0]   |   [1]   |   [2]     |
+          |   [0]   |   [1]   |   [2]     |   <-- Array of Student references
           +-------------------------------+
           |   Ref   |   Ref   |   Ref     |   <-- Now holds references to objects
           +-------------------------------+
-             |          |         |
-             |          |         |
-             ↓          ↓         ↓
+             |          |           |
+             |          |           |
+             ↓          ↓           ↓
           +---------+ +---------+ +---------+
           | Student | | Student | | Student |
           |  "John" | | "Alice" | |  "Bob"  |
           |    18   | |    19   | |    20   |
           +---------+ +---------+ +---------+
+
 ```
 
 ---
