@@ -15,19 +15,16 @@
 
 **Syntax:**
 
-java
-
-CopyEdit
-
-`ClassName[] arrayName = new ClassName[size];`
+```java
+ClassName[] arrayName = new ClassName[size];
+```
 
 **Example:**
 
-java
-
-CopyEdit
-
-`// Declare an array to store 5 Student objects Student[] students = new Student[5];`
+```java
+// Declare an array to store 5 Student objects
+Student[] students = new Student[5];
+```
 
 **Key Points:**
 
@@ -40,19 +37,18 @@ CopyEdit
 
 **Approach 1: Using Index Assignment**
 
-java
-
-CopyEdit
-
-`students[0] = new Student("John", 18); students[1] = new Student("Alice", 19);`
+```java
+students[0] = new Student("John", 18);
+students[1] = new Student("Alice", 19);
+```
 
 **Approach 2: Using a Loop**
 
-java
-
-CopyEdit
-
-`for (int i = 0; i < students.length; i++) {     students[i] = new Student("Student" + (i + 1), 18 + i); }`
+```java
+for (int i = 0; i < students.length; i++) {
+    students[i] = new Student("Student" + (i + 1), 18 + i);
+}
+```
 
 **Explanation:**
 
@@ -63,11 +59,10 @@ CopyEdit
 
 #### **4. Accessing and Using Objects from the Array**
 
-java
-
-CopyEdit
-
-`System.out.println(students[0].getName()); students[1].displayInfo();`
+```java
+System.out.println(students[0].getName());
+students[1].displayInfo();
+```
 
 **Key Points:**
 
