@@ -2,9 +2,6 @@
 ---
 
 
-### **Array of Objects in Java**
-
----
 
 
 #### **1. What is an Array of Objects?**
