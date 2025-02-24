@@ -141,25 +141,28 @@ this.marks = marks;        // [85.5, 92.0]
 
 3. **No Further Chaining Needed:**
     
-    - Since **Constructor 2** is the **target constructor**, the **process completes here**.
+- Since **Constructor 2** is the **target constructor**, the **process completes here**.
 
 #### ✅ **Final Output:**
 
-sql
-
-CopyEdit
-
-`Constructor 2 called`
-
+```shell
+Constructor 2 called
+```
 ---
 
 ### 📦 **Memory Representation:**
 
-lua
-
-CopyEdit
-
-    `Studentt student2        |        ↓     +------------------------------+     | studentName |   "Alice"      |     | rollNo      |    102         |     | subjects    | ["Math", "Science"] |     | marks       | [85.5, 92.0]   |     +------------------------------+`
+```java
+    Studentt student2
+       |
+       ↓
+    +-----------------------------------+
+    | studentName |   "Alice"           |
+    | rollNo      |    102              |
+    | subjects    | ["Math", "Science"] |
+    | marks       | [85.5, 92.0]   |
+    +------------------------------+
+```
 
 ---
 
