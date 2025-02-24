@@ -31,7 +31,8 @@ Student[] students = new Student[5];
 - The array `students` can hold references to `Student` objects.
 - At the time of declaration, each element of the array is initialized to `null` by default.
 
-**Visual representation :**
+
+*Visual representation :**
 
 - If we have array of 3 ` Student ` objects
 
