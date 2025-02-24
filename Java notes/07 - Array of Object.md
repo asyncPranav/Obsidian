@@ -73,19 +73,48 @@ students[1].displayInfo();
 
 #### **5. Example: Complete Code**
 
-java
+```java
+class Student {
+    String name;
+    int age;
+	
+    // Constructor
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+	
+    // Method to display student information
+    public void displayInfo() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
 
-CopyEdit
-
-`class Student {     String name;     int age;      // Constructor     public Student(String name, int age) {         this.name = name;         this.age = age;     }      // Method to display student information     public void displayInfo() {         System.out.println("Name: " + name + ", Age: " + age);     } }  public class ArrayOfObjectsDemo {     public static void main(String[] args) {         // Creating an array of Student objects         Student[] students = new Student[3];          // Initializing the array elements         students[0] = new Student("John", 18);         students[1] = new Student("Alice", 19);         students[2] = new Student("Bob", 20);          // Accessing and displaying student information         for (Student student : students) {             student.displayInfo();         }     } }`
+public class ArrayOfObjectsDemo {
+    public static void main(String[] args) {
+        // Creating an array of Student objects
+        Student[] students = new Student[3];
+	
+        // Initializing the array elements
+        students[0] = new Student("John", 18);
+        students[1] = new Student("Alice", 19);
+        students[2] = new Student("Bob", 20);
+	
+        // Accessing and displaying student information
+        for (Student student : students) {
+            student.displayInfo();
+        }
+    }
+}
+```
 
 **Output:**
 
-yaml
-
-CopyEdit
-
-`Name: John, Age: 18   Name: Alice, Age: 19   Name: Bob, Age: 20`  
+```shell
+Name: John, Age: 18  
+Name: Alice, Age: 19  
+Name: Bob, Age: 20  
+```
 
 ---
 
@@ -94,20 +123,18 @@ CopyEdit
 1. **Null Check:**  
     Before accessing objects, ensure they are not `null` to avoid `NullPointerException`.
     
-    java
-    
-    CopyEdit
-    
-    `if (students[0] != null) {     students[0].displayInfo(); }`
+```java
+if (students[0] != null) {
+    students[0].displayInfo();
+}
+```
     
 2. **Array Length:**  
     The `length` property can be used to determine the size of the array.
     
-    java
-    
-    CopyEdit
-    
-    `System.out.println("Total Students: " + students.length);`
+```java
+System.out.println("Total Students: " + students.length);
+```
     
 3. **Memory Management:**
     
