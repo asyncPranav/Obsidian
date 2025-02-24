@@ -54,16 +54,18 @@ Studentt student1 = new Studentt("John", 101);
 public Studentt(String studentName, int rollNo)
 ```
     
-    - The **parameters** are: **`studentName = "John"`** and **`rollNo = 101`**.
+- The **parameters** are: **`studentName = "John"`** and **`rollNo = 101`**.
+	
 2. **Constructor Chaining Using `this()`**:
     
 ```java
 this(studentName, rollNo, new String[0], new float[0]);
 ```
     
-    - **Calls Constructor 2** with:
+ - **Calls Constructor 2** with:
         - **`subjects = new String[0]`** (an **empty string array**).
         - **`marks = new float[0]`** (an **empty float array**).
+        
 3. **Execution Shifts to Constructor 2:**
     
 ```java
@@ -80,8 +82,8 @@ this.marks = new float[0];     // Empty array
 ```
     
 - **Prints:** `"Constructor 2 called"`.
-
-4. **Control Returns to Constructor 1:**
+	
+1. **Control Returns to Constructor 1:**
     
     - **Remaining statements** in **Constructor 1** are executed.
     - **Prints:** `"Constructor 1 called"`.
