@@ -66,22 +66,20 @@ this(studentName, rollNo, new String[0], new float[0]);
         - **`marks = new float[0]`** (an **empty float array**).
 3. **Execution Shifts to Constructor 2:**
     
+```java
+public Studentt(String studentName, int rollNo, String[] subjects, float[] marks)
+```
+    
+- **Properties are initialized**:
+    
     java
     
     CopyEdit
     
-    `public Studentt(String studentName, int rollNo, String[] subjects, float[] marks)`
+    `this.studentName = "John"; this.rollNo = 101; this.subjects = new String[0]; // Empty array this.marks = new float[0];     // Empty array`
     
-    - **Properties are initialized**:
-        
-        java
-        
-        CopyEdit
-        
-        `this.studentName = "John"; this.rollNo = 101; this.subjects = new String[0]; // Empty array this.marks = new float[0];     // Empty array`
-        
-    - **Prints:** `"Constructor 2 called"`.
-4. **Control Returns to Constructor 1:**
+- **Prints:** `"Constructor 2 called"`.
+1. **Control Returns to Constructor 1:**
     
     - **Remaining statements** in **Constructor 1** are executed.
     - **Prints:** `"Constructor 1 called"`.
