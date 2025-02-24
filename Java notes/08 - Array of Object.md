@@ -32,7 +32,14 @@ Student[] students = new Student[5];
 - At the time of declaration, each element of the array is initialized to `null` by default.
 
 **Visual representation : **
-- If we have array of 3 studobjects
+- If we have array of 3 ` Student ` objects
+```java
+
+```
+### 🔍 **Explanation:**
+
+- **`students`** is an array of type `Student` with a **size of 3**.
+- Initially, all array elements are set to **`null`**, meaning they do not reference any `Student` object yet.
 
 
 
