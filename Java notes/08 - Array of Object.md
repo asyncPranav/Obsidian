@@ -88,7 +88,7 @@ students  |   [0]   |   [1]   |   [2]     |   <-- Array of Student references
 
 ---
 
-#### **2. Second Level of `null` (Dereferenced Object)**
+##### **2. Second Level of `null` (Dereferenced Object)**
 
 - The **second row** with **`null`s** depicts what happens if you try to **dereference** these **uninitialized elements**.
 - Since the array elements are `null`, attempting to **access a property or call a method** on them would result in a **`NullPointerException`**.
@@ -96,27 +96,29 @@ students  |   [0]   |   [1]   |   [2]     |   <-- Array of Student references
 For example:
 
 ```java
-System.out.println(students[0].Name); // This would throw NullPointerException
+System.out.println(students[0].studentName); // This would throw NullPointerException
 ```
 
 ---
 
-### 💡 **Simplified View:**
+##### 💡 **Simplified View:**
 
 A **simpler** and more **accurate representation** would be:
 
-sql
-
-CopyEdit
-
-          `+-------------------------------+ students  |   [0]   |   [1]   |   [2]     |           +-------------------------------+           |  null   |  null   |  null     |   <-- Array elements are null initially           +-------------------------------+`
+```java
+          +-------------------------------+
+students  |   [0]   |   [1]   |   [2]     |
+          +-------------------------------+
+          |  null   |  null   |  null     |   <-- Array elements are null initially
+          +-------------------------------+
+```
 
 - This avoids the **redundant nulls**, showing only the **first level** of **uninitialized references**.
 - The **second layer** of `null` is more about the **logical outcome** when **dereferencing**.
 
 ---
 
-### ✅ **Conclusion:**
+##### ✅ **Conclusion:**
 
 - The **double `null`** was not strictly necessary—it was an attempt to show both the **array state** and the **consequence of dereferencing**, but it caused confusion.
 - A **single layer of `null`s** is sufficient to represent the **initial state** of the **array of objects**.
