@@ -4,6 +4,9 @@
 
 ### **Array of Objects in Java**
 
+---
+
+
 #### **1. What is an Array of Objects?**
 
 - An **array of objects** is a collection of **object references** stored in a contiguous memory location.
