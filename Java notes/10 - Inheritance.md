@@ -193,11 +193,20 @@ public class MultipleInheritanceWithInterfaces {
     - Method name, return type, and parameters must be the same.
     - Cannot override **static**, **final**, or **private** methods.
 
-java
+```java
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
 
-CopyEdit
-
-`class Animal {     void sound() {         System.out.println("Animal makes a sound");     } }  class Dog extends Animal {     @Override     void sound() {         System.out.println("Dog barks");     } }`
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+```
 
 ---
 
@@ -207,11 +216,30 @@ CopyEdit
 - **Method Invocation:** Call the **parent class method** in the **child class**.
 - **Constructor Chaining:** Call the **parent class constructor**.
 
-java
+```java
+class Animal {
+    String color = "white";
+	
+    void sound() {
+        System.out.println("Animal sound");
+    }
+}
 
-CopyEdit
-
-`class Animal {     String color = "white";      void sound() {         System.out.println("Animal sound");     } }  class Dog extends Animal {     String color = "black";      void displayColor() {         System.out.println(color); // Output: black         System.out.println(super.color); // Output: white     }      @Override     void sound() {         super.sound(); // Calls Animal's sound()         System.out.println("Dog barks");     } }`
+class Dog extends Animal {
+    String color = "black";
+	
+    void displayColor() {
+        System.out.println(color); // Output: black
+        System.out.println(super.color); // Output: white
+    }
+	
+    @Override
+    void sound() {
+        super.sound(); // Calls Animal's sound()
+        System.out.println("Dog barks");
+    }
+}
+```
 
 ---
 
@@ -228,11 +256,20 @@ CopyEdit
 - When a **child class object** is created, the **parent class constructor** is called **first**.
 - Use **`super()`** to invoke a **specific parent constructor**.
 
-java
+```java
+class Animal {
+    Animal() {
+        System.out.println("Animal constructor");
+    }
+}
 
-CopyEdit
-
-`class Animal {     Animal() {         System.out.println("Animal constructor");     } }  class Dog extends Animal {     Dog() {         super(); // Calls the parent class constructor         System.out.println("Dog constructor");     } }`
+class Dog extends Animal {
+    Dog() {
+        super(); // Calls the parent class constructor
+        System.out.println("Dog constructor");
+    }
+}
+```
 
 ---
 
