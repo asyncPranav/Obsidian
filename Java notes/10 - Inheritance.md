@@ -24,7 +24,13 @@
 ## 🧱 **3. Syntax:**
 
 ```java
+class Parent {
+    // Parent class properties and methods
+}
 
+class Child extends Parent {
+    // Child class properties and methods
+}
 ```
 
 ---
@@ -45,31 +51,96 @@
 
 ### 🔹 **Single Inheritance:**
 
-java
+```java
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
 
-CopyEdit
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
 
-`class Animal {     void eat() {         System.out.println("Eating...");     } }  class Dog extends Animal {     void bark() {         System.out.println("Barking...");     } }  public class SingleInheritance {     public static void main(String[] args) {         Dog d = new Dog();         d.eat(); // From Parent Class         d.bark(); // From Child Class     } }`
+public class SingleInheritance {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.eat(); // From Parent Class
+        d.bark(); // From Child Class
+    }
+}
+```
 
 ---
 
 ### 🔹 **Multilevel Inheritance:**
 
-java
+```java
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
 
-CopyEdit
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
 
-`class Animal {     void eat() {         System.out.println("Eating...");     } }  class Dog extends Animal {     void bark() {         System.out.println("Barking...");     } }  class Puppy extends Dog {     void weep() {         System.out.println("Weeping...");     } }  public class MultilevelInheritance {     public static void main(String[] args) {         Puppy p = new Puppy();         p.eat();         p.bark();         p.weep();     } }`
+class Puppy extends Dog {
+    void weep() {
+        System.out.println("Weeping...");
+    }
+}
+
+public class MultilevelInheritance {
+    public static void main(String[] args) {
+        Puppy p = new Puppy();
+        p.eat();
+        p.bark();
+        p.weep();
+    }
+}
+```
 
 ---
 
 ### 🔹 **Hierarchical Inheritance:**
 
-java
+```java
+class Animal {
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
 
-CopyEdit
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
 
-`class Animal {     void eat() {         System.out.println("Eating...");     } }  class Dog extends Animal {     void bark() {         System.out.println("Barking...");     } }  class Cat extends Animal {     void meow() {         System.out.println("Meowing...");     } }  public class HierarchicalInheritance {     public static void main(String[] args) {         Dog d = new Dog();         d.eat();         d.bark();          Cat c = new Cat();         c.eat();         c.meow();     } }`
+class Cat extends Animal {
+    void meow() {
+        System.out.println("Meowing...");
+    }
+}
+
+public class HierarchicalInheritance {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.eat();
+        d.bark();
+		
+        Cat c = new Cat();
+        c.eat();
+        c.meow();
+    }
+}
+```
 
 ---
 
@@ -84,11 +155,32 @@ CopyEdit
 
 ### ✅ **Using Interfaces:**
 
-java
+```java
+interface Printable {
+    void print();
+}
 
-CopyEdit
+interface Showable {
+    void show();
+}
 
-`interface Printable {     void print(); }  interface Showable {     void show(); }  class Demo implements Printable, Showable {     public void print() {         System.out.println("Printing...");     }     public void show() {         System.out.println("Showing...");     } }  public class MultipleInheritanceWithInterfaces {     public static void main(String[] args) {         Demo d = new Demo();         d.print();         d.show();     } }`
+class Demo implements Printable, Showable {
+    public void print() {
+        System.out.println("Printing...");
+    }
+    public void show() {
+        System.out.println("Showing...");
+    }
+}
+
+public class MultipleInheritanceWithInterfaces {
+    public static void main(String[] args) {
+        Demo d = new Demo();
+        d.print();
+        d.show();
+    }
+}
+```
 
 ---
 
