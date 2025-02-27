@@ -1444,3 +1444,12 @@ Name: Alice
 ---
 
 This covers everything you need to understand the `this` keyword in Java. If you need more examples or further explanations, feel free to ask!
+
+
+
+
+---
+
+
+
+**NEXT ->** [[08 - Array of Object]]
