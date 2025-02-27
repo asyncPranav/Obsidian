@@ -39,6 +39,11 @@ switch (day) {
 ### 🚀 **Enhanced Syntax:**
 
 ```java
+switch (day) {
+    case 1 -> System.out.println("Monday");
+    case 2 -> System.out.println("Tuesday");
+    default -> System.out.println("Invalid day");
+}
 ```
 
 ### 💡 **Key Differences:**
@@ -57,11 +62,19 @@ switch (day) {
 
 ### 🔍 **Example:**
 
-java
+```java
+int day = 3;
 
-CopyEdit
-
-`int day = 3;  switch (day) {     case 1 -> System.out.println("Monday");     case 2 -> System.out.println("Tuesday");     case 3 -> {         System.out.println("Wednesday");         System.out.println("Midweek day");     }     default -> System.out.println("Invalid day"); }`
+switch (day) {
+    case 1 -> System.out.println("Monday");
+    case 2 -> System.out.println("Tuesday");
+    case 3 -> {
+        System.out.println("Wednesday");
+        System.out.println("Midweek day");
+    }
+    default -> System.out.println("Invalid day");
+}
+```
 
 ### 💡 **Explanation:**
 
@@ -75,11 +88,17 @@ CopyEdit
 
 ### 🔍 **Example:**
 
-java
+```java
+String dayName = switch (day) {
+    case 1 -> "Monday";
+    case 2 -> "Tuesday";
+    case 3, 4, 5 -> "Midweek";
+    case 6, 7 -> "Weekend";
+    default -> "Invalid day";
+};
 
-CopyEdit
-
-`String dayName = switch (day) {     case 1 -> "Monday";     case 2 -> "Tuesday";     case 3, 4, 5 -> "Midweek";     case 6, 7 -> "Weekend";     default -> "Invalid day"; };  System.out.println(dayName);`
+System.out.println(dayName);
+```
 
 ### 💡 **Key Points:**
 
@@ -93,11 +112,18 @@ CopyEdit
 
 ### 🔍 **Example:**
 
-java
-
-CopyEdit
-
-`int number = 2; String result = switch (number) {     case 1 -> "One";     case 2 -> {         String temp = "Two";         yield temp; // Return value using 'yield'     }     default -> "Unknown"; }; System.out.println(result);`
+```java
+int number = 2;
+String result = switch (number) {
+    case 1 -> "One";
+    case 2 -> {
+        String temp = "Two";
+        yield temp; // Return value using 'yield'
+    }
+    default -> "Unknown";
+};
+System.out.println(result);
+```
 
 ### 💡 **`yield` Keyword:**
 
@@ -110,11 +136,13 @@ CopyEdit
 
 ### 🔍 **Example:**
 
-java
-
-CopyEdit
-
-`String typeOfDay = switch (day) {     case 1, 2, 3, 4, 5 -> "Weekday";     case 6, 7 -> "Weekend";     default -> "Invalid day"; };`
+```java
+String typeOfDay = switch (day) {
+    case 1, 2, 3, 4, 5 -> "Weekday";
+    case 6, 7 -> "Weekend";
+    default -> "Invalid day";
+};
+```
 
 ### 💡 **When to Use:**
 
