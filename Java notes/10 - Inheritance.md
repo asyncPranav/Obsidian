@@ -268,16 +268,16 @@ class Dog extends Animal {
 
 - **`final class`:** Cannot be **inherited**.
 
-	**❌Using final Keyword:**
-	
-	```java
-	final class Parent {
-	    // Cannot be extended
-	}
-	
-	class Child extends Parent { // ❌ Compile-time error
-	}
-	```
+**❌Using final Keyword:**
+
+```java
+final class Parent {
+    // Cannot be extended
+}
+
+class Child extends Parent { // ❌ Compile-time error
+}
+```
 
 - **`final method`:** Cannot be **overridden**.
 - **`final variable`:** Cannot change its **value**.
@@ -320,6 +320,16 @@ class Dog extends Animal {
 - Use inheritance only if there is a **genuine "is-a" relationship**.
 - Prefer **composition over inheritance** if it makes more sense.
 - Avoid **deep inheritance hierarchies** for better maintainability.
+
+---
+
+
+# 🔍 **11. Common Mistakes in Inheritance:**
+
+1. **Accidental Overriding:** Method **signature mismatch**.
+2. **Circular Inheritance:** Java **does not support**.
+3. **Not Using super() Properly:** To **call parent constructor**.
+4. **Shadowing Variables:** Avoid **name conflicts**.
 
 ---
 
