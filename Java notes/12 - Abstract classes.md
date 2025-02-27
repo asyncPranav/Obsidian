@@ -254,11 +254,15 @@ abstract class Device {
 
 ### 🧠 **4. Abstract Class and Interfaces Together**
 
-java
+```java
+interface Movable {
+    void move();
+}
 
-CopyEdit
-
-`interface Movable {     void move(); }  abstract class Vehicle implements Movable {     abstract void start(); }`
+abstract class Vehicle implements Movable {
+    abstract void start();
+}
+```
 
 ---
 
@@ -282,4 +286,3 @@ CopyEdit
 
 ---
 
-If you need **furth**
