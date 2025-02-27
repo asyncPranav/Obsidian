@@ -186,7 +186,7 @@ Animal animal = new Animal(); // Error: Animal is abstract; cannot be instantiat
 ```java
 abstract class Shape {
     abstract double area(); // Abstract method
-
+	
     void display() {
         System.out.println("This is a shape.");
     }
@@ -194,7 +194,7 @@ abstract class Shape {
 
 class Circle extends Shape {
     double radius;
-
+	
     Circle(double radius) {
         this.radius = radius;
     }
@@ -220,27 +220,37 @@ public class TestShape {
 
 ### 🧠 **1. Abstract Class with Non-Abstract Subclass**
 
-java
+```java
+abstract class Animal {
+    void sound() {
+        System.out.println("Some sound");
+    }
+}
 
-CopyEdit
-
-`abstract class Animal {     void sound() {         System.out.println("Some sound");     } }  class Cat extends Animal {     // Inherits the concrete method without changes }`
+class Cat extends Animal {
+    // Inherits the concrete method without changes
+}
+```
 
 ### 🧠 **2. Abstract Class with Static Methods**
 
-java
-
-CopyEdit
-
-`abstract class Utility {     static void printHello() {         System.out.println("Hello from abstract class!");     } }`
+```java
+abstract class Utility {
+    static void printHello() {
+        System.out.println("Hello from abstract class!");
+    }
+}
+```
 
 ### 🧠 **3. Abstract Class with Final Methods**
 
-java
-
-CopyEdit
-
-`abstract class Device {     final void powerOn() {         System.out.println("Device is powered on.");     } }`
+```java
+abstract class Device {
+    final void powerOn() {
+        System.out.println("Device is powered on.");
+    }
+}
+```
 
 ### 🧠 **4. Abstract Class and Interfaces Together**
 
