@@ -516,12 +516,11 @@ obj.parentMethod();
 - **Parent class reference** is **assigned** to a **child class reference**.
 - **Explicit type casting** is required.
 
-java
-
-CopyEdit
-
-`Parent obj = new Child(); // Upcasting Child childObj = (Child) obj; // Downcasting childObj.childMethod();`
-
+```java
+Parent obj = new Child(); // Upcasting
+Child childObj = (Child) obj; // Downcasting
+childObj.childMethod();
+```
 ---
 
 ### 6. **Method Hiding:**
@@ -529,11 +528,26 @@ CopyEdit
 - When a **static method** in a **child class** has the **same signature** as a **static method** in the **parent class**.
 - The **parent class method** is **hidden**, not **overridden**.
 
-java
+```java
+class Parent {
+    static void show() {
+        System.out.println("Parent's Static Method");
+    }
+}
 
-CopyEdit
+class Child extends Parent {
+    static void show() {
+        System.out.println("Child's Static Method");
+    }
+}
 
-`class Parent {     static void show() {         System.out.println("Parent's Static Method");     } }  class Child extends Parent {     static void show() {         System.out.println("Child's Static Method");     } }  public class Main {     public static void main(String[] args) {         Parent obj = new Child();         obj.show(); // Calls Parent's static method     } }`
+public class Main {
+    public static void main(String[] args) {
+        Parent obj = new Child();
+        obj.show(); // Calls Parent's static method
+    }
+}
+```
 
 ---
 
@@ -541,31 +555,61 @@ CopyEdit
 
 #### 🚫 **Preventing Class Inheritance:**
 
-java
+```java
+final class Parent {
+    // This class cannot be inherited
+}
 
-CopyEdit
-
-`final class Parent {     // This class cannot be inherited }  class Child extends Parent { // ❌ Error: Cannot inherit from final class }`
+class Child extends Parent { // ❌ Error: Cannot inherit from final class
+}
+```
 
 ---
 
 #### 🚫 **Preventing Method Overriding:**
 
-java
+```java
+class Parent {
+    final void show() {
+        System.out.println("This method cannot be overridden");
+    }
+}
 
-CopyEdit
-
-`class Parent {     final void show() {         System.out.println("This method cannot be overridden");     } }  class Child extends Parent {     @Override     void show() { // ❌ Error: Cannot override final method     } }`
+class Child extends Parent {
+    @Override
+    void show() { // ❌ Error: Cannot override final method
+    }
+}
+```
 
 ---
 
 ### 8. **Inheritance with Abstract Classes:**
 
-java
+```java
+abstract class Animal {
+    abstract void sound();
+    
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
 
-CopyEdit
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Barking...");
+    }
+}
 
-`abstract class Animal {     abstract void sound();          void eat() {         System.out.println("Eating...");     } }  class Dog extends Animal {     @Override     void sound() {         System.out.println("Barking...");     } }  public class Main {     public static void main(String[] args) {         Dog dog = new Dog();         dog.sound();         dog.eat();     } }`
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.sound();
+        dog.eat();
+    }
+}
+```
 
 ---
 
@@ -573,11 +617,8 @@ CopyEdit
 
 - **Protected members** can be **accessed** within the **same package** and by **subclasses** in **different packages**.
 
-java
-
-CopyEdit
-
-`package parent;  public class Parent {     protected void show() {         System.out.println("Protected Method");     } }  package child; import parent.Parent;  public class Child extends Parent {     public static void main(String[] args) {         Child obj = new Child();         obj.show(); // Accessible through inheritance     } }`
+```java
+```
 
 ---
 
