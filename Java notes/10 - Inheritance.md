@@ -42,6 +42,10 @@ class Child extends Parent {
 }
 ```
 
+### 🔑 **Important Keywords:**
+
+- **extends:** Used to **establish inheritance** between **classes**.
+- **super:** Refers to the **parent class** and is used to **access parent class methods** and **constructors**.
 ---
 
 ## 🌐 **4. Types of Inheritance in Java:**
