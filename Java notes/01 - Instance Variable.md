@@ -106,6 +106,6 @@ This is a fundamental concept in **Object-Oriented Programming**, enabling each 
 
 
 
-**NEXT ->** : [[07 - Instance Methods]]
+**NEXT ->** [[07 - Instance Methods]]
 
 

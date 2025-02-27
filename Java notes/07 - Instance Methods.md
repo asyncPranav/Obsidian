@@ -176,3 +176,12 @@ Imagine a **remote control** for a TV:
 - They are **not static** and are called using **object references**.
 - They **encapsulate** behavior that is **specific to each object**.
 - They **promote code reusability** and **maintainability**.
+
+
+
+
+---
+
+
+
+**NEXT ->** [[02 - Class and Object]]
