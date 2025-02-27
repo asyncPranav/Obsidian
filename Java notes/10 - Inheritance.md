@@ -7,8 +7,14 @@
 
 **Inheritance** is an **Object-Oriented Programming (OOP)** concept where a **child class** (**subclass**) **inherits** the **properties** and **methods** of a **parent class** (**superclass**).
 
-- Enables **code reusability** and **method overriding**.
+
 - Establishes a **"is-a" relationship**, e.g., `Dog is a Pet`.
+### 💡 **Key Idea:**
+
+- Promotes **code reusability** and **modular design**.
+
+- Establishes a **parent-child relationship** between **classes**.
+- Helps in **implementing polymorphism** and **method overriding**.
 
 ---
 
