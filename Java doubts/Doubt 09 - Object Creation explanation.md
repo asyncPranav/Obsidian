@@ -265,4 +265,5 @@ This behavior allows you to create objects even when no constructor is explicitl
 
 
 
-**NEXT ->** [[Doubt 09 - Object Creation explanation]]
+**NEXT ->** [[02 - Class and Object]]
+
