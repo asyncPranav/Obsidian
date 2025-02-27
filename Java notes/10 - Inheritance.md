@@ -267,8 +267,10 @@ class Dog extends Animal {
 ### 🔹 **`final` Keyword:**
 
 - **`final class`:** Cannot be **inherited**.
+
 - **`final method`:** Cannot be **overridden**.
 - **`final variable`:** Cannot change its **value**.
+
 
 ---
 
