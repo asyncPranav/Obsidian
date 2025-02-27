@@ -265,4 +265,4 @@ This behavior allows you to create objects even when no constructor is explicitl
 
 
 
-**NEXT ->** [[Doubt09]]
+**NEXT ->** [[Doubt 09 - Object Creation explanation]]
