@@ -324,7 +324,7 @@ class Dog extends Animal {
 ---
 
 
-# 🔍 **11. Common Mistakes in Inheritance:**
+## 🔍 **11. Common Mistakes in Inheritance:**
 
 1. **Accidental Overriding:** Method **signature mismatch**.
 2. **Circular Inheritance:** Java **does not support**.
