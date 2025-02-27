@@ -298,6 +298,9 @@ class Dog extends Animal {
 ---
 
 
+
+**NEXT ->** [[11 - Abstaction]]
+
 ## 📚 **Next Steps:**
 
 Would you like to:
