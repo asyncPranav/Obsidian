@@ -100,3 +100,5 @@ Volume: 0
 - They are typically `private` for **encapsulation**, accessed via getter and setter methods.
 
 This is a fundamental concept in **Object-Oriented Programming**, enabling each object to maintain its own state.
+
+[[07]]
