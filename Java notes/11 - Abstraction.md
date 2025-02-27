@@ -192,5 +192,3 @@ public class TestShape {
 - **Abstract Classes** offer **flexibility** in **designing robust systems** with **maintainable code**.
 
 ---
-
-Feel free to ask if you need **examples**, **exercises**, or more **clarification** on **Abstract Classes**, **Abstraction**, or
