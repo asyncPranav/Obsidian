@@ -22,11 +22,38 @@ An **abstract class** in **Java** is a **class** that:
 
 # 🌟 **2. Syntax of Abstract Class**
 
-java
+```java
+// Declaration of an abstract class
+abstract class Animal {
+    
+    // Abstract method (without implementation)
+    abstract void makeSound();
+    
+    // Concrete method (with implementation)
+    void eat() {
+        System.out.println("Eating...");
+    }
+}
 
-CopyEdit
+// Subclass that extends the abstract class
+class Dog extends Animal {
+    
+    // Implementation of the abstract method
+    @Override
+    void makeSound() {
+        System.out.println("Bark");
+    }
+}
 
-`// Declaration of an abstract class abstract class Animal {          // Abstract method (without implementation)     abstract void makeSound();          // Concrete method (with implementation)     void eat() {         System.out.println("Eating...");     } }  // Subclass that extends the abstract class class Dog extends Animal {          // Implementation of the abstract method     @Override     void makeSound() {         System.out.println("Bark");     } }  // Main class to test the implementation public class TestAbstractClass {     public static void main(String[] args) {         Animal dog = new Dog();         dog.makeSound(); // Output: Bark         dog.eat(); // Output: Eating...     } }`
+// Main class to test the implementation
+public class TestAbstractClass {
+    public static void main(String[] args) {
+        Animal dog = new Dog();
+        dog.makeSound(); // Output: Bark
+        dog.eat(); // Output: Eating...
+    }
+}
+```
 
 ---
 
@@ -55,19 +82,24 @@ CopyEdit
 
 ### 🧠 **Syntax:**
 
-java
-
-CopyEdit
-
-`abstract void methodName(); // Abstract method with no body`
+```java
+abstract void methodName(); // Abstract method with no body
+```
 
 ### 💡 **Example:**
 
-java
+```java
+abstract class Vehicle {
+    abstract void start(); // Abstract method
+}
 
-CopyEdit
-
-`abstract class Vehicle {     abstract void start(); // Abstract method }  class Car extends Vehicle {     @Override     void start() {         System.out.println("Car started!");     } }`
+class Car extends Vehicle {
+    @Override
+    void start() {
+        System.out.println("Car started!");
+    }
+}
+```
 
 ---
 
@@ -81,11 +113,13 @@ CopyEdit
 
 ### 💡 **Example:**
 
-java
-
-CopyEdit
-
-`abstract class Animal {     void sleep() {         System.out.println("Sleeping...");     } }`
+```java
+abstract class Animal {
+    void sleep() {
+        System.out.println("Sleeping...");
+    }
+}
+```
 
 ---
 
