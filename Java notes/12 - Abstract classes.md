@@ -133,33 +133,48 @@ abstract class Animal {
 
 ### 💡 **Example:**
 
-java
+```java
+abstract class Animal {
+    String name;
+    
+    // Constructor of the abstract class
+    Animal(String name) {
+        this.name = name;
+        System.out.println(name + " is created.");
+    }
+}
 
-CopyEdit
+class Dog extends Animal {
+    Dog(String name) {
+        super(name); // Calling the constructor of the abstract class
+    }
+}
 
-`abstract class Animal {     String name;          // Constructor of the abstract class     Animal(String name) {         this.name = name;         System.out.println(name + " is created.");     } }  class Dog extends Animal {     Dog(String name) {         super(name); // Calling the constructor of the abstract class     } }  public class TestConstructor {     public static void main(String[] args) {         Dog dog = new Dog("Buddy");     } }`
-
+public class TestConstructor {
+    public static void main(String[] args) {
+        Dog dog = new Dog("Buddy");
+    }
+}
+```
 ---
 
 # 🚦 **7. Rules for Abstract Classes**
 
 1. **Cannot Instantiate:**
 
-java
+```java
+Animal animal = new Animal(); // Error: Animal is abstract; cannot be instantiated
+```
 
-CopyEdit
-
-`Animal animal = new Animal(); // Error: Animal is abstract; cannot be instantiated`
-
-1. **Abstract Method Implementation:**
+2. **Abstract Method Implementation:**
 
 - **Subclasses must implement** all **abstract methods** of the **abstract class**.
 
-1. **Single Inheritance Only:**
+3. **Single Inheritance Only:**
 
 - **Java** does **not support multiple inheritance** with **classes**, including **abstract classes**.
 
-1. **Static and Final Methods:**
+4. **Static and Final Methods:**
 
 - **Static methods** are **allowed**, but they **cannot be abstract**.
 - **Final methods** are **allowed**, but they **cannot be overridden**.
@@ -168,11 +183,36 @@ CopyEdit
 
 # 🌟 **8. Real-World Example of Abstract Class**
 
-java
+```java
+abstract class Shape {
+    abstract double area(); // Abstract method
 
-CopyEdit
+    void display() {
+        System.out.println("This is a shape.");
+    }
+}
 
-`abstract class Shape {     abstract double area(); // Abstract method      void display() {         System.out.println("This is a shape.");     } }  class Circle extends Shape {     double radius;      Circle(double radius) {         this.radius = radius;     }      @Override     double area() {         return Math.PI * radius * radius;     } }  public class TestShape {     public static void main(String[] args) {         Circle circle = new Circle(5.0);         circle.display(); // Output: This is a shape.         System.out.println("Area: " + circle.area()); // Output: Area: 78.54     } }`
+class Circle extends Shape {
+    double radius;
+
+    Circle(double radius) {
+        this.radius = radius;
+    }
+	
+    @Override
+    double area() {
+        return Math.PI * radius * radius;
+    }
+}
+
+public class TestShape {
+    public static void main(String[] args) {
+        Circle circle = new Circle(5.0);
+        circle.display(); // Output: This is a shape.
+        System.out.println("Area: " + circle.area()); // Output: Area: 78.54
+    }
+}
+```
 
 ---
 
