@@ -436,19 +436,34 @@ public class Main {
 - When a **subclass constructor** calls the **parent class constructor** using **super()**.
 - Helps in **initializing objects** in a **hierarchy**.
 
-java
+```java
+class Parent {
+    Parent() {
+        System.out.println("Parent Constructor");
+    }
+}
 
-CopyEdit
+class Child extends Parent {
+    Child() {
+        super(); // Calls Parent constructor
+        System.out.println("Child Constructor");
+    }
+}
 
-`class Parent {     Parent() {         System.out.println("Parent Constructor");     } }  class Child extends Parent {     Child() {         super(); // Calls Parent constructor         System.out.println("Child Constructor");     } }  public class Main {     public static void main(String[] args) {         Child obj = new Child();     } }`
+public class Main {
+    public static void main(String[] args) {
+        Child obj = new Child();
+    }
+}
+
+```
 
 **Output:**
 
-java
-
-CopyEdit
-
-`Parent Constructor Child Constructor`
+```shell
+Parent Constructor
+Child Constructor
+```
 
 ---
 
@@ -456,11 +471,29 @@ CopyEdit
 
 - Allows **overridden methods** to **return a subtype** of the **parent method's return type**.
 
-java
+```java
+class Parent {
+    Parent get() {
+        System.out.println("Parent Class");
+        return this;
+    }
+}
 
-CopyEdit
+class Child extends Parent {
+    @Override
+    Child get() {
+        System.out.println("Child Class");
+        return this;
+    }
+}
 
-`class Parent {     Parent get() {         System.out.println("Parent Class");         return this;     } }  class Child extends Parent {     @Override     Child get() {         System.out.println("Child Class");         return this;     } }  public class Main {     public static void main(String[] args) {         Parent obj = new Child();         obj.get(); // Calls Child's method     } }`
+public class Main {
+    public static void main(String[] args) {
+        Parent obj = new Child();
+        obj.get(); // Calls Child's method
+    }
+}
+```
 
 ---
 
@@ -471,11 +504,10 @@ CopyEdit
 - **Child class** reference is **assigned** to a **parent class reference**.
 - **Implicit casting**, no need for **explicit type casting**.
 
-java
-
-CopyEdit
-
-`Parent obj = new Child(); // Upcasting obj.parentMethod();`
+```java
+Parent obj = new Child(); // Upcasting
+obj.parentMethod();
+```
 
 ---
 
