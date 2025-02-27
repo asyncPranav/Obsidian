@@ -220,3 +220,5 @@ System.out.println(result);
 - Enhanced `switch` offers **simplicity, safety**, and **powerful new features**.
 - Supports **expressions, pattern matching**, and **multi-labels**.
 - Improves code **readability** and **maintainability**.
+
+**NEXT**
