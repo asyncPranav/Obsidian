@@ -298,7 +298,6 @@ class Dog extends Animal {
 ---
 
 
-
 ## 📚 **Next Steps:**
 
 Would you like to:
