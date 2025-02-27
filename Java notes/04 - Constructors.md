@@ -324,3 +324,13 @@ Dog Constructor
 ---
 
 This covers all the essential points about constructors in Java. If you need more examples or have any questions, let me know!
+
+
+
+
+---
+
+
+
+**NEXT ->** [[05 - this Keyword]]
+

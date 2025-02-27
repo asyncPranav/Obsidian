@@ -258,3 +258,12 @@ Volume: 0
 - The statement `Television t = new Television();` works because the default constructor is implicitly present.
 
 This behavior allows you to create objects even when no constructor is explicitly defined in the class.
+
+
+
+
+---
+
+
+
+**NEXT ->** [[03 - Data Hiding]]

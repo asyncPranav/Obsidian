@@ -411,3 +411,13 @@ Password is set.
 - **Read & Writable**: Both `get` and `set` methods are present.
 - **Read-Only**: Only `get` method is present. No `set` method.
 - **Write-Only**: Only `set` method is present. No `get` method, so the value can't be accessed directly from outside the class.
+
+
+
+
+---
+
+
+
+**NEXT ->** [[04 - Constructors]]
+
