@@ -194,5 +194,7 @@ public class TestShape {
 ---
 
 
-*****
+**NEXT ->** [[12 - Abstract classes]]
+
+
 
