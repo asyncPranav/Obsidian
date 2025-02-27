@@ -3,6 +3,10 @@
 
 # 🚦 **Enhanced `switch` in Java**
 
+
+---
+
+
 ## 📅 **Introduced In:**
 
 - **Preview:** Java 12 and Java 13
@@ -153,11 +157,16 @@ String typeOfDay = switch (day) {
 
 ## 🧠 **5. Using `switch` with Enums**
 
-java
+```java
+enum Day { MON, TUE, WED, THU, FRI, SAT, SUN }
 
-CopyEdit
-
-`enum Day { MON, TUE, WED, THU, FRI, SAT, SUN }  Day day = Day.MON; String result = switch (day) {     case MON, TUE, WED, THU, FRI -> "Weekday";     case SAT, SUN -> "Weekend"; }; System.out.println(result);`
+Day day = Day.MON;
+String result = switch (day) {
+    case MON, TUE, WED, THU, FRI -> "Weekday";
+    case SAT, SUN -> "Weekend";
+};
+System.out.println(result);
+```
 
 ### 💡 **Advantages:**
 
@@ -168,11 +177,16 @@ CopyEdit
 
 ## 🔍 **6. Pattern Matching in `switch` (Java 17+)**
 
-java
+```java
+Object obj = "Hello";
 
-CopyEdit
-
-`Object obj = "Hello";  String result = switch (obj) {     case String s -> "It's a string: " + s;     case Integer i -> "It's an integer: " + i;     default -> "Unknown type"; }; System.out.println(result);`
+String result = switch (obj) {
+    case String s -> "It's a string: " + s;
+    case Integer i -> "It's an integer: " + i;
+    default -> "Unknown type";
+};
+System.out.println(result);
+```
 
 ### 💡 **Pattern Matching:**
 
@@ -206,7 +220,3 @@ CopyEdit
 - Enhanced `switch` offers **simplicity, safety**, and **powerful new features**.
 - Supports **expressions, pattern matching**, and **multi-labels**.
 - Improves code **readability** and **maintainability**.
-
----
-
-Let me know if you need more examples or if you want to focus on specific use cases! 😊
