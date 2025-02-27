@@ -101,6 +101,11 @@ Volume: 0
 
 This is a fundamental concept in **Object-Oriented Programming**, enabling each object to maintain its own state.
 
-[[07 - Instance Methods]]
+
+---
+
+
+
+**NEXT ->** : [[07 - Instance Methods]]
 
 

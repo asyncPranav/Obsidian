@@ -221,4 +221,8 @@ System.out.println(result);
 - Supports **expressions, pattern matching**, and **multi-labels**.
 - Improves code **readability** and **maintainability**.
 
-**NEXT**
+
+---
+
+
+**NEXT ->** [[01 - Instance Variable]]
