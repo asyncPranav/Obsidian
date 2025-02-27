@@ -1155,3 +1155,6 @@ Child obj = new Parent(); // ❌ Compile-time Error
 - **Method behavior** is **polymorphic** (dynamic method dispatch), but **object creation** is **not**.
 
 ---
+
+
+**NEXT ->** [[12 - Abstraction]]
