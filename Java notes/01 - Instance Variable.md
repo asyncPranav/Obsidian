@@ -101,4 +101,6 @@ Volume: 0
 
 This is a fundamental concept in **Object-Oriented Programming**, enabling each object to maintain its own state.
 
-[[07]]
+[[07 - Instance Methods]]
+
+[07jsjs](google)
