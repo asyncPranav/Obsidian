@@ -268,6 +268,17 @@ class Dog extends Animal {
 
 - **`final class`:** Cannot be **inherited**.
 
+	**❌Using final Keyword:**
+	
+	```java
+	final class Parent {
+	    // Cannot be extended
+	}
+	
+	class Child extends Parent { // ❌ Compile-time error
+	}
+	```
+
 - **`final method`:** Cannot be **overridden**.
 - **`final variable`:** Cannot change its **value**.
 
