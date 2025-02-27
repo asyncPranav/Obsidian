@@ -618,6 +618,23 @@ public class Main {
 - **Protected members** can be **accessed** within the **same package** and by **subclasses** in **different packages**.
 
 ```java
+package parent;
+
+public class Parent {
+    protected void show() {
+        System.out.println("Protected Method");
+    }
+}
+
+package child;
+import parent.Parent;
+
+public class Child extends Parent {
+    public static void main(String[] args) {
+        Child obj = new Child();
+        obj.show(); // Accessible through inheritance
+    }
+}
 ```
 
 ---
@@ -629,11 +646,27 @@ public class Main {
 |**this**|Refers to the **current class instance**.|
 |**super**|Refers to the **parent class instance**.|
 
-java
+```java
+class Parent {
+    int a = 10;
+}
 
-CopyEdit
+class Child extends Parent {
+    int a = 20;
+	
+    void display() {
+        System.out.println("Child a: " + this.a); // 20
+        System.out.println("Parent a: " + super.a); // 10
+    }
+}
 
-`class Parent {     int a = 10; }  class Child extends Parent {     int a = 20;      void display() {         System.out.println("Child a: " + this.a); // 20         System.out.println("Parent a: " + super.a); // 10     } }  public class Main {     public static void main(String[] args) {         Child obj = new Child();         obj.display();     } }`
+public class Main {
+    public static void main(String[] args) {
+        Child obj = new Child();
+        obj.display();
+    }
+}
+```
 
 ---
 
