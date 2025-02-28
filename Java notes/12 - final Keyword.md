@@ -117,7 +117,7 @@ public class BlankFinalVariableDemo {
 ### **Output:**
 
 ```shell
-
+MAX: 100
 ```
 
 ---
@@ -129,19 +129,21 @@ public class BlankFinalVariableDemo {
 
 #### **Example:**
 
-java
-
-CopyEdit
-
-`public class FinalStaticVariableDemo {     public static final int AGE = 21;      public static void main(String[] args) {         System.out.println("Age: " + AGE);     } }`
+```java
+public class FinalStaticVariableDemo {
+    public static final int AGE = 21;
+	
+    public static void main(String[] args) {
+        System.out.println("Age: " + AGE);
+    }
+}
+```
 
 ### **Output:**
 
-makefile
-
-CopyEdit
-
-`Age: 21`
+```shell
+Age: 21
+```
 
 ---
 
@@ -153,29 +155,43 @@ A **final method** **cannot be overridden** by **subclasses**.
 
 ### **Syntax:**
 
-java
-
-CopyEdit
-
-`class Parent {     final void show() {         System.out.println("Final Method in Parent");     } }`
-
+```java
+class Parent {
+    final void show() {
+        System.out.println("Final Method in Parent");
+    }
+}
+```
 ---
 
 ### **2.1. Example of Final Method:**
 
-java
+```java
+class Parent {
+    final void display() {
+        System.out.println("Display from Parent");
+    }
+}
 
-CopyEdit
+class Child extends Parent {
+    // void display() { // ❌ Error: Cannot override the final method
+    //     System.out.println("Display from Child");
+    // }
+}
 
-`class Parent {     final void display() {         System.out.println("Display from Parent");     } }  class Child extends Parent {     // void display() { // ❌ Error: Cannot override the final method     //     System.out.println("Display from Child");     // } }  public class FinalMethodDemo {     public static void main(String[] args) {         Child obj = new Child();         obj.display(); // Calls Parent's display method     } }`
+public class FinalMethodDemo {
+    public static void main(String[] args) {
+        Child obj = new Child();
+        obj.display(); // Calls Parent's display method
+    }
+}
+```
 
 ### **Output:**
 
-css
-
-CopyEdit
-
-`Display from Parent`
+```java
+Display from Parent
+```
 
 ### **Use Cases:**
 
