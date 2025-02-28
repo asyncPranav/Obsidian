@@ -245,6 +245,9 @@ Static Nested Class
 4. **Static Method (when called)**
 5. **Object Creation (Constructor Call)**
 6. **Non-Static Block Execution**
+7. **Non-Static Method (when called)**
+
+### **Example to Demonstrate This**
 
 ### **Example:**
 
