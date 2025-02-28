@@ -237,14 +237,23 @@ Static Nested Class
 5. **Non-static Blocks**
 6. **Non-static Methods** (When called)
 
+### **Execution Order:**
+
+1. **Static Variable Initialization**
+2. **Static Block Execution**
+3. **Main Method (if present)**
+4. **Static Method (when called)**
+5. **Object Creation (Constructor Call)**
+6. **Non-Static Block Execution**
+
 ### **Example:**
 
 ```java
 public class ExecutionOrderDemo {
-
+	
     // Static variable
     static int staticVar = initializeStaticVar();
-
+	
     // Static block
     static {
         System.out.println("Inside static block");
@@ -298,11 +307,19 @@ public class ExecutionOrderDemo {
 
 ### **Output:**
 
-scss
+```shell
+Static variable initialized  
+Inside static block  
+Main method started  
+Inside static method  
 
-CopyEdit
+Creating an object...
 
-`Static variable initialized   Inside static block   Main method started   Inside static method    Creating an object...  Non-static variable initialized   Inside non-static block   Inside constructor   Inside non-static method`  
+Non-static variable initialized  
+Inside non-static block  
+Inside constructor  
+Inside non-static method  
+```
 
 ---
 
@@ -329,15 +346,3 @@ CopyEdit
 ## **Conclusion:**
 
 The **`static` keyword** is a **powerful feature** in Java, providing **memory efficiency**, **utility method support**, and **class-level behavior**. Mastering static behavior is crucial for building **efficient** and **maintainable** Java applications.
-
----
-
-If you need any more specific examples or have further questions, feel free to ask! 😊
-
-  
-
-O
-
-Search
-
-Reason
