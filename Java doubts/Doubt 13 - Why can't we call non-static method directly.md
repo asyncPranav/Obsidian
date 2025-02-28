@@ -15,7 +15,16 @@ In Java, **non-static methods** cannot be called directly from a **static contex
 - **Memory Allocation:** Static members are **loaded into memory** when the class is **first loaded** by the **JVM**, even before any object is created.
 - **Accessing Method:** Can be accessed **directly** using the **class name** without creating an object.
 
-```jav
+```java
+public class Example {
+    static void staticMethod() {
+        System.out.println("This is a static method.");
+    }
+	
+    public static void main(String[] args) {
+        Example.staticMethod(); // ✅ Allowed
+    }
+}
 ```
 
 ### **Non-Static Context:**
@@ -24,11 +33,18 @@ In Java, **non-static methods** cannot be called directly from a **static contex
 - **Memory Allocation:** Non-static members are **allocated memory** only when an **object** is created using the `new` keyword.
 - **Accessing Method:** Must be accessed through a **class object**.
 
-java
-
-CopyEdit
-
-`public class Example {     void nonStaticMethod() {         System.out.println("This is a non-static method.");     }      public static void main(String[] args) {         Example obj = new Example(); // Create an object         obj.nonStaticMethod(); // ✅ Allowed     } }`
+```java
+public class Example {
+    void nonStaticMethod() {
+        System.out.println("This is a non-static method.");
+    }
+	
+    public static void main(String[] args) {
+        Example obj = new Example(); // Create an object
+        obj.nonStaticMethod(); // ✅ Allowed
+    }
+}
+```
 
 ---
 
@@ -36,19 +52,23 @@ CopyEdit
 
 ### **Code Example:**
 
-java
-
-CopyEdit
-
-`public class Test {     void nonStaticMethod() {         System.out.println("Non-static method called.");     }      public static void main(String[] args) {         nonStaticMethod(); // ❌ Compilation Error     } }`
+```java
+public class Test {
+    void nonStaticMethod() {
+        System.out.println("Non-static method called.");
+    }
+	
+    public static void main(String[] args) {
+        nonStaticMethod(); // ❌ Compilation Error
+    }
+}
+```
 
 ### **Error:**
 
-csharp
-
-CopyEdit
-
-`Error: non-static method nonStaticMethod() cannot be referenced from a static context`
+```shell
+Error: non-static method nonStaticMethod() cannot be referenced from a static context
+```
 
 ### **Explanation:**
 
@@ -58,12 +78,18 @@ CopyEdit
 
 ### **How to Fix:**
 
-java
+```java
+public class Test {
+    void nonStaticMethod() {
+        System.out.println("Non-static method called.");
+    }
 
-CopyEdit
-
-`public class Test {     void nonStaticMethod() {         System.out.println("Non-static method called.");     }      public static void main(String[] args) {         Test obj = new Test(); // Create an instance of the class         obj.nonStaticMethod(); // ✅ Now it works!     } }`
-
+    public static void main(String[] args) {
+        Test obj = new Test(); // Create an instance of the class
+        obj.nonStaticMethod(); // ✅ Now it works!
+    }
+}
+```
 ### **Output:**
 
 sql
