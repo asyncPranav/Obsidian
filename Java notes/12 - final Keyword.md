@@ -208,29 +208,41 @@ A **final class** **cannot be inherited** by other classes.
 
 ### **Syntax:**
 
-java
+```java
+final class Animal {
+}
 
-CopyEdit
-
-`final class Animal { }  // class Dog extends Animal { // ❌ Error: Cannot inherit from a final class // }`
+// class Dog extends Animal { // ❌ Error: Cannot inherit from a final class
+// }
+```
 
 ---
 
 ### **3.1. Example of Final Class:**
 
-java
+```java
+final class Car {
+    void drive() {
+        System.out.println("Driving a car...");
+    }
+}
 
-CopyEdit
+// class SportsCar extends Car { // ❌ Compilation Error: Cannot extend final class
+// }
 
-`final class Car {     void drive() {         System.out.println("Driving a car...");     } }  // class SportsCar extends Car { // ❌ Compilation Error: Cannot extend final class // }  public class FinalClassDemo {     public static void main(String[] args) {         Car car = new Car();         car.drive();     } }`
+public class FinalClassDemo {
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.drive();
+    }
+}
+```
 
 ### **Output:**
 
-css
-
-CopyEdit
-
-`Driving a car...`
+```shell
+Driving a car...
+```
 
 ---
 
@@ -240,11 +252,17 @@ CopyEdit
 
 - **Cannot be re-initialized** in **subclasses**.
 
-java
+```java
+class Parent {
+    final int x = 10;
+}
 
-CopyEdit
-
-`class Parent {     final int x = 10; }  class Child extends Parent {     void change() {         // x = 20; // ❌ Error: Cannot assign a value to final variable     } }`
+class Child extends Parent {
+    void change() {
+        // x = 20; // ❌ Error: Cannot assign a value to final variable
+    }
+}
+```
 
 ---
 
@@ -282,11 +300,10 @@ CopyEdit
 
 1. **Trying to modify final variables:**
 
-java
-
-CopyEdit
-
-`final int x = 10; // x = 20; // ❌ Error`
+```java
+final int x = 10;
+// x = 20; // ❌ Error
+```
 
 1. **Overriding final methods:**
 
