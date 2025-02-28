@@ -339,3 +339,11 @@ Inside non-static method
 ## **Conclusion:**
 
 The **`static` keyword** is a **powerful feature** in Java, providing **memory efficiency**, **utility method support**, and **class-level behavior**. Mastering static behavior is crucial for building **efficient** and **maintainable** Java applications.
+
+
+
+---
+
+
+
+**NEXT ->** [[12 - final Keyword]]  or/and [[13 - Polymorphism]]
