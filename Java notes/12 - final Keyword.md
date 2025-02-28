@@ -19,11 +19,9 @@ A **final variable** is a **constant** whose **value cannot be changed** once **
 
 ### **Syntax:**
 
-java
-
-CopyEdit
-
-`final int MAX_VALUE = 100;`
+```java
+final int MAX_VALUE = 100;
+```
 
 ### **Characteristics:**
 
@@ -36,29 +34,35 @@ CopyEdit
 
 ### **1.1. Final Primitive Variable:**
 
-java
-
-CopyEdit
-
-`public class FinalVariableDemo {     final int SPEED_LIMIT = 90; // Initialized during declaration      void run() {         // SPEED_LIMIT = 100; // ❌ Error: Cannot assign a value to final variable         System.out.println("Speed Limit: " + SPEED_LIMIT);     }      public static void main(String[] args) {         FinalVariableDemo obj = new FinalVariableDemo();         obj.run();     } }`
+```java
+public class FinalVariableDemo {
+    final int SPEED_LIMIT = 90; // Initialized during declaration
+	
+    void run() {
+        // SPEED_LIMIT = 100; // ❌ Error: Cannot assign a value to final variable
+        System.out.println("Speed Limit: " + SPEED_LIMIT);
+    }
+	
+    public static void main(String[] args) {
+        FinalVariableDemo obj = new FinalVariableDemo();
+        obj.run();
+    }
+}
+```
 
 ### **Output:**
 
-yaml
-
-CopyEdit
-
-`Speed Limit: 90`
+```shell
+Speed Limit: 90
+```
 
 ---
 
 ### **1.2. Final Reference Variable:**
 
-java
+```java
 
-CopyEdit
-
-`public class FinalReferenceDemo {     final StringBuilder sb = new StringBuilder("Hello");      void modify() {         sb.append(" World"); // ✅ Allowed: Modifying the object itself         // sb = new StringBuilder("New"); // ❌ Error: Cannot reassign a final reference         System.out.println(sb);     }      public static void main(String[] args) {         FinalReferenceDemo obj = new FinalReferenceDemo();         obj.modify();     } }`
+```
 
 ### **Output:**
 
