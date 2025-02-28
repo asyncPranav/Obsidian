@@ -61,16 +61,28 @@ Speed Limit: 90
 ### **1.2. Final Reference Variable:**
 
 ```java
+public class FinalReferenceDemo {
+    final StringBuilder sb = new StringBuilder("Hello");
+	
+    void modify() {
+        sb.append(" World"); // ✅ Allowed: Modifying the object itself
+        // sb = new StringBuilder("New"); // ❌ Error: Cannot reassign a final reference
+        System.out.println(sb);
+    }
+	
+    public static void main(String[] args) {
+        FinalReferenceDemo obj = new FinalReferenceDemo();
+        obj.modify();
+    }
+}
 
 ```
 
 ### **Output:**
 
-nginx
-
-CopyEdit
-
-`Hello World`
+```shell
+Hello World
+```
 
 ### **Explanation:**
 
@@ -87,19 +99,26 @@ A **blank final variable** is a **final variable** that is **not initialized** a
 
 #### **Example:**
 
-java
-
-CopyEdit
-
-`public class BlankFinalVariableDemo {     final int MAX;      BlankFinalVariableDemo() {         MAX = 100; // ✅ Allowed: Initialized in constructor     }      public static void main(String[] args) {         BlankFinalVariableDemo obj = new BlankFinalVariableDemo();         System.out.println("MAX: " + obj.MAX);     } }`
+```java
+public class BlankFinalVariableDemo {
+    final int MAX;
+	
+    BlankFinalVariableDemo() {
+        MAX = 100; // ✅ Allowed: Initialized in constructor
+    }
+	
+    public static void main(String[] args) {
+        BlankFinalVariableDemo obj = new BlankFinalVariableDemo();
+        System.out.println("MAX: " + obj.MAX);
+    }
+}
+```
 
 ### **Output:**
 
-makefile
+```shell
 
-CopyEdit
-
-`MAX: 100`
+```
 
 ---
 
