@@ -343,7 +343,7 @@ class Dog extends Animal {
 
 
 
-**NEXT ->** [[11 - Polymorphism]]
+**NEXT ->** [[12 - Polymorphism]]
 
 ## 📚 **Next Steps:**
 
