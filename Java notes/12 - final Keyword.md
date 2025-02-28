@@ -305,21 +305,25 @@ final int x = 10;
 // x = 20; // ❌ Error
 ```
 
-1. **Overriding final methods:**
+2. **Overriding final methods:**
 
-java
+```java
+class Parent {
+    final void show() {}
+}
 
-CopyEdit
+class Child extends Parent {
+    // void show() {} // ❌ Error: Cannot override final method
+}
+```
 
-`class Parent {     final void show() {} }  class Child extends Parent {     // void show() {} // ❌ Error: Cannot override final method }`
+3. **Extending final classes:**
 
-1. **Extending final classes:**
+```java
+final class Animal {}
 
-java
-
-CopyEdit
-
-`final class Animal {}  // class Dog extends Animal {} // ❌ Error: Cannot inherit from final class`
+// class Dog extends Animal {} // ❌ Error: Cannot inherit from final class
+```
 
 ---
 
@@ -336,4 +340,8 @@ CopyEdit
 
 The **`final` keyword** is a **powerful tool** in Java for achieving **immutability**, **ensuring class integrity**, and **improving performance**. It plays a **vital role** in building **secure**, **reliable**, and **maintainable code**.
 
-If you need further examples, clarifications, or have s
+
+---
+
+
+**
