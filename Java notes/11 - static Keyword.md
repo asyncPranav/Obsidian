@@ -204,19 +204,20 @@ class Outer {
 
 ### **Example:**
 
-java
-
-CopyEdit
-
-`public class StaticNestedClassDemo {     public static void main(String[] args) {         Outer.Inner obj = new Outer.Inner(); // Direct access without Outer class instance         obj.display();     } }`
+```java
+public class StaticNestedClassDemo {
+    public static void main(String[] args) {
+        Outer.Inner obj = new Outer.Inner(); // Direct access without Outer class instance
+        obj.display();
+    }
+}
+```
 
 ### **Output:**
 
-vbnet
-
-CopyEdit
-
-`Static Nested Class`
+```shell
+Static Nested Class
+```
 
 ### **Characteristics:**
 
@@ -238,11 +239,62 @@ CopyEdit
 
 ### **Example:**
 
-java
+```java
+public class ExecutionOrderDemo {
 
-CopyEdit
+    // Static variable
+    static int staticVar = initializeStaticVar();
 
-`public class ExecutionOrderDemo {      // Static variable     static int staticVar = initializeStaticVar();      // Static block     static {         System.out.println("Inside static block");     }      // Non-static variable     int nonStaticVar = initializeNonStaticVar();      // Non-static block     {         System.out.println("Inside non-static block");     }      // Constructor     public ExecutionOrderDemo() {         System.out.println("Inside constructor");     }      // Static method     public static void staticMethod() {         System.out.println("Inside static method");     }      // Non-static method     public void nonStaticMethod() {         System.out.println("Inside non-static method");     }      // Initialize static variable     private static int initializeStaticVar() {         System.out.println("Static variable initialized");         return 1;     }      // Initialize non-static variable     private int initializeNonStaticVar() {         System.out.println("Non-static variable initialized");         return 2;     }      public static void main(String[] args) {         System.out.println("Main method started");         staticMethod(); // Call static method          System.out.println("\nCreating an object...\n");         ExecutionOrderDemo obj = new ExecutionOrderDemo(); // Create an object         obj.nonStaticMethod(); // Call non-static method     } }`
+    // Static block
+    static {
+        System.out.println("Inside static block");
+    }
+	
+    // Non-static variable
+    int nonStaticVar = initializeNonStaticVar();
+	
+    // Non-static block
+    {
+        System.out.println("Inside non-static block");
+    }
+	
+    // Constructor
+    public ExecutionOrderDemo() {
+        System.out.println("Inside constructor");
+	}
+	
+    // Static method
+    public static void staticMethod() {
+        System.out.println("Inside static method");
+    }
+	
+    // Non-static method
+    public void nonStaticMethod() {
+        System.out.println("Inside non-static method");
+    }
+	
+    // Initialize static variable
+    private static int initializeStaticVar() {
+        System.out.println("Static variable initialized");
+        return 1;
+    }
+	
+    // Initialize non-static variable
+    private int initializeNonStaticVar() {
+        System.out.println("Non-static variable initialized");
+        return 2;
+    }
+	
+    public static void main(String[] args) {
+        System.out.println("Main method started");
+        staticMethod(); // Call static method
+		
+        System.out.println("\nCreating an object...\n");
+        ExecutionOrderDemo obj = new ExecutionOrderDemo(); // Create an object
+        obj.nonStaticMethod(); // Call non-static method
+    }
+}
+```
 
 ### **Output:**
 
