@@ -146,27 +146,36 @@ class StaticBlockDemo {
 
 ### **Output:**
 
-scss
-
-CopyEdit
-
-`Inside static block   Inside main method`  
+```shell
+Inside static block  
+Inside main method  
+```
 
 ### **Multiple Static Blocks:**
 
-java
-
-CopyEdit
-
-`class MultipleStaticBlocks {     static {         System.out.println("Static Block 1");     }          static {         System.out.println("Static Block 2");     }      public static void main(String[] args) {         System.out.println("Inside main method");     } }`
+```java
+class MultipleStaticBlocks {
+    static {
+        System.out.println("Static Block 1");
+    }
+    
+    static {
+        System.out.println("Static Block 2");
+    }
+	
+    public static void main(String[] args) {
+        System.out.println("Inside main method");
+    }
+}
+```
 
 ### **Output:**
 
-scss
-
-CopyEdit
-
-`Static Block 1   Static Block 2   Inside main method`  
+```shell
+Static Block 1  
+Static Block 2  
+Inside main method  
+```
 
 ### **Key Points:**
 
@@ -183,11 +192,15 @@ A **static nested class** is a **static class** defined **inside** another class
 
 ### **Syntax:**
 
-java
-
-CopyEdit
-
-`class Outer {     static class Inner {         void display() {             System.out.println("Static Nested Class");         }     } }`
+```java
+class Outer {
+    static class Inner {
+        void display() {
+            System.out.println("Static Nested Class");
+        }
+    }
+}
+```
 
 ### **Example:**
 
