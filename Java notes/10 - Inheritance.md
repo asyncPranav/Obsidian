@@ -59,12 +59,12 @@ class Child extends Parent {
 |**Hybrid**|Combination of **multiple** and **multilevel**, achieved using **interfaces**.|-|
 
 
-|**Inheritance Type**|**Description**|**Support in Java**|
-|---|---|---|
-|**Single Inheritance**|One **child class** inherits from **one parent class**|✅ **Supported**|
-|**Multilevel Inheritance**|A **child class** is derived from another **child class**|✅ **Supported**|
-|**Hierarchical Inheritance**|**Multiple child classes** inherit from the **same parent class**|✅ **Supported**|
-|**Multiple Inheritance**|One **child class** inherits from **multiple parent classes**|❌ **Not supported** with **classes** (can use **interfaces** instead)|
+| **Inheritance Type**         | **Description**                                                   | **Support in Java**                                                   |
+| ---------------------------- | ----------------------------------------------------------------- | --------------------------------------------------------------------- |
+| **Single Inheritance**       | One **child class** inherits from **one parent class**            | ✅ **Supported**                                                       |
+| **Multilevel Inheritance**   | A **child class** is derived from another **child class**         | ✅ **Supported**                                                       |
+| **Hierarchical Inheritance** | **Multiple child classes** inherit from the **same parent class** | ✅ **Supported**                                                       |
+| **Multiple Inheritance**     | One **child class** inherits from **multiple parent classes**     | ❌ **Not supported** with **classes** (can use **interfaces** instead) |
 |**Hybrid Inheritance**|A **combination** of **two or more types** of **inheritance**|❌ **Not directly supported** (use **interfaces**)|
 ---
 
