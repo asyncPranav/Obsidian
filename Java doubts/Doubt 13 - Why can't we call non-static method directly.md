@@ -1,0 +1,2 @@
+
+In Java, you **cannot** directly call a **non-static method** before a **static method** without creating an object. This is because **non-static methods** belong to the **instance of the class**, while **static methods** belong to the **class itself**.
