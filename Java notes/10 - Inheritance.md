@@ -65,7 +65,8 @@ class Child extends Parent {
 | **Multilevel Inheritance**   | A **child class** is derived from another **child class**         | ✅ **Supported**                                                       |
 | **Hierarchical Inheritance** | **Multiple child classes** inherit from the **same parent class** | ✅ **Supported**                                                       |
 | **Multiple Inheritance**     | One **child class** inherits from **multiple parent classes**     | ❌ **Not supported** with **classes** (can use **interfaces** instead) |
-|**Hybrid Inheritance**|A **combination** of **two or more types** of **inheritance**|❌ **Not directly supported** (use **interfaces**)|
+| **Hybrid Inheritance**       | A **combination** of **two or more types** of **inheritance**     | ❌ **Not directly supported** (use **interfaces**)                     |
+|**
 ---
 
 ## 📂 **5. Examples of Each Type:**
