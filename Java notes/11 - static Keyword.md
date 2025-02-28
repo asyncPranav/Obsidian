@@ -240,7 +240,6 @@ Static Nested Class
 
 ### **Example to Demonstrate This**
 
-### **Example:**
 
 ```java
 public class ExecutionOrderDemo {
