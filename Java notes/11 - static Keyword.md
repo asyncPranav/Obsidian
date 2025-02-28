@@ -78,11 +78,11 @@ CopyEdit
 
 ### **Syntax:**
 
-java
-
-CopyEdit
-
-`static void display() {     System.out.println("Static Method"); }`
+```java
+static void display() {
+    System.out.println("Static Method");
+}
+```
 
 ### **Characteristics:**
 
@@ -92,19 +92,27 @@ CopyEdit
 
 ### **Example:**
 
-java
-
-CopyEdit
-
-`class StaticMethodDemo {     static int a = 10; // Static variable     int b = 20; // Non-static variable      static void show() {         System.out.println("Static Variable: " + a);         // System.out.println(b); // ❌ Error: Cannot access non-static variable     }      public static void main(String[] args) {         show(); // Direct call without object     } }`
+```java
+class StaticMethodDemo {
+    static int a = 10; // Static variable
+    int b = 20; // Non-static variable
+	
+    static void show() {
+        System.out.println("Static Variable: " + a);
+        // System.out.println(b); // ❌ Error: Cannot access non-static variable
+    }
+	
+    public static void main(String[] args) {
+        show(); // Direct call without object
+    }
+}
+```
 
 ### **Output:**
 
-scss
-
-CopyEdit
-
-`Static Variable: 10`
+```shell
+Static Variable: 10
+```
 
 ---
 
@@ -116,19 +124,25 @@ A **static block** is used to **initialize static variables**. It is executed **
 
 ### **Syntax:**
 
-java
-
-CopyEdit
-
-`static {     System.out.println("Static Block Executed"); }`
+```java
+static {
+    System.out.println("Static Block Executed");
+}
+```
 
 ### **Example:**
 
-java
-
-CopyEdit
-
-`class StaticBlockDemo {     static {         System.out.println("Inside static block");     }      public static void main(String[] args) {         System.out.println("Inside main method");     } }`
+```java
+class StaticBlockDemo {
+    static {
+        System.out.println("Inside static block");
+    }
+	
+    public static void main(String[] args) {
+        System.out.println("Inside main method");
+    }
+}
+```
 
 ### **Output:**
 
