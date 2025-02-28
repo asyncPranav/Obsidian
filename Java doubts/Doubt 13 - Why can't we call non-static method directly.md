@@ -83,7 +83,7 @@ public class Test {
     void nonStaticMethod() {
         System.out.println("Non-static method called.");
     }
-
+	
     public static void main(String[] args) {
         Test obj = new Test(); // Create an instance of the class
         obj.nonStaticMethod(); // ✅ Now it works!
@@ -92,12 +92,9 @@ public class Test {
 ```
 ### **Output:**
 
-sql
-
-CopyEdit
-
-`Non-static method called.`
-
+```shell
+Non-static method called.
+```
 ---
 
 ## **3. Internal Working:**
@@ -120,11 +117,23 @@ CopyEdit
 
 ### **Static Method Calling Non-Static Method Directly:**
 
-java
-
-CopyEdit
-
-`public class Demo {     int x = 10; // Non-static variable      void display() {         System.out.println("Value of x: " + x);     }      static void show() {         display(); // ❌ Compilation Error     }      public static void main(String[] args) {         show();     } }`
+```java
+public class Demo {
+    int x = 10; // Non-static variable
+	
+    void display() {
+        System.out.println("Value of x: " + x);
+    }
+	
+    static void show() {
+        display(); // ❌ Compilation Error
+    }
+	
+    public static void main(String[] args) {
+        show();
+    }
+}
+```
 
 ### **Error Explanation:**
 
@@ -133,19 +142,30 @@ CopyEdit
 
 ### **Correct Way:**
 
-java
-
-CopyEdit
-
-`public class Demo {     int x = 10;      void display() {         System.out.println("Value of x: " + x);     }      static void show() {         Demo obj = new Demo(); // Create an object         obj.display(); // ✅ Correctly call non-static method     }      public static void main(String[] args) {         show();     } }`
+```java
+public class Demo {
+    int x = 10;
+	
+    void display() {
+        System.out.println("Value of x: " + x);
+    }
+	
+    static void show() {
+        Demo obj = new Demo(); // Create an object
+        obj.display(); // ✅ Correctly call non-static method
+    }
+	
+    public static void main(String[] args) {
+        show();
+    }
+}
+```
 
 ### **Output:**
 
-yaml
-
-CopyEdit
-
-`Value of x: 10`
+```shell
+Value of x: 10
+```
 
 ---
 
