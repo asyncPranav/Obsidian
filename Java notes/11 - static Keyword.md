@@ -230,15 +230,6 @@ Static Nested Class
 
 ### **Order of Execution:**
 
-1. **Static Variables Initialization**
-2. **Static Blocks**
-3. **Main Method**
-4. **Object Creation (Constructor Call)**
-5. **Non-static Blocks**
-6. **Non-static Methods** (When called)
-
-### **Execution Order:**
-
 1. **Static Variable Initialization**
 2. **Static Block Execution**
 3. **Main Method (if present)**
