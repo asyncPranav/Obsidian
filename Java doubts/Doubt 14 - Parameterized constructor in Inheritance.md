@@ -76,6 +76,27 @@ Childd c2 = new Childd(3);
 #### **Given Code:**
 
 ```java
+class Parentt {
+    public Parentt() {
+        System.out.println("non param of Parent");
+    }
+    
+    public Parentt(int x) {
+        System.out.println("param of Parent");
+    }
+}
+
+class Childd extends Parentt {
+    public Childd(int x) {
+        System.out.println("param of Child");
+    }
+}
+
+public class _03_InheritParameterizedConstructor {
+    public static void main(String[] args) {
+        Childd c2 = new Childd(3);
+    }
+}
 ```
 
 ---
@@ -86,19 +107,17 @@ Childd c2 = new Childd(3);
 
 - You created an object of `Childd` with an integer argument:
     
-    java
-    
-    CopyEdit
-    
-    `Childd c2 = new Childd(3);`
+```java
+Childd c2 = new Childd(3);
+```
     
 - This means the following constructor is executed:
     
-    java
-    
-    CopyEdit
-    
-    `public Childd(int x) {     System.out.println("param of Child"); }`
+```java
+public Childd(int x) {
+    System.out.println("param of Child");
+}
+```
     
 - **BUT before executing this, Java must call the constructor of `Parentt` (the parent class).**
 
@@ -110,19 +129,17 @@ Childd c2 = new Childd(3);
 - When there is **no explicit `super(...)` call, Java automatically inserts a call to `super();` (the no-argument constructor of `Parentt`).**
 - **So, Java executes:**
     
-    java
-    
-    CopyEdit
-    
-    `public Parentt() {     System.out.println("non param of Parent"); }`
+```java
+public Parentt() {
+    System.out.println("non param of Parent");
+}
+```
     
 - This prints:
     
-    wasm
-    
-    CopyEdit
-    
-    `non param of Parent`
+```java
+non param of Parent
+```
     
 
 ---
