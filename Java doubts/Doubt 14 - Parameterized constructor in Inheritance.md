@@ -177,39 +177,37 @@ param of Child
 **This would have happened if the `Childd(int x)` constructor explicitly called `super(x);`.**
 To fix this, modify the `Childd(int x)` constructor like this:
 
-java
-
-CopyEdit
-
-`class Childd extends Parentt {     public Childd(int x) {         super(x);  // Explicitly call parameterized constructor of Parentt         System.out.println("param of Child");     } }`
+```java
+class Childd extends Parentt {
+    public Childd(int x) {
+        super(x);  // Explicitly call parameterized constructor of Parentt
+        System.out.println("param of Child");
+    }
+}
+```
 
 ### **Now, the Execution Flow:**
 
 1. `Childd(int x)` is called.
 2. `super(x);` is executed → Calls `Parentt(int x)`, which prints:
     
-    wasm
-    
-    CopyEdit
-    
-    `param of Parent`
+```shell
+param of Parent
+```
     
 3. After `Parentt(int x)` completes, `Childd(int x)` continues and prints:
     
-    wasm
-    
-    CopyEdit
-    
-    `param of Child`
+```shell
+param of Child
+```
     
 
 ### **Now, the Corrected Output Will Be:**
 
-wasm
-
-CopyEdit
-
-`param of Parent param of Child`
+```shell
+param of Parent
+param of Child
+```
 
 ---
 
