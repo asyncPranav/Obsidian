@@ -22,3 +22,19 @@ public class _03_InheritParameterizedConstructor {
     }
 }
 ```
+
+
+Your expectation:
+
+```shell
+param of Parent
+param of Child
+```
+
+But the actual output:
+
+```shell
+non param of Parent
+param of Child
+```
+
