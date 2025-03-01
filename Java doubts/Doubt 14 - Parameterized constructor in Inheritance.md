@@ -137,7 +137,7 @@ public Parentt() {
     
 - This prints:
     
-```java
+```shell
 non param of Parent
 ```
     
@@ -149,22 +149,19 @@ non param of Parent
 - Now that the parent class constructor is done executing, Java continues with the `Childd(int x)` constructor.
 - It prints:
     
-    wasm
-    
-    CopyEdit
-    
-    `param of Child`
+```shell
+param of Child
+```
     
 
 ---
 
 ### **Final Output:**
 
-wasm
-
-CopyEdit
-
-`non param of Parent param of Child`
+```shell
+non param of Parent
+param of Child
+```
 
 ---
 
@@ -172,13 +169,12 @@ CopyEdit
 
 You were expecting:
 
-wasm
+```shell
+param of Parent
+param of Child
+```
 
-CopyEdit
-
-`param of Parent param of Child`
-
-**This would have happened if the `Childd(int x)` constructor explicitly called `super(x);`.**  
+**This would have happened if the `Childd(int x)` constructor explicitly called `super(x);`.**
 To fix this, modify the `Childd(int x)` constructor like this:
 
 java
