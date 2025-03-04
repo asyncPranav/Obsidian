@@ -451,18 +451,17 @@ Yes, you **can specify a custom path** after `-d` to control where the compiled 
 
 ### **Syntax:**
 
-```
+```shell
+javac -d <destination_path> <source_file>
 ```
 
 ---
 
 ### **Example 1: Specifying an Absolute Path**
 
-sh
-
-CopyEdit
-
-`javac -d /home/user/output Hello.java`
+```sh
+javac -d /home/user/output Hello.java
+```
 
 📌 **What Happens?**
 
@@ -471,22 +470,18 @@ CopyEdit
 - If `Hello.java` **has a package** (`package mypackage;`):
     - A folder `mypackage/` is created inside `/home/user/output/`, and `Hello.class` is stored as:
         
-        arduino
-        
-        CopyEdit
-        
-        `/home/user/output/mypackage/Hello.class`
+```sh
+/home/user/output/mypackage/Hello.class
+```
         
 
 ---
 
 ### **Example 2: Specifying a Relative Path**
 
-sh
-
-CopyEdit
-
-`javac -d ../bin Hello.java`
+```sh
+javac -d ../bin Hello.java
+```
 
 📌 **What Happens?**
 
@@ -495,11 +490,9 @@ CopyEdit
 - If `Hello.java` **has a package** (`package mypackage;`):
     - A `mypackage/` folder is created inside `../bin/`, and `Hello.class` is placed as:
         
-        python
-        
-        CopyEdit
-        
-        `../bin/mypackage/Hello.class`
+```sh
+../bin/mypackage/Hello.class
+```
         
 
 ---
