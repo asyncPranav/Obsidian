@@ -295,7 +295,7 @@ interface B {
 }
 
 class C implements A, B {
-    public void show() { // Must resolve conflict explicit
+    public void show() { // Must resolve conflict explicitly
         A.super.show(); // Calling A's show()
     }
 }
@@ -307,6 +307,18 @@ public class Main {
     }
 }
 ```
+
+---
+
+
+# **1️⃣2️⃣  Real-World Use Cases of Interface**
+
+1. **Defining Common Behavior** (e.g., `Comparable` interface for sorting).
+2. **Achieving Multiple Inheritance**.
+3. **Decoupling Code** (Helps in **Dependency Injection**).
+4. **Functional Programming with Lambda Expressions**.
+5. **Creating API Contracts** (Interfaces define rules for libraries/frameworks).
+
 
 ---
 
