@@ -6,6 +6,10 @@ Interfaces are a fundamental part of Java that enable abstraction and multiple i
 
 # **1️⃣ What is an Interface?**
 
+- An **interface** in Java is a blueprint of a class that contains only abstract methods and constants.
+- It is used for achieving **abstraction** and **multiple inheritance** in Java.
+- Declared using the `interface` keyword.
+
 An **interface** in Java is a blueprint for a class that contains **abstract methods** and **constants** (variables that are `public static final` by default). It allows **multiple inheritance** and **defines a contract** that implementing classes must follow.
 
 ### **🔹 Key Characteristics of an Interface**
@@ -275,11 +279,32 @@ public class Main {
 
 If multiple interfaces have the **same method signature**, Java requires explicit resolution.
 
-java
+```java
+interface A {
+    default void show() {
+        System.out.println("Interface A");
+    }
+}
 
-CopyEdit
+interface B {
+    default void show() {
+        System.out.println("Interface B");
+    }
+}
 
-`interface A {     default void show() {         System.out.println("Interface A");     } }  interface B {     default void show() {         System.out.println("Interface B");     } }  class C implements A, B {     public void show() { // Must resolve conflict         A.super.show(); // Calling A's show()     } }  public class Main {     public static void main(String[] args) {         C obj = new C();         obj.show(); // Output: Interface A     } }`
+class C implements A, B {
+    public void show() { // Must resolve conflict
+        A.super.show(); // Calling A's show()
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        C obj = new C();
+        obj.show(); // Output: Interface A
+    }
+}
+```
 
 ---
 
