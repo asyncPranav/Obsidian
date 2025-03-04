@@ -108,7 +108,8 @@ public class Main {
 
 # **5️⃣ Interface Variables (Constants)**
 
-All variables in an interface are: ✔ `public` (accessible everywhere).  
+All variables in an interface are: 
+✔ `public` (accessible everywhere).  
 ✔ `static` (belongs to the interface itself, not instances).  
 ✔ `final` (cannot be changed).
 
