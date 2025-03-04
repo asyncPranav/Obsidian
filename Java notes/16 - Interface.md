@@ -267,13 +267,13 @@ public class Main {
 
 # **🔟 Interface vs Abstract Class**
 
-|Feature|Interface|Abstract Class|
-|---|---|---|
-|Methods|Only abstract (until Java 8)|Can have abstract & concrete methods|
-|Variables|`public static final`|Can have instance variables|
-|Constructor|Not allowed|Allowed|
-|Multiple Inheritance|Yes (Multiple interfaces)|No (Only one abstract class)|
-|Default Methods|Allowed (Java 8+)|Not needed|
+| Feature              | Interface                    | Abstract Class                            |
+| -------------------- | ---------------------------- | ----------------------------------------- |
+| Methods              | Only abstract (until Java 8) | Can have abstract & concrete methods      |
+| Variables            | `public static final`        | Can have instance variables               |
+| Constructor          | Not allowed                  | Allowed                                   |
+| Multiple Inheritance | Yes (Multiple interfaces)    | No (Only one abstract class)              |
+| Default Methods      | Allowed (Java 8+)            | Not needed (already has concrete methods) |
 
 ---
 
