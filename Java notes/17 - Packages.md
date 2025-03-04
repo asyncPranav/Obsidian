@@ -324,7 +324,8 @@ package com.abctech.projectname;
 ---
 
 
-# **Extra-Content**
+# **🚀 Extra-Content**
+
 
 ## **1️⃣ File compilation**
 
@@ -575,6 +576,12 @@ javac -d .. Hello.java
 ✔ **Same package structure is created, but in different locations!**  
 ✔ **Use `.` if you want the package folder inside the current directory.**  
 ✔ **Use `..` if you want the package folder one level up.**
+
+
+---
+---
+---
+
 
 
 
