@@ -167,19 +167,19 @@ Access modifiers define how a class or method can be accessed across packages.
 
 There are **three ways** to import packages:
 
-### **1️⃣ Import a Specific Class**
+### **1️. Import a Specific Class**
 
 ```java
 import java.util.Scanner;  // Only Scanner class is imported
 ```
 
-### **2️⃣ Import All Classes in a Package**
+### **2️. Import All Classes in a Package**
 
 ```java
 import java.util.*;  // Imports all classes from java.util package
 ```
 
-### **3️⃣ Fully Qualified Name (Without Import)**
+### **3️. Fully Qualified Name (Without Import)**
 
 ```java
 public class Main {
