@@ -63,11 +63,15 @@ A user-defined package is created using the `package` keyword.
 1. Define a package using the `package` keyword.
 2. Save the file inside a directory matching the package name.
 
-java
+```java
+package mypackage; // Declaring a package
 
-CopyEdit
-
-`package mypackage; // Declaring a package  public class Hello {     public void greet() {         System.out.println("Hello from mypackage!");     } }`
+public class Hello {
+    public void greet() {
+        System.out.println("Hello from mypackage!");
+    }
+}
+```
 
 ✔ **Package declaration must be the first statement in the file (except comments).**
 
@@ -77,11 +81,9 @@ CopyEdit
 
 To **compile** a package:
 
-sh
-
-CopyEdit
-
-`javac -d . Hello.java`
+```shell
+javac -d . Hello.java
+```
 
 ✔ `-d .` stores the compiled file in the package folder (`mypackage/Hello.class`).
 
@@ -89,11 +91,16 @@ CopyEdit
 
 To use a package in another file, you must **import** it.
 
-java
+```java
+import mypackage.Hello; // Importing the class
 
-CopyEdit
-
-`import mypackage.Hello; // Importing the class  public class Main {     public static void main(String[] args) {         Hello obj = new Hello();         obj.greet();  // Output: Hello from mypackage!     } }`
+public class Main {
+    public static void main(String[] args) {
+        Hello obj = new Hello();
+        obj.greet();  // Output: Hello from mypackage!
+    }
+}
+```
 
 ✔ `import mypackage.Hello;` allows using the `Hello` class from `mypackage`.
 
@@ -105,11 +112,15 @@ A **sub-package** is a package inside another package. It helps in **better code
 
 ### **🔹 Example of a Sub-Package**
 
-java
+```java
+package mypackage.subpackage;
 
-CopyEdit
-
-`package mypackage.subpackage;  public class SubClass {     public void display() {         System.out.println("Inside Sub-Package!");     } }`
+public class SubClass {
+    public void display() {
+        System.out.println("Inside Sub-Package!");
+    }
+}
+```
 
 ✔ **Using the Sub-Package Class**
 
