@@ -134,21 +134,17 @@ javac -d . Hello.java
 
 #### **Without `-d`**
 
-sh
-
-CopyEdit
-
-`javac Hello.java`
+```shell
+javac Hello.java
+```
 
 - The `.class` file will be generated in the same directory as `Hello.java`, **without any package structure**.
 
 ### **Alternative: Specifying a Custom Directory**
 
-sh
-
-CopyEdit
-
-`javac -d /home/user/output Hello.java`
+```shell
+javac -d /home/user/output Hello.java
+```
 
 - This will place `Hello.class` inside `/home/user/output/mypackage/`.
 
@@ -323,4 +319,10 @@ package com.abctech.projectname;
 ✔ **Access Modifiers** control visibility across packages.  
 ✔ **Static import** allows importing static members directly.  
 ✔ **Package vs Module** – Packages organize classes, while modules organize packages.
+
+
+---
+
+
+
 
