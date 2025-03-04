@@ -445,9 +445,85 @@ public class Hello {
 |`javac -d..Hello.java`|`javac -d .. Hello.java`|
 |`javac -d. Hello.java`|`javac -d . Hello.java`|
 
-🚀 **Key Takeaway:**
+---
 
-- Always put a **space after `-d`** before specifying the destination directory!
+Yes, you **can specify a custom path** after `-d` to control where the compiled `.class` files are placed.
+
+### **Syntax:**
+
+```
+```
+
+---
+
+### **Example 1: Specifying an Absolute Path**
+
+sh
+
+CopyEdit
+
+`javac -d /home/user/output Hello.java`
+
+📌 **What Happens?**
+
+- If `Hello.java` **does not** have a `package`:
+    - `Hello.class` is stored directly in `/home/user/output/`.
+- If `Hello.java` **has a package** (`package mypackage;`):
+    - A folder `mypackage/` is created inside `/home/user/output/`, and `Hello.class` is stored as:
+        
+        arduino
+        
+        CopyEdit
+        
+        `/home/user/output/mypackage/Hello.class`
+        
+
+---
+
+### **Example 2: Specifying a Relative Path**
+
+sh
+
+CopyEdit
+
+`javac -d ../bin Hello.java`
+
+📌 **What Happens?**
+
+- If `Hello.java` **does not** have a `package`:
+    - `Hello.class` is stored in `../bin/` (one directory up in the `bin/` folder).
+- If `Hello.java` **has a package** (`package mypackage;`):
+    - A `mypackage/` folder is created inside `../bin/`, and `Hello.class` is placed as:
+        
+        python
+        
+        CopyEdit
+        
+        `../bin/mypackage/Hello.class`
+        
+
+---
+
+### **Example 3: Specifying the Current Directory (`.`)**
+
+sh
+
+CopyEdit
+
+`javac -d . Hello.java`
+
+📌 **What Happens?**
+
+- If `Hello.java` **has a package**, a package folder will be created in the current directory.
+- If **no package**, the `.class` file is placed in the current directory.
+
+---
+
+### **Key Takeaways**
+
+✅ You **can** specify a custom path after `-d`.  
+✅ The compiler **creates the necessary package structure** in the specified directory.  
+✅ Use absolute or relative paths based on your project structure.
 
 
 
