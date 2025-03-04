@@ -7,10 +7,10 @@ Interfaces are a fundamental part of Java that enable abstraction and multiple i
 # **1️⃣ What is an Interface?**
 
 - An **interface** in Java is a blueprint of a class that contains only abstract methods and constants.
+- An **interface** in Java is a blueprint for a class that contains **abstract methods** and **constants** (variables that are `public static final` by default).
 - It is used for achieving **abstraction** and **multiple inheritance** in Java.
 - Declared using the `interface` keyword.
-
-An **interface** in Java is a blueprint for a class that contains **abstract methods** and **constants** (variables that are `public static final` by default). It allows **multiple inheritance** and **defines a contract** that implementing classes must follow.
+- It allows **multiple inheritance** and **defines a contract** that implementing classes must follow.
 
 ### **🔹 Key Characteristics of an Interface**
 
