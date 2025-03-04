@@ -499,11 +499,9 @@ javac -d ../bin Hello.java
 
 ### **Example 3: Specifying the Current Directory (`.`)**
 
-sh
-
-CopyEdit
-
-`javac -d . Hello.java`
+```sh
+javac -d . Hello.java
+```
 
 📌 **What Happens?**
 
@@ -517,6 +515,68 @@ CopyEdit
 ✅ You **can** specify a custom path after `-d`.  
 ✅ The compiler **creates the necessary package structure** in the specified directory.  
 ✅ Use absolute or relative paths based on your project structure.
+
+
+---
+
+Yes, when a **package is defined**, both `javac -d .` and `javac -d ..` will work similarly **in terms of package structure creation**, but the difference lies in **where the package directory is created**:
+
+### **1️⃣ When Using `-d .`**
+
+```sh
+javac -d . Hello.java
+```
+
+📌 **If `Hello.java` contains:**
+
+java
+
+CopyEdit
+
+`package mypackage;  public class Hello {     public static void main(String[] args) {         System.out.println("Hello from mypackage!");     } }`
+
+📌 **Output Structure:**
+
+arduino
+
+CopyEdit
+
+`./mypackage/Hello.class`
+
+- The compiler creates the `mypackage/` folder **inside the current directory (`.`)**.
+
+---
+
+### **2️⃣ When Using `-d ..`**
+
+sh
+
+CopyEdit
+
+`javac -d .. Hello.java`
+
+📌 **Output Structure:**
+
+arduino
+
+CopyEdit
+
+`../mypackage/Hello.class`
+
+- The compiler creates the `mypackage/` folder **in the parent directory (`..`)**.
+
+---
+
+### **Key Difference**
+
+|Command|Where `mypackage/` is created?|`Hello.class` Location|
+|---|---|---|
+|`javac -d . Hello.java`|**Current directory (`.`)**|`./mypackage/Hello.class`|
+|`javac -d .. Hello.java`|**Parent directory (`..`)**|`../mypackage/Hello.class`|
+
+✔ **Same package structure is created, but in different locations!**  
+✔ **Use `.` if you want the package folder inside the current directory.**  
+✔ **Use `..` if you want the package folder one level up.**
 
 
 
