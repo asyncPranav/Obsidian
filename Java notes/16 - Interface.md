@@ -322,13 +322,14 @@ public class Main {
 
 ---
 
-# **1️⃣2️⃣ Summary**
+# **1️⃣3️⃣ Summary**
 
-✔ Interfaces provide **abstraction** and **multiple inheritance**.  
-✔ Java 8+ introduced **default and static methods**.  
-✔ Java 9+ introduced **private methods** in interfaces.  
-✔ Functional Interfaces **support lambda expressions**.  
-✔ **Marker interfaces** are empty interfaces used for tagging.
+- An **interface** is a collection of abstract methods and constants.
+- Interfaces allow **multiple inheritance** and **abstraction**.
+- **Java 8+** introduced **default and static methods**.
+- **Java 9+** introduced **private methods** in interfaces.
+- **Functional Interfaces** are used in **lambda expressions**.
+- **Marker Interfaces** are empty interfaces used for tagging classes.
 
-🚀 **This is a complete and detailed guide to Java Interfaces from scratch to advanced!**
+
 
