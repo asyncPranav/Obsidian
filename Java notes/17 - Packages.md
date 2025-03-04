@@ -324,5 +324,71 @@ package com.abctech.projectname;
 ---
 
 
+# **Extra-Content**
+
+## **1️⃣
+
+If you compile a **normal Java file** (i.e., a file **without a `package` declaration**) using the same command:
+
+sh
+
+CopyEdit
+
+`javac -d . Hello.java`
+
+### **What Happens?**
+
+- Since the Java file **does not** belong to any package, the `-d` option has **no effect** on the output location.
+- The compiled `.class` file (`Hello.class`) will still be placed in the **current directory (`.`)**, just like running `javac Hello.java`.
+
+### **Example: Normal Java File (No Package)**
+
+#### **Hello.java**
+
+java
+
+CopyEdit
+
+`public class Hello {     public static void main(String[] args) {         System.out.println("Hello, World!");     } }`
+
+#### **Compiling with `-d .`**
+
+sh
+
+CopyEdit
+
+`javac -d . Hello.java`
+
+#### **Output:**
+
+pgsql
+
+CopyEdit
+
+`Hello.class (Generated in the same directory as Hello.java)`
+
+✔ **Since there's no package, `-d` has no visible effect.**  
+✔ **It behaves the same as `javac Hello.java`**
+
+---
+
+### **When Does `-d` Matter?**
+
+- It only affects **Java files that have a `package` declaration**.
+- If a package exists, `-d` **ensures the correct package directory structure** is created.
+
+---
+
+### **Summary**
+
+|Scenario|Command|Output Location|
+|---|---|---|
+|**With Package (`package mypackage;`)**|`javac -d . Hello.java`|`./mypackage/Hello.class`|
+|**Without Package**|`javac -d . Hello.java`|`./Hello.class` (Same as `javac Hello.java`)|
+
+🚀 **Key Takeaway:** If your file **does not** use a package, `-d` won't change anything!
+
+
+
 
 
