@@ -385,6 +385,63 @@ Hello.class (Generated in the same directory as Hello.java)
 🚀 **Key Takeaway:** If your file **does not** use a package, `-d` won't change anything!
 
 
+```shell
+javac -d .. Hello.java
+```
+
+### **Explanation:**
+
+- `javac` → Java compiler command.
+- `-d ..` → `-d` specifies the **destination directory**, and `..` means **the parent directory**.
+- `Hello.java` → Java source file to compile.
+
+---
+
+### **What Happens When You Run This?**
+
+#### **1️⃣ If `Hello.java` Contains No Package**
+
+java
+
+CopyEdit
+
+`public class Hello {     public static void main(String[] args) {         System.out.println("Hello, World!");     } }`
+
+📌 **Output:** `Hello.class` will be placed in **the parent directory (`..`)**, because no package structure is involved.
+
+---
+
+#### **2️⃣ If `Hello.java` Contains a Package**
+
+java
+
+CopyEdit
+
+`package mypackage;  public class Hello {     public static void main(String[] args) {         System.out.println("Hello from mypackage!");     } }`
+
+📌 **Output:** The `mypackage/Hello.class` file will be generated in the **parent directory (`..`)** like this:
+
+arduino
+
+CopyEdit
+
+`../mypackage/Hello.class`
+
+✔ **The compiler automatically creates the `mypackage/` folder in the parent directory.**
+
+---
+
+### **Incorrect Syntax & Fixes**
+
+|❌ Incorrect|✅ Correct|
+|---|---|
+|`javac -d.. Hello.java`|`javac -d .. Hello.java`|
+|`javac -d..Hello.java`|`javac -d .. Hello.java`|
+|`javac -d. Hello.java`|`javac -d . Hello.java`|
+
+🚀 **Key Takeaway:**
+
+- Always put a **space after `-d`** before specifying the destination directory!
 
 
 
