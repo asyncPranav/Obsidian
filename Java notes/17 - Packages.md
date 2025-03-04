@@ -199,19 +199,27 @@ public class Main {
 
 ### **🔹 Without Static Import**
 
-java
+```java
+import java.lang.Math;
 
-CopyEdit
-
-`import java.lang.Math;  public class Main {     public static void main(String[] args) {         System.out.println(Math.sqrt(16));  // Output: 4.0     } }`
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(Math.sqrt(16));  // Output: 4.0
+    }
+}
+```
 
 ### **🔹 With Static Import**
 
-java
+```java
+import static java.lang.Math.sqrt;
 
-CopyEdit
-
-`import static java.lang.Math.sqrt;  public class Main {     public static void main(String[] args) {         System.out.println(sqrt(16));  // Output: 4.0     } }`
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(sqrt(16));  // Output: 4.0
+    }
+}
+```
 
 ✔ **Avoids prefixing `Math.` every time.**  
 ✔ **Use carefully to avoid ambiguity.**
@@ -237,11 +245,9 @@ CopyEdit
 
 For a company **ABC Technologies** with domain **abctech.com**, package names should be:
 
-java
-
-CopyEdit
-
-`package com.abctech.projectname;`
+```java
+package com.abctech.projectname;
+```
 
 ---
 
@@ -255,6 +261,3 @@ CopyEdit
 ✔ **Static import** allows importing static members directly.  
 ✔ **Package vs Module** – Packages organize classes, while modules organize packages.
 
-🚀 **This is a complete guide to Java Packages from scratch to advanced!**
-
-4o
