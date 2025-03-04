@@ -89,7 +89,15 @@ To **compile** a package:
 javac -d . Hello.java
 ```
 
-✔ `-d .` stores the compiled `.class` file in the package folder (`mypackage/Hello.class`).
+✔ `-d .` stores the compiled `.class` file in the package folder (`mypackage/Hello.class`)
+
+The `-d` option in `javac -d . Hello.java` specifies the **destination directory** where the compiled `.class` files should be placed.
+
+#### **Explanation:**
+
+- `javac` → Java compiler command.
+- `-d .` → `-d` (destination) followed by `.` (current directory).
+- `Hello.java` → The Java source file to be compiled.
 
 ### **🔹 Using a User-Defined Package in Another Class**
 
