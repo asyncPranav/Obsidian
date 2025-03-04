@@ -164,7 +164,7 @@ public class Main {
 }
 ```
 
-✔ **Default methods** prevent breaking existing code when adding new methods.  
+✔ **Default methods** prevent breaking existing code when adding new methods i.e Default methods allow adding new functionality to interfaces without breaking existing implementations.
 ✔ Implementing classes **can override** default methods.
 
 ### **🔹 Static Method in Interface**
