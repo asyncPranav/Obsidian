@@ -99,6 +99,11 @@ The `-d` option in `javac -d . Hello.java` specifies the **destination directory
 - `-d .` → `-d` (destination) followed by `.` (current directory).
 - `Hello.java` → The Java source file to be compiled.
 
+### **How it Works:**
+
+1. When you compile a Java file that belongs to a package, the `-d` option ensures that the package directory structure is created automatically.
+2. The compiled `.class` file is placed inside the corresponding package folder.
+
 ### **🔹 Using a User-Defined Package in Another Class**
 
 To use a package in another file, you must **import** it.
