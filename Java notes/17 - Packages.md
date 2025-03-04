@@ -384,6 +384,8 @@ Hello.class (Generated in the same directory as Hello.java)
 
 🚀 **Key Takeaway:** If your file **does not** use a package, `-d` won't change anything!
 
+---
+
 
 ```shell
 javac -d .. Hello.java
@@ -401,11 +403,13 @@ javac -d .. Hello.java
 
 #### **1️⃣ If `Hello.java` Contains No Package**
 
-java
-
-CopyEdit
-
-`public class Hello {     public static void main(String[] args) {         System.out.println("Hello, World!");     } }`
+```java
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
 
 📌 **Output:** `Hello.class` will be placed in **the parent directory (`..`)**, because no package structure is involved.
 
@@ -413,19 +417,21 @@ CopyEdit
 
 #### **2️⃣ If `Hello.java` Contains a Package**
 
-java
+```java
+package mypackage;
 
-CopyEdit
-
-`package mypackage;  public class Hello {     public static void main(String[] args) {         System.out.println("Hello from mypackage!");     } }`
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello from mypackage!");
+    }
+}
+```
 
 📌 **Output:** The `mypackage/Hello.class` file will be generated in the **parent directory (`..`)** like this:
 
-arduino
-
-CopyEdit
-
-`../mypackage/Hello.class`
+```shell
+../mypackage/Hello.class
+```
 
 ✔ **The compiler automatically creates the `mypackage/` folder in the parent directory.**
 
