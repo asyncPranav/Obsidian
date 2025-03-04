@@ -14,11 +14,12 @@ Interfaces are a fundamental part of Java that enable abstraction and multiple i
 
 ### **🔹 Key Characteristics of an Interface**
 
-✔ Contains **abstract methods** (before Java 8).  
-✔ Contains **static and final variables** (constants).  
-✔ Methods are **public and abstract** by default.  
-✔ Used for **abstraction** and **multiple inheritance**.  
-✔ Implemented by a class using the **`implements`** keyword.
+- **Cannot have a constructor** (because objects of an interface cannot be created).
+- **Only abstract methods (until Java 7)**.
+- **Only static and final variables** (constants).
+- **Methods are implicitly public and abstract** (before Java 8).
+- **Supports multiple inheritance**.
+- **Can be implemented using the `implements` keyword**.
 
 ---
 
