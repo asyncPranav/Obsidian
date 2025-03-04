@@ -25,7 +25,7 @@ An interface is declared using the `interface` keyword.
 ```java
 interface Animal {
     int age = 10; // Automatically public, static, and final
-
+	
     void makeSound(); // Abstract method (public and abstract by default)
 }
 ```
@@ -39,11 +39,24 @@ interface Animal {
 
 A class must **implement** all methods of an interface.
 
-java
+```java
+interface Animal {
+    void makeSound();
+}
 
-CopyEdit
+class Dog implements Animal {
+    public void makeSound() { // Must be public
+        System.out.println("Bark");
+    }
+}
 
-`interface Animal {     void makeSound(); }  class Dog implements Animal {     public void makeSound() { // Must be public         System.out.println("Bark");     } }  public class Main {     public static void main(String[] args) {         Dog dog = new Dog();         dog.makeSound();  // Output: Bark     } }`
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.makeSound();  // Output: Bark
+    }
+}
+```
 
 ✔ A class uses the `implements` keyword.  
 ✔ All interface methods **must** be implemented.  
@@ -55,11 +68,33 @@ CopyEdit
 
 A class can implement multiple interfaces.
 
-java
+```java
+interface A {
+    void methodA();
+}
 
-CopyEdit
+interface B {
+    void methodB();
+}
 
-`interface A {     void methodA(); }  interface B {     void methodB(); }  class C implements A, B {     public void methodA() {         System.out.println("Method A");     }          public void methodB() {         System.out.println("Method B");     } }  public class Main {     public static void main(String[] args) {         C obj = new C();         obj.methodA();  // Output: Method A         obj.methodB();  // Output: Method B     } }`
+class C implements A, B {
+    public void methodA() {
+        System.out.println("Method A");
+    }
+    
+    public void methodB() {
+        System.out.println("Method B");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        C obj = new C();
+        obj.methodA();  // Output: Method A
+        obj.methodB();  // Output: Method B
+    }
+}
+```
 
 ✔ **Java supports multiple inheritance** via interfaces.  
 ✔ A class can implement multiple interfaces, but must provide **implementations for all methods**.
@@ -72,11 +107,17 @@ All variables in an interface are: ✔ `public` (accessible everywhere).
 ✔ `static` (belongs to the interface itself, not instances).  
 ✔ `final` (cannot be changed).
 
-java
+```java
+interface Constants {
+    int VALUE = 100; // public static final by default
+}
 
-CopyEdit
-
-`interface Constants {     int VALUE = 100; // public static final by default }  public class Test {     public static void main(String[] args) {         System.out.println(Constants.VALUE); // Output: 100     } }`
+public class Test {
+    public static void main(String[] args) {
+        System.out.println(Constants.VALUE); // Output: 100
+    }
+}
+```
 
 ✔ **Cannot modify** `VALUE` since it's `final`.  
 ✔ Accessed using `InterfaceName.VARIABLE_NAME`.
@@ -93,22 +134,48 @@ Before Java 8, interfaces could only have **abstract methods**.
 
 ### **🔹 Default Method (Method with Implementation)**
 
-java
+```java
+interface Printer {
+    void print();
+    
+    default void show() { // Default method
+        System.out.println("Default method in interface");
+    }
+}
 
-CopyEdit
+class TextPrinter implements Printer {
+    public void print() {
+        System.out.println("Printing text...");
+    }
+}
 
-`interface Printer {     void print();          default void show() { // Default method         System.out.println("Default method in interface");     } }  class TextPrinter implements Printer {     public void print() {         System.out.println("Printing text...");     } }  public class Main {     public static void main(String[] args) {         TextPrinter obj = new TextPrinter();         obj.print();  // Output: Printing text...         obj.show();   // Output: Default method in interface     } }`
+public class Main {
+    public static void main(String[] args) {
+        TextPrinter obj = new TextPrinter();
+        obj.print();  // Output: Printing text...
+        obj.show();   // Output: Default method in interface
+    }
+}
+```
 
 ✔ **Default methods** prevent breaking existing code when adding new methods.  
 ✔ Implementing classes **can override** default methods.
 
 ### **🔹 Static Method in Interface**
 
-java
+```java
+interface MathOperations {
+    static void info() {
+        System.out.println("This is a static method in an interface");
+    }
+}
 
-CopyEdit
-
-`interface MathOperations {     static void info() {         System.out.println("This is a static method in an interface");     } }  public class Main {     public static void main(String[] args) {         MathOperations.info(); // Output: This is a static method in an interface     } }`
+public class Main {
+    public static void main(String[] args) {
+        MathOperations.info(); // Output: This is a static method in an interface
+    }
+}
+```
 
 ✔ **Static methods** belong to the interface itself and **cannot be overridden**.
 
