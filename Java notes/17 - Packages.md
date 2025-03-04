@@ -171,7 +171,6 @@ There are **three ways** to import packages:
 import java.util.Scanner;  // Only Scanner class is imported
 ```
 
-
 ### **2️⃣ Import All Classes in a Package**
 
 ```java
@@ -180,11 +179,13 @@ import java.util.*;  // Imports all classes from java.util package
 
 ### **3️⃣ Fully Qualified Name (Without Import)**
 
-java
-
-CopyEdit
-
-`public class Main {     public static void main(String[] args) {         java.util.Scanner sc = new java.util.Scanner(System.in);     } }`
+```java
+public class Main {
+    public static void main(String[] args) {
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+    }
+}
+```
 
 ✔ **No `import` required**, but writing full package names repeatedly can be tedious.
 
