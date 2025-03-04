@@ -104,6 +104,54 @@ The `-d` option in `javac -d . Hello.java` specifies the **destination directory
 1. When you compile a Java file that belongs to a package, the `-d` option ensures that the package directory structure is created automatically.
 2. The compiled `.class` file is placed inside the corresponding package folder.
 
+### **Example:**
+
+#### **Source File (Hello.java)**
+
+```java
+package mypackage;
+
+public class Hello {
+    public void greet() {
+        System.out.println("Hello from mypackage!");
+    }
+}
+```
+
+#### **Compiling with `-d .`**
+
+```shell
+javac -d . Hello.java
+```
+
+- The compiler creates a **directory named `mypackage`** in the **current directory (`.`)**.
+- Inside `mypackage`, the compiled `Hello.class` file is stored:
+    
+```shell
+./mypackage/Hello.class
+```
+    
+
+#### **Without `-d`**
+
+sh
+
+CopyEdit
+
+`javac Hello.java`
+
+- The `.class` file will be generated in the same directory as `Hello.java`, **without any package structure**.
+
+### **Alternative: Specifying a Custom Directory**
+
+sh
+
+CopyEdit
+
+`javac -d /home/user/output Hello.java`
+
+- This will place `Hello.class` inside `/home/user/output/mypackage/`.
+
 ### **🔹 Using a User-Defined Package in Another Class**
 
 To use a package in another file, you must **import** it.
