@@ -13,8 +13,8 @@ Packages work like folders in a file system, helping to **categorize** different
 ## **1️⃣ What is a Package in Java?**
 
 A **package** is a namespace that organizes classes, interfaces, and sub-packages logically.
-
-		or
+		
+	OR
 		
 A **package** is a namespace that groups related classes and interfaces together. It works like a folder structure in an operating system.
 
