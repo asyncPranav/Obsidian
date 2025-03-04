@@ -112,6 +112,7 @@ A **sub-package** is a package inside another package. It helps in **better code
 
 ### **🔹 Example of a Sub-Package**
 
+
 ```java
 package mypackage.subpackage;
 
@@ -122,13 +123,21 @@ public class SubClass {
 }
 ```
 
+
 ✔ **Using the Sub-Package Class**
 
-java
 
-CopyEdit
+```java
+import mypackage.subpackage.SubClass;
 
-`import mypackage.subpackage.SubClass;  public class Test {     public static void main(String[] args) {         SubClass obj = new SubClass();         obj.display();  // Output: Inside Sub-Package!     } }`
+public class Test {
+    public static void main(String[] args) {
+        SubClass obj = new SubClass();
+        obj.display();  // Output: Inside Sub-Package!
+    }
+}
+```
+
 
 ✔ **A package can contain multiple sub-packages.**
 
@@ -158,19 +167,16 @@ There are **three ways** to import packages:
 
 ### **1️⃣ Import a Specific Class**
 
-java
+```java
+import java.util.Scanner;  // Only Scanner class is imported
+```
 
-CopyEdit
-
-`import java.util.Scanner;  // Only Scanner class is imported`
 
 ### **2️⃣ Import All Classes in a Package**
 
-java
-
-CopyEdit
-
-`import java.util.*;  // Imports all classes from java.util package`
+```java
+import java.util.*;  // Imports all classes from java.util package
+```
 
 ### **3️⃣ Fully Qualified Name (Without Import)**
 
