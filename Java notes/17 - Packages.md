@@ -326,15 +326,13 @@ package com.abctech.projectname;
 
 # **Extra-Content**
 
-## **1️⃣
+## **1️⃣ File compilation**
 
 If you compile a **normal Java file** (i.e., a file **without a `package` declaration**) using the same command:
 
-sh
-
-CopyEdit
-
-`javac -d . Hello.java`
+```shell
+javac -d . Hello.java
+```
 
 ### **What Happens?**
 
@@ -345,27 +343,25 @@ CopyEdit
 
 #### **Hello.java**
 
-java
-
-CopyEdit
-
-`public class Hello {     public static void main(String[] args) {         System.out.println("Hello, World!");     } }`
+```java
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+```
 
 #### **Compiling with `-d .`**
 
-sh
-
-CopyEdit
-
-`javac -d . Hello.java`
+```sell
+javac -d . Hello.java
+```
 
 #### **Output:**
 
-pgsql
-
-CopyEdit
-
-`Hello.class (Generated in the same directory as Hello.java)`
+```shell
+Hello.class (Generated in the same directory as Hello.java)
+```
 
 ✔ **Since there's no package, `-d` has no visible effect.**  
 ✔ **It behaves the same as `javac Hello.java`**
