@@ -529,19 +529,21 @@ javac -d . Hello.java
 
 📌 **If `Hello.java` contains:**
 
-java
+```java
+package mypackage;
 
-CopyEdit
-
-`package mypackage;  public class Hello {     public static void main(String[] args) {         System.out.println("Hello from mypackage!");     } }`
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello from mypackage!");
+    }
+}
+```
 
 📌 **Output Structure:**
 
-arduino
-
-CopyEdit
-
-`./mypackage/Hello.class`
+```sh
+./mypackage/Hello.class
+```
 
 - The compiler creates the `mypackage/` folder **inside the current directory (`.`)**.
 
@@ -549,19 +551,15 @@ CopyEdit
 
 ### **2️⃣ When Using `-d ..`**
 
-sh
-
-CopyEdit
-
-`javac -d .. Hello.java`
+```sh
+javac -d .. Hello.java
+```
 
 📌 **Output Structure:**
 
-arduino
-
-CopyEdit
-
-`../mypackage/Hello.class`
+```sh
+../mypackage/Hello.class
+```
 
 - The compiler creates the `mypackage/` folder **in the parent directory (`..`)**.
 
