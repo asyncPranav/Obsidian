@@ -267,17 +267,17 @@ public class Main {
 
 # **🔟 Interface vs Abstract Class**
 
-| Feature              | Interface                    | Abstract Class                            |
-| -------------------- | ---------------------------- | ----------------------------------------- |
-| Methods              | Only abstract (until Java 8) | Can have abstract & concrete methods      |
-| Variables            | `public static final`        | Can have instance variables               |
-| Constructor          | Not allowed                  | Allowed                                   |
-| Multiple Inheritance | Yes (Multiple interfaces)    | No (Only one abstract class)              |
-| Default Methods      | Allowed (Java 8+)            | Not needed (already has concrete methods) |
+| Feature              | Interface                                              | Abstract Class                            |
+| -------------------- | ------------------------------------------------------ | ----------------------------------------- |
+| Methods              | Only abstract (until Java 8) , (except default/static) | Can have abstract & concrete methods      |
+| Variables            | `public static final`                                  | Can have instance variables               |
+| Constructor          | Not allowed                                            | Allowed                                   |
+| Multiple Inheritance | Yes (Multiple interfaces)                              | No (Only one abstract class)              |
+| Default Methods      | Allowed (Java 8+)                                      | Not needed (already has concrete methods) |
 
 ---
 
-# **1️⃣1️⃣ Multiple Inheritance Conflicts**
+# **1️⃣1️⃣ Interface and Multiple Inheritance Conflicts**
 
 If multiple interfaces have the **same method signature**, Java requires explicit resolution.
 
@@ -295,7 +295,7 @@ interface B {
 }
 
 class C implements A, B {
-    public void show() { // Must resolve conflict
+    public void show() { // Must resolve conflict explicit
         A.super.show(); // Calling A's show()
     }
 }
