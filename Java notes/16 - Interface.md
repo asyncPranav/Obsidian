@@ -185,11 +185,29 @@ public class Main {
 
 Java 9 introduced **private methods** in interfaces to **avoid code duplication** inside default and static methods.
 
-java
+```java
+interface Helper {
+    default void show() {
+        commonMethod();
+        System.out.println("Default method");
+    }
+	
+    static void display() {
+        commonMethod();
+        System.out.println("Static method");
+    }
+	
+    private static void commonMethod() { // Private method
+        System.out.println("Common logic inside interface");
+    }
+}
 
-CopyEdit
-
-`interface Helper {     default void show() {         commonMethod();         System.out.println("Default method");     }      static void display() {         commonMethod();         System.out.println("Static method");     }      private static void commonMethod() { // Private method         System.out.println("Common logic inside interface");     } }  public class Main {     public static void main(String[] args) {         Helper.display(); // Output: Common logic inside interface     } }`
+public class Main {
+    public static void main(String[] args) {
+        Helper.display(); // Output: Common logic inside interface
+    }
+}
+```
 
 ✔ **Private methods** improve code reusability inside interfaces.
 
@@ -205,11 +223,14 @@ A **marker interface** is an interface **without any methods or fields**.
 - `Cloneable`
 - `Remote`
 
-java
+```java
+import java.io.Serializable;
 
-CopyEdit
-
-`import java.io.Serializable;  class Employee implements Serializable {     int id;     String name; }`
+class Employee implements Serializable {
+    int id;
+    String name;
+}
+```
 
 ✔ The **presence** of the marker interface itself enables certain functionalities (e.g., serialization).
 
@@ -219,11 +240,19 @@ CopyEdit
 
 A **functional interface** has **exactly one abstract method** and can be used with **lambda expressions**.
 
-java
+```java
+@FunctionalInterface
+interface MyFunctionalInterface {
+    void display();
+}
 
-CopyEdit
-
-`@FunctionalInterface interface MyFunctionalInterface {     void display(); }  public class Main {     public static void main(String[] args) {         MyFunctionalInterface obj = () -> System.out.println("Lambda Expression");         obj.display(); // Output: Lambda Expression     } }`
+public class Main {
+    public static void main(String[] args) {
+        MyFunctionalInterface obj = () -> System.out.println("Lambda Expression");
+        obj.display(); // Output: Lambda Expression
+    }
+}
+```
 
 ✔ The `@FunctionalInterface` annotation ensures the interface has **only one method**.  
 ✔ Functional interfaces **enable functional programming** in Java.
