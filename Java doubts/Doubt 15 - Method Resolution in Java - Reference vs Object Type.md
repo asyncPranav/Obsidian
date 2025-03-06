@@ -513,3 +513,5 @@ public class Test {
 ✔ **Java binds the method call at runtime, based on the object type, not the reference type.**  
 ✔ **Static methods, private methods, and final methods use static binding (compile-time resolution).**  
 ✔ **Dynamic Binding enables runtime polymorphism, making Java more flexible and extensible.**
+
+# ****
