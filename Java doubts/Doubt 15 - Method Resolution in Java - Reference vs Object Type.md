@@ -426,9 +426,9 @@ public class Test {
 This is **dynamic method dispatch**, and **Java dynamically binds `makeSound()` to the `Dog` class method at runtime**.
 
 
-At **compile time**, Java **only** looks at the **reference type**, not the actual object it holds. This is why it **does not bind the method call to the `Dog` class immediately**.
+* At **compile time**, Java **only** looks at the **reference type**, not the actual object it holds. This is why it **does not bind the method call to the `Dog` class immediately**.
 
-However, at **runtime**, Java sees that `ad` actually refers to a `Dog` object and **dynamically binds** the overridden method from `Dog`.
+* However, at **runtime**, Java sees that `ad` actually refers to a `Dog` object and **dynamically binds** the overridden method from `Dog`.
 
 ### **Why Doesn't Java Bind It at Compile Time?**
 
@@ -440,6 +440,7 @@ However, at **runtime**, Java sees that `ad` actually refers to a `Dog` object a
     
     - Java follows the **"Program to an interface, not an implementation"** principle.
     - The actual method to be called depends on the **object type at runtime**, allowing for **flexibility and extensibility**.
+    
 
 ---
 
