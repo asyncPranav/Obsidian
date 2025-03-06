@@ -48,11 +48,22 @@ public class InstanceofExample {
 
 When performing **downcasting**, always use `instanceof` to **avoid runtime errors**.
 
-java
+```java
+class Super { }
+class Sub extends Super { }
 
-CopyEdit
-
-`class Super { } class Sub extends Super { }  public class Test {     public static void main(String[] args) {         Super obj = new Super(); // Super class object          if (obj instanceof Sub) { // Check before casting             Sub s = (Sub) obj; // Safe casting         } else {             System.out.println("Downcasting not possible.");         }     } }`
+public class Test {
+    public static void main(String[] args) {
+        Super obj = new Super(); // Super class object
+		
+        if (obj instanceof Sub) { // Check before casting
+            Sub s = (Sub) obj; // Safe casting
+        } else {
+            System.out.println("Downcasting not possible.");
+        }
+    }
+}
+```
 
 - Without `instanceof`, attempting `Sub s = (Sub) obj;` directly **throws `ClassCastException`**.
 - ✅ **With `instanceof`, the check prevents invalid casting.**
@@ -63,11 +74,17 @@ CopyEdit
 
 ✅ Works for interfaces too!
 
-java
+```java
+interface Vehicle { }
+class Car implements Vehicle { }
 
-CopyEdit
-
-`interface Vehicle { } class Car implements Vehicle { }  public class InstanceofInterface {     public static void main(String[] args) {         Car c = new Car();         System.out.println(c instanceof Vehicle); // ✅ true (Car implements Vehicle)     } }`
+public class InstanceofInterface {
+    public static void main(String[] args) {
+        Car c = new Car();
+        System.out.println(c instanceof Vehicle); // ✅ true (Car implements Vehicle)
+    }
+}
+```
 
 🔹 Even though **interfaces cannot be instantiated**, objects of implementing classes can be checked with `instanceof`.
 
@@ -77,11 +94,10 @@ CopyEdit
 
 The `instanceof` operator **always returns `false` for `null` references**.
 
-java
-
-CopyEdit
-
-`String str = null; System.out.println(str instanceof String); // ❌ false`
+```java
+String str = null;
+System.out.println(str instanceof String); // ❌ false
+```
 
 🔴 **Even though `str` is declared as `String`, it is `null`, so `instanceof` returns `false`.**
 
@@ -91,11 +107,21 @@ CopyEdit
 
 🔹 Used to **check object type before executing subclass-specific logic**.
 
-java
+```java
+class Animal { }
+class Dog extends Animal { void bark() { System.out.println("Woof!"); } }
 
-CopyEdit
-
-`class Animal { } class Dog extends Animal { void bark() { System.out.println("Woof!"); } }  public class Test {     public static void main(String[] args) {         Animal a = new Dog(); // Upcasting          if (a instanceof Dog) {             Dog d = (Dog) a; // ✅ Safe downcasting             d.bark(); // Calls Dog’s method         }     } }`
+public class Test {
+    public static void main(String[] args) {
+        Animal a = new Dog(); // Upcasting
+		
+        if (a instanceof Dog) {
+            Dog d = (Dog) a; // ✅ Safe downcasting
+            d.bark(); // Calls Dog’s method
+        }
+    }
+}
+```
 
 ✅ Prevents `ClassCastException` by ensuring `a` is truly a `Dog` before downcasting.
 
@@ -105,11 +131,17 @@ CopyEdit
 
 Works with **abstract classes** too!
 
-java
+```java
+abstract class Animal { }
+class Dog extends Animal { }
 
-CopyEdit
-
-`abstract class Animal { } class Dog extends Animal { }  public class Test {     public static void main(String[] args) {         Animal a = new Dog();         System.out.println(a instanceof Animal); // ✅ true     } }`
+public class Test {
+    public static void main(String[] args) {
+        Animal a = new Dog();
+        System.out.println(a instanceof Animal); // ✅ true
+    }
+}
+```
 
 ✅ Works because **abstract classes can have instances of their subclasses**.
 
