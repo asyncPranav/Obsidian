@@ -480,7 +480,26 @@ public class Test {
 
 ### **Dynamic Binding (Runtime) Example**
 
-```ja
+```java
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Animal ad = new Dog();
+        ad.makeSound();  // Output: Dog barks (Determined at runtime)
+    }
+}
 ```
 
 - The method is **overridden**, so **Java resolves it at runtime** based on the object type (`Dog`).
