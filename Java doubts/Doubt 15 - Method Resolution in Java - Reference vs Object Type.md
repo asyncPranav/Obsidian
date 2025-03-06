@@ -102,3 +102,7 @@ public class Test {
 - **Non-overridden methods** → Resolved **based on the reference type (`Animal`)** at compile time.
 - **Child-specific methods** → Cannot be accessed unless explicitly cast to the child class.
 
+---
+
+# *Detailed Discussion*
+
