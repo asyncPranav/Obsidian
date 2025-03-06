@@ -364,5 +364,6 @@ public class Test {
 - If **not overridden**, the **method from the reference type (parent class) is executed**.
 - **Static, private, and final methods** follow different resolution rules.
 
-This covers all important aspects of method resolution in Java. Let me know if you have any questions! 🚀
+
+
 
