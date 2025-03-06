@@ -128,7 +128,7 @@ This statement consists of two parts:
 ### **Key Observations**
 
 - This demonstrates **upcasting**, where a subclass (`Dog`) object is assigned to a superclass (`Animal`) reference.
-- **UPCASTING -**  
+- **UPCASTING -**  [[Doubt 16 - Upcasting and Downcasting]]
 - The reference variable (`ad`) determines **which methods can be accessed** at **compile time**.
 - The actual object (`new Dog()`) determines **which overridden methods are executed** at **runtime**
 
