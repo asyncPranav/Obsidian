@@ -78,6 +78,11 @@ Sub s5 = (Sub) s4; // ❌ ClassCastException!
 ✅ **Use `instanceof` to check before downcasting:**
 
 ```java
+if (s4 instanceof Sub) {
+    Sub s5 = (Sub) s4;
+} else {
+    System.out.println("Downcasting not possible.");
+}
 ```
 
 ---
@@ -96,13 +101,11 @@ Sub s5 = (Sub) s4; // ❌ ClassCastException!
 🔴 **Casting `Super` to `Sub` directly is invalid unless the object was originally created as a `Sub` instance.**  
 🔵 **Always use `instanceof` to check before downcasting.**
 
-Would you like a real-world analogy to make this concept even clearer? 🚀
 
-##### You said:
 
-explain it in detail
+----
 
-###### ChatGPT said:
+# **Understand in Detail : **
 
 ### **Understanding `Sub s3 = (Sub) new Super();` in Detail**
 
