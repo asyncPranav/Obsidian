@@ -1,7 +1,7 @@
 
 Animal ad = new Dog(); method will be called depending upon object or reference
 
-###### ChatGPT said:
+---
 
 In **Java**, method calls in the context of **inheritance and polymorphism** depend on whether the method is **overridden** or not.
 
@@ -22,11 +22,27 @@ This setup enables **polymorphism**, meaning we can use a parent class reference
     - This is called **dynamic method dispatch** (runtime polymorphism).
     - The overridden method in `Dog` will be executed.
     
-    java
-    
-    CopyEdit
-    
-    `class Animal {     void makeSound() {         System.out.println("Animal makes a sound");     } }  class Dog extends Animal {     @Override     void makeSound() {         System.out.println("Dog barks");     } }  public class Test {     public static void main(String[] args) {         Animal ad = new Dog();         ad.makeSound();  // Output: Dog barks     } }`
+```java
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Animal ad = new Dog();
+        ad.makeSound();  // Output: Dog barks
+    }
+}
+```
     
     Even though `ad` is of type `Animal`, since `makeSound()` is **overridden**, the method in `Dog` is executed.
     
