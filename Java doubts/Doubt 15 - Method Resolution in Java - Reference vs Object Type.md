@@ -440,7 +440,19 @@ This is **dynamic method dispatch**, and **Java dynamically binds `makeSound()` 
     
     - Java follows the **"Program to an interface, not an implementation"** principle.
     - The actual method to be called depends on the **object type at runtime**, allowing for **flexibility and extensibility**.
-    
+
+
+#### **What happens step by step?**
+
+- **Compile-time:** Java checks if `makeSound()` exists in `Animal`. ✅
+- **Runtime:** Java sees that `ad` holds a `Dog` object, so it dynamically binds `makeSound()` from `Dog`. ✅
+
+### **Key Takeaway**
+
+🔹 **Java does NOT bind the method at compile time because it only knows the reference type, NOT the actual object.**  
+🔹 **It binds at runtime based on the actual object type, enabling polymorphism.**
+
+Would you like a deeper explanation with memory diagrams? 🚀
 
 ---
 
