@@ -228,6 +228,7 @@ if (s6 instanceof Sub) {
 ```
 
 - Prevents **incorrect downcasting** at runtime.
+- **instanceOf **
 
 ---
 
