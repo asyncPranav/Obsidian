@@ -371,3 +371,126 @@ public class Test {
 
 #DOUBT  - **what does "dynamically binds the method" means explain in detail**
 
+
+The phrase **"dynamically binds the method"** refers to **dynamic method dispatch**, also known as **runtime polymorphism**. This means that Java determines **which version of a method to call at runtime, based on the actual object type, not the reference type**.
+
+---
+
+## **1. What is "Binding" in Java?**
+
+**Binding** is the process of **linking a method call to its actual implementation** in memory.
+
+There are two types of binding:
+
+1. **Static Binding (Early Binding)** → Happens at **compile time**.
+2. **Dynamic Binding (Late Binding)** → Happens at **runtime**.
+
+---
+
+## **2. What is Dynamic Binding?**
+
+**Dynamic binding means that the method that gets executed is determined at runtime based on the actual object's type.**
+
+- When a method is **overridden** in a subclass, Java decides **at runtime** which version of the method to call.
+- Even if a reference variable is of the parent class, the method **from the actual object (child class) is executed**.
+
+### **Example: Dynamic Binding in Action**
+
+```java
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Animal ad = new Dog();  // Upcasting
+        ad.makeSound();  // Output: Dog barks (NOT "Animal makes a sound")
+    }
+}
+```
+
+### **Explanation**
+
+- **At compile time:** Java checks that `makeSound()` exists in `Animal` (the reference type).
+- **At runtime:** Java sees that `ad` actually holds a `Dog` object, so it calls `Dog`'s overridden `makeSound()` instead of `Animal`'s.
+
+This is **dynamic method dispatch**, and **Java dynamically binds `makeSound()` to the `Dog` class method at runtime**.
+
+---
+
+## **3. Why Does Java Use Dynamic Binding?**
+
+Dynamic binding enables **polymorphism**, allowing Java to: ✔ Achieve **method overriding**.  
+✔ Support **extensibility** (e.g., adding new subclasses without modifying existing code).  
+✔ Allow **flexibility** in handling different object types via a common interface.
+
+---
+
+## **4. How is Dynamic Binding Different from Static Binding?**
+
+|Feature|**Static Binding (Early Binding)**|**Dynamic Binding (Late Binding)**|
+|---|---|---|
+|Happens at|**Compile time**|**Runtime**|
+|Used for|**Static methods, final methods, private methods, overloaded methods**|**Overridden methods**|
+|Method execution|Based on **reference type**|Based on **object type**|
+|Performance|Faster, since method resolution is done at compile time|Slightly slower, since method resolution is done at runtime|
+
+---
+
+## **5. Example of Static vs Dynamic Binding**
+
+### **Static Binding (Compile Time) Example**
+
+```java
+class Animal {
+    static void staticMethod() {
+        System.out.println("Animal static method");
+    }
+}
+
+class Dog extends Animal {
+    static void staticMethod() {
+        System.out.println("Dog static method");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Animal ad = new Dog();
+        ad.staticMethod();  // Output: Animal static method (NOT "Dog static method")
+    }
+}
+```
+
+**Explanation:**
+
+- Static methods are **resolved at compile time** based on the **reference type (Animal)**.
+- Even though `ad` refers to a `Dog` object, the method **is not overridden**, but **hidden**.
+
+---
+
+### **Dynamic Binding (Runtime) Example**
+
+```ja
+```
+
+- The method is **overridden**, so **Java resolves it at runtime** based on the object type (`Dog`).
+- This is **dynamic binding**.
+
+---
+
+## **6. Key Takeaways**
+
+✔ **Dynamic Binding happens when a method is overridden.**  
+✔ **Java binds the method call at runtime, based on the object type, not the reference type.**  
+✔ **Static methods, private methods, and final methods use static binding (compile-time resolution).**  
+✔ **Dynamic Binding enables runtime polymorphism, making Java more flexible and extensible.**
