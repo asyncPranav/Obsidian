@@ -51,22 +51,49 @@ public class Test {
     - The method from the **parent class** (`Animal`) is executed.
     - This happens because **no overridden version exists** in the child class.
     
-    java
-    
-    CopyEdit
-    
-    `class Animal {     void sleep() {         System.out.println("Animal sleeps");     } }  class Dog extends Animal {      // No overriding of sleep() }  public class Test {     public static void main(String[] args) {         Animal ad = new Dog();         ad.sleep();  // Output: Animal sleeps     } }`
+```java
+class Animal {
+    void sleep() {
+        System.out.println("Animal sleeps");
+    }
+}
+
+class Dog extends Animal { 
+    // No overriding of sleep()
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Animal ad = new Dog();
+        ad.sleep();  // Output: Animal sleeps
+    }
+}
+```
     
 3. **If the method exists only in the child class**
     
     - You **cannot** directly call it using the parent class reference.
     - You'll need to **typecast** to access the method.
     
-    java
-    
-    CopyEdit
-    
-    `class Animal { }  class Dog extends Animal {     void wagTail() {         System.out.println("Dog wags tail");     } }  public class Test {     public static void main(String[] args) {         Animal ad = new Dog();         // ad.wagTail();  // ❌ Compile-time error: cannot find symbol                  // Correct approach:         ((Dog) ad).wagTail();  // ✅ Output: Dog wags tail     } }`
+```java
+class Animal { }
+
+class Dog extends Animal {
+    void wagTail() {
+        System.out.println("Dog wags tail");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Animal ad = new Dog();
+        // ad.wagTail();  // ❌ Compile-time error: cannot find symbol
+        
+        // Correct approach:
+        ((Dog) ad).wagTail();  // ✅ Output: Dog wags tail
+    }
+}
+```
     
 
 ### **Conclusion**
@@ -75,4 +102,3 @@ public class Test {
 - **Non-overridden methods** → Resolved **based on the reference type (`Animal`)** at compile time.
 - **Child-specific methods** → Cannot be accessed unless explicitly cast to the child class.
 
-Let me know if you need further clarification! 🚀
