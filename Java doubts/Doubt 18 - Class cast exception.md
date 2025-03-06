@@ -105,7 +105,8 @@ if (s4 instanceof Sub) {
 
 ----
 
-# **Understand in Detail : **
+# 🚀**Understand in Detail :**
+
 
 ### **Understanding `Sub s3 = (Sub) new Super();` in Detail**
 
@@ -117,11 +118,25 @@ This statement attempts to **cast a superclass (`Super`) object to a subclass (`
 
 Before explaining the issue, let's define a **simple class hierarchy**:
 
-java
+```java
+class Super {
+    void display() {
+        System.out.println("Super class method");
+    }
+}
 
-CopyEdit
+class Sub extends Super {
+    void show() {
+        System.out.println("Sub class method");
+    }
+}
 
-`class Super {     void display() {         System.out.println("Super class method");     } }  class Sub extends Super {     void show() {         System.out.println("Sub class method");     } }  public class Test {     public static void main(String[] args) {         Sub s3 = (Sub) new Super(); // ❌ Runtime Error     } }`
+public class Test {
+    public static void main(String[] args) {
+        Sub s3 = (Sub) new Super(); // ❌ Runtime Error
+    }
+}
+```
 
 🔴 **What happens?**
 
@@ -156,11 +171,12 @@ CopyEdit
 
 Upcasting means assigning a **subclass object to a superclass reference**.
 
-java
+```java
+Super s1 = new Sub(); // ✅ Upcasting (Implicit, Always Safe)
+s1.display();  // Works because display() is in Super
 
-CopyEdit
-
-`Super s1 = new Sub(); // ✅ Upcasting (Implicit, Always Safe) s1.display();  // Works because display() is in Super  // s1.show(); ❌ Error: Cannot call Sub's methods using Super reference`
+// s1.show(); ❌ Error: Cannot call Sub's methods using Super reference
+```
 
 - **Why is this allowed?**
     - `Sub` **is a** `Super` (Inheritance relationship).
