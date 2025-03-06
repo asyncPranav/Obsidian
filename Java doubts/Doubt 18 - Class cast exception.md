@@ -189,11 +189,11 @@ s1.display();  // Works because display() is in Super
 
 Downcasting is converting a **superclass reference** back to a **subclass reference**.
 
-java
-
-CopyEdit
-
-`Super s2 = new Sub(); // ✅ Upcasting Sub s3 = (Sub) s2;   // ✅ Downcasting (Explicit) s3.show();  // Works because s2 was originally a Sub object`
+```java
+Super s2 = new Sub(); // ✅ Upcasting
+Sub s3 = (Sub) s2;   // ✅ Downcasting (Explicit)
+s3.show();  // Works because s2 was originally a Sub object
+```
 
 - **Why is this allowed?**
     - `s2` actually holds a `Sub` object, so Java allows the cast.
@@ -202,11 +202,10 @@ CopyEdit
 
 ### **❌ Incorrect Downcasting (Causes Error)**
 
-java
-
-CopyEdit
-
-`Super s4 = new Super(); // Pure Super object Sub s5 = (Sub) s4; // ❌ Runtime Error: ClassCastException`
+```java
+Super s4 = new Super(); // Pure Super object
+Sub s5 = (Sub) s4; // ❌ Runtime Error: ClassCastException
+```
 
 - **Why does this fail?**
     - `s4` is **not** a `Sub` object.
@@ -218,11 +217,15 @@ CopyEdit
 
 ✅ **Use `instanceof` before downcasting:**
 
-java
+```java
+Super s6 = new Super();
 
-CopyEdit
-
-`Super s6 = new Super();  if (s6 instanceof Sub) {     Sub s7 = (Sub) s6; // Only executes if s6 is actually a Sub object } else {     System.out.println("Downcasting not possible."); }`
+if (s6 instanceof Sub) {
+    Sub s7 = (Sub) s6; // Only executes if s6 is actually a Sub object
+} else {
+    System.out.println("Downcasting not possible.");
+}
+```
 
 - Prevents **incorrect downcasting** at runtime.
 
@@ -232,21 +235,18 @@ CopyEdit
 
 Imagine you have a **general Animal class** and a **Dog subclass**:
 
-java
-
-CopyEdit
-
-`class Animal { } class Dog extends Animal { }`
+```java
+class Animal { }
+class Dog extends Animal { }
+```
 
 - ✅ **Upcasting (Safe)**
     
     - A **Dog** is an **Animal**, so this is valid:
         
-        java
-        
-        CopyEdit
-        
-        `Animal a = new Dog(); // Upcasting (Safe)`
+```java
+Animal a = new Dog(); // Upcasting (Safe)
+```
         
 - ❌ **Downcasting (Unsafe without checking)**
     
