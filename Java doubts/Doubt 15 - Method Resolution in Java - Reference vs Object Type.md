@@ -104,9 +104,15 @@ public class Test {
 
 ---
 
+
+
+
 # **🚀 Detailed Discussion**
 
-#### **Understanding Method Resolution in Java: Reference vs Object Type**
+---
+
+
+### **Understanding Method Resolution in Java: Reference vs Object Type**
 
 This problem is about **how Java determines which method to call when an object is accessed through a reference of a parent class**. It revolves around **polymorphism**, **dynamic method dispatch**, and **method resolution rules**. Let's break it down step by step.
 
@@ -136,11 +142,27 @@ This statement consists of two parts:
 
 #### **Example**
 
-java
+```java
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
 
-CopyEdit
+class Dog extends Animal {
+    @Override
+    void makeSound() {  // Overridden method
+        System.out.println("Dog barks");
+    }
+}
 
-`class Animal {     void makeSound() {         System.out.println("Animal makes a sound");     } }  class Dog extends Animal {     @Override     void makeSound() {  // Overridden method         System.out.println("Dog barks");     } }  public class Test {     public static void main(String[] args) {         Animal ad = new Dog();         ad.makeSound();  // Output: Dog barks     } }`
+public class Test {
+    public static void main(String[] args) {
+        Animal ad = new Dog();
+        ad.makeSound();  // Output: Dog barks
+    }
+}
+```
 
 **Why does this happen?**
 
@@ -155,11 +177,24 @@ CopyEdit
 
 #### **Example**
 
-java
+```java
+class Animal {
+    void sleep() {
+        System.out.println("Animal sleeps");
+    }
+}
 
-CopyEdit
+class Dog extends Animal {
+    // No overridden method
+}
 
-`class Animal {     void sleep() {         System.out.println("Animal sleeps");     } }  class Dog extends Animal {     // No overridden method }  public class Test {     public static void main(String[] args) {         Animal ad = new Dog();         ad.sleep();  // Output: Animal sleeps     } }`
+public class Test {
+    public static void main(String[] args) {
+        Animal ad = new Dog();
+        ad.sleep();  // Output: Animal sleeps
+    }
+}
+```
 
 **Why does this happen?**
 
