@@ -257,13 +257,14 @@ Dog d = (Dog) a; // ❌ Runtime error: ClassCastException
 	
 **Why?** Because `a` is **not actually a Dog**.
 
+
 ✅ **Fix it with `instanceof`**
 
-java
-
-CopyEdit
-
-`if (a instanceof Dog) {     Dog d = (Dog) a;  // Safe downcasting }`
+```java
+if (a instanceof Dog) {
+    Dog d = (Dog) a;  // Safe downcasting
+}
+```
 
 ---
 
@@ -284,4 +285,3 @@ CopyEdit
 🔴 **Casting `Super` to `Sub` directly is invalid unless the object was originally a `Sub` instance.**  
 🔵 **Always use `instanceof` to check before downcasting.**
 
-Would you like a more interactive example to test this in a program? 🚀
