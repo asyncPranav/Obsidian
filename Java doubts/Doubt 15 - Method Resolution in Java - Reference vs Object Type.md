@@ -365,5 +365,9 @@ public class Test {
 - **Static, private, and final methods** follow different resolution rules.
 
 
+---
 
+
+
+#DOUBT  - **what does "dynamically binds the method" means explain in detail**
 
