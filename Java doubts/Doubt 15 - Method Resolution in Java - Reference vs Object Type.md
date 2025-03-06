@@ -209,11 +209,26 @@ public class Test {
 
 #### **Example**
 
-java
+```java
+class Animal {
+}
 
-CopyEdit
+class Dog extends Animal {
+    void wagTail() {
+        System.out.println("Dog wags tail");
+    }
+}
 
-`class Animal { }  class Dog extends Animal {     void wagTail() {         System.out.println("Dog wags tail");     } }  public class Test {     public static void main(String[] args) {         Animal ad = new Dog();         // ad.wagTail();  // ❌ Compile-time error: cannot find symbol                  // Correct approach: Explicitly typecast to Dog         ((Dog) ad).wagTail();  // ✅ Output: Dog wags tail     } }`
+public class Test {
+    public static void main(String[] args) {
+        Animal ad = new Dog();
+        // ad.wagTail();  // ❌ Compile-time error: cannot find symbol
+        
+        // Correct approach: Explicitly typecast to Dog
+        ((Dog) ad).wagTail();  // ✅ Output: Dog wags tail
+    }
+}
+```
 
 **Why does this happen?**
 
@@ -231,11 +246,26 @@ CopyEdit
 
 #### **Example**
 
-java
+```java
+class Animal {
+    static void staticMethod() {
+        System.out.println("Static method in Animal");
+    }
+}
 
-CopyEdit
+class Dog extends Animal {
+    static void staticMethod() {
+        System.out.println("Static method in Dog");
+    }
+}
 
-`class Animal {     static void staticMethod() {         System.out.println("Static method in Animal");     } }  class Dog extends Animal {     static void staticMethod() {         System.out.println("Static method in Dog");     } }  public class Test {     public static void main(String[] args) {         Animal ad = new Dog();         ad.staticMethod();  // Output: Static method in Animal     } }`
+public class Test {
+    public static void main(String[] args) {
+        Animal ad = new Dog();
+        ad.staticMethod();  // Output: Static method in Animal
+    }
+}
+```
 
 **Explanation:**
 
@@ -251,11 +281,26 @@ CopyEdit
 
 #### **Example**
 
-java
+```java
+class Animal {
+    final void finalMethod() {
+        System.out.println("Final method in Animal");
+    }
+}
 
-CopyEdit
+class Dog extends Animal {
+    // void finalMethod() {  // ❌ Compile-time error: Cannot override final method
+    //     System.out.println("Final method in Dog");
+    // }
+}
 
-`class Animal {     final void finalMethod() {         System.out.println("Final method in Animal");     } }  class Dog extends Animal {     // void finalMethod() {  // ❌ Compile-time error: Cannot override final method     //     System.out.println("Final method in Dog");     // } }  public class Test {     public static void main(String[] args) {         Animal ad = new Dog();         ad.finalMethod();  // Output: Final method in Animal     } }`
+public class Test {
+    public static void main(String[] args) {
+        Animal ad = new Dog();
+        ad.finalMethod();  // Output: Final method in Animal
+    }
+}
+```
 
 ---
 
@@ -266,11 +311,31 @@ CopyEdit
 
 #### **Example**
 
-java
+```java
+class Animal {
+    private void privateMethod() {
+        System.out.println("Private method in Animal");
+    }
 
-CopyEdit
+    void test() {
+        privateMethod();  // This works within the class
+    }
+}
 
-`class Animal {     private void privateMethod() {         System.out.println("Private method in Animal");     }      void test() {         privateMethod();  // This works within the class     } }  class Dog extends Animal {     private void privateMethod() {  // This is NOT an override         System.out.println("Private method in Dog");     } }  public class Test {     public static void main(String[] args) {         Animal ad = new Dog();         // ad.privateMethod();  // ❌ Compile-time error: cannot find symbol         ad.test();  // Output: Private method in Animal     } }`
+class Dog extends Animal {
+    private void privateMethod() {  // This is NOT an override
+        System.out.println("Private method in Dog");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Animal ad = new Dog();
+        // ad.privateMethod();  // ❌ Compile-time error: cannot find symbol
+        ad.test();  // Output: Private method in Animal
+    }
+}
+```
 
 **Explanation:**
 
