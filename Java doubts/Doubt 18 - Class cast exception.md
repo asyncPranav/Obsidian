@@ -46,32 +46,28 @@ public class Test {
 
 #### **✅ Upcasting (Safe)**
 
-java
-
-CopyEdit
-
-`Super s1 = new Sub();  // Upcasting (Implicit, Always Safe)`
+```java
+Super s1 = new Sub();  // Upcasting (Implicit, Always Safe)
+```
 
 - Here, a `Sub` object is stored in a `Super` reference.
 - **Allowed because a subclass object "is-a" superclass object.**
 
 #### **✅ Downcasting (Requires Type Check)**
 
-java
-
-CopyEdit
-
-`Super s2 = new Sub(); // Upcasting Sub s3 = (Sub) s2;   // ✅ Downcasting (Explicit, Safe)`
+```java
+Super s2 = new Sub(); // Upcasting
+Sub s3 = (Sub) s2;   // ✅ Downcasting (Explicit, Safe)
+```
 
 - Since `s2` **actually refers to a `Sub` object**, the downcasting works.
 
 #### **❌ Incorrect Downcasting (Causes Error)**
 
-java
-
-CopyEdit
-
-`Super s4 = new Super(); Sub s5 = (Sub) s4; // ❌ ClassCastException!`
+```java
+Super s4 = new Super();
+Sub s5 = (Sub) s4; // ❌ ClassCastException!
+```
 
 - **Fails** because `s4` is not a `Sub` object.
 
@@ -81,11 +77,8 @@ CopyEdit
 
 ✅ **Use `instanceof` to check before downcasting:**
 
-java
-
-CopyEdit
-
-`if (s4 instanceof Sub) {     Sub s5 = (Sub) s4; } else {     System.out.println("Downcasting not possible."); }`
+```java
+```
 
 ---
 
