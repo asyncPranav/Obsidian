@@ -151,11 +151,15 @@ public class Test {
 
 Every class in Java inherits from `Object`, so `instanceof` works with it too.
 
-java
-
-CopyEdit
-
-`class Example { } public class Test {     public static void main(String[] args) {         Example e = new Example();         System.out.println(e instanceof Object); // ✅ true (Every class extends Object)     } }`
+```java
+class Example { }
+public class Test {
+    public static void main(String[] args) {
+        Example e = new Example();
+        System.out.println(e instanceof Object); // ✅ true (Every class extends Object)
+    }
+}
+```
 
 🔹 **Every Java object is an instance of `Object` by default**.
 
@@ -165,21 +169,33 @@ CopyEdit
 
 ### ❌ **Misconception 1: Checking `instanceof` between unrelated classes**
 
-java
+```java
+class A { }
+class B { }
 
-CopyEdit
-
-`class A { } class B { }  public class Test {     public static void main(String[] args) {         A obj = new A();         System.out.println(obj instanceof B); // ❌ Compilation Error!     } }`
+public class Test {
+    public static void main(String[] args) {
+        A obj = new A();
+        System.out.println(obj instanceof B); // ❌ Compilation Error!
+    }
+}
+```
 
 🔴 **Error:** `A` and `B` have no relationship (neither inheritance nor implementation).
 
 ### ❌ **Misconception 2: Thinking `instanceof` Changes Object Type**
 
-java
+```java
+class Parent { }
+class Child extends Parent { }
 
-CopyEdit
-
-`class Parent { } class Child extends Parent { }  public class Test {     public static void main(String[] args) {         Parent p = new Parent();         System.out.println(p instanceof Child); // ❌ false     } }`
+public class Test {
+    public static void main(String[] args) {
+        Parent p = new Parent();
+        System.out.println(p instanceof Child); // ❌ false
+    }
+}
+```
 
 🔴 Even though `p` is declared as `Parent`, it is **not** a `Child` object, so `instanceof` returns `false`.
 
