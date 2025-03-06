@@ -250,13 +250,12 @@ Animal a = new Dog(); // Upcasting (Safe)
         
 - ❌ **Downcasting (Unsafe without checking)**
     
-    java
-    
-    CopyEdit
-    
-    `Animal a = new Animal();   Dog d = (Dog) a; // ❌ Runtime error: ClassCastException`
-    
-    - **Why?** Because `a` is **not actually a Dog**.
+```java
+Animal a = new Animal();  
+Dog d = (Dog) a; // ❌ Runtime error: ClassCastException
+```
+	
+**Why?** Because `a` is **not actually a Dog**.
 
 ✅ **Fix it with `instanceof`**
 
