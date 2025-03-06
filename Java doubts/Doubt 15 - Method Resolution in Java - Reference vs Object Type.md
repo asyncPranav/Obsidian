@@ -168,6 +168,7 @@ public class Test {
 **Why does this happen?**
 
 - Even though `ad` is of type `Animal`, Java **dynamically binds** the method call to `Dog`'s `makeSound()` at runtime because `makeSound()` is overridden.
+- **Binding -** [[Doubt 17 - Binding in Java]]
 - This is the essence of **runtime polymorphism**.
 
 ---
