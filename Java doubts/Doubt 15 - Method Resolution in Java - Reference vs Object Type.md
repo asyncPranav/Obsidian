@@ -452,13 +452,13 @@ This is **dynamic method dispatch**, and **Java dynamically binds `makeSound()` 
 🔹 **Java does NOT bind the method at compile time because it only knows the reference type, NOT the actual object.**  
 🔹 **It binds at runtime based on the actual object type, enabling polymorphism.**
 
-Would you like a deeper explanation with memory diagrams? 🚀
 
 ---
 
 ## **3. Why Does Java Use Dynamic Binding?**
 
-Dynamic binding enables **polymorphism**, allowing Java to: ✔ Achieve **method overriding**.  
+Dynamic binding enables **polymorphism**, allowing Java to: 
+✔ Achieve **method overriding**.  
 ✔ Support **extensibility** (e.g., adding new subclasses without modifying existing code).  
 ✔ Allow **flexibility** in handling different object types via a common interface.
 
@@ -466,12 +466,12 @@ Dynamic binding enables **polymorphism**, allowing Java to: ✔ Achieve **method
 
 ## **4. How is Dynamic Binding Different from Static Binding?**
 
-|Feature|**Static Binding (Early Binding)**|**Dynamic Binding (Late Binding)**|
-|---|---|---|
-|Happens at|**Compile time**|**Runtime**|
-|Used for|**Static methods, final methods, private methods, overloaded methods**|**Overridden methods**|
-|Method execution|Based on **reference type**|Based on **object type**|
-|Performance|Faster, since method resolution is done at compile time|Slightly slower, since method resolution is done at runtime|
+| Feature          | **Static Binding (Early Binding)**                                     | **Dynamic Binding (Late Binding)**                          |
+| ---------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------- |
+| Happens at       | **Compile time**                                                       | **Runtime**                                                 |
+| Used for         | **Static methods, final methods, private methods, overloaded methods** | **Overridden methods**                                      |
+| Method execution | Based on **reference type**                                            | Based on **object type**                                    |
+| Performance      | Faster, since method resolution is done at compile time                | Slightly slower, since method resolution is done at runtime |
 
 ---
 
