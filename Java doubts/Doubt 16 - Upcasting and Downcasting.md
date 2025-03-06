@@ -56,11 +56,28 @@ public class Test {
 
 ### **Example of Downcasting**
 
-java
+```java
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
 
-CopyEdit
+class Dog extends Animal {
+    void wagTail() {
+        System.out.println("Dog is wagging its tail");
+    }
+}
 
-`class Animal {     void makeSound() {         System.out.println("Animal makes a sound");     } }  class Dog extends Animal {     void wagTail() {         System.out.println("Dog is wagging its tail");     } }  public class Test {     public static void main(String[] args) {         Animal a = new Dog();  // ✅ Upcasting (Implicit)          Dog d = (Dog) a;  // ✅ Downcasting (Explicit)         d.wagTail();  // Output: Dog is wagging its tail     } }`
+public class Test {
+    public static void main(String[] args) {
+        Animal a = new Dog();  // ✅ Upcasting (Implicit)
+
+        Dog d = (Dog) a;  // ✅ Downcasting (Explicit)
+        d.wagTail();  // Output: Dog is wagging its tail
+    }
+}
+```
 
 ### **Key Points of Downcasting**
 
@@ -74,11 +91,25 @@ CopyEdit
 
 🚨 **If the object is not actually of the subclass type, Java throws `ClassCastException`.**
 
-java
+```java
+class Animal {
+}
 
-CopyEdit
+class Dog extends Animal {
+}
 
-`class Animal { }  class Dog extends Animal { }  class Cat extends Animal { }  public class Test {     public static void main(String[] args) {         Animal a = new Cat();  // ✅ Upcasting          Dog d = (Dog) a;  // ❌ Incorrect Downcasting         // Runtime Error: ClassCastException     } }`
+class Cat extends Animal {
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Animal a = new Cat();  // ✅ Upcasting
+		
+        Dog d = (Dog) a;  // ❌ Incorrect Downcasting
+        // Runtime Error: ClassCastException
+    }
+}
+```
 
 **🔴 Why?**
 
@@ -91,19 +122,24 @@ CopyEdit
 
 Use `instanceof` before downcasting to check if the object belongs to the correct type.
 
-java
+```java
+public class Test {
+    public static void main(String[] args) {
+        Animal a = new Cat();  // ✅ Upcasting
+		
+        if (a instanceof Dog) {
+            Dog d = (Dog) a;  // ✅ Safe Downcasting
+            System.out.println("Downcasting successful!");
+        } else {
+            System.out.println("Downcasting not possible.");
+        }
+    }
+}
+```
 
-CopyEdit
-
-`public class Test {     public static void main(String[] args) {         Animal a = new Cat();  // ✅ Upcasting          if (a instanceof Dog) {             Dog d = (Dog) a;  // ✅ Safe Downcasting             System.out.println("Downcasting successful!");         } else {             System.out.println("Downcasting not possible.");         }     } }`
-
-**Output:**
-
-nginx
-
-CopyEdit
-
-`Downcasting not possible.`
+```sh
+Downcasting not possible.
+```
 
 ---
 
