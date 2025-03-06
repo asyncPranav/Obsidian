@@ -44,7 +44,7 @@ public class Test {
 }
 ```
     
-    Even though `ad` is of type `Animal`, since `makeSound()` is **overridden**, the method in `Dog` is executed.
+Even though `ad` is of type `Animal`, since `makeSound()` is **overridden**, the method in `Dog` is executed.
     
 2. **If the method is not overridden in the child class**
     
