@@ -573,11 +573,26 @@ class StaticBindingExample {
 
 ### **Example 2: Static Binding with Static Methods**
 
-java
+```java
+class Parent {
+    static void display() {
+        System.out.println("Static method in Parent");
+    }
+}
 
-CopyEdit
+class Child extends Parent {
+    static void display() {
+        System.out.println("Static method in Child");
+    }
+}
 
-`class Parent {     static void display() {         System.out.println("Static method in Parent");     } }  class Child extends Parent {     static void display() {         System.out.println("Static method in Child");     } }  public class Test {     public static void main(String[] args) {         Parent p = new Child();         p.display();  // Output: Static method in Parent     } }`
+public class Test {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        p.display();  // Output: Static method in Parent
+    }
+}
+```
 
 ### **Explanation**
 
@@ -588,11 +603,24 @@ CopyEdit
 
 ### **Example 3: Static Binding with Final Methods**
 
-java
+```java
+class Parent {
+    final void finalMethod() {
+        System.out.println("Final method in Parent");
+    }
+}
 
-CopyEdit
+class Child extends Parent {
+    // Cannot override finalMethod() since it's final
+}
 
-`class Parent {     final void finalMethod() {         System.out.println("Final method in Parent");     } }  class Child extends Parent {     // Cannot override finalMethod() since it's final }  public class Test {     public static void main(String[] args) {         Parent p = new Child();         p.finalMethod();  // Output: Final method in Parent     } }`
+public class Test {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        p.finalMethod();  // Output: Final method in Parent
+    }
+}
+```
 
 ### **Explanation**
 
@@ -603,11 +631,30 @@ CopyEdit
 
 ### **Example 4: Static Binding with Private Methods**
 
-java
+```java
+class Parent {
+    private void privateMethod() {
+        System.out.println("Private method in Parent");
+    }
 
-CopyEdit
+    void test() {
+        privateMethod();  // This works within the class
+    }
+}
 
-`class Parent {     private void privateMethod() {         System.out.println("Private method in Parent");     }      void test() {         privateMethod();  // This works within the class     } }  class Child extends Parent {     private void privateMethod() {  // This is NOT overriding, just a separate method         System.out.println("Private method in Child");     } }  public class Test {     public static void main(String[] args) {         Parent p = new Child();         p.test();  // Output: Private method in Parent     } }`
+class Child extends Parent {
+    private void privateMethod() {  // This is NOT overriding, just a separate method
+        System.out.println("Private method in Child");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        p.test();  // Output: Private method in Parent
+    }
+}
+```
 
 ### **Explanation**
 
@@ -628,11 +675,27 @@ Dynamic binding occurs **at runtime**, meaning the method call is resolved based
 
 ### **Example 1: Dynamic Binding with Method Overriding**
 
-java
+```java
+class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
 
-CopyEdit
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Dog barks");
+    }
+}
 
-`class Animal {     void makeSound() {         System.out.println("Animal makes a sound");     } }  class Dog extends Animal {     @Override     void makeSound() {         System.out.println("Dog barks");     } }  public class Test {     public static void main(String[] args) {         Animal a = new Dog();  // Upcasting         a.makeSound();  // Output: Dog barks     } }`
+public class Test {
+    public static void main(String[] args) {
+        Animal a = new Dog();  // Upcasting
+        a.makeSound();  // Output: Dog barks
+    }
+}
+```
 
 ### **Explanation**
 
@@ -644,11 +707,37 @@ CopyEdit
 
 ### **Example 2: Dynamic Binding with Multiple Subclasses**
 
-java
+```java
+class Parent {
+    void show() {
+        System.out.println("Parent class method");
+    }
+}
 
-CopyEdit
+class Child1 extends Parent {
+    @Override
+    void show() {
+        System.out.println("Child1 class method");
+    }
+}
 
-`class Parent {     void show() {         System.out.println("Parent class method");     } }  class Child1 extends Parent {     @Override     void show() {         System.out.println("Child1 class method");     } }  class Child2 extends Parent {     @Override     void show() {         System.out.println("Child2 class method");     } }  public class Test {     public static void main(String[] args) {         Parent p1 = new Child1();         Parent p2 = new Child2();          p1.show();  // Output: Child1 class method         p2.show();  // Output: Child2 class method     } }`
+class Child2 extends Parent {
+    @Override
+    void show() {
+        System.out.println("Child2 class method");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Parent p1 = new Child1();
+        Parent p2 = new Child2();
+
+        p1.show();  // Output: Child1 class method
+        p2.show();  // Output: Child2 class method
+    }
+}
+```
 
 ### **Explanation**
 
