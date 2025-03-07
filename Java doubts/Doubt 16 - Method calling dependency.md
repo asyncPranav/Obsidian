@@ -78,11 +78,9 @@ public class Main {
 
 **Output:**
 
-rust
-
-Copy code
-
-`Parent's static method`
+```sh
+Parent's static method
+```
 
 👉 **Why?** Static methods are **resolved at compile-time** and are called based on **reference type**, not object.
 
@@ -94,11 +92,25 @@ Overloaded methods are resolved at **compile time**, based on the reference type
 
 #### **Example**
 
-java
+```java
+class Demo {
+    void show(int a) {
+        System.out.println("Integer method");
+    }
+    
+    void show(String s) {
+        System.out.println("String method");
+    }
+}
 
-Copy code
-
-`class Demo {     void show(int a) {         System.out.println("Integer method");     }          void show(String s) {         System.out.println("String method");     } }  public class Main {     public static void main(String[] args) {         Demo d = new Demo();         d.show(10);      // Calls show(int)         d.show("Hello"); // Calls show(String)     } }`
+public class Main {
+    public static void main(String[] args) {
+        Demo d = new Demo();
+        d.show(10);      // Calls show(int)
+        d.show("Hello"); // Calls show(String)
+    }
+}
+```
 
 👉 **Why?** The compiler decides which method to call based on the method signature at **compile-time**.
 
