@@ -343,7 +343,7 @@ class Dog extends Animal {
 ---
 
 
-**NEXT ->** [[11 - static Keyword]]  or/and [[13 - Polymorphism]]
+**NEXT ->** [[12 - static Keyword]]  or/and [[14 - Polymorphism]]
 
 
 ---
