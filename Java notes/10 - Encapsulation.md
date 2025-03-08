@@ -197,35 +197,51 @@ public class Main {
 
 ❌ **1. Making instance variables public**
 
-java
-
-CopyEdit
-
-`class WrongExample {     public int age;  // ❌ Direct access to data }`
+```java
+class WrongExample {
+    public int age;  // ❌ Direct access to data
+}
+```
 
 ✅ **Fix:** Use private variables and provide controlled access.
 
-java
-
-CopyEdit
-
-`class CorrectExample {     private int age;  // ✅ Private variable      public int getAge() {         return age;     }      public void setAge(int age) {         if (age > 0) { // ✅ Validation             this.age = age;         }     } }`
+```java
+class CorrectExample {
+    private int age;  // ✅ Private variable
+	
+    public int getAge() {
+        return age;
+    }
+	
+    public void setAge(int age) {
+        if (age > 0) { // ✅ Validation
+            this.age = age;
+        }
+    }
+}
+```
 
 ❌ **2. Allowing modifications without validation**
 
-java
-
-CopyEdit
-
-`class Account {     private double balance;      public void setBalance(double balance) {         this.balance = balance;  // ❌ No validation     } }`
+```java
+class Account {
+    private double balance;
+	
+    public void setBalance(double balance) {
+        this.balance = balance;  // ❌ No validation
+    }
+}
+```
 
 ✅ **Fix:** Always validate inputs.
 
-java
-
-CopyEdit
-
-`public void setBalance(double balance) {     if (balance >= 0) {  // ✅ Validation         this.balance = balance;     } }`
+```java
+public void setBalance(double balance) {
+    if (balance >= 0) {  // ✅ Validation
+        this.balance = balance;
+    }
+}
+```
 
 ---
 
