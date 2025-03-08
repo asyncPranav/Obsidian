@@ -16,11 +16,26 @@ A **concrete class** is a normal Java class that contains both **fields (variabl
 
 ### **Example:**
 
-java
+```java
+class Car {
+    String brand;
+    
+    Car(String brand) {
+        this.brand = brand;
+    }
+	
+    void drive() {
+        System.out.println(brand + " is driving");
+    }
+}
 
-CopyEdit
-
-`class Car {     String brand;          Car(String brand) {         this.brand = brand;     }      void drive() {         System.out.println(brand + " is driving");     } }  public class Main {     public static void main(String[] args) {         Car myCar = new Car("Toyota");         myCar.drive(); // Output: Toyota is driving     } }`
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car("Toyota");
+        myCar.drive(); // Output: Toyota is driving
+    }
+}
+```
 
 Here, `Car` is a **concrete class** since it is fully implemented and can be instantiated.
 
@@ -40,11 +55,29 @@ An **abstract class** is a class that **cannot be instantiated**. It **must be i
 
 ### **Example:**
 
-java
+```java
+abstract class Animal {
+    abstract void makeSound(); // Abstract method (must be implemented by subclasses)
 
-CopyEdit
+    void sleep() { // Concrete method
+        System.out.println("Sleeping...");
+    }
+}
 
-`abstract class Animal {     abstract void makeSound(); // Abstract method (must be implemented by subclasses)      void sleep() { // Concrete method         System.out.println("Sleeping...");     } }  class Dog extends Animal {     void makeSound() {         System.out.println("Barking...");     } }  public class Main {     public static void main(String[] args) {         Dog d = new Dog();         d.makeSound(); // Output: Barking...         d.sleep();     // Output: Sleeping...     } }`
+class Dog extends Animal {
+    void makeSound() {
+        System.out.println("Barking...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.makeSound(); // Output: Barking...
+        d.sleep();     // Output: Sleeping...
+    }
+}
+```
 
 Here:
 
@@ -66,11 +99,22 @@ A **final class** is a class that **cannot be extended (inherited)**. It is used
 
 ### **Example:**
 
-java
+```java
+final class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+}
 
-CopyEdit
+// class AdvancedCalculator extends Calculator {} // ❌ Error! Cannot extend a final class.
 
-`final class Calculator {     int add(int a, int b) {         return a + b;     } }  // class AdvancedCalculator extends Calculator {} // ❌ Error! Cannot extend a final class.  public class Main {     public static void main(String[] args) {         Calculator c = new Calculator();         System.out.println(c.add(5, 3)); // Output: 8     } }`
+public class Main {
+    public static void main(String[] args) {
+        Calculator c = new Calculator();
+        System.out.println(c.add(5, 3)); // Output: 8
+    }
+}
+```
 
 Here:
 
@@ -90,11 +134,22 @@ A **static nested class** is a class defined inside another class and **declared
 
 ### **Example:**
 
-java
+```java
+class Outer {
+    static class StaticNested {
+        void show() {
+            System.out.println("Inside Static Nested Class");
+        }
+    }
+}
 
-CopyEdit
-
-`class Outer {     static class StaticNested {         void show() {             System.out.println("Inside Static Nested Class");         }     } }  public class Main {     public static void main(String[] args) {         Outer.StaticNested obj = new Outer.StaticNested();         obj.show(); // Output: Inside Static Nested Class     } }`
+public class Main {
+    public static void main(String[] args) {
+        Outer.StaticNested obj = new Outer.StaticNested();
+        obj.show(); // Output: Inside Static Nested Class
+    }
+}
+```
 
 Here:
 
