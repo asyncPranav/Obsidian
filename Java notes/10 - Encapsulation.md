@@ -51,11 +51,59 @@ Let’s see an example of encapsulation in Java:
 
 ### **Example 1: Basic Encapsulation**
 
-java
+```java
+class BankAccount {
+    private double balance;  // Private variable (Data Hiding)
+	
+    // Constructor
+    public BankAccount(double initialBalance) {
+        if (initialBalance > 0) {
+            balance = initialBalance;
+        } else {
+            balance = 0;
+        }
+    }
+	
+    // Getter method to access private balance
+    public double getBalance() {
+        return balance;
+    }
+	
+    // Setter method to modify balance safely
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: " + amount);
+        } else {
+            System.out.println("Invalid deposit amount!");
+        }
+    }
+	
+    // Withdraw method with validation
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount);
+        } else {
+            System.out.println("Invalid withdrawal amount!");
+        }
+    }
+}
 
-CopyEdit
+public class Main {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount(1000); // Creating account with initial balance
+        System.out.println("Initial Balance: " + account.getBalance());
+		
+        account.deposit(500);
+        System.out.println("Updated Balance: " + account.getBalance());
+		
+        account.withdraw(300);
+        System.out.println("Final Balance: " + account.getBalance());
+    }
+}
 
-`class BankAccount {     private double balance;  // Private variable (Data Hiding)      // Constructor     public BankAccount(double initialBalance) {         if (initialBalance > 0) {             balance = initialBalance;         } else {             balance = 0;         }     }      // Getter method to access private balance     public double getBalance() {         return balance;     }      // Setter method to modify balance safely     public void deposit(double amount) {         if (amount > 0) {             balance += amount;             System.out.println("Deposited: " + amount);         } else {             System.out.println("Invalid deposit amount!");         }     }      // Withdraw method with validation     public void withdraw(double amount) {         if (amount > 0 && amount <= balance) {             balance -= amount;             System.out.println("Withdrawn: " + amount);         } else {             System.out.println("Invalid withdrawal amount!");         }     } }  public class Main {     public static void main(String[] args) {         BankAccount account = new BankAccount(1000); // Creating account with initial balance         System.out.println("Initial Balance: " + account.getBalance());          account.deposit(500);         System.out.println("Updated Balance: " + account.getBalance());          account.withdraw(300);         System.out.println("Final Balance: " + account.getBalance());     } }`
+```
 
 ### **Explanation:**
 
@@ -104,11 +152,42 @@ Encapsulation is widely used in real-world applications. Let’s see some real-w
 - You modify it using **setter methods** (Deposit & Withdraw).
 - **Validation** ensures you can’t withdraw more than you have.
 
-java
+```java
+class ATM {
+    private double balance = 5000;  // Private balance
+	
+    public double checkBalance() {
+        return balance;
+    }
+	
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposit successful! New balance: " + balance);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+	
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawal successful! Remaining balance: " + balance);
+        } else {
+            System.out.println("Invalid withdrawal amount or insufficient funds.");
+        }
+    }
+}
 
-CopyEdit
-
-`class ATM {     private double balance = 5000;  // Private balance      public double checkBalance() {         return balance;     }      public void deposit(double amount) {         if (amount > 0) {             balance += amount;             System.out.println("Deposit successful! New balance: " + balance);         } else {             System.out.println("Invalid deposit amount.");         }     }      public void withdraw(double amount) {         if (amount > 0 && amount <= balance) {             balance -= amount;             System.out.println("Withdrawal successful! Remaining balance: " + balance);         } else {             System.out.println("Invalid withdrawal amount or insufficient funds.");         }     } }  public class Main {     public static void main(String[] args) {         ATM myAccount = new ATM();         System.out.println("Balance: " + myAccount.checkBalance());         myAccount.deposit(1000);         myAccount.withdraw(2000);     } }`
+public class Main {
+    public static void main(String[] args) {
+        ATM myAccount = new ATM();
+        System.out.println("Balance: " + myAccount.checkBalance());
+        myAccount.deposit(1000);
+        myAccount.withdraw(2000);
+    }
+}
+```
 
 ✅ **Encapsulation ensures the balance is safe and only modified through controlled methods.**
 
