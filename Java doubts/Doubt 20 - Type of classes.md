@@ -168,11 +168,23 @@ An **inner class** is a class **inside another class** but **without the static 
 
 ### **Example:**
 
-java
+```java
+class Outer {
+    class Inner {
+        void display() {
+            System.out.println("Inside Inner Class");
+        }
+    }
+}
 
-CopyEdit
-
-`class Outer {     class Inner {         void display() {             System.out.println("Inside Inner Class");         }     } }  public class Main {     public static void main(String[] args) {         Outer outer = new Outer();         Outer.Inner inner = outer.new Inner();         inner.display(); // Output: Inside Inner Class     } }`
+public class Main {
+    public static void main(String[] args) {
+        Outer outer = new Outer();
+        Outer.Inner inner = outer.new Inner();
+        inner.display(); // Output: Inside Inner Class
+    }
+}
+```
 
 Here:
 
@@ -192,11 +204,22 @@ An **anonymous class** is a **class without a name**, usually created **on the f
 
 ### **Example:**
 
-java
+```java
+abstract class Person {
+    abstract void speak();
+}
 
-CopyEdit
-
-`abstract class Person {     abstract void speak(); }  public class Main {     public static void main(String[] args) {         Person p = new Person() {             void speak() {                 System.out.println("Hello, I am an anonymous class!");             }         };         p.speak(); // Output: Hello, I am an anonymous class!     } }`
+public class Main {
+    public static void main(String[] args) {
+        Person p = new Person() {
+            void speak() {
+                System.out.println("Hello, I am an anonymous class!");
+            }
+        };
+        p.speak(); // Output: Hello, I am an anonymous class!
+    }
+}
+```
 
 Here:
 
@@ -217,11 +240,24 @@ An **interface** is a blueprint for a class, containing only **abstract methods*
 
 ### **Example:**
 
-java
+```java
+interface Animal {
+    void makeSound();
+}
 
-CopyEdit
+class Cat implements Animal {
+    public void makeSound() {
+        System.out.println("Meowing...");
+    }
+}
 
-`interface Animal {     void makeSound(); }  class Cat implements Animal {     public void makeSound() {         System.out.println("Meowing...");     } }  public class Main {     public static void main(String[] args) {         Cat c = new Cat();         c.makeSound(); // Output: Meowing...     } }`
+public class Main {
+    public static void main(String[] args) {
+        Cat c = new Cat();
+        c.makeSound(); // Output: Meowing...
+    }
+}
+```
 
 Here:
 
@@ -240,11 +276,17 @@ A **record class** is a compact way to create **immutable data objects** with **
 
 ### **Example:**
 
-java
+```java
+record Employee(String name, int id) {}
 
-CopyEdit
-
-`record Employee(String name, int id) {}  public class Main {     public static void main(String[] args) {         Employee e = new Employee("Alice", 101);         System.out.println(e.name()); // Output: Alice         System.out.println(e);        // Output: Employee[name=Alice, id=101]     } }`
+public class Main {
+    public static void main(String[] args) {
+        Employee e = new Employee("Alice", 101);
+        System.out.println(e.name()); // Output: Alice
+        System.out.println(e);        // Output: Employee[name=Alice, id=101]
+    }
+}
+```
 
 Here:
 
