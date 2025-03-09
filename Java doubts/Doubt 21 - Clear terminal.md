@@ -11,11 +11,12 @@ Let's **dive deep** into how the `clearScreen()` function works, breaking it dow
 
 ### **The Code**
 
-java
-
-CopyEdit
-
-`public static void clearScreen() {     System.out.print("\033[H\033[2J");     System.out.flush(); }`
+```java
+public static void clearScreen() {
+    System.out.print("\033[H\033[2J");
+    System.out.flush();
+}
+```
 
 This function **clears the console screen** using **ANSI escape codes**, which are special sequences of characters that terminals interpret as commands instead of displaying them as text.
 
@@ -45,11 +46,9 @@ This is an **ANSI escape sequence** used to control the **cursor and screen** in
 
 ## **Why `System.out.flush()`?**
 
-java
-
-CopyEdit
-
-`System.out.flush();`
+```java
+System.out.flush();
+```
 
 The `flush()` method ensures that the **escape sequence** is **immediately sent** to the console instead of being stored in a buffer.
 
@@ -61,19 +60,19 @@ The `flush()` method ensures that the **escape sequence** is **immediately sent*
 
 **Example:**
 
-java
-
-CopyEdit
-
-`System.out.print("Hello"); System.out.print(" World"); // Output: Hello World (Buffer waits before printing)`
+```java
+System.out.print("Hello");
+System.out.print(" World");
+// Output: Hello World (Buffer waits before printing)
+```
 
 But if we use:
 
-java
-
-CopyEdit
-
-`System.out.print("Hello"); System.out.flush(); System.out.print(" World");`
+```java
+System.out.print("Hello");
+System.out.flush();
+System.out.print(" World");
+```
 
 It **prints "Hello" immediately** instead of waiting.
 
@@ -90,11 +89,15 @@ The Windows **Command Prompt (CMD)** does **not support ANSI escape codes by def
 
 Instead of using ANSI codes, use:
 
-java
-
-CopyEdit
-
-`public static void clearScreen() {     try {         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();     } catch (Exception e) {         System.out.println("Error clearing screen: " + e.getMessage());     } }`
+```java
+public static void clearScreen() {
+    try {
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+    } catch (Exception e) {
+        System.out.println("Error clearing screen: " + e.getMessage());
+    }
+}
+```
 
 ### **How This Works**
 
@@ -111,11 +114,20 @@ CopyEdit
 
 We can **detect the OS** and choose the appropriate method:
 
-java
-
-CopyEdit
-
-`public static void clearScreen() {     try {         if (System.getProperty("os.name").contains("Windows")) {             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();         } else {             System.out.print("\033[H\033[2J");             System.out.flush();         }     } catch (Exception e) {         System.out.println("Error clearing screen: " + e.getMessage());     } }`
+```java
+public static void clearScreen() {
+    try {
+        if (System.getProperty("os.name").contains("Windows")) {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } else {
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+        }
+    } catch (Exception e) {
+        System.out.println("Error clearing screen: " + e.getMessage());
+    }
+}
+```
 
 ### **How It Works**
 
