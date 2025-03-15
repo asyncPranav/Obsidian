@@ -336,6 +336,16 @@ Inside non-static method
 
 ---
 
+
+### *** Static vs Non-Static (Comparison Table)**
+
+|Feature|Static|Non-Static|
+|---|---|---|
+|**Belongs to**|Class|Object (Instance)|
+|**Memory Allocation**|Once (Class Load)|Every time an object is created|
+|**Access**|Can be accessed via Class Name|Requires an instance|
+|**Can use `this` and `super`?**|❌ No|✅ Yes|
+|**Can access instance members?**|❌ No|✅ Yes|
 ## **Conclusion:**
 
 The **`static` keyword** is a **powerful feature** in Java, providing **memory efficiency**, **utility method support**, and **class-level behavior**. Mastering static behavior is crucial for building **efficient** and **maintainable** Java applications.
