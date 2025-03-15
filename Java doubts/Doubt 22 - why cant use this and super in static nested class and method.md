@@ -245,7 +245,7 @@ public class Main {
 
 #DOUBT  - **Can we use 'this' and 'super' keyword in static class**
 
-No, because Java does not allow a top-level class to be static.
+✅ No, because Java does not allow a top-level class to be static.
 
 ---
 
@@ -253,11 +253,10 @@ No, because Java does not allow a top-level class to be static.
 
 In Java, **only nested classes can be declared static**, not top-level classes.
 
-java
-
-Copy code
-
-`static class Test {  // ❌ ERROR: Top-level classes cannot be static }`
+```java
+static class Test {  // ❌ ERROR: Top-level classes cannot be static
+}
+```
 
 💡 **Why?**
 
@@ -266,4 +265,48 @@ Copy code
 
 ---
 
-### **2. Can We Use `this` and**
+### **2. Can We Use `this` and `super` in a Static Nested Class?**
+
+No, because **a static nested class does not have an instance of the outer class.**
+
+java
+
+Copy code
+
+`class Outer {     static class StaticNested {         void method() {             // System.out.println(this);  // ❌ ERROR: 'this' cannot be used             // System.out.println(super.toString());  // ❌ ERROR: 'super' cannot be used         }     } }`
+
+💡 **Why?**
+
+- `this` refers to the current **instance**, but static nested classes **do not have instances**.
+- `super` refers to the **parent instance**, but static nested classes are **not tied to the outer class instance**.
+
+---
+
+### **3. Can We Use `this` and `super` in a Static Method?**
+
+No, because **static methods belong to the class, not an instance.**
+
+java
+
+Copy code
+
+`class Example {     static void staticMethod() {         // System.out.println(this);  // ❌ ERROR: 'this' cannot be used in a static method         // System.out.println(super.toString());  // ❌ ERROR: 'super' cannot be used in a static method     } }`
+
+💡 **Why?**
+
+- A **static method** does not operate on an instance, so `this` is meaningless.
+- `super` requires an instance to call the parent class, which a static method does not have.
+
+---
+
+### **Conclusion**
+
+|**Context**|**Can Use `this`?**|**Can Use `super`?**|**Why?**|
+|---|---|---|---|
+|**Top-level class**|❌ No|❌ No|Java does not allow `static` top-level classes.|
+|**Static nested class**|❌ No|❌ No|No instance of the outer class exists.|
+|**Static method**|❌ No|❌ No|No instance is associated with the method.|
+
+✅ **Workaround:** Use an instance method instead if you need `this` or `super`.
+
+Would you like any more details or examples? 🚀
