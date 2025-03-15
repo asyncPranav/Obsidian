@@ -243,4 +243,27 @@ public class Main {
 
 ---
 
-#DOUBT  - **Can we use 'this' and 'super' keyword in **
+#DOUBT  - **Can we use 'this' and 'super' keyword in static class**
+
+No, because Java does not allow a top-level class to be static.
+
+---
+
+### **1. Can We Have a Static Class in Java?**
+
+In Java, **only nested classes can be declared static**, not top-level classes.
+
+java
+
+Copy code
+
+`static class Test {  // ❌ ERROR: Top-level classes cannot be static }`
+
+💡 **Why?**
+
+- The `static` keyword means the class does not depend on an instance of an outer class.
+- But **top-level classes are already independent**, so Java does not allow `static` on them.
+
+---
+
+### **2. Can We Use `this` and**
