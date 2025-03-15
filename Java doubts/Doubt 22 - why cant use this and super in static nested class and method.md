@@ -166,11 +166,19 @@ class Test {
 
 #### **Example (Incorrect Code)**
 
-java
+```java
+class Parent {
+    void instanceMethod() {
+        System.out.println("Parent instance method");
+    }
+}
 
-Copy code
-
-`class Parent {     void instanceMethod() {         System.out.println("Parent instance method");     } }  class Child extends Parent {     static void staticMethod() {         super.instanceMethod();  // ❌ ERROR: Cannot use 'super' in a static method     } }`
+class Child extends Parent {
+    static void staticMethod() {
+        super.instanceMethod();  // ❌ ERROR: Cannot use 'super' in a static method
+    }
+}
+```
 
 **Why does this fail?**
 
@@ -184,11 +192,30 @@ If we need access to instance-related behavior, we should **use an instance meth
 
 #### **Corrected Example**
 
-java
+```java
+class Parent {
+    void instanceMethod() {
+        System.out.println("Parent instance method");
+    }
+}
 
-Copy code
+class Child extends Parent {
+    void instanceMethod() {
+        super.instanceMethod();  // ✅ Works fine in an instance method
+        System.out.println("Child instance method");
+    }
+}
 
-`class Parent {     void instanceMethod() {         System.out.println("Parent instance method");     } }  class Child extends Parent {     void instanceMethod() {         super.instanceMethod();  // ✅ Works fine in an instance method         System.out.println("Child instance method");     } }  public class Main {     public static void main(String[] args) {         Child obj = new Child();         obj.instanceMethod();           // Output:         // Parent instance method         // Child instance method     } }`
+public class Main {
+    public static void main(String[] args) {
+        Child obj = new Child();
+        obj.instanceMethod();  
+        // Output:
+        // Parent instance method
+        // Child instance method
+    }
+}
+```
 
 **Key Fix:**
 
@@ -213,14 +240,3 @@ Copy code
 2. **Static methods belong to the class, not an instance.**
     - **Solution:** Use an instance method instead if you need `this` or `super`.
 
-Would you like any more explanations or examples? 🚀
-
-4o
-
-##### You said:
-
-give it a precise title
-
-###### ChatGPT said:
-
-**Why `this` and `super` Cannot Be Used in Static Nested Classes and Static Methods in Java**
