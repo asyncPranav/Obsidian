@@ -371,7 +371,7 @@ Inside non-static method
 class Example {
     static int staticVar = 0; // Shared
     int instanceVar = 0;  // Separate for each object
-
+	
     void increment() {
         staticVar++;
         instanceVar++;
@@ -383,7 +383,7 @@ public class Main {
     public static void main(String[] args) {
         Example obj1 = new Example();
         Example obj2 = new Example();
-
+		
         obj1.increment();  // Static: 1, Instance: 1
         obj2.increment();  // Static: 2, Instance: 1
     }
@@ -410,15 +410,27 @@ public class Main {
 - **Static methods cannot be overridden**, but they **can be hidden**.
 - **Example:**
 
-java
+```java
+class Parent {
+    static void show() { System.out.println("Parent static method"); }
+}
 
-Copy code
+class Child extends Parent {
+    static void show() { System.out.println("Child static method"); } // Method Hiding
+}
 
-`class Parent {     static void show() { System.out.println("Parent static method"); } }  class Child extends Parent {     static void show() { System.out.println("Child static method"); } // Method Hiding }  public class Main {     public static void main(String[] args) {         Parent obj = new Child();         obj.show();  // Output: Parent static method (Method Hiding, NOT Overriding)     } }`
+public class Main {
+    public static void main(String[] args) {
+        Parent obj = new Child();
+        obj.show();  // Output: Parent static method (Method Hiding, NOT Overriding)
+    }
+}
+```
 
 ✅ **Key Point:** Static methods are **resolved at compile-time, not runtime**.
 
 
+---
 
 ## **Conclusion:**
 
