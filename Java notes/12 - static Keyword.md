@@ -336,8 +336,7 @@ Inside non-static method
 
 ---
 
-
-### *** Static vs Non-Static (Comparison Table)**
+### **8 Static vs Non-Static (Comparison Table)**
 
 |Feature|Static|Non-Static|
 |---|---|---|
@@ -346,6 +345,81 @@ Inside non-static method
 |**Access**|Can be accessed via Class Name|Requires an instance|
 |**Can use `this` and `super`?**|❌ No|✅ Yes|
 |**Can access instance members?**|❌ No|✅ Yes|
+
+
+---
+
+### **9 When to Use `static`?**
+
+✅ Use `static` when:
+
+- You need **a shared variable** among all objects.
+- A method **does not depend on instance data**.
+- You are creating **utility/helper methods** (e.g., `Math.pow()`).
+- You need a nested class that **doesn't depend on an outer class instance**.
+
+❌ **Avoid `static` when:**
+
+- The method **modifies instance variables**.
+- The variable should be **separate for each object**.
+
+---
+
+### **10 Example: Static vs Non-Static**
+
+```java
+class Example {
+    static int staticVar = 0; // Shared
+    int instanceVar = 0;  // Separate for each object
+
+    void increment() {
+        staticVar++;
+        instanceVar++;
+        System.out.println("Static: " + staticVar + ", Instance: " + instanceVar);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Example obj1 = new Example();
+        Example obj2 = new Example();
+
+        obj1.increment();  // Static: 1, Instance: 1
+        obj2.increment();  // Static: 2, Instance: 1
+    }
+}
+```
+
+✅ **Key Point:** `staticVar` is shared, `instanceVar` is separate per object.
+
+---
+
+### **Final Summary**
+
+|**Static Feature**|**Key Usage**|
+|---|---|
+|**Static Variable**|Shared data across all objects|
+|**Static Method**|Does not require an instance, used for utility functions|
+|**Static Block**|Runs once at class loading, used for initialization|
+|**Static Nested Class**|Can be accessed without an instance of the outer class|
+
+---
+
+**🔥 Interview Tip:**
+
+- **Static methods cannot be overridden**, but they **can be hidden**.
+- **Example:**
+
+java
+
+Copy code
+
+`class Parent {     static void show() { System.out.println("Parent static method"); } }  class Child extends Parent {     static void show() { System.out.println("Child static method"); } // Method Hiding }  public class Main {     public static void main(String[] args) {         Parent obj = new Child();         obj.show();  // Output: Parent static method (Method Hiding, NOT Overriding)     } }`
+
+✅ **Key Point:** Static methods are **resolved at compile-time, not runtime**.
+
+
+
 ## **Conclusion:**
 
 The **`static` keyword** is a **powerful feature** in Java, providing **memory efficiency**, **utility method support**, and **class-level behavior**. Mastering static behavior is crucial for building **efficient** and **maintainable** Java applications.
