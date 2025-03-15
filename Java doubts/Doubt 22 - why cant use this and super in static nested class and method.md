@@ -269,11 +269,16 @@ static class Test {  // ❌ ERROR: Top-level classes cannot be static
 
 No, because **a static nested class does not have an instance of the outer class.**
 
-java
-
-Copy code
-
-`class Outer {     static class StaticNested {         void method() {             // System.out.println(this);  // ❌ ERROR: 'this' cannot be used             // System.out.println(super.toString());  // ❌ ERROR: 'super' cannot be used         }     } }`
+```java
+class Outer {
+    static class StaticNested {
+        void method() {
+            // System.out.println(this);  // ❌ ERROR: 'this' cannot be used
+            // System.out.println(super.toString());  // ❌ ERROR: 'super' cannot be used
+        }
+    }
+}
+```
 
 💡 **Why?**
 
@@ -286,11 +291,14 @@ Copy code
 
 No, because **static methods belong to the class, not an instance.**
 
-java
-
-Copy code
-
-`class Example {     static void staticMethod() {         // System.out.println(this);  // ❌ ERROR: 'this' cannot be used in a static method         // System.out.println(super.toString());  // ❌ ERROR: 'super' cannot be used in a static method     } }`
+```java
+class Example {
+    static void staticMethod() {
+        // System.out.println(this);  // ❌ ERROR: 'this' cannot be used in a static method
+        // System.out.println(super.toString());  // ❌ ERROR: 'super' cannot be used in a static method
+    }
+}
+```
 
 💡 **Why?**
 
@@ -309,4 +317,3 @@ Copy code
 
 ✅ **Workaround:** Use an instance method instead if you need `this` or `super`.
 
-Would you like any more details or examples? 🚀
