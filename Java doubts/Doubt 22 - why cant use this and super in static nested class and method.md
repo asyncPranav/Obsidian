@@ -240,3 +240,7 @@ public class Main {
 2. **Static methods belong to the class, not an instance.**
     - **Solution:** Use an instance method instead if you need `this` or `super`.
 
+
+---
+
+#DOUBT  - **Can we use 'this' and 'super' keyword in **
