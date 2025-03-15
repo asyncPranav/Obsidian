@@ -58,7 +58,20 @@ class Outer {
 
 #### **Example (Incorrect Code)**
 
-```jav
+```java
+class Parent {
+    void display() {
+        System.out.println("Parent class");
+    }
+}
+
+class Outer {
+    static class StaticNested extends Parent {
+        void show() {
+            super.display();  // ❌ ERROR: 'super' cannot be used
+        }
+    }
+}
 ```
 
 **Why does this fail?**
@@ -74,11 +87,31 @@ If we need to access members of the outer class, we **explicitly pass an instanc
 
 #### **Corrected Example**
 
-java
+```java
+class Outer {
+    String message = "Hello from Outer";
+	
+    static class StaticNested {
+        Outer outer;  // Store an instance of Outer
+		
+        StaticNested(Outer outer) {
+            this.outer = outer;
+        }
+		
+        void show() {
+            System.out.println(outer.message);  // ✅ Works fine
+        }
+    }
+}
 
-Copy code
-
-`class Outer {     String message = "Hello from Outer";      static class StaticNested {         Outer outer;  // Store an instance of Outer          StaticNested(Outer outer) {             this.outer = outer;         }          void show() {             System.out.println(outer.message);  // ✅ Works fine         }     } }  public class Main {     public static void main(String[] args) {         Outer outer = new Outer();         Outer.StaticNested nested = new Outer.StaticNested(outer);         nested.show();  // Output: Hello from Outer     } }`
+public class Main {
+    public static void main(String[] args) {
+        Outer outer = new Outer();
+        Outer.StaticNested nested = new Outer.StaticNested(outer);
+        nested.show();  // Output: Hello from Outer
+    }
+}
+```
 
 **Key Fix:** We **explicitly pass an instance** of `Outer` and use it to access instance variables.
 
@@ -92,11 +125,13 @@ A **static method** is a method that belongs to the **class itself**, not an ins
 
 #### **Example of a Static Method**
 
-java
-
-Copy code
-
-`class Example {     static void staticMethod() {         System.out.println("Static Method");     } }`
+```java
+class Example {
+    static void staticMethod() {
+        System.out.println("Static Method");
+    }
+}
+```
 
 💡 **Key Point:** **Static methods do not operate on instances.** They belong to the **class**, not an object.
 
@@ -110,11 +145,13 @@ Copy code
 
 #### **Example (Incorrect Code)**
 
-java
-
-Copy code
-
-`class Test {     static void staticMethod() {         System.out.println(this);  // ❌ ERROR: 'this' cannot be used in a static method     } }`
+```java
+class Test {
+    static void staticMethod() {
+        System.out.println(this);  // ❌ ERROR: 'this' cannot be used in a static method
+    }
+}
+```
 
 **Why does this fail?**
 
