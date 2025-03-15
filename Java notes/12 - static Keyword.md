@@ -62,11 +62,9 @@ class Counter {
 
 ### **Output:**
 
-makefile
-
-CopyEdit
-
-`Count: 1   Count: 2   Count: 3`  
+```sh
+Count: 1   Count: 2   Count: 3
+```
 
 ---
 
