@@ -63,7 +63,9 @@ class Counter {
 ### **Output:**
 
 ```sh
-Count: 1   Count: 2   Count: 3
+Count: 1   
+Count: 2   
+Count: 3
 ```
 
 ---
