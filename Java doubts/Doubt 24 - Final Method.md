@@ -281,11 +281,13 @@ class Test {
 
 🚫 **Trying to Override an Interface Static Method (Invalid Code)**:
 
-java
-
-Copy code
-
-`class MyClass implements MyInterface {     static void display() {  // ❌ ERROR: Static method cannot be overridden         System.out.println("Trying to override");     } }`
+```java
+class MyClass implements MyInterface {
+    static void display() {  // ❌ ERROR: Static method cannot be overridden
+        System.out.println("Trying to override");
+    }
+}
+```
 
 💡 **Error Explanation:**
 
@@ -299,11 +301,16 @@ If you need a **final method with predefined logic**, use an **abstract class** 
 
 ✔ **Valid Code:**
 
-java
-
-Copy code
-
-`abstract class MyAbstractClass {     final void show() {  // ✅ Final method         System.out.println("Final method in abstract class");     } } class MyClass extends MyAbstractClass {     // Cannot override show() but can use it }`
+```java
+abstract class MyAbstractClass {
+    final void show() {  // ✅ Final method
+        System.out.println("Final method in abstract class");
+    }
+}
+class MyClass extends MyAbstractClass {
+    // Cannot override show() but can use it
+}
+```
 
 💡 **Why Use an Abstract Class Instead?**
 
