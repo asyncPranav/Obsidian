@@ -205,4 +205,121 @@ public class Main {
 |**Can be Used in Constructors?**|❌ No|
 |**Common Use Cases**|Security, Frameworks, Preventing changes|
 
-Would you like an example with interfaces and `final` methods? 😊
+
+---
+
+# **💡Can We Use `final` Methods in Interfaces?**
+
+No, **interfaces cannot have `final` methods** because:
+
+1. **Methods in an interface are implicitly `abstract` (before Java 8)** → They must be overridden in implementing classes.
+2. **Even default and static methods (introduced in Java 8) are not meant to be final** → They can be overridden.
+
+---
+
+## **1. Attempting to Use `final` in an Interface (Compilation Error)**
+
+🚫 **Invalid Code:**
+
+java
+
+Copy code
+
+`interface MyInterface {     final void show(); // ❌ ERROR! Cannot declare final method in an interface }`
+
+💡 **Why?**
+
+- Interface methods must be **overridden** by implementing classes.
+- A `final` method **cannot be overridden** → This contradicts the purpose of interfaces.
+
+---
+
+## **2. What About Default and Static Methods?**
+
+In **Java 8 and later**, interfaces allow `default` and `static` methods.
+
+- **Default methods** can be **overridden** in implementing classes.
+- **Static methods** **cannot** be overridden but are **implicitly final**.
+
+🚫 **Trying to make a default method final (Invalid Code)**:
+
+java
+
+Copy code
+
+`interface MyInterface {     final default void show() {  // ❌ ERROR: Cannot use final with default methods         System.out.println("Default method in interface");     } }`
+
+💡 **Error Explanation:**
+
+- `final` prevents overriding, but default methods **must** be overridable.
+
+---
+
+## **3. Static Methods in Interfaces Are Implicitly Final**
+
+✔ **Valid Code:**
+
+java
+
+Copy code
+
+`interface MyInterface {     static void display() {  // ✅ Allowed, implicitly final         System.out.println("Static method in interface");     } } class Test {     public static void main(String[] args) {         MyInterface.display();  // ✅ Calling static method     } }`
+
+💡 **Why Does This Work?**
+
+- Static methods in interfaces **cannot be overridden** in implementing classes.
+- Java **implicitly makes them `final`**.
+
+🚫 **Trying to Override an Interface Static Method (Invalid Code)**:
+
+java
+
+Copy code
+
+`class MyClass implements MyInterface {     static void display() {  // ❌ ERROR: Static method cannot be overridden         System.out.println("Trying to override");     } }`
+
+💡 **Error Explanation:**
+
+- A static method **belongs to the interface** and cannot be overridden.
+
+---
+
+## **4. Alternative: Using `final` Methods in an Abstract Class**
+
+If you need a **final method with predefined logic**, use an **abstract class** instead of an interface.
+
+✔ **Valid Code:**
+
+java
+
+Copy code
+
+`abstract class MyAbstractClass {     final void show() {  // ✅ Final method         System.out.println("Final method in abstract class");     } } class MyClass extends MyAbstractClass {     // Cannot override show() but can use it }`
+
+💡 **Why Use an Abstract Class Instead?**
+
+- Abstract classes allow **concrete methods** (which can be `final`).
+- Interfaces are meant for **full abstraction**, so `final` contradicts their purpose.
+
+---
+
+## **5. Summary**
+
+|Feature|Interface Methods|Abstract Class Methods|
+|---|---|---|
+|**Can Be `final`?**|❌ No|✅ Yes|
+|**Can Have `default` Methods?**|✅ Yes (Java 8+)|✅ Yes|
+|**Can Have `static` Methods?**|✅ Yes (Implicitly `final`)|✅ Yes|
+|**Can Be Overridden?**|✅ Yes (except static)|✅ Yes (unless `final`)|
+
+---
+
+### **Key Takeaways**
+
+✔ **You cannot declare a method `final` in an interface.**  
+✔ **Static methods in interfaces are implicitly final.**  
+✔ **If you need a `final` method, use an `abstract class` instead of an interface.**
+
+Would you like a practical example showing when to use an interface vs. an abstract class? 😊
+
+4o
