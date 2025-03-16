@@ -206,6 +206,24 @@ public class Main {
 |**Common Use Cases**|Security, Frameworks, Preventing changes|
 
 
+### **Final Method Overloading vs. Overriding (Short Summary)**
+
+|**Method Type**|**Can Overload?**|**Can Override?**|**Example**|
+|---|---|---|---|
+|**Final Instance Method**|✅ Yes|❌ No|`final void show() {}`|
+|**Final Static Method**|✅ Yes|❌ No|`static final void display() {}`|
+|**Final Method in Abstract Class**|✅ Yes|❌ No|`abstract class A { final void run() {} }`|
+|**Final Method in Interface**|❌ No|❌ No|`final void show(); // ❌ ERROR`|
+
+---
+
+### **Key Points**
+
+✔ **Final methods can be overloaded but not overridden.**  
+✔ **Static final methods follow the same rule as normal final methods.**  
+✔ **Interfaces do not allow `final` methods.**
+
+
 ---
 
 # **💡Can We Use `final` Methods in Interfaces?**
