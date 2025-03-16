@@ -168,11 +168,24 @@ class Example {
 
 ## **9. Practical Example: Preventing Overriding in Banking System**
 
-java
+```java
+class Bank {
+    final void calculateInterest() {
+        System.out.println("Calculating interest in Bank.");
+    }
+}
 
-Copy code
+class SavingsAccount extends Bank {
+    // Cannot override calculateInterest()
+}
 
-`class Bank {     final void calculateInterest() {         System.out.println("Calculating interest in Bank.");     } }  class SavingsAccount extends Bank {     // Cannot override calculateInterest() }  public class Main {     public static void main(String[] args) {         SavingsAccount account = new SavingsAccount();         account.calculateInterest();  // Output: Calculating interest in Bank.     } }`
+public class Main {
+    public static void main(String[] args) {
+        SavingsAccount account = new SavingsAccount();
+        account.calculateInterest();  // Output: Calculating interest in Bank.
+    }
+}
+```
 
 ✅ **Why Use `final` Here?**
 
