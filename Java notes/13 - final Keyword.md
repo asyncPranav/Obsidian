@@ -145,6 +145,9 @@ public class FinalStaticVariableDemo {
 Age: 21
 ```
 
+
+**Final Variable :** [[Doubt 23 - Final Variable]] 
+
 ---
 
 ## **2. Final Methods:**
