@@ -44,7 +44,25 @@ class Parent {
 
 ### **A. Correct Usage of Final Method**
 
-```jav
+```java
+class Parent {
+    final void display() {  // Final method
+        System.out.println("Final method in Parent class.");
+    }
+}
+
+class Child extends Parent {
+    // void display() { // ❌ ERROR: Cannot override final method
+    //     System.out.println("Trying to override final method.");
+    // }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Child obj = new Child();
+        obj.display();  // Output: Final method in Parent class.
+    }
+}
 ```
 
 ✅ **Explanation:**
@@ -56,19 +74,26 @@ class Parent {
 
 ## **4. Attempting to Override a Final Method (Error Example)**
 
-java
+```java
+class Parent {
+    final void show() {
+        System.out.println("This is a final method in Parent.");
+    }
+}
 
-Copy code
-
-`class Parent {     final void show() {         System.out.println("This is a final method in Parent.");     } }  class Child extends Parent {     void show() {  // ❌ ERROR: Cannot override final method         System.out.println("Trying to override.");     } }`
+class Child extends Parent {
+    void show() {  // ❌ ERROR: Cannot override final method
+        System.out.println("Trying to override.");
+    }
+}
+```
 
 🚫 **Compilation Error:**
 
-sql
-
-Copy code
-
-`error: show() in Child cannot override show() in Parent   overridden method is final`
+```sh
+error: show() in Child cannot override show() in Parent
+  overridden method is final
+```
 
 ---
 
@@ -76,11 +101,16 @@ Copy code
 
 - **An abstract class can have a final method, but the method must have a body.**
 
-java
-
-Copy code
-
-`abstract class AbstractClass {     final void finalMethod() {         System.out.println("This is a final method in an abstract class.");     } } class SubClass extends AbstractClass {     // Cannot override finalMethod(), but can use it }`
+```java
+abstract class AbstractClass {
+    final void finalMethod() {
+        System.out.println("This is a final method in an abstract class.");
+    }
+}
+class SubClass extends AbstractClass {
+    // Cannot override finalMethod(), but can use it
+}
+```
 
 ---
 
@@ -95,11 +125,21 @@ Copy code
 
 ### **Example**
 
-java
-
-Copy code
-
-`class Example {     final void finalMethod() {         System.out.println("Final Method");     }      static void staticMethod() {         System.out.println("Static Method");     }      private void privateMethod() {         System.out.println("Private Method");     } }`
+```java
+class Example {
+    final void finalMethod() {
+        System.out.println("Final Method");
+    }
+	
+    static void staticMethod() {
+        System.out.println("Static Method");
+    }
+	
+    private void privateMethod() {
+        System.out.println("Private Method");
+    }
+}
+```
 
 - **Final methods** cannot be overridden.
 - **Static methods** belong to the class and cannot be overridden (only hidden).
