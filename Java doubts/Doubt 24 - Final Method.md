@@ -221,11 +221,11 @@ No, **interfaces cannot have `final` methods** because:
 
 🚫 **Invalid Code:**
 
-java
-
-Copy code
-
-`interface MyInterface {     final void show(); // ❌ ERROR! Cannot declare final method in an interface }`
+```java
+interface MyInterface {
+    final void show(); // ❌ ERROR! Cannot declare final method in an interface
+}
+```
 
 💡 **Why?**
 
@@ -243,11 +243,13 @@ In **Java 8 and later**, interfaces allow `default` and `static` methods.
 
 🚫 **Trying to make a default method final (Invalid Code)**:
 
-java
-
-Copy code
-
-`interface MyInterface {     final default void show() {  // ❌ ERROR: Cannot use final with default methods         System.out.println("Default method in interface");     } }`
+```java
+interface MyInterface {
+    final default void show() {  // ❌ ERROR: Cannot use final with default methods
+        System.out.println("Default method in interface");
+    }
+}
+```
 
 💡 **Error Explanation:**
 
@@ -259,11 +261,18 @@ Copy code
 
 ✔ **Valid Code:**
 
-java
-
-Copy code
-
-`interface MyInterface {     static void display() {  // ✅ Allowed, implicitly final         System.out.println("Static method in interface");     } } class Test {     public static void main(String[] args) {         MyInterface.display();  // ✅ Calling static method     } }`
+```java
+interface MyInterface {
+    static void display() {  // ✅ Allowed, implicitly final
+        System.out.println("Static method in interface");
+    }
+}
+class Test {
+    public static void main(String[] args) {
+        MyInterface.display();  // ✅ Calling static method
+    }
+}
+```
 
 💡 **Why Does This Work?**
 
