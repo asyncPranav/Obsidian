@@ -336,6 +336,3 @@ class MyClass extends MyAbstractClass {
 ✔ **Static methods in interfaces are implicitly final.**  
 ✔ **If you need a `final` method, use an `abstract class` instead of an interface.**
 
-Would you like a practical example showing when to use an interface vs. an abstract class? 😊
-
-4o
