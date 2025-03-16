@@ -253,6 +253,10 @@ Driving a car...
 
 ---
 
+**FINAL CLASS :** 
+
+---
+
 ## **4. Final Keyword with Inheritance:**
 
 ### **4.1. Final Variables in Inheritance:**

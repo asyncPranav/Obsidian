@@ -228,5 +228,3 @@ public class Main {
 - **Final classes prevent modification through inheritance.**
 - **They improve security, performance, and maintainability.**
 - **Used in immutable classes and utility classes.**
-
-Would you like a practical coding exercise on final classes? 😊
