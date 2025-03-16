@@ -48,6 +48,27 @@ class Test{
 ### **2. Corrected Code**
 
 ```java
+package Final_Keyword;
+
+class Test {
+    final int MIN = 1;   // ✅ Direct initialization
+    final int NORMAL;    // ✅ Will be initialized in the constructor
+    final int MAX;       // ✅ Will be initialized in the constructor
+	
+    Test() {
+        NORMAL = 5;  // ✅ Correct: Final instance variable initialized inside constructor
+        MAX = 10;    // ✅ Correct: Final instance variable initialized inside constructor
+    }
+}
+
+public class _01_FinalVariable {
+    public static void main(String[] args) {
+        Test obj = new Test();
+        System.out.println("MIN: " + obj.MIN);
+        System.out.println("NORMAL: " + obj.NORMAL);
+        System.out.println("MAX: " + obj.MAX);
+    }
+}
 ```
 
 ---
@@ -63,19 +84,28 @@ class Test{
 
 #### **Example:**
 
-java
-
-Copy code
-
-`class Example {     final int A = 10;  // ✅ Initialized at declaration     final int B;       // ✅ Must be initialized in the constructor      Example() {         B = 20;  // ✅ Correct: Assigning in constructor     } }`
+```java
+class Example {
+    final int A = 10;  // ✅ Initialized at declaration
+    final int B;       // ✅ Must be initialized in the constructor
+	
+    Example() {
+        B = 20;  // ✅ Correct: Assigning in constructor
+    }
+}
+```
 
 🚫 **Incorrect:**
 
-java
-
-Copy code
-
-`class Example {     final int B;       void setB() {         B = 10;  // ❌ ERROR! Final variables cannot be assigned outside constructor     } }`
+```java
+class Example {
+    final int B; 
+	
+    void setB() {
+        B = 10;  // ❌ ERROR! Final variables cannot be assigned outside constructor
+    }
+}
+```
 
 ---
 
@@ -88,11 +118,8 @@ Copy code
 
 #### **Example:**
 
-java
-
-Copy code
-
-`class Example {     static final int A = 100;  // ✅ Initialized at declaration     static final int B;        // ✅ Must be initialized inside static block      static {         B = 200;  // ✅ Correct: Final static variable initialized inside static block     } }`
+```ja
+```
 
 🚫 **Incorrect:**
 
