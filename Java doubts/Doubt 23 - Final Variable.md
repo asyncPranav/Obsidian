@@ -118,16 +118,28 @@ class Example {
 
 #### **Example:**
 
-```ja
+```java
+class Example {
+    static final int A = 100;  // ✅ Initialized at declaration
+    static final int B;        // ✅ Must be initialized inside static block
+	
+    static {
+        B = 200;  // ✅ Correct: Final static variable initialized inside static block
+    }
+}
 ```
 
 🚫 **Incorrect:**
 
-java
-
-Copy code
-
-`class Example {     static final int B;      Example() {         B = 10;  // ❌ ERROR! Final static variables cannot be assigned in constructor     } }`
+```java
+class Example {
+    static final int B;
+	
+    Example() {
+        B = 10;  // ❌ ERROR! Final static variables cannot be assigned in constructor
+    }
+}
+```
 
 ---
 
@@ -140,11 +152,17 @@ Copy code
 
 #### **Example:**
 
-java
-
-Copy code
-
-`class Example {     void show() {         final int X;           X = 50;  // ✅ First assignment is allowed         System.out.println(X);  // Output: 50          X = 60;  // ❌ ERROR! Cannot change final variable     } }`
+```java
+class Example {
+    void show() {
+        final int X;  
+        X = 50;  // ✅ First assignment is allowed
+        System.out.println(X);  // Output: 50
+		
+        X = 60;  // ❌ ERROR! Cannot change final variable
+    }
+}
+```
 
 ---
 
@@ -160,11 +178,9 @@ Copy code
 
 ## **5. Example with Both Instance and Static Final Variables**
 
-java
+```java
 
-Copy code
-
-`class Example {     final int instanceVar;       // Final instance variable     static final int staticVar;  // Final static variable      static {          staticVar = 100;  // ✅ Static final variable initialized inside static block     }      Example() {         instanceVar = 50;  // ✅ Instance final variable initialized inside constructor     }      void display() {         System.out.println("Instance Final: " + instanceVar);         System.out.println("Static Final: " + staticVar);     }      public static void main(String[] args) {         Example obj = new Example();         obj.display();     } }`
+```
 
 **Output:**
 
