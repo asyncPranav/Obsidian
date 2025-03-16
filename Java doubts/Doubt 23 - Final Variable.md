@@ -179,16 +179,36 @@ class Example {
 ## **5. Example with Both Instance and Static Final Variables**
 
 ```java
-
+class Example {
+    final int instanceVar;       // Final instance variable
+    static final int staticVar;  // Final static variable
+	
+    static { 
+        staticVar = 100;  // ✅ Static final variable initialized inside static block
+    }
+	
+    Example() {
+        instanceVar = 50;  // ✅ Instance final variable initialized inside constructor
+    }
+	
+    void display() {
+        System.out.println("Instance Final: " + instanceVar);
+        System.out.println("Static Final: " + staticVar);
+    }
+	
+    public static void main(String[] args) {
+        Example obj = new Example();
+        obj.display();
+    }
+}
 ```
 
 **Output:**
 
-sql
-
-Copy code
-
-`Instance Final: 50 Static Final: 100`
+```sh
+Instance Final: 50
+Static Final: 100
+```
 
 ---
 
