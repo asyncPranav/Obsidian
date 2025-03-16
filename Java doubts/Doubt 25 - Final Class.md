@@ -79,11 +79,11 @@ public class Main {
 
 ### **A. Java Built-in Final Class (`String`)**
 
-java
-
-Copy code
-
-`final class String {     // Internal implementation of String class }`
+```java
+final class String {
+    // Internal implementation of String class
+}
+```
 
 🚀 **Why is `String` Final?**
 
@@ -94,11 +94,24 @@ Copy code
 
 ### **B. Preventing Inheritance in Banking System**
 
-java
+```java
+final class BankAccount {
+    private double balance = 1000;
 
-Copy code
+    void showBalance() {
+        System.out.println("Balance: $" + balance);
+    }
+}
 
-`final class BankAccount {     private double balance = 1000;      void showBalance() {         System.out.println("Balance: $" + balance);     } }  // class SavingsAccount extends BankAccount {}  // ❌ ERROR: Cannot extend final class  public class Main {     public static void main(String[] args) {         BankAccount account = new BankAccount();         account.showBalance();  // Output: Balance: $1000     } }`
+// class SavingsAccount extends BankAccount {}  // ❌ ERROR: Cannot extend final class
+
+public class Main {
+    public static void main(String[] args) {
+        BankAccount account = new BankAccount();
+        account.showBalance();  // Output: Balance: $1000
+    }
+}
+```
 
 ✅ **Why Use `final` Here?**
 
@@ -110,11 +123,13 @@ Copy code
 
 Yes! A **final class can have final methods** to prevent modification of critical functions.
 
-java
-
-Copy code
-
-`final class SecureData {     final void encrypt() {         System.out.println("Encrypting data...");     } }`
+```java
+final class SecureData {
+    final void encrypt() {
+        System.out.println("Encrypting data...");
+    }
+}
+```
 
 - **The class is final → Cannot be inherited.**
 - **The method is final → Cannot be overridden.**
@@ -125,11 +140,19 @@ Copy code
 
 Yes! A final class can have static methods.
 
-java
+```java
+final class Utility {
+    static void printMessage() {
+        System.out.println("Hello from final class!");
+    }
+}
 
-Copy code
-
-`final class Utility {     static void printMessage() {         System.out.println("Hello from final class!");     } }  public class Main {     public static void main(String[] args) {         Utility.printMessage();  // Output: Hello from final class!     } }`
+public class Main {
+    public static void main(String[] args) {
+        Utility.printMessage();  // Output: Hello from final class!
+    }
+}
+```
 
 ✅ **Why Use `static` in a Final Class?**
 
@@ -141,11 +164,26 @@ Copy code
 
 Yes! **Final classes can have constructors** to initialize values.
 
-java
+```java
+final class Car {
+    private final String model;
+	
+    Car(String model) {
+        this.model = model;
+    }
+	
+    void show() {
+        System.out.println("Car model: " + model);
+    }
+}
 
-Copy code
-
-`final class Car {     private final String model;      Car(String model) {         this.model = model;     }      void show() {         System.out.println("Car model: " + model);     } }  public class Main {     public static void main(String[] args) {         Car c = new Car("Tesla");         c.show();  // Output: Car model: Tesla     } }`
+public class Main {
+    public static void main(String[] args) {
+        Car c = new Car("Tesla");
+        c.show();  // Output: Car model: Tesla
+    }
+}
+```
 
 ✅ **Why Use a Constructor?**
 
