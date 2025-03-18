@@ -99,6 +99,9 @@ In simple words, **Maharishi’s work is still alive, helping people live happie
 Maharishi Mahesh Yogi received several **important awards** for his work in spreading meditation and peace:
 
 - **1970** – He received the **"Man of Hope Award"** from the City of Hope Foundation in Los Angeles, USA.
+
 - **1973** – He was honored with the **Golden Medal** from the city of Delphi, Greece.
+
 - **1975** – He appeared on the **cover of Time magazine**, showing how famous and influential he had become.
+
 - **2019** – The **Indian Government honored him with a special postage stamp** to recognize his contributions.
