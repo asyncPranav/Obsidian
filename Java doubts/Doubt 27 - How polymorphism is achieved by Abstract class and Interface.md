@@ -20,19 +20,43 @@
 
 ### **Example: Achieving Polymorphism Using an Abstract Class**
 
-java
+```java
+// Abstract class
+abstract class Animal {
+    abstract void makeSound(); // Abstract method (to be implemented by subclasses)
+}
 
-CopyEdit
+// Subclass 1
+class Dog extends Animal {
+    void makeSound() {
+        System.out.println("Dog barks!");
+    }
+}
 
-`// Abstract class abstract class Animal {     abstract void makeSound(); // Abstract method (to be implemented by subclasses) }  // Subclass 1 class Dog extends Animal {     void makeSound() {         System.out.println("Dog barks!");     } }  // Subclass 2 class Cat extends Animal {     void makeSound() {         System.out.println("Cat meows!");     } }  public class Test {     public static void main(String[] args) {         Animal a1 = new Dog();  // Parent reference, Child object         Animal a2 = new Cat();            a1.makeSound();  // Calls Dog's makeSound()         a2.makeSound();  // Calls Cat's makeSound()     } }`
+// Subclass 2
+class Cat extends Animal {
+    void makeSound() {
+        System.out.println("Cat meows!");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Animal a1 = new Dog();  // Parent reference, Child object
+        Animal a2 = new Cat();  
+		
+        a1.makeSound();  // Calls Dog's makeSound()
+        a2.makeSound();  // Calls Cat's makeSound()
+    }
+}
+```
 
 ✅ **Output:**
 
-nginx
-
-CopyEdit
-
-`Dog barks! Cat meows!`
+```sh
+Dog barks!
+Cat meows!
+```
 
 ---
 
