@@ -25,3 +25,20 @@ After Guru Dev passed away in **1953**, Maharishi went to **Uttarkashi in the Hi
 - **1960**: Maharishi introduced the concept of the **"Maharishi Effect."** He claimed that if **just 1% of a population practiced Transcendental Meditation**, it would create **positive changes in society**, improving people's quality of life. This theory was later **scientifically confirmed in 1976**.
 
 - **April 1961**: Maharishi started the **first Transcendental Meditation Teacher Training Course** in **Rishikesh, India**. **60 people from different countries** joined this course to learn how to teach TM.
+
+
+
+- **August 24, 1967**: The **Beatles**, a famous English rock band, attended Maharishi Mahesh Yogi’s **lecture in London**. They were very impressed and wanted to meet him personally. Maharishi invited them to **learn Transcendental Meditation (TM)** at a weekend course at **University College, Bangor**.
+
+- **1968**: A year later, **Maharishi invited The Beatles to his ashram in Rishikesh, India**, where they spent **three months** practicing meditation.
+
+- **Other Celebrities**: Apart from **The Beatles**, Maharishi also taught **TM** to many famous people like:
+
+    - **Mike Love** (from The Beach Boys band)
+    - **Mia Farrow** (Hollywood actress)
+    - **David Lynch** (filmmaker)
+- **Mid-1970s**: Maharishi **introduced TM to the business world**. Many people from **Wall Street (financial district in New York)** paid **$1,000** for an intensive meditation course to improve their performance and reduce stress.
+
+- **TM-Sidhi Program & Yogic Flying**: Around the same time, Maharishi introduced the **TM-Sidhi program**, which included **"Yogic Flying."** He described it as the **highest level of meditation**, where people could **sit cross-legged and lift off slightly from soft surfaces like spongy mattresses**.
+
+- **Politics (1992)**: Maharishi **founded a political party called The Natural Law Party (NLP)**. The party was based on his **philosophy of Transcendental Meditation, Indian spirituality, and quantum physics**. It was well-funded and contested **310 seats in the 1992 European Parliamentary elections in Britain**, but it **did not win any seats** and received only **0.19% of the total votes**.
