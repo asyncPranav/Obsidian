@@ -43,14 +43,43 @@ After Guru Dev passed away in **1953**, Maharishi went to **Uttarkashi in the Hi
 
 - **Politics (1992)**: Maharishi **founded a political party called The Natural Law Party (NLP)**. The party was based on his **philosophy of Transcendental Meditation, Indian spirituality, and quantum physics**. It was well-funded and contested **310 seats in the 1992 European Parliamentary elections in Britain**, but it **did not win any seats** and received only **0.19% of the total votes**.
 
-
 - **Eliminating Poverty (2000)**:  
     Maharishi Mahesh Yogi wanted to **reduce poverty** worldwide. In **2000**, he started a program called the **"Programme to Eliminate Poverty."**
     
     - His idea was to **use unused farmland** and develop it using **Vedic Organic Agriculture** methods.
     - This would help people grow food naturally and improve their lives.
+
 - **New Leader (2008)**:
     
     - On **February 10, 2008**, **Dr. Tony Nader** (also known as **Maharaja Adhiraj Raja Ram**) was officially made **Maharishi Mahesh Yogi’s successor** (the next leader).
     - Dr. Tony Nader is a **Lebanese doctor** who had studied with Maharishi for **25 years**.
 
+
+### **Global Expansion and Achievements**
+
+Maharishi's teachings became popular worldwide, especially in the 1960s and 1970s. Many people, including celebrities like **The Beatles**, followed him, which helped spread **Transcendental Meditation (TM)** globally.
+
+#### **1. Establishing a Global Organization**
+
+- He created the **Maharishi Mahesh Yogi Foundation** to promote Transcendental Meditation worldwide.
+- In **1971**, he started the **International Meditation Society** to teach TM in different countries.
+
+#### **2. Scientific Research on TM**
+
+- Maharishi encouraged scientists to study **the benefits of TM**.
+- Many studies showed that TM **reduces stress, improves thinking, and enhances overall health**.
+
+#### **3. Education System**
+
+- He started schools and universities to teach **TM and holistic education**.
+- He founded **Maharishi University of Management** in **Iowa, USA**, where students learn both **modern science and ancient wisdom**.
+
+#### **4. Maharishi’s Scientific and Architectural Contributions**
+
+- He developed **Maharishi Vedic Science**, which combines **ancient Vedic knowledge with modern science**.
+- He promoted **Maharishi Sthapatya Veda**, a special type of **Vedic architecture**. He believed that **designing buildings in harmony with nature** improves **health, wealth, and happiness**.
+
+#### **5. World Peace Efforts**
+
+- Maharishi believed that **group meditation** could create **peace in the world**.
+- He introduced **Global Peace Assemblies**, where large groups meditated together to **spread positive energy worldwide**.
