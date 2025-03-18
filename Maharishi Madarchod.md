@@ -83,3 +83,14 @@ Maharishi's teachings became popular worldwide, especially in the 1960s and 1970
 
 - Maharishi believed that **group meditation** could create **peace in the world**.
 - He introduced **Global Peace Assemblies**, where large groups meditated together to **spread positive energy worldwide**.
+
+
+### **Legacy and Influence of Maharishi Mahesh Yogi**
+
+Maharishi Mahesh Yogi made a **huge impact** on meditation, health, and spirituality. He played a major role in making **meditation popular and easy for everyone**. His ideas about the **connection between mind, body, and spirit** continue to inspire people all over the world.
+
+Even today, his **Transcendental Meditation (TM) technique** is practiced in **more than 100 countries**. The organizations he created, like the **Global Country of World Peace** and the **Maharishi Foundation**, are still working to spread his teachings and promote **peace and well-being**.
+
+In simple words, **Maharishi’s work is still alive, helping people live happier and healthier lives through meditation**. 
+
+
