@@ -154,15 +154,11 @@ Cat meows!
 ✔ **Interfaces enforce polymorphism by allowing different classes to implement the same methods in their own way.**  
 ✔ **They do not support code reuse like abstract classes, making their primary goal achieving polymorphism.**
 
-Would you like a **comparison between abstract classes and interfaces** for a deeper understanding? 🚀
 
-4o
 
-##### You said:
+---
 
-how abstract class acheive partial polymorphism and interface achieve 100 percent polymorphism
 
-###### ChatGPT said:
 
 ### **Abstract Class Achieves Partial Polymorphism & Interface Achieves 100% Polymorphism – Understanding This**
 
@@ -179,19 +175,36 @@ how abstract class acheive partial polymorphism and interface achieve 100 percen
 
 ### **Example: Abstract Class (Partial Polymorphism)**
 
-java
+```java
+abstract class Animal {
+    abstract void makeSound(); // Abstract method (must be overridden)
+	
+    void sleep() { // Concrete method (not overridden)
+        System.out.println("Animal is sleeping");
+    }
+}
 
-CopyEdit
+class Dog extends Animal {
+    void makeSound() { // Overriding abstract method
+        System.out.println("Dog barks!");
+    }
+}
 
-`abstract class Animal {     abstract void makeSound(); // Abstract method (must be overridden)      void sleep() { // Concrete method (not overridden)         System.out.println("Animal is sleeping");     } }  class Dog extends Animal {     void makeSound() { // Overriding abstract method         System.out.println("Dog barks!");     } }  public class Test {     public static void main(String[] args) {         Animal a = new Dog(); // Runtime Polymorphism         a.makeSound();  // ✅ Calls Dog's makeSound() (Polymorphism)         a.sleep();      // ✅ Calls Animal's sleep() (Not Polymorphism)     } }`
+public class Test {
+    public static void main(String[] args) {
+        Animal a = new Dog(); // Runtime Polymorphism
+        a.makeSound();  // ✅ Calls Dog's makeSound() (Polymorphism)
+        a.sleep();      // ✅ Calls Animal's sleep() (Not Polymorphism)
+    }
+}
+```
 
 ✅ **Output:**
 
-csharp
-
-CopyEdit
-
-`Dog barks! Animal is sleeping`
+```sh
+Dog barks!
+Animal is sleeping
+```
 
 ---
 
