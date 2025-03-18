@@ -85,6 +85,8 @@ public class CarTest {
 ✅ Output:
 
 ```sh
+Using == : false
+Using equals(): true
 ```
 
 - `==` is `false` because `car1` and `car2` are **different objects**.
@@ -97,3 +99,34 @@ public class CarTest {
 ✔ Use **`==`** to check **if two references point to the same object** (used in Singleton).  
 ✔ Use **`equals()`** to check **if two objects are logically equal** (like String, custom objects).  
 ✔ Override `equals()` in custom classes for **meaningful comparisons**.
+
+---
+
+
+### **Easy Example to Understand `==` vs `equals()`**
+
+```java
+public class Test {
+    public static void main(String[] args) {
+        String s1 = new String("Hello");
+        String s2 = new String("Hello");
+		
+        System.out.println("Using == : " + (s1 == s2));       // False (Different objects)
+        System.out.println("Using equals(): " + s1.equals(s2)); // True (Same content)
+    }
+}
+```
+
+✅ **Output:**
+
+```sh
+Using == : false
+Using equals(): true
+```
+
+### **Explanation**
+
+1. **`s1 == s2` → `false`**
+    - `s1` and `s2` are two different objects stored at different memory locations.
+2. **`s1.equals(s2)` → `true`**
+    - `equals()` checks the **content** inside the objects, and both strings contain `"Hello"`, so it returns `true`.
