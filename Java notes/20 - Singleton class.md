@@ -76,11 +76,20 @@ class Singleton {
 
 - Uses `synchronized` to prevent multiple threads from creating separate instances.
 
-java
-
-Copy code
-
-`class Singleton {     private static Singleton instance;      private Singleton() {}      public static synchronized Singleton getInstance() {         if (instance == null) {             instance = new Singleton();         }         return instance;     } }`
+```java
+class Singleton {
+    private static Singleton instance;
+	
+    private Singleton() {}
+	
+    public static synchronized Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+```
 
 ✅ **Pros**: Ensures only one instance in a multithreaded environment.  
 ❌ **Cons**: Synchronization reduces performance due to overhead.
@@ -91,11 +100,25 @@ Copy code
 
 - Uses **synchronized block** inside the method to improve performance.
 
-java
+```java
+class Singleton {
+	private static volatile Singleton instance;
+	
+    private Singleton() {}
+	
+    public static Singleton getInstance() {
+        if (instance == null) { // First check
+            synchronized (Singleton.class) {
+                if (instance == null) { // Second check inside synchronized block
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
 
-Copy code
-
-`class Singleton {     private static volatile Singleton instance;      private Singleton() {}      public static Singleton getInstance() {         if (instance == null) { // First check             synchronized (Singleton.class) {                 if (instance == null) { // Second check inside synchronized block                     instance = new Singleton();                 }             }         }         return instance;     } }`
+```
 
 ✅ **Pros**: Efficient in multithreading, avoids unnecessary synchronization.  
 ❌ **Cons**: More complex than other approaches.
@@ -106,11 +129,19 @@ Copy code
 
 - Lazy initialization with built-in thread safety.
 
-java
-
-Copy code
-
-`class Singleton {     private Singleton() {}      private static class Holder {         private static final Singleton INSTANCE = new Singleton(); // Instance created only when accessed     }      public static Singleton getInstance() {         return Holder.INSTANCE;     } }`
+```java
+class Singleton {
+    private Singleton() {}
+	
+    private static class Holder {
+        private static final Singleton INSTANCE = new Singleton(); // Instance created only when accessed
+    }
+	
+    public static Singleton getInstance() {
+        return Holder.INSTANCE;
+    }
+}
+```
 
 ✅ **Pros**: Thread-safe, lazy-loaded, and no synchronization overhead.  
 ❌ **Cons**: Slightly complex.
@@ -121,11 +152,8 @@ Copy code
 
 - **Best way** as enums are inherently thread-safe and prevent reflection attacks.
 
-java
-
-Copy code
-
-`enum Singleton {     INSTANCE; // Enum constant is the Singleton instance      public void show() {         System.out.println("Singleton using Enum!");     } }`
+```ja
+```
 
 ✅ **Pros**:  
 ✔️ Thread-safe.  
