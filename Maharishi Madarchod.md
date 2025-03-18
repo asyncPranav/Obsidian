@@ -42,3 +42,15 @@ After Guru Dev passed away in **1953**, Maharishi went to **Uttarkashi in the Hi
 - **TM-Sidhi Program & Yogic Flying**: Around the same time, Maharishi introduced the **TM-Sidhi program**, which included **"Yogic Flying."** He described it as the **highest level of meditation**, where people could **sit cross-legged and lift off slightly from soft surfaces like spongy mattresses**.
 
 - **Politics (1992)**: Maharishi **founded a political party called The Natural Law Party (NLP)**. The party was based on his **philosophy of Transcendental Meditation, Indian spirituality, and quantum physics**. It was well-funded and contested **310 seats in the 1992 European Parliamentary elections in Britain**, but it **did not win any seats** and received only **0.19% of the total votes**.
+
+
+- **Eliminating Poverty (2000)**:  
+    Maharishi Mahesh Yogi wanted to **reduce poverty** worldwide. In **2000**, he started a program called the **"Programme to Eliminate Poverty."**
+    
+    - His idea was to **use unused farmland** and develop it using **Vedic Organic Agriculture** methods.
+    - This would help people grow food naturally and improve their lives.
+- **New Leader (2008)**:
+    
+    - On **February 10, 2008**, **Dr. Tony Nader** (also known as **Maharaja Adhiraj Raja Ram**) was officially made **Maharishi Mahesh Yogi’s successor** (the next leader).
+    - Dr. Tony Nader is a **Lebanese doctor** who had studied with Maharishi for **25 years**.
+
