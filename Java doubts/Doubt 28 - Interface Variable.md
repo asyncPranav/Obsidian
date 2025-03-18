@@ -73,19 +73,23 @@ Application Name: My Application
 
 ### **Example of Trying to Modify an Interface Variable (Compilation Error)**
 
-java
+```java
+interface Constants {
+    int MAX_USERS = 100;
+}
 
-Copy code
-
-`interface Constants {     int MAX_USERS = 100; }  public class Test {     public static void main(String[] args) {         Constants.MAX_USERS = 200;  // ❌ ERROR: Cannot assign a value to final variable 'MAX_USERS'     } }`
+public class Test {
+    public static void main(String[] args) {
+        Constants.MAX_USERS = 200;  // ❌ ERROR: Cannot assign a value to final variable 'MAX_USERS'
+    }
+}
+```
 
 ✅ **Error:**
 
-java
-
-Copy code
-
-`Cannot assign a value to final variable 'MAX_USERS'`
+```sh
+Cannot assign a value to final variable 'MAX_USERS'
+```
 
 ---
 
@@ -96,27 +100,22 @@ Copy code
 
 ### **Example: Correct Way to Access Interface Variables**
 
-java
-
-Copy code
-
-`System.out.println(Constants.MAX_USERS);  // ✅ Correct`
+```java
+System.out.println(Constants.MAX_USERS);  // ✅ Correct
+```
 
 ### **Example: Wrong Way (Creating Object)**
 
-java
-
-Copy code
-
-`Constants obj = new Constants();  // ❌ ERROR: Interfaces cannot be instantiated System.out.println(obj.MAX_USERS);`
+```java
+Constants obj = new Constants();  // ❌ ERROR: Interfaces cannot be instantiated
+System.out.println(obj.MAX_USERS);
+```
 
 ✅ **Error:**
 
-bash
-
-Copy code
-
-`Cannot instantiate the type Constants`
+```sh
+Cannot instantiate the type Constants
+```
 
 ---
 
