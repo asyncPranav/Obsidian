@@ -153,19 +153,36 @@ A banking application has different types of accounts (Savings, Current, Busines
 
 ### **Implementation:**
 
-java
+```java
+interface BankConstants {
+    double MIN_BALANCE = 500.00;
+}
 
-Copy code
+class SavingsAccount implements BankConstants {
+    void checkBalance(double balance) {
+        if (balance < MIN_BALANCE) {
+            System.out.println("Balance is below minimum required!");
+        } else {
+            System.out.println("Balance is sufficient.");
+        }
+    }
+}
 
-`interface BankConstants {     double MIN_BALANCE = 500.00; }  class SavingsAccount implements BankConstants {     void checkBalance(double balance) {         if (balance < MIN_BALANCE) {             System.out.println("Balance is below minimum required!");         } else {             System.out.println("Balance is sufficient.");         }     } }  public class Test {     public static void main(String[] args) {         SavingsAccount account = new SavingsAccount();         account.checkBalance(300);  // ❌ Below minimum balance         account.checkBalance(1000); // ✅ Sufficient balance     } }`
+public class Test {
+    public static void main(String[] args) {
+        SavingsAccount account = new SavingsAccount();
+        account.checkBalance(300);  // ❌ Below minimum balance
+        account.checkBalance(1000); // ✅ Sufficient balance
+    }
+}
+```
 
 ✅ **Output:**
 
-swift
-
-Copy code
-
-`Balance is below minimum required! Balance is sufficient.`
+```sh
+Balance is below minimum required!
+Balance is sufficient.
+```
 
 ---
 
@@ -188,4 +205,4 @@ Copy code
 ✔ **They are always `public static final`, ensuring global accessibility and immutability.**  
 ✔ **They help in maintaining a clean and organized code structure for global constants.**
 
-Would you like **more real-world examples** or a **quiz** to test your understanding? 🚀
+
