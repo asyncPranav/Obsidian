@@ -34,7 +34,7 @@ After Guru Dev passed away in **1953**, Maharishi went to **Uttarkashi in the Hi
 
 - **Other Celebrities**: Apart from **The Beatles**, Maharishi also taught **TM** to many famous people like:
 
-    - **Mike Love** (from The Beach Boys band)
+	- **Mike Love** (from The Beach Boys band)
     - **Mia Farrow** (Hollywood actress)
     - **David Lynch** (filmmaker)
 - **Mid-1970s**: Maharishi **introduced TM to the business world**. Many people from **Wall Street (financial district in New York)** paid **$1,000** for an intensive meditation course to improve their performance and reduce stress.
