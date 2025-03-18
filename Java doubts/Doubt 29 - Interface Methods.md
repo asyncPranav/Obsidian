@@ -32,11 +32,24 @@
 
 ### **Example: Abstract Methods in an Interface**
 
-java
+```java
+interface Animal {
+    void makeSound();  // Abstract method (must be implemented)
+}
 
-Copy code
+class Dog implements Animal {
+    public void makeSound() { // Must be public
+        System.out.println("Woof! Woof!");
+    }
+}
 
-`interface Animal {     void makeSound();  // Abstract method (must be implemented) }  class Dog implements Animal {     public void makeSound() { // Must be public         System.out.println("Woof! Woof!");     } }  public class Test {     public static void main(String[] args) {         Animal dog = new Dog();         dog.makeSound();  // Output: Woof! Woof!     } }`
+public class Test {
+    public static void main(String[] args) {
+        Animal dog = new Dog();
+        dog.makeSound();  // Output: Woof! Woof!
+    }
+}
+```
 
 ### ✅ **Key Points**
 
@@ -55,11 +68,29 @@ Copy code
 
 ### **Example: Default Method in an Interface**
 
-java
+```java
+interface Vehicle {
+    void start();  // Abstract method
+	
+    default void showType() {  // Default method with body
+        System.out.println("This is a vehicle.");
+    }
+}
 
-Copy code
+class Car implements Vehicle {
+    public void start() {
+        System.out.println("Car is starting...");
+    }
+}
 
-`interface Vehicle {     void start();  // Abstract method      default void showType() {  // Default method with body         System.out.println("This is a vehicle.");     } }  class Car implements Vehicle {     public void start() {         System.out.println("Car is starting...");     } }  public class Test {     public static void main(String[] args) {         Car car = new Car();         car.start();      // Output: Car is starting...         car.showType();   // Output: This is a vehicle.     } }`
+public class Test {
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.start();      // Output: Car is starting...
+        car.showType();   // Output: This is a vehicle.
+    }
+}
+```
 
 ### ✅ **Key Points**
 
@@ -78,11 +109,19 @@ Copy code
 
 ### **Example: Static Method in an Interface**
 
-java
+```java
+interface MathUtils {
+    static int square(int num) { // Static method with body
+        return num * num;
+    }
+}
 
-Copy code
-
-`interface MathUtils {     static int square(int num) { // Static method with body         return num * num;     } }  public class Test {     public static void main(String[] args) {         System.out.println(MathUtils.square(5));  // Output: 25     } }`
+public class Test {
+    public static void main(String[] args) {
+        System.out.println(MathUtils.square(5));  // Output: 25
+    }
+}
+```
 
 ### ✅ **Key Points**
 
@@ -101,19 +140,34 @@ Copy code
 
 ### **Example: Private Method in an Interface**
 
-java
+```java
+interface Helper {
+    default void process() {
+        System.out.println("Processing...");
+        log("Process started.");
+    }
+	
+    private void log(String message) { // Private method (Only used inside the interface)
+        System.out.println("Log: " + message);
+    }
+}
 
-Copy code
+class Worker implements Helper {
+}
 
-`interface Helper {     default void process() {         System.out.println("Processing...");         log("Process started.");     }      private void log(String message) { // Private method (Only used inside the interface)         System.out.println("Log: " + message);     } }  class Worker implements Helper { }  public class Test {     public static void main(String[] args) {         Worker worker = new Worker();         worker.process();     } }`
+public class Test {
+    public static void main(String[] args) {
+        Worker worker = new Worker();
+        worker.process();
+    }
+}
+```
 
 ✅ **Output:**
 
-arduino
+```sh
 
-Copy code
-
-`Processing... Log: Process started.`
+```
 
 ### ✅ **Key Points**
 
