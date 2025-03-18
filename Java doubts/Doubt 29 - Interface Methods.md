@@ -166,7 +166,8 @@ public class Test {
 ✅ **Output:**
 
 ```sh
-
+Processing...
+Log: Process started.
 ```
 
 ### ✅ **Key Points**
@@ -185,11 +186,27 @@ public class Test {
 
 ### **Example: Overriding a Default Method**
 
-java
+```java
+interface Parent {
+    default void greet() {
+        System.out.println("Hello from Parent Interface!");
+    }
+}
 
-Copy code
+class Child implements Parent {
+    @Override
+    public void greet() { // Overriding the default method
+        System.out.println("Hello from Child Class!");
+    }
+}
 
-`interface Parent {     default void greet() {         System.out.println("Hello from Parent Interface!");     } }  class Child implements Parent {     @Override     public void greet() { // Overriding the default method         System.out.println("Hello from Child Class!");     } }  public class Test {     public static void main(String[] args) {         Child obj = new Child();         obj.greet(); // Output: Hello from Child Class!     } }`
+public class Test {
+    public static void main(String[] args) {
+        Child obj = new Child();
+        obj.greet(); // Output: Hello from Child Class!
+    }
+}
+```
 
 ✅ **Key Points**
 
