@@ -2,7 +2,7 @@
 
 ----
 
-Maharishi Mahesh Yogi was born on **12 January 1917** in a small village called **Chichli**, near **Jabalpur** in central India. His birth name was either **Mahesh Verma Shrivastava** or **Mahesh Prasad Varma**. His family belonged to the **Kayastha caste** and followed **Hinduism**.
+Maharishi Mahesh Yogi **(12 January 1917 – 5 February 2008)** was born on **12 January 1917** in a small village called **Chichli**, near **Jabalpur** in central India. His birth name was either **Mahesh Verma Shrivastava** or **Mahesh Prasad Varma**. His family belonged to the **Kayastha caste** and followed **Hinduism**.
 
 He completed his **graduation from Allahabad University in Uttar Pradesh** and started working as a **physicist**. While studying physics, he became interested in how **sound vibrations from spoken words** can affect a person’s **body and mind**.
 
