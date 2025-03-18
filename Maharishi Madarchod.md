@@ -23,4 +23,5 @@ After Guru Dev passed away in **1953**, Maharishi went to **Uttarkashi in the Hi
 - **1959 (same year)**: He gave lectures and taught TM in cities like **San Francisco, Los Angeles, Boston, New York, and London**.
 
 - **1960**: Maharishi introduced the concept of the **"Maharishi Effect."** He claimed that if **just 1% of a population practiced Transcendental Meditation**, it would create **positive changes in society**, improving people's quality of life. This theory was later **scientifically confirmed in 1976**.
+
 - **April 1961**: Maharishi started the **first Transcendental Meditation Teacher Training Course** in **Rishikesh, India**. **60 people from different countries** joined this course to learn how to teach TM.
