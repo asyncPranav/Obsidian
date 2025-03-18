@@ -84,11 +84,8 @@ public class CarTest {
 
 ✅ Output:
 
-sql
-
-Copy code
-
-`Using == : false Using equals(): true`
+```sh
+```
 
 - `==` is `false` because `car1` and `car2` are **different objects**.
 - `equals()` is `true` because **both have the same model**.
