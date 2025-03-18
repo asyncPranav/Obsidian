@@ -356,16 +356,40 @@ Think of a **Payment system (UPI, PayPal, Credit Card)**:
 
 ### **Code Example:**
 
-```jav
+```java
+interface Payment {
+    void pay(int amount); // Abstract method (must be overridden)
+}
+
+class CreditCard implements Payment {
+    public void pay(int amount) {
+        System.out.println("Paid " + amount + " using Credit Card.");
+    }
+}
+
+class UPI implements Payment {
+    public void pay(int amount) {
+        System.out.println("Paid " + amount + " using UPI.");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Payment p1 = new CreditCard();
+        Payment p2 = new UPI();
+		
+        p1.pay(500);  // ✅ Different implementations (100% Polymorphism)
+        p2.pay(300);
+    }
+}
 ```
 
 ✅ **Output:**
 
-cpp
-
-Copy code
-
-`Paid 500 using Credit Card. Paid 300 using UPI.`
+```sh
+Paid 500 using Credit Card.
+Paid 300 using UPI.
+```
 
 ### **Why 100% Polymorphism?**
 
@@ -390,6 +414,3 @@ Copy code
 ✔ **Use an abstract class when some shared functionality needs to be implemented.**  
 ✔ **Use an interface when enforcing 100% polymorphism without predefined methods.**
 
-Would you like a **quiz or coding exercise** to test your understanding? 🚀
-
-4o
