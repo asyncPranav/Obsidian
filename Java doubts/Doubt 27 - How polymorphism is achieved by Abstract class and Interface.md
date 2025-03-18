@@ -217,19 +217,40 @@ Animal is sleeping
 
 ### **Example: Interface (100% Polymorphism)**
 
-java
+```java
+interface Animal {
+    void makeSound(); // Abstract method (must be overridden)
+}
 
-CopyEdit
+class Dog implements Animal {
+    public void makeSound() {
+        System.out.println("Dog barks!");
+    }
+}
 
-`interface Animal {     void makeSound(); // Abstract method (must be overridden) }  class Dog implements Animal {     public void makeSound() {         System.out.println("Dog barks!");     } }  class Cat implements Animal {     public void makeSound() {         System.out.println("Cat meows!");     } }  public class Test {     public static void main(String[] args) {         Animal a1 = new Dog(); // Interface reference         Animal a2 = new Cat();           a1.makeSound(); // ✅ Calls Dog's method (Polymorphism)         a2.makeSound(); // ✅ Calls Cat's method (Polymorphism)     } }`
+class Cat implements Animal {
+    public void makeSound() {
+        System.out.println("Cat meows!");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Animal a1 = new Dog(); // Interface reference
+        Animal a2 = new Cat(); 
+		
+        a1.makeSound(); // ✅ Calls Dog's method (Polymorphism)
+        a2.makeSound(); // ✅ Calls Cat's method (Polymorphism)
+    }
+}
+```
 
 ✅ **Output:**
 
-nginx
-
-CopyEdit
-
-`Dog barks! Cat meows!`
+```java
+Dog barks!
+Cat meows!
+```
 
 ---
 
