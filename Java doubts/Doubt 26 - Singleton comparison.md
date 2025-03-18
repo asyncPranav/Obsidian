@@ -17,9 +17,9 @@
 ```java
 class CoffeeMachine {
     private static CoffeeMachine cm = null;
-
+	
     private CoffeeMachine() {}
-
+	
     public static CoffeeMachine getInstance() {
         if (cm == null) {
             cm = new CoffeeMachine();
@@ -32,21 +32,19 @@ public class SingletonTest {
     public static void main(String[] args) {
         CoffeeMachine c1 = CoffeeMachine.getInstance();
         CoffeeMachine c2 = CoffeeMachine.getInstance();
-
+		
         System.out.println("Using == : " + (c1 == c2));       // True (Same object)
         System.out.println("Using equals(): " + c1.equals(c2)); // True (Same reference)
     }
 }
-
 ```
 
 ✅ Output:
 
-sql
-
-Copy code
-
-`Using == : true Using equals(): true`
+```sh
+Using == : true
+Using equals(): true
+```
 
 - Since `c1` and `c2` refer to the **same instance**, both `==` and `equals()` return `true`.
 
@@ -56,11 +54,33 @@ Copy code
 
 If `equals()` is overridden, it compares object **values**, not references.
 
-java
+```java
+class Car {
+    String model;
+	
+    Car(String model) {
+        this.model = model;
+    }
+	
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true; // Check if both references are same
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Car car = (Car) obj;
+        return this.model.equals(car.model); // Compare values
+    }
+}
 
-Copy code
-
-`class Car {     String model;      Car(String model) {         this.model = model;     }      @Override     public boolean equals(Object obj) {         if (this == obj) return true; // Check if both references are same         if (obj == null || getClass() != obj.getClass()) return false;         Car car = (Car) obj;         return this.model.equals(car.model); // Compare values     } }  public class CarTest {     public static void main(String[] args) {         Car car1 = new Car("Tesla");         Car car2 = new Car("Tesla");          System.out.println("Using == : " + (car1 == car2));       // False (Different objects)         System.out.println("Using equals(): " + car1.equals(car2)); // True (Same model)     } }`
+public class CarTest {
+    public static void main(String[] args) {
+        Car car1 = new Car("Tesla");
+        Car car2 = new Car("Tesla");
+		
+        System.out.println("Using == : " + (car1 == car2));       // False (Different objects)
+        System.out.println("Using equals(): " + car1.equals(car2)); // True (Same model)
+    }
+}
+```
 
 ✅ Output:
 
