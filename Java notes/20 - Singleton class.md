@@ -1,7 +1,6 @@
 
 ---
 
-# **Singleton Class in Java**
 
 ## **1. Introduction**
 
