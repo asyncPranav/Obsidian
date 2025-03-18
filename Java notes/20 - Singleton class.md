@@ -152,7 +152,14 @@ class Singleton {
 
 - **Best way** as enums are inherently thread-safe and prevent reflection attacks.
 
-```ja
+```java
+enum Singleton {
+    INSTANCE; // Enum constant is the Singleton instance
+	
+    public void show() {
+        System.out.println("Singleton using Enum!");
+    }
+}
 ```
 
 ✅ **Pros**:  
@@ -170,11 +177,21 @@ class Singleton {
 - **Problem**: Reflection can break Singleton by calling the private constructor.
 - **Solution**: Throw an exception inside the constructor.
 
-java
-
-Copy code
-
-`class Singleton {     private static final Singleton instance = new Singleton();      private Singleton() {         if (instance != null) { // Prevent reflection from creating another instance             throw new RuntimeException("Use getInstance() method to create");         }     }      public static Singleton getInstance() {         return instance;     } }`
+```java
+class Singleton {
+    private static final Singleton instance = new Singleton();
+	
+    private Singleton() {
+        if (instance != null) { // Prevent reflection from creating another instance
+            throw new RuntimeException("Use getInstance() method to create");
+        }
+    }
+	
+    public static Singleton getInstance() {
+        return instance;
+    }
+}
+```
 
 ---
 
@@ -183,11 +200,23 @@ Copy code
 - **Problem**: Deserialization can create a new instance.
 - **Solution**: Implement `readResolve()` method.
 
-java
+```java
+import java.io.Serializable;
 
-Copy code
-
-`import java.io.Serializable;  class Singleton implements Serializable {     private static final Singleton instance = new Singleton();      private Singleton() {}      public static Singleton getInstance() {         return instance;     }      protected Object readResolve() {         return instance; // Prevents deserialization from creating new instance     } }`
+class Singleton implements Serializable {
+    private static final Singleton instance = new Singleton();
+	
+    private Singleton() {}
+	
+    public static Singleton getInstance() {
+        return instance;
+    }
+	
+    protected Object readResolve() {
+        return instance; // Prevents deserialization from creating new instance
+    }
+}
+```
 
 ---
 
