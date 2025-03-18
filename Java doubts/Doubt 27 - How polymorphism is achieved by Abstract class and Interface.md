@@ -74,15 +74,9 @@ Cat meows!
 ✔ **They allow a single reference type (superclass) to refer to different subclass objects dynamically.**  
 ✔ **Method execution depends on the actual object type at runtime (not reference type).**
 
-Would you like a
 
-4o
+---
 
-##### You said:
-
-interface achieve polymorphism only - make me understand it
-
-###### ChatGPT said:
 
 ### **"An interface achieves only polymorphism" – Understanding This Statement**
 
@@ -100,19 +94,43 @@ interface achieve polymorphism only - make me understand it
 
 ### **Example: Achieving Polymorphism Using an Interface**
 
-java
+```java
+// Interface with a common method
+interface Animal {
+    void makeSound();  // Method without implementation
+}
 
-CopyEdit
+// Class 1 implementing the interface
+class Dog implements Animal {
+    public void makeSound() {
+        System.out.println("Dog barks!");
+    }
+}
 
-`// Interface with a common method interface Animal {     void makeSound();  // Method without implementation }  // Class 1 implementing the interface class Dog implements Animal {     public void makeSound() {         System.out.println("Dog barks!");     } }  // Class 2 implementing the interface class Cat implements Animal {     public void makeSound() {         System.out.println("Cat meows!");     } }  public class Test {     public static void main(String[] args) {         Animal a1 = new Dog();  // Interface reference to Dog object         Animal a2 = new Cat();  // Interface reference to Cat object          a1.makeSound();  // Calls Dog's implementation         a2.makeSound();  // Calls Cat's implementation     } }`
+// Class 2 implementing the interface
+class Cat implements Animal {
+    public void makeSound() {
+        System.out.println("Cat meows!");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Animal a1 = new Dog();  // Interface reference to Dog object
+        Animal a2 = new Cat();  // Interface reference to Cat object
+		
+        a1.makeSound();  // Calls Dog's implementation
+        a2.makeSound();  // Calls Cat's implementation
+    }
+}
+```
 
 ✅ **Output:**
 
-nginx
-
-CopyEdit
-
-`Dog barks! Cat meows!`
+```sh
+Dog barks!
+Cat meows!
+```
 
 ---
 
