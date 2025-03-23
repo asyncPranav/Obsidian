@@ -239,13 +239,9 @@ Once you've mastered Kotlin, choose a **development path**:
 
 Would you like **a roadmap with project ideas** after each stage?
 
-4o
 
-##### You said:
+---
 
-Yes
-
-###### ChatGPT said:
 
 ### **🔥 Complete Kotlin Learning Roadmap with Project Ideas**
 
@@ -426,7 +422,3 @@ After mastering Kotlin, choose a **career path**:
 ✅ Follow project-based learning to build real-world apps.
 
 Would you like **detailed resources and links** for each stage?
-
-4o
-
-##### You said:
