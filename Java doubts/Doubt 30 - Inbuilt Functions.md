@@ -251,15 +251,21 @@ System.out.println(Integer.divideUnsigned(a, b)); // Treats -5 as unsigned
 
 # **4. Arrays Class Methods (`java.util.Arrays`)**
 
-For working with arrays.
 
-|Method|Description|
-|---|---|
-|`static void sort(int[] arr)`|Sorts the array.|
-|`static int binarySearch(int[] arr, int key)`|Searches using binary search.|
-|`static int[] copyOf(int[] arr, int newLength)`|Copies an array.|
-|`static void fill(int[] arr, int value)`|Fills the array with a value.|
-|`static boolean equals(int[] arr1, int[] arr2)`|Compares two arrays.|
+| Method                                             | Description                                                                              |
+| -------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `int binarySearch(T[] array, T key)`               | Searches for `key` using **binary search** and returns the index (must be sorted).       |
+| `int[] copyOf(int[] array, int newLength)`         | Creates a **new array** with the specified length and copies elements from the original. |
+| `int[] copyOfRange(int[] array, int from, int to)` | Copies a **range of elements** into a new array.                                         |
+| `boolean equals(int[] array1, int[] array2)`       | Checks if two arrays are **equal**.                                                      |
+| `void fill(int[] array, int value)`                | Fills the array with a specific value.                                                   |
+| `void sort(int[] array)`                           | Sorts the array in **ascending order**.                                                  |
+| `void parallelSort(int[] array)`                   | Faster sorting using **parallel processing** (Java 8+).                                  |
+| `String toString(int[] array)`                     | Converts an array into a **string representation**.                                      |
+| `List<T> asList(T... array)`                       | Converts an array into a **fixed-size list**.                                            |
+| `int hashCode(int[] array)`                        | Returns a **hash code** for the array.                                                   |
+| `Stream<T> stream(T[] array)`                      | Converts an array into a **Stream** (Java 8+).                                           |
+
 
 ---
 
