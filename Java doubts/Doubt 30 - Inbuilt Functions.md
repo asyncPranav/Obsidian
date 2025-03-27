@@ -334,10 +334,39 @@ For working with lists.
 ### **Example Usage**
 
 ```java
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Integer> numbers = new ArrayList<>(Arrays.asList(5, 3, 8, 1, 9));
+		
+        // Sorting
+        Collections.sort(numbers);
+        System.out.println("Sorted: " + numbers); // [1, 3, 5, 8, 9]
+		
+        // Reversing
+        Collections.reverse(numbers);
+        System.out.println("Reversed: " + numbers); // [9, 8, 5, 3, 1]
+		
+        // Shuffling
+        Collections.shuffle(numbers);
+        System.out.println("Shuffled: " + numbers);
+		
+        // Finding min and max
+        System.out.println("Min: " + Collections.min(numbers)); // Smallest element
+        System.out.println("Max: " + Collections.max(numbers)); // Largest element
+		
+        // Frequency of element
+        System.out.println("Frequency of 3: " + Collections.frequency(numbers, 3));
+    }
+}
 ```
 
-Let me know if you need more details! 🚀
+
+
 ---
+
+
 
 # **6. File Handling Methods (`java.io.File`)**
 
