@@ -131,11 +131,10 @@ Used for working with `int` values.
 
 **Example:**
 
-java
-
-Copy code
-
-`int num = Integer.parseInt("123"); System.out.println(num); // Output: 123`
+```java
+int num = Integer.parseInt("123");
+System.out.println(num); // Output: 123
+```
 
 ---
 
@@ -168,11 +167,10 @@ Copy code
 
 **Example:**
 
-java
-
-Copy code
-
-`int n = 23; System.out.println(Integer.bitCount(n)); // Output: 4 (10111 has 4 ones)`
+```java
+int n = 23;
+System.out.println(Integer.bitCount(n)); // Output: 4 (10111 has 4 ones)
+```
 
 ---
 
@@ -186,11 +184,9 @@ Copy code
 
 **Example:**
 
-java
-
-Copy code
-
-`System.out.println(Integer.compare(10, 20)); // Output: -1`
+```java
+System.out.println(Integer.compare(10, 20)); // Output: -1
+```
 
 ---
 
@@ -203,12 +199,12 @@ Copy code
 |`Integer.toHexString(int n)`|Converts `n` to a hexadecimal string.|
 
 **Example:**
-
-java
-
-Copy code
-
-`int num = 23; System.out.println(Integer.toBinaryString(num)); // Output: 10111 System.out.println(Integer.toOctalString(num));  // Output: 27 System.out.println(Integer.toHexString(num));   // Output: 17`
+```java
+int num = 23;
+System.out.println(Integer.toBinaryString(num)); // Output: 10111
+System.out.println(Integer.toOctalString(num));  // Output: 27
+System.out.println(Integer.toHexString(num));   // Output: 17
+```
 
 ---
 
@@ -222,11 +218,8 @@ Copy code
 
 **Example:**
 
-java
-
-Copy code
-
-`int a = -5, b = 3; System.out.println(Integer.divideUnsigned(a, b)); // Treats -5 as unsigned`
+```jab
+```
 ---
 
 # **3. Math Class Methods (`java.lang.Math`)**
