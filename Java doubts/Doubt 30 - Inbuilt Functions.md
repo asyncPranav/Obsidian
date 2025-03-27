@@ -459,11 +459,9 @@ System.out.println(Arrays.deepToString(nested)); // [[1, 2], [3, 4]]
 
 🔹 **Example**:
 
-java
-
-Copy code
-
-`Arrays.parallelSort(arr); // Faster than sort() for large arrays`
+```java
+Arrays.parallelSort(arr); // Faster than sort() for large arrays
+```
 
 ---
 
