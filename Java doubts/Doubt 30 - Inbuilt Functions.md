@@ -2,7 +2,7 @@
 
 ---
 
-# **1. String Class Methods (`java.lang.String`)**
+# **📚 1. String Class Methods (`java.lang.String`)**
 
 The `String` class provides methods for text manipulation.
 
@@ -141,7 +141,7 @@ System.out.println(sb); // "avaJ olleH"
 
 ---
 
-# **2. Integer Class Methods (`java.lang.Integer`)**
+# **📚 2. Integer Class Methods (`java.lang.Integer`)**
 
 Used for working with `int` values.
 
@@ -253,7 +253,7 @@ System.out.println(Integer.divideUnsigned(a, b)); // Treats -5 as unsigned
 
 ---
 
-# **3. Math Class Methods (`java.lang.Math`)**
+# **📚 3. Math Class Methods (`java.lang.Math`)**
 
 
 ### **1. Basic Mathematical Operations**
@@ -391,7 +391,7 @@ System.out.println(Math.E); // 2.718281828459045
 
 ---
 
-# **4. Arrays Class Methods (`java.util.Arrays`)**
+# **📚 4. Arrays Class Methods (`java.util.Arrays`)**
 
 
 ### **1. Sorting and Searching**
