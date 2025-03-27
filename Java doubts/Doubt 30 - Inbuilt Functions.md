@@ -228,16 +228,24 @@ System.out.println(Integer.divideUnsigned(a, b)); // Treats -5 as unsigned
 
 # **3. Math Class Methods (`java.lang.Math`)**
 
-For mathematical operations.
 
 |Method|Description|
 |---|---|
-|`static int abs(int x)`|Absolute value.|
-|`static double sqrt(double x)`|Square root.|
-|`static double pow(double a, double b)`|Power function.|
-|`static double log(double x)`|Natural logarithm (`ln(x)`).|
-|`static double round(double x)`|Rounds a floating-point number.|
-|`static double random()`|Generates a random number between `0.0` and `1.0`.|
+|`Math.abs(int x)`|Returns the absolute value of `x`.|
+|`Math.max(int a, int b)`|Returns the maximum of `a` and `b`.|
+|`Math.min(int a, int b)`|Returns the minimum of `a` and `b`.|
+|`Math.pow(double a, double b)`|Returns `a` raised to the power `b`.|
+|`Math.sqrt(double x)`|Returns the square root of `x`.|
+|`Math.cbrt(double x)`|Returns the cube root of `x`.|
+|`Math.round(double x)`|Rounds `x` to the nearest integer.|
+|`Math.floor(double x)`|Rounds `x` downward.|
+|`Math.ceil(double x)`|Rounds `x` upward.|
+|`Math.random()`|Returns a random number between `0.0` and `1.0`.|
+|`Math.log(double x)`|Returns the natural logarithm (`ln(x)`).|
+|`Math.log10(double x)`|Returns base-10 logarithm (`log₁₀(x)`).|
+|`Math.sin(double x)`, `Math.cos(double x)`, `Math.tan(double x)`|Trigonometric functions.|
+
+
 
 ---
 
