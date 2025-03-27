@@ -386,7 +386,25 @@ Java provides **file handling** through classes in the `java.io` and `java.nio.f
 
 **Example:**
 
-```jav
+```java
+import java.io.File;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        File file = new File("test.txt");
+		
+        try {
+            if (file.createNewFile()) {
+                System.out.println("File created: " + file.getName());
+            } else {
+                System.out.println("File already exists.");
+            }
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+        }
+    }
+}
 ```
 
 ---
@@ -403,19 +421,48 @@ Java provides **file handling** through classes in the `java.io` and `java.nio.f
 
 **Example: Writing to a File**
 
-java
+```java
+import java.io.FileWriter;
+import java.io.IOException;
 
-Copy code
+public class Main {
+    public static void main(String[] args) {
+        try {
+            FileWriter writer = new FileWriter("test.txt");
+            writer.write("Hello, Java File Handling!");
+            writer.close();
+            System.out.println("Successfully written to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+        }
+    }
+}
+```
 
-`import java.io.FileWriter; import java.io.IOException;  public class Main {     public static void main(String[] args) {         try {             FileWriter writer = new FileWriter("test.txt");             writer.write("Hello, Java File Handling!");             writer.close();             System.out.println("Successfully written to the file.");         } catch (IOException e) {             System.out.println("An error occurred.");         }     } }`
+
 
 **Example: Reading from a File**
 
-java
+```java
+import java.io.FileReader;
+import java.io.IOException;
 
-Copy code
+public class Main {
+    public static void main(String[] args) {
+        try {
+            FileReader reader = new FileReader("test.txt");
+            int character;
+            while ((character = reader.read()) != -1) {
+                System.out.print((char) character);
+            }
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+        }
+    }
+}
+```
 
-`import java.io.FileReader; import java.io.IOException;  public class Main {     public static void main(String[] args) {         try {             FileReader reader = new FileReader("test.txt");             int character;             while ((character = reader.read()) != -1) {                 System.out.print((char) character);             }             reader.close();         } catch (IOException e) {             System.out.println("An error occurred.");         }     } }`
 
 ---
 
