@@ -17,13 +17,13 @@ The `String` class provides methods for text manipulation.
 
 ### **String Comparison**
 
-| Method                               | Description                                   |
-| ------------------------------------ | --------------------------------------------- |
-| `boolean equals(String s)`           | Compares two strings (case-sensitive).        |
-| `boolean equalsIgnoreCase(String s)` | Compares two strings (case-insensitive).      |
-| `int compareTo(String s)`            | Compares two strings lexicographically.       |
-| compareToIgnoreCase(String another)  | Same as `compareTo()` but case-insensitive.\| |
-| `boolean matches(String regex)`      | Checks if the string matches a given regex.   |
+| Method                                | Description                                   |
+| ------------------------------------- | --------------------------------------------- |
+| `boolean equals(String s)`            | Compares two strings (case-sensitive).        |
+| `boolean equalsIgnoreCase(String s)`  | Compares two strings (case-insensitive).      |
+| `int compareTo(String s)`             | Compares two strings lexicographically.       |
+| `compareToIgnoreCase(String another)` | Same as `compareTo()` but case-insensitive.\| |
+| `boolean matches(String regex)`       | Checks if the string matches a given regex.   |
 
 ### **Searching in Strings**
 
@@ -39,16 +39,6 @@ The `String` class provides methods for text manipulation.
 
 |Method|Description|
 |---|---|
-|`String toUpperCase()`|Converts to uppercase.|
-|`String toLowerCase()`|Converts to lowercase.|
-|`String trim()`|Removes leading and trailing spaces.|
-|`String replace(char old, char new)`|Replaces a character.|
-|`String replaceAll(String regex, String replacement)`|Replaces matches of a regex pattern.|
-
-### **Modifying Strings**
-
-|Method|Description|
-|---|---|
 |`String toUpperCase()`|Converts the string to uppercase.|
 |`String toLowerCase()`|Converts the string to lowercase.|
 |`String trim()`|Removes leading and trailing spaces.|
@@ -59,6 +49,8 @@ The `String` class provides methods for text manipulation.
 |`String replace(String old, String new)`|Replaces all occurrences of a substring.|
 |`String replaceAll(String regex, String replacement)`|Replaces all matches of a regex pattern.|
 |`String replaceFirst(String regex, String replacement)`|Replaces the first match of a regex pattern.|
+
+
 ### **Extracting Substrings**
 
 |Method|Description|
