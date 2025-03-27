@@ -65,6 +65,16 @@ The `String` class provides methods for text manipulation.
 |`char[] toCharArray()`|Converts string to character array.|
 |`static String valueOf(anyType x)`|Converts int, double, boolean, etc., to a string.|
 
+
+### **5. Splitting and Joining**
+
+|Method|Description|
+|---|---|
+|`split(String regex)`|Splits a string based on a regex pattern.|
+|`split(String regex, int limit)`|Splits a string into a limited number of parts.|
+|`join(CharSequence delimiter, CharSequence... elements)`|Joins multiple strings with a delimiter.|
+
+
 ---
 
 # **2. Integer Class Methods (`java.lang.Integer`)**
