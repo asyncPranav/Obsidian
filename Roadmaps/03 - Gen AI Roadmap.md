@@ -23,12 +23,14 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 - Matplotlib & Seaborn (Data Visualization)
     
 
+
 ### 🔹 Probability & Statistics for AI
 
 - Mean, Median, Variance, Standard Deviation
     
 - Probability Distributions (Bernoulli, Gaussian)
     
+
 
 ### 🔹 Supervised ML (Essential for AI)
 
@@ -39,12 +41,14 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 - Overfitting & Regularization (L1/L2, Dropout)
     
 
+
 ### 🔹 Unsupervised ML (For pattern discovery)
 
 - Clustering (K-Means, DBSCAN)
     
 - Principal Component Analysis (PCA)
     
+
 
 ### 🔹 Neural Network Basics
 
@@ -55,11 +59,13 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 - Backpropagation & Gradient Descent
     
 
+
 ### 🛠 **Practice Projects**
 
 ✅ Predict House Prices (Regression)  
 ✅ Spam Detector (Classification)  
 ✅ Customer Segmentation (Clustering)
+
 
 ### ❌ **Skippable Topics**
 
@@ -70,11 +76,13 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 
 ---
 
+
 # **🟢 Phase 2: Deep Learning & Neural Networks (2-3 Months)**
 
 🎯 **Goal:** Build deep learning models using CNNs, RNNs, and Transformers.
 
 ### ✅ **Must-Learn Topics**
+
 
 ### 🔹 Neural Networks Deep Dive
 
@@ -82,6 +90,7 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
     
 - Optimization Techniques (Adam, RMSProp, Learning Rate Scheduling)
     
+
 
 ### 🔹 Convolutional Neural Networks (CNNs) – Image Processing
 
@@ -92,12 +101,14 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 - Transfer Learning (Fine-Tuning Pre-trained Models)
     
 
+
 ### 🔹 Recurrent Neural Networks (RNNs) – Text & Speech Generation
 
 - Vanilla RNNs (Sequence learning)
     
 - LSTM & GRU Networks (For long-term dependencies)
-    
+
+
 
 ### 🔹 Transformer Models & Attention Mechanism
 
@@ -108,11 +119,13 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 - Encoder-Decoder Architecture (BERT, GPT, T5, Whisper etc)
     
 
+
 ### 🛠 **Practice Projects**
 
 ✅ Image Classifier (CNN)  
 ✅ AI Chatbot (Basic RNN/LSTM)  
 ✅ Text Summarization Model (Transformer)
+
 
 ### ❌ **Skippable Topics**
 
@@ -122,11 +135,13 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 
 ---
 
+
 # **🟢 Phase 3: Generative AI – Core Models (3-4 Months)**
 
 🎯 **Goal:** Learn how to generate text, images, and videos using AI.
 
 ### ✅ **Must-Learn Topics**
+
 
 ### 🔹 Variational Autoencoders (VAEs) – Feature Learning & Image Generation
 
