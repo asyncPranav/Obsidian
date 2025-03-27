@@ -22,7 +22,7 @@ The `String` class provides methods for text manipulation.
 | `boolean equals(String s)`           | Compares two strings (case-sensitive).        |
 | `boolean equalsIgnoreCase(String s)` | Compares two strings (case-insensitive).      |
 | `int compareTo(String s)`            | Compares two strings lexicographically.       |
-| `compareToIgnoreCase(String another) | Same as `compareTo()` but case-insensitive.\| |
+| compareToIgnoreCase(String another)  | Same as `compareTo()` but case-insensitive.\| |
 | `boolean matches(String regex)`      | Checks if the string matches a given regex.   |
 
 ### **Searching in Strings**
