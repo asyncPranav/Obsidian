@@ -45,6 +45,20 @@ The `String` class provides methods for text manipulation.
 |`String replace(char old, char new)`|Replaces a character.|
 |`String replaceAll(String regex, String replacement)`|Replaces matches of a regex pattern.|
 
+### **Modifying Strings**
+
+|Method|Description|
+|---|---|
+|`String toUpperCase()`|Converts the string to uppercase.|
+|`String toLowerCase()`|Converts the string to lowercase.|
+|`String trim()`|Removes leading and trailing spaces.|
+|`String strip()`|Similar to `trim()`, but also removes Unicode whitespace (Java 11+).|
+|`String stripLeading()`|Removes leading spaces (Java 11+).|
+|`String stripTrailing()`|Removes trailing spaces (Java 11+).|
+|`String replace(char old, char new)`|Replaces all occurrences of a character.|
+|`String replace(String old, String new)`|Replaces all occurrences of a substring.|
+|`String replaceAll(String regex, String replacement)`|Replaces all matches of a regex pattern.|
+|`String replaceFirst(String regex, String replacement)`|Replaces the first match of a regex pattern.|
 ### **Extracting Substrings**
 
 |Method|Description|
