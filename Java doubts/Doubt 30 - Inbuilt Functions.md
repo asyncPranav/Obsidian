@@ -79,9 +79,21 @@ The `String` class provides methods for text manipulation.
 
 |Method|Description|
 |---|---|
-|`String.valueOf(anyType)`|Converts int, double, boolean, char, etc., to a string.|
-|`getBytes()`|Converts a string into a byte array.|
-|`toCharArray()`|Converts a string into a character array.|
+|`char[] toCharArray()`|Converts the string into a character array.|
+|`byte[] getBytes()`|Converts the string into a byte array.|
+|`static String valueOf(int i)`|Converts an integer to a string.|
+
+🔹 **Example**
+
+```java
+String s = "Hello";
+char[] chars = s.toCharArray();
+System.out.println(Arrays.toString(chars)); // [H, e, l, l, o]
+
+int num = 100;
+String strNum = String.valueOf(num);
+System.out.println(strNum + 10); // "10010" (concatenation)
+```
 
 ---
 
