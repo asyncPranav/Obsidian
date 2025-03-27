@@ -150,6 +150,7 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 - Latent Space Representation
     
 
+
 ### 🔹 Generative Adversarial Networks (GANs) – Image & Video Generation
 
 - Generator & Discriminator
@@ -159,12 +160,14 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 - Types of GANs (DCGAN, CycleGAN, StyleGAN)
     
 
+
 ### 🔹 Diffusion Models – AI Image & Video Creation
 
 - Denoising Diffusion Process
     
 - Stable Diffusion & DALL·E
     
+
 
 ### 🔹 NLP-Specific Generative AI (Text Generation, Chatbots)
 
@@ -175,12 +178,14 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 - Fine-tuning LLMs with RLHF (ChatGPT, Claude, Gemini)
     
 
+
 ### 🛠 **Practice Projects**
 
 ✅ AI Art Generator (GANs)  
 ✅ AI Music Generator (RNN/LSTM)  
 ✅ AI Image Upscaler (Stable Diffusion)  
 ✅ Fine-tune GPT for Custom AI Chatbot
+
 
 ### ❌ **Skippable Topics**
 
@@ -190,11 +195,13 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 
 ---
 
+
 # **🟢 Phase 4: Building & Deploying Generative AI (1-2 Months)**
 
 🎯 **Goal:** Deploy AI models for real-world applications.
 
 ### ✅ **Must-Learn Topics**
+
 
 ### 🔹 Working with Pre-trained Models
 
@@ -203,12 +210,14 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 - LangChain & Prompt Engineering
     
 
+
 ### 🔹 Fine-Tuning & Custom AI Training
 
 - LoRA (Low-Rank Adaptation)
     
 - PEFT (Parameter Efficient Fine-Tuning)
     
+
 
 ### 🔹 AI Deployment & Integration
 
@@ -219,11 +228,13 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 - Running AI Models on Mobile (Edge AI)
     
 
+
 ### 🛠 **Practice Projects**
 
 ✅ Deploy AI Chatbot (Fine-Tuned GPT)  
 ✅ AI Image Editor (Stable Diffusion)  
 ✅ AI-Powered Resume Analyzer (Transformer Model)
+
 
 ### ❌ **Skippable Topics**
 
@@ -231,6 +242,7 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 🚫 Quantum Computing for AI (Not needed for Gen AI today)
 
 ---
+
 
 # **⏳ Total Time Required**
 
@@ -243,6 +255,7 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 |**Total Duration**|**6-8 Months**|**200-350 Hours**|
 
 ---
+
 
 # **🚀 Key Takeaways**
 
