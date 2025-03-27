@@ -574,6 +574,7 @@ System.out.println(list); // [Apple]
 |`size()`|Returns number of elements.|
 
 🔹 **Example**:
+
 ```java
 Set<Integer> set = new HashSet<>();
 set.add(10);
@@ -605,19 +606,21 @@ System.out.println(set); // [10, 20]
 
 🔹 **Example**:
 
-java
-
-Copy code
-
-`Queue<Integer> queue = new LinkedList<>(); queue.add(1); queue.add(2); System.out.println(queue.poll()); // 1`
+```java
+Queue<Integer> queue = new LinkedList<>();
+queue.add(1);
+queue.add(2);
+System.out.println(queue.poll()); // 1
+```
 
 🔹 **Deque (Double-ended queue) allows insertion/removal from both ends.**
 
-java
-
-Copy code
-
-`Deque<Integer> deque = new ArrayDeque<>(); deque.addFirst(1); deque.addLast(2); System.out.println(deque.pollFirst()); // 1`
+```java
+Deque<Integer> deque = new ArrayDeque<>();
+deque.addFirst(1);
+deque.addLast(2);
+System.out.println(deque.pollFirst()); // 1
+```
 
 ---
 
@@ -644,11 +647,13 @@ Copy code
 
 🔹 **Example**:
 
-java
-
-Copy code
-
-`Map<String, Integer> map = new HashMap<>(); map.put("A", 1); map.put("B", 2); System.out.println(map.get("A")); // 1 System.out.println(map.containsKey("B")); // true`
+```java
+Map<String, Integer> map = new HashMap<>();
+map.put("A", 1);
+map.put("B", 2);
+System.out.println(map.get("A")); // 1
+System.out.println(map.containsKey("B")); // true
+```
 
 ---
 
@@ -666,11 +671,11 @@ Copy code
 
 🔹 **Example**:
 
-java
-
-Copy code
-
-`List<Integer> numbers = Arrays.asList(5, 1, 3, 7); Collections.sort(numbers); System.out.println(numbers); // [1, 3, 5, 7]`
+```java
+List<Integer> numbers = Arrays.asList(5, 1, 3, 7);
+Collections.sort(numbers);
+System.out.println(numbers); // [1, 3, 5, 7]
+```
 
 ---
 
