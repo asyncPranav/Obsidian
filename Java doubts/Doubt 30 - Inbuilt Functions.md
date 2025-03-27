@@ -377,10 +377,18 @@ System.out.println(Math.E); // 2.718281828459045
 
 🔹 **Example**:
 
-```ja
+```java
+import java.util.Arrays;
+
+int[] arr = {5, 2, 8, 1, 9};
+Arrays.sort(arr);
+System.out.println(Arrays.toString(arr)); // [1, 2, 5, 8, 9]
+
+int index = Arrays.binarySearch(arr, 5);
+System.out.println(index); // 2 (found at index 2)
 ```
 
----
+
 
 ### **2. Filling and Copying**
 
@@ -392,13 +400,15 @@ System.out.println(Math.E); // 2.718281828459045
 
 🔹 **Example**:
 
-java
+```java
+int[] arr = new int[5];
+Arrays.fill(arr, 7);
+System.out.println(Arrays.toString(arr)); // [7, 7, 7, 7, 7]
 
-Copy code
+int[] copied = Arrays.copyOf(arr, 3);
+System.out.println(Arrays.toString(copied)); // [7, 7, 7]
+```
 
-`int[] arr = new int[5]; Arrays.fill(arr, 7); System.out.println(Arrays.toString(arr)); // [7, 7, 7, 7, 7]  int[] copied = Arrays.copyOf(arr, 3); System.out.println(Arrays.toString(copied)); // [7, 7, 7]`
-
----
 
 ### **3. Comparing and Checking Equality**
 
@@ -411,13 +421,15 @@ Copy code
 
 🔹 **Example**:
 
-java
+```java
+int[] arr1 = {1, 2, 3};
+int[] arr2 = {1, 2, 3};
+System.out.println(Arrays.equals(arr1, arr2)); // true
 
-Copy code
+int[] arr3 = {1, 2, 4};
+System.out.println(Arrays.mismatch(arr1, arr3)); // 2 (index where mismatch occurs)
+```
 
-`int[] arr1 = {1, 2, 3}; int[] arr2 = {1, 2, 3}; System.out.println(Arrays.equals(arr1, arr2)); // true  int[] arr3 = {1, 2, 4}; System.out.println(Arrays.mismatch(arr1, arr3)); // 2 (index where mismatch occurs)`
-
----
 
 ### **4. Converting Arrays to String**
 
@@ -428,13 +440,14 @@ Copy code
 
 🔹 **Example**:
 
-java
+```java
+int[] arr = {1, 2, 3};
+System.out.println(Arrays.toString(arr)); // [1, 2, 3]
 
-Copy code
+int[][] nested = {{1, 2}, {3, 4}};
+System.out.println(Arrays.deepToString(nested)); // [[1, 2], [3, 4]]
+```
 
-`int[] arr = {1, 2, 3}; System.out.println(Arrays.toString(arr)); // [1, 2, 3]  int[][] nested = {{1, 2}, {3, 4}}; System.out.println(Arrays.deepToString(nested)); // [[1, 2], [3, 4]]`
-
----
 
 ### **5. Parallel Operations (Faster Sorting)**
 
