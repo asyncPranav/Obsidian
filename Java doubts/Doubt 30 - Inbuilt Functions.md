@@ -302,13 +302,12 @@ System.out.println(Math.round(4.4)); // 4
 
 🔹 **Example**:
 
-java
+```java
+System.out.println(Math.sin(Math.PI / 2)); // 1.0
+System.out.println(Math.cos(0)); // 1.0
+System.out.println(Math.tan(Math.PI / 4)); // 1.0
+```
 
-Copy code
-
-`System.out.println(Math.sin(Math.PI / 2)); // 1.0 System.out.println(Math.cos(0)); // 1.0 System.out.println(Math.tan(Math.PI / 4)); // 1.0`
-
----
 
 ### **5. Random Number Generation**
 
@@ -318,19 +317,17 @@ Copy code
 
 🔹 **Example**:
 
-java
-
-Copy code
-
-`System.out.println(Math.random()); // Random number between 0.0 and 1.0`
+```java
+System.out.println(Math.random()); // Random number between 0.0 and 1.0
+```
 
 🔹 To generate a random number in a **range**:
 
-java
-
-Copy code
-
-`int min = 1, max = 100; int randomNumber = min + (int)(Math.random() * (max - min + 1)); System.out.println(randomNumber); // Random number between 1 and 100`
+```java
+int min = 1, max = 100;
+int randomNumber = min + (int)(Math.random() * (max - min + 1));
+System.out.println(randomNumber); // Random number between 1 and 100
+```
 
 ---
 
@@ -343,11 +340,10 @@ Copy code
 
 🔹 **Example**:
 
-java
-
-Copy code
-
-`System.out.println(Math.PI); // 3.141592653589793 System.out.println(Math.E); // 2.718281828459045`
+```java
+System.out.println(Math.PI); // 3.141592653589793
+System.out.println(Math.E); // 2.718281828459045
+```
 
 ---
 
