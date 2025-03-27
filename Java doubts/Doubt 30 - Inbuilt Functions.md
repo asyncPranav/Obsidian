@@ -229,22 +229,142 @@ System.out.println(Integer.divideUnsigned(a, b)); // Treats -5 as unsigned
 # **3. Math Class Methods (`java.lang.Math`)**
 
 
-|Method|Description|
-|---|---|
-|`Math.abs(int x)`|Returns the absolute value of `x`.|
-|`Math.max(int a, int b)`|Returns the maximum of `a` and `b`.|
-|`Math.min(int a, int b)`|Returns the minimum of `a` and `b`.|
-|`Math.pow(double a, double b)`|Returns `a` raised to the power `b`.|
-|`Math.sqrt(double x)`|Returns the square root of `x`.|
-|`Math.cbrt(double x)`|Returns the cube root of `x`.|
-|`Math.round(double x)`|Rounds `x` to the nearest integer.|
-|`Math.floor(double x)`|Rounds `x` downward.|
-|`Math.ceil(double x)`|Rounds `x` upward.|
-|`Math.random()`|Returns a random number between `0.0` and `1.0`.|
-|`Math.log(double x)`|Returns the natural logarithm (`ln(x)`).|
-|`Math.log10(double x)`|Returns base-10 logarithm (`log₁₀(x)`).|
-|`Math.sin(double x)`, `Math.cos(double x)`, `Math.tan(double x)`|Trigonometric functions.|
+### **1. Basic Mathematical Operations**
 
+|Method|Return Type|Description|
+|---|---|---|
+|`int abs(int a)`|`int`|Returns the absolute value of `a`.|
+|`double abs(double a)`|`double`|Returns the absolute value of `a`.|
+|`int max(int a, int b)`|`int`|Returns the larger of `a` and `b`.|
+|`double max(double a, double b)`|`double`|Returns the larger of `a` and `b`.|
+|`int min(int a, int b)`|`int`|Returns the smaller of `a` and `b`.|
+|`double min(double a, double b)`|`double`|Returns the smaller of `a` and `b`.|
+
+🔹 **Example**:
+
+```java
+System.out.println(Math.abs(-10)); // 10
+System.out.println(Math.max(10, 20)); // 20
+System.out.println(Math.min(10, 20)); // 10
+```
+
+
+---
+
+### **2. Exponentiation and Logarithms**
+
+|Method|Return Type|Description|
+|---|---|---|
+|`double pow(double a, double b)`|`double`|Returns `a` raised to the power `b` (`a^b`).|
+|`double sqrt(double a)`|`double`|Returns the square root of `a`.|
+|`double cbrt(double a)`|`double`|Returns the cube root of `a`.|
+|`double exp(double a)`|`double`|Returns `e^a`.|
+|`double log(double a)`|`double`|Returns the natural logarithm (`ln(a)`).|
+|`double log10(double a)`|`double`|Returns the base 10 logarithm of `a`.|
+
+🔹 **Example**:
+
+java
+
+Copy code
+
+`System.out.println(Math.pow(2, 3)); // 8.0 System.out.println(Math.sqrt(16)); // 4.0 System.out.println(Math.log(2.718)); // Approx. 1.0 System.out.println(Math.log10(100)); // 2.0`
+
+---
+
+### **3. Rounding and Formatting**
+
+|Method|Return Type|Description|
+|---|---|---|
+|`double ceil(double a)`|`double`|Rounds `a` **up** to the nearest integer.|
+|`double floor(double a)`|`double`|Rounds `a` **down** to the nearest integer.|
+|`long round(double a)`|`long`|Rounds `a` to the nearest integer (returns `long`).|
+
+🔹 **Example**:
+
+java
+
+Copy code
+
+`System.out.println(Math.ceil(4.2)); // 5.0 System.out.println(Math.floor(4.8)); // 4.0 System.out.println(Math.round(4.5)); // 5 System.out.println(Math.round(4.4)); // 4`
+
+---
+
+### **4. Trigonometric Functions**
+
+|Method|Return Type|Description|
+|---|---|---|
+|`double sin(double a)`|`double`|Returns the sine of `a` (radians).|
+|`double cos(double a)`|`double`|Returns the cosine of `a` (radians).|
+|`double tan(double a)`|`double`|Returns the tangent of `a` (radians).|
+|`double asin(double a)`|`double`|Returns the arcsine (inverse sine) of `a` (radians).|
+|`double acos(double a)`|`double`|Returns the arccosine (inverse cosine) of `a` (radians).|
+|`double atan(double a)`|`double`|Returns the arctangent (inverse tangent) of `a` (radians).|
+
+🔹 **Example**:
+
+java
+
+Copy code
+
+`System.out.println(Math.sin(Math.PI / 2)); // 1.0 System.out.println(Math.cos(0)); // 1.0 System.out.println(Math.tan(Math.PI / 4)); // 1.0`
+
+---
+
+### **5. Random Number Generation**
+
+|Method|Return Type|Description|
+|---|---|---|
+|`double random()`|`double`|Returns a random number between `0.0` and `1.0`.|
+
+🔹 **Example**:
+
+java
+
+Copy code
+
+`System.out.println(Math.random()); // Random number between 0.0 and 1.0`
+
+🔹 To generate a random number in a **range**:
+
+java
+
+Copy code
+
+`int min = 1, max = 100; int randomNumber = min + (int)(Math.random() * (max - min + 1)); System.out.println(randomNumber); // Random number between 1 and 100`
+
+---
+
+### **6. Constants in `Math` Class**
+
+|Constant|Description|
+|---|---|
+|`Math.PI`|The constant **π** (`3.141592653589793`).|
+|`Math.E`|The constant **e** (`2.718281828459045`).|
+
+🔹 **Example**:
+
+java
+
+Copy code
+
+`System.out.println(Math.PI); // 3.141592653589793 System.out.println(Math.E); // 2.718281828459045`
+
+---
+
+### **Summary**
+
+- **Basic Operations**: `abs()`, `max()`, `min()`
+    
+- **Exponents & Logs**: `pow()`, `sqrt()`, `log()`, `log10()`
+    
+- **Rounding**: `ceil()`, `floor()`, `round()`
+    
+- **Trigonometry**: `sin()`, `cos()`, `tan()`, `asin()`, `acos()`, `atan()`
+    
+- **Random Numbers**: `random()`
+    
+- **Constants**: `PI`, `E`
 
 
 ---
