@@ -66,13 +66,50 @@ The `String` class provides methods for text manipulation.
 |`static String valueOf(anyType x)`|Converts int, double, boolean, etc., to a string.|
 
 
-### **5. Splitting and Joining**
+### **Splitting and Joining**
 
 |Method|Description|
 |---|---|
 |`split(String regex)`|Splits a string based on a regex pattern.|
 |`split(String regex, int limit)`|Splits a string into a limited number of parts.|
 |`join(CharSequence delimiter, CharSequence... elements)`|Joins multiple strings with a delimiter.|
+
+
+### **7. Conversion Methods**
+
+|Method|Description|
+|---|---|
+|`String.valueOf(anyType)`|Converts int, double, boolean, char, etc., to a string.|
+|`getBytes()`|Converts a string into a byte array.|
+|`toCharArray()`|Converts a string into a character array.|
+
+---
+
+### **String Formatting**
+
+|Method|Description|
+|---|---|
+|`format(String format, Object... args)`|Returns a formatted string.|
+|`printf(String format, Object... args)`|Prints a formatted string to the console.|
+
+Example:
+
+```java
+String formatted = String.format("Hello, %s!", "John");
+System.out.println(formatted);  // Output: Hello, John!
+```
+
+---
+
+### **StringBuilder & StringBuffer Methods (For Mutable Strings)**
+
+|Method|Description|
+|---|---|
+|`append(String s)`|Adds a string at the end.|
+|`insert(int offset, String s)`|Inserts a string at a specified position.|
+|`replace(int start, int end, String s)`|Replaces part of the string.|
+|`delete(int start, int end)`|Deletes part of the string.|
+|`reverse()`|Reverses the string.|
 
 
 ---
