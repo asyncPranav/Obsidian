@@ -249,8 +249,6 @@ System.out.println(Math.min(10, 20)); // 10
 ```
 
 
----
-
 ### **2. Exponentiation and Logarithms**
 
 |Method|Return Type|Description|
@@ -264,13 +262,13 @@ System.out.println(Math.min(10, 20)); // 10
 
 🔹 **Example**:
 
-java
+```java
+System.out.println(Math.pow(2, 3)); // 8.0
+System.out.println(Math.sqrt(16)); // 4.0
+System.out.println(Math.log(2.718)); // Approx. 1.0
+System.out.println(Math.log10(100)); // 2.0
+```
 
-Copy code
-
-`System.out.println(Math.pow(2, 3)); // 8.0 System.out.println(Math.sqrt(16)); // 4.0 System.out.println(Math.log(2.718)); // Approx. 1.0 System.out.println(Math.log10(100)); // 2.0`
-
----
 
 ### **3. Rounding and Formatting**
 
@@ -282,11 +280,12 @@ Copy code
 
 🔹 **Example**:
 
-java
-
-Copy code
-
-`System.out.println(Math.ceil(4.2)); // 5.0 System.out.println(Math.floor(4.8)); // 4.0 System.out.println(Math.round(4.5)); // 5 System.out.println(Math.round(4.4)); // 4`
+```java
+System.out.println(Math.ceil(4.2)); // 5.0
+System.out.println(Math.floor(4.8)); // 4.0
+System.out.println(Math.round(4.5)); // 5
+System.out.println(Math.round(4.4)); // 4
+```
 
 ---
 
