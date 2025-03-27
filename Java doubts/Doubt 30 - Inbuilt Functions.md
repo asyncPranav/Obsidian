@@ -507,7 +507,7 @@ Arrays.parallelSort(arr); // Faster than sort() for large arrays
 ---
 
 
-# **5. Collections Class Methods (`java.util.Collections`)**
+# **📚 5. Collections Class Methods (`java.util.Collections`)**
 
 The **Java Collection Framework (JCF)** is a powerful set of interfaces and classes that help in storing, manipulating, and processing groups of objects efficiently. It includes **Lists, Sets, Queues, and Maps**, providing various functionalities like searching, sorting, and thread-safety.
 
@@ -724,7 +724,7 @@ System.out.println(numbers); // [1, 3, 5, 7]
 
 
 
-# **6. File Handling Methods (`java.io.File` & `java.nio.file` )**
+# **📚 6. File Handling Methods (`java.io.File` & `java.nio.file` )**
 
 Java provides **file handling** through classes in the `java.io` and `java.nio.file` packages. Below is a **detailed list** of important methods for working with files.
 
@@ -880,7 +880,7 @@ public class Main {
 
 ---
 
-# **7. Random Class Methods (`java.util.Random`)**
+# **📚 7. Random Class Methods (`java.util.Random`)**
 
 The `Random` class in Java (`java.util.Random`) is used to generate **pseudo-random numbers** of different data types like integers, doubles, booleans, and more.
 
