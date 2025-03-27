@@ -304,11 +304,39 @@ For working with lists.
 
 |Method|Description|
 |---|---|
-|`static void sort(List<T> list)`|Sorts a list.|
-|`static void reverse(List<T> list)`|Reverses a list.|
-|`static void shuffle(List<T> list)`|Randomly shuffles a list.|
-|`static T max(Collection<T> col)`|Finds the maximum element.|
+|`void sort(List<T> list)`|Sorts the list in **ascending order** (natural order).|
+|`void sort(List<T> list, Comparator<? super T> c)`|Sorts the list using a **custom comparator**.|
+|`int binarySearch(List<T> list, T key)`|Searches for `key` using **binary search** and returns the index (must be sorted).|
+|`void reverse(List<?> list)`|Reverses the order of elements in the list.|
+|`void shuffle(List<?> list)`|Randomly shuffles the elements in the list.|
+|`void swap(List<?> list, int i, int j)`|Swaps two elements at indices `i` and `j`.|
+|`void fill(List<? super T> list, T obj)`|Replaces all elements with the specified object.|
+|`T min(Collection<? extends T> coll)`|Returns the **minimum element** in the collection.|
+|`T max(Collection<? extends T> coll)`|Returns the **maximum element** in the collection.|
+|`void rotate(List<?> list, int distance)`|Rotates elements in the list by the specified distance.|
+|`int frequency(Collection<?> coll, Object obj)`|Returns **frequency count** of an element in the collection.|
+|`boolean disjoint(Collection<?> c1, Collection<?> c2)`|Returns `true` if two collections have **no common elements**.|
+|`void copy(List<? super T> dest, List<? extends T> src)`|Copies elements from `src` to `dest`.|
+|`void replaceAll(List<T> list, T oldVal, T newVal)`|Replaces all occurrences of `oldVal` with `newVal`.|
+|`Enumeration<T> enumeration(Collection<T> c)`|Converts a collection into an **Enumeration**.|
+|`ArrayList<T> list(Enumeration<T> e)`|Converts an **Enumeration** into a `List`.|
+|`Set<T> singleton(T obj)`|Returns an **immutable set** with one element.|
+|`List<T> singletonList(T obj)`|Returns an **immutable list** with one element.|
+|`Map<K, V> singletonMap(K key, V value)`|Returns an **immutable map** with one key-value pair.|
+|`Collection<T> synchronizedCollection(Collection<T> c)`|Returns a **thread-safe** collection.|
+|`List<T> synchronizedList(List<T> list)`|Returns a **thread-safe** list.|
+|`Set<T> synchronizedSet(Set<T> set)`|Returns a **thread-safe** set.|
+|`Map<K, V> synchronizedMap(Map<K, V> map)`|Returns a **thread-safe** map.|
+|`NavigableMap<K, V> synchronizedNavigableMap(NavigableMap<K, V> map)`|Returns a **thread-safe** navigable map.|
 
+---
+
+### **Example Usage**
+
+```java
+```
+
+Let me know if you need more details! 🚀
 ---
 
 # **6. File Handling Methods (`java.io.File`)**
