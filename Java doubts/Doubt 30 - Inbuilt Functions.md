@@ -367,49 +367,104 @@ System.out.println(Math.E); // 2.718281828459045
 # **4. Arrays Class Methods (`java.util.Arrays`)**
 
 
-| Method                                             | Description                                                                              |
-| -------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `int binarySearch(T[] array, T key)`               | Searches for `key` using **binary search** and returns the index (must be sorted).       |
-| `int[] copyOf(int[] array, int newLength)`         | Creates a **new array** with the specified length and copies elements from the original. |
-| `int[] copyOfRange(int[] array, int from, int to)` | Copies a **range of elements** into a new array.                                         |
-| `boolean equals(int[] array1, int[] array2)`       | Checks if two arrays are **equal**.                                                      |
-| `void fill(int[] array, int value)`                | Fills the array with a specific value.                                                   |
-| `void sort(int[] array)`                           | Sorts the array in **ascending order**.                                                  |
-| `void parallelSort(int[] array)`                   | Faster sorting using **parallel processing** (Java 8+).                                  |
-| `String toString(int[] array)`                     | Converts an array into a **string representation**.                                      |
-| `List<T> asList(T... array)`                       | Converts an array into a **fixed-size list**.                                            |
-| `int hashCode(int[] array)`                        | Returns a **hash code** for the array.                                                   |
-| `Stream<T> stream(T[] array)`                      | Converts an array into a **Stream** (Java 8+).                                           |
+### **1. Sorting and Searching**
 
-#### **Example Usage**
+|Method|Return Type|Description|
+|---|---|---|
+|`void sort(int[] array)`|`void`|Sorts the array in ascending order.|
+|`void sort(int[] array, int fromIndex, int toIndex)`|`void`|Sorts a subarray from `fromIndex` (inclusive) to `toIndex` (exclusive).|
+|`int binarySearch(int[] array, int key)`|`int`|Returns the index of `key` if found, otherwise returns `-(insertion point) - 1`.|
 
-```java
-import java.util.Arrays;
+🔹 **Example**:
 
-public class Main {
-    public static void main(String[] args) {
-        int[] numbers = {5, 3, 8, 1, 9};
-		
-        // Sorting
-        Arrays.sort(numbers);
-        System.out.println(Arrays.toString(numbers)); // [1, 3, 5, 8, 9]
-		
-        // Binary Search
-        int index = Arrays.binarySearch(numbers, 5);
-        System.out.println("Index of 5: " + index); // Index of 5: 2
-		
-        // Copying Array
-        int[] copy = Arrays.copyOf(numbers, 3);
-        System.out.println(Arrays.toString(copy)); // [1, 3, 5]
-		
-        // Filling an array
-        int[] filledArray = new int[5];
-        Arrays.fill(filledArray, 7);
-        System.out.println(Arrays.toString(filledArray)); // [7, 7, 7, 7, 7]
-    }
-}
+```ja
 ```
 
+---
+
+### **2. Filling and Copying**
+
+|Method|Return Type|Description|
+|---|---|---|
+|`void fill(int[] array, int value)`|`void`|Fills the array with `value`.|
+|`int[] copyOf(int[] original, int newLength)`|`int[]`|Copies the array to a new array of size `newLength`.|
+|`int[] copyOfRange(int[] original, int from, int to)`|`int[]`|Copies elements from `from` (inclusive) to `to` (exclusive).|
+
+🔹 **Example**:
+
+java
+
+Copy code
+
+`int[] arr = new int[5]; Arrays.fill(arr, 7); System.out.println(Arrays.toString(arr)); // [7, 7, 7, 7, 7]  int[] copied = Arrays.copyOf(arr, 3); System.out.println(Arrays.toString(copied)); // [7, 7, 7]`
+
+---
+
+### **3. Comparing and Checking Equality**
+
+|Method|Return Type|Description|
+|---|---|---|
+|`boolean equals(int[] a, int[] b)`|`boolean`|Returns `true` if both arrays are equal (same elements & order).|
+|`boolean deepEquals(Object[] a, Object[] b)`|`boolean`|Returns `true` for deep comparison of nested arrays.|
+|`int compare(int[] a, int[] b)`|`int`|Compares lexicographically (`-1`, `0`, or `1`).|
+|`boolean mismatch(int[] a, int[] b)`|`int`|Returns the index of the first mismatch, or `-1` if equal.|
+
+🔹 **Example**:
+
+java
+
+Copy code
+
+`int[] arr1 = {1, 2, 3}; int[] arr2 = {1, 2, 3}; System.out.println(Arrays.equals(arr1, arr2)); // true  int[] arr3 = {1, 2, 4}; System.out.println(Arrays.mismatch(arr1, arr3)); // 2 (index where mismatch occurs)`
+
+---
+
+### **4. Converting Arrays to String**
+
+|Method|Return Type|Description|
+|---|---|---|
+|`String toString(int[] array)`|`String`|Converts array to string (`[1, 2, 3]`).|
+|`String deepToString(Object[] array)`|`String`|Converts **nested arrays** to string.|
+
+🔹 **Example**:
+
+java
+
+Copy code
+
+`int[] arr = {1, 2, 3}; System.out.println(Arrays.toString(arr)); // [1, 2, 3]  int[][] nested = {{1, 2}, {3, 4}}; System.out.println(Arrays.deepToString(nested)); // [[1, 2], [3, 4]]`
+
+---
+
+### **5. Parallel Operations (Faster Sorting)**
+
+|Method|Return Type|Description|
+|---|---|---|
+|`void parallelSort(int[] array)`|`void`|Faster multi-threaded sorting.|
+|`void parallelPrefix(int[] array, IntBinaryOperator op)`|`void`|Applies a function cumulatively to array elements.|
+|`void parallelSetAll(int[] array, IntUnaryOperator op)`|`void`|Sets each element based on the given function.|
+
+🔹 **Example**:
+
+java
+
+Copy code
+
+`Arrays.parallelSort(arr); // Faster than sort() for large arrays`
+
+---
+
+### **6. Summary**
+
+- **Sorting & Searching**: `sort()`, `binarySearch()`
+    
+- **Filling & Copying**: `fill()`, `copyOf()`, `copyOfRange()`
+    
+- **Comparing**: `equals()`, `mismatch()`
+    
+- **String Conversion**: `toString()`, `deepToString()`
+    
+- **Parallel Operations**: `parallelSort()`, `parallelSetAll()`
 
 ---
 
