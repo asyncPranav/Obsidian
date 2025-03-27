@@ -65,6 +65,7 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 
 🚫 Decision Trees, Random Forests  
 🚫 K-Nearest Neighbors (KNN)  
+🚫 Naïve Bayes Classifier
 🚫 Hypothesis Testing & Bayesian Inference
 
 ---
@@ -79,7 +80,7 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
 
 - Forward & Backward Propagation
     
-- Optimization Techniques (Adam, RMSProp)
+- Optimization Techniques (Adam, RMSProp, Learning Rate Scheduling)
     
 
 ### 🔹 Convolutional Neural Networks (CNNs) – Image Processing
