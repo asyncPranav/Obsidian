@@ -105,7 +105,7 @@ This roadmap is structured to **cover all essential topics** for Generative AI w
     
 - Positional Encoding
     
-- Encoder-Decoder Architecture (BERT, GPT, T5)
+- Encoder-Decoder Architecture (BERT, GPT, T5, Whisper etc)
     
 
 ### 🛠 **Practice Projects**
