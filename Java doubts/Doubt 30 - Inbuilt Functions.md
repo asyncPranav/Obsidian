@@ -497,7 +497,7 @@ The **Java Collection Framework (JCF)** is a powerful set of interfaces and clas
 |**`Deque<E>`**|Double-ended queue (e.g., `ArrayDeque`).|
 |**`Map<K, V>`**|Stores key-value pairs (e.g., `HashMap`, `TreeMap`).|
 
----
+
 
 ## **2. Important Classes in Collection Framework**
 
@@ -512,7 +512,7 @@ The **Java Collection Framework (JCF)** is a powerful set of interfaces and clas
 |**`PriorityQueue<E>`**|`Queue<E>`|Queue with priority ordering (min/max heap).|
 |**`ArrayDeque<E>`**|`Deque<E>`|Faster stack & queue operations than `Stack`/`LinkedList`.|
 
----
+
 
 ## **3. List Interface & Implementations**
 
@@ -550,7 +550,7 @@ list.remove(1);
 System.out.println(list); // [Apple]
 ```
 
----
+
 
 ## **4. Set Interface & Implementations**
 
@@ -583,7 +583,7 @@ set.add(10); // Duplicate, won't be added
 System.out.println(set); // [10, 20]
 ```
 
----
+
 
 ## **5. Queue & Deque Interface**
 
@@ -622,7 +622,7 @@ deque.addLast(2);
 System.out.println(deque.pollFirst()); // 1
 ```
 
----
+
 
 ## **6. Map Interface & Implementations**
 
@@ -655,7 +655,7 @@ System.out.println(map.get("A")); // 1
 System.out.println(map.containsKey("B")); // true
 ```
 
----
+
 
 ## **7. Collections Class Methods (`java.util.Collections`)**
 
@@ -677,7 +677,7 @@ Collections.sort(numbers);
 System.out.println(numbers); // [1, 3, 5, 7]
 ```
 
----
+
 
 ## **Summary**
 
@@ -692,19 +692,6 @@ System.out.println(numbers); // [1, 3, 5, 7]
 - **Collections Utility Class** → Provides helper methods (`sort()`, `reverse()`, etc.).
     
 
-🚀 **Now you understand Java Collection Framework!** Let me know if you need more details. 🎯
-
-4o
-
-##### You said:
-
-in java
-
-###### ChatGPT said:
-
-Yes, all the details above are related to **Java Collection Framework**. Do you need more explanation or examples in Java? Let me know what part you want more details on! 🚀
-
-4o
 
 ---
 
