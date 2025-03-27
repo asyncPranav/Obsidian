@@ -534,11 +534,12 @@ The `Random` class in Java (`java.util.Random`) is used to generate **pseudo-ran
 
 Before using `Random` class methods, create an instance:
 
-java
+```java
+import java.util.Random;
 
-Copy code
-
-`import java.util.Random;  Random random = new Random(); // Default constructor Random randomWithSeed = new Random(42); // Creates with a fixed seed`
+Random random = new Random(); // Default constructor
+Random randomWithSeed = new Random(42); // Creates with a fixed seed
+```
 
 If you use the same seed, you will always get the same random numbers.
 
@@ -562,11 +563,34 @@ If you use the same seed, you will always get the same random numbers.
 
 ### **3. Example Usage of `Random` Methods**
 
-java
+```java
+import java.util.Random;
 
-Copy code
-
-`import java.util.Random;  public class Main {     public static void main(String[] args) {         Random random = new Random(); // Random object          // Generating random numbers         System.out.println("Random int: " + random.nextInt());         System.out.println("Random int (0-99): " + random.nextInt(100)); // 0 to 99         System.out.println("Random long: " + random.nextLong());         System.out.println("Random float: " + random.nextFloat());         System.out.println("Random double: " + random.nextDouble());         System.out.println("Random boolean: " + random.nextBoolean());          // Generating a random Gaussian number         System.out.println("Random Gaussian: " + random.nextGaussian());          // Generating random bytes         byte[] bytes = new byte[5];         random.nextBytes(bytes);         System.out.print("Random bytes: ");         for (byte b : bytes) {             System.out.print(b + " ");         }     } }`
+public class Main {
+    public static void main(String[] args) {
+        Random random = new Random(); // Random object
+		
+        // Generating random numbers
+        System.out.println("Random int: " + random.nextInt());
+        System.out.println("Random int (0-99): " + random.nextInt(100)); // 0 to 99
+        System.out.println("Random long: " + random.nextLong());
+        System.out.println("Random float: " + random.nextFloat());
+        System.out.println("Random double: " + random.nextDouble());
+        System.out.println("Random boolean: " + random.nextBoolean());
+		
+        // Generating a random Gaussian number
+        System.out.println("Random Gaussian: " + random.nextGaussian());
+		
+        // Generating random bytes
+        byte[] bytes = new byte[5];
+        random.nextBytes(bytes);
+        System.out.print("Random bytes: ");
+        for (byte b : bytes) {
+            System.out.print(b + " ");
+        }
+    }
+}
+```
 
 ---
 
@@ -574,11 +598,12 @@ Copy code
 
 To generate a number in a **custom range** (e.g., between `min` and `max`):
 
-java
-
-Copy code
-
-`int min = 50; int max = 100; int randomNumber = min + random.nextInt(max - min + 1); System.out.println("Random number between " + min + " and " + max + ": " + randomNumber);`
+```java
+int min = 50;
+int max = 100;
+int randomNumber = min + random.nextInt(max - min + 1);
+System.out.println("Random number between " + min + " and " + max + ": " + randomNumber);
+```
 
 ---
 
@@ -586,11 +611,18 @@ Copy code
 
 Instead of `Random`, you can use `ThreadLocalRandom` (available in Java 7+) for better performance in multi-threaded applications:
 
-java
+```java
+import java.util.concurrent.ThreadLocalRandom;
 
-Copy code
-
-`import java.util.concurrent.ThreadLocalRandom;  public class Main {     public static void main(String[] args) {         int randomInt = ThreadLocalRandom.current().nextInt(50, 101); // 50 to 100         double randomDouble = ThreadLocalRandom.current().nextDouble(1.5, 5.0); // 1.5 to 5.0         System.out.println("Random int: " + randomInt);         System.out.println("Random double: " + randomDouble);     } }`
+public class Main {
+    public static void main(String[] args) {
+        int randomInt = ThreadLocalRandom.current().nextInt(50, 101); // 50 to 100
+        double randomDouble = ThreadLocalRandom.current().nextDouble(1.5, 5.0); // 1.5 to 5.0
+        System.out.println("Random int: " + randomInt);
+        System.out.println("Random double: " + randomDouble);
+    }
+}
+```
 
 ---
 
