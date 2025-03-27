@@ -75,7 +75,7 @@ The `String` class provides methods for text manipulation.
 |`join(CharSequence delimiter, CharSequence... elements)`|Joins multiple strings with a delimiter.|
 
 
-### **7. Conversion Methods**
+### **Conversion Methods**
 
 |Method|Description|
 |---|---|
@@ -122,30 +122,111 @@ Used for working with `int` values.
 
 |Method|Description|
 |---|---|
-|`static Integer valueOf(int n)`|Returns an `Integer` object.|
-|`static int parseInt(String s)`|Converts a string to an `int`.|
-|`static String toString(int n)`|Converts `int` to `String`.|
+|`Integer.valueOf(int n)`|Returns an `Integer` object from an `int`.|
+|`Integer.valueOf(String s)`|Returns an `Integer` object from a `String`.|
+|`Integer.parseInt(String s)`|Converts a string to a primitive `int`.|
+|`Integer.parseInt(String s, int radix)`|Converts a string in a specific base (e.g., binary, octal) to an `int`.|
+|`Integer.toString(int n)`|Converts an `int` to a `String`.|
+|`Integer.toString(int n, int radix)`|Converts an `int` to a `String` in a specific base.|
 
-### **Integer Properties**
+**Example:**
+
+java
+
+Copy code
+
+`int num = Integer.parseInt("123"); System.out.println(num); // Output: 123`
+
+---
+
+### **2. Integer Properties**
 
 |Method|Description|
 |---|---|
-|`Integer.MAX_VALUE`|2,147,483,647 (maximum `int`).|
-|`Integer.MIN_VALUE`|-2,147,483,648 (minimum `int`).|
+|`Integer.MAX_VALUE`|Returns the maximum value of `int` (2,147,483,647).|
+|`Integer.MIN_VALUE`|Returns the minimum value of `int` (-2,147,483,648).|
+|`Integer.SIZE`|Returns the number of bits used to represent `int` (32).|
+|`Integer.BYTES`|Returns the number of bytes used to store `int` (4).|
+|`Integer.TYPE`|Returns the primitive `int` type (`int.class`).|
 
-### **Bitwise Operations**
+---
 
-|Method|Description|
-|---|---|
-|`static int bitCount(int n)`|Counts `1` bits in binary.|
-|`static int numberOfLeadingZeros(int n)`|Counts leading zeros.|
-
-### **Comparing Integers**
+### **3. Bitwise Operations**
 
 |Method|Description|
 |---|---|
-|`static int compare(int a, int b)`|Compares two integers.|
+|`Integer.bitCount(int n)`|Returns the number of `1` bits in the binary representation of `n`.|
+|`Integer.highestOneBit(int n)`|Returns the highest power of 2 ≤ `n`.|
+|`Integer.lowestOneBit(int n)`|Returns the lowest power of 2 in `n`.|
+|`Integer.numberOfLeadingZeros(int n)`|Counts leading zeros in the binary form of `n`.|
+|`Integer.numberOfTrailingZeros(int n)`|Counts trailing zeros in the binary form of `n`.|
+|`Integer.reverse(int n)`|Reverses the bit order of `n`.|
+|`Integer.reverseBytes(int n)`|Reverses the byte order of `n`.|
+|`Integer.rotateLeft(int n, int distance)`|Rotates bits of `n` left by `distance`.|
+|`Integer.rotateRight(int n, int distance)`|Rotates bits of `n` right by `distance`.|
+|`Integer.signum(int n)`|Returns `1` if `n` is positive, `-1` if negative, and `0` if zero.|
 
+**Example:**
+
+java
+
+Copy code
+
+`int n = 23; System.out.println(Integer.bitCount(n)); // Output: 4 (10111 has 4 ones)`
+
+---
+
+### **4. Comparing & Checking Integers**
+
+|Method|Description|
+|---|---|
+|`Integer.compare(int a, int b)`|Compares two integers (`a - b`).|
+|`Integer.compareUnsigned(int a, int b)`|Compares two integers as unsigned.|
+|`Integer.equals(Object obj)`|Checks if an `Integer` object equals another.|
+
+**Example:**
+
+java
+
+Copy code
+
+`System.out.println(Integer.compare(10, 20)); // Output: -1`
+
+---
+
+### **5. Base Conversion (Binary, Octal, Hex)**
+
+|Method|Description|
+|---|---|
+|`Integer.toBinaryString(int n)`|Converts `n` to a binary string.|
+|`Integer.toOctalString(int n)`|Converts `n` to an octal string.|
+|`Integer.toHexString(int n)`|Converts `n` to a hexadecimal string.|
+
+**Example:**
+
+java
+
+Copy code
+
+`int num = 23; System.out.println(Integer.toBinaryString(num)); // Output: 10111 System.out.println(Integer.toOctalString(num));  // Output: 27 System.out.println(Integer.toHexString(num));   // Output: 17`
+
+---
+
+### **6. Unsigned Integer Operations (Java 8+)**
+
+|Method|Description|
+|---|---|
+|`Integer.divideUnsigned(int a, int b)`|Performs unsigned division.|
+|`Integer.remainderUnsigned(int a, int b)`|Finds the remainder using unsigned division.|
+|`Integer.toUnsignedLong(int n)`|Converts `int` to `long` without sign extension.|
+
+**Example:**
+
+java
+
+Copy code
+
+`int a = -5, b = 3; System.out.println(Integer.divideUnsigned(a, b)); // Treats -5 as unsigned`
 ---
 
 # **3. Math Class Methods (`java.lang.Math`)**
