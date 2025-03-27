@@ -17,12 +17,13 @@ The `String` class provides methods for text manipulation.
 
 ### **String Comparison**
 
-|Method|Description|
-|---|---|
-|`boolean equals(String s)`|Compares two strings (case-sensitive).|
-|`boolean equalsIgnoreCase(String s)`|Compares two strings (case-insensitive).|
-|`int compareTo(String s)`|Compares two strings lexicographically.|
-|`boolean matches(String regex)`|Checks if the string matches a given regex.|
+| Method                               | Description                                 |
+| ------------------------------------ | ------------------------------------------- |
+| `boolean equals(String s)`           | Compares two strings (case-sensitive).      |
+| `boolean equalsIgnoreCase(String s)` | Compares two strings (case-insensitive).    |
+| `int compareTo(String s)`            | Compares two strings lexicographically.     |
+|                                      |                                             |
+| `boolean matches(String regex)`      | Checks if the string matches a given regex. |
 
 ### **Searching in Strings**
 
