@@ -491,11 +491,24 @@ public class Main {
 
 **Example: Using `Files` to Read a File**
 
-java
+```java
+import java.nio.file.*;
+import java.io.IOException;
+import java.util.List;
 
-Copy code
-
-`import java.nio.file.*; import java.io.IOException; import java.util.List;  public class Main {     public static void main(String[] args) {         try {             List<String> lines = Files.readAllLines(Paths.get("test.txt"));             for (String line : lines) {                 System.out.println(line);             }         } catch (IOException e) {             System.out.println("Error reading file.");         }     } }`
+public class Main {
+    public static void main(String[] args) {
+        try {
+            List<String> lines = Files.readAllLines(Paths.get("test.txt"));
+            for (String line : lines) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading file.");
+        }
+    }
+}
+```
 
 ---
 
@@ -508,27 +521,91 @@ Copy code
 - **`Files` class (`java.nio.file`)** → Modern file operations (better performance).
     
 
-Let me know if you need more details! 🚀
-
 
 ---
 
 # **7. Random Class Methods (`java.util.Random`)**
 
-For generating random numbers.
+The `Random` class in Java (`java.util.Random`) is used to generate **pseudo-random numbers** of different data types like integers, doubles, booleans, and more.
 
-|Method|Description|
-|---|---|
-|`int nextInt(int bound)`|Generates a random `int` from `0` to `bound-1`.|
-|`double nextDouble()`|Generates a random double from `0.0` to `1.0`.|
+---
 
-**Example:**
+### **1. Creating a Random Object**
+
+Before using `Random` class methods, create an instance:
 
 java
 
 Copy code
 
-`import java.util.Random; public class Main {     public static void main(String[] args) {         Random rand = new Random();         System.out.println(rand.nextInt(100)); // Random number from 0 to 99     } }`
+`import java.util.Random;  Random random = new Random(); // Default constructor Random randomWithSeed = new Random(42); // Creates with a fixed seed`
+
+If you use the same seed, you will always get the same random numbers.
+
+---
+
+### **2. Methods of `Random` Class**
+
+|Method|Return Type|Description|
+|---|---|---|
+|`int nextInt()`|`int`|Returns a random integer (can be positive or negative).|
+|`int nextInt(int bound)`|`int`|Returns a random integer between `0` (inclusive) and `bound` (exclusive).|
+|`long nextLong()`|`long`|Returns a random long number.|
+|`float nextFloat()`|`float`|Returns a random float between `0.0` and `1.0`.|
+|`double nextDouble()`|`double`|Returns a random double between `0.0` and `1.0`.|
+|`boolean nextBoolean()`|`boolean`|Returns a random boolean (`true` or `false`).|
+|`void nextBytes(byte[] bytes)`|`void`|Fills the given byte array with random bytes.|
+|`double nextGaussian()`|`double`|Returns a random number with **Gaussian distribution** (mean `0.0`, standard deviation `1.0`).|
+|`void setSeed(long seed)`|`void`|Sets a new seed for reproducible random numbers.|
+
+---
+
+### **3. Example Usage of `Random` Methods**
+
+java
+
+Copy code
+
+`import java.util.Random;  public class Main {     public static void main(String[] args) {         Random random = new Random(); // Random object          // Generating random numbers         System.out.println("Random int: " + random.nextInt());         System.out.println("Random int (0-99): " + random.nextInt(100)); // 0 to 99         System.out.println("Random long: " + random.nextLong());         System.out.println("Random float: " + random.nextFloat());         System.out.println("Random double: " + random.nextDouble());         System.out.println("Random boolean: " + random.nextBoolean());          // Generating a random Gaussian number         System.out.println("Random Gaussian: " + random.nextGaussian());          // Generating random bytes         byte[] bytes = new byte[5];         random.nextBytes(bytes);         System.out.print("Random bytes: ");         for (byte b : bytes) {             System.out.print(b + " ");         }     } }`
+
+---
+
+### **4. Generating Random Numbers in a Range**
+
+To generate a number in a **custom range** (e.g., between `min` and `max`):
+
+java
+
+Copy code
+
+`int min = 50; int max = 100; int randomNumber = min + random.nextInt(max - min + 1); System.out.println("Random number between " + min + " and " + max + ": " + randomNumber);`
+
+---
+
+### **5. Using `ThreadLocalRandom` (Faster Alternative)**
+
+Instead of `Random`, you can use `ThreadLocalRandom` (available in Java 7+) for better performance in multi-threaded applications:
+
+java
+
+Copy code
+
+`import java.util.concurrent.ThreadLocalRandom;  public class Main {     public static void main(String[] args) {         int randomInt = ThreadLocalRandom.current().nextInt(50, 101); // 50 to 100         double randomDouble = ThreadLocalRandom.current().nextDouble(1.5, 5.0); // 1.5 to 5.0         System.out.println("Random int: " + randomInt);         System.out.println("Random double: " + randomDouble);     } }`
+
+---
+
+### **6. Summary**
+
+- Use `nextInt(bound)` to get numbers in a range `0` to `bound-1`.
+    
+- Use `nextFloat()` or `nextDouble()` for random decimal values.
+    
+- Use `nextBoolean()` for a random `true/false` value.
+    
+- Use `ThreadLocalRandom` for better performance in multi-threading.
+    
+
+Let me know if you need more details! 🚀
 
 ---
 
