@@ -370,14 +370,102 @@ public class Main {
 
 # **6. File Handling Methods (`java.io.File`)**
 
-For file operations.
+Java provides **file handling** through classes in the `java.io` and `java.nio.file` packages. Below is a **detailed list** of important methods for working with files.
+
+---
+
+### **1. Creating and Deleting Files (`File` Class - `java.io`)**
 
 |Method|Description|
 |---|---|
-|`boolean createNewFile()`|Creates a new file.|
-|`boolean exists()`|Checks if file exists.|
-|`boolean delete()`|Deletes a file.|
-|`long length()`|Gets file size.|
+|`boolean createNewFile()`|Creates a new empty file and returns `true` if successful.|
+|`boolean delete()`|Deletes the file and returns `true` if deleted successfully.|
+|`boolean exists()`|Checks if the file exists.|
+|`boolean mkdir()`|Creates a new **directory**.|
+|`boolean mkdirs()`|Creates **multiple directories** (parent + child).|
+
+**Example:**
+
+java
+
+Copy code
+
+`import java.io.File; import java.io.IOException;  public class Main {     public static void main(String[] args) {         File file = new File("test.txt");          try {             if (file.createNewFile()) {                 System.out.println("File created: " + file.getName());             } else {                 System.out.println("File already exists.");             }         } catch (IOException e) {             System.out.println("An error occurred.");         }     } }`
+
+---
+
+### **2. Reading and Writing Files (`FileReader`, `FileWriter`)**
+
+|Method|Description|
+|---|---|
+|`void write(String text)`|Writes text to a file.|
+|`void flush()`|Forces any buffered output to be written to the file.|
+|`int read()`|Reads a single character from a file (returns `-1` at the end).|
+|`int read(char[] array)`|Reads multiple characters into an array.|
+|`void close()`|Closes the file.|
+
+**Example: Writing to a File**
+
+java
+
+Copy code
+
+`import java.io.FileWriter; import java.io.IOException;  public class Main {     public static void main(String[] args) {         try {             FileWriter writer = new FileWriter("test.txt");             writer.write("Hello, Java File Handling!");             writer.close();             System.out.println("Successfully written to the file.");         } catch (IOException e) {             System.out.println("An error occurred.");         }     } }`
+
+**Example: Reading from a File**
+
+java
+
+Copy code
+
+`import java.io.FileReader; import java.io.IOException;  public class Main {     public static void main(String[] args) {         try {             FileReader reader = new FileReader("test.txt");             int character;             while ((character = reader.read()) != -1) {                 System.out.print((char) character);             }             reader.close();         } catch (IOException e) {             System.out.println("An error occurred.");         }     } }`
+
+---
+
+### **3. Working with File Attributes (`File` Methods)**
+
+|Method|Description|
+|---|---|
+|`boolean canRead()`|Checks if the file is readable.|
+|`boolean canWrite()`|Checks if the file is writable.|
+|`boolean isFile()`|Checks if it's a file (not a directory).|
+|`boolean isDirectory()`|Checks if it's a directory.|
+|`long length()`|Returns the file size in bytes.|
+
+---
+
+### **4. Using `Files` Class (`java.nio.file.Files`)**
+
+|Method|Description|
+|---|---|
+|`Path createFile(Path path)`|Creates a new file.|
+|`Path createDirectory(Path path)`|Creates a new directory.|
+|`void write(Path path, byte[] bytes)`|Writes bytes to a file.|
+|`byte[] readAllBytes(Path path)`|Reads all file contents as bytes.|
+|`List<String> readAllLines(Path path)`|Reads all lines as a list of strings.|
+|`boolean deleteIfExists(Path path)`|Deletes a file if it exists.|
+
+**Example: Using `Files` to Read a File**
+
+java
+
+Copy code
+
+`import java.nio.file.*; import java.io.IOException; import java.util.List;  public class Main {     public static void main(String[] args) {         try {             List<String> lines = Files.readAllLines(Paths.get("test.txt"));             for (String line : lines) {                 System.out.println(line);             }         } catch (IOException e) {             System.out.println("Error reading file.");         }     } }`
+
+---
+
+### **Summary**
+
+- **`File` class** → Creating, deleting, checking file properties.
+    
+- **`FileReader`, `FileWriter`** → Reading and writing character-based files.
+    
+- **`Files` class (`java.nio.file`)** → Modern file operations (better performance).
+    
+
+Let me know if you need more details! 🚀
+
 
 ---
 
