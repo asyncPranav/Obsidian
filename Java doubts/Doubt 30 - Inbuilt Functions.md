@@ -266,7 +266,35 @@ System.out.println(Integer.divideUnsigned(a, b)); // Treats -5 as unsigned
 | `int hashCode(int[] array)`                        | Returns a **hash code** for the array.                                                   |
 | `Stream<T> stream(T[] array)`                      | Converts an array into a **Stream** (Java 8+).                                           |
 
-****
+#### **Example Usage**
+
+```java
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] numbers = {5, 3, 8, 1, 9};
+		
+        // Sorting
+        Arrays.sort(numbers);
+        System.out.println(Arrays.toString(numbers)); // [1, 3, 5, 8, 9]
+		
+        // Binary Search
+        int index = Arrays.binarySearch(numbers, 5);
+        System.out.println("Index of 5: " + index); // Index of 5: 2
+		
+        // Copying Array
+        int[] copy = Arrays.copyOf(numbers, 3);
+        System.out.println(Arrays.toString(copy)); // [1, 3, 5]
+		
+        // Filling an array
+        int[] filledArray = new int[5];
+        Arrays.fill(filledArray, 7);
+        System.out.println(Arrays.toString(filledArray)); // [7, 7, 7, 7, 7]
+    }
+}
+```
+
 
 ---
 
