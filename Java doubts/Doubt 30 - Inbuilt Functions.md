@@ -368,7 +368,7 @@ public class Main {
 
 
 
-# **6. File Handling Methods (`java.io.File`)**
+# **6. File Handling Methods (`java.io.File` & `java.nio.file` )**
 
 Java provides **file handling** through classes in the `java.io` and `java.nio.file` packages. Below is a **detailed list** of important methods for working with files.
 
@@ -376,21 +376,18 @@ Java provides **file handling** through classes in the `java.io` and `java.nio.f
 
 ### **1. Creating and Deleting Files (`File` Class - `java.io`)**
 
-|Method|Description|
-|---|---|
-|`boolean createNewFile()`|Creates a new empty file and returns `true` if successful.|
-|`boolean delete()`|Deletes the file and returns `true` if deleted successfully.|
-|`boolean exists()`|Checks if the file exists.|
-|`boolean mkdir()`|Creates a new **directory**.|
-|`boolean mkdirs()`|Creates **multiple directories** (parent + child).|
+| Method                    | Description                                                  |
+| ------------------------- | ------------------------------------------------------------ |
+| `boolean createNewFile()` | Creates a new empty file and returns `true` if successful.   |
+| `boolean delete()`        | Deletes the file and returns `true` if deleted successfully. |
+| `boolean exists()`        | Checks if the file exists.                                   |
+| `boolean mkdir()`         | Creates a new **directory**.                                 |
+| `boolean mkdirs()`        | Creates **multiple directories** (parent + child).           |
 
 **Example:**
 
-java
-
-Copy code
-
-`import java.io.File; import java.io.IOException;  public class Main {     public static void main(String[] args) {         File file = new File("test.txt");          try {             if (file.createNewFile()) {                 System.out.println("File created: " + file.getName());             } else {                 System.out.println("File already exists.");             }         } catch (IOException e) {             System.out.println("An error occurred.");         }     } }`
+```jav
+```
 
 ---
 
