@@ -266,6 +266,7 @@ System.out.println(Integer.divideUnsigned(a, b)); // Treats -5 as unsigned
 | `int hashCode(int[] array)`                        | Returns a **hash code** for the array.                                                   |
 | `Stream<T> stream(T[] array)`                      | Converts an array into a **Stream** (Java 8+).                                           |
 
+****
 
 ---
 
