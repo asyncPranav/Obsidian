@@ -115,6 +115,11 @@ System.out.println(formatted);  // Output: Hello, John!
 
 ### **StringBuilder & StringBuffer Methods (For Mutable Strings)**
 
+| Class           | Features                               |
+| --------------- | -------------------------------------- |
+| `StringBuffer`  | Mutable, thread-safe, slightly slower. |
+| `StringBuilder` | Mutable, **not** thread-safe, faster.  |
+
 |Method|Description|
 |---|---|
 |`append(String s)`|Adds a string at the end.|
@@ -122,6 +127,16 @@ System.out.println(formatted);  // Output: Hello, John!
 |`replace(int start, int end, String s)`|Replaces part of the string.|
 |`delete(int start, int end)`|Deletes part of the string.|
 |`reverse()`|Reverses the string.|
+
+🔹 **Example**
+
+```java
+StringBuilder sb = new StringBuilder("Hello");
+sb.append(" Java");
+System.out.println(sb); // "Hello Java"
+sb.reverse();
+System.out.println(sb); // "avaJ olleH"
+```
 
 
 ---
