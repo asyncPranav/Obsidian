@@ -77,11 +77,11 @@ The `String` class provides methods for text manipulation.
 
 ### **Conversion Methods**
 
-|Method|Description|
-|---|---|
-|`char[] toCharArray()`|Converts the string into a character array.|
-|`byte[] getBytes()`|Converts the string into a byte array.|
-|`static String valueOf(int i)`|Converts an integer to a string.|
+| Method                         | Description                                 |
+| ------------------------------ | ------------------------------------------- |
+| `char[] toCharArray()`         | Converts the string into a character array. |
+| `byte[] getBytes()`            | Converts the string into a byte array.      |
+| `static String.valueOf(int i)` | Converts an integer to a string.            |
 
 🔹 **Example**
 
