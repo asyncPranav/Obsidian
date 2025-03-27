@@ -138,7 +138,7 @@ System.out.println(num); // Output: 123
 
 ---
 
-### **2. Integer Properties**
+### **Integer Properties**
 
 |Method|Description|
 |---|---|
@@ -150,7 +150,7 @@ System.out.println(num); // Output: 123
 
 ---
 
-### **3. Bitwise Operations**
+### **Bitwise Operations**
 
 |Method|Description|
 |---|---|
@@ -174,7 +174,7 @@ System.out.println(Integer.bitCount(n)); // Output: 4 (10111 has 4 ones)
 
 ---
 
-### **4. Comparing & Checking Integers**
+### **Comparing & Checking Integers**
 
 |Method|Description|
 |---|---|
@@ -190,7 +190,7 @@ System.out.println(Integer.compare(10, 20)); // Output: -1
 
 ---
 
-### **5. Base Conversion (Binary, Octal, Hex)**
+### **Base Conversion (Binary, Octal, Hex)**
 
 |Method|Description|
 |---|---|
@@ -208,7 +208,7 @@ System.out.println(Integer.toHexString(num));   // Output: 17
 
 ---
 
-### **6. Unsigned Integer Operations (Java 8+)**
+### **Unsigned Integer Operations (Java 8+)**
 
 |Method|Description|
 |---|---|
@@ -218,8 +218,12 @@ System.out.println(Integer.toHexString(num));   // Output: 17
 
 **Example:**
 
-```jab
+```java
+int a = -5, b = 3;
+System.out.println(Integer.divideUnsigned(a, b)); // Treats -5 as unsigned
 ```
+
+
 ---
 
 # **3. Math Class Methods (`java.lang.Math`)**
