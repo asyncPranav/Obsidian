@@ -13,7 +13,13 @@
 ### **Example of an Exception**
 
 ```java
-v
+public class ExceptionExample {
+    public static void main(String[] args) {
+        int a = 5, b = 0;
+        int c = a / b;  // ❌ This will cause ArithmeticException
+        System.out.println("Result: " + c);
+    }
+}
 ```
 
 🔴 **Error:** `java.lang.ArithmeticException: / by zero`
@@ -46,11 +52,17 @@ Java exceptions are categorized into **two types**:
 
 ### **Example of Checked Exception**
 
-java
+```java
+import java.io.File;
+import java.io.FileReader;
 
-Copy code
-
-`import java.io.File; import java.io.FileReader;  public class CheckedExceptionExample {     public static void main(String[] args) {         File file = new File("test.txt");         FileReader fr = new FileReader(file); // ❌ Compilation Error: Unhandled exception     } }`
+public class CheckedExceptionExample {
+    public static void main(String[] args) {
+        File file = new File("test.txt");
+        FileReader fr = new FileReader(file); // ❌ Compilation Error: Unhandled exception
+    }
+}
+```
 
 ✔ **Solution:** Handle it using `try-catch` or `throws`.
 
@@ -73,11 +85,14 @@ Copy code
 
 ### **Example of Unchecked Exception**
 
-java
-
-Copy code
-
-`public class UncheckedExceptionExample {     public static void main(String[] args) {         int[] arr = new int[3];         System.out.println(arr[5]);  // ❌ ArrayIndexOutOfBoundsException     } }`
+```java
+public class UncheckedExceptionExample {
+    public static void main(String[] args) {
+        int[] arr = new int[3];
+        System.out.println(arr[5]);  // ❌ ArrayIndexOutOfBoundsException
+    }
+}
+```
 
 ---
 
@@ -101,19 +116,27 @@ The `try-catch` block is used to catch exceptions and prevent program terminatio
 
 ### **Syntax**
 
-java
-
-Copy code
-
-`try {     // Code that may cause an exception } catch (ExceptionType e) {     // Code to handle the exception }`
+```java
+try {
+    // Code that may cause an exception
+} catch (ExceptionType e) {
+    // Code to handle the exception
+}
+```
 
 ### **Example**
 
-java
-
-Copy code
-
-`public class TryCatchExample {     public static void main(String[] args) {         try {             int num = 10 / 0; // ❌ ArithmeticException         } catch (ArithmeticException e) {             System.out.println("Exception caught: " + e);         }     } }`
+```java
+public class TryCatchExample {
+    public static void main(String[] args) {
+        try {
+            int num = 10 / 0; // ❌ ArithmeticException
+        } catch (ArithmeticException e) {
+            System.out.println("Exception caught: " + e);
+        }
+    }
+}
+```
 
 ✔ **Output:** `Exception caught: java.lang.ArithmeticException: / by zero`
 
@@ -128,11 +151,8 @@ Copy code
 
 ### **Example**
 
-java
-
-Copy code
-
-`public class FinallyExample {     public static void main(String[] args) {         try {             int num = 10 / 0;         } catch (ArithmeticException e) {             System.out.println("Exception caught: " + e);         } finally {             System.out.println("This will always execute.");         }     } }`
+```j
+```
 
 ✔ **Output:**
 
