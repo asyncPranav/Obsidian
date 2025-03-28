@@ -335,11 +335,18 @@ In **Java 7 and later**, we can catch multiple exceptions in a **single catch bl
 
 ### **Example**
 
-java
-
-Copy code
-
-`public class MultiExceptionExample {     public static void main(String[] args) {         try {             int[] arr = new int[3];             System.out.println(arr[5]);  // ❌ ArrayIndexOutOfBoundsException         } catch (ArithmeticException | ArrayIndexOutOfBoundsException e) {             System.out.println("Exception caught: " + e);         }     } }`
+```java
+public class MultiExceptionExample {
+    public static void main(String[] args) {
+        try {
+            int[] arr = new int[3];
+            System.out.println(arr[5]);  // ❌ ArrayIndexOutOfBoundsException
+        } catch (ArithmeticException | ArrayIndexOutOfBoundsException e) {
+            System.out.println("Exception caught: " + e);
+        }
+    }
+}
+```
 
 ✔ **Output:**  
 `Exception caught: java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 3`
@@ -353,11 +360,26 @@ Copy code
 
 ### **Example**
 
-java
-
-Copy code
-
-`public class RethrowExample {     public static void main(String[] args) {         try {             divide(10, 0);         } catch (ArithmeticException e) {             System.out.println("Handled exception: " + e);         }     }      public static void divide(int a, int b) throws ArithmeticException {         try {             int result = a / b;         } catch (ArithmeticException e) {             System.out.println("Exception caught, rethrowing...");             throw e;  // Re-throwing the exception         }     } }`
+```java
+public class RethrowExample {
+    public static void main(String[] args) {
+        try {
+            divide(10, 0);
+        } catch (ArithmeticException e) {
+            System.out.println("Handled exception: " + e);
+        }
+    }
+	
+    public static void divide(int a, int b) throws ArithmeticException {
+        try {
+            int result = a / b;
+        } catch (ArithmeticException e) {
+            System.out.println("Exception caught, rethrowing...");
+            throw e;  // Re-throwing the exception
+        }
+    }
+}
+```
 
 ✔ **Output:**
 
@@ -376,11 +398,25 @@ Copy code
 
 ### **Example**
 
-java
+```java
+public class ExceptionPropagationExample {
+    public static void main(String[] args) {
+        method1(); // Calls method2()
+    }
+	
+    public static void method1() {
+        method2(); // Calls method3()
+    }
 
-Copy code
+    public static void method2() {
+        method3(); // Throws exception
+    }
 
-`public class ExceptionPropagationExample {     public static void main(String[] args) {         method1(); // Calls method2()     }      public static void method1() {         method2(); // Calls method3()     }      public static void method2() {         method3(); // Throws exception     }      public static void method3() {         int num = 10 / 0;  // ❌ ArithmeticException occurs     } }`
+    public static void method3() {
+        int num = 10 / 0;  // ❌ ArithmeticException occurs
+    }
+}
+```
 
 ✔ **Output:**
 
