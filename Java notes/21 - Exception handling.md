@@ -1,5 +1,9 @@
 
+---
+
 # **📌 Exception Handling in Java**
+
+
 
 ## **1️⃣ What is an Exception?**
 
@@ -383,11 +387,10 @@ public class RethrowExample {
 
 ✔ **Output:**
 
-csharp
-
-Copy code
-
-`Exception caught, rethrowing... Handled exception: java.lang.ArithmeticException: / by zero`
+```sh
+Exception caught, rethrowing...
+Handled exception: java.lang.ArithmeticException: / by zero
+```
 
 ---
 
