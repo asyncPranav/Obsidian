@@ -6,7 +6,8 @@ for(int i=0; i<arr.length; i++){
         temp = arr[i];  
     }else{  
         arr[i-1] = arr[i];  
-    }}  
+    }
+}  
 arr[arr.length-1] = temp;
 ```
 
