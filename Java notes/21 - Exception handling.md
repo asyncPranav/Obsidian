@@ -151,16 +151,26 @@ public class TryCatchExample {
 
 ### **Example**
 
-```j
+```java
+public class FinallyExample {
+    public static void main(String[] args) {
+        try {
+            int num = 10 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("Exception caught: " + e);
+        } finally {
+            System.out.println("This will always execute.");
+        }
+    }
+}
 ```
 
 ✔ **Output:**
 
-pgsql
-
-Copy code
-
-`Exception caught: java.lang.ArithmeticException: / by zero This will always execute.`
+```sh
+Exception caught: java.lang.ArithmeticException: / by zero
+This will always execute.
+```
 
 ---
 
@@ -171,12 +181,21 @@ Copy code
 
 ### **Example**
 
-java
-
-Copy code
-
-`public class ThrowExample {     public static void checkAge(int age) {         if (age < 18) {             throw new ArithmeticException("Access Denied – You must be 18+.");         } else {             System.out.println("Access Granted.");         }     }      public static void main(String[] args) {         checkAge(15);  // ❌ Throws exception     } }`
-
+```java
+public class ThrowExample {
+    public static void checkAge(int age) {
+        if (age < 18) {
+            throw new ArithmeticException("Access Denied – You must be 18+.");
+        } else {
+            System.out.println("Access Granted.");
+        }
+    }
+	
+    public static void main(String[] args) {
+        checkAge(15);  // ❌ Throws exception
+    }
+}
+```
 ✔ **Output:** `Exception in thread "main" java.lang.ArithmeticException: Access Denied – You must be 18+.`
 
 ---
@@ -190,11 +209,23 @@ Copy code
 
 ### **Example**
 
-java
+```java
+import java.io.*;
 
-Copy code
-
-`import java.io.*;  public class ThrowsExample {     public static void readFile() throws IOException {         FileReader file = new FileReader("test.txt");  // May cause IOException     }      public static void main(String[] args) {         try {             readFile();         } catch (IOException e) {             System.out.println("Exception caught: " + e);         }     } }`
+public class ThrowsExample {
+    public static void readFile() throws IOException {
+        FileReader file = new FileReader("test.txt");  // May cause IOException
+    }
+	
+    public static void main(String[] args) {
+        try {
+            readFile();
+        } catch (IOException e) {
+            System.out.println("Exception caught: " + e);
+        }
+    }
+}
+```
 
 ---
 
@@ -205,11 +236,8 @@ Copy code
 
 ### **Example**
 
-java
-
-Copy code
-
-`public class MultipleCatchExample {     public static void main(String[] args) {         try {             int[] arr = new int[3];             System.out.println(arr[5]);  // ❌ ArrayIndexOutOfBoundsException         } catch (ArithmeticException e) {             System.out.println("Arithmetic Exception caught.");         } catch (ArrayIndexOutOfBoundsException e) {             System.out.println("ArrayIndexOutOfBoundsException caught.");         }     } }`
+```java
+```
 
 ✔ **Output:** `ArrayIndexOutOfBoundsException caught.`
 
