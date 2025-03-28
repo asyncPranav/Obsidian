@@ -407,11 +407,11 @@ public class ExceptionPropagationExample {
     public static void method1() {
         method2(); // Calls method3()
     }
-
+	
     public static void method2() {
         method3(); // Throws exception
     }
-
+	
     public static void method3() {
         int num = 10 / 0;  // ❌ ArithmeticException occurs
     }
@@ -420,11 +420,9 @@ public class ExceptionPropagationExample {
 
 ✔ **Output:**
 
-pgsql
-
-Copy code
-
-`Exception in thread "main" java.lang.ArithmeticException: / by zero`
+```sh
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+```
 
 🔹 Since **method3()** does not handle the exception, it propagates to **method2()**, then to **method1()**, and finally to `main()` where the program crashes.
 
@@ -439,11 +437,19 @@ Copy code
 
 ### **Example**
 
-java
+```java
+import java.io.*;
 
-Copy code
-
-`import java.io.*;  public class TryWithResourcesExample {     public static void main(String[] args) {         try (BufferedReader br = new BufferedReader(new FileReader("test.txt"))) {             System.out.println(br.readLine());         } catch (IOException e) {             System.out.println("Exception caught: " + e);         }     } }`
+public class TryWithResourcesExample {
+    public static void main(String[] args) {
+        try (BufferedReader br = new BufferedReader(new FileReader("test.txt"))) {
+            System.out.println(br.readLine());
+        } catch (IOException e) {
+            System.out.println("Exception caught: " + e);
+        }
+    }
+}
+```
 
 ✔ **Why use `try-with-resources`?**
 
@@ -460,11 +466,33 @@ A **custom exception** can have multiple constructors like built-in exceptions.
 
 ### **Example**
 
-java
+```java
+class AgeException extends Exception {
+    public AgeException(String message) {
+        super(message);
+    }
+	
+    public AgeException(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
 
-Copy code
-
-`class AgeException extends Exception {     public AgeException(String message) {         super(message);     }      public AgeException(String message, Throwable cause) {         super(message, cause);     } }  public class CustomExceptionExample {     public static void main(String[] args) {         try {             checkAge(15);         } catch (AgeException e) {             System.out.println("Custom Exception caught: " + e.getMessage());         }     }      public static void checkAge(int age) throws AgeException {         if (age < 18) {             throw new AgeException("Age must be 18 or above.");         }     } }`
+public class CustomExceptionExample {
+    public static void main(String[] args) {
+        try {
+            checkAge(15);
+        } catch (AgeException e) {
+            System.out.println("Custom Exception caught: " + e.getMessage());
+        }
+    }
+	
+    public static void checkAge(int age) throws AgeException {
+        if (age < 18) {
+            throw new AgeException("Age must be 18 or above.");
+        }
+    }
+}
+```
 
 ✔ **Output:**  
 `Custom Exception caught: Age must be 18 or above.`
@@ -478,11 +506,26 @@ Copy code
 
 ### **Example**
 
-java
-
-Copy code
-
-`public class ChainedExceptionExample {     public static void main(String[] args) {         try {             throwException();         } catch (Exception e) {             System.out.println("Caught Exception: " + e);             System.out.println("Actual Cause: " + e.getCause());         }     }      public static void throwException() throws Exception {         try {             int num = 10 / 0;  // ❌ ArithmeticException         } catch (ArithmeticException e) {             throw new Exception("Higher-level exception", e); // Chaining exception         }     } }`
+```java
+public class ChainedExceptionExample {
+    public static void main(String[] args) {
+        try {
+            throwException();
+        } catch (Exception e) {
+            System.out.println("Caught Exception: " + e);
+            System.out.println("Actual Cause: " + e.getCause());
+        }
+    }
+	
+    public static void throwException() throws Exception {
+        try {
+            int num = 10 / 0;  // ❌ ArithmeticException
+        } catch (ArithmeticException e) {
+            throw new Exception("Higher-level exception", e); // Chaining exception
+        }
+    }
+}
+```
 
 ✔ **Output:**
 
