@@ -529,11 +529,10 @@ public class ChainedExceptionExample {
 
 ✔ **Output:**
 
-pgsql
-
-Copy code
-
-`Caught Exception: java.lang.Exception: Higher-level exception Actual Cause: java.lang.ArithmeticException: / by zero`
+```sh
+Caught Exception: java.lang.Exception: Higher-level exception
+Actual Cause: java.lang.ArithmeticException: / by zero
+```
 
 ---
 
@@ -548,19 +547,31 @@ Copy code
 
 ✔ **Example of `throw`**
 
-java
-
-Copy code
-
-`public class ThrowExample {     public static void main(String[] args) {         throw new RuntimeException("Manually thrown exception");     } }`
+```java
+public class ThrowExample {
+    public static void main(String[] args) {
+        throw new RuntimeException("Manually thrown exception");
+    }
+}
+```
 
 ✔ **Example of `throws`**
 
-java
-
-Copy code
-
-`public class ThrowsExample {     public static void riskyMethod() throws IOException {         throw new IOException("File error");     }      public static void main(String[] args) {         try {             riskyMethod();         } catch (IOException e) {             System.out.println("Exception caught: " + e);         }     } }`
+```java
+public class ThrowsExample {
+    public static void riskyMethod() throws IOException {
+        throw new IOException("File error");
+    }
+	
+    public static void main(String[] args) {
+        try {
+            riskyMethod();
+        } catch (IOException e) {
+            System.out.println("Exception caught: " + e);
+        }
+    }
+}
+```
 
 ---
 
@@ -578,11 +589,14 @@ Copy code
 
 ✔ **Example of `NumberFormatException`**
 
-java
-
-Copy code
-
-`public class NumberFormatExample {     public static void main(String[] args) {         String str = "abc";         int num = Integer.parseInt(str);  // ❌ NumberFormatException     } }`
+```java
+public class NumberFormatExample {
+    public static void main(String[] args) {
+        String str = "abc";
+        int num = Integer.parseInt(str);  // ❌ NumberFormatException
+    }
+}
+```
 
 ---
 
