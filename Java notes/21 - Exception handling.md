@@ -237,6 +237,18 @@ public class ThrowsExample {
 ### **Example**
 
 ```java
+public class MultipleCatchExample {
+    public static void main(String[] args) {
+        try {
+            int[] arr = new int[3];
+            System.out.println(arr[5]);  // ❌ ArrayIndexOutOfBoundsException
+        } catch (ArithmeticException e) {
+            System.out.println("Arithmetic Exception caught.");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("ArrayIndexOutOfBoundsException caught.");
+        }
+    }
+}
 ```
 
 ✔ **Output:** `ArrayIndexOutOfBoundsException caught.`
@@ -250,11 +262,24 @@ public class ThrowsExample {
 
 ### **Example**
 
-java
-
-Copy code
-
-`public class NestedTryCatchExample {     public static void main(String[] args) {         try {             try {                 int num = 10 / 0;             } catch (ArithmeticException e) {                 System.out.println("Inner catch: " + e);             }              int[] arr = new int[3];             System.out.println(arr[5]);  // ❌ ArrayIndexOutOfBoundsException         } catch (ArrayIndexOutOfBoundsException e) {             System.out.println("Outer catch: " + e);         }     } }`
+```java
+public class NestedTryCatchExample {
+    public static void main(String[] args) {
+        try {
+            try {
+                int num = 10 / 0;
+            } catch (ArithmeticException e) {
+                System.out.println("Inner catch: " + e);
+            }
+			
+            int[] arr = new int[3];
+            System.out.println(arr[5]);  // ❌ ArrayIndexOutOfBoundsException
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Outer catch: " + e);
+        }
+    }
+}
+```
 
 ---
 
@@ -265,11 +290,23 @@ Copy code
 
 ### **Example**
 
-java
+```java
+class CustomException extends Exception {
+    public CustomException(String message) {
+        super(message);
+    }
+}
 
-Copy code
-
-`class CustomException extends Exception {     public CustomException(String message) {         super(message);     } }  public class CustomExceptionExample {     public static void main(String[] args) {         try {             throw new CustomException("This is a custom exception!");         } catch (CustomException e) {             System.out.println(e.getMessage());         }     } }`
+public class CustomExceptionExample {
+    public static void main(String[] args) {
+        try {
+            throw new CustomException("This is a custom exception!");
+        } catch (CustomException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+```
 
 ✔ **Output:** `This is a custom exception!`
 
