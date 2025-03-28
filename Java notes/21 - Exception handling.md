@@ -325,4 +325,217 @@ public class CustomExceptionExample {
 
 ---
 
-🔹 Let me know if you need **more examples or explanations**! 🚀😊
+# **📌 Advanced Exception Handling in Java**
+
+
+
+## **1️⃣ Multiple Exceptions in a Single `catch` Block (Java 7+)**
+
+In **Java 7 and later**, we can catch multiple exceptions in a **single catch block** using `|` (OR operator).
+
+### **Example**
+
+java
+
+Copy code
+
+`public class MultiExceptionExample {     public static void main(String[] args) {         try {             int[] arr = new int[3];             System.out.println(arr[5]);  // ❌ ArrayIndexOutOfBoundsException         } catch (ArithmeticException | ArrayIndexOutOfBoundsException e) {             System.out.println("Exception caught: " + e);         }     } }`
+
+✔ **Output:**  
+`Exception caught: java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 3`
+
+---
+
+## **2️⃣ Re-throwing Exceptions**
+
+- We can **re-throw** an exception after catching it, using `throw`.
+    
+
+### **Example**
+
+java
+
+Copy code
+
+`public class RethrowExample {     public static void main(String[] args) {         try {             divide(10, 0);         } catch (ArithmeticException e) {             System.out.println("Handled exception: " + e);         }     }      public static void divide(int a, int b) throws ArithmeticException {         try {             int result = a / b;         } catch (ArithmeticException e) {             System.out.println("Exception caught, rethrowing...");             throw e;  // Re-throwing the exception         }     } }`
+
+✔ **Output:**
+
+csharp
+
+Copy code
+
+`Exception caught, rethrowing... Handled exception: java.lang.ArithmeticException: / by zero`
+
+---
+
+## **3️⃣ Exception Propagation**
+
+- If a method **does not handle** an exception, it **propagates** to the caller method.
+    
+
+### **Example**
+
+java
+
+Copy code
+
+`public class ExceptionPropagationExample {     public static void main(String[] args) {         method1(); // Calls method2()     }      public static void method1() {         method2(); // Calls method3()     }      public static void method2() {         method3(); // Throws exception     }      public static void method3() {         int num = 10 / 0;  // ❌ ArithmeticException occurs     } }`
+
+✔ **Output:**
+
+pgsql
+
+Copy code
+
+`Exception in thread "main" java.lang.ArithmeticException: / by zero`
+
+🔹 Since **method3()** does not handle the exception, it propagates to **method2()**, then to **method1()**, and finally to `main()` where the program crashes.
+
+✔ **Fix:** Add `try-catch` in `method3()` or `method1()`.
+
+---
+
+## **4️⃣ Using `try-with-resources` (Java 7+)**
+
+- The **`try-with-resources`** statement **automatically closes** resources like files, sockets, or database connections.
+    
+
+### **Example**
+
+java
+
+Copy code
+
+`import java.io.*;  public class TryWithResourcesExample {     public static void main(String[] args) {         try (BufferedReader br = new BufferedReader(new FileReader("test.txt"))) {             System.out.println(br.readLine());         } catch (IOException e) {             System.out.println("Exception caught: " + e);         }     } }`
+
+✔ **Why use `try-with-resources`?**
+
+- No need to manually close the resource using `finally`.
+    
+- Reduces memory leaks.
+    
+
+---
+
+## **5️⃣ Custom Exception with Multiple Constructors**
+
+A **custom exception** can have multiple constructors like built-in exceptions.
+
+### **Example**
+
+java
+
+Copy code
+
+`class AgeException extends Exception {     public AgeException(String message) {         super(message);     }      public AgeException(String message, Throwable cause) {         super(message, cause);     } }  public class CustomExceptionExample {     public static void main(String[] args) {         try {             checkAge(15);         } catch (AgeException e) {             System.out.println("Custom Exception caught: " + e.getMessage());         }     }      public static void checkAge(int age) throws AgeException {         if (age < 18) {             throw new AgeException("Age must be 18 or above.");         }     } }`
+
+✔ **Output:**  
+`Custom Exception caught: Age must be 18 or above.`
+
+---
+
+## **6️⃣ Chained Exceptions (`initCause()` & `getCause()`)**
+
+- **Chained exceptions** provide information about the root cause of an exception.
+    
+
+### **Example**
+
+java
+
+Copy code
+
+`public class ChainedExceptionExample {     public static void main(String[] args) {         try {             throwException();         } catch (Exception e) {             System.out.println("Caught Exception: " + e);             System.out.println("Actual Cause: " + e.getCause());         }     }      public static void throwException() throws Exception {         try {             int num = 10 / 0;  // ❌ ArithmeticException         } catch (ArithmeticException e) {             throw new Exception("Higher-level exception", e); // Chaining exception         }     } }`
+
+✔ **Output:**
+
+pgsql
+
+Copy code
+
+`Caught Exception: java.lang.Exception: Higher-level exception Actual Cause: java.lang.ArithmeticException: / by zero`
+
+---
+
+## **7️⃣ Difference Between `throw` and `throws`**
+
+|Feature|`throw`|`throws`|
+|---|---|---|
+|Purpose|Used to **explicitly throw** an exception.|Used to **declare** exceptions in method signature.|
+|Usage|Inside a method/block.|In method declaration.|
+|Example|`throw new ArithmeticException("Error")`|`void read() throws IOException`|
+|Handles Exception?|No, it only throws an exception.|No, it just informs that an exception might occur.|
+
+✔ **Example of `throw`**
+
+java
+
+Copy code
+
+`public class ThrowExample {     public static void main(String[] args) {         throw new RuntimeException("Manually thrown exception");     } }`
+
+✔ **Example of `throws`**
+
+java
+
+Copy code
+
+`public class ThrowsExample {     public static void riskyMethod() throws IOException {         throw new IOException("File error");     }      public static void main(String[] args) {         try {             riskyMethod();         } catch (IOException e) {             System.out.println("Exception caught: " + e);         }     } }`
+
+---
+
+## **8️⃣ Common Java Exceptions**
+
+|Exception|Description|
+|---|---|
+|`ArithmeticException`|Division by zero (`10/0`).|
+|`NullPointerException`|Accessing methods on `null` object.|
+|`ArrayIndexOutOfBoundsException`|Accessing array out of its limit.|
+|`NumberFormatException`|Converting invalid string to number.|
+|`IllegalArgumentException`|Passing illegal arguments to a method.|
+|`IOException`|File handling error.|
+|`SQLException`|Database access error.|
+
+✔ **Example of `NumberFormatException`**
+
+java
+
+Copy code
+
+`public class NumberFormatExample {     public static void main(String[] args) {         String str = "abc";         int num = Integer.parseInt(str);  // ❌ NumberFormatException     } }`
+
+---
+
+## **9️⃣ Best Practices for Exception Handling**
+
+✔ ✅ **DO:**
+
+- Use **specific exceptions** instead of `Exception` or `Throwable`.
+    
+- Use `finally` to **close resources**.
+    
+- Use **logging** instead of `printStackTrace()`.
+    
+- Use `throw` for **custom exceptions** where needed.
+    
+- Use **checked exceptions** for recoverable errors (e.g., file not found).
+    
+
+❌ **DON'T:**
+
+- Don't **catch generic `Exception`** unless necessary.
+    
+- Don't use empty `catch` blocks (it hides errors).
+    
+- Don't overuse exceptions for normal flow (e.g., using `try-catch` instead of `if`).
+    
+
+---
+
+### **📌 Summary**
+
+✔ Java provides powerful **exception handling** mechanisms.  
+✔ **Use `try-catch`, `finally`, `throw`, and `throws` appropriately**.  
+✔ **Understand checked vs unchecked exceptions**.  
+✔ **Use best practices** to write maintainable and error-free code.
