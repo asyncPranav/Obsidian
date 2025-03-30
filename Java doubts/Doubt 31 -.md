@@ -139,3 +139,42 @@ Even if `"Finally statement"` runs first in code, Java prints errors first. This
 
 
 ---
+
+#DOUBT  - but in Netbeans finally statement print first then error and code is exactly same
+
+###### ChatGPT said:
+
+Yes! That happens because NetBeans **handles console output differently** compared to standard terminal execution. Let me break it down clearly:
+
+### **Why does NetBeans print "Finally statement" first?**
+
+- **NetBeans uses a buffered console**, meaning it **prints normal output (`System.out.println`) immediately** before Java processes errors.
+    
+- So, `"Finally statement"` prints **before the exception message** appears.
+    
+
+### **Why does normal Java execution (like in terminal) print the error first?**
+
+- In most terminals, **exceptions (`System.err`) get printed immediately**, sometimes before regular output (`System.out`).
+    
+- This happens because `System.err` does **not** wait for the normal output to finish.
+    
+
+### **Which output is correct?**
+
+- **Both outputs are correct**—it's just a difference in how NetBeans and the terminal process output.
+    
+- **In NetBeans**: `"Finally statement"` appears first.
+    
+- **In some terminals**: The error may appear first.
+    
+
+### **How to ensure consistent output everywhere?**
+
+To make sure `"Finally statement"` always prints first, use:
+
+```java
+System.out.flush();
+```
+
+before throwing the exception.
