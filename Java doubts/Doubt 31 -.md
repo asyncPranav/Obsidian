@@ -102,3 +102,40 @@ Exception in thread "main" java.lang.Exception
 
 
 ---
+
+### **What is happening in your code?**
+
+1. You throw an exception in `meth1()`.
+    
+2. The `finally` block runs **before** `meth1()` exits.
+    
+3. The exception then **goes to `main()`** and crashes the program.
+    
+
+### **Why does the error message come first in output?**
+
+- Java has **two types of printing:**
+    
+    - **Normal print (`System.out.println`)** → Prints normally.
+        
+    - **Error print (`System.err`)** → Prints errors **immediately** (without waiting).
+        
+- The **error message prints first** because Java treats exceptions as more important.
+    
+
+### **How to fix the output order?**
+
+If you **want "Finally statement" to print first**, add:
+
+```java
+System.out.flush();  // This forces Java to print everything before the error
+```
+
+before throwing the exception.
+
+### **Final Answer:**
+
+Even if `"Finally statement"` runs first in code, Java prints errors first. This is why the output looks reversed.
+
+
+---
