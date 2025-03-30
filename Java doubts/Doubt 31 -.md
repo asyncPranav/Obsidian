@@ -178,3 +178,43 @@ System.out.flush();
 ```
 
 before throwing the exception.
+
+
+---
+
+#DOUBT  - which one is logically correct
+
+###### ChatGPT said:
+
+### **Logically Correct Output**
+
+The **logically correct output** is:
+
+```sh
+Finally statement
+Exception in thread "main" java.lang.Exception
+	at $18_Exception_Handling._18_FinallyBlock.meth1(_18_FinallyBlock.java:14)
+	at $18_Exception_Handling._18_FinallyBlock.main(_18_FinallyBlock.java:21)
+```
+
+---
+
+### **Why?**
+
+- The **finally block always executes before the method exits**, even if an exception is thrown.
+    
+- Since `finally` **executes before the exception leaves the method**, `"Finally statement"` must print **before the exception message appears**.
+    
+- This behavior is **guaranteed by Java’s exception handling mechanism**.
+    
+
+---
+
+### **Why does NetBeans and some terminals behave differently?**
+
+- **NetBeans prints normally (`System.out.println`) immediately.**
+    
+- **Some terminals prioritize exception messages (`System.err`)**, making the error appear first.
+    
+
+💡 **Final Verdict:** The NetBeans behavior (printing `"Finally statement"` first) is **logically correct** according to Java's execution flow.
