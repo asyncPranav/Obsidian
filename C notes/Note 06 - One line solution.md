@@ -103,6 +103,7 @@ void swap(int *a, int *b) { *a = *a + *b - (*b = *a); }
 ```
 
 **Logic:**
+
 - `*b = *a` stores `*a` in `*b`,
 - `*a = *a + *b - *b` effectively swaps values.
 
@@ -116,6 +117,7 @@ x ^= y ^= x ^= y;
 ```
 
 **Logic:**
+
 - Uses **bitwise XOR** to swap numbers efficiently.
 - XOR properties:
     - `a ^ a = 0`
@@ -131,6 +133,7 @@ char c = 'b', upper = (c >= 'a' && c <= 'z') ? c - 32 : c;
 ```
 
 **Logic:**
+
 - ASCII value of `'a'` is `97`, `'A'` is `65` (difference = `32`).
 - If `c` is between `'a'` and `'z'`, subtract `32` to convert.
 
@@ -141,4 +144,5 @@ char c = 'B', lower = (c >= 'A' && c <= 'Z') ? c + 32 : c;
 ```
 
 **Logic:**
+
 - If `c` is between `'A'` and `'Z'`, add `32` to convert to lowercase.
