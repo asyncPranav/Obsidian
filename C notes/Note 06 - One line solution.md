@@ -50,6 +50,15 @@ int isLeap(int year) { return (year % 4 == 0 && year % 100 != 0) || (year % 400 
 void swap(int *a, int *b) { *a = *a + *b - (*b = *a); }
 ```
 
-Let me know if you need more! 🚀
+### **1️⃣8️⃣ Convert lowercase to uppercase (char c)**
 
-4o
+```c
+char c = 'b', upper = (c >= 'a' && c <= 'z') ? c - 32 : c;
+```
+
+### **1️⃣9️⃣ Convert uppercase to lowercase (char c)**
+
+```c
+char c = 'B', lower = (c >= 'A' && c <= 'Z') ? c + 32 : c;
+```
+
