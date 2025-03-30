@@ -99,3 +99,6 @@ Exception in thread "main" java.lang.Exception
 ✔ **The order of execution is still correct (finally executes before exception propagates).**  
 ✔ **The difference in output order is due to Java's internal handling of console output (`System.out`) vs. error messages (`System.err`).**  
 ✔ **Using `System.out.flush()` ensures `"Finally statement"` is printed first.**
+
+
+---
