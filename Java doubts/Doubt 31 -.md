@@ -35,19 +35,21 @@ public class _18_FinallyBlock {
 
 You expected:
 
-pgsql
-
-CopyEdit
-
-`Finally statement   Exception in thread "main" java.lang.Exception       at $18_Exception_Handling._18_FinallyBlock.meth1(_18_FinallyBlock.java:14)       at $18_Exception_Handling._18_FinallyBlock.main(_18_FinallyBlock.java:21)`  
+```sh
+Finally statement  
+Exception in thread "main" java.lang.Exception  
+    at $18_Exception_Handling._18_FinallyBlock.meth1(_18_FinallyBlock.java:14)  
+    at $18_Exception_Handling._18_FinallyBlock.main(_18_FinallyBlock.java:21)  
+``` 
 
 but you got:
 
-pgsql
-
-CopyEdit
-
-`Exception in thread "main" java.lang.Exception       at $18_Exception_Handling._18_FinallyBlock.meth1(_18_FinallyBlock.java:14)       at $18_Exception_Handling._18_FinallyBlock.main(_18_FinallyBlock.java:21)   Finally statement`  
+```sh
+Exception in thread "main" java.lang.Exception  
+    at $18_Exception_Handling._18_FinallyBlock.meth1(_18_FinallyBlock.java:14)  
+    at $18_Exception_Handling._18_FinallyBlock.main(_18_FinallyBlock.java:21)  
+Finally statement  
+```  
 
 ### **Why Is the Stack Trace Printed First?**
 
