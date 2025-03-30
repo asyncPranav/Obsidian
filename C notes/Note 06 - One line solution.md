@@ -7,12 +7,25 @@ Here are some **one-liner** solutions to common problems in **C language**:
 int fact(int n) { return n == 0 ? 1 : n * fact(n - 1); }
 ```
 
+**Logic:**
+
+- Uses **recursion**: `fact(n) = n * fact(n-1)`.
+- Base case: If `n == 0`, return `1` (since `0! = 1`).
+
+
 ### **2️⃣ Count Digits in a Number**
 
 ```c
 int countDigits(int n) { return n == 0 ? 1 : (int) log10(n) + 1; }
 ```
-(Include `<math.h>` for `log10`)
+
+**Logic:**
+
+- Uses the **logarithm property**: `log10(n) + 1` gives the number of digits.
+- `log10(100) = 2`, so `100` has `3` digits.
+- If `n == 0`, return `1` (since `0` has 1 digit).
+- Requires `<math.h>` for `log10()` function.
+
 
 ### **3️⃣ Reverse a Number**
 
@@ -20,6 +33,17 @@ int countDigits(int n) { return n == 0 ? 1 : (int) log10(n) + 1; }
 int reverse(int n) { int rev = 0; while (n) rev = rev * 10 + n % 10, n /= 10; return rev; }
 ```
 
+**Logic:**
+
+- Extracts digits from `n` using `% 10` and builds `rev` by shifting left (`rev * 10`).
+    
+- Example: `n = 123` →
+    
+    1. `rev = 0 * 10 + 3 = 3`, `n = 12`
+        
+    2. `rev = 3 * 10 + 2 = 32`, `n = 1`
+        
+    3. `rev = 32 * 10 + 1 = 321`, `n = 0`
 ### **4️⃣ Check if a Number is Palindrome**
 
 ```c
