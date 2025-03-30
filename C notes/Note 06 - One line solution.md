@@ -108,7 +108,7 @@ void swap(int *a, int *b) { *a = *a + *b - (*b = *a); }
 
 
 
-### **1️⃣5️⃣ Swap two numbers without third variable
+### **🔟 Swap Two Numbers Using XOR
 
 ```c
 int x = 5, y = 7;
@@ -124,7 +124,7 @@ x ^= y ^= x ^= y;
 
 
 
-### **1️⃣8️⃣ Convert lowercase to uppercase (char c)**
+### **1️⃣1️⃣ Convert Lowercase to Uppercase (char c)**
 
 ```c
 char c = 'b', upper = (c >= 'a' && c <= 'z') ? c - 32 : c;
