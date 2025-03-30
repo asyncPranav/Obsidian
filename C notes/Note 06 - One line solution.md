@@ -102,6 +102,12 @@ int isLeap(int year) { return (year % 4 == 0 && year % 100 != 0) || (year % 400 
 void swap(int *a, int *b) { *a = *a + *b - (*b = *a); }
 ```
 
+**Logic:**
+- `*b = *a` stores `*a` in `*b`,
+- `*a = *a + *b - *b` effectively swaps values.
+
+
+
 ### **1️⃣5️⃣ Swap two numbers without third variable
 
 ```c
@@ -110,8 +116,11 @@ x ^= y ^= x ^= y;
 ```
 
 **Logic:**
-- `*b = *a` stores `*a` in `*b`,
-- `*a = *a + *b - *b` effectively swaps values.
+- Uses **bitwise XOR** to swap numbers efficiently.
+- XOR properties:
+    - `a ^ a = 0`
+    - `a ^ 0 = a`
+- This swaps without using extra space.
 
 
 
@@ -120,6 +129,7 @@ x ^= y ^= x ^= y;
 ```c
 char c = 'b', upper = (c >= 'a' && c <= 'z') ? c - 32 : c;
 ```
+
 
 ### **1️⃣9️⃣ Convert uppercase to lowercase (char c)**
 
