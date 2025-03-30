@@ -66,27 +66,31 @@ Finally statement
 
 If you want `"Finally statement"` to be printed **before** the exception, add this before the `throw` statement:
 
-java
-
-CopyEdit
-
-`System.out.flush();  // Ensures all console output is printed before exception`
+```java
+System.out.flush();  // Ensures all console output is printed before exception
+```
 
 Updated `meth1()`:
 
-java
-
-CopyEdit
-
-`public static void meth1() throws Exception {     try {         System.out.flush();  // Flush console output buffer         throw new Exception();     } finally {         System.out.println("Finally statement");     } }`
+```java
+public static void meth1() throws Exception {
+    try {
+        System.out.flush();  // Flush console output buffer
+        throw new Exception();
+    } finally {
+        System.out.println("Finally statement");
+    }
+}
+```
 
 Now, your expected output will appear as:
 
-pgsql
-
-CopyEdit
-
-`Finally statement   Exception in thread "main" java.lang.Exception       at $18_Exception_Handling._18_FinallyBlock.meth1(_18_FinallyBlock.java:14)       at $18_Exception_Handling._18_FinallyBlock.main(_18_FinallyBlock.java:21)`  
+```sh
+Finally statement  
+Exception in thread "main" java.lang.Exception  
+    at $18_Exception_Handling._18_FinallyBlock.meth1(_18_FinallyBlock.java:14)  
+    at $18_Exception_Handling._18_FinallyBlock.main(_18_FinallyBlock.java:21)  
+```
 
 ---
 
