@@ -50,13 +50,12 @@ int isLeap(int year) { return (year % 4 == 0 && year % 100 != 0) || (year % 400 
 void swap(int *a, int *b) { *a = *a + *b - (*b = *a); }
 ```
 
-
-
 ### **1️⃣5️⃣ Swap two numbers without third variable
-c
-Copy code
+
+```c
 int x = 5, y = 7;
 x ^= y ^= x ^= y;
+```
 
 ### **1️⃣8️⃣ Convert lowercase to uppercase (char c)**
 
