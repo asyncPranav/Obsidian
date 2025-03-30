@@ -36,25 +36,37 @@ int reverse(int n) { int rev = 0; while (n) rev = rev * 10 + n % 10, n /= 10; re
 **Logic:**
 
 - Extracts digits from `n` using `% 10` and builds `rev` by shifting left (`rev * 10`).
-    
 - Example: `n = 123` →
-    
     1. `rev = 0 * 10 + 3 = 3`, `n = 12`
-        
     2. `rev = 3 * 10 + 2 = 32`, `n = 1`
-        
     3. `rev = 32 * 10 + 1 = 321`, `n = 0`
+
+
 ### **4️⃣ Check if a Number is Palindrome**
 
 ```c
 int isPalindrome(int n) { return n == reverse(n); }
 ```
 
+**Logic:**
+
+- A palindrome number reads the same forward and backward.
+- Compares `n` with its reversed version.
+
+
 ### **5️⃣ Check if a Number is Prime**
 
 ```c
 int isPrime(int n) { for (int i = 2; i * i <= n; i++) if (n % i == 0) return 0; return n > 1; }
 ```
+
+**Logic:**
+
+- Loops from `2` to `sqrt(n)`, checking if `n` is divisible by `i`.
+- If any `i` divides `n`, return `0` (not prime).
+- If loop completes, return `1` (prime).
+
+
 
 ### **6️⃣ Sum of Digits of a Number**
 
