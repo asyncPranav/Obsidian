@@ -54,6 +54,7 @@ int isPalindrome(int n) { return n == reverse(n); }
 - Compares `n` with its reversed version.
 
 
+
 ### **5️⃣ Check if a Number is Prime**
 
 ```c
@@ -74,11 +75,26 @@ int isPrime(int n) { for (int i = 2; i * i <= n; i++) if (n % i == 0) return 0; 
 int sumDigits(int n) { return n == 0 ? 0 : n % 10 + sumDigits(n / 10); }
 ```
 
+**Logic:**
+
+- Uses **recursion** to extract digits.
+- Adds last digit (`n % 10`) to the sum of remaining digits.
+
+
+
 ### **7️⃣ Check if a Year is a Leap Year**
 
 ```c
 int isLeap(int year) { return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0); }
 ```
+
+**Logic:**
+
+- Leap year rules:
+    1. Divisible by `4` **AND** not by `100` (e.g., 2024).
+    2. OR divisible by `400` (e.g., 2000 but not 1900).
+
+
 
 ### **8️⃣ Swap Two Numbers Without Using a Third Variable**
 
@@ -92,6 +108,12 @@ void swap(int *a, int *b) { *a = *a + *b - (*b = *a); }
 int x = 5, y = 7;
 x ^= y ^= x ^= y;
 ```
+
+**Logic:**
+- `*b = *a` stores `*a` in `*b`,
+- `*a = *a + *b - *b` effectively swaps values.
+
+
 
 ### **1️⃣8️⃣ Convert lowercase to uppercase (char c)**
 
