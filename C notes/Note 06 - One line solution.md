@@ -108,7 +108,7 @@ void swap(int *a, int *b) { *a = *a + *b - (*b = *a); }
 
 
 
-### **🔟 Swap Two Numbers Using XOR
+### **🔟 Swap Two Numbers Using XOR**
 
 ```c
 int x = 5, y = 7;
@@ -130,10 +130,15 @@ x ^= y ^= x ^= y;
 char c = 'b', upper = (c >= 'a' && c <= 'z') ? c - 32 : c;
 ```
 
+**Logic:**
+- ASCII value of `'a'` is `97`, `'A'` is `65` (difference = `32`).
+- If `c` is between `'a'` and `'z'`, subtract `32` to convert.
 
-### **1️⃣9️⃣ Convert uppercase to lowercase (char c)**
+### **1️⃣2️⃣ Convert uppercase to lowercase (char c)**
 
 ```c
 char c = 'B', lower = (c >= 'A' && c <= 'Z') ? c + 32 : c;
 ```
 
+**Logic:**
+- If `c` is between `'A'` and `'Z'`, add `32` to convert to lowercase.
