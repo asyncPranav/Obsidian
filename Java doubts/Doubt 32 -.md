@@ -75,21 +75,3 @@ Now, if `b = 0`, it will throw:
 ```sh
 Exception in thread "main" java.lang.ArithmeticException: Cannot divide by zero
 ```
-
----
-
-### **Alternative: Use Integer Division**
-
-If you change `float` to `int`, Java will throw an **ArithmeticException**:
-
-java
-
-CopyEdit
-
-`int a = 5; int b = 0; System.out.println(a / b);  // Throws ArithmeticException`
-
-Would you like to modify your program to handle this case explicitly? 😊
-
-1/2
-
-4o
