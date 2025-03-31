@@ -70,11 +70,11 @@ case "/" -> {
 }
 ```
 
-pgsql
+Now, if `b = 0`, it will throw:
 
-CopyEdit
-
-`Exception in thread "main" java.lang.ArithmeticException: Cannot divide by zero`
+```sh
+Exception in thread "main" java.lang.ArithmeticException: Cannot divide by zero
+```
 
 ---
 
