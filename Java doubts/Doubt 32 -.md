@@ -14,7 +14,6 @@ public class _21_Calculator {
         String op = sc.next();  
         System.out.print("Enter first number : ");  
         float b = sc.nextFloat();  
-  
         float result=0f;  
         switch (op){  
             case "+" -> result = a+b;  
@@ -23,8 +22,7 @@ public class _21_Calculator {
             case "/" -> result = a/b;  
             default -> System.out.println("Invalid operator");  
         }  
-        System.out.println("Result : "+result);  
-  
+        System.out.println("Result : "+result);   
     }  
 }
 ```
@@ -48,11 +46,12 @@ In Java:
 
 ### **Example Output for `a = 5` and `b = 0`**
 
-java
-
-CopyEdit
-
-`Enter first number : 5 Enter operator : / Enter second number : 0 Result : Infinity`
+```sh
+Enter first number : 5
+Enter operator : /
+Enter second number : 0
+Result : Infinity
+```
 
 Since `5 / 0.0` produces **Infinity**, no exception is thrown.
 
@@ -62,13 +61,14 @@ Since `5 / 0.0` produces **Infinity**, no exception is thrown.
 
 If you want to **manually throw an exception** for division by zero, modify your code like this:
 
-java
-
-CopyEdit
-
-`case "/" -> {     if (b == 0) {         throw new ArithmeticException("Cannot divide by zero");     }     result = a / b; }`
-
-Now, if `b = 0`, it will throw:
+```java
+case "/" -> {
+    if (b == 0) {
+        throw new ArithmeticException("Cannot divide by zero");
+    }
+    result = a / b;
+}
+```
 
 pgsql
 
