@@ -5,19 +5,23 @@
 
 Let’s say you have this code:
 
-```
-``java
+```java
+Scanner scanner = new Scanner(System.in);
 
-Copy code
-
-`Scanner scanner = new Scanner(System.in);  System.out.print("Enter an integer: "); if (scanner.hasNextInt()) {     int number = scanner.nextInt();     System.out.println("You entered: " + number); } else {     System.out.println("Not an integer."); }```
+System.out.print("Enter an integer: ");
+if (scanner.hasNextInt()) {
+    int number = scanner.nextInt();
+    System.out.println("You entered: " + number);
+} else {
+    System.out.println("Not an integer.");
+}
 ```
 
 Now imagine the user types:
 
-Copy code
-
-`42`
+```sh
+42
+```
 
 ---
 
@@ -61,10 +65,13 @@ Copy code
 
 If you want to force asking again, you must use a loop:
 
-java
+```java
+while (!scanner.hasNextInt()) {
+    System.out.println("That's not an integer, try again:");
+    scanner.next(); // consume the invalid input
+}
+int number = scanner.nextInt(); // now it's safe
+```
 
-Copy code
+---
 
-`while (!scanner.hasNextInt()) {     System.out.println("That's not an integer, try again:");     scanner.next(); // consume the invalid input } int number = scanner.nextInt(); // now it's safe`
-
-Let me know if you'd like to see this in action with more complex input!
