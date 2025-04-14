@@ -147,11 +147,9 @@ int number = scanner.nextInt();
 
 If the next token is _not_ an integer (e.g., the user types `"hello"`), `nextInt()` throws an exception:
 
-java
-
-Copy code
-
-`InputMismatchException`
+```sh
+InputMismatchException
+```
 
 That's why we **always** pair it with `hasNextInt()` first.
 
