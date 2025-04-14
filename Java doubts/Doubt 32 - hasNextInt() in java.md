@@ -203,11 +203,22 @@ Copy code
 
 You need a loop to keep checking until input is valid:
 
-java
+```java
+Scanner scanner = new Scanner(System.in);
+int number;
 
-Copy code
-
-`Scanner scanner = new Scanner(System.in); int number;  while (true) {     System.out.print("Enter an integer: ");     if (scanner.hasNextInt()) {         number = scanner.nextInt(); // read and assign         break; // input is valid, exit loop     } else {         System.out.println("That's not a valid integer!");         scanner.next(); // consume the invalid token (like "hello")     } } System.out.println("You entered: " + number);`
+while (true) {
+    System.out.print("Enter an integer: ");
+    if (scanner.hasNextInt()) {
+        number = scanner.nextInt(); // read and assign
+        break; // input is valid, exit loop
+    } else {
+        System.out.println("That's not a valid integer!");
+        scanner.next(); // consume the invalid token (like "hello")
+    }
+}
+System.out.println("You entered: " + number);
+```
 
 ---
 
