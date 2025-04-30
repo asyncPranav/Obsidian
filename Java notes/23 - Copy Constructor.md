@@ -169,3 +169,16 @@ protected Object clone() throws CloneNotSupportedException {
 |Can define manually|Yes|Yes|
 |Clone support|Yes (via copy constructor)|Yes (via `clone()` method)|
 |Common use in OOP|Deep/shallow copy management|Object duplication manually handled|
+
+---
+
+
+## ✅ Summary
+
+- A copy constructor creates a **new object from an existing one**.
+    
+- Prevents **shared reference bugs**.
+    
+- Java supports copy constructors **manually**, not automatically.
+    
+- Preferred over `clone()` for clarity and safety.
