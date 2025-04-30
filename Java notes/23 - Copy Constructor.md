@@ -9,11 +9,11 @@ A **copy constructor** is a special constructor used to create a **new object** 
 
 ### 🧱 General Syntax (e.g., in C++):
 
-cpp
-
-Copy code
-
-`ClassName (const ClassName &oldObject) {     // Copy values from oldObject to this new object }`
+```cpp
+ClassName (const ClassName &oldObject) {
+    // Copy values from oldObject to this new object
+}
+```
 
 ---
 
@@ -45,11 +45,28 @@ Copy code
 
 ## 📘 Example in C++ (Where Copy Constructor Is Explicitly Used):
 
-cpp
+```cpp
+class Student {
+    int age;
+public:
+    Student(int a) { age = a; }
+    
+    // Copy constructor
+    Student(const Student &s) {
+        age = s.age;
+    }
 
-Copy code
+    void show() {
+        cout << "Age: " << age << endl;
+    }
+};
 
-`class Student {     int age; public:     Student(int a) { age = a; }          // Copy constructor     Student(const Student &s) {         age = s.age;     }      void show() {         cout << "Age: " << age << endl;     } };  int main() {     Student s1(20);     Student s2 = s1;   // Copy constructor is called     s2.show(); }`
+int main() {
+    Student s1(20);
+    Student s2 = s1;   // Copy constructor is called
+    s2.show();
+}
+```
 
 ---
 
@@ -67,11 +84,33 @@ You create one by **manually defining a constructor** that takes another object 
 
 ### 📌 Example:
 
-java
+```java
+class Student {
+    int age;
+	
+    // Regular constructor
+    Student(int age) {
+        this.age = age;
+    }
+	
+    // Copy constructor
+    Student(Student s) {
+        this.age = s.age;
+    }
+	
+    void show() {
+        System.out.println("Age: " + age);
+    }
+}
 
-Copy code
-
-`class Student {     int age;      // Regular constructor     Student(int age) {         this.age = age;     }      // Copy constructor     Student(Student s) {         this.age = s.age;     }      void show() {         System.out.println("Age: " + age);     } }  public class Main {     public static void main(String[] args) {         Student s1 = new Student(20);         Student s2 = new Student(s1);  // Copy constructor call         s2.show();     } }`
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student(20);
+        Student s2 = new Student(s1);  // Copy constructor call
+        s2.show();
+    }
+}
+```
 
 ---
 
