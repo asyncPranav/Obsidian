@@ -129,6 +129,27 @@ Java has an interface called `Cloneable` and a method `clone()` which you can ov
 
 ---
 
+## 🔁 Alternative: `clone()` Method in Java
+
+Java provides a `clone()` method via the `Cloneable` interface, but:
+
+- It’s complex and not recommended for most use cases.
+    
+- It does **shallow copy** by default.
+    
+- You must override `clone()` and handle exceptions.
+    
+
+```java
+@Override
+protected Object clone() throws CloneNotSupportedException {
+    return super.clone();  // shallow copy
+}
+```
+
+➡️ Therefore, **custom copy constructors are often better**.
+
+---
 ## 🚫 Java's Caution with Copying
 
 - Java **does not auto-generate** copy constructors like C++.
