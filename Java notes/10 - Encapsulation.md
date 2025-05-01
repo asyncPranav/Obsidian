@@ -3,7 +3,7 @@
 
 ## **1. What is Encapsulation?**
 
-Encapsulation is one of the four fundamental principles of **Object-Oriented Programming (OOP)**. It is the process of **wrapping data (variables) and methods (functions) together** in a **single unit (class)** and **restricting direct access** to some details of the object.
+Encapsulation is one of the four fundamental principles of **Object-Oriented Programming (OOP)**. It is the process of **wrapping data (variables) and methods (functions) together** in a **single unit (class)** and **restricting direct access** to some details of the object. It helps protect the integrity of the object by allowing only controlled access through public methods.
 
 🔹 In simpler terms, **encapsulation means data hiding and protecting the integrity of an object** by restricting direct access to its internal state.
 
