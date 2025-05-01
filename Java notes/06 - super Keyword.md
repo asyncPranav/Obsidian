@@ -72,7 +72,7 @@ class Parent {
 
 class Child extends Parent {
     String name = "Child";
-
+	
     void display() {
         System.out.println("Child Name: " + name);           // Refers to Child's name
         System.out.println("Parent Name: " + super.name);    // Refers to Parent's name
