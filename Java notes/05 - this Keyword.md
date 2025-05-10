@@ -344,9 +344,9 @@ public class Main {
 
 🟢 Output:
 
-Copy code
-
-`Alice, 20`
+```sh
+Alice, 20
+```
 
 ---
 
@@ -358,11 +358,46 @@ A design pattern that **builds complex objects step-by-step** using method chain
 
 ### 🔹 Java Example:
 
-java
+```java
+class Car {
+    String model;
+    int year;
 
-Copy code
+    static class Builder {
+        Car car = new Car();
 
-`class Car {     String model;     int year;      static class Builder {         Car car = new Car();          Builder setModel(String model) {             car.model = model;             return this;  // return Builder object         }          Builder setYear(int year) {             car.year = year;             return this;         }          Car build() {             return car;         }     }      void show() {         System.out.println("Model: " + model + ", Year: " + year);     } }  public class Main {     public static void main(String[] args) {         Car myCar = new Car.Builder()                         .setModel("Honda")                         .setYear(2023)                         .build();  // Final object          myCar.show();     } }`
+        Builder setModel(String model) {
+            car.model = model;
+            return this;  // return Builder object
+        }
+
+        Builder setYear(int year) {
+            car.year = year;
+            return this;
+        }
+
+        Car build() {
+            return car;
+        }
+    }
+
+    void show() {
+        System.out.println("Model: " + model + ", Year: " + year);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car.Builder()
+                        .setModel("Honda")
+                        .setYear(2023)
+                        .build();  // Final object
+
+        myCar.show();
+    }
+}
+
+```
 
 🟢 Output:
 
