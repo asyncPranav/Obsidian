@@ -296,11 +296,10 @@ public class Main {
 
 🟢 Output:
 
-arduino
-
-Copy code
-
-`Task is done. Callback received!`
+```sh
+Task is done.
+Callback received!
+```
 
 Here, `this` refers to `MyApp` and is passed to the `Task` to be called back.
 
