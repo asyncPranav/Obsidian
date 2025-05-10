@@ -35,11 +35,9 @@ public class ArrayReturnExample {
 - Then, we print the elements of the array using a **for-each loop**.
     
 
-Would you like a similar example with a different data type (e.g., `String[]`, `double[]`)?
 
-4o
+---
 
-##### You said:
 
 ### **Return type is an array not an array object**
 
@@ -53,11 +51,11 @@ So technically, **every array is an object** in Java.
 
 When you write:
 
-java
-
-Copy code
-
-`public static int[] getArray() {     return new int[]{1, 2, 3}; }`
+```java
+public static int[] getArray() {
+    return new int[]{1, 2, 3};
+}
+```
 
 The return type `int[]` is an **array**, but since arrays are objects, you're returning an array object.
 
@@ -65,11 +63,21 @@ If your question means "returning just an array, not a wrapper object like `Arra
 
 ### ✅ Example: Returning a plain array
 
-java
-
-Copy code
-
-`public class Test {     public static int[] getNumbers() {         return new int[] {1, 2, 3, 4, 5};  // returning a plain array     }      public static void main(String[] args) {         int[] nums = getNumbers();  // storing returned array          for (int n : nums) {             System.out.print(n + " ");         }     } }`
+```java
+public class Test {
+    public static int[] getNumbers() {
+        return new int[] {1, 2, 3, 4, 5};  // returning a plain array
+    }
+		
+    public static void main(String[] args) {
+        int[] nums = getNumbers();  // storing returned array
+		
+        for (int n : nums) {
+            System.out.print(n + " ");
+        }
+    }
+}
+```
 
 ### Output:
 
