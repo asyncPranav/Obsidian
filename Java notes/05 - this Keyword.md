@@ -362,25 +362,25 @@ A design pattern that **builds complex objects step-by-step** using method chain
 class Car {
     String model;
     int year;
-
+	
     static class Builder {
         Car car = new Car();
-
+		
         Builder setModel(String model) {
             car.model = model;
             return this;  // return Builder object
         }
-
+		
         Builder setYear(int year) {
             car.year = year;
             return this;
         }
-
+		
         Car build() {
             return car;
         }
     }
-
+	
     void show() {
         System.out.println("Model: " + model + ", Year: " + year);
     }
@@ -392,7 +392,7 @@ public class Main {
                         .setModel("Honda")
                         .setYear(2023)
                         .build();  // Final object
-
+						
         myCar.show();
     }
 }
