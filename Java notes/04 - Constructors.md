@@ -243,6 +243,21 @@ public class Main {
 
 ---
 
+### ✅ **Constructor Chaining** in Java:
+
+**Constructor chaining** is the process of calling **one constructor from another** within the same class or from a parent class (using `this()` or `super()` respectively).
+
+---
+
+### 🔹 Two Types of Constructor Chaining:
+
+1. **Within the same class** – using `this(...)`
+    
+2. **From a subclass to a superclass** – using `super(...)`
+    
+
+---
+
 ## **5. `this()` Constructor Call**
 
 - Used to call another constructor in the same class.
