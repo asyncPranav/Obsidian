@@ -152,6 +152,3 @@ public class TwoDArrayExample {
 4 5 6
 ```
 
-Let me know if you’d like an example with custom objects (like returning a `Student[]`) too.
-
-4o
