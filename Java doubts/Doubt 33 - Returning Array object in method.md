@@ -113,27 +113,44 @@ public class StringArrayExample {
 
 **Output:**
 
-nginx
-
-Copy code
-
-`Alice Bob Charlie`
+```sh
+Alice
+Bob
+Charlie
+```
 
 ---
 
 ### ✅ Example 2: Method returns an `int[][]` (2D array)
 
-java
-
-Copy code
-
-`public class TwoDArrayExample {     public static int[][] getMatrix() {         return new int[][] {             {1, 2, 3},             {4, 5, 6}         };     }      public static void main(String[] args) {         int[][] matrix = getMatrix();          for (int i = 0; i < matrix.length; i++) {             for (int j = 0; j < matrix[i].length; j++) {                 System.out.print(matrix[i][j] + " ");             }             System.out.println();         }     } }`
+```java
+public class TwoDArrayExample {
+    public static int[][] getMatrix() {
+        return new int[][] {
+            {1, 2, 3},
+            {4, 5, 6}
+        };
+    }
+	
+    public static void main(String[] args) {
+        int[][] matrix = getMatrix();
+		
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+```
 
 **Output:**
 
-Copy code
-
-`1 2 3 4 5 6`
+```sh
+1 2 3
+4 5 6
+```
 
 Let me know if you’d like an example with custom objects (like returning a `Student[]`) too.
 
