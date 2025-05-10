@@ -201,6 +201,46 @@ Name: John, Age: 30, Salary: $0.0
 Name: Alice, Age: 28, Salary: $50000.0
 ```
 
+
+### ✅ Focus: Differentiation by **Order of Parameters**
+
+Even if two constructors have the **same number** and **types** of parameters, you can differentiate them by the **order** in which those parameter types appear.
+
+```java
+public class Person {
+    String name;
+    int age;
+	
+    // Constructor 1: String first, then int
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+	
+    // Constructor 2: int first, then String
+    public Person(int age, String name) {
+        this.name = name;
+        this.age = age;
+    }
+	
+    public void show() {
+        System.out.println("Name: " + name + ", Age: " + age);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person p1 = new Person("Alice", 25);  // calls Constructor 1
+        Person p2 = new Person(30, "Bob");    // calls Constructor 2
+		
+        p1.show();
+        p2.show();
+    }
+}
+
+```
+
+
 ---
 
 ## **5. `this()` Constructor Call**
