@@ -48,6 +48,18 @@ public class Television {
     - It also has methods to turn the TV on and off.
     - A **constructor** is defined (`public Television()`) which initializes the object with default values.
 
+
+### ✅ Definition of **Object** in Java:
+
+In Java, an **object** is a real-world entity or a programming instance that is created based on a **class**.  
+It represents **data** (through fields/attributes) and **behavior** (through methods).
+
+
+### 🔹 Technical Definition:
+
+> An **object** is an instance of a class. When a class is defined, no memory is allocated until an object of that class is created.
+
+
 ---
 
 ### 2. **Object Reference: `t`**
