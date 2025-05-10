@@ -86,3 +86,55 @@ public class Test {
 ```
 
 ✅ **Conclusion**: You _are_ returning an array (e.g., `int[]`), but in Java, even that is an object behind the scenes.
+
+---
+
+Great! Here's an example using a **`String[]`** return type and a **2D array** (`int[][]`) return type to show both:
+
+
+
+### ✅ Example 1: Method returns a `String[]` (1D array)
+
+```java
+public class StringArrayExample {
+    public static String[] getNames() {
+        return new String[] {"Alice", "Bob", "Charlie"};
+    }
+		
+    public static void main(String[] args) {
+        String[] names = getNames();
+		
+        for (String name : names) {
+            System.out.println(name);
+        }
+    }
+}
+```
+
+**Output:**
+
+nginx
+
+Copy code
+
+`Alice Bob Charlie`
+
+---
+
+### ✅ Example 2: Method returns an `int[][]` (2D array)
+
+java
+
+Copy code
+
+`public class TwoDArrayExample {     public static int[][] getMatrix() {         return new int[][] {             {1, 2, 3},             {4, 5, 6}         };     }      public static void main(String[] args) {         int[][] matrix = getMatrix();          for (int i = 0; i < matrix.length; i++) {             for (int j = 0; j < matrix[i].length; j++) {                 System.out.print(matrix[i][j] + " ");             }             System.out.println();         }     } }`
+
+**Output:**
+
+Copy code
+
+`1 2 3 4 5 6`
+
+Let me know if you’d like an example with custom objects (like returning a `Student[]`) too.
+
+4o
