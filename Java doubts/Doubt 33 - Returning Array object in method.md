@@ -81,8 +81,8 @@ public class Test {
 
 ### Output:
 
-Copy code
-
-`1 2 3 4 5`
+```sh
+1 2 3 4 5
+```
 
 ✅ **Conclusion**: You _are_ returning an array (e.g., `int[]`), but in Java, even that is an object behind the scenes.
