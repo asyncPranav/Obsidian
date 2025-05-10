@@ -248,6 +248,123 @@ Model: Honda
 
 - `this` is passed to the `print()` method, referring to the **current Car object**.
 - The `Printer` class can then access the object's properties.
+
+---
+
+## ✅ 1. **Callbacks**
+
+### 🔹 What it is:
+
+A **callback** is when you pass an object (often using `this`) to another method or class, and that method **calls back** into the original object later.
+
+### 🔹 Real-Life Analogy:
+
+Like giving someone your phone number (`this`) so they can **call you back** later.
+
+### 🔹 Java Example:
+
+```java
+class Task {
+    void doTask(Callback callback) {
+        System.out.println("Task is done.");
+        callback.onComplete();  // calls back into the passed object
+    }
+}
+
+interface Callback {
+    void onComplete();
+}
+
+class MyApp implements Callback {
+    public void start() {
+        Task task = new Task();
+        task.doTask(this);  // Pass current object for callback
+    }
+
+    public void onComplete() {
+        System.out.println("Callback received!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyApp app = new MyApp();
+        app.start();
+    }
+}
+```
+
+🟢 Output:
+
+arduino
+
+Copy code
+
+`Task is done. Callback received!`
+
+Here, `this` refers to `MyApp` and is passed to the `Task` to be called back.
+
+---
+
+## ✅ 2. **Method Chaining**
+
+### 🔹 What it is:
+
+**Calling multiple methods on the same object in a single line** — by returning `this` from methods.
+
+### 🔹 Java Example:
+
+java
+
+Copy code
+
+`class Student {     String name;     int age;      Student setName(String name) {         this.name = name;         return this;  // return current object     }      Student setAge(int age) {         this.age = age;         return this;     }      void show() {         System.out.println(name + ", " + age);     } }  public class Main {     public static void main(String[] args) {         Student s = new Student();         s.setName("Alice").setAge(20).show();  // Method chaining     } }`
+
+🟢 Output:
+
+Copy code
+
+`Alice, 20`
+
+---
+
+## ✅ 3. **Builder Pattern**
+
+### 🔹 What it is:
+
+A design pattern that **builds complex objects step-by-step** using method chaining and `this`.
+
+### 🔹 Java Example:
+
+java
+
+Copy code
+
+`class Car {     String model;     int year;      static class Builder {         Car car = new Car();          Builder setModel(String model) {             car.model = model;             return this;  // return Builder object         }          Builder setYear(int year) {             car.year = year;             return this;         }          Car build() {             return car;         }     }      void show() {         System.out.println("Model: " + model + ", Year: " + year);     } }  public class Main {     public static void main(String[] args) {         Car myCar = new Car.Builder()                         .setModel("Honda")                         .setYear(2023)                         .build();  // Final object          myCar.show();     } }`
+
+🟢 Output:
+
+yaml
+
+Copy code
+
+`Model: Honda, Year: 2023`
+
+---
+
+### 📌 Summary of `this` usage:
+
+|Feature|How `this` is used|
+|---|---|
+|**Callback**|Pass `this` so another object can "call back"|
+|**Method Chaining**|Return `this` to chain multiple method calls|
+|**Builder Pattern**|Use `this` inside builder to return the builder|
+
+---
+
+Would you like a mini project or practice program for any one of these concepts?
+
+
 ---
 
 
