@@ -32,11 +32,11 @@ The `this` keyword is one of the most important concepts in Java, especially for
 ```java
 class Car {
     String model;
-
+	
     Car(String model) {
         model = model; // Confusing! Both refer to parameter
     }
-
+	
     void display() {
         System.out.println("Model: " + model);
     }
