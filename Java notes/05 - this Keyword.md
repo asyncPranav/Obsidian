@@ -313,11 +313,34 @@ Here, `this` refers to `MyApp` and is passed to the `Task` to be called back.
 
 ### 🔹 Java Example:
 
-java
+```java
+class Student {
+    String name;
+    int age;
+	
+    Student setName(String name) {
+        this.name = name;
+        return this;  // return current object
+    }
+	
+    Student setAge(int age) {
+        this.age = age;
+        return this;
+    }
+	
+    void show() {
+        System.out.println(name + ", " + age);
+    }
+}
 
-Copy code
+public class Main {
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.setName("Alice").setAge(20).show();  // Method chaining
+    }
+}
 
-`class Student {     String name;     int age;      Student setName(String name) {         this.name = name;         return this;  // return current object     }      Student setAge(int age) {         this.age = age;         return this;     }      void show() {         System.out.println(name + ", " + age);     } }  public class Main {     public static void main(String[] args) {         Student s = new Student();         s.setName("Alice").setAge(20).show();  // Method chaining     } }`
+```
 
 🟢 Output:
 
