@@ -401,11 +401,9 @@ public class Main {
 
 🟢 Output:
 
-yaml
-
-Copy code
-
-`Model: Honda, Year: 2023`
+```sh
+Model: Honda, Year: 2023
+```
 
 ---
 
