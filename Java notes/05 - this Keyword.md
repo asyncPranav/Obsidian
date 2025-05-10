@@ -206,7 +206,7 @@ Name: John, Age: 20
 # **6. Using `this` to Pass the Current Object**
 
 - `this` can be used to **pass the current object** as an argument to another method.
-- This is useful for method chaining and callback mechanisms.
+- This is useful for method chaining and callback mechanisms and builder patterns .
 
 **Example:**
 
