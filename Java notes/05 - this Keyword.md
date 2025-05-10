@@ -219,11 +219,11 @@ class Printer {
 
 class Car {
     String model;
-
+	
     Car(String model) {
         this.model = model;
     }
-
+	
     void display() {
         Printer printer = new Printer();
         printer.print(this); // Passing the current object
