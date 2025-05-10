@@ -5,11 +5,26 @@
 
 Here’s a simple example in Java where the **return type of a method is an array object**:
 
-java
+```java
+public class ArrayReturnExample {
 
-Copy code
-
-`public class ArrayReturnExample {      // Method that returns an array of integers     public static int[] getNumbers() {         int[] numbers = {10, 20, 30, 40, 50};         return numbers;     }      public static void main(String[] args) {         int[] result = getNumbers(); // calling the method and storing returned array          // Printing the returned array         System.out.println("Returned array:");         for (int num : result) {             System.out.print(num + " ");         }     } }`
+    // Method that returns an array of integers
+    public static int[] getNumbers() {
+        int[] numbers = {10, 20, 30, 40, 50};
+        return numbers;
+    }
+		
+    public static void main(String[] args) {
+        int[] result = getNumbers(); // calling the method and storing returned array
+		
+        // Printing the returned array
+        System.out.println("Returned array:");
+        for (int num : result) {
+            System.out.print(num + " ");
+        }
+    }
+}
+```
 
 ### Explanation:
 
@@ -26,11 +41,9 @@ Would you like a similar example with a different data type (e.g., `String[]`, `
 
 ##### You said:
 
-return type is an array not an array object
+### **Return type is an array not an array object**
 
-###### ChatGPT said:
 
-Let’s clarify your confusion first:
 
 In **Java**, arrays are **objects**, regardless of the data type (primitive or reference). So when a method returns an array like `int[]`, it’s actually returning a **reference to an array object** on the heap.
 
