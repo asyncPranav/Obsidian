@@ -190,6 +190,8 @@ synchronized(obj) {
     
 
 ```java
+t.wait();        // WAITING
+t.join();        // WAITING
 ```
 
 Use `notify()` or `notifyAll()` to wake it up.
@@ -203,11 +205,11 @@ Use `notify()` or `notifyAll()` to wake it up.
 - After time expires, returns to RUNNABLE.
     
 
-java
-
-Copy code
-
-`Thread.sleep(1000);    // TIMED_WAITING t.join(5000);          // TIMED_WAITING wait(3000);            // TIMED_WAITING`
+```java
+Thread.sleep(1000);    // TIMED_WAITING
+t.join(5000);          // TIMED_WAITING
+wait(3000);            // TIMED_WAITING
+```
 
 ---
 
@@ -222,21 +224,58 @@ Copy code
 
 ## 🔄 Thread Lifecycle Diagram
 
-sql
-
-Copy code
-
-   `NEW     |     v  START() → RUNNABLE → RUNNING                         |     -------------------------------------------     |                      |                  | BLOCKED             WAITING         TIMED_WAITING     \_____________________|_____________________/                         |                       RUNNABLE                         |                      TERMINATED`
+```java
+   NEW
+    |
+    v
+ START() → RUNNABLE → RUNNING
+                        |
+    -------------------------------------------
+    |                      |                  |
+BLOCKED             WAITING         TIMED_WAITING
+    \_____________________|_____________________/
+                        |
+                      RUNNABLE
+                        |
+                     TERMINATED
+```
 
 ---
 
 ## 🔍 Code Example: Thread Lifecycle
 
-java
+```java
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread is running...");
+        try {
+            Thread.sleep(2000); // TIMED_WAITING
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+        System.out.println("Thread finished.");
+    }
+}
 
-Copy code
+public class ThreadLifecycle {
+    public static void main(String[] args) {
+        MyThread t = new MyThread(); // NEW
+        System.out.println("State: " + t.getState());
+        t.start();                   // RUNNABLE
+        System.out.println("State after start: " + t.getState());
 
-`class MyThread extends Thread {     public void run() {         System.out.println("Thread is running...");         try {             Thread.sleep(2000); // TIMED_WAITING         } catch (InterruptedException e) {             System.out.println(e);         }         System.out.println("Thread finished.");     } }  public class ThreadLifecycle {     public static void main(String[] args) {         MyThread t = new MyThread(); // NEW         System.out.println("State: " + t.getState());         t.start();                   // RUNNABLE         System.out.println("State after start: " + t.getState());          try {             Thread.sleep(100);      // Give time to enter sleep             System.out.println("State while sleeping: " + t.getState());             t.join();               // WAITING for t to finish         } catch (InterruptedException e) {             e.printStackTrace();         }          System.out.println("State after finish: " + t.getState()); // TERMINATED     } }`
+        try {
+            Thread.sleep(100);      // Give time to enter sleep
+            System.out.println("State while sleeping: " + t.getState());
+            t.join();               // WAITING for t to finish
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+		
+        System.out.println("State after finish: " + t.getState()); // TERMINATED
+    }
+}
+```
 
 ---
 
