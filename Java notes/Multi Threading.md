@@ -644,7 +644,83 @@ System.out.println("Main thread finished");
 
 ---
 
-Would you like a visual diagram showing how `join()` works between threads?
+Here is a **text-based diagram** of how the `join()` method works in Java:
+
+```java
+Main Thread
+    |
+    v
+t.start();  ----------------------------->  [Thread t starts execution]
+    |                                           |
+    v                                           v
+t.join();                               [Thread t finishes execution]
+    |                                           |
+    v                                           |
+[Main thread resumes after t completes] <-------
+```
+
+### 🔎 Explanation:
+
+- The **main thread** starts thread `t`.
+    
+- It then calls `t.join();`, which makes it **wait** until `t` finishes.
+    
+- After `t` finishes, **main thread resumes** execution.
+    
+
+Would you like a combined diagram of `join()`, `sleep()`, and daemon thread behavior too?
+
+4o
+
+##### You said:
+
+yes
+
+###### ChatGPT said:
+
+Here is a **combined text diagram** showing how `join()`, `sleep()`, and **daemon thread** behavior work together in Java:
+
+---
+
+### 🧵 Threads Involved:
+
+- `Main Thread` (User thread)
+    
+- `Child Thread (t1)` using `.join()`
+    
+- `Daemon Thread (t2)`
+    
+
+---
+
+### 🔁 Flow Diagram:
+
+less
+
+Copy code
+
+`Main Thread    |    |--> t1.start()   // User thread    |--> t2.setDaemon(true)    |--> t2.start()   // Daemon thread    |    |--> t1.join()    // Main waits until t1 finishes    |       |    |       v    |   [t1 runs, maybe uses Thread.sleep()]    |       |    |   [t1 completes]    |    v [Main resumes]    |    v [Main thread ends] ---> [Daemon thread (t2) auto-terminates immediately if not finished]`
+
+---
+
+### 🔍 Explanation:
+
+- `t1` is a **user thread**, started and waited on using `.join()`. `Main` pauses until `t1` is done.
+    
+- `t2` is a **daemon thread**, running in the background. It does not prevent JVM from exiting.
+    
+- Once **main thread finishes (after t1)**, the **JVM kills daemon thread t2**, even if it's not finished.
+    
+
+---
+
+### ✅ Key Concepts Demonstrated:
+
+|Concept|Behavior|
+|---|---|
+|`join()`|Main waits until the joined thread completes|
+|`sleep()`|Temporarily pauses a thread (does **not release locks**)|
+|Daemon Thread|Auto-terminated when no user threads remain|
 
 ---
 
