@@ -520,6 +520,122 @@ Main thread finished
     
 - Main thread sleeping gives daemon time to work.
 
+
+---
+
+
+## 🔷 `join()` Method in Java
+
+### 📌 Definition:
+
+The `join()` method is used to **pause the execution of the current thread** until the thread on which `join()` was called **completes its execution**.
+
+---
+
+### 🔧 Syntax:
+
+```java
+thread.join();          // Waits indefinitely until thread finishes
+thread.join(milliseconds);  // Waits at most specified time
+```
+
+---
+
+### 📘 Example:
+
+```java
+class MyThread extends Thread {
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Child Thread: " + i);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+public class JoinExample {
+    public static void main(String[] args) {
+        MyThread t = new MyThread();
+        t.start();
+		
+        try {
+            t.join();  // Main thread waits here until t finishes
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+		
+        System.out.println("Main thread finished.");
+    }
+}
+```
+
+### 🧾 Output:
+
+yaml
+
+Copy code
+
+`Child Thread: 1 Child Thread: 2 Child Thread: 3 Child Thread: 4 Child Thread: 5 Main thread finished.`
+
+---
+
+### ⏱ `join(milliseconds)` Version:
+
+java
+
+Copy code
+
+`t.join(1000);  // Main thread waits at most 1 second`
+
+- If `t` finishes earlier, main resumes immediately.
+    
+- If not, main resumes after 1 second even if `t` is still running.
+    
+
+---
+
+### 🧠 Why use `join()`?
+
+- To ensure one thread finishes before another starts or continues.
+    
+- Used in **thread coordination**, especially in:
+    
+    - Loading data before display
+        
+    - Sequential task execution
+        
+    - Test frameworks
+        
+
+---
+
+### ⚠️ Important Notes:
+
+|Point|Explanation|
+|---|---|
+|`join()` throws `InterruptedException`|Must be handled using try-catch|
+|Call only after `start()`|Else it has no effect|
+|Main thread can use `join()`|To wait for child threads to finish|
+|You can chain joins|Wait for multiple threads in order|
+
+---
+
+### 🔁 Multiple Thread Join Example:
+
+java
+
+Copy code
+
+`Thread t1 = new Thread(() -> {     System.out.println("Thread 1 running..."); }); Thread t2 = new Thread(() -> {     System.out.println("Thread 2 running..."); });  t1.start(); t1.join(); // main waits for t1 t2.start(); t2.join(); // main waits for t2 System.out.println("Main thread finished");`
+
+---
+
+Would you like a visual diagram showing how `join()` works between threads?
+
 ---
 
 ## 🔹 14. **Thread-safe Collections**
