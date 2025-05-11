@@ -782,21 +782,38 @@ Thread.yield();
 
 ### 📌 Example:
 
-java
+```java
+class YieldDemo extends Thread {
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(Thread.currentThread().getName() + ": " + i);
+            Thread.yield();  // Suggest giving up CPU
+        }
+    }
+}
 
-Copy code
-
-`class YieldDemo extends Thread {     public void run() {         for (int i = 1; i <= 5; i++) {             System.out.println(Thread.currentThread().getName() + ": " + i);             Thread.yield();  // Suggest giving up CPU         }     } }  public class YieldExample {     public static void main(String[] args) {         YieldDemo t1 = new YieldDemo();         YieldDemo t2 = new YieldDemo();          t1.start();         t2.start();     } }`
+public class YieldExample {
+    public static void main(String[] args) {
+        YieldDemo t1 = new YieldDemo();
+        YieldDemo t2 = new YieldDemo();
+		
+        t1.start();
+        t2.start();
+    }
+}
+```
 
 ---
 
 ### 📝 Output (may vary):
 
-makefile
-
-Copy code
-
-`Thread-0: 1 Thread-1: 1 Thread-0: 2 Thread-1: 2 ...`
+```sh
+Thread-0: 1
+Thread-1: 1
+Thread-0: 2
+Thread-1: 2
+...
+```
 
 - Output order is **not predictable** due to thread scheduler decisions.
     
