@@ -687,11 +687,26 @@ Here is a **combined text diagram** showing how `join()`, `sleep()`, and **daemo
 
 ### 🔁 Flow Diagram:
 
-less
-
-Copy code
-
-`Main Thread    |    |--> t1.start()   // User thread    |--> t2.setDaemon(true)    |--> t2.start()   // Daemon thread    |    |--> t1.join()    // Main waits until t1 finishes    |       |    |       v    |   [t1 runs, maybe uses Thread.sleep()]    |       |    |   [t1 completes]    |    v [Main resumes]    |    v [Main thread ends] ---> [Daemon thread (t2) auto-terminates immediately if not finished]`
+```java
+Main Thread
+   |
+   |--> t1.start()   // User thread
+   |--> t2.setDaemon(true)
+   |--> t2.start()   // Daemon thread
+   |
+   |--> t1.join()    // Main waits until t1 finishes
+   |       |
+   |       v
+   |   [t1 runs, maybe uses Thread.sleep()]
+   |       |
+   |   [t1 completes]
+   |
+   v
+[Main resumes]
+   |
+   v
+[Main thread ends] ---> [Daemon thread (t2) auto-terminates immediately if not finished]
+```
 
 ---
 
@@ -775,18 +790,4 @@ Multithreading is powerful but **complex**. Start with basics → practice creat
 
 ---
 
-Would you like **code examples**, a **PDF version**, or **MCQs/practice problems** for each topic?
 
-4o
-
-  
-
-Search
-
-Reason
-
-Deep research
-
-Create image
-
-ChatGPT can make mistakes. Check important info. See Cookie Pr
