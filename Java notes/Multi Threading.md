@@ -194,11 +194,12 @@ Allows threads to **communicate and cooperate** with each other.
 
 ### Example:
 
-java
-
-Copy code
-
-`synchronized(obj) {     obj.wait();    // waits     obj.notify();  // notifies }`
+```java
+synchronized(obj) {
+    obj.wait();    // waits
+    obj.notify();  // notifies
+}
+```
 
 ---
 
@@ -208,11 +209,10 @@ A **deadlock** occurs when two or more threads are blocked forever, waiting on e
 
 ### Example:
 
-java
-
-Copy code
-
-`Thread-1: locks A → waits for B   Thread-2: locks B → waits for A`
+```java
+Thread-1: locks A → waits for B  
+Thread-2: locks B → waits for A
+```
 
 💡 Solution: Always acquire locks in a fixed order.
 
@@ -224,11 +224,13 @@ Creating too many threads wastes resources. **Thread Pool** reuses a limited num
 
 ### Using `ExecutorService`:
 
-java
-
-Copy code
-
-`ExecutorService executor = Executors.newFixedThreadPool(5); executor.submit(() -> {     System.out.println("Thread from pool"); }); executor.shutdown();`
+```java
+ExecutorService executor = Executors.newFixedThreadPool(5);
+executor.submit(() -> {
+    System.out.println("Thread from pool");
+});
+executor.shutdown();
+```
 
 ---
 
@@ -236,11 +238,9 @@ Copy code
 
 Used to mark a variable as **modified by multiple threads**. Prevents caching, always reads from main memory.
 
-java
-
-Copy code
-
-`volatile boolean running = true;`
+```java
+volatile boolean running = true;
+```
 
 ---
 
