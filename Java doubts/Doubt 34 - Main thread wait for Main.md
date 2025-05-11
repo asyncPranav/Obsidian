@@ -84,21 +84,61 @@ Possibly one of these:
 
 ### ✅ **Correct version (if the goal is to demonstrate daemon thread being terminated early):**
 
-java
+```java
+class JoinMeth extends Thread {
+    public void run() {
+        for (int i = 0; i <= 100; i++) {
+            System.out.println("Daemon: " + i);
+        }
+    }
+}
 
-Copy code
-
-`class JoinMeth extends Thread {     public void run() {         for (int i = 0; i <= 100; i++) {             System.out.println("Daemon: " + i);         }     } }  public class _06_JoinMethod {     public static void main(String[] args) {         JoinMeth t = new JoinMeth();         t.setDaemon(true);  // Daemon thread         t.start();          // Let main sleep for a bit to observe daemon thread before main ends         try {             Thread.sleep(10);  // main thread will exit soon, killing daemon         } catch (InterruptedException e) {             System.out.println(e);         }          System.out.println("Main thread finished.");     } }`
+public class _06_JoinMethod {
+    public static void main(String[] args) {
+        JoinMeth t = new JoinMeth();
+        t.setDaemon(true);  // Daemon thread
+        t.start();
+		
+        // Let main sleep for a bit to observe daemon thread before main ends
+        try {
+            Thread.sleep(10);  // main thread will exit soon, killing daemon
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+		
+        System.out.println("Main thread finished.");
+    }
+}
+```
 
 ---
 
 ### ✅ **Correct version (if goal is to demonstrate `join()` properly):**
 
-java
+```java
+class JoinMeth extends Thread {
+    public void run() {
+        for (int i = 0; i <= 100; i++) {
+            System.out.println("Thread: " + i);
+        }
+    }
+}
 
-Copy code
-
-`class JoinMeth extends Thread {     public void run() {         for (int i = 0; i <= 100; i++) {             System.out.println("Thread: " + i);         }     } }  public class _06_JoinMethod {     public static void main(String[] args) {         JoinMeth t = new JoinMeth();         t.start();          try {             t.join();  // Wait for t to finish before main ends         } catch (InterruptedException e) {             System.out.println(e);         }          System.out.println("Main thread finished.");     } }`
+public class _06_JoinMethod {
+    public static void main(String[] args) {
+        JoinMeth t = new JoinMeth();
+        t.start();
+		
+        try {
+            t.join();  // Wait for t to finish before main ends
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+		
+        System.out.println("Main thread finished.");
+    }
+}
+```
 
 ---
 
