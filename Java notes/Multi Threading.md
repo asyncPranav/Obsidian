@@ -117,7 +117,6 @@ New → Runnable → Running → Terminated
           Waiting / Blocked
            ↘
          Runnable
-
 ```
 
 ---
@@ -156,11 +155,15 @@ When **multiple threads** access shared data, inconsistency may occur. This is c
 
 ### 🔐 `synchronized` Keyword:
 
-java
+```java
+class Counter {
+    int count = 0;
 
-Copy code
-
-`class Counter {     int count = 0;      synchronized void increment() {         count++;     } }`
+    synchronized void increment() {
+        count++;
+    }
+}
+```
 
 ### Ways to Synchronize:
 
@@ -169,11 +172,11 @@ Copy code
 - **Synchronized block**:
     
 
-java
-
-Copy code
-
-`synchronized(obj) {     // code }`
+```java
+synchronized(obj) {
+    // code
+}
+```
 
 ---
 
