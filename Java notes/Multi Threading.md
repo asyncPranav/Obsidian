@@ -119,6 +119,149 @@ New → Runnable → Running → Terminated
          Runnable
 ```
 
+
+## 📘 Java Thread Lifecycle
+
+A **Java thread** undergoes the following **6 main states** during its lifecycle:
+
+sql
+
+Copy code
+
+`NEW → RUNNABLE → RUNNING → BLOCKED / WAITING / TIMED_WAITING → TERMINATED`
+
+---
+
+### 🔹 1. NEW State
+
+- Thread is created but **not started**.
+    
+- Constructor has been called, but `start()` hasn't.
+    
+
+java
+
+Copy code
+
+`Thread t = new Thread();  // NEW state`
+
+---
+
+### 🔹 2. RUNNABLE State
+
+- Thread is **ready to run** and waiting for CPU.
+    
+- After calling `start()` method.
+    
+
+java
+
+Copy code
+
+`t.start();  // Moves thread to RUNNABLE`
+
+---
+
+### 🔹 3. RUNNING State
+
+- Thread is **actively executing**.
+    
+- JVM **scheduler** picks it from RUNNABLE state.
+    
+
+> Note: JVM decides when a thread actually runs.
+
+---
+
+### 🔹 4. BLOCKED State
+
+- Thread is **waiting to acquire a lock** on an object (used in synchronization).
+    
+- It enters BLOCKED if another thread holds the lock.
+    
+
+java
+
+Copy code
+
+`synchronized(obj) {     // If another thread is using obj, current thread becomes BLOCKED }`
+
+---
+
+### 🔹 5. WAITING State
+
+- Thread is **waiting indefinitely** for another thread to perform a task.
+    
+- It remains here until another thread **notifies** it.
+    
+
+java
+
+Copy code
+
+`t.wait();        // WAITING t.join();        // WAITING`
+
+Use `notify()` or `notifyAll()` to wake it up.
+
+---
+
+### 🔹 6. TIMED_WAITING State
+
+- Similar to WAITING, but waits for **a specific time**.
+    
+- After time expires, returns to RUNNABLE.
+    
+
+java
+
+Copy code
+
+`Thread.sleep(1000);    // TIMED_WAITING t.join(5000);          // TIMED_WAITING wait(3000);            // TIMED_WAITING`
+
+---
+
+### 🔹 7. TERMINATED (DEAD) State
+
+- Thread has **finished execution** or has been **forcefully stopped**.
+    
+- It **cannot be restarted**.
+    
+
+---
+
+## 🔄 Thread Lifecycle Diagram
+
+sql
+
+Copy code
+
+   `NEW     |     v  START() → RUNNABLE → RUNNING                         |     -------------------------------------------     |                      |                  | BLOCKED             WAITING         TIMED_WAITING     \_____________________|_____________________/                         |                       RUNNABLE                         |                      TERMINATED`
+
+---
+
+## 🔍 Code Example: Thread Lifecycle
+
+java
+
+Copy code
+
+`class MyThread extends Thread {     public void run() {         System.out.println("Thread is running...");         try {             Thread.sleep(2000); // TIMED_WAITING         } catch (InterruptedException e) {             System.out.println(e);         }         System.out.println("Thread finished.");     } }  public class ThreadLifecycle {     public static void main(String[] args) {         MyThread t = new MyThread(); // NEW         System.out.println("State: " + t.getState());         t.start();                   // RUNNABLE         System.out.println("State after start: " + t.getState());          try {             Thread.sleep(100);      // Give time to enter sleep             System.out.println("State while sleeping: " + t.getState());             t.join();               // WAITING for t to finish         } catch (InterruptedException e) {             e.printStackTrace();         }          System.out.println("State after finish: " + t.getState()); // TERMINATED     } }`
+
+---
+
+## 📌 Summary Table
+
+| State         | Trigger                  | Description              |
+| ------------- | ------------------------ | ------------------------ |
+| NEW           | Thread created           | Not yet started          |
+| RUNNABLE      | `start()`                | Ready to run             |
+| RUNNING       | CPU scheduler            | Actively running         |
+| BLOCKED       | Locked resource          | Waiting for monitor/lock |
+| WAITING       | `wait()`, `join()`       | Waiting indefinitely     |
+| TIMED_WAITING | `sleep()`, `join(5000)`  | Waiting for fixed time   |
+| TERMINATED    | Task finished or stopped | Dead, cannot restart     |
+
+
 ---
 
 ## 🔹 6. **Common Thread Methods**
