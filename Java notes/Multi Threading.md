@@ -47,27 +47,50 @@ There are **three main ways**:
 
 ### A. **By extending the `Thread` class**
 
-java
+```java
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread running: " + Thread.currentThread().getName());
+    }
+}
 
-Copy code
-
-`class MyThread extends Thread {     public void run() {         System.out.println("Thread running: " + Thread.currentThread().getName());     } }  public class Main {     public static void main(String[] args) {         MyThread t1 = new MyThread();         t1.start();  // Do not use run()     } }`
+public class Main {
+    public static void main(String[] args) {
+        MyThread t1 = new MyThread();
+        t1.start();  // Do not use run()
+    }
+}
+```
 
 ### B. **By implementing the `Runnable` interface**
 
-java
+```java
+class MyRunnable implements Runnable {
+    public void run() {
+        System.out.println("Runnable thread running");
+    }
+}
 
-Copy code
-
-`class MyRunnable implements Runnable {     public void run() {         System.out.println("Runnable thread running");     } }  public class Main {     public static void main(String[] args) {         Thread t1 = new Thread(new MyRunnable());         t1.start();     } }`
+public class Main {
+    public static void main(String[] args) {
+        Thread t1 = new Thread(new MyRunnable());
+        t1.start();
+    }
+}
+```
 
 ### C. **Using lambda expressions (Java 8+)**
 
-java
-
-Copy code
-
-`public class Main {     public static void main(String[] args) {         Thread t1 = new Thread(() -> {             System.out.println("Lambda thread running");         });         t1.start();     } }`
+```java
+public class Main {
+    public static void main(String[] args) {
+        Thread t1 = new Thread(() -> {
+            System.out.println("Lambda thread running");
+        });
+        t1.start();
+    }
+}
+```
 
 ---
 
@@ -88,11 +111,14 @@ A thread has the following states:
 
 ### Diagram:
 
-sql
+```java
+New → Runnable → Running → Terminated
+           ↘
+          Waiting / Blocked
+           ↘
+         Runnable
 
-Copy code
-
-`New → Runnable → Running → Terminated            ↘           Waiting / Blocked            ↘          Runnable`
+```
 
 ---
 
