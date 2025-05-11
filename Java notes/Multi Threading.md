@@ -311,11 +311,12 @@ public class DaemonExample {
 
 **Output (may not print all daemon thread lines):**
 
-arduino
-
-Copy code
-
-`Main thread sleeping... Daemon Thread running: 0 Daemon Thread running: 1 Main thread finished`
+```sh
+Main thread sleeping...
+Daemon Thread running: 0
+Daemon Thread running: 1
+Main thread finished
+```
 
 ---
 
