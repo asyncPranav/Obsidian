@@ -575,21 +575,22 @@ public class JoinExample {
 
 ### 🧾 Output:
 
-yaml
-
-Copy code
-
-`Child Thread: 1 Child Thread: 2 Child Thread: 3 Child Thread: 4 Child Thread: 5 Main thread finished.`
+```sh
+Child Thread: 1
+Child Thread: 2
+Child Thread: 3
+Child Thread: 4
+Child Thread: 5
+Main thread finished.
+```
 
 ---
 
 ### ⏱ `join(milliseconds)` Version:
 
-java
-
-Copy code
-
-`t.join(1000);  // Main thread waits at most 1 second`
+```java
+t.join(1000);  // Main thread waits at most 1 second
+```
 
 - If `t` finishes earlier, main resumes immediately.
     
@@ -626,11 +627,20 @@ Copy code
 
 ### 🔁 Multiple Thread Join Example:
 
-java
+```java
+Thread t1 = new Thread(() -> {
+    System.out.println("Thread 1 running...");
+});
+Thread t2 = new Thread(() -> {
+    System.out.println("Thread 2 running...");
+});
 
-Copy code
-
-`Thread t1 = new Thread(() -> {     System.out.println("Thread 1 running..."); }); Thread t2 = new Thread(() -> {     System.out.println("Thread 2 running..."); });  t1.start(); t1.join(); // main waits for t1 t2.start(); t2.join(); // main waits for t2 System.out.println("Main thread finished");`
+t1.start();
+t1.join(); // main waits for t1
+t2.start();
+t2.join(); // main waits for t2
+System.out.println("Main thread finished");
+```
 
 ---
 
