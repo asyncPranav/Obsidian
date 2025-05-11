@@ -731,6 +731,100 @@ Main Thread
 
 ---
 
+## 🧵 `Thread.yield()` Method in Java
+
+---
+
+### 📘 Definition:
+
+`Thread.yield()` is a **static method** of the `Thread` class that:
+
+- Pauses the **currently executing thread** temporarily,
+    
+- Gives a **chance for other threads of equal priority** to execute.
+    
+
+> It’s a **hint** to the thread scheduler: "I'm willing to pause, please let someone else run."
+
+---
+
+### 🔧 Syntax:
+
+```java
+Thread.yield();
+```
+
+---
+
+### ⚙️ Behavior:
+
+- The currently running thread **goes from RUNNING → READY (Runnable)** state.
+    
+- The CPU scheduler may choose another thread of **equal or higher priority** to run.
+    
+- There's **no guarantee** that the current thread will pause.
+    
+- The **scheduler may ignore** the yield request.
+    
+
+---
+
+### 🧠 Use Cases:
+
+- When you want to **improve thread cooperation** or responsiveness.
+    
+- In **CPU-intensive tasks**, where fair sharing is desired.
+    
+- In demo/testing of thread behavior (e.g., simulating thread scheduling).
+    
+
+---
+
+### 📌 Example:
+
+java
+
+Copy code
+
+`class YieldDemo extends Thread {     public void run() {         for (int i = 1; i <= 5; i++) {             System.out.println(Thread.currentThread().getName() + ": " + i);             Thread.yield();  // Suggest giving up CPU         }     } }  public class YieldExample {     public static void main(String[] args) {         YieldDemo t1 = new YieldDemo();         YieldDemo t2 = new YieldDemo();          t1.start();         t2.start();     } }`
+
+---
+
+### 📝 Output (may vary):
+
+makefile
+
+Copy code
+
+`Thread-0: 1 Thread-1: 1 Thread-0: 2 Thread-1: 2 ...`
+
+- Output order is **not predictable** due to thread scheduler decisions.
+    
+
+---
+
+### 🔍 Notes:
+
+|Concept|Detail|
+|---|---|
+|Static method|Called as `Thread.yield()`, not on specific thread object|
+|Non-blocking|Does not pause or sleep — just suggests yielding CPU|
+|No guarantee|Scheduler may ignore it completely|
+|Works with|Threads of **equal priority** (lower priority threads are not considered)|
+|Opposite of|`sleep()` — `yield()` is cooperative, `sleep()` is forced delay|
+
+---
+
+### ⚠️ Limitations:
+
+- Not reliable for **precise control** of thread execution.
+    
+- Should not be used for synchronization.
+    
+- Often **not used in real-world apps**, more for learning or fine-tuning performance.
+
+---
+
 ## 🔹 14. **Thread-safe Collections**
 
 For multithreaded applications:
