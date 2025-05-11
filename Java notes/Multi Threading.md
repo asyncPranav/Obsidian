@@ -668,19 +668,11 @@ t.join();                               [Thread t finishes execution]
 - After `t` finishes, **main thread resumes** execution.
     
 
-Would you like a combined diagram of `join()`, `sleep()`, and daemon thread behavior too?
+---
 
-4o
-
-##### You said:
-
-yes
-
-###### ChatGPT said:
 
 Here is a **combined text diagram** showing how `join()`, `sleep()`, and **daemon thread** behavior work together in Java:
 
----
 
 ### 🧵 Threads Involved:
 
