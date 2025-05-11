@@ -248,11 +248,103 @@ volatile boolean running = true;
 
 **Daemon Thread:** A thread that runs in the background and does not prevent the JVM from exiting. It dies automatically when the main thread or other user (non-daemon) threads finish.
 
-java
+### 🔹 Examples of Daemon Threads:
+
+- **Garbage Collector**
+    
+- **Background logging**
+    
+- **Timer services**
+    
+- **Auto-save tasks**
+    
+
+---
+
+### 🔹 Key Points:
+
+|Feature|Details|
+|---|---|
+|Lifecycle|Dies when all user threads are finished|
+|Creation|Use `Thread t = new Thread();`|
+|Set as daemon|`t.setDaemon(true);` → **before** calling `t.start()`|
+|Check if daemon|`t.isDaemon()` returns `true` or `false`|
+|JVM behavior|JVM exits when only daemon threads are running|
+
+---
+
+### 🔹 Syntax:
+
+```java
+Thread t = new Thread();
+t.setDaemon(true); // must be before start()
+t.start();
+```
+
+---
+
+### 🔹 Example Code:
+
+```java
+class MyDaemonThread extends Thread {
+    public void run() {
+        for(int i = 0; i < 10; i++) {
+            System.out.println("Daemon Thread running: " + i);
+            try { Thread.sleep(500); } catch(Exception e) {}
+        }
+    }
+}
+
+public class DaemonExample {
+    public static void main(String[] args) {
+        MyDaemonThread t = new MyDaemonThread();
+        t.setDaemon(true); // set as daemon before start
+        t.start();
+		
+        // Main thread
+        System.out.println("Main thread sleeping...");
+        try { Thread.sleep(1000); } catch(Exception e) {}
+        System.out.println("Main thread finished");
+    }
+}
+```
+
+**Output (may not print all daemon thread lines):**
+
+arduino
 
 Copy code
 
-`Thread t = new Thread(() -> { /* background task */ }); t.setDaemon(true);`
+`Main thread sleeping... Daemon Thread running: 0 Daemon Thread running: 1 Main thread finished`
+
+---
+
+### 🔴 Common Mistakes:
+
+1. ❌ Calling `setDaemon(true)` **after** `start()` – results in **`IllegalThreadStateException`**.
+    
+2. ❌ Assuming daemon threads will always finish – they **may not**.
+    
+
+---
+
+### 🔹 Daemon vs User Thread
+
+|Feature|Daemon Thread|User Thread|
+|---|---|---|
+|Purpose|Background services|Main logic of the application|
+|JVM waits?|❌ No|✅ Yes|
+|Termination|Automatically when no user thread|Must finish or be stopped manually|
+
+---
+
+### 🧠 Remember:
+
+- Use daemon threads for **non-critical** tasks.
+    
+- Always set daemon **before starting** the thread.
+    
+- Main thread sleeping gives daemon time to work.
 
 ---
 
