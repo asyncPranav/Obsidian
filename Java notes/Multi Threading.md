@@ -263,7 +263,7 @@ public class ThreadLifecycle {
         System.out.println("State: " + t.getState());
         t.start();                   // RUNNABLE
         System.out.println("State after start: " + t.getState());
-
+		
         try {
             Thread.sleep(100);      // Give time to enter sleep
             System.out.println("State while sleeping: " + t.getState());
