@@ -124,11 +124,9 @@ New → Runnable → Running → Terminated
 
 A **Java thread** undergoes the following **6 main states** during its lifecycle:
 
-sql
-
-Copy code
-
-`NEW → RUNNABLE → RUNNING → BLOCKED / WAITING / TIMED_WAITING → TERMINATED`
+```java
+NEW → RUNNABLE → RUNNING → BLOCKED / WAITING / TIMED_WAITING → TERMINATED
+```
 
 ---
 
@@ -139,11 +137,9 @@ Copy code
 - Constructor has been called, but `start()` hasn't.
     
 
-java
-
-Copy code
-
-`Thread t = new Thread();  // NEW state`
+```java
+Thread t = new Thread();  // NEW state
+```
 
 ---
 
@@ -154,11 +150,9 @@ Copy code
 - After calling `start()` method.
     
 
-java
-
-Copy code
-
-`t.start();  // Moves thread to RUNNABLE`
+```java
+t.start();  // Moves thread to RUNNABLE
+```
 
 ---
 
@@ -180,11 +174,11 @@ Copy code
 - It enters BLOCKED if another thread holds the lock.
     
 
-java
-
-Copy code
-
-`synchronized(obj) {     // If another thread is using obj, current thread becomes BLOCKED }`
+```java
+synchronized(obj) {
+    // If another thread is using obj, current thread becomes BLOCKED
+}
+```
 
 ---
 
@@ -195,11 +189,8 @@ Copy code
 - It remains here until another thread **notifies** it.
     
 
-java
-
-Copy code
-
-`t.wait();        // WAITING t.join();        // WAITING`
+```java
+```
 
 Use `notify()` or `notifyAll()` to wake it up.
 
