@@ -246,7 +246,7 @@ volatile boolean running = true;
 
 ## 🔹 13. **Daemon Threads**
 
-A **daemon thread** runs in the background. JVM exits when only daemon threads are left.
+**Daemon Thread:** A thread that runs in the background and does not prevent the JVM from exiting. It dies automatically when the main thread or other user (non-daemon) threads finish.
 
 java
 
