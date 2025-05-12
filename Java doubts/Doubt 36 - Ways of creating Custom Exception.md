@@ -22,41 +22,55 @@ You can create a custom exception by **extending** either:
 
 ### ✅ 1. **Checked Custom Exception (Extends Exception)**
 
-java
-
-CopyEdit
-
-`// Custom checked exception class MyCheckedException extends Exception {     public MyCheckedException(String message) {         super(message);     } }`
+```java
+// Custom checked exception
+class MyCheckedException extends Exception {
+    public MyCheckedException(String message) {
+        super(message);
+    }
+}
+```
 
 👉 Must be **handled using try-catch** or declared with `throws`.
 
 #### Usage:
 
-java
-
-CopyEdit
-
-`public class TestChecked {     public static void main(String[] args) {         try {             throw new MyCheckedException("This is a checked exception");         } catch (MyCheckedException e) {             System.out.println(e.getMessage());         }     } }`
+```java
+public class TestChecked {
+    public static void main(String[] args) {
+        try {
+            throw new MyCheckedException("This is a checked exception");
+        } catch (MyCheckedException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+```
 
 ---
 
 ### ✅ 2. **Unchecked Custom Exception (Extends RuntimeException)**
 
-java
-
-CopyEdit
-
-`// Custom unchecked exception class MyUncheckedException extends RuntimeException {     public MyUncheckedException(String message) {         super(message);     } }`
+```java
+// Custom unchecked exception
+class MyUncheckedException extends RuntimeException {
+    public MyUncheckedException(String message) {
+        super(message);
+    }
+}
+```
 
 👉 No need to handle explicitly (optional `try-catch`).
 
 #### Usage:
 
-java
-
-CopyEdit
-
-`public class TestUnchecked {     public static void main(String[] args) {         throw new MyUncheckedException("This is an unchecked exception");     } }`
+```java
+public class TestUnchecked {
+    public static void main(String[] args) {
+        throw new MyUncheckedException("This is an unchecked exception");
+    }
+}
+```
 
 ---
 
