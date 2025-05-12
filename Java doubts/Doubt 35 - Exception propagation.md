@@ -104,11 +104,11 @@ public class Test {
 
 #### ❌ Example:
 
-java
-
-Copy code
-
-`public static void meth1() {     throw new MyCheckedException("Error"); // ❌ Compile-time error }`
+```java
+public static void meth1() {
+    throw new MyCheckedException("Error"); // ❌ Compile-time error
+}
+```
 
 #### ❗ Java Compiler Error:
 
@@ -129,19 +129,31 @@ Even if you **handle it in the calling method**, Java still **requires** the met
 
 #### ✅ Option 1: Declare `throws` and Catch Later
 
-java
+```java
+public static void meth1() throws MyCheckedException {
+    throw new MyCheckedException("Error");
+}
 
-Copy code
-
-`public static void meth1() throws MyCheckedException {     throw new MyCheckedException("Error"); }  public static void main(String[] args) {     try {         meth1(); // Catching it here     } catch (MyCheckedException e) {         System.out.println("Caught: " + e.getMessage());     } }`
+public static void main(String[] args) {
+    try {
+        meth1(); // Catching it here
+    } catch (MyCheckedException e) {
+        System.out.println("Caught: " + e.getMessage());
+    }
+}
+```
 
 #### ✅ Option 2: Catch Exception in the Same Method
 
-java
-
-Copy code
-
-`public static void meth1() {     try {         throw new MyCheckedException("Error");     } catch (MyCheckedException e) {         System.out.println("Handled inside meth1");     } }`
+```java
+public static void meth1() {
+    try {
+        throw new MyCheckedException("Error");
+    } catch (MyCheckedException e) {
+        System.out.println("Handled inside meth1");
+    }
+}
+```
 
 ---
 
