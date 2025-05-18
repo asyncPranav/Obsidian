@@ -1010,36 +1010,67 @@ The President of India is the **constitutional head** of the country and exercis
 - Provision take from Government of India Act 1935.
 - There are 3 types emergency powers of President Of India. It is in part XVIII of constitution
 
-|Emergency Type|Article No.|Description|
-|---|---|---|
-|**National Emergency**|352|Declared on grounds of war, external aggression, or armed rebellion.|
-|**President's Rule**|356|Imposed in states where the constitutional machinery fails.|
-|**Financial Emergency**|360|Declared if the financial stability or credit of India is threatened.|
+### 1️⃣ **National Emergency – Article 352**
 
-- During emergencies, many powers of the President are exercised **with more authority**, sometimes bypassing normal processes.
+- The President can declare **National Emergency** if the **security of India** is in danger.
+    
+- Reasons can be:
+    
+    - **War**
+        
+    - **External attack**
+        
+    - **Internal rebellion** (armed rebellion)
+        
+- Even if the threat **has not happened yet**, but the danger is **about to come**, the President can still declare it.
     
 
 ---
 
-## Additional Important Points
+### 2️⃣ **President's Rule (State Emergency) – Article 356**
 
-- **Immunity from legal proceedings** during term (Article 361).
+- The President can declare **State Emergency** if:
     
-- The President’s decisions are **final and binding**.
+    - The **Governor of a state** says that the state government is **not working properly**.
+        
+    - Or if the **President himself** sees that the **state's constitutional system is breaking down**.
+        
+- In this case, the President takes **direct control** of that state.
     
-- The President acts **on the aid and advice of the Council of Ministers** except in a few discretionary situations.
+
+---
+
+### 3️⃣ **Financial Emergency – Article 360**
+
+- The President can declare **Financial Emergency** if:
     
+    - The country’s **financial condition becomes very bad**.
+        
+    - There is a threat to the **economy or credibility** of India.
+        
+- **So far, India has never declared a Financial Emergency.**
+    
+
+---
+
+### 🔑 Quick Recap Table:
+
+|Type of Emergency|Article|Reason|Status|
+|---|---|---|---|
+|National Emergency|352|War, External Aggression, Rebellion|Declared multiple times|
+|State Emergency|356|Failure of state machinery|Declared many times|
+|Financial Emergency|360|Economic instability|**Never declared**|
 
 ---
 
 # **Summary Table of Powers**
 
-|Power Type|Key Articles|Description|
-|---|---|---|
-|Executive|53, 74, 75|Appointment, executive decisions|
-|Legislative|85, 87, 111, 123|Summoning Parliament, assent to bills, ordinances|
-|Judicial|72|Pardons, reprieves, commutation|
-|Financial|112, 117, 266|Budget, money bills, fund control|
-|Military|53, 74|Supreme Commander, declare war/peace|
-|Diplomatic|53, 74|Foreign relations, treaties, ambassadors|
-|Emergency|352, 356, 360|Declare emergencies|
+| Power Type  | Key Articles     | Description                                       |
+| ----------- | ---------------- | ------------------------------------------------- |
+| Executive   | 53, 74, 75       | Appointment, executive decisions                  |
+| Legislative | 85, 87, 111, 123 | Summoning Parliament, assent to bills, ordinances |
+| Judicial    | 72               | Pardons, reprieves, commutation                   |
+| Financial   | 112, 117, 266    | Budget, money bills, fund control                 |
+| Military    | 53, 74           | Supreme Commander, declare war/peace              |
+| Diplomatic  | 53, 74           | Foreign relations, treaties, ambassadors          |
+| Emergency   | 352, 356, 360    | Declare emergencies                               |
