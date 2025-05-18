@@ -560,18 +560,6 @@ A person must:
     
 4. **Not hold any office of profit** under the Government of India or any state or local authority.
 
-### ✅ 2. **Qualification for President (Article 58)**
-
-- Must be:
-    
-    - Citizen of India.
-        
-    - At least **35 years old**.
-        
-    - Qualified to be elected as **Lok Sabha MP**.
-        
-    - Must not hold any office of profit.
-        
 
 ---
 
