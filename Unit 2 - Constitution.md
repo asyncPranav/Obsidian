@@ -858,7 +858,7 @@ The **State Executive** is the authority that runs the **state government** in e
 ---
 
 
-# **Powers of the President of India**
+# 👔 **Powers of the President of India**
 
 The President of India is the **constitutional head** of the country and exercises various powers classified broadly as:
 
