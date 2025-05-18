@@ -468,7 +468,74 @@ States depend on the Centre for:
 
 ---
 
-# **
+# **Center - State relationship**
+
+The **Centre-State Relationship** in the Indian Constitution refers to the division of powers, responsibilities, and functions between the **Central Government (Union)** and the **State Governments**. It is designed to maintain a balance of power in India’s **federal structure**, while also allowing for a **strong Centre**.
+
+This relationship is mainly explained in **Part XI and Part XII** of the Indian Constitution and can be broadly classified into **three types**:
+
+Centre state relations are divided into three head 
+-  Legislative Relations ● Administrative Relations ● Financial Relations
+
+---
+
+### **1. Legislative Relations (Articles 245 to 255)**
+
+These articles describe **who can make laws** on what subjects:
+
+- **Union List (List I)** – Only the **Parliament** can legislate (e.g., defence, foreign affairs, atomic energy).
+    
+- **State List (List II)** – Only the **State Legislatures** can make laws (e.g., police, public health, local government).
+    
+- **Concurrent List (List III)** – **Both Centre and States** can make laws (e.g., education, marriage, forests). In case of conflict, **Central law prevails**.
+    
+
+**Extra powers of Centre:**
+
+- Under **Article 249**, if Rajya Sabha passes a resolution with a 2/3 majority, the Parliament can make laws on State List items.
+    
+- During **Emergency (Article 250)**, Parliament can legislate on State List items.
+    
+- **Article 252** allows Parliament to legislate on State List items if two or more states pass resolutions asking it to do so.
+    
+
+---
+
+### **2. Administrative Relations (Articles 256 to 263)**
+
+These articles deal with how **administrative powers and duties** are shared:
+
+- States must comply with the **laws and directions** of the Union Government.
+    
+- The **Union can send officers** to help states implement laws (Article 256).
+    
+- The **President** can entrust the Union's executive functions to the State (Article 258).
+    
+- **Inter-State Councils (Article 263)** may be established to resolve inter-state disputes and improve coordination.
+    
+
+---
+
+### **3. Financial Relations (Articles 268 to 293)**
+
+These define how **revenue and taxes** are shared:
+
+- Some taxes are levied by the **Centre but collected and appropriated by States** (e.g., stamp duties, excise on medical preparations).
+    
+- Certain duties are **levied and collected by the Centre but shared** with states (e.g., income tax, GST).
+    
+- **Grants-in-aid** (Article 275) are provided to states needing financial help.
+    
+- The **Finance Commission (Article 280)** recommends how taxes should be distributed between the Centre and States.
+    
+
+---
+
+### **Other Important Provisions**
+
+- **Article 356 (President’s Rule):** The Centre can take control of a state in case of failure of constitutional machinery.
+    
+- **Emergency Provisions:** Centre becomes more powerful during **National, State, or Financial Emergencies**.
 
 
 ---
