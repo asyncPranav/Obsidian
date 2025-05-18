@@ -1074,3 +1074,55 @@ The President of India is the **constitutional head** of the country and exercis
 | Military    | 53, 74           | Supreme Commander, declare war/peace              |
 | Diplomatic  | 53, 74           | Foreign relations, treaties, ambassadors          |
 | Emergency   | 352, 356, 360    | Declare emergencies                               |
+
+---
+
+
+## 🛑 Veto Powers of the President (in Simple Language)
+
+### 📜 **What is Veto Power?**
+
+Veto power means the **power of the President to stop or reject a bill** passed by the Parliament.
+
+---
+
+### ✅ The President has **3 types of Veto Powers**:
+
+|🟢 **Type**|📖 **Meaning (Simple)**|
+|---|---|
+|**1. Absolute Veto**|The President **completely rejects the bill**. It **never becomes a law**.|
+|**2. Suspensive Veto**|The President sends the bill **back to Parliament** for reconsideration.|
+||If Parliament passes it again, the President **must sign it**.|
+|**3. Pocket Veto**|The President **does nothing** — **neither signs nor rejects** the bill.|
+||No time limit to act, so the bill is **kept pending** (like keeping it in his pocket).|
+
+---
+
+### 🏛️ **Veto Power applies to which types of bills?**
+
+|✅ **Applies To**|❌ **Does Not Apply To**|
+|---|---|
+|- **Ordinary Bills**|- **Money Bills** (Article 110)|
+|- **Financial Bills**||
+|- **State Bills reserved for President**||
+
+---
+
+### ✨ Special Facts:
+
+- **Pocket Veto** is unique to **India** (not available in USA, where time limit is 10 days).
+    
+- **President can't use veto on Money Bills**, because:
+    
+    - Money Bills can only be introduced with **President’s prior permission**.
+        
+    - Once passed by Lok Sabha, the President **must give assent**.
+        
+
+---
+
+### 💡 Example:
+
+- **Absolute Veto** was used by **President Zail Singh** in 1986 — he rejected the **Indian Post Office (Amendment) Bill**.
+    
+- **Pocket Veto** was used by **President Giani Zail Singh** when he did not act on the **Postal Bill**.
