@@ -925,7 +925,7 @@ The President of India is the **constitutional head** of the country and exercis
     
 - Can **recommend President’s Rule** in states (Article 356).
 	
-
+- President nominates 12 members to Rajya sabha from persons with special knowledge or practical experience in science , Art, Literature, and social science
 
 ---
 
