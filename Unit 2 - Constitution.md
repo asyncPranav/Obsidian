@@ -505,3 +505,128 @@ The executive power of the Union shall be vested in the President.
     - Elected members of **Union Territories’ legislatures** (like Delhi, Puducherry).
         
 
+#### ➤ System Used:
+
+- **Proportional Representation** by means of **Single Transferable Vote (STV)**.
+    
+- **Secret ballot** is used.
+
+
+### ✅ 2. **Qualification for President (Article 58)**
+
+- Must be:
+    
+    - Citizen of India.
+        
+    - At least **35 years old**.
+        
+    - Qualified to be elected as **Lok Sabha MP**.
+        
+    - Must not hold any office of profit.
+        
+
+---
+
+### ✅ 3. **Term and Removal**
+
+|Point|Details|
+|---|---|
+|**Term**|5 years (can be re-elected)|
+|**Resignation**|In writing to the **Vice President**|
+|**Impeachment**|For **violation of the Constitution** – Article 61|
+|**Vacancy Filling**|Must be filled within **6 months**|
+
+---
+
+### ✅ 4. **Powers and Functions of the President**
+
+---
+
+### 🟩 A. **Executive Powers**
+
+- Appoints:
+    
+    - **Prime Minister**, and on their advice:
+        
+        - Ministers, Governors, CAG, Chief Justice & Judges of SC/HC, Election Commissioners, UPSC members, Ambassadors, etc.
+            
+- Administers **Union Territories** through administrators.
+    
+
+---
+
+### 🟦 B. **Legislative Powers**
+
+- Summons, prorogues, and dissolves **Parliament**.
+    
+- **Assent to bills** or can:
+    
+    - Withhold, return (if not a money bill), or reserve for President's consideration (in case of state bills).
+        
+- Promulgates **ordinances** when Parliament is not in session (Article 123).
+    
+- Nominates:
+    
+    - **12 members to Rajya Sabha** (literature, art, science, social service).
+        
+    - **2 Anglo-Indian members to Lok Sabha** (if not adequately represented) [now abolished in 104th Amendment].
+        
+
+---
+
+### 🟥 C. **Financial Powers**
+
+- Money bills can’t be introduced without the President’s approval.
+    
+- Causes the **Annual Budget** to be laid before Parliament.
+    
+- Controls **Contingency Fund of India**.
+    
+
+---
+
+### 🟨 D. **Judicial Powers**
+
+- Appoints Judges of **SC and HC**.
+    
+- Can grant **pardons, reprieves, respites, or remission of punishment** (Article 72).
+    
+
+---
+
+### 🟪 E. **Emergency Powers**
+
+|Type of Emergency|Article|Presidential Role|
+|---|---|---|
+|**National Emergency**|352|Proclaims and can extend Parliament powers|
+|**President’s Rule**|356|Assumes control of state administration|
+|**Financial Emergency**|360|Directs state finances and salaries|
+
+---
+
+### ✅ 5. **Important Articles at a Glance**
+
+|Article|Subject|
+|---|---|
+|52|President of India|
+|53|Executive power of the Union|
+|54|Election of President|
+|55|Manner of election|
+|56|Term of office|
+|58|Qualifications|
+|61|Impeachment|
+|72|Pardoning power|
+|123|Ordinance-making power|
+
+---
+
+### 📝 Summary
+
+|Feature|Description|
+|---|---|
+|Elected by|Electoral college (MPs + MLAs)|
+|Method|Proportional Representation + STV|
+|Tenure|5 years, re-election possible|
+|Powers|Executive, Legislative, Financial, Judicial, Emergency|
+|Removal|Impeachment for violation of the Constitution|
+
