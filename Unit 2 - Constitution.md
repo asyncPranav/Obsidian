@@ -727,15 +727,81 @@ A person must:
 
 ---
 
-### 📝 Summary
 
-|Feature|Description|
+## 📜 **Article 71 – Matters Relating to the Election of President or Vice-President**
+
+### 🔍 **Full Title (As per Constitution)**
+
+> "Matters relating to, or connected with, the election of a President or Vice-President."
+
+---
+
+## 🧾 **Breakdown of Article 71 – Clause-wise Explanation**
+
+### ✅ **Clause (1): Election Disputes**
+
+> **"All doubts and disputes arising out of or in connection with the election of a President or Vice-President shall be inquired into and decided by the Supreme Court, whose decision shall be final."**
+
+- Any dispute regarding the **validity of the election** of the President or Vice-President is:
+    
+    - Heard **only** by the **Supreme Court** of India.
+        
+    - The decision of the SC is **final and binding**.
+        
+- Example: If someone files a case challenging the election result of the President, only SC has jurisdiction.
+    
+
+---
+
+### ✅ **Clause (2): Scope of Challenge**
+
+> **"If the election of a person to the office of President or Vice-President is declared void by the Supreme Court, acts done by that person before such declaration shall not be invalidated."**
+
+- Even if the SC later **declares the election invalid**, all official **acts done by the person before the verdict remain valid**.
+    
+- Example: If a President signed laws before being disqualified, those laws will still be valid.
+    
+
+---
+
+### ✅ **Clause (3): No Challenge Except by Election Petition**
+
+> **"The election of the President or Vice-President cannot be challenged on any ground except through an election petition presented to the Supreme Court."**
+
+- **No private suit** or PIL can be filed in lower courts.
+    
+- Only an **election petition to the Supreme Court** can challenge the election.
+    
+- This ensures a **single authority** handles such critical matters.
+    
+
+---
+
+### ✅ **Clause (4): Parliament May Regulate**
+
+> **"Subject to the provisions of this Constitution, Parliament may by law regulate any matter relating to or connected with the election of a President or Vice-President."**
+
+- Parliament has the **power to make laws** governing the election process.
+    
+- Example: **Presidential and Vice-Presidential Elections Act, 1952** was made under this clause.
+    
+
+---
+
+## 📘 **Summary Table**
+
+|**Clause**|**Provision**|
 |---|---|
-|Elected by|Electoral college (MPs + MLAs)|
-|Method|Proportional Representation + STV|
-|Tenure|5 years, re-election possible|
-|Powers|Executive, Legislative, Financial, Judicial, Emergency|
-|Removal|Impeachment for violation of the Constitution|
+|1|SC has exclusive power to decide disputes in presidential or VP elections.|
+|2|If a President/VP is disqualified later, past acts remain valid.|
+|3|Elections can be challenged only by petition to SC (not in lower courts).|
+|4|Parliament can make laws for presidential/VP elections.|
+
+---
+
+## ⚖️ **Real-World Example**
+
+In 1974, the election of **Fakhruddin Ali Ahmed** as President was challenged, but the **Supreme Court upheld it**, applying Article 71.
 
 ---
 
