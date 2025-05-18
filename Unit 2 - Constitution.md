@@ -923,8 +923,8 @@ The President of India is the **constitutional head** of the country and exercis
 - Can recommend **money bills** (only introduced in Lok Sabha).
     
 - Can **recommend President’s Rule** in states (Article 356).
-
--
+	
+- He can declare any area as schedule area and has power with respect to administration of schedule areas and tribal areas.
 
 ---
 
