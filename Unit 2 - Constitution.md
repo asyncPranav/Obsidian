@@ -494,7 +494,7 @@ The executive power of the Union shall be vested in the President.
 ---
 
 
-### ✅ 1. **Election of the President** (Article 54)
+### 🔹 **Article 54 – Election of President**
 
 - Elected **indirectly** by an **Electoral College** consisting of:
     
@@ -511,6 +511,74 @@ The executive power of the Union shall be vested in the President.
     
 - **Secret ballot** is used.
 
+
+---
+
+### 🔹 **Article 54 – Election of President**
+
+- The President is **not directly elected** by the people.
+    
+- Elected by an **Electoral College** consisting of:
+    
+    - Elected members of **Lok Sabha and Rajya Sabha**.
+        
+    - Elected members of the **State Legislative Assemblies** (including Delhi & Puducherry).
+        
+- Nominated members are **excluded**.
+    
+
+---
+
+### 🔹 **Article 55 – Manner of Election of President**
+
+- Ensures **uniform representation of states** and **parity between the Centre and states**.
+    
+- Election is held through:
+    
+    - **Proportional Representation**.
+        
+    - **Single Transferable Vote (STV)**.
+        
+- Voting is done by **secret ballot**.
+    
+
+---
+
+### 🔹 **Article 56 – Term of Office of President**
+
+- President holds office for a **term of 5 years**.
+    
+- Can **resign** to the Vice-President.
+    
+- Can be **removed before 5 years** through impeachment.
+    
+- Eligible for **re-election** any number of times.
+    
+- Continues in office **until the successor takes charge**.
+    
+
+---
+
+### 🔹 **Article 57 – Eligibility for Re-election**
+
+- There is **no restriction** on the number of times a person can be elected as President.
+    
+- Any person who is eligible under Article 58 can be **re-elected** as President.
+    
+
+---
+
+### 🔹 **Article 58 – Qualifications for Election as President**
+
+A person must:
+
+1. Be a **citizen of India**.
+    
+2. Be at least **35 years old**.
+    
+3. Be **qualified to be a member of the Lok Sabha**.
+    
+4. **Not hold any office of profit** under the Government of India or any state or local authority.
 
 ### ✅ 2. **Qualification for President (Article 58)**
 
