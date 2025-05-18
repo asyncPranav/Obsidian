@@ -563,6 +563,75 @@ A person must:
 
 ---
 
+
+### 🔹 **Article 59 – Conditions of the President's Office**
+
+- President shall **not hold any other office of profit**.
+    
+- Entitled to:
+    
+    - **Official residence** (Rashtrapati Bhavan).
+        
+    - **Salary and allowances** 
+        
+- Cannot be tried in any **criminal proceeding** during the term.
+    
+- Cannot be **arrested or imprisoned** while in office.
+- His emoluments and allowances cannot be diminished during the term of office.
+
+
+
+
+---
+
+### 🔹 **Article 60 – Oath or Affirmation by the President**
+
+- Oath administered by the **Chief Justice of India** (or next senior-most SC judge if CJI unavailable).
+    
+- Oath to:
+    
+    - **Preserve, protect, and defend the Constitution**.
+        
+    - **Serve and do justice to all people** of India.
+        
+
+---
+
+### 🔹 **Article 61 – Impeachment of President**
+
+- The only **legal way to remove the President**.
+    
+- Ground: **Violation of the Constitution**.
+    
+- Impeachment requires:
+    
+    - Resolution passed by **2/3rd majority of both Houses of Parliament**.
+        
+    - Detailed **investigation and opportunity for defense**.
+        
+
+---
+
+### 🔹 **Article 62 – Time of Holding Election to Fill Vacancy**
+
+- If the President’s office becomes vacant due to **death, resignation, removal, or otherwise**, election must be held **within 6 months**.
+    
+- The **Vice-President** acts as President until a new one is elected.
+    
+
+---
+
+### 🔹 **Article 63 – The Vice-President of India**
+
+- There shall be a **Vice-President of India**.
+    
+- Vice-President acts:
+    
+    - As the **ex-officio Chairperson of Rajya Sabha**.
+        
+    - As **President in case of vacancy**, death, resignation, or incapacity.
+
+
 ### ✅ 3. **Term and Removal ( Article - 56 )**
 
 |Point|Details|
