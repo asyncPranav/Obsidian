@@ -479,13 +479,34 @@ States depend on the Centre for:
 
 ---
 
-## 🏛️ Article 52:
+### **🏛️ Article 52:
 
 There shall be a president of India who would be the Head of the union executive.
 
 
 ---
 
-## 🏛️ Article 53:
+### **🏛️ Article 53:
 
-Theexecutive power of the Union shall be vested in the President
+The executive power of the Union shall be vested in the President.
+
+
+---
+
+
+### ✅ 1. **Election of the President** (Article 54–55)
+
+- Elected **indirectly** by an **Electoral College** consisting of:
+    
+    - Elected members of **both Houses of Parliament**.
+        
+    - Elected members of **State Legislative Assemblies** (MLAs).
+        
+    - Elected members of **Union Territories’ legislatures** (like Delhi, Puducherry).
+        
+
+#### ➤ System Used:
+
+- **Proportional Representation** by means of **Single Transferable Vote (STV)**.
+    
+- **Secret ballot** is used.
