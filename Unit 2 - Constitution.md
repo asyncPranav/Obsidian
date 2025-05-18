@@ -774,7 +774,7 @@ A person must:
 - Causes the **Annual Budget** to be laid before Parliament.
     
 - Controls **Contingency Fund of India**.
-    
+
 
 ---
 
