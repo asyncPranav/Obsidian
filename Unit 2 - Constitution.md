@@ -1234,3 +1234,22 @@ The Prime Minister promises:
 - The Prime Minister takes both oaths **before starting official duties**.
 - The format is the **same for all Union Ministers**.
 - These oaths ensure **constitutional loyalty, secrecy**, and **responsibility**.
+
+
+---
+
+## 📜 **Term of the Prime Minister**
+
+- The Prime Minister **does not have a fixed term** like the President.
+    
+- The PM remains in office **as long as he/she enjoys the majority support of the Lok Sabha** (the lower house of Parliament).
+    
+- The maximum term of the Lok Sabha is **5 years**, so usually the PM’s term is up to **5 years**.
+    
+- The PM can be **reappointed** after every general election if his/her party or coalition wins.
+    
+- The PM **can resign at any time**.
+    
+- The PM can be **removed from office if he/she loses majority support** in Lok Sabha (through a No Confidence Motion).
+    
+- There is **no limit on the number of terms** a person can serve as PM.
