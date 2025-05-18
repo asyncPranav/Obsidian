@@ -2094,7 +2094,9 @@ The Prime Minister also gets several allowances and benefits, such as:
 - **Panchayati Raj** refers to the **system of rural local self-government** in India.
     
 - It aims to bring **democracy to the grassroots level** and ensure **decentralized administration**.
-    
+	
+- It aims to decentralize power to the village level for better governance and development.
+	
 - Based on the principle: _"Of the people, by the people, for the people."_
     
 - Follows a **three-tier structure**:
