@@ -931,6 +931,9 @@ The President of India is the **constitutional head** of the country and exercis
 
 ## 3. **Judicial Powers**
 
+
+-  President appoints Chief Justice and Judges of supreme court.
+	
 - **Pardon, reprieve, respite, or remission of punishment** and **commutation of sentences** in certain cases (Article 72).
     
 - This includes cases involving:
