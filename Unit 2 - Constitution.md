@@ -499,7 +499,8 @@ These articles describe **who can make laws** on what subjects:
 - During **Emergency (Article 250)**, Parliament can legislate on State List items.
     
 - **Article 252** allows Parliament to legislate on State List items if two or more states pass resolutions asking it to do so.
-    
+	
+- power to make laws with respect to the residuary subjects that are not enumerated in any three list is conferred tp parliament. In case a conflict between central and state law on subject of concurrent list central law prevails
 
 ---
 
