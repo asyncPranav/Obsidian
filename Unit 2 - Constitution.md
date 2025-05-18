@@ -630,3 +630,57 @@ The executive power of the Union shall be vested in the President.
 |Powers|Executive, Legislative, Financial, Judicial, Emergency|
 |Removal|Impeachment for violation of the Constitution|
 
+---
+
+
+# 🏞️ What is **Union Executive**?
+
+The **Union Executive** is the top authority that runs the **central government** of India. It consists of:
+
+### 🔹 Components (Article 52 to 78):
+
+1. **President of India** – **Nominal head** of the country (constitutional head).
+    
+2. **Vice President** – Acts as Chairperson of the Rajya Sabha.
+    
+3. **Prime Minister** – **Real head** of the government.
+    
+4. **Council of Ministers** – Assists the PM in running the country.
+    
+5. **Attorney General of India** – Chief legal advisor to the Government of India.
+    
+
+> ✅ **President acts on the advice of the Council of Ministers headed by the Prime Minister.**
+
+---
+
+# 🏞️ What is **State Executive**?
+
+The **State Executive** is the authority that runs the **state government** in each state of India.
+
+### 🔹 Components (Article 153 to 167):
+
+1. **Governor** – **Nominal head** of the state (appointed by the President).
+    
+2. **Chief Minister** – **Real head** of the state government.
+    
+3. **Council of Ministers** – Assists the CM in state administration.
+    
+4. **Advocate General of the State** – Legal advisor to the state government.
+    
+
+> ✅ **Governor acts on the advice of the Council of Ministers headed by the Chief Minister.**
+
+---
+
+## 🔁 Quick Comparison
+
+|Feature|Union Executive|State Executive|
+|---|---|---|
+|Head|President of India|Governor of the State|
+|Real Executive|Prime Minister + Union Ministers|Chief Minister + State Ministers|
+|Legal Advisor|Attorney General of India|Advocate General of State|
+|Articles Covered|Articles 52 to 78|Articles 153 to 167|
+
+---
+
