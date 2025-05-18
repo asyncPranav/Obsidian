@@ -763,8 +763,7 @@ A person must:
     
     - **12 members to Rajya Sabha** (literature, art, science, social service).
         
-    - **2 Anglo-Indian members to Lok Sabha** (if not adequately represented) [now abolished in 104th Amendment].
-        
+    - **2 Anglo-Indian members to Lok Sabha** (if not adequately represented) 
 
 ---
 
