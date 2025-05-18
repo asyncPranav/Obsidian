@@ -2482,3 +2482,34 @@ The Municipality system is vital for the **sustainable development of urban Indi
 ### ✅ Conclusion:
 
 Panchayati Raj is a vital part of **democratic decentralization** and **rural empowerment** in India. To be fully effective, PRIs need **greater autonomy**, **capacity-building**, and **active citizen participation**.
+
+
+---
+
+###  **📘Comparison: Panchayati Raj vs Municipality**
+
+|**Feature**|**Panchayati Raj** (Rural)|**Municipality** (Urban)|
+|---|---|---|
+|**Applicable Area**|Rural Areas|Urban Areas (towns and cities)|
+|**Constitutional Amendment**|**73rd Amendment Act, 1992**|**74th Amendment Act, 1992**|
+|**Part of Constitution**|**Part IX** (Articles 243 to 243O)|**Part IXA** (Articles 243P to 243ZG)|
+|**Schedule Involved**|**11th Schedule** – 29 functional items|**12th Schedule** – 18 functional items|
+|**Main Objective**|Decentralized rural governance and development|Decentralized urban governance and development|
+|**Structure**|3-Tier: Gram Panchayat, Panchayat Samiti, Zilla Parishad|3 Types: Nagar Panchayat, Municipality, Municipal Corporation|
+|**Head of Institution**|Sarpanch / President / Chairperson|Chairperson / Mayor|
+|**Executive Officer**|Panchayat Secretary|Municipal Commissioner (usually IAS)|
+|**Reservation**|SC/ST and at least **1/3rd seats for women**|SC/ST and at least **1/3rd seats for women**|
+|**Tenure**|5 years|5 years|
+|**Election Conducted by**|**State Election Commission**|**State Election Commission**|
+|**Finance Commission**|**State Finance Commission** (every 5 years)|**State Finance Commission** (every 5 years)|
+|**First Introduced**|Post-1957 (based on Balwant Rai Mehta Committee)|1687: First in Madras; Constitutionally in 1992|
+|**Major Focus**|Agriculture, sanitation, rural roads, education|Urban planning, sanitation, waste management, water supply|
+|**Key Challenges**|Illiteracy, caste politics, lack of funds|Overpopulation, poor infrastructure, financial crunch|
+
+---
+
+### 🧠 **Memory Tip**:
+
+- **73 → Panchayati Raj → Rural → 11th Schedule**
+    
+- **74 → Municipality → Urban → 12th Schedule**
