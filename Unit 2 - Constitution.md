@@ -1449,3 +1449,83 @@ The Prime Minister also gets several allowances and benefits, such as:
 |Diplomatic Power|Handles foreign affairs|
 |Judicial Power|Advises on pardons|
 |Miscellaneous|Crisis management; center-state link|
+
+
+---
+
+## 🏛️ **Functions and Responsibilities of the Prime Minister**
+
+
+### 1. **Head of the Government**
+
+- Leads the Council of Ministers.
+    
+- Coordinates and supervises the work of all ministers.
+    
+- Ensures smooth functioning of the government.
+    
+
+### 2. **Leader of the Lok Sabha**
+
+- Leader of the ruling party in the Lower House.
+    
+- Represents the government in Parliament.
+    
+- Guides and manages government business in the House.
+    
+
+### 3. **Advises the President**
+
+- Recommends the appointment of ministers, governors, and other key officials.
+    
+- Advises the President on summoning, proroguing, and dissolving Parliament.
+    
+- Advises on important constitutional matters.
+    
+
+### 4. **Policy Maker and Planner**
+
+- Plays a key role in formulating policies and government programs.
+    
+- Provides direction on economic, social, and foreign policies.
+    
+- Oversees implementation of government decisions.
+    
+
+### 5. **Financial Responsibilities**
+
+- Supervises preparation and presentation of the Union Budget.
+    
+- Controls allocation and utilization of government funds.
+    
+- Ensures financial discipline and accountability.
+    
+
+### 6. **Foreign Affairs**
+
+- Represents India in international relations.
+    
+- Leads diplomatic negotiations.
+    
+- Oversees foreign policy and agreements.
+    
+
+### 7. **Maintaining Law and Order**
+
+- Coordinates with the Home Ministry on internal security.
+    
+- Ensures peace and stability within the country.
+    
+
+### 8. **Crisis Manager**
+
+- Handles national emergencies and critical situations.
+    
+- Takes quick decisions during times of crisis.
+    
+
+### 9. **Center-State Relations**
+
+- Acts as a link between the central government and state governments.
+    
+- Resolves disputes and promotes cooperative federalism.
