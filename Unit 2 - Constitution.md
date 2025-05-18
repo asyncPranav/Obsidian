@@ -949,7 +949,9 @@ The President of India is the **constitutional head** of the country and exercis
 ## 4. **Financial Powers**
 
 - No money bill can be introduced in Parliament without the President’s recommendation (Article 117).
-    
+	
+- **It cannot be presented in the Lok Sabha without the prior approval of the President**.
+	
 - President causes the **Annual Financial Statement (Union Budget)** to be laid before Parliament (Article 112).
     
 - Controls the **Consolidated Fund of India** (Article 266).
