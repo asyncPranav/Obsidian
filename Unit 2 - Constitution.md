@@ -498,7 +498,7 @@ The executive power of the Union shall be vested in the President.
 
 - Elected **indirectly** by an **Electoral College** consisting of:
     
-    - Elected members of **both Houses of Parliament**.
+    - Elected members of **both Houses of Parliament (Lok sabha and Rajya sabha)**.
         
     - Elected members of **State Legislative Assemblies** (MLAs).
         
