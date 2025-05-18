@@ -1211,19 +1211,21 @@ Veto power means the **power of the President to stop or reject a bill** passed 
 
 ---
 
-### ✅ **1. Oath of Office (Exact Format):**
+### ✅ 1. **Oath of Office**
 
-> “I, [Name], do swear in the name of God / solemnly affirm that I will bear true faith and allegiance to the Constitution of India as by law established,  
-> that I will uphold the sovereignty and integrity of India,  
-> that I will faithfully and conscientiously discharge my duties as Prime Minister of the Union,  
-> and that I will do right to all manner of people in accordance with the Constitution and the law,  
-> without fear or favour, affection or ill-will.”
+The Prime Minister promises:
+
+- To be loyal to the Constitution of India.
+- To uphold the **sovereignty and integrity** of the nation.
+- To discharge duties **honestly and fairly**, without bias or fear.
 
 ---
 
-### 🤐 **2. Oath of Secrecy (Exact Format):**
+### 🤐 2. **Oath of Secrecy**
 
-> “I, [Name], do swear in the name of God / solemnly affirm that I will not directly or indirectly communicate or reveal to any person or persons any matter which shall be brought under my consideration or shall become known to me as Prime Minister of the Union except as may be required for the due discharge of my duties as such Minister.”
+The Prime Minister promises:
+
+- Not to share any **confidential information** gained during office with anyone, unless required for official duties.
 
 ---
 
