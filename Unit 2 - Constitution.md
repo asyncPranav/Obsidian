@@ -733,7 +733,19 @@ A person must:
 
 ---
 
+# ✅ 4. **Powers and Functions of the President**
 
+---
+
+### 🟩 A. **Executive Powers**
+
+- Appoints:
+    
+    - **Prime Minister**, and on their advice:
+        
+        - Ministers, Governors, CAG, Chief Justice & Judges of SC/HC, Election Commissioners, UPSC members, Ambassadors, etc.
+            
+- Administers **Union Territories** through administrators.
 
 ---
 
