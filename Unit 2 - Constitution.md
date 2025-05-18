@@ -485,7 +485,7 @@ Centre state relations are divided into three head
 
 These articles describe **who can make laws** on what subjects:
 
-- **Union List (List I)** – Only the **Parliament** can legislate (e.g., defence, foreign affairs, atomic energy).
+- **Union List (List I)** – union list contain 98 subjects (originally 97 items) It comprises of subjects with National importance and admits of uniform laws for the whole country. Includes defence foreign affairs currency war and peace, atomic energy Railway, citizenship, foreign trade, banking, national highways, etc. Only the **Parliament** can legislate (e.g., defence, foreign affairs, atomic energy).
     
 - **State List (List II)** – Only the **State Legislatures** can make laws (e.g., police, public health, local government).
     
