@@ -1297,3 +1297,155 @@ To become the Prime Minister, a person must fulfill the following conditions:
 |Other conditions|Not disqualified; no office of profit|
 
 ---
+
+
+## 💰 **Salary and Allowances of the Prime Minister**
+
+
+### 1. **Salary:**
+
+- The Prime Minister receives a **fixed monthly salary**.
+    
+- As of now (subject to change by government), the salary is approximately **₹2,00,000 per month** (basic pay + allowances).
+    
+
+### 2. **Allowances and Perks:**
+
+The Prime Minister also gets several allowances and benefits, such as:
+
+- **Official residence** at 7, Lok Kalyan Marg, New Delhi.
+    
+- **Staff and security** provided by the government.
+    
+- **Office expenses** for official work.
+    
+- **Travel allowances** (domestic and international).
+    
+- **Medical facilities** at government expense.
+    
+- **Retirement benefits** after completing the term(s).
+    
+
+### 3. **Source of Salary:**
+
+- Salary and allowances are charged to the **Consolidated Fund of India**.
+    
+- The salary is fixed by the **Parliament** and can be revised.
+    
+
+---
+
+### Summary:
+
+|Component|Details|
+|---|---|
+|Salary|Fixed monthly salary (approx. ₹2 lakh)|
+|Residence|Official PM residence|
+|Allowances|Travel, medical, office expenses|
+|Security & Staff|Provided by government|
+|Funding Source|Consolidated Fund of India|
+
+---
+
+
+## 🔥 **Powers of the Prime Minister of India**
+
+
+### 1. **Executive Powers**
+
+- Head of the Council of Ministers.
+    
+- Advises the President on appointments of ministers and other key officials.
+    
+- Supervises the functioning of ministries and departments.
+    
+- Coordinates the work of various ministries.
+    
+- Can recommend the dissolution of Lok Sabha to the President.
+    
+
+---
+
+### 2. **Legislative Powers**
+
+- Leader of the ruling party in Lok Sabha.
+    
+- Advises the President on summoning and proroguing Parliament sessions.
+    
+- Can introduce important bills in Parliament.
+    
+- Plays a key role in framing policies and legislation.
+    
+- Represents the government in Parliament.
+    
+
+---
+
+### 3. **Financial Powers**
+
+- Plays a major role in preparing the **Union Budget**.
+    
+- Allocates funds to different ministries.
+    
+- Oversees government expenditure and financial planning.
+    
+- Responsible for ensuring the financial stability of the government.
+    
+
+---
+
+### 4. **Military Powers**
+
+- Advises the President, who is the Supreme Commander of the Armed Forces.
+    
+- Takes key decisions related to defense and national security.
+    
+- Oversees the armed forces through the Ministry of Defence.
+    
+
+---
+
+### 5. **Diplomatic Powers**
+
+- Represents India internationally.
+    
+- Conducts foreign policy and international relations.
+    
+- Meets foreign dignitaries and negotiates treaties.
+    
+- Can declare war or peace with approval of Parliament.
+    
+
+---
+
+### 6. **Judicial Powers**
+
+- Can recommend pardoning or granting clemency (though this power formally lies with the President).
+    
+- Ensures law and order through the administration.
+    
+
+---
+
+### 7. **Miscellaneous Powers**
+
+- Can call meetings of the Cabinet to discuss important issues.
+    
+- Plays a role in crisis management.
+    
+- Acts as the chief coordinator between the Union and States.
+    
+
+---
+
+### Summary Table:
+
+|Power Type|Description|
+|---|---|
+|Executive Power|Head of government; controls ministries|
+|Legislative Power|Leader in Parliament; frames laws|
+|Financial Power|Prepares budget; controls finances|
+|Military Power|Advises on defense and security|
+|Diplomatic Power|Handles foreign affairs|
+|Judicial Power|Advises on pardons|
+|Miscellaneous|Crisis management; center-state link|
