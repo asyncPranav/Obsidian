@@ -505,8 +505,3 @@ The executive power of the Union shall be vested in the President.
     - Elected members of **Union Territories’ legislatures** (like Delhi, Puducherry).
         
 
-#### ➤ System Used:
-
-- **Proportional Representation** by means of **Single Transferable Vote (STV)**.
-    
-- **Secret ballot** is used.
