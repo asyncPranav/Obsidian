@@ -527,7 +527,7 @@ The executive power of the Union shall be vested in the President.
 
 ---
 
-### ✅ 3. **Term and Removal**
+### ✅ 3. **Term and Removal ( Ar**
 
 |Point|Details|
 |---|---|
