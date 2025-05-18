@@ -1541,6 +1541,7 @@ The Prime Minister also gets several allowances and benefits, such as:
 
 ## 🏛️ **Lok Sabha (House of the People)**
 
+
 ### 1. **Introduction:**
 
 - Lok Sabha is the **lower house** of the Parliament of India.
@@ -1678,3 +1679,129 @@ The Prime Minister also gets several allowances and benefits, such as:
 - Controls the financial matters of the country.
     
 - Plays a vital role in democracy.
+
+
+---
+
+## 🏛️ **Rajya Sabha (Council of States)**
+
+### 1. **Introduction:**
+
+- Rajya Sabha is the **upper house** of the Parliament of India.
+    
+- Also called the **Council of States**.
+    
+- It represents the **states and union territories** of India.
+    
+- It is a **permanent house**, meaning it is **never dissolved**.
+    
+
+---
+
+### 2. **Composition:**
+
+- Maximum strength: **250 members**.
+    
+    - Up to **238 members** elected by state and union territory legislatures.
+        
+    - Up to **12 members** nominated by the President for their expertise in fields like literature, science, art, and social service.
+        
+- Members are elected indirectly by the elected members of the State Legislative Assemblies using proportional representation.
+    
+- The term of a member is **6 years**.
+    
+- One-third of members retire every **2 years**.
+    
+
+---
+
+### 3. **Qualifications for Membership:**
+
+- Must be a citizen of India.
+    
+- Minimum age: **30 years**.
+    
+- Must be mentally sound and not disqualified by any law.
+    
+- Must be registered as a voter anywhere in India.
+    
+
+---
+
+### 4. **Functions of Rajya Sabha:**
+
+#### a. **Legislative Functions:**
+
+- Participates in passing laws on subjects in the **Union List** and **Concurrent List**.
+    
+- Can suggest amendments and make recommendations on bills passed by Lok Sabha.
+    
+- Can delay non-money bills by sending them back for reconsideration.
+    
+- Cannot initiate or amend Money Bills but can only recommend changes (which Lok Sabha may accept or reject).
+    
+- Has special powers to create new All-India Services (Article 312).
+    
+
+#### b. **Federal Functions:**
+
+- Represents the interests of states at the national level.
+    
+- Can authorize Parliament to legislate on subjects in the State List during national interest.
+    
+- Acts as a balancing force between the center and states.
+    
+
+#### c. **Other Functions:**
+
+- Elects the Deputy Chairperson who presides over the house in the absence of the Chairman.
+    
+- Participates in the election of the President and Vice-President of India.
+    
+- Can impeach the President and remove judges of Supreme Court and High Courts.
+    
+
+---
+
+### 5. **Presiding Officer:**
+
+- The **Vice-President of India** is the **ex-officio Chairman** of Rajya Sabha.
+    
+- The Chairman presides over the house and maintains order.
+    
+- The house elects a **Deputy Chairman** from among its members to preside in the Chairman’s absence.
+    
+
+---
+
+### 6. **Sessions of Rajya Sabha:**
+
+- Holds sessions along with Lok Sabha (Budget, Monsoon, and Winter).
+    
+- Cannot be dissolved; members retire in rotation.
+    
+- The Chairman summons and prorogues the sessions.
+    
+
+---
+
+### 7. **Powers Compared to Lok Sabha:**
+
+|Power/Function|Rajya Sabha|Lok Sabha|
+|---|---|---|
+|Money Bills|Can only recommend changes|Can initiate and pass Money Bills|
+|Confidence of Govt.|Does not decide confidence|Govt. must have support here|
+|Term|6 years (staggered retirement)|5 years (can be dissolved)|
+|Representation|States and nominated members|Directly elected by people|
+
+---
+
+### 8. **Importance of Rajya Sabha:**
+
+- Acts as a **house of review** for laws passed by Lok Sabha.
+    
+- Protects the rights of states.
+    
+- Provides expert knowledge via nominated members.
+    
+- Acts as a stabilizing factor in the Parliament.
