@@ -751,7 +751,7 @@ A person must:
 
 ### 🟦 B. **Legislative Powers**
 
-- Summons, prorogues, and dissolves **Parliament**.
+- The President calls (summons), stops (prorogues), and ends (dissolves) the sessions of Parliament.
     
 - **Assent to bills** or can:
     
