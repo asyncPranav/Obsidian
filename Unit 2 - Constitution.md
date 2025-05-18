@@ -468,5 +468,15 @@ States depend on the Centre for:
 
 ---
 
-# **President**
+# **President - Head of the State (Articles 52–78)**
+
+
+### 🔷 Who is the President?
+
+- The **President of India** is the **constitutional head** of the **Union Executive**.
+    
+- He is the **first citizen of India** and acts as the **symbol of unity, integrity, and sovereignty** of the nation.
+
+
+
 
