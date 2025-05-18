@@ -189,7 +189,7 @@ Central control over State legislation is a key feature of India's **quasi-feder
 ---
 
 
-### **Administrative relationship between center and state**
+# **Administrative relation**
 
 
 The **administrative relationship** between the **Centre and the States** in India is defined primarily in **Part XI (Articles 256 to 263)** of the Constitution. It describes how the **Union and State governments** coordinate and exercise control over each other in terms of **administration and execution of laws**.
@@ -319,4 +319,8 @@ India follows a **quasi-federal** system where **Centre has more powers** than S
 ### ✅ Conclusion:
 
 The administrative relations in India reflect a **strong unitary bias** despite being a federation. The Centre holds **greater authority**, especially during emergencies or in matters of national interest, but the Constitution also encourages **cooperative federalism** through bodies like the Inter-State Council and All India Services.
+
+
+
+# **Financial relation**
 
