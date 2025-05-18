@@ -1468,18 +1468,6 @@ The Prime Minister also gets several allowances and benefits, such as:
 - Represents the government in Parliament.
     
 
----
-
-
-### 3. Administrative Powers
-
-- The PM is the **head of the Council of Ministers**.
-    
-- Presides over the meetings of the Council and **influences its decisions**.
-    
-- Distributes and reshuffles the portfolios among ministers.
-    
-- Coordinates the work of various ministries and departments.
 
 ----
 
