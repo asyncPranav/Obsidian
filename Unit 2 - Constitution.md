@@ -82,5 +82,110 @@ But there are **5 exceptional situations** where **Parliament can legislate on S
 |President’s Rule in a State|356|✅ Yes (for that state)|
 
 ----
+
+
+### **Central control over the state legislation**
+
+
+Central control over State legislation is a key feature of India's **quasi-federal** structure. Although states have autonomy in their own sphere (especially on subjects in the **State List**), the **Central Government and Parliament have several mechanisms to control or influence State legislation**.
+
 ---
 
+### ✅ **Forms of Central Control Over State Legislation**
+
+---
+
+### 🔶 1. **Governor’s Assent (Article 200)**
+
+- Every bill passed by the State Legislature must be sent to the **Governor** for assent.
+    
+- Governor has 4 options:
+    
+    1. Give assent.
+        
+    2. Withhold assent.
+        
+    3. Reserve the bill for the consideration of the **President** (especially if it clashes with Union law or is of national interest).
+        
+    4. Return the bill (if not a money bill) for reconsideration.
+        
+
+---
+
+### 🔶 2. **Reservation for President’s Consideration (Article 201)**
+
+- When the Governor **reserves a bill for the President**, the **President can:**
+    
+    - Give assent.
+        
+    - Withhold assent.
+        
+    - Direct the Governor to return it to the State Legislature.
+        
+- This gives the **Union executive final control** over such state legislation.
+    
+
+---
+
+### 🔶 3. **Repugnancy with Central Laws (Article 254)**
+
+- If a **State law** on a **Concurrent List** subject **conflicts with a Central law**, the **Central law prevails**.
+    
+- However, if:
+    
+    - The **State law is passed**, and
+        
+    - It gets **President’s assent**,  
+        → Then **that State law prevails** in that state, even if it's inconsistent with a central law (unless Parliament later overrides it).
+        
+
+---
+
+### 🔶 4. **Direction to States (Articles 256 & 257)**
+
+- States must **ensure compliance with laws made by Parliament**.
+    
+- The **Centre can give directions** to states to ensure such compliance.
+    
+
+---
+
+### 🔶 5. **Control During Emergency (Articles 250 & 356)**
+
+- **National Emergency (Art 250):** Parliament can make laws on State subjects.
+    
+- **President’s Rule (Art 356):** Parliament or President can assume state legislative functions.
+    
+
+---
+
+### 🔶 6. **Inter-State Council / Zonal Councils Recommendations**
+
+- Though not direct control, these bodies help align state legislation with national policies through **cooperative federalism**.
+    
+
+---
+
+### 🔶 7. **Financial Control (Indirect Legislative Influence)**
+
+- **Grants-in-aid** and funds from the Centre often come with **conditions**, influencing state legislative priorities.
+    
+- Example: Centrally sponsored schemes like PM Awas Yojana, Swachh Bharat Mission.
+    
+
+---
+
+### 📌 Summary Table:
+
+|Mechanism|Article / Provision|Type of Control|
+|---|---|---|
+|Governor’s Assent|Article 200|Executive control|
+|Reservation for President|Article 201|Executive + Legislative control|
+|Conflict in Concurrent List|Article 254|Legislative supremacy of Parliament|
+|Compliance with Union laws|Article 256|Executive direction|
+|Emergency situations|Articles 250, 356|Full central control|
+|Financial grants with conditions|Finance Commission / Planning|Indirect legislative influence|
+
+---
+
+If y
