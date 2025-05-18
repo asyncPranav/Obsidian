@@ -1232,7 +1232,5 @@ The Prime Minister promises:
 ### 📌 **Key Points to Remember:**
 
 - The Prime Minister takes both oaths **before starting official duties**.
-    
 - The format is the **same for all Union Ministers**.
-    
 - These oaths ensure **constitutional loyalty, secrecy**, and **responsibility**.
