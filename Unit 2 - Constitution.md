@@ -898,7 +898,8 @@ The President of India is the **constitutional head** of the country and exercis
     - Members of various constitutional bodies (e.g., Election Commission).
         
 - The President can also appoint the **Comptroller and Auditor General**, **Finance Commission**, and others.
-    
+	
+- He can declare any area as schedule area and has power with respect to administration of schedule areas and tribal areas.
 
 ---
 
@@ -924,7 +925,7 @@ The President of India is the **constitutional head** of the country and exercis
     
 - Can **recommend President’s Rule** in states (Article 356).
 	
-- He can declare any area as schedule area and has power with respect to administration of schedule areas and tribal areas.
+
 
 ---
 
