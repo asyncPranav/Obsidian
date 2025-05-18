@@ -1136,3 +1136,46 @@ Veto power means the **power of the President to stop or reject a bill** passed 
 - The Prime Minister is the real executive (de facto executive) 
 - In other words, the president is the head of the state while the prime minister is the head of the government.
 - Prime minister is an elected leader from majority party in Lok sabha
+
+---
+
+## **Appointment of Prime minister**
+
+
+### 📜 **Constitutional Basis**
+
+- **Article 75(1)**: The Prime Minister is appointed by the **President of India**.
+    
+
+---
+
+### 👑 **Who is Appointed as PM?**
+
+1. **After General Elections**:
+    
+    - The President appoints the **leader of the majority party** in Lok Sabha as the Prime Minister.
+        
+2. **If No Majority (Hung Parliament)**:
+    
+    - The President invites the person who is likely to **command majority support** (usually leader of the largest alliance).
+        
+3. **In Case of Death/Resignation of Sitting PM**:
+    
+    - The President may appoint a **caretaker PM** or ask another leader from the same party to become PM.
+        
+
+---
+
+### ✅ **Eligibility to Become PM**
+
+- Must be a **citizen of India**.
+    
+- Must be a member of either **Lok Sabha** or **Rajya Sabha**.
+    
+    - If not a member at the time of appointment, must get elected within **6 months**.
+        
+- Must be at least:
+    
+    - **25 years old** (for Lok Sabha)
+        
+    - **30 years old** (for Rajya Sabha)
