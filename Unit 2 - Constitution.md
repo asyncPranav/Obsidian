@@ -1805,3 +1805,25 @@ The Prime Minister also gets several allowances and benefits, such as:
 - Provides expert knowledge via nominated members.
     
 - Acts as a stabilizing factor in the Parliament.
+
+
+---
+
+## 🏛️ **Difference Between Lok Sabha and Rajya Sabha**
+
+|Feature|Lok Sabha (House of the People)|Rajya Sabha (Council of States)|
+|---|---|---|
+|**Type**|Lower House|Upper House|
+|**Representation**|Directly elected by the people|Indirectly elected by State Legislatures and nominated by President|
+|**Maximum Strength**|552 members|250 members|
+|**Term**|5 years (can be dissolved earlier)|Permanent body; members serve 6 years with 1/3 retiring every 2 years|
+|**Minimum Age**|25 years|30 years|
+|**Presiding Officer**|Speaker|Vice-President (Chairman)|
+|**Control over Government**|The government must have majority here; controls executive through confidence motion|No power to remove government; only reviews legislation|
+|**Money Bills**|Can introduce and pass Money Bills|Can only recommend changes, cannot reject|
+|**Legislative Powers**|Can pass all bills including Money Bills|Can pass all bills except Money Bills; can delay non-money bills|
+|**Dissolution**|Can be dissolved by the President|Cannot be dissolved|
+|**Role**|Represents the people of India|Represents states and union territories|
+|**Nominated Members**|President can nominate 2 Anglo-Indian members (now abolished)|President can nominate 12 members for expertise in fields like art, science, social service|
+|**Special Powers**|Approves budget and controls finances|Can authorize Parliament to make laws on state subjects in national interest (Article 312)|
+|**Election of Speaker/Chairman**|Speaker elected by Lok Sabha members|Chairman is Vice-President of India|
