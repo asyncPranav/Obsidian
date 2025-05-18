@@ -638,31 +638,27 @@ A person must:
     - As **President in case of vacancy**, death, resignation, or incapacity.
 
 
-### ✅ 3. **Term and Removal ( Article - 56 )**
+---
 
-|Point|Details|
+## ✅ Summary Table
+
+|**Article**|**Topic**|
 |---|---|
-|**Term**|5 years (can be re-elected)|
-|**Resignation**|In writing to the **Vice President**|
-|**Impeachment**|For **violation of the Constitution** – Article 61|
-|**Vacancy Filling**|Must be filled within **6 months**|
+|53|Executive Power of the Union|
+|54|Election of President|
+|55|Manner of Election|
+|56|Term of Office|
+|57|Eligibility for Re-election|
+|58|Qualifications|
+|59|Conditions of Office|
+|60|Oath of Office|
+|61|Impeachment|
+|62|Election to Fill Vacancy|
+|63|Vice-President of India|
 
 ---
 
-### ✅ 4. **Powers and Functions of the President**
 
----
-
-### 🟩 A. **Executive Powers**
-
-- Appoints:
-    
-    - **Prime Minister**, and on their advice:
-        
-        - Ministers, Governors, CAG, Chief Justice & Judges of SC/HC, Election Commissioners, UPSC members, Ambassadors, etc.
-            
-- Administers **Union Territories** through administrators.
-    
 
 ---
 
