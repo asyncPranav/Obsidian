@@ -1531,4 +1531,150 @@ The Prime Minister also gets several allowances and benefits, such as:
 - Resolves disputes and promotes cooperative federalism.
 
 
+---
 
+
+
+
+---
+
+
+## 🏛️ **Lok Sabha (House of the People)**
+
+### 1. **Introduction:**
+
+- Lok Sabha is the **lower house** of the Parliament of India.
+    
+- Also known as the **House of the People**.
+    
+- It is the **most powerful house** in the Parliament.
+    
+
+---
+
+### 2. **Composition:**
+
+- Maximum strength: **552 members**.
+    
+    - Up to **530 members** represent the states.
+        
+    - Up to **20 members** represent the Union Territories.
+        
+    - **2 members** can be nominated by the President from the Anglo-Indian community (now abolished by the 104th Amendment Act, 2019).
+        
+- Members are directly elected by the **people of India** through general elections.
+    
+- The term of the Lok Sabha is **5 years**, unless dissolved sooner.
+    
+
+---
+
+### 3. **Qualifications for Membership:**
+
+- Must be a citizen of India.
+    
+- Minimum age: **25 years**.
+    
+- Must be mentally sound and not disqualified by any law.
+    
+- Must be registered as a voter in any parliamentary constituency.
+    
+
+---
+
+### 4. **Functions of Lok Sabha:**
+
+#### a. **Legislative Functions:**
+
+- Pass laws on subjects in the **Union List** and **Concurrent List**.
+    
+- Can initiate **Money Bills** (only Lok Sabha can introduce Money Bills).
+    
+- Discuss and pass the **Union Budget**.
+    
+- Approve amendments to the Constitution.
+    
+
+#### b. **Control over Executive:**
+
+- Controls the Council of Ministers through **questions**, **debates**, and **motions**.
+    
+- Can remove the government by passing a **No-Confidence Motion**.
+    
+- Holds discussions on important issues of national and international importance.
+    
+
+#### c. **Financial Powers:**
+
+- Approves all expenditures and taxation proposals.
+    
+- Can reject or amend the **Money Bill**.
+    
+- Approves the **Annual Financial Statement** (Budget).
+    
+
+#### d. **Electoral Functions:**
+
+- Elects the **Speaker** and **Deputy Speaker**.
+    
+- Participates in the election of the **President** of India.
+    
+- Participates in the election of the **Vice-President** of India.
+    
+
+---
+
+### 5. **Presiding Officer:**
+
+- The **Speaker** is the presiding officer of the Lok Sabha.
+    
+- The Speaker is elected by the members of the Lok Sabha.
+    
+- Maintains order and decorum in the house.
+    
+- Decides whether a bill is a Money Bill or not.
+    
+- Has the power to discipline members.
+    
+
+---
+
+### 6. **Sessions of Lok Sabha:**
+
+- Usually, there are **3 sessions** in a year:
+    
+    - **Budget Session** (Feb-May)
+        
+    - **Monsoon Session** (July-August)
+        
+    - **Winter Session** (Nov-Dec)
+        
+- The President can summon and prorogue sessions.
+    
+- Lok Sabha can be dissolved by the President on the advice of the Prime Minister.
+    
+
+---
+
+### 7. **Powers of Lok Sabha Compared to Rajya Sabha:**
+
+|Power/Function|Lok Sabha|Rajya Sabha|
+|---|---|---|
+|Money Bills|Can only be introduced here|Can only make recommendations|
+|Confidence of Govt.|Lok Sabha’s support is crucial|Rajya Sabha cannot remove govt|
+|Maximum strength|552 members|250 members|
+|Directly elected|Yes|No (elected by state legislators)|
+
+---
+
+### 8. **Importance of Lok Sabha:**
+
+- Lok Sabha represents the **will of the people**.
+    
+- It is the **main law-making body**.
+    
+- It holds the **government accountable**.
+    
+- Controls the financial matters of the country.
+    
+- Plays a vital role in democracy.
