@@ -468,14 +468,16 @@ States depend on the Centre for:
 
 ---
 
-# **Center - State relationship**
+# **🔹Center - State relationship**
 
 The **Centre-State Relationship** in the Indian Constitution refers to the division of powers, responsibilities, and functions between the **Central Government (Union)** and the **State Governments**. It is designed to maintain a balance of power in India’s **federal structure**, while also allowing for a **strong Centre**.
 
 This relationship is mainly explained in **Part XI and Part XII** of the Indian Constitution and can be broadly classified into **three types**:
 
 Centre state relations are divided into three head 
--  Legislative Relations ● Administrative Relations ● Financial Relations
+-  Legislative Relations 
+-  Administrative Relations 
+-  Financial Relations
 
 ---
 
