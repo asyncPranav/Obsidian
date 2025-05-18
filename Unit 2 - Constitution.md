@@ -577,6 +577,7 @@ A person must:
 - Cannot be tried in any **criminal proceeding** during the term.
     
 - Cannot be **arrested or imprisoned** while in office.
+	
 - His emoluments and allowances cannot be diminished during the term of office.
 
 
