@@ -1135,3 +1135,4 @@ Veto power means the **power of the President to stop or reject a bill** passed 
 -  The president is nominal executive authority( de jure executive) 
 - The Prime Minister is the real executive (de facto executive) 
 - In other words, the president is the head of the state while the prime minister is the head of the government.
+- Prime minister is an elected leader
