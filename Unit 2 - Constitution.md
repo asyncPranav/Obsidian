@@ -484,3 +484,8 @@ States depend on the Centre for:
 There shall be a president of India who would be the Head of the union executive.
 
 
+---
+
+## 🏛️ Article 53:
+
+Theexecutive power of the Union shall be vested in the President
