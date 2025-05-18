@@ -1529,3 +1529,6 @@ The Prime Minister also gets several allowances and benefits, such as:
 - Acts as a link between the central government and state governments.
     
 - Resolves disputes and promotes cooperative federalism.
+
+
+
