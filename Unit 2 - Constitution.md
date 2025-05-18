@@ -494,7 +494,7 @@ The executive power of the Union shall be vested in the President.
 ---
 
 
-### ✅ 1. **Election of the President** (Article 54–55)
+### ✅ 1. **Election of the President** (Article 54)
 
 - Elected **indirectly** by an **Electoral College** consisting of:
     
