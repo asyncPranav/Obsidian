@@ -591,7 +591,7 @@ A person must:
     
 - Oath to:
     
-    - **Preserve, protect, and defend the Constitution**.
+    - **Preserve, protect, and defend the Constitution and law**.
         
     - **Serve and do justice to all people** of India.
         
@@ -601,6 +601,7 @@ A person must:
 ### 🔹 **Article 61 – Impeachment of President**
 
 - The only **legal way to remove the President**.
+- IMPEACHMENT-President can be removed fromoffice by process of impeachment on grounds of “ Violation of the constitution”.
     
 - Ground: **Violation of the Constitution**.
     
