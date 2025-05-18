@@ -857,3 +857,170 @@ The **State Executive** is the authority that runs the **state government** in e
 
 ---
 
+
+# **Powers of the President of India**
+
+The President of India is the **constitutional head** of the country and exercises various powers classified broadly as:
+
+1. **Executive Powers**
+    
+2. **Legislative Powers**
+    
+3. **Judicial Powers**
+    
+4. **Financial Powers**
+    
+5. **Military Powers**
+    
+6. **Diplomatic Powers**
+    
+7. **Emergency Powers**
+    
+
+---
+
+## 1. **Executive Powers**
+
+- **Article 53**: The executive power of the Union is vested in the President.
+    
+- The President acts on the **aid and advice** of the Council of Ministers headed by the Prime Minister (Article 74).
+    
+- Appointment powers include:
+    
+    - Prime Minister and other ministers (Article 75).
+        
+    - Governors of states (Article 155).
+        
+    - Chief Justice and judges of Supreme Court and High Courts (Article 124 and 217).
+        
+    - Ambassadors and diplomatic representatives.
+        
+    - Members of various constitutional bodies (e.g., Election Commission).
+        
+- The President can also appoint the **Comptroller and Auditor General**, **Finance Commission**, and others.
+    
+
+---
+
+## 2. **Legislative Powers**
+
+- **Summoning and Proroguing Parliament** and dissolving Lok Sabha (Article 85).
+    
+- **Address to Parliament** at the commencement of the first session after each general election and annually thereafter (Article 87).
+    
+- **Assent to Bills**: No bill becomes law without the President’s assent (Articles 111 and 200 for state bills).
+    
+- **Veto Powers**:
+    
+    - Absolute veto (reject bill completely).
+        
+    - Suspensive veto (return the bill for reconsideration).
+        
+    - Pocket veto (delay decision indefinitely).
+        
+- **Promulgation of Ordinances** when Parliament is not in session (Article 123).
+    
+- Can recommend **money bills** (only introduced in Lok Sabha).
+    
+- Can **recommend President’s Rule** in states (Article 356).
+    
+
+---
+
+## 3. **Judicial Powers**
+
+- **Pardon, reprieve, respite, or remission of punishment** and **commutation of sentences** in certain cases (Article 72).
+    
+- This includes cases involving:
+    
+    - Death penalty.
+        
+    - Court-martial sentences.
+        
+    - Cases involving offenses against Union laws.
+        
+- President’s clemency power is a **safeguard against miscarriage of justice**.
+    
+
+---
+
+## 4. **Financial Powers**
+
+- No money bill can be introduced in Parliament without the President’s recommendation (Article 117).
+    
+- President causes the **Annual Financial Statement (Union Budget)** to be laid before Parliament (Article 112).
+    
+- Controls the **Consolidated Fund of India** (Article 266).
+    
+- Authorizes expenditure from the fund.
+    
+- Has the power to **withdraw money** from the Consolidated Fund.
+    
+
+---
+
+## 5. **Military Powers**
+
+- President is the **Supreme Commander of the Defence Forces of India** (Article 53).
+    
+- Has the power to:
+    
+    - Appoint the Chiefs of Army, Navy, and Air Force.
+        
+    - Declare war or conclude peace, subject to parliamentary approval.
+        
+    - Use the armed forces to maintain law and order (e.g., during President’s Rule).
+        
+
+---
+
+## 6. **Diplomatic Powers**
+
+- The President represents India in **international affairs**.
+    
+- Appoints **ambassadors and diplomatic representatives** to other countries.
+    
+- Receives foreign ambassadors and diplomats.
+    
+- Can make treaties and agreements with other countries, subject to parliamentary ratification.
+    
+
+---
+
+## 7. **Emergency Powers**
+
+- The President can declare three types of emergencies:
+    
+    |Emergency Type|Article No.|Description|
+    |---|---|---|
+    |**National Emergency**|352|Declared on grounds of war, external aggression, or armed rebellion.|
+    |**President's Rule**|356|Imposed in states where the constitutional machinery fails.|
+    |**Financial Emergency**|360|Declared if the financial stability or credit of India is threatened.|
+    
+- During emergencies, many powers of the President are exercised **with more authority**, sometimes bypassing normal processes.
+    
+
+---
+
+## Additional Important Points
+
+- **Immunity from legal proceedings** during term (Article 361).
+    
+- The President’s decisions are **final and binding**.
+    
+- The President acts **on the aid and advice of the Council of Ministers** except in a few discretionary situations.
+    
+
+---
+
+# **Summary Table of Powers**
+
+|Power Type|Key Articles|Description|
+|---|---|---|
+|Executive|53, 74, 75|Appointment, executive decisions|
+|Legislative|85, 87, 111, 123|Summoning Parliament, assent to bills, ordinances|
+|Judicial|72|Pardons, reprieves, commutation|
+|Financial|112, 117, 266|Budget, money bills, fund control|
+|Military|53, 74|Supreme Commander, declare war/peace|
+|Diplomatic|53, 74|Foreign relations, treaties, ambassadors|
+|Emergency|352, 356, 360|Declare emergencies|
