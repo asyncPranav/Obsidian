@@ -601,7 +601,8 @@ A person must:
 ### 🔹 **Article 61 – Impeachment of President**
 
 - The only **legal way to remove the President**.
-- IMPEACHMENT-President can be removed fromoffice by process of impeachment on grounds of “ Violation of the constitution”.
+	
+- **IMPEACHMENT-** President can be removed from office by process of impeachment on grounds of “ Violation of the constitution”.
     
 - Ground: **Violation of the Constitution**.
     
@@ -610,7 +611,7 @@ A person must:
     - Resolution passed by **2/3rd majority of both Houses of Parliament**.
         
     - Detailed **investigation and opportunity for defense**.
-        
+- 
 
 ---
 
