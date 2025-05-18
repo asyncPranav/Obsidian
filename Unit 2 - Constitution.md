@@ -1442,13 +1442,15 @@ The Prime Minister also gets several allowances and benefits, such as:
 
 - Head of the Council of Ministers.
     
-- Advises the President on appointments of ministers and other key officials.
+- The PM is the **chief executive authority** of the country.
     
-- Supervises the functioning of ministries and departments.
+- He/She **allocates portfolios** (departments) to the ministers.
     
-- Coordinates the work of various ministries.
+- The PM **supervises and coordinates** the work of all the ministers.
     
-- Can recommend the dissolution of Lok Sabha to the President.
+- He/She can ask any minister to **resign** or advise the President to **remove** a minister.
+    
+- Acts as a **link between the President and the Council of Ministers**.
     
 
 ---
@@ -1467,6 +1469,20 @@ The Prime Minister also gets several allowances and benefits, such as:
     
 
 ---
+
+
+### 3. Administrative Powers
+
+- The PM is the **head of the Council of Ministers**.
+    
+- Presides over the meetings of the Council and **influences its decisions**.
+    
+- Distributes and reshuffles the portfolios among ministers.
+    
+- Coordinates the work of various ministries and departments.
+
+----
+
 
 ### 3. **Financial Powers**
 
