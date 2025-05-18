@@ -1827,3 +1827,7 @@ The Prime Minister also gets several allowances and benefits, such as:
 |**Nominated Members**|President can nominate 2 Anglo-Indian members (now abolished)|President can nominate 12 members for expertise in fields like art, science, social service|
 |**Special Powers**|Approves budget and controls finances|Can authorize Parliament to make laws on state subjects in national interest (Article 312)|
 |**Election of Speaker/Chairman**|Speaker elected by Lok Sabha members|Chairman is Vice-President of India|
+
+---
+
+
