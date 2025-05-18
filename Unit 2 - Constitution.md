@@ -477,6 +477,10 @@ States depend on the Centre for:
     
 - He is the **first citizen of India** and acts as the **symbol of unity, integrity, and sovereignty** of the nation.
 
+---
 
+## 🏛️ Article 52:
+
+There shall be a president of India who would be the Head of the union executive.
 
 
