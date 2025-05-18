@@ -611,7 +611,10 @@ A person must:
     - Resolution passed by **2/3rd majority of both Houses of Parliament**.
         
     - Detailed **investigation and opportunity for defense**.
-- 
+    
+-  President can defend himself or appoint any persons/ lawyers/ Attorney General Of India to defend him
+	
+ - his impeachment is quasi- Judicial Process.
 
 ---
 
