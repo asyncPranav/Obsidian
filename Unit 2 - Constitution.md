@@ -1008,13 +1008,13 @@ The President of India is the **constitutional head** of the country and exercis
 ## 7. **Emergency Powers**
 
 - The President can declare three types of emergencies:
-    
-    |Emergency Type|Article No.|Description|
-    |---|---|---|
-    |**National Emergency**|352|Declared on grounds of war, external aggression, or armed rebellion.|
-    |**President's Rule**|356|Imposed in states where the constitutional machinery fails.|
-    |**Financial Emergency**|360|Declared if the financial stability or credit of India is threatened.|
-    
+
+|Emergency Type|Article No.|Description|
+|---|---|---|
+|**National Emergency**|352|Declared on grounds of war, external aggression, or armed rebellion.|
+|**President's Rule**|356|Imposed in states where the constitutional machinery fails.|
+|**Financial Emergency**|360|Declared if the financial stability or credit of India is threatened.|
+
 - During emergencies, many powers of the President are exercised **with more authority**, sometimes bypassing normal processes.
     
 
