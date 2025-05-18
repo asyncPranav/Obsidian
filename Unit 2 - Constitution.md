@@ -1972,7 +1972,14 @@ The Prime Minister also gets several allowances and benefits, such as:
 - Responsible for the administration of urban areas.
     
 - Aim to provide essential services and infrastructure to urban residents.
+	
+- It is responsible for **local administration**, **planning**, and **development** in urban areas.
     
+- Governed by the **74th Constitutional Amendment Act, 1992**.
+    
+- Also known as **Urban Local Bodies (ULBs)**.
+    
+- Includes: **Municipal Corporations**, **Municipal Councils**, and **Nagar Panchayats**.
 
 ---
 
@@ -1987,16 +1994,6 @@ The Prime Minister also gets several allowances and benefits, such as:
 
 ---
 
-### 3. **Constitutional Provision:**
-
-- Established under **74th Constitutional Amendment Act, 1992**.
-    
-- Part IX-A of the Indian Constitution.
-    
-- Provides a constitutional status and framework for municipalities.
-    
-
----
 
 ### 4. **Structure of Municipalities:**
 
@@ -2007,81 +2004,6 @@ The Prime Minister also gets several allowances and benefits, such as:
 |**Councilors**|Elected representatives from wards (areas within the city/town)|
 
 ---
-
-### 5. **Functions of Municipalities:**
-
-#### a. **Urban Planning:**
-
-- Planning and development of the town/city.
-    
-- Regulating land use and building construction.
-    
-
-#### b. **Public Health and Sanitation:**
-
-- Garbage collection and disposal.
-    
-- Maintaining drainage and sewerage systems.
-    
-- Running public health centers and hospitals.
-    
-
-#### c. **Water Supply:**
-
-- Providing clean drinking water to residents.
-    
-
-#### d. **Infrastructure Development:**
-
-- Maintenance of roads, street lighting, parks, and public spaces.
-    
-
-#### e. **Social Welfare:**
-
-- Welfare programs for weaker sections of society.
-    
-- Slum improvement and poverty alleviation.
-    
-
-#### f. **Tax Collection:**
-
-- Collect property tax, water tax, and other local taxes.
-    
-
----
-
-### 6. **Sources of Revenue:**
-
-|Source|Description|
-|---|---|
-|**Taxes**|Property tax, entertainment tax, advertisement tax|
-|**Grants**|From Central and State Governments|
-|**Fees and Charges**|Water supply charges, market fees, license fees|
-
----
-
-### 7. **Importance of Municipalities:**
-
-- Bring government closer to the people at the urban level.
-    
-- Promote **local self-governance**.
-    
-- Help improve quality of life in cities and towns.
-    
-- Play a key role in urban development and planning.
-    
-
----
-
-### 8. **Challenges faced by Municipalities:**
-
-- Financial constraints and dependence on higher government grants.
-    
-- Rapid urbanization leading to pressure on infrastructure.
-    
-- Need for efficient service delivery and transparency.
-    
-- Coordination between state government and municipalities.
 
 ---
 
