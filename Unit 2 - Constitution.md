@@ -947,6 +947,7 @@ The President of India is the **constitutional head** of the country and exercis
 - President’s clemency power is a **safeguard against miscarriage of justice**.
     
 
+	
 ---
 
 ## 4. **Financial Powers**
