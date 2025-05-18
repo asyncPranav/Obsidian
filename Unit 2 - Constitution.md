@@ -2082,3 +2082,155 @@ The Prime Minister also gets several allowances and benefits, such as:
 - Need for efficient service delivery and transparency.
     
 - Coordination between state government and municipalities.
+
+---
+
+## 🌾 **Panchayati Raj System in India**
+
+### 1. **Introduction:**
+
+- Panchayati Raj is the system of **rural local self-government** in India.
+    
+- It aims to decentralize power to the village level for better governance and development.
+    
+- It is a three-tier system with elected bodies at village, intermediate (block), and district levels.
+    
+
+---
+
+### 2. **Historical Background:**
+
+- Traditional Panchayats existed in villages for centuries as informal councils.
+    
+- After independence, efforts were made to formalize and institutionalize Panchayati Raj.
+    
+- The **Balwant Rai Mehta Committee (1957)** recommended a 3-tier system.
+    
+- The **73rd Constitutional Amendment Act, 1992** gave constitutional status to Panchayati Raj institutions (PRIs).
+    
+
+---
+
+### 3. **Constitutional Provisions:**
+
+- Part IX of the Constitution (Articles **243** to **243O**) deals with Panchayats.
+    
+- Added by the 73rd Amendment Act, 1992.
+    
+- Provides for:
+    
+    - **Three-tier Panchayati Raj system** (Gram Panchayat, Panchayat Samiti, Zilla Parishad).
+        
+    - **Regular elections** every 5 years.
+        
+    - **Reservation of seats** for Scheduled Castes (SC), Scheduled Tribes (ST), and women (not less than 1/3rd).
+        
+    - Powers and responsibilities of Panchayats.
+        
+    - State Election Commissions to conduct Panchayat elections.
+        
+    - Finance Commission for Panchayats.
+        
+
+---
+
+### 4. **Structure of Panchayati Raj:**
+
+|Level|Name|Area Covered|Functions|
+|---|---|---|---|
+|**Village Level**|Gram Panchayat|Village or group of villages|Local administration & development|
+|**Intermediate Level**|Panchayat Samiti / Block Panchayat|Block (group of villages)|Coordinating and supervising Gram Panchayats|
+|**District Level**|Zilla Parishad|Entire district|Planning and development at district level|
+
+---
+
+### 5. **Composition:**
+
+- **Gram Panchayat**: Elected members called **Panchs**; headed by **Sarpanch**.
+    
+- **Panchayat Samiti**: Elected members + representatives of Gram Panchayats.
+    
+- **Zilla Parishad**: Elected members + heads of Panchayat Samitis + representatives of municipalities.
+    
+
+---
+
+### 6. **Functions of Panchayati Raj Institutions:**
+
+#### a. **Administrative Functions:**
+
+- Maintain public infrastructure like roads, water supply, drainage.
+    
+- Implement government schemes and welfare programs.
+    
+- Maintain birth and death records.
+    
+
+#### b. **Developmental Functions:**
+
+- Agricultural development and land improvement.
+    
+- Promote education, health, and sanitation.
+    
+- Encourage social welfare activities.
+    
+
+#### c. **Regulatory Functions:**
+
+- Regulate markets, fairs, and local trades.
+    
+- Control building and land use in villages.
+    
+
+---
+
+### 7. **Financial Sources:**
+
+|Source|Description|
+|---|---|
+|Taxes|Land tax, house tax, water tax, etc.|
+|Grants|From state and central governments|
+|Loans|Taken for development projects|
+|Fees and Fines|Charges for services and penalties|
+
+---
+
+### 8. **Significance:**
+
+- Promotes **grassroots democracy** and people’s participation.
+    
+- Helps in **decentralization** of administration.
+    
+- Enables **local problem-solving** and development.
+    
+- Empowers **women and marginalized communities** through reservations.
+    
+- Bridges the gap between government and rural citizens.
+    
+
+---
+
+### 9. **Challenges:**
+
+- Lack of adequate financial autonomy.
+    
+- Dominance of local elites and caste politics.
+    
+- Inadequate training and awareness among members.
+    
+- Corruption and inefficiency.
+    
+- Insufficient supervision and support from state governments.
+    
+
+---
+
+### 10. **Recent Developments:**
+
+- States have passed laws to implement Panchayati Raj according to the 73rd Amendment.
+    
+- Efforts to increase digital literacy and transparency.
+    
+- Increased focus on women’s participation and leadership.
+    
+- Linking Panchayats with central schemes like MGNREGA, Swachh Bharat.
