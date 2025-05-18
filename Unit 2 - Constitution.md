@@ -1255,3 +1255,43 @@ The Prime Minister promises:
 - The PM can be **removed from office if he/she loses majority support** in Lok Sabha (through a No Confidence Motion).
     
 - There is **no limit on the number of terms** a person can serve as PM.
+
+
+---
+
+
+## 📋 **Eligibility for Prime Minister of India**
+
+To become the Prime Minister, a person must fulfill the following conditions:
+
+1. **Citizenship:**  
+    Must be a **citizen of India**.
+    
+2. **Age:**
+    
+    - Must be at least **25 years old** if a member of **Lok Sabha** (the lower house).
+        
+    - Must be at least **30 years old** if a member of **Rajya Sabha** (the upper house).
+        
+3. **Membership in Parliament:**  
+    Must be a **member of either Lok Sabha or Rajya Sabha**.
+    
+    - If not a member at the time of appointment, the person must get elected/nominated within **6 months**.
+        
+4. **Other Qualifications:**
+    
+    - Must not hold any **office of profit** under the government (which could cause conflict of interest).
+        
+    - Must not be disqualified under any law related to elections or criminal conduct.
+        
+
+---
+
+### Summary Table
+
+|Eligibility Factor|Requirement|
+|---|---|
+|Citizenship|Indian citizen|
+|Age|25+ for Lok Sabha; 30+ for Rajya Sabha|
+|Membership|Member of Lok Sabha or Rajya Sabha (or must become within 6 months)|
+|Other conditions|Not disqualified; no office of profit|
