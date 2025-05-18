@@ -1126,3 +1126,8 @@ Veto power means the **power of the President to stop or reject a bill** passed 
 - **Absolute Veto** was used by **President Zail Singh** in 1986 — he rejected the **Indian Post Office (Amendment) Bill**.
     
 - **Pocket Veto** was used by **President Giani Zail Singh** when he did not act on the **Postal Bill**.
+
+
+---
+
+# **🧑‍⚖️ Prime minister**
