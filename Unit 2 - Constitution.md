@@ -1249,7 +1249,9 @@ The Prime Minister promises:
 - The PM can be **reappointed** after every general election if his/her party or coalition wins.
     
 - The PM **can resign at any time**.
-    
+	
+-  President can not dismiss PM as per his/her will
+	
 - The PM can be **removed from office if he/she loses majority support** in Lok Sabha (through a No Confidence Motion).
     
 - There is **no limit on the number of terms** a person can serve as PM.
