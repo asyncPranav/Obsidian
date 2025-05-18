@@ -1179,3 +1179,58 @@ Veto power means the **power of the President to stop or reject a bill** passed 
     - **25 years old** (for Lok Sabha)
         
     - **30 years old** (for Rajya Sabha)
+
+
+---
+
+
+## 🧾 **Oath of the Prime Minister of India**
+
+### 📜 **Constitutional Provision:**
+
+- The **Oath of Office and Secrecy** for the Prime Minister is given under:  
+    👉 **Third Schedule** of the Constitution of India.  
+    👉 As per **Article 75(4)**: _The Prime Minister before entering upon office shall take an oath before the President._
+    
+
+---
+
+### 🗣️ **Who Administers the Oath?**
+
+- The **President of India** administers the oath to the Prime Minister.
+    
+
+---
+
+### ✋ **Types of Oaths:**
+
+1. **Oath of Office**
+    
+2. **Oath of Secrecy**
+    
+
+---
+
+### ✅ **1. Oath of Office (Exact Format):**
+
+> “I, [Name], do swear in the name of God / solemnly affirm that I will bear true faith and allegiance to the Constitution of India as by law established,  
+> that I will uphold the sovereignty and integrity of India,  
+> that I will faithfully and conscientiously discharge my duties as Prime Minister of the Union,  
+> and that I will do right to all manner of people in accordance with the Constitution and the law,  
+> without fear or favour, affection or ill-will.”
+
+---
+
+### 🤐 **2. Oath of Secrecy (Exact Format):**
+
+> “I, [Name], do swear in the name of God / solemnly affirm that I will not directly or indirectly communicate or reveal to any person or persons any matter which shall be brought under my consideration or shall become known to me as Prime Minister of the Union except as may be required for the due discharge of my duties as such Minister.”
+
+---
+
+### 📌 **Key Points to Remember:**
+
+- The Prime Minister takes both oaths **before starting official duties**.
+    
+- The format is the **same for all Union Ministers**.
+    
+- These oaths ensure **constitutional loyalty, secrecy**, and **responsibility**.
