@@ -1259,8 +1259,8 @@ The Prime Minister promises:
 
 ---
 
-
 ## 📋 **Eligibility for Prime Minister of India**
+
 
 To become the Prime Minister, a person must fulfill the following conditions:
 
@@ -1295,3 +1295,5 @@ To become the Prime Minister, a person must fulfill the following conditions:
 |Age|25+ for Lok Sabha; 30+ for Rajya Sabha|
 |Membership|Member of Lok Sabha or Rajya Sabha (or must become within 6 months)|
 |Other conditions|Not disqualified; no office of profit|
+
+---
