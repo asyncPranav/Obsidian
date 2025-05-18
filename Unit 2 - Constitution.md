@@ -505,27 +505,7 @@ The executive power of the Union shall be vested in the President.
     - Elected members of **Union Territories’ legislatures** (like Delhi, Puducherry).
         
 
-#### ➤ System Used:
 
-- **Proportional Representation** by means of **Single Transferable Vote (STV)**.
-    
-- **Secret ballot** is used.
-
-
----
-
-### 🔹 **Article 54 – Election of President**
-
-- The President is **not directly elected** by the people.
-    
-- Elected by an **Electoral College** consisting of:
-    
-    - Elected members of **Lok Sabha and Rajya Sabha**.
-        
-    - Elected members of the **State Legislative Assemblies** (including Delhi & Puducherry).
-        
-- Nominated members are **excluded**.
-    
 
 ---
 
