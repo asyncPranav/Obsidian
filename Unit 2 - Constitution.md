@@ -485,9 +485,9 @@ Centre state relations are divided into three head
 
 These articles describe **who can make laws** on what subjects:
 
-- **Union List (List I)** – union list contain 98 subjects (originally 97 items) It comprises of subjects with National importance and admits of uniform laws for the whole country. Includes defence foreign affairs currency war and peace, atomic energy Railway, citizenship, foreign trade, banking, national highways, etc. Only the **Parliament** can legislate (e.g., defence, foreign affairs, atomic energy).
+- **Union List (List I)** –> union list contain 98 subjects (originally 97 items) It comprises of subjects with National importance and admits of uniform laws for the whole country. Includes defence foreign affairs currency war and peace, atomic energy Railway, citizenship, foreign trade, banking, national highways, etc. Only the **Parliament** can legislate (e.g., defence, foreign affairs, atomic energy).
     
-- **State List (List II)** – Only the **State Legislatures** can make laws (e.g., police, public health, local government).
+- **State List (List II)** –> It comprises subject matters that are related to local or state interest;  Includes local government, public order, public health and sanitation, hospitals, animal husbandry, and water supply. Only the **State Legislatures** can make laws (e.g., police, public health, local government).
     
 - **Concurrent List (List III)** – **Both Centre and States** can make laws (e.g., education, marriage, forests). In case of conflict, **Central law prevails**.
     
