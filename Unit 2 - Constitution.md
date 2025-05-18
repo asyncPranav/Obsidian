@@ -526,7 +526,7 @@ The executive power of the Union shall be vested in the President.
 
 ### 🔹 **Article 56 – Term of Office of President**
 
-- President holds office for a **term of 5 years**.
+- President holds office for a **term of 5 years** from date on which president enters his office.
     
 - Can **resign** to the Vice-President.
     
