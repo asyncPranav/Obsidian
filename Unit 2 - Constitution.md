@@ -1131,3 +1131,4 @@ Veto power means the **power of the President to stop or reject a bill** passed 
 ---
 
 # **🧑‍⚖️ Prime minister**
+
