@@ -1007,7 +1007,8 @@ The President of India is the **constitutional head** of the country and exercis
 
 ## 7. **Emergency Powers**
 
-- The President can declare three types of emergencies:
+- Provision take from Government of India Act 1935.
+- There are 3 types emergency powers of President Of India. It is in part XVIII of constitution
 
 |Emergency Type|Article No.|Description|
 |---|---|---|
