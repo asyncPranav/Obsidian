@@ -1035,14 +1035,15 @@ The President of India is the **constitutional head** of the country and exercis
 
 ### Pardon power ( Article 72 )
 
-|🔹 **Type of Power**|✅ **Simple Meaning**|
-|---|---|
-|**Pardon**|The person is **fully forgiven**. The punishment and the crime both are cancelled. The person is free.|
-|**Reprieve**|The punishment is **delayed for some time** (example: hanging is put on hold for a few days).|
-|**Respite**|The punishment is **reduced** because of some special reason like **pregnancy**, **illness**, or **old age**.|
-|**Remission**|The **time of punishment is reduced**, but the type of punishment remains the same. (Example: 10 years in jail changed to 5 years).|
-|**Commutation**|The **type of punishment is changed** to a lighter one. (Example: Death sentence changed to life imprisonment).|
-|**Suspension**|The punishment is **stopped for some time**. It may start again later.|
+| 🔹 **Type of Power** | ✅ **Simple Meaning**                                                                                                                |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **Pardon**           | The person is **fully forgiven**. The punishment and the crime both are cancelled. The person is free.                              |
+| **Reprieve**         | The punishment is **delayed for some time** (example: hanging is put on hold for a few days).                                       |
+| **Respite**          | The punishment is **reduced** because of some special reason like **pregnancy**, **illness**, or **old age**.                       |
+| **Remission**        | The **time of punishment is reduced**, but the type of punishment remains the same. (Example: 10 years in jail changed to 5 years). |
+| **Commutation**      | The **type of punishment is changed** to a lighter one. (Example: Death sentence changed to life imprisonment).                     |
+| **Suspension**       | The punishment is **stopped for some time**. It may start again later.                                                              |
+|                      |                                                                                                                                     |
 
 ---
 
