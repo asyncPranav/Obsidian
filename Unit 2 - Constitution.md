@@ -1139,7 +1139,7 @@ Veto power means the **power of the President to stop or reject a bill** passed 
 
 ---
 
-## **Appointment of Prime minister**
+## **📌 Appointment of Prime minister**
 
 
 ### 📜 **Constitutional Basis**
