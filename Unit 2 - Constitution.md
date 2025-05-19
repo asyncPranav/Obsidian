@@ -1627,10 +1627,8 @@ The Prime Minister also gets several allowances and benefits, such as:
 
 
 
----
-
-
 ## 🏛️ **Lok Sabha (House of the People)**
+
 
 
 ### 1. **Introduction:**
