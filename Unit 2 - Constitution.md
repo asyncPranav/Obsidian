@@ -554,14 +554,14 @@ These define how **revenue and taxes** are shared:
 
 ---
 
-### **🏛️ Article 52:
+### **🏛️ Article 52:**
 
 There shall be a president of India who would be the Head of the union executive.
 
 
 ---
 
-### **🏛️ Article 53:
+### **🏛️ Article 53:**
 
 The executive power of the Union shall be vested in the President.
 
