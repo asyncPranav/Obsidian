@@ -4,5 +4,7 @@
 ## **IMAGE**
 
 ```html
-<img>
+<img src = "path" height = "10px" width />
 ```
+
+
