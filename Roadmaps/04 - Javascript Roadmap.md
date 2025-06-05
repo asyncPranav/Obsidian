@@ -281,3 +281,187 @@
 - Naming conventions
     
 - Commenting your code
+  
+  ---
+
+
+
+# **Js Projects**
+
+
+## 🔰 Beginner Level (Logic + DOM Manipulation)
+
+These projects help you master JS fundamentals, events, and DOM access.
+
+### 🟢 UI Utilities
+
+- ✅ **To-Do List** with LocalStorage
+    
+- ✅ **Stopwatch / Timer**
+    
+- ✅ **Digital Clock**
+    
+- ✅ **Age Calculator**
+    
+- ✅ **BMI Calculator**
+    
+- ✅ **Unit Converter** (km to miles, °C to °F)
+    
+- ✅ **Form Validator** (with regex and dynamic error messages)
+    
+- ✅ **Character Counter**
+    
+- ✅ **Password Strength Checker**
+    
+- ✅ **Light/Dark Mode Toggle**
+    
+
+### 🟢 Fun Mini Tools
+
+- ✅ **Random Quote Generator**
+    
+- ✅ **Dice Roller**
+    
+- ✅ **Random Number Generator**
+    
+- ✅ **Palindrome Checker**
+    
+- ✅ **Tip Calculator**
+    
+- ✅ **Love Calculator** (for fun)
+    
+
+---
+
+## 🧠 Intermediate Level (Data + API + Storage)
+
+These include fetching data, local storage, deeper logic.
+
+### 🟡 Real Apps
+
+- ✅ **Weather App** using OpenWeatherMap API
+    
+- ✅ **Dictionary App** using Free Dictionary API
+    
+- ✅ **Currency Converter** using ExchangeRate API
+    
+- ✅ **Quiz App** (score, progress, question shuffle)
+    
+- ✅ **Notes App** (with delete/edit/save in LocalStorage)
+    
+- ✅ **Simple Budget Tracker**
+    
+- ✅ **Image Slider/Carousel** with buttons and auto-scroll
+    
+- ✅ **Custom Modal / Popup System**
+    
+- ✅ **Accordion / Collapsible FAQs**
+    
+
+### 🟡 Games
+
+- ✅ **Tic Tac Toe**
+    
+- ✅ **Rock Paper Scissors**
+    
+- ✅ **Memory Matching Game**
+    
+- ✅ **Hangman Game**
+    
+- ✅ **Typing Speed Test**
+    
+- ✅ **2048 Game (grid logic)**
+    
+
+---
+
+## 🚀 Advanced Level (Graphics, Animations, API, Custom Logic)
+
+Push the limits of what JS can do natively in the browser.
+
+### 🔴 Graphics & Canvas
+
+- ✅ **Paint App / Drawing Board** using `<canvas>`
+    
+- ✅ **Brick Breaker Game**
+    
+- ✅ **Snake Game**
+    
+- ✅ **Maze Solver Visualizer**
+    
+- ✅ **Fireworks Animation**
+    
+
+### 🔴 Data & Visualization
+
+- ✅ **JSON Formatter & Viewer**
+    
+- ✅ **Real-time Search Filter**
+    
+- ✅ **Custom Chart (built from scratch using canvas)**
+    
+- ✅ **Gantt Chart / Calendar (pure JS)**
+    
+
+### 🔴 APIs & Advanced Features
+
+- ✅ **Text-to-Speech App** using `SpeechSynthesis`
+    
+- ✅ **Speech-to-Text App** using `SpeechRecognition`
+    
+- ✅ **Geolocation Tracker** using `navigator.geolocation`
+    
+- ✅ **Camera Capture App** using `getUserMedia()`
+    
+- ✅ **Clipboard Manager** (copy/paste control)
+    
+- ✅ **Password Generator** with copy to clipboard
+    
+
+---
+
+## 🧩 Creative and Unique Pure JS Ideas
+
+- 🔶 **Emoji Picker**
+    
+- 🔶 **Keyboard Tester**
+    
+- 🔶 **Virtual Piano**
+    
+- 🔶 **Voice-controlled App** (e.g., say “change background”)
+    
+- 🔶 **Browser-based Text Editor**
+    
+- 🔶 **Custom Alert, Prompt & Confirm Modals**
+    
+- 🔶 **Portfolio with Animated Scroll & IntersectionObserver**
+    
+- 🔶 **Fake Hacking Terminal (prank app)**
+    
+
+---
+
+## 📁 File-related (in-browser)
+
+- ✅ **Image Previewer** before upload
+    
+- ✅ **Drag and Drop File Upload UI**
+    
+- ✅ **File to Base64 Converter**
+    
+- ✅ **ZIP file preview (limited)**
+    
+
+---
+
+## 🧠 Practice Projects for Interview / Logic Building
+
+- 🔸 Debouncing / Throttling Example
+    
+- 🔸 In-place Editable Table
+    
+- 🔸 Scroll Progress Bar
+    
+- 🔸 Infinite Scroll List (load more on scroll)
+    
+- 🔸 Custom Select Dropdown (replacing `<select>`)
