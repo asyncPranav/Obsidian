@@ -59,29 +59,29 @@ let arr2 = [...arrayLike]; // ❌ TypeError: object is not iterable
 
 ## 🔍 Example 2: Both work on **iterables**
 
-js
+```js
+let set = new Set(["apple", "banana"]);
 
-Copy code
-
-`let set = new Set(["apple", "banana"]);  let arr1 = Array.from(set);   // ✅ ['apple', 'banana'] let arr2 = [...set];          // ✅ ['apple', 'banana']`
+let arr1 = Array.from(set);   // ✅ ['apple', 'banana']
+let arr2 = [...set];          // ✅ ['apple', 'banana']
+```
 
 ---
 
 ## 🔍 Example 3: `Array.from()` with a map function
 
-js
+```js
+let str = "12345";
 
-Copy code
-
-`let str = "12345";  let doubled = Array.from(str, num => num * 2); console.log(doubled); // ✅ [2, 4, 6, 8, 10]`
+let doubled = Array.from(str, num => num * 2);
+console.log(doubled); // ✅ [2, 4, 6, 8, 10]
+```
 
 You can't do this directly with spread:
 
-js
-
-Copy code
-
-`let result = [...str].map(num => num * 2); // ✅ works too (2 steps)`
+```js
+let result = [...str].map(num => num * 2); // ✅ works too (2 steps)
+```
 
 ---
 
