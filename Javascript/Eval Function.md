@@ -118,7 +118,7 @@ console.log(result); // ✅ 20
 🧠 It runs in its **own scope**, unlike `eval`.
 
 
-**Read more from -> ** [[Function constructor]]
+Read more from -> [[Function constructor]] 
 
 ---
 
@@ -126,19 +126,19 @@ console.log(result); // ✅ 20
 
 ### 1. Define multiple variables
 
-js
-
-Copy code
-
-`eval("var a = 1; var b = 2;"); console.log(a + b); // 3`
+```js
+eval("var a = 1; var b = 2;");
+console.log(a + b); // 3
+```
 
 ### 2. Use inside a loop (❌ bad practice)
 
-js
-
-Copy code
-
-``for (let i = 1; i <= 3; i++) {   eval(`console.log("Number: " + ${i})`); } // Prints: Number: 1, 2, 3``
+```js
+for (let i = 1; i <= 3; i++) {
+  eval(`console.log("Number: " + ${i})`);
+}
+// Prints: Number: 1, 2, 3
+```
 
 ---
 
