@@ -43,7 +43,10 @@ function sum(a, b) {
 
 Imagine user input is `"x * y + 10"`:
 
-```
+```js
+let userFormula = "x * y + 10";
+let calc = new Function("x", "y", `return ${userFormula}`);
+console.log(calc(5, 3)); // 5*3 + 10 = 25
 ```
 
 Useful in calculators or spreadsheet apps.
@@ -52,21 +55,19 @@ Useful in calculators or spreadsheet apps.
 
 ### ✅ 2. **Building a Function from Strings**
 
-js
-
-Copy code
-
-`let greet = new Function("name", "return 'Hello, ' + name + '!';"); console.log(greet("Pranav")); // ✅ Hello, Pranav!`
+```js
+let greet = new Function("name", "return 'Hello, ' + name + '!';");
+console.log(greet("Pranav")); // ✅ Hello, Pranav!
+```
 
 ---
 
 ### ✅ 3. **No Parameters**
 
-js
-
-Copy code
-
-`let sayHi = new Function("console.log('Hi!')"); sayHi(); // ✅ Hi!`
+```js
+let sayHi = new Function("console.log('Hi!')");
+sayHi(); // ✅ Hi!
+```
 
 ---
 
@@ -74,11 +75,17 @@ Copy code
 
 You can generate logic inside functions dynamically:
 
-js
+```js
+function createPowerFunction(exp) {
+  return new Function("x", `return x ** ${exp}`);
+}
 
-Copy code
+let square = createPowerFunction(2);
+let cube = createPowerFunction(3);
 
-``function createPowerFunction(exp) {   return new Function("x", `return x ** ${exp}`); }  let square = createPowerFunction(2); let cube = createPowerFunction(3);  console.log(square(4)); // ✅ 16 console.log(cube(2));   // ✅ 8``
+console.log(square(4)); // ✅ 16
+console.log(cube(2));   // ✅ 8
+```
 
 ---
 
@@ -86,19 +93,19 @@ Copy code
 
 ### ⚠️ 1. **Always Uses Global Scope**
 
-js
-
-Copy code
-
-`let x = 10; let f = new Function("return x"); console.log(f()); // ❌ ReferenceError: x is not defined`
+```js
+let x = 10;
+let f = new Function("return x");
+console.log(f()); // ❌ ReferenceError: x is not defined
+```
 
 ✅ This works only if `x` is global:
 
-js
-
-Copy code
-
-`globalThis.x = 10; let f = new Function("return x"); console.log(f()); // ✅ 10`
+```js
+globalThis.x = 10;
+let f = new Function("return x");
+console.log(f()); // ✅ 10
+```
 
 ---
 
@@ -106,11 +113,9 @@ Copy code
 
 If you're using user input:
 
-js
+```js
 
-Copy code
-
-`let userCode = "alert('Hacked!')"; let dangerous = new Function(userCode); dangerous(); // ⚠️ Very dangerous! Never do this with untrusted input!`
+```
 
 Never use `Function` with external or user-provided strings unless fully sanitized.
 
