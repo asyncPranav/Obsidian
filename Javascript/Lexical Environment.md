@@ -11,11 +11,13 @@ You can think of it like:
 
 > A box where all your variables and functions for the current block or function are kept.
 
-js
-
-Copy code
-
-`let a = 10; function showA() {   console.log(a); // gets "a" from its lexical environment (global here) } showA();`
+```js
+let a = 10;
+function showA() {
+  console.log(a); // gets "a" from its lexical environment (global here)
+}
+showA();
+```
 
 📦 `Lexical Environment` here = `{ a: 10, showA: function }`
 
@@ -30,11 +32,15 @@ Each function you write has access to:
 - Variables from **where it was created** (outer scope)
     
 
-js
+```js
+let phrase = "Hello";
 
-Copy code
+function greet(name) {
+  console.log(phrase + ", " + name);
+}
 
-`let phrase = "Hello";  function greet(name) {   console.log(phrase + ", " + name); }  greet("Pranav"); // "Hello, Pranav"`
+greet("Pranav"); // "Hello, Pranav"
+```
 
 Here:
 
@@ -53,11 +59,21 @@ When the `greet()` function runs, it looks for `phrase` in its own local variabl
 
 📌 Example:
 
-js
+```js
+function makeCounter() {
+  let count = 0;
 
-Copy code
+  return function () {
+    return count++;
+  };
+}
 
-`function makeCounter() {   let count = 0;    return function () {     return count++;   }; }  let counter = makeCounter();  console.log(counter()); // 0 console.log(counter()); // 1 console.log(counter()); // 2`
+let counter = makeCounter();
+
+console.log(counter()); // 0
+console.log(counter()); // 1
+console.log(counter()); // 2
+```
 
 🧠 **What's Happening?**
 
