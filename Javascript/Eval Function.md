@@ -104,17 +104,21 @@ console.log(calculate("Math.sqrt(16)")); // 4
 
 ---
 
+
 ## 💡 eval() vs Function()
 
 A **safer alternative** to `eval()` is the **`Function` constructor**:
 
-js
-
-Copy code
-
-``let expr = "10 * 2"; let result = new Function(`return ${expr}`)(); console.log(result); // ✅ 20``
+```js
+let expr = "10 * 2";
+let result = new Function(`return ${expr}`)();
+console.log(result); // ✅ 20
+```
 
 🧠 It runs in its **own scope**, unlike `eval`.
+
+
+**Read more from -> ** [[Function constructor]]
 
 ---
 
