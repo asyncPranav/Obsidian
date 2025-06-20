@@ -47,11 +47,10 @@ console.log(b); // ✅ 20
 
 ### 3. **Function inside eval**
 
-js
-
-Copy code
-
-`eval("function greet() { return 'Hello'; }"); console.log(greet()); // ✅ Hello`
+```js
+eval("function greet() { return 'Hello'; }");
+console.log(greet()); // ✅ Hello
+```
 
 ---
 
@@ -59,11 +58,10 @@ Copy code
 
 ### 1. **Security Risks (Code Injection)**
 
-js
-
-Copy code
-
-`let userInput = "alert('Hacked!')"; eval(userInput); // 🚨 Unsafe if user controls the input!`
+```js
+let userInput = "alert('Hacked!')";
+eval(userInput); // 🚨 Unsafe if user controls the input!
+```
 
 If someone gives you a string that includes malicious code, `eval()` will run it.
 
@@ -80,21 +78,27 @@ If someone gives you a string that includes malicious code, `eval()` will run it
 
 ### 3. **Confusing Scope**
 
-js
+```js
+let x = 5;
+eval("x = 10");
+console.log(x); // 10 ✅
 
-Copy code
-
-`let x = 5; eval("x = 10"); console.log(x); // 10 ✅  eval("let y = 100;"); console.log(y); // ❌ ReferenceError: y is not defined`
+eval("let y = 100;");
+console.log(y); // ❌ ReferenceError: y is not defined
+```
 
 ---
 
 ## 🔧 Real Use Case (Calculator)
 
-js
+```js
+function calculate(expr) {
+  return eval(expr);
+}
 
-Copy code
-
-`function calculate(expr) {   return eval(expr); }  console.log(calculate("10 + 20")); // 30 console.log(calculate("Math.sqrt(16)")); // 4`
+console.log(calculate("10 + 20")); // 30
+console.log(calculate("Math.sqrt(16)")); // 4
+```
 
 > ⚠️ Don’t use `eval()` like this with user input!
 
