@@ -167,11 +167,9 @@ console.log(arrSum([1, 2, 3])); // ✅ 6
 
 ### 🧪 4. Immediately call it
 
-js
-
-Copy code
-
-`console.log(new Function("return 10 * 2")()); // ✅ 20`
+```js
+console.log(new Function("return 10 * 2")()); // ✅ 20
+```
 
 ---
 
