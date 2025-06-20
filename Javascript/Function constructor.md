@@ -114,7 +114,9 @@ console.log(f()); // ✅ 10
 If you're using user input:
 
 ```js
-
+let userCode = "alert('Hacked!')";
+let dangerous = new Function(userCode);
+dangerous(); // ⚠️ Very dangerous! Never do this with untrusted input!
 ```
 
 Never use `Function` with external or user-provided strings unless fully sanitized.
@@ -125,31 +127,41 @@ Never use `Function` with external or user-provided strings unless fully sanitiz
 
 ### 🧪 1. Function with multiple parameters
 
-js
-
-Copy code
-
-`let fn = new Function("a", "b", "c", "return a * b + c"); console.log(fn(2, 3, 4)); // ✅ 10`
+```js
+let fn = new Function("a", "b", "c", "return a * b + c");
+console.log(fn(2, 3, 4)); // ✅ 10
+```
 
 ---
 
 ### 🧪 2. Returning object
 
-js
+```js
+let createUser = new Function("name", "age", `
+    return {
+        name: name,
+        age: age
+    };
+`);
 
-Copy code
-
-``let createUser = new Function("name", "age", `     return {         name: name,         age: age     }; `);  console.log(createUser("Pranav", 21));  // ✅ { name: 'Pranav', age: 21 }``
+console.log(createUser("Pranav", 21)); 
+// ✅ { name: 'Pranav', age: 21 }
+```
 
 ---
 
 ### 🧪 3. With Array and Loop
 
-js
-
-Copy code
-
-``let arrSum = new Function("arr", `     let sum = 0;     for (let num of arr) {         sum += num;     }     return sum; `); console.log(arrSum([1, 2, 3])); // ✅ 6``
+```js
+let arrSum = new Function("arr", `
+    let sum = 0;
+    for (let num of arr) {
+        sum += num;
+    }
+    return sum;
+`);
+console.log(arrSum([1, 2, 3])); // ✅ 6
+```
 
 ---
 
