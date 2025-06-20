@@ -103,11 +103,21 @@ console.log(counter()); // 2
 
 Let’s say you want to count how many times a user clicks a button:
 
-js
+```js
+function createClickCounter() {
+  let clickCount = 0;
 
-Copy code
+  return function () {
+    clickCount++;
+    console.log("Clicked", clickCount, "times");
+  };
+}
 
-`function createClickCounter() {   let clickCount = 0;    return function () {     clickCount++;     console.log("Clicked", clickCount, "times");   }; }  let buttonClicked = createClickCounter();  buttonClicked(); // Clicked 1 times buttonClicked(); // Clicked 2 times`
+let buttonClicked = createClickCounter();
+
+buttonClicked(); // Clicked 1 times
+buttonClicked(); // Clicked 2 times
+```
 
 ✅ Here, `clickCount` is a **private variable** that is remembered by the closure.
 
