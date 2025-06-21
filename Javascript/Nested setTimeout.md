@@ -351,6 +351,13 @@ Tick 5
 ### ⚠️ 5. Problem with `setInterval`: Overlap Risk
 
 ```js
+setInterval(() => {
+  // simulate a long task
+  let start = Date.now();
+  while (Date.now() - start < 1500) {} // blocks for 1.5 seconds
+
+  console.log("Interval ran at", new Date().toLocaleTimeString());
+}, 1000);
 ```
 
 🧨 This takes 1.5s to execute, but interval is 1s.
@@ -364,11 +371,17 @@ Tick 5
 
 ### ✅ 6. Solution: Nested `setTimeout`
 
-js
+```js
+function run() {
+  let start = Date.now();
+  while (Date.now() - start < 1500) {} // blocks for 1.5 seconds
 
-Copy code
+  console.log("Tick at", new Date().toLocaleTimeString());
+  setTimeout(run, 1000); // schedule next call after finish
+}
 
-`function run() {   let start = Date.now();   while (Date.now() - start < 1500) {} // blocks for 1.5 seconds    console.log("Tick at", new Date().toLocaleTimeString());   setTimeout(run, 1000); // schedule next call after finish }  setTimeout(run, 1000);`
+setTimeout(run, 1000);
+```
 
 ⏳ Now, it runs **after the delay**, not _every_ delay. Safe and stable.
 
@@ -376,11 +389,27 @@ Copy code
 
 ## 📡 7. Real-World Example: Server Polling
 
-js
+```js
+let delay = 5000;
 
-Copy code
+function request() {
+  console.log("Sending request...");
 
-`let delay = 5000;  function request() {   console.log("Sending request...");    // simulate server error   let success = Math.random() > 0.5;    if (!success) {     console.log("Server overloaded. Increasing delay.");     delay *= 2;   } else {     delay = 5000; // reset if success   }    setTimeout(request, delay); }  setTimeout(request, delay);`
+  // simulate server error
+  let success = Math.random() > 0.5;
+
+  if (!success) {
+    console.log("Server overloaded. Increasing delay.");
+    delay *= 2;
+  } else {
+    delay = 5000; // reset if success
+  }
+
+  setTimeout(request, delay);
+}
+
+setTimeout(request, delay);
+```
 
 💡 Used when you want to:
 
