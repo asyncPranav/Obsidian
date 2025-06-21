@@ -514,9 +514,7 @@ Got it! You want tasks that are mainly related to **timers**, **animations**, an
 - `setInterval`
 - `clearTimeout` / `clearInterval`
 - String manipulation
-    
 - Console output (`process.stdout.write`, etc.)
-    
 
 Let’s stay in that lane 🚦 and build your logic around **time-based console effects** (no DOM, no browser required).
 
@@ -534,11 +532,9 @@ Let’s stay in that lane 🚦 and build your logic around **time-based console 
 
 > Print countdown from `n` to `0`, and show a **custom message** at the end.
 
-js
-
-Copy code
-
-`countdown(5, "Let's Go!");`
+```js
+countdown(5, "Let's Go!");
+```
 
 ---
 
@@ -560,11 +556,10 @@ Copy code
 
 > Display a loading bar for countdown:
 
-css
-
-Copy code
-
-`[====      ] 4 sec left [=====     ] 3 sec left`
+```js
+[====      ] 4 sec left
+[=====     ] 3 sec left
+```
 
 Use `process.stdout.write` to update the line.
 
@@ -576,9 +571,11 @@ Use `process.stdout.write` to update the line.
 
 > Like your previous typing task, but add a **blinking cursor** (`|`) at the end.
 
-Copy code
-
-`Typing| Typin| Typi|`
+```js
+Typing|
+Typin|
+Typi|
+```
 
 Hint: Use a separate `setInterval` for the cursor toggle.
 
@@ -588,11 +585,9 @@ Hint: Use a separate `setInterval` for the cursor toggle.
 
 > Rotate between multiple messages:
 
-js
-
-Copy code
-
-`["Loading", "Connecting...", "Welcome!"]`
+```js
+["Loading", "Connecting...", "Welcome!"]
+```
 
 - Type one letter at a time
     
