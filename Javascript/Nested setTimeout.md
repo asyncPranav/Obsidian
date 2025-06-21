@@ -161,19 +161,30 @@ Then nested `setTimeout` is safer and smarter.
 
 ### 🧪 Let’s make a simple demo:
 
-js
+```js
+let count = 1;
 
-Copy code
+function sayHi() {
+  console.log(`Hi #${count}`);
+  count++;
 
-``let count = 1;  function sayHi() {   console.log(`Hi #${count}`);   count++;    if (count <= 5) {     setTimeout(sayHi, 1000); // next greeting after 1s   } }  setTimeout(sayHi, 1000); // Start it``
+  if (count <= 5) {
+    setTimeout(sayHi, 1000); // next greeting after 1s
+  }
+}
+
+setTimeout(sayHi, 1000); // Start it
+```
 
 This says:
 
-nginx
-
-Copy code
-
-`Hi #1 Hi #2 Hi #3 Hi #4 Hi #5`
+```sh
+Hi #1
+Hi #2
+Hi #3
+Hi #4
+Hi #5
+```
 
 – each **after a full 1 second**.
 
