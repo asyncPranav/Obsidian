@@ -44,7 +44,7 @@ setTimeout(sayHello, 2000);
 - So it keeps repeating:
     
     - Wait → Run → Wait → Run → ...
-        
+    
 
 ---
 
@@ -61,11 +61,11 @@ Nested `setTimeout` gives you **control** to:
 
 ### 🧪 Compare with setInterval
 
-js
-
-Copy code
-
-`setInterval(() => {   console.log("Tick"); }, 2000);`
+```js
+setInterval(() => {
+  console.log("Tick");
+}, 2000);
+```
 
 - This runs every 2 seconds, **even if** the previous run isn’t done.
     
