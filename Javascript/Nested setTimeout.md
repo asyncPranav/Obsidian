@@ -260,11 +260,9 @@ Hello!   (after 3 sec)
 
 #### ✅ Syntax:
 
-js
-
-Copy code
-
-`let timerId = setInterval(func, delayInMs, ...args);`
+```js
+let timerId = setInterval(func, delayInMs, ...args);
+```
 
 - `func`: function to run
     
@@ -275,19 +273,24 @@ Copy code
 
 #### ✅ Example:
 
-js
+```js
+let count = 1;
 
-Copy code
-
-`let count = 1;  let timerId = setInterval(() => {   console.log("Tick", count++);   if (count > 5) clearInterval(timerId); // stop after 5 ticks }, 1000);`
+let timerId = setInterval(() => {
+  console.log("Tick", count++);
+  if (count > 5) clearInterval(timerId); // stop after 5 ticks
+}, 1000);
+```
 
 #### ✅ Output:
 
-nginx
-
-Copy code
-
-`Tick 1 Tick 2 Tick 3 Tick 4 Tick 5`
+```sh
+Tick 1
+Tick 2
+Tick 3
+Tick 4
+Tick 5
+```
 
 ---
 
@@ -297,11 +300,9 @@ Copy code
 
 #### ✅ Syntax:
 
-js
-
-Copy code
-
-`let timeoutId = setTimeout(func, delayInMs, ...args);`
+```js
+let timeoutId = setTimeout(func, delayInMs, ...args);
+```
 
 ---
 
@@ -311,11 +312,18 @@ Instead of calling a function repeatedly with `setInterval`, you can call `setTi
 
 #### ✅ Example:
 
-js
+```js
+let count = 1;
 
-Copy code
+function tick() {
+  console.log("Tick", count++);
+  if (count <= 5) {
+    setTimeout(tick, 1000); // schedule next tick
+  }
+}
 
-`let count = 1;  function tick() {   console.log("Tick", count++);   if (count <= 5) {     setTimeout(tick, 1000); // schedule next tick   } }  setTimeout(tick, 1000); // start first tick after 1s`
+setTimeout(tick, 1000); // start first tick after 1s
+```
 
 #### ✅ Output (every 1 second):
 
