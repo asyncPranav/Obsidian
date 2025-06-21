@@ -76,19 +76,29 @@ setInterval(() => {
 
 ### 🔧 Example: Nested setTimeout with dynamic delay
 
-js
+```js
+let delay = 1000;
 
-Copy code
+function greet() {
+  console.log("Hello!");
 
-`let delay = 1000;  function greet() {   console.log("Hello!");    // Increase delay each time   delay += 1000;    setTimeout(greet, delay); }  setTimeout(greet, delay);`
+  // Increase delay each time
+  delay += 1000;
+
+  setTimeout(greet, delay);
+}
+
+setTimeout(greet, delay);
+```
 
 👆 This prints:
 
-scss
-
-Copy code
-
-`Hello!   (after 1 sec) Hello!   (after 2 sec) Hello!   (after 3 sec) ...`
+```sh
+Hello!   (after 1 sec)
+Hello!   (after 2 sec)
+Hello!   (after 3 sec)
+...
+```
 
 ---
 
@@ -105,8 +115,5 @@ Copy code
 
 ### 🧠 Think of it like:
 
-txt
-
-Copy code
-
-`1. Do the task 2. Wait X time 3. Do the task again 4. Repeat`
+```t
+```
