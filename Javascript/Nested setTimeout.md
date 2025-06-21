@@ -414,9 +414,7 @@ setTimeout(request, delay);
 💡 Used when you want to:
 
 - Retry requests
-    
 - Increase delay when server is overloaded
-    
 - Adapt timing dynamically
     
 
@@ -498,9 +496,6 @@ setTimeout(() => {
 ## ✅ Summary
 
 - `setInterval` runs function **every x ms**, regardless of whether the last run is finished.
-    
 - **Nested `setTimeout`** schedules the next run **after the current one finishes**.
-    
 - Useful in **animations**, **polling**, **server retries**, and **CPU-heavy tasks**.
-    
 - Always `clearInterval()` or `clearTimeout()` to avoid memory leaks.
