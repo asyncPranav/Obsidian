@@ -67,9 +67,19 @@ setInterval(() => {
 }, 2000);
 ```
 
-- This runs every 2 seconds, **even if** the previous run isn’t done.
+✅ Every 2 seconds, `"tick"` is printed.  
+But here’s the catch 👇
+
+If the `console.log("tick")` part (imagine it's a heavy task) takes **1 second**, then:
+
+- First tick: 0s
     
-- Can overlap if the task is slow.
+- Second tick: happens **2 seconds later**, but part of that time is spent doing work.
+    
+- If your task takes _more time_, like 2s+, the browser tries to keep up.
+    
+
+This can make it **run back-to-back**, causing **overload**.
     
 
 ---
