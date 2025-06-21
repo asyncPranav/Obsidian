@@ -327,11 +327,13 @@ setTimeout(tick, 1000); // start first tick after 1s
 
 #### ✅ Output (every 1 second):
 
-nginx
-
-Copy code
-
-`Tick 1 Tick 2 Tick 3 Tick 4 Tick 5`
+```sh
+Tick 1
+Tick 2
+Tick 3
+Tick 4
+Tick 5
+```
 
 ---
 
@@ -348,11 +350,8 @@ Copy code
 
 ### ⚠️ 5. Problem with `setInterval`: Overlap Risk
 
-js
-
-Copy code
-
-`setInterval(() => {   // simulate a long task   let start = Date.now();   while (Date.now() - start < 1500) {} // blocks for 1.5 seconds    console.log("Interval ran at", new Date().toLocaleTimeString()); }, 1000);`
+```js
+```
 
 🧨 This takes 1.5s to execute, but interval is 1s.
 
