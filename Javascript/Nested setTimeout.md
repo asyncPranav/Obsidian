@@ -424,11 +424,18 @@ setTimeout(request, delay);
 
 ## 🔥 8. Another Example: Animation with Control
 
-js
+```js
+let pos = 0;
 
-Copy code
+function move() {
+  console.log("Moving to position", pos++);
+  if (pos < 10) {
+    setTimeout(move, 100); // update every 100ms
+  }
+}
 
-`let pos = 0;  function move() {   console.log("Moving to position", pos++);   if (pos < 10) {     setTimeout(move, 100); // update every 100ms   } }  setTimeout(move, 100);`
+setTimeout(move, 100);
+```
 
 This is great for animation frames or scroll steps.
 
@@ -438,11 +445,13 @@ This is great for animation frames or scroll steps.
 
 If you **don’t clear** your interval/timer, the function stays in memory.
 
-js
+```js
+let timerId = setInterval(() => {
+  console.log("Still here");
+}, 1000);
 
-Copy code
-
-`let timerId = setInterval(() => {   console.log("Still here"); }, 1000);  // if you forget to clearInterval(timerId), it stays in memory`
+// if you forget to clearInterval(timerId), it stays in memory
+```
 
 - Especially dangerous if the function captures large outer variables (via closure).
     
@@ -453,17 +462,25 @@ Copy code
 
 ## 🧼 10. Cleaning Up
 
-js
+```js
+let timerId = setTimeout(() => {
+  console.log("Task");
+}, 2000);
 
-Copy code
+// cancel if needed
+clearTimeout(timerId);
+```
 
-`let timerId = setTimeout(() => {   console.log("Task"); }, 2000);  // cancel if needed clearTimeout(timerId);`
+```js
+let intervalId = setInterval(() => {
+  console.log("Running...");
+}, 1000);
 
-js
-
-Copy code
-
-`let intervalId = setInterval(() => {   console.log("Running..."); }, 1000);  setTimeout(() => {   clearInterval(intervalId);   console.log("Stopped"); }, 5000);`
+setTimeout(() => {
+  clearInterval(intervalId);
+  console.log("Stopped");
+}, 5000);
+```
 
 ---
 
