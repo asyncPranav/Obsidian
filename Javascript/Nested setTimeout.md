@@ -606,11 +606,13 @@ Loop this forever.
 
 > Type one word per line with animation delay:
 
-vbnet
-
-Copy code
-
-`Hello World This Is Typing`
+```js
+Hello
+World
+This
+Is
+Typing
+```
 
 ---
 
@@ -620,11 +622,12 @@ Copy code
 
 > Simulate something like a system boot:
 
-arduino
-
-Copy code
-
-`Booting. Booting.. Booting... System ready!`
+```js
+Booting.
+Booting..
+Booting...
+System ready!
+```
 
 Use `setInterval` to cycle through dots.
 
@@ -634,11 +637,9 @@ Use `setInterval` to cycle through dots.
 
 > Print progress like a download bar with increasing `%`:
 
-nginx
-
-Copy code
-
-`Downloading [#####     ] 50%`
+```js
+Downloading [#####     ] 50%
+```
 
 ---
 
@@ -664,11 +665,9 @@ Copy code
 - Show their progress like:
     
 
-less
+```js
 
-Copy code
-
-`Runner A: 🏃‍♂️----> Runner B: 🏃‍♀️---->`
+```
 
 - First to reach 20 dashes wins.
     
