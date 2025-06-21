@@ -126,22 +126,22 @@ setInterval(() => {
 
 #### ✅ Nested setTimeout (wait until done, then go again)
 
-js
+```js
+function deliver() {
+  console.log("🚚 Deliver box");
 
-Copy code
+  setTimeout(deliver, 2000); // Schedule next ONLY after delivery is done
+}
 
-`function deliver() {   console.log("🚚 Deliver box");    setTimeout(deliver, 2000); // Schedule next ONLY after delivery is done }  setTimeout(deliver, 2000); // Start first one`
+setTimeout(deliver, 2000); // Start first one
+```
 
 Now:
 
 - It delivers
-    
 - Finishes
-    
 - Waits 2 seconds
-    
 - Then delivers again
-    
 
 Perfect pacing — **no overlap**.
 
@@ -152,11 +152,8 @@ Perfect pacing — **no overlap**.
 If your task is:
 
 - 🧠 Heavy (API call, math, animations)
-    
 - 🕒 Slow
-    
 - 🔄 Needs changing delay based on result
-    
 
 Then nested `setTimeout` is safer and smarter.
 
