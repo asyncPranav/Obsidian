@@ -115,5 +115,9 @@ Hello!   (after 3 sec)
 
 ### 🧠 Think of it like:
 
-```t
+```txt
+1. Do the task
+2. Wait X time
+3. Do the task again
+4. Repeat
 ```
