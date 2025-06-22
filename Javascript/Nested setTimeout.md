@@ -666,7 +666,8 @@ Downloading [#####     ] 50%
     
 
 ```js
-
+Runner A: 🏃‍♂️---->
+Runner B: 🏃‍♀️---->
 ```
 
 - First to reach 20 dashes wins.
