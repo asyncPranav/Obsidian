@@ -127,26 +127,35 @@ let func1 = function() {
 
 ### 💾 Memory Representation:
 
-```
+```sh
+     func1
+       │
+       ▼
+┌────────────────────┐
+│  function object   │
+│  returns "Hello"   │
+└────────────────────┘
 ```
 
 ---
 
 ### 🔹 2. Assigning to func2
 
-js
-
-Copy code
-
-`let func2 = func1;`
+```js
+let func2 = func1;
+```
 
 ### 💾 Now Memory Looks Like:
 
-pgsql
-
-Copy code
-
-     `func1       func2        │           │        ▼           ▼ ┌────────────────────┐ │  function object   │ │  returns "Hello"   │ └────────────────────┘`
+```sh
+     func1       func2
+       │           │
+       ▼           ▼
+┌────────────────────┐
+│  function object   │
+│  returns "Hello"   │
+└────────────────────┘
+```
 
 ✅ Both variables point to the **same function** in memory.
 
@@ -154,11 +163,9 @@ Copy code
 
 ### 🔹 3. Adding a Custom Property
 
-js
-
-Copy code
-
-`func1.custom = "Test";`
+```js
+func1.custom = "Test";
+```
 
 ### 💾 Still the Same Object:
 
