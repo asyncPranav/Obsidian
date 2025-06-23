@@ -106,3 +106,92 @@ console.log(func2()); // "Hello"
 
 **Assigning a function to another variable copies the reference**, not the function.  
 They point to the **same function object in memory**, until one is **explicitly reassigned**.
+
+
+
+---
+
+
+
+## 🧠 Step-by-Step with Diagrams
+
+
+
+### 🔹 1. Initial Function Declaration
+
+```js
+let func1 = function() {
+    return "Hello";
+};
+```
+
+### 💾 Memory Representation:
+
+```
+```
+
+---
+
+### 🔹 2. Assigning to func2
+
+js
+
+Copy code
+
+`let func2 = func1;`
+
+### 💾 Now Memory Looks Like:
+
+pgsql
+
+Copy code
+
+     `func1       func2        │           │        ▼           ▼ ┌────────────────────┐ │  function object   │ │  returns "Hello"   │ └────────────────────┘`
+
+✅ Both variables point to the **same function** in memory.
+
+---
+
+### 🔹 3. Adding a Custom Property
+
+js
+
+Copy code
+
+`func1.custom = "Test";`
+
+### 💾 Still the Same Object:
+
+vbnet
+
+Copy code
+
+     `func1       func2        │           │        ▼           ▼ ┌──────────────────────────────┐ │  function object             │ │  returns "Hello"             │ │  custom: "Test"              │ └──────────────────────────────┘`
+
+✅ Accessing `func2.custom` will return `"Test"`.
+
+---
+
+### 🔹 4. Reassigning func1 to a New Function
+
+js
+
+Copy code
+
+`func1 = function() {     return "New Hello"; };`
+
+### 💾 Now Looks Like:
+
+pgsql
+
+Copy code
+
+     `func1                     func2        │                         │        ▼                         ▼ ┌────────────────────┐   ┌────────────────────┐ │  function object   │   │  function object   │ │ returns "New Hello"│   │ returns "Hello"    │ └────────────────────┘   └────────────────────┘`
+
+❗ Now `func1` and `func2` point to **different functions**.
+
+---
+
+## 🧩 Final Thought:
+
+> As long as you don't reassign `func1`, both variables share the same memory reference — like two names for the same function.
