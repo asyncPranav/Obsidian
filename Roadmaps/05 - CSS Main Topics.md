@@ -238,6 +238,7 @@ Here’s an updated and refined list including **ALL essential and widely used t
 
 ## ✅ **Final List: Most Important CSS Topics for Real-World Projects (90% Coverage)**
 
+
 ### 🔹 1. **CSS Selectors & Specificity**
 
 - Universal (`*`), Element, Class, ID
