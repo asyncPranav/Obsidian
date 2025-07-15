@@ -84,46 +84,46 @@
 
 11. **Password Generator**
     
-
-- Generate secure passwords
-    
-- Options: length, symbols, numbers
-    
-- Copy to clipboard
+	
+	- Generate secure passwords
+	    
+	- Options: length, symbols, numbers
+	    
+	- Copy to clipboard
     
 
 12. **Unit Converter**
     
 
-- Convert: Length, Temperature, Weight
-    
-- Dropdown + input system
+	- Convert: Length, Temperature, Weight
+	    
+	- Dropdown + input system
     
 
 13. **Note-taking App**
     
 
-- Title + content
-    
-- Save to `localStorage`
-    
-- Delete and update notes
+	- Title + content
+	    
+	- Save to `localStorage`
+	    
+	- Delete and update notes
     
 
 14. **Loan / EMI Calculator**
     
 
-- Inputs: principal, rate, time
-    
-- Show monthly EMI + interest
+	- Inputs: principal, rate, time
+	    
+	- Show monthly EMI + interest
     
 
 15. **Stopwatch**
     
 
-- Start / Stop / Reset
-    
-- Save lap times (optional)
+	- Start / Stop / Reset
+	    
+	- Save lap times (optional)
     
 
 ---
@@ -133,41 +133,41 @@
 16. **Image Slider / Carousel**
     
 
-- Next / Prev buttons
-    
-- Auto-play feature
+	- Next / Prev buttons
+	    
+	- Auto-play feature
     
 
 17. **Dark / Light Theme Toggle**
     
-
-- Switch theme
-    
-- Save preference in `localStorage`
+	
+	- Switch theme
+	    
+	- Save preference in `localStorage`
     
 
 18. **Draggable Cards / Kanban Board**
     
-
-- Drag & drop using mouse events
-    
-- To-do / In-progress / Done style
+	
+	- Drag & drop using mouse events
+	    
+	- To-do / In-progress / Done style
     
 
 19. **Modal / Popup System**
     
-
-- Reusable modal function
-    
-- Open from multiple buttons
+	
+	- Reusable modal function
+	    
+	- Open from multiple buttons
     
 
 20. **Responsive Navigation Menu**
     
-
-- Hamburger menu on mobile
-    
-- Toggle class on click
+	
+	- Hamburger menu on mobile
+	    
+	- Toggle class on click
     
 
 ---
@@ -176,18 +176,18 @@
 
 21. **Weather App (with API)**
     
-
-- Fetch data from OpenWeather API
-    
-- Display temp, weather, etc.
+	
+	- Fetch data from OpenWeather API
+	    
+	- Display temp, weather, etc.
     
 
 22. **Dictionary App**
     
-
-- Use Free Dictionary API
-    
-- Show meaning + pronunciation
+	
+	- Use Free Dictionary API
+	    
+	- Show meaning + pronunciation
     
 
 23. **GitHub Profile Finder**
