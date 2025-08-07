@@ -73,11 +73,19 @@ So every item in the array becomes one `<li>` tag.
 
 You can also directly `.map()` inside your JSX return block:
 
-jsx
+```jsx
+function App() {
+  const fruits = ["apple", "banana", "mango"];
 
-Copy code
-
-`function App() {   const fruits = ["apple", "banana", "mango"];    return (     <ul>       {fruits.map((fruit) => (         <li>{fruit}</li>       ))}     </ul>   ); }`
+  return (
+    <ul>
+      {fruits.map((fruit) => (
+        <li>{fruit}</li>
+      ))}
+    </ul>
+  );
+}
+```
 
 Each `fruit` becomes a `<li>` element.
 
@@ -95,11 +103,11 @@ If you don't give it a `key`, React can get confused and may re-render unnecessa
 
 So you must always write:
 
-jsx
-
-Copy code
-
-`{fruits.map((fruit, index) => (   <li key={index}>{fruit}</li> ))}`
+```jsx
+{fruits.map((fruit, index) => (
+  <li key={index}>{fruit}</li>
+))}
+```
 
 Here:
 
@@ -114,11 +122,15 @@ Here:
 
 **These both are valid**:
 
-jsx
+```jsx
+// Implicit return
+fruits.map((fruit) => <li>{fruit}</li>);
 
-Copy code
-
-`// Implicit return fruits.map((fruit) => <li>{fruit}</li>);  // Explicit return with brackets fruits.map((fruit) => {   return <li>{fruit}</li>; });`
+// Explicit return with brackets
+fruits.map((fruit) => {
+  return <li>{fruit}</li>;
+});
+```
 
 Use whichever style you like, but don’t forget the `return` keyword if using `{}`.
 
@@ -128,11 +140,23 @@ Use whichever style you like, but don’t forget the `return` keyword if using `
 
 Instead of rendering raw `<li>` elements, you can render **custom components**:
 
-jsx
+```jsx
+function Fruit({ name }) {
+  return <li>{name}</li>;
+}
 
-Copy code
+function App() {
+  const fruits = ["apple", "banana", "mango"];
 
-`function Fruit({ name }) {   return <li>{name}</li>; }  function App() {   const fruits = ["apple", "banana", "mango"];    return (     <ul>       {fruits.map((fruit, index) => (         <Fruit key={index} name={fruit} />       ))}     </ul>   ); }`
+  return (
+    <ul>
+      {fruits.map((fruit, index) => (
+        <Fruit key={index} name={fruit} />
+      ))}
+    </ul>
+  );
+}
+```
 
 This is how you turn **raw data** into **structured components**.
 
