@@ -37,11 +37,19 @@ Instead of the user typing directly into the input, **React updates the state**,
 
 ### 🧪 Example (Conceptual)
 
-jsx
+```jsx
+function MyForm() {
+  const [name, setName] = useState("");
 
-Copy code
-
-`function MyForm() {   const [name, setName] = useState("");    return (     <input       type="text"       value={name}       onChange={(e) => setName(e.target.value)}     />   ); }`
+  return (
+    <input
+      type="text"
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+    />
+  );
+}
+```
 
 Let’s break it down:
 
@@ -131,12 +139,7 @@ Would you like to:
     
 - or 📦 Build a small user form project (e.g., add user to your user card list)?
     
-
-Your call.
-
 ##### You said:
-
-* ✅ Proceed to small examples (one input field, then multiple), * or 📦 Build a small user form project (e.g., add user to your user card list)?
 
 yes both first explain then project
 
@@ -152,11 +155,28 @@ Perfect! Let's follow this structured flow for learning **React Forms (Controlle
 
 ### 🔹 Example 1: Single Input Field
 
-jsx
+```jsx
+import { useState } from "react";
 
-Copy code
+function App() {
+  const [name, setName] = useState("");
 
-`import { useState } from "react";  function App() {   const [name, setName] = useState("");    return (     <div>       <h2>Enter Your Name</h2>       <input         type="text"         placeholder="Your name"         value={name}         onChange={(e) => setName(e.target.value)}       />       <p>Hello, {name}</p>     </div>   ); }  export default App;`
+  return (
+    <div>
+      <h2>Enter Your Name</h2>
+      <input
+        type="text"
+        placeholder="Your name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <p>Hello, {name}</p>
+    </div>
+  );
+}
+
+export default App;
+```
 
 ### 🧠 Explanation:
 
