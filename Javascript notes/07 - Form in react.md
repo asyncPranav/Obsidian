@@ -369,21 +369,29 @@ const [username, setUsername] = useState("");
 
 Checkbox `value` is stored as **true/false** (`checked` instead of `value`)
 
-jsx
+```jsx
+const [agreed, setAgreed] = useState(false);
 
-Copy code
-
-`const [agreed, setAgreed] = useState(false);  <input   type="checkbox"   checked={agreed}   onChange={(e) => setAgreed(e.target.checked)} />`
+<input
+  type="checkbox"
+  checked={agreed}
+  onChange={(e) => setAgreed(e.target.checked)}
+/>
+```
 
 ---
 
 ### 🔽 Select Input (Dropdown)
 
-jsx
+```jsx
+const [fruit, setFruit] = useState("apple");
 
-Copy code
-
-`const [fruit, setFruit] = useState("apple");  <select value={fruit} onChange={(e) => setFruit(e.target.value)}>   <option value="apple">Apple</option>   <option value="banana">Banana</option>   <option value="orange">Orange</option> </select>`
+<select value={fruit} onChange={(e) => setFruit(e.target.value)}>
+  <option value="apple">Apple</option>
+  <option value="banana">Banana</option>
+  <option value="orange">Orange</option>
+</select>
+```
 
 - Controlled using `value`
     
