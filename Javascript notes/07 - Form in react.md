@@ -404,19 +404,20 @@ const [fruit, setFruit] = useState("apple");
 
 By default, form submission **reloads the page** — we don’t want that in React!
 
-jsx
-
-Copy code
-
-`function handleSubmit(e) {   e.preventDefault();  // 🔒 prevent page reload   console.log("Form submitted!"); }`
+```jsx
+function handleSubmit(e) {
+  e.preventDefault();  // 🔒 prevent page reload
+  console.log("Form submitted!");
+}
+```
 
 Use this inside the form:
 
-jsx
-
-Copy code
-
-`<form onSubmit={handleSubmit}>   ... </form>`
+```jsx
+<form onSubmit={handleSubmit}>
+  ...
+</form>
+```
 
 ---
 
@@ -426,27 +427,31 @@ For large forms, it’s better to use **one state object** to handle all inputs.
 
 ### ✅ Instead of this:
 
-jsx
-
-Copy code
-
-`const [name, setName] = useState(""); const [email, setEmail] = useState("");`
+```jsx
+const [name, setName] = useState("");
+const [email, setEmail] = useState("");
+```
 
 ### 👇 Do this:
 
-jsx
-
-Copy code
-
-`const [formData, setFormData] = useState({   name: "",   email: "", });`
+```jsx
+const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+});
+```
 
 And update with:
 
-jsx
-
-Copy code
-
-`<input   name="name"   value={formData.name}   onChange={(e) =>     setFormData({ ...formData, [e.target.name]: e.target.value })   } />`
+```jsx
+<input
+  name="name"
+  value={formData.name}
+  onChange={(e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+/>
+```
 
 ### 🧠 How it works:
 
