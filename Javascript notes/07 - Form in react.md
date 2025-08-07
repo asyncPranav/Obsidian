@@ -139,11 +139,8 @@ Would you like to:
     
 - or 📦 Build a small user form project (e.g., add user to your user card list)?
     
-##### You said:
 
-yes both first explain then project
-
-###### ChatGPT said:
+Lets do both one by one.
 
 Perfect! Let's follow this structured flow for learning **React Forms (Controlled Components)**:
 
@@ -191,11 +188,35 @@ export default App;
 
 ### 🔹 Example 2: Multiple Input Fields (Using Multiple `useState`s)
 
-jsx
+```jsx
+import { useState } from "react";
 
-Copy code
+function App() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
-`import { useState } from "react";  function App() {   const [firstName, setFirstName] = useState("");   const [lastName, setLastName] = useState("");    return (     <div>       <h2>Signup Form</h2>       <input         type="text"         placeholder="First name"         value={firstName}         onChange={(e) => setFirstName(e.target.value)}       />       <input         type="text"         placeholder="Last name"         value={lastName}         onChange={(e) => setLastName(e.target.value)}       />       <p>Welcome, {firstName} {lastName}</p>     </div>   ); }  export default App;`
+  return (
+    <div>
+      <h2>Signup Form</h2>
+      <input
+        type="text"
+        placeholder="First name"
+        value={firstName}
+        onChange={(e) => setFirstName(e.target.value)}
+      />
+      <input
+        type="text"
+        placeholder="Last name"
+        value={lastName}
+        onChange={(e) => setLastName(e.target.value)}
+      />
+      <p>Welcome, {firstName} {lastName}</p>
+    </div>
+  );
+}
+
+export default App;
+```
 
 💡 This approach is okay, but with more inputs, it gets repetitive.
 
@@ -203,11 +224,46 @@ Copy code
 
 ### 🔹 Example 3: Multiple Input Fields (Using One `useState` Object)
 
-jsx
+```jsx
+import { useState } from "react";
 
-Copy code
+function App() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+  });
 
-`import { useState } from "react";  function App() {   const [formData, setFormData] = useState({     firstName: "",     lastName: "",   });    function handleChange(e) {     setFormData({       ...formData,       [e.target.name]: e.target.value,     });   }    return (     <div>       <h2>Signup Form</h2>       <input         type="text"         name="firstName"         placeholder="First name"         value={formData.firstName}         onChange={handleChange}       />       <input         type="text"         name="lastName"         placeholder="Last name"         value={formData.lastName}         onChange={handleChange}       />       <p>Welcome, {formData.firstName} {formData.lastName}</p>     </div>   ); }  export default App;`
+  function handleChange(e) {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  return (
+    <div>
+      <h2>Signup Form</h2>
+      <input
+        type="text"
+        name="firstName"
+        placeholder="First name"
+        value={formData.firstName}
+        onChange={handleChange}
+      />
+      <input
+        type="text"
+        name="lastName"
+        placeholder="Last name"
+        value={formData.lastName}
+        onChange={handleChange}
+      />
+      <p>Welcome, {formData.firstName} {formData.lastName}</p>
+    </div>
+  );
+}
+
+export default App;
+```
 
 ### 🧠 Key Insight:
 
