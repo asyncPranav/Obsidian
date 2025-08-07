@@ -283,3 +283,8 @@ export default App;
 |Many inputs|Use object state and dynamic key access|
 |Controlled component|Always bind `value` and `onChange`|
 |React handles state|Not the DOM|
+
+
+---
+
+## **Something more
