@@ -322,11 +322,21 @@ Think of it like this:
 
 ### 🧪 Example: Controlled Input
 
-jsx
+```jsx
+import { useState } from "react";
 
-Copy code
+function App() {
+  const [name, setName] = useState("");
 
-`import { useState } from "react";  function App() {   const [name, setName] = useState("");    return (     <input       type="text"       value={name}           // 👈 controlled by React       onChange={(e) => setName(e.target.value)}     />   ); }`
+  return (
+    <input
+      type="text"
+      value={name}  // 👈 controlled by React
+      onChange={(e) => setName(e.target.value)}
+    />
+  );
+}
+```
 
 - `value={name}` ➝ React controls the input’s value
     
@@ -343,11 +353,15 @@ React forms can work with **any type of input**: text, checkbox, radio, textarea
 
 ### 🧾 Text Input (Basic)
 
-jsx
+```jsx
+const [username, setUsername] = useState("");
 
-Copy code
-
-`const [username, setUsername] = useState("");  <input   type="text"   value={username}   onChange={(e) => setUsername(e.target.value)} />`
+<input
+  type="text"
+  value={username}
+  onChange={(e) => setUsername(e.target.value)}
+/>
+```
 
 ---
 
