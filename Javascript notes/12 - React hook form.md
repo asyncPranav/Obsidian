@@ -123,7 +123,7 @@ This object holds validation errors.
 You can display them per input.
 
 ```jsx
-
+{errors.userName && <p>Name is required</p>}
 ```
 
 ---
@@ -137,21 +137,72 @@ Watches form values in real time. Useful for:
 - Conditional rendering
     
 
-jsx
-
-Copy code
-
-`const watchName = watch("userName"); console.log(watchName);`
+```jsx
+const watchName = watch("userName");
+console.log(watchName);
+```
 
 ---
 
 ## **3. Full Example: Basic Form**
 
-jsx
+```jsx
+import { useForm } from "react-hook-form";
+import "./App.css";
 
-Copy code
+function App() {
+  // Initialize React Hook Form
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors }
+	} = useForm();
+	
+	// Function runs when validation passes
+  function onSubmit(data) {
+    console.log("Form submitted: ", data);
+  }
 
-`import { useForm } from "react-hook-form"; import "./App.css";  function App() {   // Initialize React Hook Form   const {     register,     handleSubmit,     watch,     formState: { errors }   } = useForm();    // Function runs when validation passes   function onSubmit(data) {     console.log("Form submitted: ", data);   }    return (     <div>       <h1>React Hook Form Example</h1>       <form onSubmit={handleSubmit(onSubmit)}>                  {/* Name Field */}         <div>           <label>Name: </label>           <input             type="text"             {...register("userName", { required: "Name is required" })}           />           {errors.userName && <p>{errors.userName.message}</p>}         </div>          {/* Email Field */}         <div>           <label>Email: </label>           <input             type="email"             {...register("userEmail", {               required: "Email is required",               pattern: { value: /^\S+@\S+$/i, message: "Invalid email" }             })}           />           {errors.userEmail && <p>{errors.userEmail.message}</p>}         </div>          {/* Watching Example */}         <p>Live Name Preview: {watch("userName")}</p>          <button type="submit">Submit</button>       </form>     </div>   ); }  export default App;`
+  return (
+    <div>
+      <h1>React Hook Form Example</h1>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        
+        {/* Name Field */}
+        <div>
+          <label>Name: </label>
+          <input
+            type="text"
+            {...register("userName", { required: "Name is required" })}
+          />
+          {errors.userName && <p>{errors.userName.message}</p>}
+        </div>
+		
+        {/* Email Field */}
+        <div>
+          <label>Email: </label>
+          <input
+            type="email"
+            {...register("userEmail", {
+              required: "Email is required",
+              pattern: { value: /^\S+@\S+$/i, message: "Invalid email" }
+            })}
+          />
+          {errors.userEmail && <p>{errors.userEmail.message}</p>}
+        </div>
+		
+        {/* Watching Example */}
+        <p>Live Name Preview: {watch("userName")}</p>
+		
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+}
+
+export default App;
+```
 
 ---
 
