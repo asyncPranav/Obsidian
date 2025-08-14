@@ -240,3 +240,139 @@ export default App;
 ✅ Built-in validation  
 ✅ Smaller bundle size compared to Formik  
 ✅ Easy integration with UI libraries like Material UI, Chakra UI, etc.
+
+
+---
+
+
+## 📌 All `formState` Properties
+
+|Property|Type|Description|
+|---|---|---|
+|**`isDirty`**|boolean|`true` if at least one field value is different from the `defaultValues`.|
+|**`dirtyFields`**|object|Keys are the names of fields that have been changed, values are `true`.|
+|**`isValid`**|boolean|`true` if all fields pass validation (requires `mode: 'onChange'` or `'all'` for live updates).|
+|**`isSubmitted`**|boolean|`true` once the form has been submitted (even once).|
+|**`isSubmitting`**|boolean|`true` while `handleSubmit` is running an async function.|
+|**`isSubmitSuccessful`**|boolean|`true` if the last submit was successful (onSubmit finished without throwing).|
+|**`submitCount`**|number|How many times the form was submitted.|
+|**`touchedFields`**|object|Fields that have been focused/blurred at least once.|
+|**`isLoading`**|boolean|`true` if async `defaultValues` are still being loaded.|
+|**`isValidating`**|boolean|`true` if async validation is still running.|
+|**`errors`**|object|Holds validation errors for each field (if any).|
+
+---
+
+## 📌 Example Code Showing All `formState` Fields
+
+```jsx
+import { useForm } from "react-hook-form";
+
+export default function App() {
+  const {
+    register,
+    handleSubmit,
+    formState: {
+      errors,
+      isDirty,
+      dirtyFields,
+      isValid,
+      isSubmitted,
+      isSubmitting,
+      isSubmitSuccessful,
+      submitCount,
+      touchedFields,
+      isLoading,
+      isValidating
+    }
+  } = useForm({
+    mode: "onChange", // so isValid updates live
+    defaultValues: {
+      userName: "",
+      userEmail: ""
+    }
+  });
+
+  async function onSubmit(data) {
+    console.log("Form data:", data);
+    await new Promise(res => setTimeout(res, 1500)); // simulate delay
+    console.log("✅ Submitted");
+  }
+
+  return (
+    <div>
+      <h1>React Hook Form - formState Example</h1>
+
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <label>Name:</label>
+          <input
+            {...register("userName", {
+              required: "Name is required",
+              minLength: { value: 3, message: "Min length is 3" }
+            })}
+          />
+          {errors.userName && <p>{errors.userName.message}</p>}
+        </div>
+
+        <div>
+          <label>Email:</label>
+          <input
+            {...register("userEmail", {
+              required: "Email is required",
+              pattern: {
+                value: /^\S+@\S+$/i,
+                message: "Invalid email"
+              }
+            })}
+          />
+          {errors.userEmail && <p>{errors.userEmail.message}</p>}
+        </div>
+
+        <button type="submit" disabled={!isValid || isSubmitting}>
+          {isSubmitting ? "Submitting..." : "Submit"}
+        </button>
+      </form>
+
+      <hr />
+      <h2>Form State Debug</h2>
+      <pre>{JSON.stringify({
+        isDirty,
+        dirtyFields,
+        isValid,
+        isSubmitted,
+        isSubmitting,
+        isSubmitSuccessful,
+        submitCount,
+        touchedFields,
+        isLoading,
+        isValidating,
+        errors
+      }, null, 2)}</pre>
+    </div>
+  );
+}
+
+```
+
+---
+
+## 📌 How These Fields Help in Real Projects
+
+- **`isDirty`** → Warn users before leaving page if changes are unsaved.
+    
+- **`dirtyFields`** → Send only updated fields to backend.
+    
+- **`isValid`** → Enable submit only when valid.
+    
+- **`isSubmitting`** → Show loading spinner.
+    
+- **`isSubmitSuccessful`** → Show success message after submit.
+    
+- **`submitCount`** → Track retries or limit attempts.
+    
+- **`touchedFields`** → Show validation errors only after user touched a field.
+    
+- **`isValidating`** → Show "checking..." while async validation runs.
+    
+- **`errors`** → Display per-field error messages.
