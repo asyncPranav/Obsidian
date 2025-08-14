@@ -23,11 +23,17 @@ It’s designed to be **fast, minimal, and developer-friendly**, compared to the
 
 Example:
 
-jsx
+```jsx
+const [name, setName] = useState("");
+const [email, setEmail] = useState("");
 
-Copy code
-
-`const [name, setName] = useState(""); const [email, setEmail] = useState("");  function handleSubmit(e) {   e.preventDefault();   if (!name) { /* show error */ }   if (!email) { /* show error */ }   console.log({ name, email }); }`
+function handleSubmit(e) {
+  e.preventDefault();
+  if (!name) { /* show error */ }
+  if (!email) { /* show error */ }
+  console.log({ name, email });
+}
+```
 
 This works, but for big forms → it’s **too much boilerplate**.
 
@@ -46,11 +52,14 @@ This works, but for big forms → it’s **too much boilerplate**.
 
 Example:
 
-jsx
+```jsx
+const { register, handleSubmit } = useForm();
 
-Copy code
-
-`const { register, handleSubmit } = useForm();  <form onSubmit={handleSubmit(onSubmit)}>   <input {...register("name")} />   <input {...register("email")} /> </form>`
+<form onSubmit={handleSubmit(onSubmit)}>
+  <input {...register("name")} />
+  <input {...register("email")} />
+</form>
+```
 
 ---
 
@@ -61,11 +70,14 @@ Copy code
 The main hook from RHF.  
 It sets up form state, validation, and helpers.
 
-jsx
-
-Copy code
-
-`const {   register,      // Connects inputs to RHF   handleSubmit,  // Handles validation + triggers onSubmit   watch,         // Lets you watch input values in real time   formState: { errors }, // Stores validation errors } = useForm();`
+```jsx
+const {
+  register,      // Connects inputs to RHF
+  handleSubmit,  // Handles validation + triggers onSubmit
+  watch,         // Lets you watch input values in real time
+  formState: { errors }, // Stores validation errors
+} = useForm();
+```
 
 ---
 
@@ -76,11 +88,9 @@ You pass it a **field name** and optionally **validation rules**.
 
 Example:
 
-jsx
-
-Copy code
-
-`<input {...register("userName", { required: true, minLength: 3 })} />`
+```jsx
+<input {...register("userName", { required: true, minLength: 3 })} />
+```
 
 - `"userName"` → Key in the final form data object.
     
@@ -101,11 +111,9 @@ It’s a **wrapper** that:
 3. Calls your custom `onSubmit` with the collected data
     
 
-jsx
-
-Copy code
-
-`<form onSubmit={handleSubmit(onSubmit)}>`
+```jsx
+<form onSubmit={handleSubmit(onSubmit)}>
+```
 
 ---
 
@@ -114,11 +122,9 @@ Copy code
 This object holds validation errors.  
 You can display them per input.
 
-jsx
+```jsx
 
-Copy code
-
-`{errors.userName && <p>Name is required</p>}`
+```
 
 ---
 
