@@ -191,13 +191,27 @@ increment: (state) => {
 
 Good:
 
-`increment: (state) => { state.value += 1 } // ✅ mutate only // OR increment: (state) => ({ value: state.value + 1 })) // ✅ return only`
+```js
+increment: (state) => { state.value += 1 } // ✅ mutate only
+// OR
+increment: (state) => ({ value: state.value + 1 })) // ✅ return only
+```
 
 ---
 
 ## 9) **configureStore options**
 
-`configureStore({   reducer: { counter: counterReducer },   middleware: (getDefaultMiddleware) =>     getDefaultMiddleware({       serializableCheck: true, // warns if you put non-serializable stuff in state/actions       immutableCheck: true,     }),   devTools: process.env.NODE_ENV !== 'production', // Redux DevTools });`
+```js
+configureStore({
+  reducer: { counter: counterReducer },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: true, // warns if you put non-serializable stuff in state/actions
+      immutableCheck: true,
+    }),
+  devTools: process.env.NODE_ENV !== 'production', // Redux DevTools
+});
+```
 
 **Terms:**
 
@@ -215,11 +229,45 @@ Good:
 **What:** Helper to handle async logic (fetching data) with lifecycle actions.  
 It auto-creates `pending`, `fulfilled`, `rejected` actions you handle in `extraReducers`.
 
-`// features/users/userSlice.js import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';  export const fetchUsers = createAsyncThunk(   'users/fetch',   async () => {     const res = await fetch('https://jsonplaceholder.typicode.com/users');     return await res.json();   } );  const userSlice = createSlice({   name: 'users',   initialState: { list: [], status: 'idle', error: null },   reducers: {},   extraReducers: (builder) => {     builder       .addCase(fetchUsers.pending,   (state) => { state.status = 'loading' })       .addCase(fetchUsers.fulfilled, (state, action) => {         state.status = 'succeeded';         state.list = action.payload;       })       .addCase(fetchUsers.rejected,  (state, action) => {         state.status = 'failed';         state.error = action.error.message;       });   }, });  export default userSlice.reducer;`
+```js
+// features/users/userSlice.js
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+export const fetchUsers = createAsyncThunk(
+  'users/fetch',
+  async () => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/users');
+    return await res.json();
+  }
+);
+
+const userSlice = createSlice({
+  name: 'users',
+  initialState: { list: [], status: 'idle', error: null },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchUsers.pending,   (state) => { state.status = 'loading' })
+      .addCase(fetchUsers.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.list = action.payload;
+      })
+      .addCase(fetchUsers.rejected,  (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      });
+  },
+});
+
+export default userSlice.reducer;
+```
 
 **UI usage:**
 
-`const dispatch = useDispatch(); useEffect(() => { dispatch(fetchUsers()) }, [dispatch]);`
+```jsx
+const dispatch = useDispatch();
+useEffect(() => { dispatch(fetchUsers()) }, [dispatch]);
+```
 
 **Terms here:**
 
