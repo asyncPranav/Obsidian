@@ -110,13 +110,17 @@ export default function App() {
     
 2. When you click **+**, it runs:
     
-    `dispatch({ type: "INCREMENT" })`
+```jsx
+dispatch({ type: "INCREMENT" })
+```
     
 3. That sends `{ type: "INCREMENT" }` to the **reducer** function.
     
 4. Reducer sees the type `"INCREMENT"` and returns:
     
-    `{ count: state.count + 1 }`
+```jsx
+{ count: state.count + 1 }
+```
     
 5. React updates the state with the new object.
     
@@ -127,13 +131,17 @@ export default function App() {
 
 In the example above, the only info we sent was:
 
-`{ type: "INCREMENT" }`
+```jsx
+{ type: "INCREMENT" }
+```
 
 But sometimes we also need to send **extra data** along with the action.
 
 For example, if we want to add a specific number instead of just `+1`:
 
-`dispatch({ type: "INCREMENT_BY", payload: 5 })`
+```jsx
+dispatch({ type: "INCREMENT_BY", payload: 5 })
+```
 
 Here:
 
