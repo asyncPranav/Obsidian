@@ -233,7 +233,9 @@ action.payload // 5
     
 3. Then it uses `payload` to update the count dynamically:
     
-    `return { count: state.count + action.payload }`
+```jsx
+return { count: state.count + action.payload }
+```
     
 
 ---
