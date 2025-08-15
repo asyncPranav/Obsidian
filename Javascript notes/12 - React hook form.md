@@ -431,3 +431,17 @@ const {
 ---
 
 ## **2️⃣ `formState` Properties**
+
+These are reactive values that update automatically when form changes.
+
+|Property|Purpose|Example|
+|---|---|---|
+|**`errors`**|Object containing validation errors for each field.|`errors.email?.message`|
+|**`isDirty`**|`true` if any field has changed from default value.|`if (isDirty) ...`|
+|**`dirtyFields`**|Object with fields that have changed.|`dirtyFields.email`|
+|**`touchedFields`**|Object with fields that were visited (blurred).|`touchedFields.email`|
+|**`isValid`**|`true` if the form passes validation (depends on `mode`).|`if (isValid) ...`|
+|**`isSubmitting`**|`true` while the form is being submitted.|Disable button while submitting|
+|**`isSubmitSuccessful`**|`true` after successful submit.|Show success message|
+|**`submitCount`**|Number of times form has been submitted.|Show "You tried X times"|
+
