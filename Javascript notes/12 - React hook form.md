@@ -384,4 +384,32 @@ export default function App() {
 ## `useForm()` main signature
 
 ```jsx
+const {
+  register,
+  handleSubmit,
+  watch,
+  setValue,
+  getValues,
+  reset,
+  resetField,
+  trigger,
+  setError,
+  clearErrors,
+  control,
+  formState: {
+    errors,
+    isDirty,
+    isValid,
+    isSubmitting,
+    touchedFields,
+    dirtyFields,
+    submitCount,
+    isSubmitSuccessful,
+  }
+} = useForm(options);
 ```
+
+
+---
+
+## 1️⃣ Functions
