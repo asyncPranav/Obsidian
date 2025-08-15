@@ -412,4 +412,22 @@ const {
 
 ---
 
-## 1️⃣ Functions
+### **1️⃣ Functions**
+
+|Function|Purpose|Example|
+|---|---|---|
+|**`register(name, options)`**|Connects an input field to RHF and applies validation rules.|`register("email", { required: "Email required" })`|
+|**`handleSubmit(fn)`**|Returns a function you give to `<form onSubmit>`. It validates and then calls your `fn` with form data.|`<form onSubmit={handleSubmit(onSubmit)}>`|
+|**`watch(name?)`**|Lets you watch input values in real time. Can watch one field, multiple, or all.|`watch("email")`|
+|**`setValue(name, value, options)`**|Programmatically set a field’s value.|`setValue("email", "test@example.com")`|
+|**`getValues(name?)`**|Get the current value(s) of field(s) without rendering.|`getValues("email")`|
+|**`reset(values?, options?)`**|Reset form to initial/default values or new ones.|`reset({ email: "abc@test.com" })`|
+|**`resetField(name, options?)`**|Reset a single field.|`resetField("email")`|
+|**`trigger(name?, options?)`**|Manually trigger validation.|`trigger("email")`|
+|**`setError(name, error, options?)`**|Set a manual error on a field.|`setError("email", { type: "manual", message: "Custom error" })`|
+|**`clearErrors(name?)`**|Clear validation errors.|`clearErrors("email")`|
+|**`control`**|The special object used with controlled components via `<Controller>`.|`control` is passed into `Controller`|
+
+---
+
+## **2️⃣ `formState` Properties**
