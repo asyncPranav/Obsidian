@@ -23,7 +23,7 @@
 **Where:** `src/app/store.js`  
 **How:** Created with `configureStore`.
 
-```jsx
+```js
 // app/store.js
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
@@ -75,7 +75,7 @@ root.render(
     **How:** Use `createSlice`.
     
 
-```jsx
+```js
 // features/counter/counterSlice.js
 import { createSlice } from '@reduxjs/toolkit';
 
@@ -121,7 +121,7 @@ Bad: `state.value += 1; return {...state}` → Immer error.
 **Action (object):** `{ type: 'counter/increment', payload?: any }`  
 **Action Creator (function):** A function that returns an action object for you.
 
-```jsx
+```js
 increment()        // => { type: 'counter/increment' }
 incrementByAmount(5) // => { type: 'counter/incrementByAmount', payload: 5 }
 ```
@@ -166,7 +166,9 @@ UI click → `dispatch(action)` → Redux runs reducer → store updates → sub
 **Why:** Keeps components focused on just the data they need → fewer re-renders.  
 **How:** `useSelector((state) => state.counter.value)`
 
-`const count = useSelector((state) => state.counter.value);`
+```js
+const count = useSelector((state) => state.counter.value);
+```
 
 **Tip:** Create reusable selectors in the slice file for bigger apps.
 
@@ -180,7 +182,12 @@ UI click → `dispatch(action)` → Redux runs reducer → store updates → sub
 
 Bad:
 
-`increment: (state) => {   state.value += 1;   return { ...state };   // ❌ will crash }`
+```js
+increment: (state) => {
+  state.value += 1;
+  return { ...state };   // ❌ will crash
+}
+```
 
 Good:
 
