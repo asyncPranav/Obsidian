@@ -445,3 +445,26 @@ These are reactive values that update automatically when form changes.
 |**`isSubmitSuccessful`**|`true` after successful submit.|Show success message|
 |**`submitCount`**|Number of times form has been submitted.|Show "You tried X times"|
 
+---
+
+## **3️⃣ Options for `useForm()`**
+
+You can pass options to control form behavior:
+
+```jsx
+useForm({
+  mode: "onSubmit",   // validation trigger: onChange | onBlur | onSubmit | onTouched | all
+  defaultValues: {    // set default values
+    email: "",
+    password: ""
+  },
+  reValidateMode: "onChange", // when to revalidate after first error
+});
+```
+
+
+---
+
+## **4️⃣ Minimal Example Using Most of Them**
+
+`import React from "react"; import { useForm } from "react-hook-form";  export default function App() {   const {     register,     handleSubmit,     watch,     setValue,     getValues,     reset,     resetField,     trigger,     setError,     clearErrors,     formState: { errors, isDirty, isValid, isSubmitting, touchedFields }   } = useForm({ mode: "onChange", defaultValues: { email: "" } });    const onSubmit = (data) => {     console.log("Submitted data:", data);     reset(); // Clear after submit   };    return (     <form onSubmit={handleSubmit(onSubmit)}>       <input         {...register("email", {           required: "Email is required",           pattern: { value: /\S+@\S+\.\S+/, message: "Invalid email" }         })}         placeholder="Email"       />       {errors.email && <p>{errors.email.message}</p>}        <button type="button" onClick={() => setValue("email", "test@example.com")}>         Set Email       </button>        <button type="button" onClick={() => console.log(getValues("email"))}>         Log Email       </button>        <button type="button" onClick={() => resetField("email")}>         Reset Email       </button>        <button type="button" onClick={() => trigger("email")}>         Validate Email       </button>        <button type="button" onClick={() => setError("email", { message: "Forced error" })}>         Force Error       </button>        <button type="button" onClick={() => clearErrors("email")}>         Clear Error       </button>        <br /><br />       <button type="submit" disabled={isSubmitting || !isValid}>         Submit       </button>        <pre>{JSON.stringify({ isDirty, touchedFields }, null, 2)}</pre>     </form>   ); }`
