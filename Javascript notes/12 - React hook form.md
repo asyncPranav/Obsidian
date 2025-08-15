@@ -376,3 +376,12 @@ export default function App() {
 - **`isValidating`** → Show "checking..." while async validation runs.
     
 - **`errors`** → Display per-field error messages.
+
+
+---
+
+
+## `useForm()` main signature
+
+```jsx
+```
