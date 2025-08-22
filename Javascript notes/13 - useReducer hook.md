@@ -299,4 +299,4 @@ If you’re ready, the **next step** would be:
 2. Then switch to **Redux Toolkit**, which automates a lot of boilerplate.
     
 
-Do you want me to **immediately show the `useReducer + useContext` global state pattern** so it feels like a mini Redux before we jump to Redux Toolkit? That’s where the "aha" moment happens.
+---
