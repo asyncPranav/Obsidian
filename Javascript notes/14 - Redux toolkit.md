@@ -321,4 +321,7 @@ Helpers to manage normalized collections (e.g., lists of items) with IDs efficie
     Check the key you registered in `configureStore`.
     
 - **Non-serializable data** in state/actions → console warnings.  
-    Keep state plain (no class instances, DOM nodes, Promises, Dates if possible).
+    Keep state plain (no class instances, DOM nodes, Promises, Dates if possible)
+
+---
+
