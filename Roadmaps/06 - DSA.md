@@ -469,7 +469,7 @@
 
 **Resume Must Have:**
 
-- Skills: Java, DSA, OOPs, [Frameworks if any]
+- Skills: Java, DSA, OOPs, [Frameworks if any]t
     
 - Projects: GitHub hosted
     
