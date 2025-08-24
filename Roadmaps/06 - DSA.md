@@ -421,7 +421,7 @@
 
 ---
 
-### 📅 Weeks 19–20: Mock Interviews + Top Problems
+### 📅 **Weeks 19–20: Mock Interviews + Top Problems**
 
 - Resume Ready? (Projects + DSA Mentioned)
     
@@ -441,7 +441,7 @@
 
 ---
 
-### 📅 Weeks 21–22: HR & CS Core Prep
+### 📅 **Weeks 21–22: HR & CS Core Prep**
 
 - Operating System (Process, Thread, Memory)
     
