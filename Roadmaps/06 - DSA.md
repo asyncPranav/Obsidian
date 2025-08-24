@@ -456,7 +456,7 @@
 
 ## 🧾 Phase 6: Projects, Resume & Applications (Parallel/Ongoing)
 
-### ✅ Minimum Projects (2–3 Java Projects):
+### ✅ **Minimum Projects (2–3 Java Projects):**
 
 - Student Management System
     
@@ -491,7 +491,7 @@
 
 ---
 
-## 🔄 Revision Plan
+## 🔄 **Revision Plan**
 
 - Keep a **DSA notebook/Notion** for key concepts.
     
@@ -502,7 +502,7 @@
 
 ---
 
-## 🧰 Tools & Platforms
+## 🧰 **Tools & Platforms**
 
 |Purpose|Tool / Platform|
 |---|---|
@@ -515,7 +515,7 @@
 
 ---
 
-## 📌 Final Words:
+## 📌 **Final Words:**
 
 - Stay **consistent** (even 2–3 hours daily is fine)
     
