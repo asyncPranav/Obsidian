@@ -47,6 +47,12 @@ Means: Move each bit `n` positions left and **append 0s on the right**.
 ```
     
 - Here, we **did not discard MSB** because we **did not define a fixed width** in the example.
+
+- But in Right Shift we discard left bit 
+
+```sh
+1111 >> 1 -> 
+```
     
 - In **Java**, `int` is **32 bits**, so the real representation is:
 	
