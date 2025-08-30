@@ -9,12 +9,13 @@
 
 - The **left shift operator (`<<`)** shifts all bits of a number **to the left** by the specified number of positions.
     
-- **Syntax:**
+```java
+number << n
+
+```
     
-    `number << n`
-    
-    Means: Move each bit `n` positions left and **append 0s on the right**.
-    
+Means: Move each bit `n` positions left and **append 0s on the right**.
+
 
 ---
 
@@ -41,7 +42,8 @@
 
 - You saw:
     
-    `1111 << 1 → 11110`
+```
+```
     
 - Here, we **did not discard MSB** because we **did not define a fixed width** in the example.
     
