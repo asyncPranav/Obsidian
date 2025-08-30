@@ -42,14 +42,19 @@ Means: Move each bit `n` positions left and **append 0s on the right**.
 
 - You saw:
     
-```
+```sh
+1111 << 1 → 11110
 ```
     
 - Here, we **did not discard MSB** because we **did not define a fixed width** in the example.
     
 - In **Java**, `int` is **32 bits**, so the real representation is:
-    
-    `00000000 00000000 00000000 00001111  (15) After << 1: 00000000 00000000 00000000 00011110  (30)`
+	
+```sh
+00000000 00000000 00000000 00001111  (15)
+After << 1:
+00000000 00000000 00000000 00011110  (30)
+```
     
 - No MSB was lost because there was **room to shift inside 32 bits**.
     
@@ -60,8 +65,12 @@ Means: Move each bit `n` positions left and **append 0s on the right**.
 
 - If you keep shifting and the `1` reaches the left edge (bit 31 for int), the next shift discards it:
     
-
-`Before shift: 10000000 00000000 00000000 00000000  (MSB set) After << 1: 00000000 00000000 00000000 00000000  (MSB lost)`
+```sh
+Before shift:
+10000000 00000000 00000000 00000000  (MSB set)
+After << 1:
+00000000 00000000 00000000 00000000  (MSB lost)
+```
 
 ---
 
@@ -90,11 +99,18 @@ Means: Move each bit `n` positions left and **append 0s on the right**.
 
 Example: `15 << 1`
 
-`Binary: 00000000 00000000 00000000 00001111  (15) Shift:  00000000 00000000 00000000 00011110  (30)`
+```sh
+Binary: 00000000 00000000 00000000 00001111  (15)
+Shift:  00000000 00000000 00000000 00011110  (30)
+```
 
 After multiple shifts:
 
-`15 << 27 → 1111000000000000000000000000000 15 << 28 → 11110000000000000000000000000000 15 << 29 → overflow, MSB gone`
+```sh
+15 << 27 → 1111000000000000000000000000000
+15 << 28 → 11110000000000000000000000000000
+15 << 29 → overflow, MSB gone
+```
 
 ---
 
