@@ -62,8 +62,8 @@ After << 1:
 00000000 00000000 00000000 00011110  (30)
 ```
     
-- No MSB was lost because there was **room to shift inside 32 bits**. But in Right shift there was not any vacant bit for storing right shifted 
-    
+- No MSB was lost because there was **room to shift inside 32 bits**. But in Right shift there was not any vacant bit for storing right shifted bit that's why it get discarded.
+
 
 ---
 
