@@ -55,7 +55,11 @@ XOR (0 to n) =
 
 If you write XOR results for `n = 0, 1, 2, 3, 4, 5, ...`:
 
-``
+```
+n:      0   1   2   3   4   5   6   7   8
+XOR:    0   1   3   0   4   1   7   0   8
+
+```
 
 Pattern repeats every 4 numbers:
 
