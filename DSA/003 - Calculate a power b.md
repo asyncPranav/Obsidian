@@ -29,11 +29,11 @@ $$a5=a(4+0+1)$$
 
 Now use **exponent rule**:
 
-ax+y=ax×aya^{x+y} = a^x \times a^yax+y=ax×ay
+$$ax+y=ax×ay$$
 
 So:
 
-a5=a(4+1)=a4×a1a^5 = a^{(4 + 1)} = a^4 \times a^1a5=a(4+1)=a4×a1
+$$a5=a(4+1)=a4×a1$$
 
 We **skip the zero part** because multiplying by a0=1a^0 = 1a0=1 doesn’t change anything.
 
@@ -41,7 +41,7 @@ We **skip the zero part** because multiplying by a0=1a^0 = 1a0=1 doesn’t chang
 
 ### ✅ So the binary tells us which powers of 2 to include
 
-- Bit 1 (rightmost): 1 → include a1a^{1}a1
+- Bit 1 (rightmost): 1 → include a^1
     
 - Bit 2: 0 → skip a2a^{2}a2
     
