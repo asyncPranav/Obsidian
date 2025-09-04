@@ -145,11 +145,14 @@ Do you see it?
 
 Look at what happens when you add 4 numbers at a time:
 
-(n)⊕(n+1)⊕(n+2)⊕(n+3)(n) ⊕ (n+1) ⊕ (n+2) ⊕ (n+3)(n)⊕(n+1)⊕(n+2)⊕(n+3)
+$(n)⊕(n+1)⊕(n+2)⊕(n+3)$
 
 Example:
 
 ```sh
+0 ^ 1 ^ 2 ^ 3 = 0
+4 ^ 5 ^ 6 ^ 7 = 0
+8 ^ 9 ^ 10 ^ 11 = 0
 ```
 
 Why 0? Because XOR cancels patterns:
@@ -167,7 +170,7 @@ So **XOR of any block of 4 consecutive numbers = 0**.
 
 If blocks of 4 give 0, then:
 
-XOR(0 to n)=XOR of last (n mod 4) numbers only + previous block result\text{XOR(0 to n)} = \text{XOR of last (n mod 4) numbers only + previous block result}XOR(0 to n)=XOR of last (n mod 4) numbers only + previous block result
+**XOR(0 to n)=XOR of last (n mod 4) numbers only + previous block result
 
 Previous blocks = 0, so:
 
