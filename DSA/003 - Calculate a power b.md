@@ -58,11 +58,11 @@ $$a^5=a^4×a^1$$
 
 Because instead of multiplying `a` five times (slow), we:
 
-- Compute $a^1a1
+- Compute $a^1$
     
-- Square → a2a^2a2
+- Square → $a^2$
     
-- Square → a4a^4a4
+- Square → $a^4$
     
 - Pick the ones where the binary bit = 1.
     
@@ -75,6 +75,6 @@ This is the entire trick!
 
 Example: a=2a = 2a=2, b=5b = 5b=5
 
-25=24×21=16×2=322^5 = 2^4 \times 2^1 = 16 \times 2 = 3225=24×21=16×2=32
+$$$$
 
 Binary told us: take 4 and 1, skip 2 → works perfectly.
