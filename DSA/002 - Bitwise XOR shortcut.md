@@ -39,9 +39,11 @@ can be **done on paper quickly** using a pattern (no need to XOR one by one).
 4. There is a **pattern for XOR from 0 to n**:
     
 
-$$
-XOR(0 to n)=⎩⎨⎧​n1n+10​if nmod4=0if nmod4=1if nmod4=2if nmod4=3​
-$$
+
+|     |     |
+| --- | --- |
+|     |     |
+
 
 ---
 
