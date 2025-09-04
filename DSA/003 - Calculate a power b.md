@@ -9,7 +9,7 @@
     
     - The rightmost bit (1) = $2^0$ = 1
         
-    - The middle bit (0) = $2^1$= 2
+    - The middle bit (0) = $2^1$ = 2
         
     - The leftmost bit (1) = $2^2$ = 4
         
@@ -35,7 +35,7 @@ So:
 
 $$a5=a(4+1)=a4×a1$$
 
-We **skip the zero part** because multiplying by a0=1a^0 = 1a0=1 doesn’t change anything.
+We **skip the zero part** because multiplying by a^0 = 1 doesn’t change anything.
 
 ---
 
