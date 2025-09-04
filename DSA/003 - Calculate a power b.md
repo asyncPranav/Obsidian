@@ -7,11 +7,11 @@
     
 - `5` in binary is `101`.
     
-    - The rightmost bit (1) = 2^0= 1
+    - The rightmost bit (1) = $2^0$ = 1
         
-    - The middle bit (0) = 2^1= 2
+    - The middle bit (0) = $2^1$= 2
         
-    - The leftmost bit (1) = 2^2 = 4
+    - The leftmost bit (1) = $2^2$ = 4
         
 
 So:
@@ -75,6 +75,6 @@ This is the entire trick!
 
 Example: a=2a = 2a=2, b=5b = 5b=5
 
-$$$$
+$$2^5=2^4×2^1=16×2=32$$
 
 Binary told us: take 4 and 1, skip 2 → works perfectly.
