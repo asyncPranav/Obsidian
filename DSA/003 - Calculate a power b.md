@@ -41,11 +41,11 @@ We **skip the zero part** because multiplying by a0=1a^0 = 1a0=1 doesn’t chang
 
 ### ✅ So the binary tells us which powers of 2 to include
 
-- Bit 1 (rightmost): 1 → include a^1
+- Bit 1 (rightmost): 1 → include $a^1$
     
-- Bit 2: 0 → skip a2a^{2}a2
+- Bit 2: 0 → skip $a^2$
     
-- Bit 3: 1 → include a4a^{4}a4
+- Bit 3: 1 → include $a^4$
     
 
 So:
