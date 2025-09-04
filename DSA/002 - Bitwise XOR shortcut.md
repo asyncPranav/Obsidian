@@ -40,9 +40,13 @@ can be **done on paper quickly** using a pattern (no need to XOR one by one).
     
 
 
-|     |     |
-| --- | --- |
-|     |     |
+XOR (0 to n)
+
+| n   | if n mod 4 = 0 |
+| --- | -------------- |
+| 1   |                |
+| n+1 |                |
+| 0   |                |
 
 
 ---
