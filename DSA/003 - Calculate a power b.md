@@ -7,16 +7,18 @@
     
 - `5` in binary is `101`.
     
-    - The rightmost bit (1) = 202^020 = 1
+    - The rightmost bit (1) = 2^0= 1
         
-    - The middle bit (0) = 212^121 = 2
+    - The middle bit (0) = 2^1= 2
         
-    - The leftmost bit (1) = 222^222 = 4
+    - The leftmost bit (1) = 2^2 = 4
         
 
 So:
 
 5=(1×4)+(0×2)+(1×1)=4+0+1=55 = (1 \times 4) + (0 \times 2) + (1 \times 1) = 4 + 0 + 1 = 55=(1×4)+(0×2)+(1×1)=4+0+1=5
+
+
 
 ---
 
