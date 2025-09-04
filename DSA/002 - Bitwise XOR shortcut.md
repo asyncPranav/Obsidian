@@ -111,7 +111,7 @@ Pattern repeats every 4 numbers:
 
 We want:
 
-f(n)=0  ⊕  1  ⊕  2  ⊕  …  ⊕  nf(n) = 0 \; \oplus \; 1 \; \oplus \; 2 \; \oplus \; \dots \; \oplus \; nf(n)=0⊕1⊕2⊕…⊕n
+$f(n)=0⊕1⊕2⊕…⊕n$
 
 (Here `⊕` means XOR.)
 
@@ -119,11 +119,22 @@ f(n)=0  ⊕  1  ⊕  2  ⊕  …  ⊕  nf(n) = 0
 
 ### ✅ Step 2: Compute first few manually
 
-`n = 0 → 0 n = 1 → 0 ^ 1 = 1 n = 2 → 0 ^ 1 ^ 2 = (1 ^ 2) = 3 n = 3 → 0 ^ 1 ^ 2 ^ 3 = (3 ^ 3) = 0 n = 4 → previous (0) ^ 4 = 4 n = 5 → 4 ^ 5 = 1 n = 6 → 1 ^ 6 = 7 n = 7 → 7 ^ 7 = 0`
+```sh
+n = 0 → 0
+n = 1 → 0 ^ 1 = 1
+n = 2 → 0 ^ 1 ^ 2 = (1 ^ 2) = 3
+n = 3 → 0 ^ 1 ^ 2 ^ 3 = (3 ^ 3) = 0
+n = 4 → previous (0) ^ 4 = 4
+n = 5 → 4 ^ 5 = 1
+n = 6 → 1 ^ 6 = 7
+n = 7 → 7 ^ 7 = 0
+```
 
 So:
 
-`f(n):  0, 1, 3, 0, 4, 1, 7, 0, 8 ...`
+```sh
+f(n):  0, 1, 3, 0, 4, 1, 7, 0, 8 ...
+```
 
 Do you see it?  
 `0, 1, 3, 0` **repeats pattern every 4 steps**, except values increase after 4.
@@ -138,7 +149,8 @@ Look at what happens when you add 4 numbers at a time:
 
 Example:
 
-`0 ^ 1 ^ 2 ^ 3 = 0 4 ^ 5 ^ 6 ^ 7 = 0 8 ^ 9 ^ 10 ^ 11 = 0`
+```sh
+```
 
 Why 0? Because XOR cancels patterns:
 
