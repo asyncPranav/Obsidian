@@ -50,7 +50,7 @@ We **skip the zero part** because multiplying by a0=1a^0 = 1a0=1 doesn’t chang
 
 So:
 
-a5=a4×a1a^5 = a^4 \times a^1a5=a4×a1
+$$a^5=a^4×a^1$$
 
 ---
 
@@ -58,7 +58,7 @@ a5=a4×a1a^5 = a^4 \times a^1a5=a4×a1
 
 Because instead of multiplying `a` five times (slow), we:
 
-- Compute a1a^1a1
+- Compute $a^1a1
     
 - Square → a2a^2a2
     
