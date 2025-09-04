@@ -170,11 +170,11 @@ So **XOR of any block of 4 consecutive numbers = 0**.
 
 If blocks of 4 give 0, then:
 
-**XOR(0 to n)=XOR of last (n mod 4) numbers only + previous block result
+**`XOR(0 to n)=XOR of last (n mod 4) numbers only + previous block result`**
 
 Previous blocks = 0, so:
 
-XOR(0 to n)=f(n  4)\text{XOR(0 to n)} = f(n \bmod 4)XOR(0 to n)=f(nmod4)
+**`XOR(0 to n)=f(nmod4)`**
 
 Compute:
 
@@ -191,7 +191,8 @@ Compute:
 
 ### ✅ Table to memorize:
 
-`n mod 4 → XOR(0..n) 0       → n 1       → 1 2       → n + 1 3       → 0`
+```sh
+```
 
 ---
 
