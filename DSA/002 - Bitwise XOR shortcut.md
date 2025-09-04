@@ -107,6 +107,9 @@ Pattern repeats every 4 numbers:
 
 ---
 
+# **IF you wanna know in more detail**
+
+
 ### ✅ Step 1: Understand what we are finding
 
 We want:
@@ -192,6 +195,11 @@ Compute:
 ### ✅ Table to memorize:
 
 ```sh
+n mod 4 → XOR(0..n)
+0       → n
+1       → 1
+2       → n + 1
+3       → 0
 ```
 
 ---
