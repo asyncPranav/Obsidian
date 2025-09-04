@@ -25,7 +25,7 @@ $$
 
 If `b = 5`, then:
 
-$$a5=a(4+0+1)$$
+$$a^5=a^(4+0+1)$$
 
 Now use **exponent rule**:
 
