@@ -19,6 +19,8 @@ Left: {2², 2¹} → 4 + 2 = 6
 
 ---
 
+# **XOR of a sequence**
+
 
 Great question! Computing XOR of a sequence like:
 
