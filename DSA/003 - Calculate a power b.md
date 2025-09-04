@@ -29,7 +29,7 @@ $$a5=a(4+0+1)$$
 
 Now use **exponent rule**:
 
-$$ax+y=ax×ay$$
+$$a^x+y=a^x×a^y$$
 
 So:
 
