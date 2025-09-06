@@ -1,4 +1,7 @@
 
 ---
 
-finding square root of a 
+## **Finding square root of a number**
+
+
+
