@@ -51,7 +51,9 @@ Check: `(7 % 5 + 9 % 5) % 5 = (2 + 4) % 5 = 6 % 5 = 1`.
 
 ### 4. **Subtraction property**
 
-`(a - b) % m = ((a % m) - (b % m) + m) % m`
+```sh
+(a - b) % m = ((a % m) - (b % m) + m) % m
+```
 
 (We add `+m` to avoid negative values.)
 
@@ -62,7 +64,9 @@ Check: `(7 % 5 - 9 % 5 + 5) % 5 = (2 - 4 + 5) % 5 = 3`.
 
 ### 5. **Multiplication property**
 
-`(a × b) % m = ((a % m) × (b % m)) % m`
+```sh
+(a × b) % m = ((a % m) × (b % m)) % m
+```
 
 ✅ Very common in DSA (modular exponentiation, hashing, combinatorics).
 
@@ -73,7 +77,9 @@ Check: `(7 % 5 × 9 % 5) % 5 = (2 × 4) % 5 = 8 % 5 = 3`.
 
 ### 6. **Exponentiation property**
 
-`(a ^ b) % m = ((a % m) ^ b) % m`
+```sh
+(a ^ b) % m = ((a % m) ^ b) % m
+```
 
 (where `^` means exponentiation, not XOR).  
 This is the basis of **modular exponentiation (fast power)** in O(log b).
