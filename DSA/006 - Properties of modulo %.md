@@ -98,7 +98,9 @@ Check: `(7 % 5)^3 % 5 = (2^3) % 5 = 8 % 5 = 3`.
 - Proper way: multiply by modular multiplicative inverse:
     
 
-`(a / b) % m = (a × b^(-1)) % m`
+```sh
+(a / b) % m = (a × b^(-1)) % m
+```
 
 (b^(-1) means modular inverse of b modulo m).  
 Works when `m` is prime and `gcd(b, m) = 1`.
