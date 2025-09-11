@@ -1,6 +1,6 @@
 
 ---
-## 🔑 Properties of Modulo
+## **🔑 Properties of Modulo**
 
 Let’s assume:
 
