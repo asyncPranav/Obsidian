@@ -38,10 +38,7 @@ class Student {
     int age;
 
     // Default Constructor
-    Student() {
-        name = "Unknown";
-        age = 0;
-    }
+hr
 
     void display() {
         System.out.println("Name: " + name + ", Age: " + age);
