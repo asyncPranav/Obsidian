@@ -83,11 +83,20 @@ git checkout main
 git merge upstream/main
 ```
 
+Then switch back to your branch and rebase if needed:
+
+```sh
+git checkout fix-bug-123
+git rebase main
+```
+
 ---
 
 # 🔹 7. Push Your Branch to Your Fork
 
-`git push origin fix-bug-123`
+```sh
+git push origin fix-bug-123
+```
 
 ---
 
@@ -115,7 +124,11 @@ git merge upstream/main
 - Make changes locally on the **same branch**, commit, push again:
     
 
-`git add . git commit -m "Address review comments" git push origin fix-bug-123`
+```sh
+git add .
+git commit -m "Address review comments"
+git push origin fix-bug-123
+```
 
 - The PR updates automatically.
     
@@ -127,12 +140,19 @@ git merge upstream/main
 - Pull latest changes from original repo to your local main:
     
 
-`git checkout main git fetch upstream git merge upstream/main`
+```sh
+git checkout main
+git fetch upstream
+git merge upstream/main
+```
 
 - Delete feature branch locally and on your fork:
     
 
-`git branch -d fix-bug-123 git push origin --delete fix-bug-123`
+```sh
+git branch -d fix-bug-123
+git push origin --delete fix-bug-123
+```
 
 ---
 
