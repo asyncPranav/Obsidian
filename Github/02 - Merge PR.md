@@ -14,7 +14,7 @@ git checkout -b contributor-branch main
 ```sh
 git pull https://github.com/username/forked-repo.git feature-branch
 ```
-
+		
 - Pulls the `feature-branch` from the contributor’s fork.
     
 - Now your local branch (`contributor-branch`) has all the changes from their PR.
@@ -24,7 +24,9 @@ git pull https://github.com/username/forked-repo.git feature-branch
 
 # 🔹 Step 2: Review the changes
 
-`git diff main...contributor-branch`
+```sh
+git diff main...contributor-branch
+```
 
 - `git diff` shows what’s different between `main` and the contributor’s branch.
     
@@ -41,7 +43,10 @@ git pull https://github.com/username/forked-repo.git feature-branch
 
 ### Option 1: **Normal merge**
 
-`git checkout main git merge contributor-branch`
+```sh
+git checkout main
+git merge contributor-branch
+```
 
 - Moves `main` forward to include the contributor’s work.
     
@@ -52,7 +57,10 @@ git pull https://github.com/username/forked-repo.git feature-branch
 
 ### Option 2: **No fast-forward merge**
 
-`git checkout main git merge --no-ff contributor-branch`
+```sh
+git checkout main
+git merge --no-ff contributor-branch
+```
 
 - `--no-ff` = always create a merge commit.
     
@@ -65,7 +73,11 @@ git pull https://github.com/username/forked-repo.git feature-branch
 
 ### Option 3: **Squash merge**
 
-`git checkout main git merge --squash contributor-branch git commit -m "Add feature XYZ from contributor"`
+```sh
+git checkout main
+git merge --squash contributor-branch
+git commit -m "Add feature XYZ from contributor"
+```
 
 - Combines all commits from contributor into **one clean commit**.
     
@@ -76,7 +88,12 @@ git pull https://github.com/username/forked-repo.git feature-branch
 
 ### Option 4: **Rebase merge** (rare for PRs, but possible)
 
-`git checkout contributor-branch git rebase main git checkout main git merge contributor-branch`
+```sh
+git checkout contributor-branch
+git rebase main
+git checkout main
+git merge contributor-branch
+```
 
 - Moves contributor’s commits **on top of main**, as if written in sequence.
     
@@ -87,7 +104,9 @@ git pull https://github.com/username/forked-repo.git feature-branch
 
 # 🔹 Step 4: Push merged changes
 
-`git push origin main`
+```sh
+git push origin main
+```
 
 - Updates the **official repo on GitHub** with the merged changes.
     
