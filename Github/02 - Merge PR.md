@@ -115,7 +115,9 @@ git push origin main
 
 # 🔹 Step 5: Cleanup (optional)
 
-`git branch -d contributor-branch`
+```sh
+git branch -d contributor-branch
+```
 
 - Deletes the temporary branch you used to test & merge.
     
@@ -126,7 +128,15 @@ git push origin main
 
 # ✅ Example Flow (Owner merging PR)
 
-`git checkout -b contributor-branch main git pull https://github.com/username/forked-repo.git feature-branch git diff main...contributor-branch   # review code git checkout main git merge --no-ff contributor-branch # merge style git push origin main                 # update GitHub git branch -d contributor-branch     # cleanup`
+```sh
+git checkout -b contributor-branch main
+git pull https://github.com/username/forked-repo.git feature-branch
+git diff main...contributor-branch   # review code
+git checkout main
+git merge --no-ff contributor-branch # merge style
+git push origin main                 # update GitHub
+git branch -d contributor-branch     # cleanup
+```
 
 ---
 
