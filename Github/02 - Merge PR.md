@@ -117,7 +117,7 @@ git push origin main
 
 ```sh
 git branch -d contributor-branch
-git push origin --delete <feature-branch>
+git push origin --delete contributor-branch
 ```
 
 - Deletes the temporary branch you used to test & merge.
