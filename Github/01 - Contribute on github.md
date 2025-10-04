@@ -158,7 +158,9 @@ git push origin --delete fix-bug-123
 
 ✅ **Summary Workflow**
 
-`Fork → Clone → Create Branch → Work & Commit → Push → PR → Review → Merge → Sync`
+```sh
+Fork → Clone → Create Branch → Work & Commit → Push → PR → Review → Merge → Sync
+```
 
 ---
 
