@@ -28,15 +28,24 @@ cd repo-name
 
 This is important to **keep your fork up-to-date** with the original project.
 
-`git remote add upstream https://github.com/original-username/repo-name.git`
+```sh
+git remote add upstream https://github.com/original-username/repo-name.git
+```
 
 Check remotes:
 
-`git remote -v`
+```sh
+git remote -v
+```
 
 Output:
 
-`origin    https://github.com/your-username/repo-name.git (fetch) origin    https://github.com/your-username/repo-name.git (push) upstream  https://github.com/original-username/repo-name.git (fetch) upstream  https://github.com/original-username/repo-name.git (push)`
+```sh
+origin    https://github.com/your-username/repo-name.git (fetch)
+origin    https://github.com/your-username/repo-name.git (push)
+upstream  https://github.com/original-username/repo-name.git (fetch)
+upstream  https://github.com/original-username/repo-name.git (push)
+```
 
 ---
 
@@ -44,7 +53,9 @@ Output:
 
 **Never work directly on `main`**. Always create a branch for your feature/fix:
 
-`git checkout -b fix-bug-123`
+```sh
+git checkout -b fix-bug-123
+```
 
 ---
 
@@ -55,7 +66,10 @@ Output:
 - Stage and commit changes with clear message:
     
 
-`git add . git commit -m "Fix bug in login flow"`
+```sh
+git add .
+git commit -m "Fix bug in login flow"
+```
 
 ---
 
@@ -63,11 +77,11 @@ Output:
 
 Before pushing, make sure your fork is **in sync with upstream main**:
 
-`git fetch upstream git checkout main git merge upstream/main`
-
-Then switch back to your branch and rebase if needed:
-
-`git checkout fix-bug-123 git rebase main`
+```sh
+git fetch upstream
+git checkout main
+git merge upstream/main
+```
 
 ---
 
