@@ -114,7 +114,11 @@ So `name` becomes an empty string (`""`).
 
 You fix it by calling an extra `nextLine()` right after reading the number:
 
-`int n = sc.nextInt(); sc.nextLine(); // consume the leftover newline String name = sc.nextLine(); // now reads the actual input`
+```java
+int n = sc.nextInt();
+sc.nextLine(); // consume the leftover newline
+String name = sc.nextLine(); // now reads the actual input
+```
 
 ---
 
