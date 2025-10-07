@@ -36,10 +36,13 @@ A **constructor** in Java is a special method that is called when an object is c
 class Student {
     String name;
     int age;
-
+	
     // Default Constructor
-hrr
-
+        Student() {
+        name = null;
+        age = 0;
+    }
+	
     void display() {
         System.out.println("Name: " + name + ", Age: " + age);
     }
