@@ -70,3 +70,72 @@ Name = Pranav
 ```
 
 This change ensures the program works as intended.
+
+---
+
+
+## 🧠 Step 1: How `Scanner` reads input
+
+Each `Scanner` method reads **only part** of the input line — not always the whole thing.
+
+For example:
+
+- `nextInt()`, `nextDouble()`, `nextFloat()` etc.  
+    → read only the **number** and stop **right before the newline (`\n`)**.  
+    So the newline remains in the input buffer.
+    
+- `next()`  
+    → reads a **single word** (up to space).  
+    Leaves the rest (including space/newline).
+    
+- `nextLine()`  
+    → reads the **entire line**, including spaces, and **consumes the newline** at the end.
+    
+
+---
+
+## ⚠️ Step 2: When newline `\n` remains
+
+A newline remains when you use **any method other than `nextLine()`**, and then later try to use `nextLine()`.
+
+Example 👇
+
+```java
+int n = sc.nextInt();  // user enters: 10\n
+// "10" is read, but '\n' remains
+String name = sc.nextLine(); // reads that leftover '\n'
+```
+
+So `name` becomes an empty string (`""`).
+
+---
+
+## ✅ Step 3: Fix → Clear the newline
+
+You fix it by calling an extra `nextLine()` right after reading the number:
+
+`int n = sc.nextInt(); sc.nextLine(); // consume the leftover newline String name = sc.nextLine(); // now reads the actual input`
+
+---
+
+## 🧩 Step 4: Quick Rule of Thumb
+
+|What you used last|Does newline remain?|Need `sc.nextLine()` fix?|
+|---|---|---|
+|`nextInt()`|✅ Yes|✅ Yes|
+|`nextDouble()`|✅ Yes|✅ Yes|
+|`next()`|✅ Yes|✅ Yes (if using nextLine next)|
+|`nextLine()`|❌ No|❌ No|
+
+---
+
+## 🧠 Step 5: Tip for detection (experience-based)
+
+You’ll know newline is left if:
+
+- The program **“skips” an input** unexpectedly (like name not taken after number input).
+    
+- Or when you expect a string but it reads **empty string ("")**.
+    
+
+That’s the classic sign that a newline was still sitting in the buffer.
