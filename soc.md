@@ -245,4 +245,54 @@ Maharishi Mahesh Yogi taught that **our outer world is a reflection of our inner
 ---
 
 
-## 
+## **WATER THE ROOT TO ENJOY THE FRUIT*
+
+Maharishi Mahesh Yogi’s principle **“Water the root to enjoy the fruits”** beautifully explains how **true success and happiness in life come from nourishing the inner source of life — consciousness.**
+
+Here’s the explanation in simple words 👇
+
+---
+
+### 🌱 1. **Meaning of the Principle**
+
+Just like a tree grows healthy and gives fruits when its **root** is watered, human life flourishes when the **inner self (the root of life)** is nourished.  
+If we only take care of the leaves and branches (outer aspects like money, status, or appearance) but ignore the root (inner being), the whole tree — and our life — becomes weak.
+
+---
+
+### 🌿 2. **Inner Root = Consciousness**
+
+Maharishi taught that **consciousness** is the root of all our thoughts, actions, and experiences.  
+When consciousness is strong, clear, and peaceful, everything in outer life — health, relationships, success — grows naturally and beautifully.
+
+So, to enjoy the “fruits” of happiness and fulfillment, we must **nourish our consciousness through meditation and right living.**
+
+---
+
+### 💧 3. **How to “Water the Root”**
+
+Maharishi said that the best way to water the root of life is through **Transcendental Meditation (TM)**.  
+Meditation connects us to the deepest level of awareness — the source of creativity, energy, and intelligence within.  
+From this inner strength, outer success follows effortlessly.
+
+---
+
+### 🌸 4. **Practical Message**
+
+- Don’t just chase external results — focus on inner growth.
+    
+- Take care of your mind and spirit, and everything else will flourish naturally.
+    
+- Inner peace leads to outer prosperity.
+    
+
+---
+
+### 🕊️ **In Summary:**
+
+|Concept|Explanation|
+|---|---|
+|**Root**|Inner self or consciousness|
+|**Water**|Meditation, knowledge, inner development|
+|**Fruits**|Success, happiness, peace, and fulfillment|
+|**Message**|Nourish your inner self to enjoy a better outer life|
