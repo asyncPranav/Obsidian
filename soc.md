@@ -302,3 +302,62 @@ From this inner strength, outer success follows effortlessly.
 
 ## **REST AND ACTIVITY ARE THE STEPS OF PROGRESS**
 
+Maharishi Mahesh Yogi’s principle **“Rest and activity are the steps of progress”** teaches that **real growth in life happens through a natural balance between rest and activity** — both are essential and complementary.
+
+Here’s a clear and simple explanation 👇
+
+---
+
+### 🌿 1. **Meaning of the Principle**
+
+Maharishi said that **life progresses through a rhythm — activity followed by rest, and rest followed by activity.**  
+Just like day and night, work and sleep, or inhaling and exhaling — nature itself moves in this alternating pattern.  
+This balance keeps energy, creativity, and health in harmony.
+
+---
+
+### ⚖️ 2. **Why Both Are Important**
+
+- **Activity** uses our energy — it helps us achieve goals, learn, and grow.
+    
+- **Rest** restores our energy — it refreshes the mind and body, preparing us for better activity.
+    
+
+If we only act without rest, we become tired and unproductive.  
+If we only rest without activity, we stop progressing.  
+So, **progress requires both.**
+
+---
+
+### 🧘‍♂️ 3. **Deep Rest through Meditation**
+
+Maharishi explained that the deepest form of rest is experienced during **Transcendental Meditation (TM)**.  
+In meditation, the mind settles down to a silent, restful state — deeper than sleep — which recharges both body and mind.  
+After this deep rest, our activity becomes more efficient, creative, and successful.
+
+---
+
+### 🌸 4. **Practical Example**
+
+A student who studies (activity) and then relaxes or meditates (rest) learns faster and performs better.  
+Similarly, a worker who takes proper rest can work with more focus and energy the next day.
+
+---
+
+### 🕊️ **In Summary:**
+
+|Concept|Explanation|
+|---|---|
+|**Core Idea**|Life progresses through the balance of rest and activity.|
+|**Rest**|Restores energy and creativity.|
+|**Activity**|Applies energy to achieve goals.|
+|**Result**|Balanced progress, success, and happiness.|
+|**Method**|Meditation provides the deepest rest for dynamic activity.|
+
+
+
+---
+
+
+## **ENJOYING GREATER EFFICIENCY AND ACCOMPLISHING MORE**
+
