@@ -361,3 +361,60 @@ Similarly, a worker who takes proper rest can work with more focus and energy th
 
 ## **ENJOYING GREATER EFFICIENCY AND ACCOMPLISHING MORE**
 
+Maharishi Mahesh Yogi’s principle **“Enjoying greater efficiency and accomplishing more”** explains that when the mind is calm, clear, and connected to its inner source of energy, **we can achieve more with less effort** — working joyfully and effectively.
+
+Here’s a simple explanation 👇
+
+---
+
+### 🌿 1. **Meaning of the Principle**
+
+Maharishi said that real efficiency means **doing more in less time, with less stress, and with greater satisfaction.**  
+This becomes possible when our **mind and body are in harmony** — when we act from a state of inner calm and clarity, rather than tension and hurry.
+
+---
+
+### 🧘‍♂️ 2. **Inner Calm Leads to Outer Efficiency**
+
+When we are peaceful inside, our **thinking becomes sharper**, **decisions clearer**, and **actions smoother.**  
+This inner balance allows us to accomplish more because our energy is not wasted in worry or confusion.
+
+**Example:**  
+After good rest or meditation, you can finish in one hour what might normally take three — because your mind is fresh and focused.
+
+---
+
+### ⚛️ 3. **Maharishi’s Teaching**
+
+Through **Transcendental Meditation (TM)**, one taps into the deepest level of rest and awareness.  
+This removes stress and recharges the nervous system, making both **mind and body more efficient.**  
+As a result, we **enjoy our work more** and **achieve better results** naturally.
+
+---
+
+### 🌸 4. **Practical Message**
+
+- Don’t struggle through stress — act from inner calm.
+    
+- Balance activity with rest to work smarter, not harder.
+    
+- True success comes when **effort becomes joyful and effective.**
+    
+
+---
+
+### 🕊️ **In Summary:**
+
+|Concept|Explanation|
+|---|---|
+|**Core Idea**|Efficiency comes from inner peace and clarity.|
+|**Method**|Meditation removes stress and enhances focus.|
+|**Result**|Achieve more in less time, with less effort.|
+|**Message**|Work from calmness, not tension — that’s true accomplishment.|
+
+
+
+---
+
+
+## **EVERY ACTION HAS A REACTION**
