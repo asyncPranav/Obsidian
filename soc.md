@@ -175,3 +175,63 @@ Spiritually, life also has layers — the **physical and mental** parts we see, 
 ### **In Short:**
 
 Maharishi Mahesh Yogi taught that **life has many layers — physical, mental, emotional, and spiritual.** By going deeper through **meditation and self-awareness**, we can reach the **purest layer of consciousness**, where we find **true peace, joy, and connection with the universe**.
+
+
+
+---
+
+
+### **Outer Depends on Inner**
+
+**Session: 2025–26**
+
+According to **Maharishi Mahesh Yogi**, whatever happens in our outer life depends on what is inside us — our thoughts, emotions, and state of mind. He believed that the **inner world of consciousness** shapes the **outer world of experience**.
+
+#### **1. Inner State Affects Outer Life**
+
+Our thoughts and emotions influence how we see and respond to the world.
+
+- A **calm and peaceful mind** creates harmony in our surroundings.
+    
+- A **stressful or confused mind** makes life feel difficult and disordered.
+    
+
+#### **2. Role of Transcendental Meditation (TM)**
+
+Maharishi taught that **Transcendental Meditation** helps us reach a quiet and peaceful state within.
+
+- It **reduces stress** and helps the mind become clear and balanced.
+    
+- It **increases creativity and understanding**, allowing us to handle challenges better and make wiser choices in the outer world.
+    
+
+#### **3. Inner Growth Reflects Outside**
+
+When a person grows inwardly — becoming more peaceful, confident, and aware — it naturally shows in their outer life.
+
+- They experience more **success, happiness, and healthy relationships**.
+    
+- Their positive energy spreads to others, improving their environment.
+    
+
+#### **4. Impact on Society and the World**
+
+Maharishi believed that if many people develop peace within, it creates a **collective positive effect** on society.
+
+- A peaceful mind contributes to a **peaceful world**.
+    
+- His programs like the **Global Peace Project** aimed to increase collective harmony through meditation.
+    
+
+#### **5. In Education**
+
+In **Maharishi’s Consciousness-Based Education**, students are taught that inner calmness helps in outer success.
+
+- When students practice meditation, they become more focused, confident, and emotionally strong — leading to better learning and balanced growth.
+    
+
+---
+
+### **In Short:**
+
+Maharishi Mahesh Yogi taught that **our outer world is a reflection of our inner world**. When we are peaceful and balanced inside, our actions, relationships, and surroundings also become peaceful and successful. By improving ourselves from within through **Transcendental Meditation**, we can create a happier, more harmonious life and world.
