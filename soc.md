@@ -296,3 +296,9 @@ From this inner strength, outer success follows effortlessly.
 |**Water**|Meditation, knowledge, inner development|
 |**Fruits**|Success, happiness, peace, and fulfillment|
 |**Message**|Nourish your inner self to enjoy a better outer life|
+
+----
+
+
+## **REST AND ACTIVITY ARE THE STEPS OF PROGRESS**
+
