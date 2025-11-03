@@ -92,3 +92,86 @@ By meditating and refining awareness, we **tune ourselves to the universal rhyth
 ---
 
 
+### **Life is Found in Layers**
+
+**Session: 2025–26**
+
+Maharishi said that **life exists in many layers — from the outer physical world to the deepest level of consciousness**.  
+What we see, hear, and experience with our senses is just the **surface layer**.  
+Beneath that surface, there are **deeper, more subtle levels** of mind, feeling, energy, and pure consciousness.
+
+**Example:**  
+Think of an **ocean** — on the surface, waves are rough and changing, but deep below, the water is calm and silent.  
+Similarly, human life has surface activities (thoughts, emotions, actions) and deeper, silent levels of awareness.
+
+According to **Maharishi Mahesh Yogi**, life and consciousness are not just one single thing — they exist in **many layers**, like the layers of an onion or the depths of an ocean. Each layer takes us deeper into understanding ourselves and the world around us.
+
+#### **1. Layers of Consciousness**
+
+Maharishi said that our awareness has many levels:
+
+- **Waking State:** When we are awake and doing our daily work.
+    
+- **Dreaming State:** When we dream — our mind creates its own world.
+    
+- **Deep Sleep State:** When we rest deeply and the mind is quiet.
+    
+- **Transcendental State:** This is the deepest and most peaceful layer, reached through **Transcendental Meditation (TM)**. In this state, we experience pure consciousness — a silent, calm awareness beyond thoughts.
+    
+
+### 🧠 2. **Layers of Human Life**
+
+Maharishi described life as having several interconnected layers:
+
+1. **Physical Layer** – our body and actions.
+    
+2. **Mental Layer** – thoughts, feelings, and emotions.
+    
+3. **Intellectual Layer** – understanding, decision-making, knowledge.
+    
+4. **Ego/Individual Layer** – sense of “I,” individuality.
+    
+5. **Consciousness Layer** – the deepest, silent field of pure awareness (the source of all creativity and order).
+
+#### **2. Layers of the Mind**
+
+Our mind also works on different levels:
+
+- **Surface Mind:** The top layer where we think, feel, and react.
+    
+- **Subconscious Mind:** A deeper layer that stores memories and past experiences.
+    
+- **Transcendental Mind:** The deepest layer — where pure consciousness lives. When we reach here, we find peace, clarity, and creativity.
+    
+
+#### **3. Layers of Growth and Experience**
+
+Maharishi taught that personal growth also happens step by step:
+
+- We start by learning from daily life.
+    
+- With meditation and self-reflection, we gain deeper understanding.
+    
+- Finally, we can reach higher states of awareness — full of peace, happiness, and wisdom.
+    
+
+#### **4. Layers in Education and Society**
+
+He believed that even learning happens in layers:
+
+- **Surface Learning:** Studying facts and subjects.
+    
+- **Holistic Learning:** Growing emotionally, mentally, and spiritually through meditation.
+    
+- **Social Growth:** Using higher understanding to make society peaceful and harmonious.
+    
+
+#### **5. Spiritual Layers**
+
+Spiritually, life also has layers — the **physical and mental** parts we see, and the **spiritual essence** within us that connects us to the divine or the universal consciousness.
+
+---
+
+### **In Short:**
+
+Maharishi Mahesh Yogi taught that **life has many layers — physical, mental, emotional, and spiritual.** By going deeper through **meditation and self-awareness**, we can reach the **purest layer of consciousness**, where we find **true peace, joy, and connection with the universe**.
