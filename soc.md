@@ -240,3 +240,9 @@ In **Maharishi’s Consciousness-Based Education**, students are taught that inn
 ### **In Short:**
 
 Maharishi Mahesh Yogi taught that **our outer world is a reflection of our inner world**. When we are peaceful and balanced inside, our actions, relationships, and surroundings also become peaceful and successful. By improving ourselves from within through **Transcendental Meditation**, we can create a happier, more harmonious life and world.
+
+
+---
+
+
+## 
