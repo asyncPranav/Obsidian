@@ -183,9 +183,14 @@ Maharishi Mahesh Yogi taught that **life has many layers — physical, mental, e
 
 ### **Outer Depends on Inner**
 
-**Session: 2025–26**
+Maharishi said that everything we experience in the **outer world** — success, happiness, peace, or conflict — is a **reflection of what is happening inside us**.  
+If our mind is calm, clear, and positive, our outer life naturally becomes orderly and successful.  
+But if our inner world is disturbed or stressed, our surroundings also feel chaotic or difficult.
 
-According to **Maharishi Mahesh Yogi**, whatever happens in our outer life depends on what is inside us — our thoughts, emotions, and state of mind. He believed that the **inner world of consciousness** shapes the **outer world of experience**.
+**Example:**  
+When you are happy inside, everything around you seems bright and pleasant.  
+When you are upset, even small things feel irritating.  
+👉 This shows that the _outer world depends on our inner condition._
 
 #### **1. Inner State Affects Outer Life**
 
