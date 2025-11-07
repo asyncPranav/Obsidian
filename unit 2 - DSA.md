@@ -192,8 +192,24 @@ Types:
 
 ### 💻 Simple Example
 
-`import java.util.HashMap;  class Example {     public static void main(String[] args) {         HashMap<Integer, String> map = new HashMap<>();          map.put(1, "Amit");         map.put(2, "Sumit");         map.put(3, "Neha");          System.out.println(map.get(2)); // Output: Sumit         map.remove(1);         System.out.println(map);     } }`
+```java
+import java.util.HashMap;
 
+class Example {
+    public static void main(String[] args) {
+        HashMap<Integer, String> map = new HashMap<>();
+
+        map.put(1, "Amit");
+        map.put(2, "Sumit");
+        map.put(3, "Neha");
+
+        System.out.println(map.get(2)); // Output: Sumit
+        map.remove(1);
+        System.out.println(map);
+    }
+}
+
+```
 ---
 
 # 3️⃣ HashTable (Legacy Version of HashMap)
@@ -223,7 +239,21 @@ Types:
 
 ### 💻 Example
 
-`import java.util.Hashtable;  class Example {     public static void main(String[] args) {         Hashtable<Integer, String> table = new Hashtable<>();          table.put(1, "Amit");         table.put(2, "Sumit");         // table.put(null, "Neha"); // ❌ Not allowed          System.out.println(table.get(1)); // Output: Amit     } }`
+```java
+import java.util.Hashtable;
+
+class Example {
+    public static void main(String[] args) {
+        Hashtable<Integer, String> table = new Hashtable<>();
+
+        table.put(1, "Amit");
+        table.put(2, "Sumit");
+        // table.put(null, "Neha"); // ❌ Not allowed
+
+        System.out.println(table.get(1)); // Output: Amit
+    }
+}
+```
 
 ---
 
@@ -262,7 +292,22 @@ Types:
 
 ### 💻 Example
 
-`import java.util.HashSet;  class Example {     public static void main(String[] args) {         HashSet<String> set = new HashSet<>();          set.add("Amit");         set.add("Sumit");         set.add("Amit"); // duplicate ignored          System.out.println(set); // [Amit, Sumit]         System.out.println(set.contains("Amit")); // true     } }`
+```java
+import java.util.HashSet;
+
+class Example {
+    public static void main(String[] args) {
+        HashSet<String> set = new HashSet<>();
+
+        set.add("Amit");
+        set.add("Sumit");
+        set.add("Amit"); // duplicate ignored
+
+        System.out.println(set); // [Amit, Sumit]
+        System.out.println(set.contains("Amit")); // true
+    }
+}
+```
 
 ---
 
