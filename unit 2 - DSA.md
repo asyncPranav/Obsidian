@@ -113,7 +113,10 @@ Types:
     
 - Example (simplified):
     
-    `index = hash(key) % table_size table[index] = (key, value)`
+```java
+index = hash(key) % table_size
+table[index] = (key, value)
+```
     
 
 ---
@@ -210,6 +213,7 @@ class Example {
 }
 
 ```
+
 ---
 
 # 3️⃣ HashTable (Legacy Version of HashMap)
