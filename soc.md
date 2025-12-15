@@ -509,7 +509,7 @@ Let’s break it down simply 👇
 
 
 
-## **PURIFICATION LEADS TO PROGRESS**
+## **🎯 PURIFICATION LEADS TO PROGRESS**
 
 
 Maharishi Mahesh Yogi believed that **real progress in life begins from within**.  
@@ -580,3 +580,9 @@ Just like a clean machine works efficiently, a purified mind produces better res
 - A purified individual becomes more confident and balanced.
     
 - When many individuals purify their consciousness, **society becomes peaceful and progressive**.
+
+
+
+---
+
+
