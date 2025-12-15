@@ -1008,3 +1008,78 @@ This principle teaches **unity, balance, and connection** in personal and social
 
 
 
+## **🎯 THE WHOLE IS GREATER THAN THE SUM OF THE PARTS**
+
+Maharishi Mahesh Yogi taught that **when individual parts come together, the total effect is greater than the simple sum of the parts**.
+
+- In life, nature, and society, **unity creates extra value** that no single part can achieve alone.
+    
+
+---
+
+### **1. Example in Nature**
+
+- A single tree branch cannot produce oxygen like a whole forest does.
+    
+- A single cell cannot sustain life alone; the body functions because **all cells work together**.
+    
+- Thus, **togetherness creates more power and effectiveness** than individual effort.
+    
+
+---
+
+### **2. Example in Society**
+
+- Individuals have abilities, but **cooperation creates progress beyond individual capability**.
+    
+- A team, community, or society achieves **greater results** than people working separately.
+    
+
+👉 **Logic:**  
+Unity + collaboration > sum of isolated parts.
+
+---
+
+### **3. Role of Consciousness and Meditation**
+
+- Meditation helps individuals **develop inner harmony**.
+    
+- When many individuals are harmonized in consciousness, the **collective intelligence and creativity multiply**.
+    
+- This principle is applied in **education, management, and societal development**.
+    
+
+---
+
+### **4. Practical Importance**
+
+- Encourages **teamwork and cooperation**.
+    
+- Promotes **social harmony and collective progress**.
+    
+- Helps in personal growth by connecting with **the larger purpose**.
+    
+
+---
+
+### **Conclusion**
+
+According to Maharishi Mahesh Yogi, the **whole is greater than the sum of its parts** because cooperation, harmony, and collective consciousness produce effects far beyond individual effort.  
+This principle teaches **unity, collective strength, and holistic thinking**.
+
+---
+
+### **Strong One-Line Exam Answer**
+
+> _Maharishi Mahesh Yogi stated that unity and cooperation create outcomes greater than the sum of individual parts, emphasizing the power of collective harmony and consciousness._
+
+
+
+
+
+---
+
+
+
+
+
