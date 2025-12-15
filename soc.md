@@ -477,3 +477,30 @@ Therefore, to enjoy good results, we must first **purify our thoughts and intent
 |**Related Law**|Karma / Cause and Effect / Newton’s Third Law.|
 |**Message**|Good actions bring good results; wrong actions bring suffering.|
 |**Goal**|Live in harmony with natural law through awareness and right conduct.|
+
+
+---
+
+
+## ****Principle: “Purification leads to progress”**  
+– by _Maharishi Mahesh Yogi_
+
+**Easy explanation:**  
+Maharishi Mahesh Yogi believed that when our **mind and body become pure**, our **growth and progress** (in life, health, and happiness) happen naturally.
+
+Let’s break it down simply 👇
+
+1. **Purification means:**  
+    Removing stress, negative thoughts, anger, confusion, and tiredness from the mind and body.
+    
+2. **How purification happens:**  
+    Through _meditation_, good _thoughts_, healthy _habits_, and living in harmony with _nature_.
+    
+3. **Why it leads to progress:**  
+    When the mind is clean and peaceful — like clear water — we can see things better, make good decisions, learn faster, and feel happier.  
+    So, purity of heart and mind opens the way for success and spiritual growth.
+    
+
+🧘‍♂️ **In short:**
+
+> “When we remove stress and negativity from life, our inner potential shines — and that is real progress.”**
