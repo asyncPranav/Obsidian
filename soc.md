@@ -670,6 +670,10 @@ According to Maharishi Mahesh Yogi, **every solution already exists within us** 
 By accessing this **field of all possibilities through meditation**, human life becomes successful, creative, and stress-free.
 
 
+### **Strong One-Line Exam Answer**
+
+> _Maharishi Mahesh Yogi stated that the deepest level of human consciousness, known as the field of all possibilities, contains infinite intelligence and is the source from which all solutions naturally arise.
+
 
 ---
 
@@ -763,4 +767,6 @@ When thoughts are purified through meditation, actions become effective, achieve
 
 ---
 
+
+## **🎯 KNOWLEDGE IS GAINED FROM INSIDE AND OUTSIDE**
 
