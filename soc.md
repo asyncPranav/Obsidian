@@ -482,10 +482,8 @@ Therefore, to enjoy good results, we must first **purify our thoughts and intent
 ---
 
 
-## ****Principle: “Purification leads to progress”**  
-– by _Maharishi Mahesh Yogi_
+## **Principle: “Purification leads to progress**
 
-**Easy explanation:**  
 Maharishi Mahesh Yogi believed that when our **mind and body become pure**, our **growth and progress** (in life, health, and happiness) happen naturally.
 
 Let’s break it down simply 👇
@@ -503,4 +501,4 @@ Let’s break it down simply 👇
 
 🧘‍♂️ **In short:**
 
-> “When we remove stress and negativity from life, our inner potential shines — and that is real progress.”**
+> “When we remove stress and negativity from life, our inner potential shines — and that is real progress.”
