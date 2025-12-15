@@ -770,3 +770,88 @@ When thoughts are purified through meditation, actions become effective, achieve
 
 ## **🎯 KNOWLEDGE IS GAINED FROM INSIDE AND OUTSIDE**
 
+Maharishi Mahesh Yogi taught that **true knowledge is complete only when it comes from two sources**:
+
+- **Inner awareness (inside)**
+    
+- **Outer experience and education (outside)**
+    
+
+Both are necessary for full growth of human intelligence.
+
+---
+
+### **1. Knowledge from Outside**
+
+- Comes from **books, teachers, experiments, and life experiences**.
+    
+- Helps us understand the **external world**.
+    
+- This knowledge is important but remains incomplete if not supported by inner awareness.
+    
+
+👉 **Logic:**  
+Information alone does not give wisdom.
+
+---
+
+### **2. Knowledge from Inside**
+
+- Comes from **inner consciousness and self-awareness**.
+    
+- Through meditation, the mind becomes calm and gains **intuitive understanding**.
+    
+- This inner knowledge gives clarity, creativity, and right judgment.
+    
+
+👉 **Logic:**  
+A calm mind understands more deeply.
+
+---
+
+### **3. Balance Between Inside and Outside**
+
+- External knowledge gives **facts**.
+    
+- Inner knowledge gives **understanding and wisdom**.
+    
+- When both are combined, knowledge becomes **complete and practical**.
+    
+
+👉 **Logic:**  
+Eyes give vision, but the mind gives meaning.
+
+---
+
+### **4. Role of Transcendental Meditation (TM)**
+
+- TM helps a person access **inner intelligence**.
+    
+- It strengthens awareness so that outer learning becomes easier and deeper.
+    
+- Learning becomes **stress-free and effective**.
+    
+
+---
+
+### **5. Importance in Education and Life**
+
+- Students learn faster and remember better.
+    
+- Decisions become wiser and more balanced.
+    
+- Knowledge is used for positive and constructive purposes.
+    
+
+---
+
+### **Conclusion**
+
+According to Maharishi Mahesh Yogi, **real knowledge is not only collected from outside sources but also discovered within**.  
+When inner awareness and outer education work together, human intelligence becomes complete and powerful.
+
+---
+
+### **Strong One-Line Exam Answer**
+
+> _Maharishi Mahesh Yogi stated that true knowledge arises from the combination of inner awareness and outer experience, making learning complete and meaningful._
