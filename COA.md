@@ -2233,3 +2233,148 @@ ROM is **non-volatile memory** used to store **permanent instructions** (firmwar
 |Cycle Time|Minimum interval between operations|
 |Cost per Bit|Price of storing 1 bit|
 |Capacity|Amount of data memory can hold|
+
+
+---
+---
+
+
+
+# ✅ UNIT–5 : I/O ORGANIZATION
+
+---
+
+## 🟢 PRIORITY–1 (EXTREMELY IMPORTANT)
+
+---
+
+### 1️⃣ I/O INTERFACE (10 MARKS) ⭐⭐⭐⭐⭐
+
+#### **Definition**
+
+An **I/O interface** is a **hardware unit that connects the CPU with input/output devices** and allows data communication.
+
+---
+
+#### **Purpose**
+
+1. Enables communication between CPU and peripherals
+    
+2. Manages data flow between memory and devices
+    
+3. Synchronizes different speeds of CPU and I/O devices
+    
+
+---
+
+#### **Types of I/O Interface (Brief)**
+
+1. **Programmed I/O** – CPU controls every transfer
+    
+2. **Interrupt-driven I/O** – Device interrupts CPU when ready
+    
+3. **Direct Memory Access (DMA)** – Data bypasses CPU, very fast
+    
+
+---
+
+#### **Conclusion**
+
+I/O interface is essential for **efficient data exchange between CPU and external devices**.
+
+---
+
+### ✍️ **Definition + Purpose + Types = FULL MARKS**
+
+---
+
+### 2️⃣ MODES OF DATA TRANSFER (10 MARKS) ⭐⭐⭐⭐⭐
+
+#### **1. Programmed I/O**
+
+- CPU directly controls data transfer
+    
+- Simple but CPU stays busy → slower
+    
+
+#### **2. Interrupt-driven I/O**
+
+- Device signals CPU when ready
+    
+- CPU executes other tasks meanwhile
+    
+- Faster than programmed I/O
+    
+
+#### **3. Direct Memory Access (DMA)**
+
+- Data transfer occurs **directly between memory and I/O**
+    
+- CPU is free for other tasks
+    
+- Very fast, used for large data
+    
+
+---
+
+#### **Difference Table: Programmed I/O vs DMA**
+
+|Feature|Programmed I/O|DMA|
+|---|---|---|
+|CPU Involvement|High|Minimal|
+|Speed|Slow|Very fast|
+|Data Size|Small|Large|
+
+---
+
+## 🟡 PRIORITY–2 (VERY IMPORTANT)
+
+---
+
+### 3️⃣ DATA TRANSFER MODES (Short Notes – 10 MARKS) ⭐⭐⭐⭐
+
+#### **1. Parallel vs Serial Transfer**
+
+|Mode|Explanation|Example|
+|---|---|---|
+|Parallel|Multiple bits transferred simultaneously|8-bit printer interface|
+|Serial|Bits transferred one by one|USB, UART|
+
+#### **2. Synchronous vs Asynchronous Transfer**
+
+|Mode|Explanation|Example|
+|---|---|---|
+|Synchronous|Data sent with clock signal|System bus transfer|
+|Asynchronous|Data sent without clock, uses start/stop bits|RS-232 communication|
+
+---
+
+### 4️⃣ INTRODUCTION TO FLOATING POINT NOTATION (IEEE 754) (10 MARKS) ⭐⭐⭐⭐
+
+#### **Purpose**
+
+Represents **real numbers** in a **standard binary format** for computers.
+
+---
+
+#### **Components**
+
+1. **Sign bit** – 0 for positive, 1 for negative
+    
+2. **Exponent** – Encodes magnitude
+    
+3. **Mantissa (Fraction)** – Represents significant digits
+    
+
+#### **Precision**
+
+- **Single precision** – 32 bits
+    
+- **Double precision** – 64 bits
+    
+
+---
+
+### **Conclusion**
+
+IEEE 754 standard ensures **accurate and uniform representation of real numbers** in computers.
