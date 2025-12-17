@@ -556,23 +556,14 @@ R1 ← R1 - 1
 - **ALU** = Arithmetic Logic Unit performing addition/subtraction
     
 - **R3** = Result stored back in register
----
-
-### **Hardware Block Diagram**
-
-```
-R2 ──┐
-     ├──► Binary Adder ───► R1
-R3 ──┘
-```
 
 ---
 
 ### **Conclusion**
 
-Arithmetic micro-operations are executed using **binary adders** in ALU.
-
----
+- Arithmetic micro-operations allow the CPU to **perform addition, subtraction, increment, and decrement**.
+- These operations are essential for **all arithmetic instructions and computations**.
+- Hardware implementation is typically done using the **ALU with adder/subtractor circuits**.
 
 ---
 
