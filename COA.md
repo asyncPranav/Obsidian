@@ -1085,11 +1085,8 @@ Decode(IR) → Identify operation + operand address
 **Examples of Execution:**
 
 - Arithmetic: `R1 ← R2 + R3`
-    
 - Data transfer: `R1 ← M[2000]`
-    
 - Branching: `PC ← 4000`
-    
 
 ---
 
@@ -1115,15 +1112,10 @@ Decode(IR) → Identify operation + operand address
 ## **4️ Key Points for Exam**
 
 1. **Three main phases:** Fetch → Decode → Execute
-    
 2. **Registers involved:** PC, MAR, MBR, IR
-    
 3. **Control Unit** manages decoding and execution
-    
 4. **Cycle repeats** for every instruction in the program
-    
 5. **Fetch cycle is always first**, Execute cycle is last
-    
 
 ---
 
