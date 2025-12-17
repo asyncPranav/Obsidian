@@ -748,7 +748,16 @@ The **Arithmetic Logic Shift Unit (ALSU)** is a **hardware unit in a CPU that pe
 
 ## **4️ Basic Block Diagram (Text-Based)**
 
-        `┌───────────────┐   R1 ──►│               │   R2 ──►│     ALSU      │──► R3         │               │         │ Arithmetic    │         │ Logic         │         │ Shifter       │         └───────────────┘`
+```
+        ┌───────────────┐
+  R1 ──►│               │
+  R2 ──►│     ALSU      │──► R3
+        │               │
+        │ Arithmetic    │
+        │ Logic         │
+        │ Shifter       │
+        └───────────────┘
+```
 
 - **R1, R2** = Input registers
     
