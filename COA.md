@@ -1613,7 +1613,14 @@ General Register Organization is a system where the CPU contains **a set of high
 
 ### **Block Diagram (Text-Based)**
 
-        `┌───────────┐ R0 ──┐  │           │ R1 ──┼─►│           │ R2 ──┼─►│   MUX     │──► BUS ───► ALU ───► AC R3 ──┘  │           │         └───────────┘`
+```
+        ┌───────────┐
+R0 ──┐  │           │
+R1 ──┼─►│           │
+R2 ──┼─►│   MUX     │──► BUS ───► ALU ───► AC
+R3 ──┘  │           │
+        └───────────┘
+```
 
 ---
 
@@ -1666,7 +1673,17 @@ A **stack** is a **memory structure** that stores data in **Last-In-First-Out (L
 
 ### **Stack Organization of CPU (Text-Based Diagram)**
 
- `┌────────────┐  │    SP      │  └─────┬──────┘        │        ▼  ┌────────────┐  │   Memory   │  │   Stack    │  └────────────┘`
+```
+ ┌────────────┐
+ │    SP      │
+ └─────┬──────┘
+       │
+       ▼
+ ┌────────────┐
+ │   Memory   │
+ │   Stack    │
+ └────────────┘
+```
 
 ---
 
@@ -1714,7 +1731,9 @@ Register Transfer Language is a **symbolic notation** used to **describe the ope
 
 ### **Register Transfer Statement**
 
-`R1 ← R2`
+```
+R1 ← R2
+```
 
 → Content of R2 is copied to R1
 
@@ -1722,7 +1741,9 @@ Register Transfer Language is a **symbolic notation** used to **describe the ope
 
 ### **Control Function**
 
-`P : R1 ← R2`
+```
+P : R1 ← R2
+```
 
 → Operation executed only if control signal **P** is active
 
@@ -1789,7 +1810,11 @@ Instruction format defines **the structure of an instruction** including **opcod
 
 ### **Block Diagram (Text-Based)**
 
- `┌───────┬──────────┐  │ Opcode│ Address  │  └───────┴──────────┘`
+```
+ ┌───────┬──────────┐
+ │ Opcode│ Address  │
+ └───────┴──────────┘
+```
 
 ---
 
