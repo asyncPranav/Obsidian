@@ -1824,7 +1824,10 @@ An **instruction** is a **binary-coded command given to the CPU** to perform a *
 
 **Example:**
 
-`ADD R1, R2   // Add contents of R2 to R1 MOV R1, 5    // Move 5 into R1`
+```
+ADD R1, R2   // Add contents of R2 to R1
+MOV R1, 5    // Move 5 into R1
+```
 
 ---
 
@@ -1856,26 +1859,16 @@ An **instruction format** defines the **layout of bits in an instruction**.
 ## **4️⃣ Types of Instruction Formats (Brief)**
 
 1. **Zero-Address Instruction:**
-    
-
 - No explicit operand; uses stack operations.
-    
 - Example: `PUSH`, `POP`
-    
 
 2. **One-Address Instruction:**
-    
-
 - Contains **one operand**, usually combined with **accumulator**.
-    
 - Example: `ADD 2000` → Adds memory[2000] to accumulator
-    
 
 3. **Two-Address Instruction:**
-    
 
 - Contains **two operands**, e.g., source and destination registers.
-    
 - Example: `MOV R1, R2` → Copy R2 to R1
     
 
@@ -1891,11 +1884,15 @@ An **instruction format** defines the **layout of bits in an instruction**.
 
 ## **5️⃣ Diagram (Text-Based)**
 
-`| Opcode | Operand/Register | Address (if needed) |`
+```
+| Opcode | Operand/Register | Address (if needed) |
+```
 
 **Example (Direct Addressing):**
 
-`| 8 bits | 4 bits           | 12 bits             |`
+```
+| 8 bits | 4 bits           | 12 bits             |
+```
 
 - 8 bits → Opcode
     
