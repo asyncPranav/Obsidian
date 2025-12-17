@@ -341,7 +341,7 @@ This is shown using **control notation**:
 ```
 R1 ← R2 + R3
 ```
-
+	
 - The sum of R2 and R3 is stored in R1.
     
 2. **Simple transfer**
@@ -349,7 +349,7 @@ R1 ← R2 + R3
 ```
 R4 ← R5
 ```
-
+	
 - Data moves from R5 to R4.
     
 3. **Conditional transfer using control signal**
@@ -357,7 +357,7 @@ R4 ← R5
 ```
 C : AC ← R1
 ```
-
+	
 - AC (Accumulator) gets data from R1 only if **C = 1**.
     
 ---
