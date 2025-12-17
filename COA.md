@@ -709,42 +709,78 @@ Shift operations are used for **multiplication, division, and data manipulation*
 
 ## 9️⃣ ARITHMETIC LOGIC SHIFT UNIT (ALSU) (10 MARKS) ⭐⭐⭐
 
-### **Definition**
+## **1️ Definition**
 
-ALSU is a **combined unit** that performs **arithmetic, logical, and shift operations**.
+The **Arithmetic Logic Shift Unit (ALSU)** is a **hardware unit in a CPU that performs arithmetic, logical, and shift operations on data stored in registers**.
 
----
-
-### **Why ALSU is Needed**
-
-- Combines ALU and shifter
+- It **combines the functions of the Arithmetic Logic Unit (ALU) and the Shifter**.
     
-- Saves hardware
-    
-- Increases efficiency
+- It executes **all basic operations required for instruction execution** in a CPU.
     
 
 ---
 
-### **Block Diagram**
+## **2️ Why ALSU is Needed**
 
-```
-      ┌─────────────┐
-A ───►│             │
-B ───►│    ALSU     ├──► Output
-S ───►│ (ALU+Shift) │
-      └─────────────┘
-```
+- To **perform arithmetic operations** like addition, subtraction, increment, decrement.
+    
+- To **perform logical operations** like AND, OR, XOR, NOT.
+    
+- To **perform shift operations** (logical, arithmetic, circular).
+    
+- It **reduces the number of hardware units** by combining ALU and Shifter in one module.
+    
+- Provides **efficient execution of CPU instructions** at the register level.
+    
 
 ---
 
-### **Functions**
+## **3️ Components of ALSU**
 
-1. Arithmetic operations
+|Component|Function|
+|---|---|
+|**Arithmetic Unit (ALU)**|Performs addition, subtraction, increment, decrement|
+|**Logic Unit**|Performs AND, OR, XOR, NOT operations|
+|**Shifter**|Performs logical, arithmetic, and circular shifts|
+|**Control Signals**|Select the operation to be performed|
+
+---
+
+## **4️ Basic Block Diagram (Text-Based)**
+
+        `┌───────────────┐   R1 ──►│               │   R2 ──►│     ALSU      │──► R3         │               │         │ Arithmetic    │         │ Logic         │         │ Shifter       │         └───────────────┘`
+
+- **R1, R2** = Input registers
     
-2. Logical operations
+- **R3** = Result register
     
-3. Shift operations
+- **Control Signals** = Select operation (Arithmetic / Logic / Shift)
+    
+
+---
+
+## **5️ Functions of ALSU**
+
+1. **Arithmetic Operations:** Add, Subtract, Increment, Decrement
+    
+2. **Logical Operations:** AND, OR, XOR, NOT
+    
+3. **Shift Operations:** Logical, Arithmetic, Circular
+    
+4. **Result Storage:** Outputs result to a register (R3 or accumulator)
+    
+5. **Control:** Operates based on control signals from CPU
+    
+
+---
+
+## **6️⃣ Conclusion**
+
+- ALSU is a **unified functional unit** of the CPU that handles all arithmetic, logic, and shift operations.
+    
+- It **improves hardware efficiency** by combining ALU and Shifter.
+    
+- **Essential for CPU instruction execution** and register operations.
     
 
 ---
