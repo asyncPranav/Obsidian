@@ -1045,3 +1045,221 @@ ADD R1, R2
 ### **Conclusion**
 
 Instruction codes define **how CPU understands and executes commands**.
+
+
+
+# ✅ UNIT–2 : PRIORITY–2 (VERY IMPORTANT)
+
+---
+
+## 4️⃣ GENERAL COMPUTER REGISTERS
+
+### WITH COMMON BUS SYSTEM (10 MARKS) ⭐⭐⭐⭐
+
+📌 **Classic & scoring COA question**
+
+---
+
+### **What are Registers?**
+
+Registers are **high-speed storage locations** inside the CPU used to **store data, instructions, and addresses temporarily**.
+
+---
+
+### **Types of Registers (Brief)**
+
+1. **General Purpose Registers (R1, R2, …)** – Store data
+    
+2. **Accumulator (AC)** – Stores intermediate results
+    
+3. **Program Counter (PC)** – Holds address of next instruction
+    
+4. **Instruction Register (IR)** – Holds current instruction
+    
+5. **Memory Address Register (MAR)** – Holds memory address
+    
+6. **Memory Data Register (MDR)** – Holds data from memory
+    
+
+---
+
+### **Common Bus System – Concept**
+
+A **common bus system** is a single set of lines used to **transfer data between registers**.
+
+📌 Purpose:
+
+- Reduces number of wires
+    
+- Simplifies hardware
+    
+- Efficient data transfer
+    
+
+---
+
+### **Block Diagram (Text Based – Draw in Exam)**
+
+```
+R1 ──┐
+R2 ──┼──► MUX / Tri-State ───► BUS ───► ALU
+R3 ──┘
+
+```
+
+---
+
+### **Role of Multiplexer**
+
+- Selects **one register at a time**
+    
+- Output connected to common bus
+    
+- Controlled by select lines
+    
+
+---
+
+### **Role of Tri-State Buffer**
+
+- Allows multiple registers
+    
+- Only one enabled at a time
+    
+- Others remain in high-impedance state
+    
+
+---
+
+### **Conclusion**
+
+General register organization with common bus system **reduces hardware and increases efficiency**.
+
+---
+
+## ✍️ WRITE THIS FOR FULL 10 MARKS
+
+---
+
+---
+
+## 5️⃣ INPUT–OUTPUT CONFIGURATION (10 MARKS) ⭐⭐⭐⭐
+
+📌 **Very common theory question**
+
+---
+
+### **What is Input–Output Configuration?**
+
+Input–Output configuration refers to the **method used to connect I/O devices with CPU and memory**.
+
+---
+
+### **Need for I/O Interface**
+
+- CPU and I/O devices operate at different speeds
+    
+- Data formats are different
+    
+- I/O interface acts as a **bridge**
+    
+
+---
+
+### **Role of I/O Interface**
+
+1. Controls data transfer
+    
+2. Provides status information
+    
+3. Handles control signals
+    
+4. Synchronizes CPU and I/O devices
+    
+
+---
+
+### **CPU–Memory–I/O Interaction**
+
+        `┌────────┐         │  CPU   │         └───┬────┘             │      ┌──────▼──────┐      │ I/O Interface│      └───┬──────┬──┘          │      │      Input     Output      Device    Device`
+
+---
+
+### **Types of I/O Operations**
+
+- Programmed I/O
+    
+- Interrupt driven I/O
+    
+- DMA (Direct Memory Access)
+    
+
+---
+
+### **Conclusion**
+
+I/O configuration ensures **smooth communication** between CPU and external devices.
+
+---
+
+---
+
+## 6️⃣ INTERRUPT CYCLE (10 MARKS) ⭐⭐⭐⭐
+
+📌 **Often asked with instruction cycle**
+
+---
+
+### **What is an Interrupt?**
+
+An interrupt is a **signal that temporarily stops the CPU** to attend an **urgent task**.
+
+---
+
+### **Why Interrupt is Needed**
+
+1. Efficient CPU utilization
+    
+2. Faster response to I/O devices
+    
+3. Avoids continuous polling
+    
+
+---
+
+### **Interrupt Cycle – Steps**
+
+1. CPU completes current instruction
+    
+2. Saves current status (PC, registers)
+    
+3. Transfers control to Interrupt Service Routine (ISR)
+    
+4. Executes ISR
+    
+5. Restores previous state
+    
+6. Returns to normal execution
+    
+
+---
+
+### **Flow (Text Diagram)**
+
+`Instruction Execution         │    Interrupt Signal         │  Save CPU State         │  Execute ISR         │  Restore State         │  Continue Program`
+
+---
+
+### **Difference: Instruction Cycle vs Interrupt Cycle**
+
+|Feature|Instruction Cycle|Interrupt Cycle|
+|---|---|---|
+|Purpose|Execute instruction|Handle interrupt|
+|Occurrence|Always|When interrupt occurs|
+|Control|Program based|Hardware based|
+
+---
+
+### **Conclusion**
+
+Interrupt cycle improves **system efficiency and responsiveness**.
