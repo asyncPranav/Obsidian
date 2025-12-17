@@ -954,7 +954,7 @@ ADD R1, R2
 
 - Register holds **memory address**
 - Operand accessed from memory
-- Operand address = base address + index
+
 
 📌 Example:
 
@@ -970,7 +970,6 @@ ADD R1, (R2)
 ### **6. Indexed / Relative Addressing Mode (Basic Idea)**
 
 - Effective address = Base address + Index
-    
 - Used in arrays and loops
     
 
@@ -982,9 +981,15 @@ ADD R1, 100(R2)
 
 ---
 
-### **Conclusion**
+## **Key Points for Exam**
 
-Addressing modes improve **program efficiency and flexibility**.
+- **Immediate:** Fast, operand in instruction.
+- **Direct:** Instruction holds memory address.
+- **Indirect:** Pointer to operand address.
+- **Register:** Operand in CPU register.
+- **Register Indirect:** Register points to memory operand.
+- **Indexed / Relative:** Base + index addressing, used in arrays.
+
 
 ---
 
