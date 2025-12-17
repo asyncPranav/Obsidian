@@ -600,9 +600,7 @@ R1 ← R1 + R2
 ```
 
 - Sets a bit in R1 if **either R1 or R2** has 1 in that position.
-    
 - **Use:** Combining bits.
-    
 
 ---
 
@@ -616,9 +614,7 @@ R1 ← R1 ⊕ R2
 ```
 
 - Sets a bit in R1 if **only one of R1 or R2** has 1.
-    
 - **Use:** Error detection, toggling bits.
-    
 
 ---
 
@@ -627,8 +623,9 @@ R1 ← R1 ⊕ R2
 - Performs **bitwise complement** of a register.  
     **RTL Example:**
     
-
-`R1 ← ¬R1`
+```
+R1 ← ¬R1
+```
 
 - All 0s become 1s and all 1s become 0s.
     
