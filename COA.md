@@ -346,12 +346,8 @@ This is shown using **control notation**:
 
 - AC (Accumulator) gets data from R1 only if **C = 1**.
     
-
 ---
 
-### **Conclusion**
-
-RTL **clearly describes the movement and operation of data in CPU**, making it easier to design, analyze, and understand computer operations.
 
 ### **Advantages**
 
@@ -366,7 +362,7 @@ RTL **clearly describes the movement and operation of data in CPU**, making it e
 
 ### **Conclusion**
 
-RTL provides a clear method to describe internal operations of CPU.
+RTL **clearly describes the movement and operation of data in CPU**, making it easier to design, analyze, and understand computer operations.
 
 
 
