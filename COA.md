@@ -573,53 +573,92 @@ Logical micro-operations perform **bit-wise logical operations** on binary data.
 
 ---
 
-### **Types**
+## **2️⃣ Types of Logical Micro-operations**
 
----
 
 ### **1. AND Operation**
 
-`R1 ← R2 AND R3`
+- Performs **bitwise AND** between two registers.  
+    **RTL Example:**
+    
+```
+R1 ← R1 ⋅ R2
+```
 
-Used for **masking bits**.
+- Each bit in R1 is ANDed with corresponding bit in R2.
+- **Use:** Masking (keeping only selected bits).
 
 ---
 
 ### **2. OR Operation**
 
-`R1 ← R2 OR R3`
+- Performs **bitwise OR** between two registers.  
+    **RTL Example:**
+    
+```
+R1 ← R1 + R2
+```
 
-Used to **set bits**.
+- Sets a bit in R1 if **either R1 or R2** has 1 in that position.
+    
+- **Use:** Combining bits.
+    
 
 ---
 
 ### **3. XOR Operation**
 
-`R1 ← R2 XOR R3`
+- Performs **bitwise exclusive OR** between two registers.  
+    **RTL Example:**
+    
+```
+R1 ← R1 ⊕ R2
+```
 
-Used in error detection.
+- Sets a bit in R1 if **only one of R1 or R2** has 1.
+    
+- **Use:** Error detection, toggling bits.
+    
 
 ---
 
 ### **4. NOT Operation**
 
-`R1 ← NOT R2`
+- Performs **bitwise complement** of a register.  
+    **RTL Example:**
+    
 
-Used to complement bits.
+`R1 ← ¬R1`
+
+- All 0s become 1s and all 1s become 0s.
+    
+- **Use:** Bit inversion, clearing or setting bits.
+    
 
 ---
 
-### **Applications**
+## **3️⃣ Applications of Logical Micro-operations**
 
-1. Masking
+1. **Masking:** Selecting certain bits while ignoring others (using AND).
     
-2. Bit clearing
+2. **Bit clearing:** Reset specific bits to 0 (using AND with 0).
     
-3. Bit setting
+3. **Bit setting:** Set specific bits to 1 (using OR with 1).
     
-4. Error detection
+4. **Toggling bits:** Flip selected bits (using XOR).
     
 
+---
+
+## **4️⃣ Hardware Block (Text-Based)**
+
+   `R1 ─┐        │    R2 ─► [ LOGIC UNIT ] ─► R3`
+
+- **R1, R2** = Input registers
+    
+- **Logic Unit** = Performs AND, OR, XOR, NOT
+    
+- **R3** = Result register
 ---
 
 ### **Conclusion**
