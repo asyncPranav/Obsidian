@@ -396,7 +396,13 @@ A **micro-operation** is an **elementary operation** performed on data stored in
 
 ### **Types of Micro-operations**
 
-Micro-operations are classified into **three types**:
+There are **three main types**:
+
+1. **Arithmetic Micro-operations**
+    
+2. **Logical Micro-operations**
+    
+3. **Shift Micro-operations**
 
 ---
 
