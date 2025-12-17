@@ -1079,11 +1079,8 @@ Decode(IR) → Identify operation + operand address
 - **Steps:**
     
     1. CPU executes the instruction using ALU, registers, or memory.
-        
     2. The result is stored in the **destination register** or memory.
-        
     3. Flags or status registers are updated if needed.
-        
 
 **Examples of Execution:**
 
