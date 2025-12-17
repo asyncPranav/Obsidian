@@ -1180,7 +1180,12 @@ An **instruction** is a **binary-coded command given to the CPU** to perform
 ### **Example**
 
 ```
+ADD R1, R2
+Opcode = ADD
+Operand = R1, R2
+Address = Not needed
 ```
+
 ---
 
 ### **Conclusion**
