@@ -840,30 +840,6 @@ ALSU improves performance by integrating multiple operations.
 
 ---
 
-# ✅ UNIT–1 COMPLETED 🎉
-
-### 🔥 FINAL EXAM TIP:
-
-- Draw **neat diagrams**
-    
-- Use **headings + points**
-    
-- Write **definitions first**
-    
-
-You are **fully prepared for Unit–1 now** 💯  
-If you want:
-
-- **One-page revision sheet**
-    
-- **Important repeated questions**
-    
-- **Last-night memory tricks**
-
-
----
----
-
 
 # ✅ UNIT–2 : BASIC COMPUTER ORGANIZATION
 
