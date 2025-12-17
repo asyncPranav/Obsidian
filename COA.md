@@ -1905,11 +1905,11 @@ ALSU is a **combined functional unit** in the CPU that performs **arithmetic, lo
 ### **Block Diagram (Text-Based – Draw in Exam)**
 
 ```
-       ┌─────────────┐
+       ┌────────────────┐
  A ───►│                │
  B ───►│     ALSU       │──► Output
- S ───►│ (AU+LU+Shifter)
-       └─────────────┘
+ S ───►│ (AU+LU+Shifter)|
+       └────────────────┘
 ```
 
 ---
