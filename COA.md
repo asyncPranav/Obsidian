@@ -714,24 +714,17 @@ Shift operations are used for **multiplication, division, and data manipulation*
 The **Arithmetic Logic Shift Unit (ALSU)** is a **hardware unit in a CPU that performs arithmetic, logical, and shift operations on data stored in registers**.
 
 - It **combines the functions of the Arithmetic Logic Unit (ALU) and the Shifter**.
-    
 - It executes **all basic operations required for instruction execution** in a CPU.
-    
 
 ---
 
 ## **2️ Why ALSU is Needed**
 
 - To **perform arithmetic operations** like addition, subtraction, increment, decrement.
-    
 - To **perform logical operations** like AND, OR, XOR, NOT.
-    
 - To **perform shift operations** (logical, arithmetic, circular).
-    
 - It **reduces the number of hardware units** by combining ALU and Shifter in one module.
-    
 - Provides **efficient execution of CPU instructions** at the register level.
-    
 
 ---
 
