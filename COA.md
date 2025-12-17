@@ -292,6 +292,19 @@ Tri-state buffer bus is more efficient and widely used.
 Register Transfer Language (RTL) is a **symbolic notation used to describe operations and data transfer between registers inside a CPU**.  
 It specifies **what happens and under what control conditions** during the execution of an instruction.
 
+## **Basic Symbols and Notations**
+
+| Symbol        | Meaning                         |
+| ------------- | ------------------------------- |
+| `←`           | Transfer or Load (copy content) |
+| `+`           | Addition                        |
+| `-`           | Subtraction                     |
+| `*`           | Multiplication                  |
+| `/`           | Division                        |
+| `:`           | Control signal (condition)      |
+| `AC`          | Accumulator                     |
+| `R1, R2, ...` | General purpose registers       |
+
 ---
 
 ### **Register Transfer Statement**
