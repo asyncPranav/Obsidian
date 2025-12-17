@@ -1096,11 +1096,26 @@ The instruction cycle consists of **three main phases**:
 
 ---
 
+### **Flow Diagram (Text – Draw in Exam)**
+
+```
+ ┌────────┐
+ │ Fetch  │
+ └───┬────┘
+     │
+ ┌───▼────┐
+ │ Decode │
+ └───┬────┘
+     │
+ ┌───▼────┐
+ │ Execute│
+ └────────┘
+```
 
 
 ---
 
-## **4️⃣ Key Points for Exam**
+## **4️ Key Points for Exam**
 
 1. **Three main phases:** Fetch → Decode → Execute
     
@@ -1115,12 +1130,11 @@ The instruction cycle consists of **three main phases**:
 
 ---
 
-
----
-
 ### **Conclusion**
 
-Instruction cycle ensures **systematic execution** of all instructions.
+- Instruction cycle is the **heartbeat of CPU operation**.
+- Every instruction in a program **follows fetch → decode → execute**.
+- Understanding this cycle is **crucial for COA exams**.
 
 ---
 
