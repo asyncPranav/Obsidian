@@ -1013,69 +1013,108 @@ ADD R1, 100(R2)
 
 ---
 
-### **Definition**
+## **1️ Definition**
 
-The **instruction cycle** is the complete sequence of steps performed by the CPU to **fetch, decode, and execute an instruction**.
+The **instruction cycle** (also called **fetch-decode-execute cycle**) is the **sequence of operations performed by the CPU to execute a single instruction**.
+
+- It is the **basic operational process** of a computer.
+    
+- Every instruction goes through this cycle to fetch the instruction from memory, decode it, and execute it.
+    
+
+**In short:**
+
+> “Fetch the instruction → Decode the instruction → Execute the instruction.”
 
 ---
 
-### **Phases of Instruction Cycle**
+## **2️ Phases of Instruction Cycle**
+
+The instruction cycle consists of **three main phases**:
+
+### **A. Fetch Cycle**
+
+- **Purpose:** To fetch the instruction from memory into the CPU.
+    
+- **Steps:**
+    
+    1. **Program Counter (PC)** contains the address of the next instruction.
+        
+    2. Address from PC is sent to **Memory Address Register (MAR)**.
+        
+    3. Memory sends instruction to **Memory Buffer Register (MBR)** or **Instruction Register (IR)**.
+        
+    4. PC is incremented to point to the next instruction.
+        
+
+**RTL Example:**
+
+`MAR ← PC       // Send address to memory MBR ← M[MAR]   // Fetch instruction IR ← MBR       // Store instruction in IR PC ← PC + 1    // Increment PC`
 
 ---
 
-### **1. Fetch Cycle**
+### **B. Decode Cycle**
 
-- Instruction fetched from memory
+- **Purpose:** To decode the fetched instruction and determine what operation to perform.
     
-- Stored in Instruction Register (IR)
+- **Steps:**
     
+    1. Instruction in **IR** is decoded by **Control Unit**.
+        
+    2. CPU identifies **opcode (operation)** and **operand(s)**.
+        
+    3. Control signals are generated to **activate necessary hardware units**.
+        
 
-📌 Micro-operation:
+**Example:**
 
-```
-IR ← Memory[PC]
-PC ← PC + 1
-```
+`Decode(IR) → Identify operation + operand address`
 
 ---
 
-### **2. Decode Cycle**
+### **C. Execute Cycle**
 
-- Instruction decoded
+- **Purpose:** To perform the operation specified by the instruction.
     
-- Opcode analyzed
+- **Steps:**
     
-- Addressing mode identified
+    1. CPU executes the instruction using ALU, registers, or memory.
+        
+    2. The result is stored in the **destination register** or memory.
+        
+    3. Flags or status registers are updated if needed.
+        
+
+**Examples of Execution:**
+
+- Arithmetic: `R1 ← R2 + R3`
+    
+- Data transfer: `R1 ← M[2000]`
+    
+- Branching: `PC ← 4000`
     
 
 ---
 
-### **3. Execute Cycle**
 
-- Actual operation performed
+
+---
+
+## **4️⃣ Key Points for Exam**
+
+1. **Three main phases:** Fetch → Decode → Execute
     
-- ALU executes instruction
+2. **Registers involved:** PC, MAR, MBR, IR
     
-- Result stored
+3. **Control Unit** manages decoding and execution
+    
+4. **Cycle repeats** for every instruction in the program
+    
+5. **Fetch cycle is always first**, Execute cycle is last
     
 
 ---
 
-### **Flow Diagram (Text – Draw in Exam)**
-
-```
- ┌────────┐
- │ Fetch  │
- └───┬────┘
-     │
- ┌───▼────┐
- │ Decode │
- └───┬────┘
-     │
- ┌───▼────┐
- │ Execute│
- └────────┘
-```
 
 ---
 
