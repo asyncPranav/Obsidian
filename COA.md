@@ -1104,7 +1104,6 @@ A **common bus system** is a single set of lines used to **transfer data between
 R1 ──┐
 R2 ──┼──► MUX / Tri-State ───► BUS ───► ALU
 R3 ──┘
-
 ```
 
 ---
@@ -1181,7 +1180,18 @@ Input–Output configuration refers to the **method used to connect I/O devices 
 
 ### **CPU–Memory–I/O Interaction**
 
-        `┌────────┐         │  CPU   │         └───┬────┘             │      ┌──────▼──────┐      │ I/O Interface│      └───┬──────┬──┘          │      │      Input     Output      Device    Device`
+```
+        ┌────────┐
+        │  CPU   │
+        └───┬────┘
+            │
+     ┌──────▼──────┐
+     │ I/O Interface│
+     └───┬──────┬──┘
+         │      │
+     Input     Output
+     Device    Device
+```
 
 ---
 
@@ -1246,7 +1256,19 @@ An interrupt is a **signal that temporarily stops the CPU** to attend an **urgen
 
 ### **Flow (Text Diagram)**
 
-`Instruction Execution         │    Interrupt Signal         │  Save CPU State         │  Execute ISR         │  Restore State         │  Continue Program`
+```
+Instruction Execution
+        │
+   Interrupt Signal
+        │
+ Save CPU State
+        │
+ Execute ISR
+        │
+ Restore State
+        │
+ Continue Program
+```
 
 ---
 
@@ -1263,3 +1285,6 @@ An interrupt is a **signal that temporarily stops the CPU** to attend an **urgen
 ### **Conclusion**
 
 Interrupt cycle improves **system efficiency and responsiveness**.
+
+
+
