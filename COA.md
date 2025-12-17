@@ -289,47 +289,69 @@ Tri-state buffer bus is more efficient and widely used.
 
 ### **Definition**
 
-Register Transfer Language is a **symbolic notation** used to describe **data transfer and operations between registers**.
+Register Transfer Language (RTL) is a **symbolic notation used to describe operations and data transfer between registers inside a CPU**.  
+It specifies **what happens and under what control conditions** during the execution of an instruction.
 
 ---
 
 ### **Register Transfer Statement**
 
+A register transfer statement shows **how data moves from one register to another**.
+
+**Example:**
+
 `R1 ← R2`
 
-Means: Content of R2 is copied to R1
+- The content of **register R2** is copied into **register R1**.
+    
 
 ---
 
 ### **Control Function**
 
-Operation executes only if control condition is true.
+Some operations occur **only when a control signal is active**.  
+This is shown using **control notation**:
+
+**Example:**
 
 `P : R1 ← R2`
 
----
-
-### **Examples**
-
-1. `R1 ← R2 + R3`
-    
-2. `R4 ← R4 + 1`
-    
-3. `P : R1 ← R2`
+- Transfer from R2 to R1 happens **only if control signal P is 1**.
     
 
 ---
 
-### **RTL Symbols**
+### **RTL Examples**
 
-- `←` Transfer
+1. **Addition of two registers**
     
-- `:` Control condition
+
+`R1 ← R2 + R3`
+
+- The sum of R2 and R3 is stored in R1.
     
-- `+` Arithmetic operation
+
+2. **Simple transfer**
+    
+
+`R4 ← R5`
+
+- Data moves from R5 to R4.
+    
+
+3. **Conditional transfer using control signal**
+    
+
+`C : AC ← R1`
+
+- AC (Accumulator) gets data from R1 only if **C = 1**.
     
 
 ---
+
+### **Conclusion**
+
+RTL **clearly describes the movement and operation of data in CPU**, making it easier to design, analyze, and understand computer operations.
 
 ### **Advantages**
 
