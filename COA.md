@@ -2056,10 +2056,10 @@ Memory hierarchy is a **structured arrangement of memory devices** in a computer
 ```
 Registers (Fastest, Small)
      │
-Cache
+    Cache
      │
-Main Memory (RAM)
-     │
+  Main Memory (RAM)
+	 │
 Secondary Storage (HDD, SSD)
 ```
 
