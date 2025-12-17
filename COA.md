@@ -1458,7 +1458,13 @@ Explain **ANY 5–6** (very important):
 
 ### **Text Representation (For Understanding)**
 
- `A8-A15 |            | AD0-AD7         |   8085     |  RD     |            | WR  ALE    |            | IO/M  RESET  |            | CLK`
+```
+ A8-A15 |            | AD0-AD7
+        |   8085     |
+ RD     |            | WR
+ ALE    |            | IO/M
+ RESET  |            | CLK
+```
 
 ---
 
