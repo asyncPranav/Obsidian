@@ -1044,7 +1044,12 @@ The instruction cycle consists of **three main phases**:
 
 **RTL Example:**
 
-`MAR ← PC       // Send address to memory MBR ← M[MAR]   // Fetch instruction IR ← MBR       // Store instruction in IR PC ← PC + 1    // Increment PC`
+```
+MAR ← PC       // Send address to memory
+MBR ← M[MAR]   // Fetch instruction
+IR ← MBR       // Store instruction in IR
+PC ← PC + 1    // Increment PC
+```
 
 ---
 
