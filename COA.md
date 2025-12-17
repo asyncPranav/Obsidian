@@ -1138,14 +1138,14 @@ Decode(IR) → Identify operation + operand address
 An **instruction** is a **binary-coded command given to the CPU** to perform a **specific operation** on data.
 
 - It tells the CPU **what operation to perform, on which operand, and where to store the result**.
-
 - Every program is a **sequence of instructions**.
 
 ---
 
 ### **What is Instruction Code?**
 
-Instruction code is the **binary representation of an instruction**, stored in memory.
+- An **instruction code** is the **binary representation of an instruction** that the CPU can understand and execute.
+- It is also called **machine code**.
 
 ---
 
@@ -1156,7 +1156,6 @@ Instruction code is the **binary representation of an instruction**, stored in m
 ### **1. Opcode (Operation Code)**
 
 - Specifies operation to be performed
-    
 - Example: ADD, SUB, LOAD
     
 
@@ -1164,7 +1163,7 @@ Instruction code is the **binary representation of an instruction**, stored in m
 
 ### **2. Operand / Address Field**
 
-- Specifies data or address of data
+- Specifies data or address of data on which operation is performed
     
 - Can be register or memory address
     
