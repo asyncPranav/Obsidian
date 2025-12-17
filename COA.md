@@ -2005,3 +2005,9 @@ A **pipeline hazard** is a situation that **prevents the next instruction from e
 ### **Conclusion**
 
 Hazards may **slow down pipelining**, but proper design and techniques minimize delays.
+
+
+
+---
+---
+
