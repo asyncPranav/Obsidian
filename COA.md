@@ -729,3 +729,298 @@ If you want:
 ---
 ---
 
+
+# ✅ UNIT–2 : BASIC COMPUTER ORGANIZATION
+
+## 🟢 PRIORITY–1 (EXTREMELY IMPORTANT)
+
+---
+
+## 1️⃣ ADDRESSING MODES (10 MARKS) ⭐⭐⭐⭐⭐
+
+🔥 **MOST IMPORTANT TOPIC OF UNIT–2**
+
+---
+
+### **Definition**
+
+An **addressing mode** is a method used to **specify how the operand (data) of an instruction is accessed**.
+
+---
+
+### **Purpose of Addressing Modes**
+
+Addressing modes are needed to:
+
+1. Access data efficiently
+    
+2. Reduce instruction size
+    
+3. Provide flexibility in programming
+    
+4. Support different data structures
+    
+
+---
+
+### **Types of Addressing Modes**
+
+---
+
+### **1. Immediate Addressing Mode**
+
+- Operand is **part of instruction**
+    
+- No memory access required
+    
+
+📌 Example:
+
+```
+ADD R1, #5
+```
+
+→ Adds value 5 to R1
+
+✔ Fast execution  
+❌ Limited data size
+
+---
+
+### **2. Direct Addressing Mode**
+
+- Address field contains **actual memory address**
+    
+- Operand is fetched from memory
+    
+
+📌 Example:
+
+```
+ADD R1, 200
+```
+
+→ Operand is at memory location 200
+
+✔ Simple  
+❌ Limited address space
+
+---
+
+### **3. Indirect Addressing Mode**
+
+- Address field points to another address
+    
+- Requires **two memory accesses**
+    
+
+📌 Example:
+
+```
+ADD R1, @200
+```
+
+→ Address of operand is stored at location 200
+
+✔ Large address space  
+❌ Slower execution
+
+---
+
+### **4. Register Addressing Mode**
+
+- Operand stored in **register**
+    
+- No memory access
+    
+
+📌 Example:
+
+```
+ADD R1, R2
+```
+
+✔ Very fast  
+❌ Limited registers
+
+---
+
+### **5. Register Indirect Addressing Mode**
+
+- Register holds **memory address**
+    
+- Operand accessed from memory
+    
+
+📌 Example:
+
+```
+ADD R1, (R2)
+```
+
+✔ Flexible  
+❌ Extra memory access
+
+---
+
+### **6. Indexed / Relative Addressing Mode (Basic Idea)**
+
+- Effective address = Base address + Index
+    
+- Used in arrays and loops
+    
+
+📌 Example:
+
+```
+ADD R1, 100(R2)
+```
+
+---
+
+### **Conclusion**
+
+Addressing modes improve **program efficiency and flexibility**.
+
+---
+
+### ✍️ **WRITE THIS FOR FULL 10 MARKS**
+
+---
+
+## 🔸 DIFFERENCE: IMMEDIATE vs DIRECT ADDRESSING (5–6 MARKS SAFE)
+
+|Feature|Immediate|Direct|
+|---|---|---|
+|Operand|Inside instruction|In memory|
+|Memory Access|No|Yes|
+|Speed|Faster|Slower|
+|Example|ADD R1,#5|ADD R1,200|
+
+---
+
+---
+
+## 2️⃣ INSTRUCTION CYCLE (10 MARKS) ⭐⭐⭐⭐⭐
+
+🔥 **NEAR GUARANTEED QUESTION**
+
+---
+
+### **Definition**
+
+The **instruction cycle** is the complete sequence of steps performed by the CPU to **fetch, decode, and execute an instruction**.
+
+---
+
+### **Phases of Instruction Cycle**
+
+---
+
+### **1. Fetch Cycle**
+
+- Instruction fetched from memory
+    
+- Stored in Instruction Register (IR)
+    
+
+📌 Micro-operation:
+
+`IR ← Memory[PC] PC ← PC + 1`
+
+---
+
+### **2. Decode Cycle**
+
+- Instruction decoded
+    
+- Opcode analyzed
+    
+- Addressing mode identified
+    
+
+---
+
+### **3. Execute Cycle**
+
+- Actual operation performed
+    
+- ALU executes instruction
+    
+- Result stored
+    
+
+---
+
+### **Flow Diagram (Text – Draw in Exam)**
+
+ `┌────────┐  │ Fetch  │  └───┬────┘      │  ┌───▼────┐  │ Decode │  └───┬────┘      │  ┌───▼────┐  │ Execute│  └────────┘`
+
+---
+
+### **Conclusion**
+
+Instruction cycle ensures **systematic execution** of all instructions.
+
+---
+
+---
+
+## 3️⃣ INSTRUCTION CODES (10 MARKS) ⭐⭐⭐⭐⭐
+
+---
+
+### **What is an Instruction?**
+
+An instruction is a **binary command** that tells the computer **what operation to perform**.
+
+---
+
+### **What is Instruction Code?**
+
+Instruction code is the **binary representation of an instruction**, stored in memory.
+
+---
+
+### **Fields of an Instruction Code**
+
+---
+
+### **1. Opcode (Operation Code)**
+
+- Specifies operation to be performed
+    
+- Example: ADD, SUB, LOAD
+    
+
+---
+
+### **2. Operand / Address Field**
+
+- Specifies data or address of data
+    
+- Can be register or memory address
+    
+
+---
+
+### **General Instruction Format**
+
+`┌────────┬─────────────┐ │ Opcode │ Address     │ └────────┴─────────────┘`
+
+---
+
+### **Example**
+
+`ADD R1, R2`
+
+- Opcode: ADD
+    
+- Operand: R1, R2
+    
+
+---
+
+### **Conclusion**
+
+Instruction codes define **how CPU understands and executes commands**.
