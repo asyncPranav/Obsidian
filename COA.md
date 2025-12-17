@@ -1212,24 +1212,17 @@ An **interrupt** is a **signal sent to the CPU by a device or software to reques
 **Examples:**
 
 - Keyboard input
-    
 - Timer events
-    
 - I/O device completion
-    
 
 ---
 
 ## **2️⃣ Why Interrupt is Needed**
 
 1. Allows **efficient CPU utilization**.
-    
 2. Enables **real-time response** to events.
-    
 3. Avoids **wasting CPU time** by polling devices continuously.
-    
 4. Supports **multitasking and priority handling**.
-    
 
 ---
 
@@ -1238,21 +1231,22 @@ An **interrupt** is a **signal sent to the CPU by a device or software to reques
 When an interrupt occurs, CPU performs the following steps:
 
 1. **Complete current instruction** execution.
-    
 2. **Save Program Counter (PC)** and status registers to stack.
-    
 3. **Load address of interrupt service routine (ISR)** from interrupt vector.
-    
 4. **Execute the ISR** to handle the interrupt.
-    
 5. **Restore PC and status registers** from stack.
-    
 6. **Resume normal program execution**.
-    
 
 **RTL / Stepwise Flow:**
 
-`PC → Stack         // Save PC Status → Stack     // Save status PC ← ISR Address   // Jump to interrupt handler Execute ISR        // Handle interrupt Pop PC, Status     // Restore state Resume Program`
+```
+PC → Stack         // Save PC
+Status → Stack     // Save status
+PC ← ISR Address   // Jump to interrupt handler
+Execute ISR        // Handle interrupt
+Pop PC, Status     // Restore state
+Resume Program
+```
 
 ---
 
