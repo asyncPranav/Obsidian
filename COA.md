@@ -440,9 +440,7 @@ There are **three main types**:
 ### **2.3 Shift Micro-operations**
 
 - Move bits **left or right** within a register.
-    
 - Can be **logical, arithmetic, or circular** shifts.
-    
 
 |Type|Description|Example|
 |---|---|---|
