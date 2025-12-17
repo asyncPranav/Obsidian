@@ -880,7 +880,7 @@ Addressing modes are needed to:
 
 ### **1. Immediate Addressing Mode**
 
-- Operand is **part of instruction**
+- Operand is specified **directly in the instruction**
 - No memory access required
 
 📌 Example:
@@ -917,7 +917,7 @@ ADD R1, 200
 ### **3. Indirect Addressing Mode**
 
 - Address field points to another address
-    
+- Instruction points to a **memory/register that holds the address** of operand
 - Requires **two memory accesses**
     
 
