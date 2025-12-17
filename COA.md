@@ -864,13 +864,9 @@ An **addressing mode** is a method used to **specify how the operand (data) of a
 Addressing modes are needed to:
 
 1. Access data efficiently
-    
 2. Reduce instruction size
-    
 3. Provide flexibility in programming
-    
 4. Support different data structures
-    
 
 ---
 
