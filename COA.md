@@ -628,34 +628,17 @@ R1 ← ¬R1
 ```
 
 - All 0s become 1s and all 1s become 0s.
-    
 - **Use:** Bit inversion, clearing or setting bits.
-    
 
 ---
 
 ## **3️⃣ Applications of Logical Micro-operations**
 
 1. **Masking:** Selecting certain bits while ignoring others (using AND).
-    
 2. **Bit clearing:** Reset specific bits to 0 (using AND with 0).
-    
 3. **Bit setting:** Set specific bits to 1 (using OR with 1).
-    
 4. **Toggling bits:** Flip selected bits (using XOR).
-    
 
----
-
-## **4️⃣ Hardware Block (Text-Based)**
-
-   `R1 ─┐        │    R2 ─► [ LOGIC UNIT ] ─► R3`
-
-- **R1, R2** = Input registers
-    
-- **Logic Unit** = Performs AND, OR, XOR, NOT
-    
-- **R3** = Result register
 ---
 
 ### **Conclusion**
