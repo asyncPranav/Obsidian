@@ -552,9 +552,7 @@ R1 ← R1 - 1
 ```
 
 - **R1, R2** = Input registers
-    
 - **ALU** = Arithmetic Logic Unit performing addition/subtraction
-    
 - **R3** = Result stored back in register
 
 ---
