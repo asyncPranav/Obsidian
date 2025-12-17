@@ -643,9 +643,9 @@ R1 ← ¬R1
 
 ### **Conclusion**
 
-Logical micro-operations are essential for **bit manipulation**.
-
----
+- Logical micro-operations allow **bit-level manipulation** of data in CPU registers.
+- Essential for **masking, setting, clearing, and toggling bits**.
+- Typically implemented in the **Logic Unit of ALU**.
 
 ---
 
