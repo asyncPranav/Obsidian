@@ -867,6 +867,7 @@ Addressing modes are needed to:
 2. Reduce instruction size
 3. Provide flexibility in programming
 4. Support different data structures
+5. Optimizes **memory usage and CPU speed**.
 
 ---
 
