@@ -399,60 +399,73 @@ A **micro-operation** is an **elementary operation** performed on data stored in
 There are **three main types**:
 
 1. **Arithmetic Micro-operations**
-    
 2. **Logical Micro-operations**
-    
 3. **Shift Micro-operations**
 
 ---
 
-### **1. Arithmetic Micro-operations**
+### **2.1 Arithmetic Micro-operations**
 
-Used for arithmetic calculations.
+- Perform **arithmetic operations** on data stored in registers.
+    
+- **Examples of operations:** Addition, Subtraction, Increment, Decrement.
+    
 
-Examples:
+|Operation|RTL Notation|Example|
+|---|---|---|
+|Addition|R1 ← R1 + R2|Add contents of R1 and R2, store in R1|
+|Subtraction|R1 ← R1 - R2|Subtract R2 from R1, store in R1|
+|Increment|R1 ← R1 + 1|Increase R1 by 1|
+|Decrement|R1 ← R1 - 1|Decrease R1 by 1|
 
-- Addition: `R1 ← R2 + R3`
-    
-- Subtraction: `R1 ← R2 − R3`
-    
-- Increment: `R1 ← R1 + 1`
-    
-- Decrement: `R1 ← R1 − 1`
-    
+**Hardware:** Uses **ALU (Arithmetic Logic Unit)**.
 
 ---
 
-### **2. Logical Micro-operations**
+### **2.2 Logical Micro-operations**
 
-Used for bit-wise logical operations.
+- Perform **bitwise logical operations** between registers.
+    
+- **Examples:** AND, OR, XOR, NOT
+    
+- **Applications:** Masking, bit manipulation, clearing or setting bits.
+    
 
-Examples:
+|Operation|RTL Notation|Example|
+|---|---|---|
+|AND|R1 ← R1 ⋅ R2|Bitwise AND of R1 and R2|
+|OR|R1 ← R1 + R2|Bitwise OR of R1 and R2|
+|XOR|R1 ← R1 ⊕ R2|Exclusive OR of R1 and R2|
+|NOT|R1 ← ¬R1|Bitwise complement of R1|
 
-- AND: `R1 ← R2 AND R3`
-    
-- OR: `R1 ← R2 OR R3`
-    
-- XOR: `R1 ← R2 XOR R3`
-    
-- NOT: `R1 ← NOT R2`
-    
+**Hardware:** Uses **Logic Unit**.
 
 ---
 
-### **3. Shift Micro-operations**
+### **2.3 Shift Micro-operations**
 
-Used for shifting bits left or right.
+- Move bits **left or right** within a register.
+    
+- Can be **logical, arithmetic, or circular** shifts.
+    
 
-Examples:
+|Type|Description|Example|
+|---|---|---|
+|Logical Shift|Insert 0 in vacant positions|R1 << 1 (shift left)|
+|Arithmetic Shift|Preserve sign bit during shift|R1 ASR 1 (arithmetic right)|
+|Circular Shift|Bits rotated, no data lost|R1 ROL 1 (rotate left)|
 
-- Left shift
-    
-- Right shift
-    
-- Circular shift
-    
-- Arithmetic shift
+**Hardware:** Uses **Shifter unit**.
+
+---
+
+## **3️⃣ Summary Table**
+
+| Micro-operation Type | Unit       | Operation Examples                              |
+| -------------------- | ---------- | ----------------------------------------------- |
+| Arithmetic           | ALU        | Add, Subtract, Increment, Decrement             |
+| Logical              | Logic Unit | AND, OR, XOR, NOT                               |
+| Shift                | Shifter    | Logical shift, Circular shift, Arithmetic shift |
     
 
 ---
