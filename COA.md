@@ -1135,7 +1135,11 @@ Decode(IR) → Identify operation + operand address
 
 ### **What is an Instruction?**
 
-An instruction is a **binary command** that tells the computer **what operation to perform**.
+An **instruction** is a **binary-coded command given to the CPU** to perform a **specific operation** on data.
+
+- It tells the CPU **what operation to perform, on which operand, and where to store the result**.
+
+- Every program is a **sequence of instructions**.
 
 ---
 
