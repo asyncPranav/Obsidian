@@ -1917,3 +1917,91 @@ ALSU is a **combined functional unit** in the CPU that performs **arithmetic, lo
 ### **Conclusion**
 
 ALSU integrates **arithmetic, logic, and shift operations** for efficient CPU execution.
+
+
+# ✅ UNIT–3 : PRIORITY–3 (MODERATE BUT SAFE)
+
+---
+
+## 7️⃣ INSTRUCTION PIPELINE (10 MARKS) ⭐⭐⭐
+
+### **Definition**
+
+Instruction pipelining is a technique where **multiple instructions are overlapped in execution** to improve CPU performance and throughput.
+
+---
+
+### **Stages of Instruction Pipeline**
+
+1. **Fetch** – Retrieve instruction from memory
+    
+2. **Decode** – Identify operation and operands
+    
+3. **Execute** – Perform the operation
+    
+4. **Memory Access** – Read/write data from/to memory (if needed)
+    
+5. **Write Back** – Store result in register/memory
+    
+
+📌 Text-Based Flow Diagram:
+
+```
+IF → ID → EX → MEM → WB
+```
+
+- IF = Instruction Fetch
+    
+- ID = Instruction Decode
+    
+- EX = Execute
+    
+- MEM = Memory Access
+    
+- WB = Write Back
+    
+
+---
+
+### **Advantages of Pipelining**
+
+1. **Increases throughput** – More instructions executed per unit time
+    
+2. **Improves CPU speed** – Overlapping reduces idle time
+    
+3. Efficient resource utilization
+    
+
+---
+
+### **Conclusion**
+
+Instruction pipelining is a **key technique to make CPU faster** by overlapping stages.
+
+---
+
+## ✍️ **Definition + Stages + Flow Diagram + Advantages = FULL MARKS**
+
+---
+
+## 8️⃣ PIPELINE HAZARDS (10 MARKS) ⭐⭐⭐
+
+### **Definition**
+
+A **pipeline hazard** is a situation that **prevents the next instruction from executing in the next clock cycle**.
+
+---
+
+### **Types of Pipeline Hazards**
+
+|Hazard Type|Explanation|Example|
+|---|---|---|
+|**Structural Hazard**|Hardware resource conflict|Two instructions need same ALU|
+|**Data Hazard**|Dependency between instructions|Using result before it is ready|
+|**Control Hazard**|Delay due to branch instructions|CPU cannot fetch next instruction until branch resolved|
+
+---
+
+### **Conclusion**
+
+Hazards may **slow down pipelining**, but proper design and techniques minimize delays.
