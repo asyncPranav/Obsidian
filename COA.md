@@ -1836,7 +1836,6 @@ MOV R1, 5    // Move 5 into R1
 An **instruction format** defines the **layout of bits in an instruction**.
 
 - It tells how the **opcode, operand, and address** are arranged in a machine instruction.
-    
 - Provides **structure and standardization** for instruction representation.
     
 
@@ -1867,18 +1866,12 @@ An **instruction format** defines the **layout of bits in an instruction**.
 - Example: `ADD 2000` → Adds memory[2000] to accumulator
 
 3. **Two-Address Instruction:**
-
 - Contains **two operands**, e.g., source and destination registers.
 - Example: `MOV R1, R2` → Copy R2 to R1
-    
 
 4. **Three-Address Instruction:**
-    
-
 - Contains **three operands**, e.g., two sources and one destination.
-    
 - Example: `ADD R1, R2, R3` → R1 = R2 + R3
-    
 
 ---
 
