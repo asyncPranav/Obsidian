@@ -471,7 +471,11 @@ Decreases value by one.
 
 ### **Hardware Block Diagram**
 
-`R2 ──┐      ├──► Binary Adder ───► R1 R3 ──┘`
+```
+R2 ──┐
+     ├──► Binary Adder ───► R1
+R3 ──┘
+```
 
 ---
 
@@ -627,7 +631,13 @@ ALSU is a **combined unit** that performs **arithmetic, logical, and shift opera
 
 ### **Block Diagram**
 
-      `┌─────────────┐ A ───►│             │ B ───►│    ALSU     ├──► Output S ───►│ (ALU+Shift) │       └─────────────┘`
+```
+      ┌─────────────┐
+A ───►│             │
+B ───►│    ALSU     ├──► Output
+S ───►│ (ALU+Shift) │
+      └─────────────┘
+```
 
 ---
 
