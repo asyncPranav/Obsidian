@@ -919,7 +919,6 @@ ADD R1, 200
 - Address field points to another address
 - Instruction points to a **memory/register that holds the address** of operand
 - Requires **two memory accesses**
-    
 
 📌 Example:
 
@@ -937,9 +936,8 @@ ADD R1, @200
 ### **4. Register Addressing Mode**
 
 - Operand stored in **register**
-    
+- Register contains **address of memory operand**
 - No memory access
-    
 
 📌 Example:
 
@@ -955,9 +953,8 @@ ADD R1, R2
 ### **5. Register Indirect Addressing Mode**
 
 - Register holds **memory address**
-    
 - Operand accessed from memory
-    
+- Operand address = base address + index
 
 📌 Example:
 
