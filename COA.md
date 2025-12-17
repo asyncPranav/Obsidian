@@ -1821,3 +1821,99 @@ Instruction format defines **the structure of an instruction** including **opcod
 ### **Conclusion**
 
 Instruction format defines **how CPU decodes and executes instructions**.
+
+
+
+# ✅ UNIT–3 : PRIORITY–2 (VERY IMPORTANT)
+
+---
+
+## 5️⃣ ADDRESSING MODES (10 MARKS) ⭐⭐⭐⭐
+
+### **Definition**
+
+An **addressing mode** specifies the **method used to access operands (data) of an instruction**.
+
+---
+
+### **Purpose**
+
+1. To access data efficiently
+    
+2. Reduce instruction size
+    
+3. Support different data structures
+    
+4. Provide flexibility in programming
+    
+
+---
+
+### **Types of Addressing Modes**
+
+|Mode|Explanation|Example|
+|---|---|---|
+|**Immediate**|Operand is part of instruction|`ADD R1, #5`|
+|**Direct**|Address field contains memory address|`ADD R1, 200`|
+|**Indirect**|Address field points to another address|`ADD R1, @200`|
+|**Register**|Operand in register|`ADD R1, R2`|
+|**Register Indirect**|Register holds memory address|`ADD R1, (R2)`|
+|**Relative / Indexed**|Effective address = base + offset|`ADD R1, 100(R2)`|
+
+---
+
+### **Conclusion**
+
+Addressing modes improve **program efficiency, flexibility, and CPU performance**.
+
+---
+
+## ✍️ **Definition + Purpose + Table + Example = FULL MARKS**
+
+---
+
+## 6️⃣ DESIGNING OF ARITHMETIC LOGIC SHIFT UNIT (ALSU) (10 MARKS) ⭐⭐⭐⭐
+
+### **Definition**
+
+ALSU is a **combined functional unit** in the CPU that performs **arithmetic, logical, and shift operations**.
+
+---
+
+### **Why ALSU is Needed**
+
+1. Reduces hardware by combining units
+    
+2. Increases execution speed
+    
+3. Handles multiple operations efficiently
+    
+
+---
+
+### **Components of ALSU**
+
+1. **Arithmetic Unit (AU)** – Performs addition, subtraction, increment, decrement
+    
+2. **Logic Unit (LU)** – Performs AND, OR, XOR, NOT
+    
+3. **Shifter** – Performs left, right, circular, and arithmetic shifts
+    
+
+---
+
+### **Block Diagram (Text-Based – Draw in Exam)**
+
+```
+       ┌─────────────┐
+ A ───►│                │
+ B ───►│     ALSU       │──► Output
+ S ───►│ (AU+LU+Shifter)
+       └─────────────┘
+```
+
+---
+
+### **Conclusion**
+
+ALSU integrates **arithmetic, logic, and shift operations** for efficient CPU execution.
