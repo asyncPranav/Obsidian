@@ -491,11 +491,11 @@ Arithmetic micro-operations are **basic arithmetic operations performed on data 
 - Adds the contents of two registers and stores the result in a register.  
     **RTL Example:**
     
-
-`R1 ← R1 + R2`
+```
+R1 ← R1 + R2
+```
 
 - Hardware: Uses **Adder circuit in ALU**.
-    
 
 ---
 
@@ -504,8 +504,9 @@ Arithmetic micro-operations are **basic arithmetic operations performed on data 
 - Subtracts the contents of one register from another.  
     **RTL Example:**
     
-
-`R1 ← R1 - R2`
+```
+R1 ← R1 - R2
+```
 
 - Hardware: Uses **Subtractor circuit in ALU**.
     
@@ -517,8 +518,9 @@ Arithmetic micro-operations are **basic arithmetic operations performed on data 
 - Increases the value of a register by 1.  
     **RTL Example:**
     
-
-`R1 ← R1 + 1`
+```
+R1 ← R1 + 1
+```
 
 - Hardware: Uses **incrementer in ALU**.
     
@@ -530,8 +532,9 @@ Arithmetic micro-operations are **basic arithmetic operations performed on data 
 - Decreases the value of a register by 1.  
     **RTL Example:**
     
-
-`R1 ← R1 - 1`
+```
+R1 ← R1 - 1
+```
 
 - Hardware: Uses **decrementer in ALU**.
     
@@ -542,7 +545,11 @@ Arithmetic micro-operations are **basic arithmetic operations performed on data 
 
 **Text-Based Block Diagram:**
 
-   `R1 ─────┐            │    R2 ──► [ ALU ] ─► R3`
+```
+   R1 ─────┐
+           │
+   R2 ──► [ ALU ] ─► R3
+```
 
 - **R1, R2** = Input registers
     
