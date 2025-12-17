@@ -1567,3 +1567,232 @@ Examples:
 ### **Conclusion**
 
 Instruction set allows 8085 to perform **various operations efficiently**.
+
+
+---
+---
+
+
+# ✅ UNIT–3 : COMPUTER ORGANIZATION
+
+## 🟢 PRIORITY–1 (EXTREMELY IMPORTANT)
+
+---
+
+## 1️⃣ GENERAL REGISTER ORGANIZATION (10 MARKS) ⭐⭐⭐⭐⭐
+
+### **Definition**
+
+General Register Organization is a system where the CPU contains **a set of high-speed registers connected via a common bus**, which allows **fast data transfer and execution of instructions**.
+
+---
+
+### **Purpose of Registers**
+
+1. Store intermediate data
+    
+2. Hold instruction addresses
+    
+3. Store results of arithmetic/logic operations
+    
+4. Speed up CPU operations
+    
+
+---
+
+### **Common Bus Concept**
+
+- A **single bus** used to transfer data between registers
+    
+- Only **one register can transmit at a time**
+    
+- Controlled by **multiplexers or tri-state buffers**
+    
+
+---
+
+### **Block Diagram (Text-Based)**
+
+        `┌───────────┐ R0 ──┐  │           │ R1 ──┼─►│           │ R2 ──┼─►│   MUX     │──► BUS ───► ALU ───► AC R3 ──┘  │           │         └───────────┘`
+
+---
+
+### **Role of ALU**
+
+- Performs arithmetic and logical operations
+    
+- Takes input from bus
+    
+- Stores result back in registers or accumulator
+    
+
+---
+
+### **Conclusion**
+
+General register organization allows **fast data transfer** and **efficient instruction execution**.
+
+---
+
+## ✍️ **Write definition + purpose + diagram + ALU role** for full 10 marks.
+
+---
+
+## 2️⃣ STACK & STACK ORGANIZATION (10 MARKS) ⭐⭐⭐⭐⭐
+
+### **Definition**
+
+A **stack** is a **memory structure** that stores data in **Last-In-First-Out (LIFO)** order.
+
+---
+
+### **Stack Operations**
+
+1. **PUSH** – Inserts data into stack
+    
+2. **POP** – Removes data from stack
+    
+
+---
+
+### **Stack Pointer (SP)**
+
+- Special register pointing to **top of stack**
+    
+- Updated automatically during PUSH/POP
+    
+
+---
+
+### **Stack Organization of CPU (Text-Based Diagram)**
+
+ `┌────────────┐  │    SP      │  └─────┬──────┘        │        ▼  ┌────────────┐  │   Memory   │  │   Stack    │  └────────────┘`
+
+---
+
+### **Uses of Stack**
+
+1. Subroutine call and return
+    
+2. Handling interrupts
+    
+3. Temporary storage of data
+    
+4. Expression evaluation
+    
+
+---
+
+### **Conclusion**
+
+Stack simplifies **control transfer** and **temporary data storage**.
+
+---
+
+## ✍️ **Definition + Operations + SP + diagram + uses = full marks**
+
+---
+
+## 3️⃣ REGISTER TRANSFER LANGUAGE (RTL) (10 MARKS) ⭐⭐⭐⭐⭐
+
+### **Definition**
+
+Register Transfer Language is a **symbolic notation** used to **describe the operations and data transfer between registers** inside CPU.
+
+---
+
+### **RTL Symbols & Notations**
+
+|Symbol|Meaning|
+|---|---|
+|←|Transfer / Load|
+|+|Addition|
+|-|Subtraction|
+|:|Control condition|
+
+---
+
+### **Register Transfer Statement**
+
+`R1 ← R2`
+
+→ Content of R2 is copied to R1
+
+---
+
+### **Control Function**
+
+`P : R1 ← R2`
+
+→ Operation executed only if control signal **P** is active
+
+---
+
+### **Examples**
+
+1. `R1 ← R2 + R3`
+    
+2. `R4 ← R4 - 1`
+    
+3. `P : AC ← R1`
+    
+
+---
+
+### **Conclusion**
+
+RTL provides **clear description** of CPU internal operations.
+
+---
+
+## ✍️ **Definition + Symbols + statements + examples = full marks**
+
+---
+
+## 4️⃣ INSTRUCTION FORMAT (10 MARKS) ⭐⭐⭐⭐⭐
+
+### **What is an Instruction?**
+
+An instruction is a **binary command** telling the CPU what operation to perform.
+
+---
+
+### **What is Instruction Format?**
+
+Instruction format defines **the structure of an instruction** including **opcode, operand, and address field**.
+
+---
+
+### **Fields of Instruction**
+
+1. **Opcode** – Specifies operation (ADD, SUB, MOV)
+    
+2. **Operand** – Data to operate on (register or memory)
+    
+3. **Address field** – Memory address of data (if needed)
+    
+
+---
+
+### **Types of Instruction Formats (Brief)**
+
+1. **Zero Address** – No operand, used in stack computers
+    
+2. **One Address** – Single operand, usually accumulator based
+    
+3. **Two Address** – Two operands, e.g., R1 ← R1 + R2
+    
+4. **Three Address** – Three operands, e.g., R1 ← R2 + R3
+    
+
+---
+
+### **Block Diagram (Text-Based)**
+
+ `┌───────┬──────────┐  │ Opcode│ Address  │  └───────┴──────────┘`
+
+---
+
+### **Conclusion**
+
+Instruction format defines **how CPU decodes and executes instructions**.
