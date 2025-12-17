@@ -1157,16 +1157,13 @@ An **instruction** is a **binary-coded command given to the CPU** to perform
 
 - Specifies operation to be performed
 - Example: ADD, SUB, LOAD
-    
 
 ---
 
 ### **2. Operand / Address Field**
 
 - Specifies data or address of data on which operation is performed
-    
 - Can be register or memory address
-    
 
 ---
 
@@ -1183,14 +1180,7 @@ An **instruction** is a **binary-coded command given to the CPU** to perform
 ### **Example**
 
 ```
-ADD R1, R2
 ```
-
-- Opcode: ADD
-    
-- Operand: R1, R2
-    
-
 ---
 
 ### **Conclusion**
