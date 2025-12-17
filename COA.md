@@ -407,9 +407,7 @@ There are **three main types**:
 ### **2.1 Arithmetic Micro-operations**
 
 - Perform **arithmetic operations** on data stored in registers.
-    
 - **Examples of operations:** Addition, Subtraction, Increment, Decrement.
-    
 
 |Operation|RTL Notation|Example|
 |---|---|---|
@@ -425,11 +423,8 @@ There are **three main types**:
 ### **2.2 Logical Micro-operations**
 
 - Perform **bitwise logical operations** between registers.
-    
 - **Examples:** AND, OR, XOR, NOT
-    
 - **Applications:** Masking, bit manipulation, clearing or setting bits.
-    
 
 |Operation|RTL Notation|Example|
 |---|---|---|
