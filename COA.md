@@ -473,9 +473,12 @@ Micro-operations form the **basic building blocks** for instruction execution.
 
 ## 6️⃣ ARITHMETIC MICRO-OPERATIONS (10 MARKS) ⭐⭐⭐⭐
 
-### **Definition**
+## **1️ Definition**
 
-Arithmetic micro-operations perform **basic arithmetic calculations** on register contents.
+Arithmetic micro-operations are **basic arithmetic operations performed on data stored in registers of a CPU**.
+
+- They are executed at the **register-transfer level (RTL)**.
+- These operations form the **building blocks of all arithmetic instructions** in a CPU.
 
 ---
 
@@ -485,34 +488,67 @@ Arithmetic micro-operations perform **basic arithmetic calculations** on registe
 
 ### **1. Addition**
 
-`R1 ← R2 + R3`
+- Adds the contents of two registers and stores the result in a register.  
+    **RTL Example:**
+    
 
-Adds contents of R2 and R3 and stores result in R1.
+`R1 ← R1 + R2`
+
+- Hardware: Uses **Adder circuit in ALU**.
+    
 
 ---
 
 ### **2. Subtraction**
 
-`R1 ← R2 − R3`
+- Subtracts the contents of one register from another.  
+    **RTL Example:**
+    
 
-Performed using **2’s complement method**.
+`R1 ← R1 - R2`
+
+- Hardware: Uses **Subtractor circuit in ALU**.
+    
 
 ---
 
 ### **3. Increment**
 
+- Increases the value of a register by 1.  
+    **RTL Example:**
+    
+
 `R1 ← R1 + 1`
 
-Increases value by one.
+- Hardware: Uses **incrementer in ALU**.
+    
 
 ---
 
 ### **4. Decrement**
 
-`R1 ← R1 − 1`
+- Decreases the value of a register by 1.  
+    **RTL Example:**
+    
 
-Decreases value by one.
+`R1 ← R1 - 1`
 
+- Hardware: Uses **decrementer in ALU**.
+    
+
+---
+
+## **3️⃣ Hardware Block (Adder)**
+
+**Text-Based Block Diagram:**
+
+   `R1 ─────┐            │    R2 ──► [ ALU ] ─► R3`
+
+- **R1, R2** = Input registers
+    
+- **ALU** = Arithmetic Logic Unit performing addition/subtraction
+    
+- **R3** = Result stored back in register
 ---
 
 ### **Hardware Block Diagram**
