@@ -881,9 +881,7 @@ Addressing modes are needed to:
 ### **1. Immediate Addressing Mode**
 
 - Operand is **part of instruction**
-    
 - No memory access required
-    
 
 📌 Example:
 
@@ -900,10 +898,8 @@ ADD R1, #5
 
 ### **2. Direct Addressing Mode**
 
-- Address field contains **actual memory address**
-    
+- Instruction contains **memory address of operand**
 - Operand is fetched from memory
-    
 
 📌 Example:
 
