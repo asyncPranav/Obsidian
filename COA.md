@@ -1809,6 +1809,127 @@ Instruction set allows 8085 to perform **various operations efficiently**.
 
 ---
 
+### **INSTRUCTION FORMAT – 10 MARKS** ⭐⭐⭐⭐⭐
+
+---
+
+## **1️⃣ What is an Instruction?**
+
+An **instruction** is a **binary-coded command given to the CPU** to perform a **specific operation** on data.
+
+- It specifies **what operation to perform, on which data, and where to store the result**.
+    
+- Every program is a **sequence of instructions**.
+    
+
+**Example:**
+
+`ADD R1, R2   // Add contents of R2 to R1 MOV R1, 5    // Move 5 into R1`
+
+---
+
+## **2️⃣ What is an Instruction Format?**
+
+An **instruction format** defines the **layout of bits in an instruction**.
+
+- It tells how the **opcode, operand, and address** are arranged in a machine instruction.
+    
+- Provides **structure and standardization** for instruction representation.
+    
+
+**In short:**
+
+> “Instruction format = Bit pattern that defines opcode + operand + address.”
+
+---
+
+## **3️⃣ Fields of Instruction Format**
+
+|Field|Description|
+|---|---|
+|**Opcode**|Operation code specifying the operation to perform (e.g., ADD, SUB, MOV)|
+|**Operand**|Specifies register or memory location used in the operation|
+|**Address Field**|Specifies memory address if required by the instruction|
+
+---
+
+## **4️⃣ Types of Instruction Formats (Brief)**
+
+1. **Zero-Address Instruction:**
+    
+
+- No explicit operand; uses stack operations.
+    
+- Example: `PUSH`, `POP`
+    
+
+2. **One-Address Instruction:**
+    
+
+- Contains **one operand**, usually combined with **accumulator**.
+    
+- Example: `ADD 2000` → Adds memory[2000] to accumulator
+    
+
+3. **Two-Address Instruction:**
+    
+
+- Contains **two operands**, e.g., source and destination registers.
+    
+- Example: `MOV R1, R2` → Copy R2 to R1
+    
+
+4. **Three-Address Instruction:**
+    
+
+- Contains **three operands**, e.g., two sources and one destination.
+    
+- Example: `ADD R1, R2, R3` → R1 = R2 + R3
+    
+
+---
+
+## **5️⃣ Diagram (Text-Based)**
+
+`| Opcode | Operand/Register | Address (if needed) |`
+
+**Example (Direct Addressing):**
+
+`| 8 bits | 4 bits           | 12 bits             |`
+
+- 8 bits → Opcode
+    
+- 4 bits → Register
+    
+- 12 bits → Memory address
+    
+
+---
+
+## **6️⃣ Key Points for Exam**
+
+- Always **define instruction + instruction format**.
+    
+- Include **fields: opcode, operand, address**.
+    
+- Mention **types: zero, one, two, three-address**.
+    
+- Add **simple diagram** for clarity.
+    
+
+---
+
+✅ **Conclusion:**
+
+- Instruction format defines **how bits in an instruction are organized**.
+    
+- Important for CPU to **decode and execute instructions**.
+    
+- **High scoring topic**; include **definition + fields + types + diagram** for full marks.
+
+
+---
+
 ## 1️⃣ GENERAL REGISTER ORGANIZATION (10 MARKS) ⭐⭐⭐⭐⭐
 
 ### **Definition**
