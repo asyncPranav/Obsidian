@@ -459,7 +459,7 @@ There are **three main types**:
 
 ---
 
-## **3️⃣ Summary Table**
+### **Summary Table**
 
 | Micro-operation Type | Unit       | Operation Examples                              |
 | -------------------- | ---------- | ----------------------------------------------- |
