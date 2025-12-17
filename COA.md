@@ -1018,7 +1018,6 @@ ADD R1, 100(R2)
 The **instruction cycle** (also called **fetch-decode-execute cycle**) is the **sequence of operations performed by the CPU to execute a single instruction**.
 
 - It is the **basic operational process** of a computer.
-    
 - Every instruction goes through this cycle to fetch the instruction from memory, decode it, and execute it.
     
 
@@ -1039,13 +1038,9 @@ The instruction cycle consists of **three main phases**:
 - **Steps:**
     
     1. **Program Counter (PC)** contains the address of the next instruction.
-        
     2. Address from PC is sent to **Memory Address Register (MAR)**.
-        
     3. Memory sends instruction to **Memory Buffer Register (MBR)** or **Instruction Register (IR)**.
-        
     4. PC is incremented to point to the next instruction.
-        
 
 **RTL Example:**
 
