@@ -1287,4 +1287,277 @@ Instruction Execution
 Interrupt cycle improves **system efficiency and responsiveness**.
 
 
+# ✅ UNIT–2 : PRIORITY–3 (MODERATE BUT SAFE)
 
+---
+
+## 7️⃣ INTERNAL ARCHITECTURE OF 8085 MICROPROCESSOR (10 MARKS) ⭐⭐⭐
+
+📌 Asked mainly as **diagram + explanation**
+
+---
+
+### **Definition**
+
+The 8085 microprocessor is an **8-bit general purpose microprocessor** that executes instructions using its internal functional units.
+
+---
+
+### **Block Diagram of 8085 (Text-Based – Draw in Exam)**
+
+```
+        ┌─────────────────────────┐
+        │        ALU               │
+        │ (Arithmetic & Logic Unit)│
+        └──────────┬──────────────┘
+                   │
+   ┌───────────────▼───────────────┐
+   │     Registers (A, B, C, D, E)  │
+   │     Flags, PC, SP              │
+   └───────────────┬───────────────┘
+                   │
+   ┌───────────────▼───────────────┐
+   │   Timing & Control Unit        │
+   └───────────────┬───────────────┘
+                   │
+   ┌───────────────▼───────────────┐
+   │     Interrupt Control          │
+   └───────────────────────────────┘
+
+```
+
+---
+
+### **Major Units of 8085**
+
+---
+
+### **1. ALU (Arithmetic Logic Unit)**
+
+- Performs arithmetic operations (ADD, SUB)
+    
+- Performs logical operations (AND, OR, XOR)
+    
+- Uses **Accumulator** and **Flags**
+    
+
+---
+
+### **2. Register Set**
+
+- **Accumulator (A)** – stores result
+    
+- **General registers (B, C, D, E, H, L)**
+    
+- **Program Counter (PC)** – next instruction address
+    
+- **Stack Pointer (SP)** – stack address
+    
+
+---
+
+### **3. Timing and Control Unit**
+
+- Generates control signals
+    
+- Controls instruction execution
+    
+- Manages read/write operations
+    
+
+---
+
+### **4. Interrupt Control Unit**
+
+- Handles interrupt requests
+    
+- Supports priority based interrupts
+    
+
+---
+
+### **Basic Working Idea**
+
+- Instruction fetched
+    
+- Decoded
+    
+- Executed using ALU and registers
+    
+
+---
+
+### **Conclusion**
+
+The internal architecture of 8085 ensures **efficient execution of instructions**.
+
+---
+
+## ✍️ SAFE 10-MARK ANSWER
+
+---
+
+---
+
+## 8️⃣ PIN DIAGRAM OF 8085 MICROPROCESSOR (10 MARKS) ⭐⭐⭐
+
+📌 **Diagram-based question – free marks**
+
+---
+
+### **What is Pin Diagram?**
+
+Pin diagram shows **physical pins of 8085** and their functions.
+
+---
+
+### **Categories of Pins**
+
+---
+
+### **1. Address Bus Pins**
+
+- **A8 – A15**
+    
+- Carries higher order address
+    
+- Unidirectional
+    
+
+---
+
+### **2. Data Bus Pins**
+
+- **AD0 – AD7**
+    
+- Multiplexed address & data bus
+    
+- Bidirectional
+    
+
+---
+
+### **3. Control Pins (Important)**
+
+Explain **ANY 5–6** (very important):
+
+- **RD̅** – Read signal
+    
+- **WR̅** – Write signal
+    
+- **ALE** – Address Latch Enable
+    
+- **IO/M̅** – Selects memory or I/O
+    
+- **RESET IN** – Resets processor
+    
+- **CLK** – Clock signal
+    
+
+---
+
+### **Text Representation (For Understanding)**
+
+ `A8-A15 |            | AD0-AD7         |   8085     |  RD     |            | WR  ALE    |            | IO/M  RESET  |            | CLK`
+
+---
+
+### **Conclusion**
+
+Pin diagram helps understand **hardware connections** of 8085.
+
+---
+
+## ✍️ DRAW NEAT DIAGRAM + WRITE 5 PIN FUNCTIONS = FULL MARKS
+
+---
+
+---
+
+## 9️⃣ 8085 INSTRUCTION SET (CLASSIFICATION ONLY) (10 MARKS) ⭐⭐⭐
+
+📌 **Do NOT memorize all instructions**
+
+---
+
+### **What is Instruction Set?**
+
+Instruction set is a **group of commands** that 8085 microprocessor can execute.
+
+---
+
+### **Classification of 8085 Instruction Set**
+
+---
+
+### **1. Data Transfer Instructions**
+
+Used to move data.
+
+Examples:
+
+- MOV
+    
+- MVI
+    
+- LDA
+    
+- STA
+    
+
+---
+
+### **2. Arithmetic Instructions**
+
+Used for arithmetic operations.
+
+Examples:
+
+- ADD
+    
+- SUB
+    
+- INR
+    
+- DCR
+    
+
+---
+
+### **3. Logical Instructions**
+
+Used for logical operations.
+
+Examples:
+
+- AND
+    
+- OR
+    
+- XOR
+    
+- CMA
+    
+
+---
+
+### **4. Branch Instructions**
+
+Used to change program flow.
+
+Examples:
+
+- JMP
+    
+- JZ
+    
+- CALL
+    
+- RET
+    
+
+---
+
+### **Conclusion**
+
+Instruction set allows 8085 to perform **various operations efficiently**.
