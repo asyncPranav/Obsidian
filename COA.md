@@ -1198,6 +1198,96 @@ Instruction codes define **how CPU understands and executes commands**.
 
 ---
 
+### **INTERRUPT CYCLE – 10 MARKS** ⭐⭐⭐⭐
+
+---
+
+## **1️⃣ What is an Interrupt?**
+
+An **interrupt** is a **signal sent to the CPU by a device or software to request immediate attention**.
+
+- It **pauses the current program execution** and allows the CPU to handle the interrupting event.
+- After handling, CPU **resumes the original program**.
+
+**Examples:**
+
+- Keyboard input
+    
+- Timer events
+    
+- I/O device completion
+    
+
+---
+
+## **2️⃣ Why Interrupt is Needed**
+
+1. Allows **efficient CPU utilization**.
+    
+2. Enables **real-time response** to events.
+    
+3. Avoids **wasting CPU time** by polling devices continuously.
+    
+4. Supports **multitasking and priority handling**.
+    
+
+---
+
+## **3️⃣ Steps of Interrupt Cycle**
+
+When an interrupt occurs, CPU performs the following steps:
+
+1. **Complete current instruction** execution.
+    
+2. **Save Program Counter (PC)** and status registers to stack.
+    
+3. **Load address of interrupt service routine (ISR)** from interrupt vector.
+    
+4. **Execute the ISR** to handle the interrupt.
+    
+5. **Restore PC and status registers** from stack.
+    
+6. **Resume normal program execution**.
+    
+
+**RTL / Stepwise Flow:**
+
+`PC → Stack         // Save PC Status → Stack     // Save status PC ← ISR Address   // Jump to interrupt handler Execute ISR        // Handle interrupt Pop PC, Status     // Restore state Resume Program`
+
+---
+
+## **4️⃣ Difference Between Instruction Cycle and Interrupt Cycle**
+
+|Feature|Instruction Cycle|Interrupt Cycle|
+|---|---|---|
+|**Purpose**|Execute a normal instruction|Handle an interrupt request|
+|**Triggered by**|Program sequence|External device or software|
+|**Steps**|Fetch → Decode → Execute|Save PC & Status → Jump to ISR → Execute ISR → Restore PC & Status|
+|**Priority**|Regular execution|Higher priority than normal instruction|
+
+---
+
+## **5️⃣ Key Points for Exam**
+
+- Interrupt allows **asynchronous event handling**.
+    
+- Interrupt cycle **pauses the current instruction cycle**.
+    
+- CPU uses **stack to save current context**.
+    
+- ISR executes **special routine** to respond to the interrupt.
+    
+
+---
+
+✅ **Conclusion:**
+
+- Interrupt cycle ensures CPU **responds immediately to events** while maintaining program flow.
+    
+- Very common exam topic; **include definition + purpose + steps + difference table** to score full marks.
+
+---
+
 ## 4️⃣ GENERAL COMPUTER REGISTERS
 
 ### WITH COMMON BUS SYSTEM (10 MARKS) ⭐⭐⭐⭐
