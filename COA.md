@@ -1060,15 +1060,15 @@ PC ← PC + 1    // Increment PC
 - **Steps:**
     
     1. Instruction in **IR** is decoded by **Control Unit**.
-        
     2. CPU identifies **opcode (operation)** and **operand(s)**.
-        
     3. Control signals are generated to **activate necessary hardware units**.
         
 
 **Example:**
 
-`Decode(IR) → Identify operation + operand address`
+```
+Decode(IR) → Identify operation + operand address
+```
 
 ---
 
