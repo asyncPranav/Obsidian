@@ -1328,3 +1328,70 @@ Data integrity constraints ensure that the **database remains accurate, consiste
 ---
 
 
+# **6️⃣ Data Manipulation in Relational Model**
+
+## **Introduction (1 mark)**
+
+**Data manipulation** refers to the **process of adding, deleting, modifying, or retrieving data** in a relational database.  
+It is performed using **Data Manipulation Language (DML)**, but here we focus on the **concepts, not SQL syntax**.
+
+---
+
+## **1. Insert Operation**
+
+- Used to **add new tuples (rows)** to a relation (table).
+    
+- Ensures that new data **obeys integrity constraints**.
+    
+
+**Example:**  
+Adding a new student record in Student table.
+
+---
+
+## **2. Delete Operation**
+
+- Used to **remove existing tuples** from a relation.
+    
+- Must ensure **referential integrity** is not violated.
+    
+
+**Example:**  
+Removing a student who has left the college.
+
+---
+
+## **3. Update Operation**
+
+- Used to **modify existing data** in one or more tuples.
+    
+- Must maintain **data integrity and consistency**.
+    
+
+**Example:**  
+Changing a student’s course from BSc to BTech.
+
+---
+
+## **4. Selection Operation (Basic Idea)**
+
+- Refers to **retrieving specific tuples** from a table based on **conditions**.
+    
+- Helps in **querying only relevant data**.
+    
+
+**Example:**  
+Select all students with Age > 20 from the Student table.
+
+---
+
+## **Conclusion (1 mark)**
+
+Data manipulation operations allow users to **manage and maintain data efficiently** in a relational database while ensuring **integrity, consistency, and relevance** of information.
+
+
+---
+
+# **🔥 UNIT–3 : SQL (MOST IMPORTANT FOR EXAM)
+
+
