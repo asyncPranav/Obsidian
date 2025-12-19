@@ -443,7 +443,13 @@ In **2-tier architecture**, the client communicates **directly** with the databa
 
 ### **Diagram**
 
-`Client (Application)         |      DBMS Server         |      Database`
+```
+Client (Application)
+        |
+     DBMS Server
+        |
+     Database
+```
 
 ### **Explanation**
 
@@ -466,7 +472,13 @@ In **3-tier architecture**, the application is divided into **three layers**: pr
 
 ### **Diagram**
 
-`Client (Presentation Layer)            | Application Server (Business Logic)            | Database Server (DBMS + Database)`
+```
+Client (Presentation Layer)
+           |
+Application Server (Business Logic)
+           |
+Database Server (DBMS + Database)
+```
 
 ### **Explanation**
 
@@ -511,3 +523,11 @@ In **3-tier architecture**, the application is divided into **three layers**: pr
 ## **Conclusion (1–2 marks)**
 
 Among all architectures, **three-tier architecture** is most widely used in modern DBMS applications due to its **security, scalability, and maintainability**.
+
+
+
+
+---
+
+
+### **🟨 IMPORTANT (MEDIUM–HIGH CHANCE)**
