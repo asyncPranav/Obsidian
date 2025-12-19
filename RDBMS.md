@@ -400,4 +400,114 @@ Data abstraction simplifies database usage by hiding internal details, while dat
 
 ---
 
-### **🟧 HIGH PRIORITY (VERY LIKELY)
+### **🟧 HIGH PRIORITY (VERY LIKELY)**
+
+
+
+# **DBMS Architecture**
+
+## **Introduction (1 mark)**
+
+**DBMS architecture** defines the **logical design** of a database system that determines how data is stored, accessed, and managed by users.
+
+---
+
+## **1️⃣ One-Tier (1-Tier) Architecture**
+
+### **Definition**
+
+In **1-tier architecture**, the **database, DBMS, and application** all reside on the **same system**.
+
+### **Diagram (Textual)**
+
+`User  | Application + DBMS + Database`
+
+### **Explanation**
+
+- Used for **local applications**
+    
+- No network involved
+    
+
+### **Example**
+
+MS Access on a single computer
+
+---
+
+## **2️⃣ Two-Tier (2-Tier) Architecture**
+
+### **Definition**
+
+In **2-tier architecture**, the client communicates **directly** with the database server.
+
+### **Diagram**
+
+`Client (Application)         |      DBMS Server         |      Database`
+
+### **Explanation**
+
+- Client handles presentation and logic
+    
+- Server handles database processing
+    
+
+### **Example**
+
+Client–server applications using MySQL
+
+---
+
+## **3️⃣ Three-Tier (3-Tier) Architecture**
+
+### **Definition**
+
+In **3-tier architecture**, the application is divided into **three layers**: presentation, application, and database.
+
+### **Diagram**
+
+`Client (Presentation Layer)            | Application Server (Business Logic)            | Database Server (DBMS + Database)`
+
+### **Explanation**
+
+- Client sends request to application server
+    
+- Application server processes logic
+    
+- Database server stores data
+    
+
+---
+
+## **Advantages of Three-Tier Architecture**
+
+### **1️⃣ Improved Security**
+
+- Database is not directly accessible to users
+    
+
+### **2️⃣ Scalability**
+
+- Easy to add more users and servers
+    
+
+### **3️⃣ Better Performance**
+
+- Load is distributed across layers
+    
+
+### **4️⃣ Easy Maintenance**
+
+- Changes in one layer do not affect others
+    
+
+### **5️⃣ High Reliability**
+
+- Failure in one layer does not crash entire system
+    
+
+---
+
+## **Conclusion (1–2 marks)**
+
+Among all architectures, **three-tier architecture** is most widely used in modern DBMS applications due to its **security, scalability, and maintainability**.
