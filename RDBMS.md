@@ -2144,3 +2144,131 @@ The **ACID properties** guarantee **atomicity, consistency, isolation, and durab
 
 ---
 
+# **2️⃣ Concurrent Transactions & Issues**
+
+## **Introduction (1 mark)**
+
+**Concurrency** in a database occurs when **multiple transactions are executed simultaneously**.
+
+- It **improves system efficiency and resource utilization**.
+    
+- However, it can cause **anomalies or inconsistencies** if not controlled properly.
+    
+
+---
+
+## **Problems in Concurrent Execution (8 marks)**
+
+### **1️⃣ Lost Update**
+
+- **Definition:** Occurs when **two transactions simultaneously update the same data**, and one update **overwrites the other**.
+    
+- **Example:**
+    
+    - Transaction T1 reads Account A = 100 and adds 50 → 150
+        
+    - Transaction T2 reads Account A = 100 and subtracts 30 → 70
+        
+    - Without control, **final balance may become 70 instead of 120**, losing T1’s update.
+        
+
+---
+
+### **2️⃣ Temporary Inconsistency**
+
+- **Definition:** Occurs when **intermediate data produced by one transaction is read by another transaction**, leading to **wrong results**.
+    
+- **Example:**
+    
+    - T1 transfers $100: Debit A = 500 → 400, Credit B = 200 → 300
+        
+    - T2 reads B = 200 during transfer → **temporary wrong balance**
+        
+
+---
+
+### **3️⃣ Uncommitted Dependency (Dirty Read)**
+
+- **Definition:** Occurs when a transaction **reads data written by another uncommitted transaction**.
+    
+- **Example:**
+    
+    - T1 updates Employee salary to 50,000 but **not yet committed**
+        
+    - T2 reads salary as 50,000
+        
+    - If T1 rolls back, T2 has **inconsistent data** (dirty read).
+        
+
+---
+
+## **Conclusion (1 mark)**
+
+Concurrent execution improves **performance**, but can lead to **lost updates, temporary inconsistency, and dirty reads**.
+
+- To prevent these problems, **DBMS uses concurrency control mechanisms** like **locking, timestamps, and isolation levels**.
+
+---
+
+
+# **7️⃣ Deadlock in DBMS**
+
+## **Introduction (1 mark)**
+
+A **deadlock** occurs when **two or more transactions are waiting indefinitely** for resources **held by each other**, so **none of them can proceed**.
+
+---
+
+## **Necessary Conditions for Deadlock (4 marks)**
+
+1. **Mutual Exclusion**
+    
+    - At least one resource must be **held in a non-shareable mode**.
+        
+    - Only **one transaction** can use it at a time.
+        
+2. **Hold and Wait**
+    
+    - A transaction **holds at least one resource** and **waits for additional resources** held by other transactions.
+        
+3. **No Preemption**
+    
+    - Resources **cannot be forcibly taken** from a transaction; they are released **only voluntarily**.
+        
+4. **Circular Wait**
+    
+    - A set of transactions exists **such that each transaction is waiting for a resource held by the next transaction in a cycle**.
+        
+
+---
+
+## **Detection & Prevention (3–4 marks)**
+
+### **Detection:**
+
+- DBMS **monitors resource allocation graph** or uses **wait-for graph**.
+    
+- If a **cycle is detected**, a deadlock exists.
+    
+- Action: **Abort one or more transactions** to break the cycle.
+    
+
+### **Prevention:**
+
+- **Eliminate one or more necessary conditions**:
+    
+    1. **Mutual exclusion:** Make resources sharable if possible
+        
+    2. **Hold and wait:** Require transactions to request all resources at once
+        
+    3. **No preemption:** Preempt resources from transactions
+        
+    4. **Circular wait:** Impose an **ordering of resource requests**
+        
+
+---
+
+## **Conclusion (1 mark)**
+
+Deadlocks **block concurrent transactions**, reducing system performance.  
+Detection and prevention techniques **ensure smooth transaction execution** in DBMS.
