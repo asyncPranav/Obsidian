@@ -1392,6 +1392,80 @@ Data manipulation operations allow users to **manage and maintain data efficient
 
 ---
 
-# **🔥 UNIT–3 : SQL (MOST IMPORTANT FOR EXAM)
+# **🔥 UNIT–3 : SQL**
 
 
+### **🟥 TOP PRIORITY**
+
+
+# **1️⃣ SQL (Structured Query Language)**
+
+## **Introduction (1 mark)**
+
+**SQL** is a **standard computer language** used for **managing and manipulating relational databases**.
+
+---
+
+## **Definition (1 mark)**
+
+SQL is a **high-level language** that allows users to **define, manipulate, control, and query data** in a relational database.
+
+---
+
+## **Purpose of SQL (1 mark)**
+
+1. To **create and modify database structures**
+    
+2. To **insert, update, delete, and retrieve data**
+    
+3. To **control access and security** of data
+    
+4. To **manage integrity and consistency** of the database
+    
+
+---
+
+## **Types of SQL (6–7 marks)**
+
+### **1️⃣ DDL – Data Definition Language**
+
+- Used to **define and modify database structures**
+    
+- Commands: **CREATE, ALTER, DROP**  
+    **Example:** CREATE TABLE Student(...)
+    
+
+---
+
+### **2️⃣ DML – Data Manipulation Language**
+
+- Used to **manipulate data stored in tables**
+    
+- Commands: **INSERT, UPDATE, DELETE, SELECT**  
+    **Example:** INSERT INTO Student VALUES(...)
+    
+
+---
+
+### **3️⃣ DCL – Data Control Language**
+
+- Used to **control access and permissions**
+    
+- Commands: **GRANT, REVOKE**  
+    **Example:** GRANT SELECT ON Student TO User1
+    
+
+---
+
+### **4️⃣ TCL – Transaction Control Language (Optional Mention)**
+
+- Used to **manage transactions**
+    
+- Commands: **COMMIT, ROLLBACK, SAVEPOINT**
+    
+
+---
+
+## **Conclusion (1 mark)**
+
+SQL provides a **comprehensive set of commands** for **creating, manipulating, controlling, and querying databases**, making it the **core language for relational database management**.
