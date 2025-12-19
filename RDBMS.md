@@ -1820,7 +1820,11 @@ JOIN expressions allow **combining related data** from multiple tables.
 - **Definition:** Table is in 1NF if **all columns have atomic (indivisible) values** and there are **no repeating groups**.
     
 - **Example:**  
-
+```
+	| Student_ID |  Name   | Courses       |  
+    |------------|---------|---------------|  
+    | 101        | Rohan   | BTech, Math   | → Not 1NF
+```
     
 
 **Converted to 1NF:**
@@ -1890,3 +1894,7 @@ Normalization ensures **efficient database design**, **reduces redundancy**, **p
 - 3NF → Remove transitive dependency
     
 - BCNF → Stronger than 3NF
+  
+  
+  ---
+
