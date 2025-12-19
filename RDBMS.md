@@ -1695,5 +1695,93 @@ HAVING SUM(Marks) > 200;
 
 Aggregate functions allow **summarizing and analyzing data efficiently**, especially when combined with **GROUP BY** and **HAVING** clauses.
 
+---
+
+
+# **6️⃣ JOIN Expressions in SQL**
+
+## **Introduction (1 mark)**
+
+**JOINs** are used to **combine rows from two or more tables** based on a related column between them.  
+They help in retrieving **related data** from multiple tables efficiently.
+
+---
+
+## **1️⃣ INNER JOIN**
+
+- **Definition:** Returns **only the matching rows** from both tables.
+    
+- **Example:** Retrieve students with their course details where enrollment exists.
+    
+
+```sql
+SELECT Student.Name, Course.Course_Name
+FROM Student
+INNER JOIN Enrollment
+ON Student.Roll_No = Enrollment.Student_Roll_No;
+```
+
+---
+
+## **2️⃣ LEFT JOIN (or LEFT OUTER JOIN)**
+
+- **Definition:** Returns **all rows from the left table**, and matching rows from the right table.
+    
+- **Example:** List all students and their courses, including students who are not enrolled.
+    
+
+```sql
+SELECT Student.Name, Course.Course_Name
+FROM Student
+LEFT JOIN Enrollment
+ON Student.Roll_No = Enrollment.Student_Roll_No;
+```
+
+---
+
+## **3️⃣ RIGHT JOIN (or RIGHT OUTER JOIN)**
+
+- **Definition:** Returns **all rows from the right table**, and matching rows from the left table.
+    
+- **Example:** List all courses and students enrolled, including courses with no students.
+    
+
+```sql
+SELECT Student.Name, Course.Course_Name
+FROM Student
+RIGHT JOIN Enrollment
+ON Student.Roll_No = Enrollment.Student_Roll_No;
+```
+
+---
+
+## **4️⃣ FULL JOIN (or FULL OUTER JOIN)**
+
+- **Definition:** Returns **all rows when there is a match in either left or right table**.
+    
+- **Example:** List all students and courses, including unmatched students or courses.
+    
+
+```sql
+SELECT Student.Name, Course.Course_Name
+FROM Student
+FULL JOIN Enrollment
+ON Student.Roll_No = Enrollment.Student_Roll_No;
+
+```
+
+---
+
+## **Conclusion (1 mark)**
+
+JOIN expressions allow **combining related data** from multiple tables.
+
+- **INNER JOIN:** Only matches
+    
+- **LEFT JOIN:** All left + matches
+    
+- **RIGHT JOIN:** All right + matches
+    
+- **FULL JOIN:** All rows from both tables
 
 
