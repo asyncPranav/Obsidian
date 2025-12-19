@@ -1469,3 +1469,7 @@ SQL is a **high-level language** that allows users to **define, manipulate, cont
 ## **Conclusion (1 mark)**
 
 SQL provides a **comprehensive set of commands** for **creating, manipulating, controlling, and querying databases**, making it the **core language for relational database management**.
+
+---
+
+
