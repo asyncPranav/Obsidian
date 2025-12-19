@@ -1973,3 +1973,92 @@ A→BA \rightarrow BA→B
 ---
 
 
+# **3️⃣ Decomposition**
+
+## **Introduction (1 mark)**
+
+**Decomposition** is the process of **breaking a single relation (table) into two or more relations** to **eliminate redundancy and anomalies** while maintaining data integrity.
+
+---
+
+## **Purpose**
+
+- Achieve **higher normal forms** (1NF, 2NF, 3NF, BCNF)
+    
+- Reduce **redundancy** and **update, insert, delete anomalies**
+    
+- Ensure **lossless join** and **dependency preservation**
+    
+
+---
+
+## **1️⃣ Lossless Decomposition (1–2 marks)**
+
+- A decomposition is **lossless** if the **original table can be reconstructed** exactly by **joining the decomposed tables**.
+    
+- Ensures **no data is lost** after decomposition.
+    
+
+**Example:**  
+Original Table: Student_Course(Student_ID, Course_ID, Grade)
+
+- Decompose into:
+    
+    1. Student(Student_ID, Name)
+        
+    2. Enrollment(Student_ID, Course_ID, Grade)
+        
+
+**Join:** Student ⋈ Enrollment → Original table
+
+---
+
+## **2️⃣ Dependency Preservation (1–2 marks)**
+
+- A decomposition **preserves functional dependencies** if all **original dependencies** can be enforced **without joining the tables**.
+    
+- Ensures **data integrity rules** remain intact in decomposed tables.
+    
+
+---
+
+## **Example of Decomposition (2–3 marks)**
+
+**Original Table:**  
+| Emp_ID | Emp_Name | Dept_ID | Dept_Name |
+
+- **Problem:** Dept_Name depends on Dept_ID → transitive dependency (not 3NF)
+    
+
+**Decomposition into 3NF:**
+
+1. Employee(Emp_ID, Emp_Name, Dept_ID)
+    
+2. Department(Dept_ID, Dept_Name)
+    
+
+- Now, **redundancy and anomalies are removed**
+    
+- **Lossless:** Joining Employee ⋈ Department reconstructs original table
+    
+- **Dependency preserved:** Emp_ID → Dept_ID and Dept_ID → Dept_Name
+    
+
+---
+
+## **Conclusion (1 mark)**
+
+Decomposition is essential for **efficient, anomaly-free database design**, ensuring **lossless join** and **dependency preservation** while achieving **higher normal forms**.
+
+
+
+
+
+
+----
+---
+---
+
+# **🔥 UNIT‑5: TRANSACTION MANAGEMENT, CONCURRENCY & SECURITY**
+
+
