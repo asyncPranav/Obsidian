@@ -1767,7 +1767,6 @@ SELECT Student.Name, Course.Course_Name
 FROM Student
 FULL JOIN Enrollment
 ON Student.Roll_No = Enrollment.Student_Roll_No;
-
 ```
 
 ---
@@ -1785,3 +1784,12 @@ JOIN expressions allow **combining related data** from multiple tables.
 - **FULL JOIN:** All rows from both tables
 
 
+---
+---
+---
+
+# **🔥 UNIT–4: SCHEMA REFINEMENT & QUERY PROCESSING & OPTIMIZATION**
+
+
+
+### **🟥 TOP PRIORITY (VERY HIGH CHANCE)
