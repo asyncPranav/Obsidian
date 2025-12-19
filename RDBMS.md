@@ -1256,3 +1256,75 @@ Phone_Numbers → Table: Student_Phone(Roll_No FK, Phone_No, PK=(Roll_No, Phone_
 ## **Conclusion (1–2 marks)**
 
 Mapping E-R model to relational model ensures that the **conceptual design** is correctly implemented in the **relational database**, maintaining **keys, relationships, and constraints**.
+
+
+---
+
+
+# **5️⃣ Data Integrity in Relational Model**
+
+## **Introduction (1 mark)**
+
+**Data integrity** refers to the **accuracy, consistency, and correctness of data** in a database over its entire lifecycle.  
+It ensures that the database remains **reliable and error-free**.
+
+---
+
+## **Types of Data Integrity**
+
+### **1️⃣ Domain Integrity**
+
+- Ensures that **values stored in a column are valid** and **within a specified domain**.
+    
+- Implemented using **data types, constraints, and validation rules**.
+    
+
+**Example:**
+
+- Age attribute in Student table must be **between 18 and 30**.
+    
+- Course can only be {BTech, BSc, BCom}
+    
+
+---
+
+### **2️⃣ Entity Integrity**
+
+- Ensures that **each row (tuple) in a table is uniquely identifiable**.
+    
+- Achieved by **primary key** constraint.
+    
+- Primary key **cannot be NULL**.
+    
+
+**Example:**
+
+- Roll_No in Student table is a **primary key** → cannot be NULL and must be unique
+    
+
+---
+
+### **3️⃣ Referential Integrity**
+
+- Ensures that **foreign key values in one table must match primary key values in another table**.
+    
+- Maintains **consistency among related tables**.
+    
+
+**Example:**
+
+- Employee.Department_ID in Employee table must exist in Department.Dept_ID
+    
+- Prevents orphan records
+    
+
+---
+
+## **Conclusion (1 mark)**
+
+Data integrity constraints ensure that the **database remains accurate, consistent, and reliable**, which is crucial for relational database management systems.
+
+
+---
+
+
