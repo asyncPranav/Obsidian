@@ -865,4 +865,237 @@ Data modeling helps in designing a **well-structured, efficient, and scalable** 
 # **🔥 UNIT–2: RELATIONAL MODEL**
 
 
-### 
+### **🟥 TOP PRIORITY**
+
+
+# **1️⃣ Relational Model – Introduction & Basic Concepts**
+
+## **Introduction (1 mark)**
+
+The **Relational Model** is a widely used **logical database model** in which data is stored in **tables (relations)** consisting of **rows and columns**.  
+It was proposed by **E.F. Codd** in 1970.
+
+---
+
+## **1. Relation**
+
+A **relation** is a **table with rows and columns**.
+
+- **Rows** → Represent individual records (**tuples**)
+    
+- **Columns** → Represent attributes of data
+    
+
+**Example: Student Table**
+
+|Roll_No|Name|Age|Course|
+|---|---|---|---|
+|101|Rohan|20|BTech|
+|102|Anjali|21|BSc|
+
+---
+
+## **2. Tuple**
+
+- A **tuple** is a **row in a relation**.
+    
+- Represents a **single record** of the table.
+    
+
+**Example:** (101, Rohan, 20, BTech)
+
+---
+
+## **3. Attribute**
+
+- An **attribute** is a **column in a relation**.
+    
+- Represents a **property of the entity**.
+    
+
+**Example:** Roll_No, Name, Age, Course
+
+---
+
+## **4. Domain**
+
+- A **domain** is a **set of permissible values** for an attribute.
+    
+
+**Example:** Age → {18, 19, 20, 21…}  
+Course → {BTech, BSc, BCom}
+
+---
+
+## **5. Relation Schema**
+
+- A **relation schema** defines the **name of the relation and its attributes**.
+    
+- Example: Student(Roll_No, Name, Age, Course)
+    
+
+---
+
+## **6. Degree & Cardinality**
+
+|Term|Meaning|Example|
+|---|---|---|
+|**Degree**|Number of attributes in a relation|Student table → 4|
+|**Cardinality**|Number of tuples (rows) in a relation|Student table → 2|
+
+---
+
+## **7. Keys in Relational Model**
+
+### **1️⃣ Primary Key**
+
+- Uniquely identifies each tuple in a relation
+    
+- Cannot have NULL values
+    
+
+**Example:** Roll_No in Student table
+
+---
+
+### **2️⃣ Candidate Key**
+
+- Set of attributes that **can uniquely identify a tuple**
+    
+- One candidate key is chosen as **primary key**
+    
+
+**Example:** Roll_No, Email (both can uniquely identify Student)
+
+---
+
+### **3️⃣ Foreign Key**
+
+- Attribute in one table that **refers to primary key of another table**
+    
+- Ensures **referential integrity**
+    
+
+**Example:**  
+Enrollment(Student_Roll_No → Student.Roll_No)
+
+---
+
+### **4️⃣ Super Key**
+
+- **One or more attributes** that can uniquely identify a tuple
+    
+- May include extra attributes
+    
+
+**Example:** (Roll_No), (Roll_No, Name)
+
+---
+
+## **Conclusion (1–2 marks)**
+
+The **relational model** provides a **simple, structured, and mathematical approach** to store and manage data.  
+Keys ensure **uniqueness and relationships**, making the database reliable and consistent.
+
+---
+
+
+# **2️⃣ Codd’s Rules (Rules for Fully Relational Systems)**
+
+## **Introduction (1 mark)**
+
+**Codd’s Rules** are a set of **13 rules proposed by E.F. Codd** to define a **fully relational database system**.  
+They ensure **data integrity, consistency, and reliability** in relational databases.
+
+---
+
+## **Important Codd’s Rules (8–10 Rules with Explanation)**
+
+### **1️⃣ Rule 0 – Foundation Rule**
+
+- The system must qualify as a **relational database** and **support relational capabilities** fully.
+    
+
+---
+
+### **2️⃣ Information Rule**
+
+- **All data is represented as values in tables (relations)**.
+    
+- Everything, including metadata, must be stored in **tables**.
+    
+
+---
+
+### **3️⃣ Guaranteed Access Rule**
+
+- Every value in the database can be accessed **by specifying table name, primary key, and column name**.
+    
+- Ensures **no hidden data**.
+    
+
+---
+
+### **4️⃣ Systematic Treatment of NULLs**
+
+- The DBMS must support **NULLs** for missing or inapplicable data.
+    
+- NULLs are handled **consistently** in all operations.
+    
+
+---
+
+### **5️⃣ Physical Data Independence**
+
+- Changes in **physical storage** (e.g., indexing, file structure) **do not affect application programs**.
+    
+
+---
+
+### **6️⃣ Logical Data Independence**
+
+- Changes in **logical schema** (e.g., adding attributes or tables) **do not affect user views or applications**.
+    
+
+---
+
+### **7️⃣ Integrity Independence**
+
+- Integrity constraints (e.g., primary key, foreign key) **should be stored in the catalog** and **not in application programs**.
+    
+- Allows constraints to be **modified without affecting programs**.
+    
+
+---
+
+### **8️⃣ Non‑Subversion Rule**
+
+- **Low-level access (like pointers or record-level operations) cannot bypass integrity rules**.
+    
+- Ensures **all database rules are enforced**.
+    
+
+---
+
+### **9️⃣ View Updating Rule**
+
+- All **views that are theoretically updatable** must be **updatable by the system**.
+    
+- Guarantees **data consistency**.
+    
+
+---
+
+### **10️⃣ Relational Catalog Rule**
+
+- The database must contain a **catalog (data dictionary) that describes all the database objects in relational terms**.
+    
+- Users can query the catalog using **the same relational language (SQL)**.
+    
+
+---
+
+## **Conclusion (1–2 marks)**
+
+Codd’s rules define a **fully relational DBMS**.  
+They ensure **data consistency, integrity, independence, and accessibility**, forming the foundation for **modern relational databases**.
