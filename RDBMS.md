@@ -420,7 +420,11 @@ In **1-tier architecture**, the **database, DBMS, and application** all reside o
 
 ### **Diagram (Textual)**
 
-`User  | Application + DBMS + Database`
+```
+User
+ |
+Application + DBMS + Database
+```
 
 ### **Explanation**
 
@@ -524,6 +528,110 @@ Database Server (DBMS + Database)
 
 Among all architectures, **three-tier architecture** is most widely used in modern DBMS applications due to its **security, scalability, and maintainability**.
 
+----
+
+
+# **Database Users and Database Administrator (DBA)**
+
+## **Introduction (1 mark)**
+
+A database system is accessed and managed by **different types of users**, and its overall control is handled by a **Database Administrator (DBA)**.
+
+---
+
+## **1. Types of Database Users**
+
+### **1️⃣ Naïve Users**
+
+- Use database through **predefined applications**.
+    
+- Do not have knowledge of DBMS.
+    
+
+**Example:** Bank customers using ATM.
+
+---
+
+### **2️⃣ Application Programmers**
+
+- Develop **application programs** to access database.
+    
+- Use programming languages like Java, C++, and SQL.
+    
+
+**Example:** Software developers.
+
+---
+
+### **3️⃣ Sophisticated Users**
+
+- Directly interact with the database using **SQL queries**.
+    
+- Have good knowledge of DBMS.
+    
+
+**Example:** Data analysts.
+
+---
+
+## **2. Database Administrator (DBA)**
+
+### **Definition**
+
+A **Database Administrator (DBA)** is a person responsible for the **overall management, control, and maintenance** of the database system.
+
+---
+
+## **Roles and Responsibilities of DBA**
+
+### **1️⃣ Schema Definition**
+
+- Defines database structure using DDL.
+    
+- Creates tables, views, and constraints.
+    
+
+---
+
+### **2️⃣ Security Management**
+
+- Controls user access using **authorization**.
+    
+- Prevents unauthorized access.
+    
+
+---
+
+### **3️⃣ Backup and Recovery**
+
+- Takes regular database backups.
+    
+- Restores data after system failure.
+    
+
+---
+
+### **4️⃣ Performance Tuning**
+
+- Optimizes queries and indexing.
+    
+- Improves system efficiency.
+    
+
+---
+
+### **5️⃣ Integrity Maintenance**
+
+- Ensures data accuracy and consistency.
+    
+- Enforces integrity constraints.
+    
+
+---
+
+## **Conclusion (1–2 marks)**
+
+Database users interact with the DBMS in different ways, while the DBA plays a critical role in ensuring **security, performance, and reliability** of the database system.
 
 
 
