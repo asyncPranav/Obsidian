@@ -1792,4 +1792,101 @@ JOIN expressions allow **combining related data** from multiple tables.
 
 
 
-### **🟥 TOP PRIORITY (VERY HIGH CHANCE)
+### **🟥 TOP PRIORITY (VERY HIGH CHANCE)**
+
+# **1️⃣ Normalization**
+
+## **Introduction (1 mark)**
+
+**Normalization** is the process of **organizing data in a database** to **reduce redundancy and avoid anomalies** during insertion, deletion, or update.
+
+---
+
+## **Purpose of Normalization (1 mark)**
+
+1. **Remove redundancy** – avoids duplicate data.
+    
+2. **Prevent anomalies** – eliminates insert, update, and delete anomalies.
+    
+3. **Improve data consistency** – ensures data is accurate and reliable.
+    
+
+---
+
+## **Types of Normal Forms**
+
+### **1️⃣ First Normal Form (1NF)**
+
+- **Definition:** Table is in 1NF if **all columns have atomic (indivisible) values** and there are **no repeating groups**.
+    
+- **Example:**  
+
+    
+
+**Converted to 1NF:**
+
+|Student_ID|Name|Course|
+|---|---|---|
+|101|Rohan|BTech|
+|101|Rohan|Math|
+
+---
+
+### **2️⃣ Second Normal Form (2NF)**
+
+- **Definition:** Table is in 2NF if it is in **1NF** and **no non-prime attribute is partially dependent** on part of a **composite primary key**.
+    
+- **Example:**  
+    | Student_ID | Course_ID | Course_Name | Grade |  
+    Partial dependency: Course_Name depends only on Course_ID → Not 2NF
+    
+
+**Converted to 2NF:**
+
+- Student_Course(Student_ID, Course_ID, Grade)
+    
+- Course(Course_ID, Course_Name)
+    
+
+---
+
+### **3️⃣ Third Normal Form (3NF)**
+
+- **Definition:** Table is in 3NF if it is in **2NF** and **no transitive dependency** exists.
+    
+- **Example:**  
+    | Emp_ID | Emp_Name | Dept_ID | Dept_Name |  
+    Dept_Name depends on Dept_ID, not Emp_ID → Transitive dependency
+    
+
+**Converted to 3NF:**
+
+- Employee(Emp_ID, Emp_Name, Dept_ID)
+    
+- Department(Dept_ID, Dept_Name)
+    
+
+---
+
+### **4️⃣ Boyce-Codd Normal Form (BCNF)**
+
+- **Definition:** Stronger version of 3NF.
+    
+- Every **determinant** must be a **candidate key**.
+    
+- Resolves anomalies that 3NF cannot handle in some rare cases.
+    
+
+---
+
+## **Conclusion (1–2 marks)**
+
+Normalization ensures **efficient database design**, **reduces redundancy**, **prevents anomalies**, and **improves data consistency**.
+
+- 1NF → Atomic values
+    
+- 2NF → Remove partial dependency
+    
+- 3NF → Remove transitive dependency
+    
+- BCNF → Stronger than 3NF
