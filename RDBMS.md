@@ -166,3 +166,112 @@ A **file system** stores data in separate files managed by the operating system,
 ## **Why DBMS is Better than File System? (Conclusion – 2 marks)**
 
 A DBMS is better than a file system because it **reduces redundancy**, **maintains consistency**, **ensures data security and integrity**, supports **multi-user access**, provides **backup and recovery**, and offers **data independence**, making data management more efficient and reliable.
+
+
+---
+
+
+# **Advantages and Disadvantages of DBMS**
+
+## **Introduction (1 mark)**
+
+A **Database Management System (DBMS)** provides a systematic way to store, manage, and retrieve data efficiently. It offers several advantages over traditional file systems, but also has some limitations.
+
+---
+
+## **Advantages of DBMS**
+
+### **1️⃣ Reduced Data Redundancy**
+
+- Data is stored in a **centralized database**.
+    
+- Duplicate data is minimized.
+    
+
+👉 This saves storage space.
+
+---
+
+### **2️⃣ Improved Data Consistency**
+
+- Since data is not duplicated, **updates are reflected everywhere**.
+    
+- Prevents conflicting data values.
+    
+
+---
+
+### **3️⃣ Data Sharing**
+
+- Multiple users can **access the same database simultaneously**.
+    
+- Supports multi-user environment.
+    
+
+---
+
+### **4️⃣ Data Security**
+
+- DBMS provides **authorization and authentication**.
+    
+- Only authorized users can access data.
+    
+
+---
+
+### **5️⃣ Backup and Recovery**
+
+- Automatic **backup and recovery mechanisms** are available.
+    
+- Protects data from system failure or crashes.
+    
+
+---
+
+### **6️⃣ Data Independence**
+
+- Changes in data structure **do not affect application programs**.
+    
+- Supports:
+    
+    - Logical data independence
+        
+    - Physical data independence
+        
+
+---
+
+## **Disadvantages of DBMS**
+
+### **1️⃣ High Cost**
+
+- DBMS software is expensive.
+    
+- Requires costly hardware and maintenance.
+    
+
+---
+
+### **2️⃣ Complexity**
+
+- DBMS is complex to design and manage.
+    
+- Requires careful configuration.
+    
+
+---
+
+### **3️⃣ Performance Overhead**
+
+- For small applications, DBMS may be slower than file systems.
+    
+- Extra processing for security and concurrency.
+    
+
+---
+
+### **4️⃣ Skilled Manpower Required**
+
+- Requires trained database administrators (DBA).
+    
+- Users need technical knowledge.
