@@ -2062,3 +2062,85 @@ Decomposition is essential for **efficient, anomaly-free database design**, ensu
 # **🔥 UNIT‑5: TRANSACTION MANAGEMENT, CONCURRENCY & SECURITY**
 
 
+
+# **1️⃣ Transaction Concept and ACID Properties**
+
+## **Introduction (1 mark)**
+
+A **transaction** is a **logical unit of work** in a database that **performs one or more operations** (like read, write, update) on the database.
+
+- A transaction is **atomic**, meaning it is **either fully executed or not executed at all**.
+    
+- Transactions ensure **data consistency, integrity, and reliability**.
+    
+
+---
+
+## **ACID Properties (8 marks)**
+
+### **1️⃣ Atomicity (A)**
+
+- **Definition:** A transaction is **atomic**, meaning it is **indivisible**.
+    
+- Either **all operations succeed** or **none are applied**.
+    
+- **Example:**
+    
+    - Transferring $100 from Account A to Account B:
+        
+        1. Debit A by $100
+            
+        2. Credit B by $100
+            
+    - If any step fails, **rollback occurs** and no money is transferred.
+        
+
+---
+
+### **2️⃣ Consistency (C)**
+
+- **Definition:** Transaction must **take the database from one valid state to another**, maintaining all **integrity constraints**.
+    
+- **Example:**
+    
+    - Inserting a student record with a valid Roll_No and Age.
+        
+    - Database rules like **primary key uniqueness** remain intact after transaction.
+        
+
+---
+
+### **3️⃣ Isolation (I)**
+
+- **Definition:** Transactions are **executed independently**.
+    
+- Intermediate results of a transaction **are not visible to other transactions** until commit.
+    
+- **Example:**
+    
+    - Two transactions update the same account simultaneously.
+        
+    - Isolation ensures **final balance is correct**, preventing dirty reads.
+        
+
+---
+
+### **4️⃣ Durability (D)**
+
+- **Definition:** Once a transaction is **committed**, its changes are **permanent**, even if there is a **system crash**.
+    
+- **Example:**
+    
+    - After transferring money, even if the system fails, the **updated balances remain in the database**.
+        
+
+---
+
+## **Conclusion (1 mark)**
+
+Transactions ensure **reliable, consistent, and concurrent operations** in a database.  
+The **ACID properties** guarantee **atomicity, consistency, isolation, and durability**, which are **essential for a robust DBMS**.
+
+
+---
+
