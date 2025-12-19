@@ -1145,3 +1145,114 @@ They ensure **data consistency, integrity, independence, and accessibility**, fo
 ### **🟧 HIGH PRIORITY (VERY LIKELY)**
 
 
+# **4️⃣ Mapping E-R Model to Relational Model**
+
+## **Introduction (1 mark)**
+
+Mapping an **E-R model** to a **relational model** is the process of converting **entities, attributes, and relationships** into **tables (relations)** in a database.  
+This is an essential step in **database design**.
+
+---
+
+## **1. Mapping of Strong Entity**
+
+- Each **strong entity** becomes a **relation (table)**.
+    
+- Attributes of the entity become **columns**.
+    
+- Primary key of the entity becomes the **primary key** of the table.
+    
+
+**Example:**  
+Entity: Student(Roll_No, Name, Age) → Table: Student(Roll_No PK, Name, Age)
+
+---
+
+## **2. Mapping of Weak Entity**
+
+- Weak entity becomes a **relation**.
+    
+- Primary key of the **strong entity** (owner) is included as **foreign key**.
+    
+- Combination of weak entity’s **partial key + owner key** becomes the **primary key**.
+    
+
+**Example:**  
+Dependent(Name, Age) → Table: Dependent(Emp_ID FK, Name, Age, PK = (Emp_ID, Name))
+
+---
+
+## **3. Mapping of Relationships**
+
+### **a) 1:1 Relationship**
+
+- Include **primary key of one entity** as a **foreign key in the other entity**.
+    
+- Choose the side that **frequently accesses the relationship**.
+    
+
+**Example:**  
+Employee ↔ Passport (1:1)  
+Table: Employee(Emp_ID PK, Name, Passport_No FK)
+
+---
+
+### **b) 1:N Relationship**
+
+- Include **primary key of “one” side** as **foreign key in “many” side**.
+    
+
+**Example:**  
+Department(Dept_ID PK, Name)  
+Employee(Emp_ID PK, Name, Dept_ID FK)
+
+---
+
+### **c) M:N Relationship**
+
+- Create a **separate relation** for the relationship.
+    
+- Include **primary keys of both entities as foreign keys**.
+    
+- Combined keys become **primary key of the relationship table**.
+    
+
+**Example:**  
+Student ↔ Course (M:N)  
+Enrollment(Student_Roll_No FK, Course_ID FK, PK = (Student_Roll_No, Course_ID))
+
+---
+
+## **4. Mapping of Attributes**
+
+### **a) Simple Attribute**
+
+- Directly becomes a **column** in the table.
+    
+
+**Example:** Name → Name
+
+---
+
+### **b) Composite Attribute**
+
+- Break into **component attributes** and add each as a column.
+    
+
+**Example:** Full_Name(First, Last) → First_Name, Last_Name
+
+---
+
+### **c) Multivalued Attribute**
+
+- Create a **separate table** with foreign key referencing the main entity.
+    
+
+**Example:**  
+Phone_Numbers → Table: Student_Phone(Roll_No FK, Phone_No, PK=(Roll_No, Phone_No))
+
+---
+
+## **Conclusion (1–2 marks)**
+
+Mapping E-R model to relational model ensures that the **conceptual design** is correctly implemented in the **relational database**, maintaining **keys, relationships, and constraints**.
