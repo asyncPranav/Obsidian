@@ -1586,6 +1586,51 @@ It allows users to **insert, update, delete, and retrieve data**, but does **not
 
 ---
 
+# **4️⃣ SQL Data Types**
+
+1. **INT (Integer)**
+    
+    - Stores **whole numbers** without decimals.
+        
+    - Example: 10, 250, -5
+        
+2. **FLOAT (Floating Point)**
+    
+    - Stores **decimal numbers** (approximate values).
+        
+    - Example: 3.14, 0.5, -2.75
+        
+3. **CHAR (Character)**
+    
+    - Stores **fixed-length text**.
+        
+    - Example: CHAR(5) → “Hello”
+        
+4. **VARCHAR (Variable Character)**
+    
+    - Stores **variable-length text**.
+        
+    - Example: VARCHAR(20) → “Database”
+        
+5. **DATE**
+    
+    - Stores **date values** in YYYY-MM-DD format.
+        
+    - Example: 2025-12-20
+        
+6. **BOOLEAN**
+    
+    - Stores **TRUE or FALSE** values.
+        
+    - Example: TRUE, FALSE
+
+---
+
+
+### **🟧 HIGH PRIORITY**
+
+
+
 
 
 
