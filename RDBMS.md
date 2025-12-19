@@ -788,3 +788,69 @@ The E-R model provides a clear and simple way to design databases by representin
 ## **Conclusion**
 
 Data modeling helps in designing a **well-structured, efficient, and scalable** database system.
+
+
+
+----
+
+
+### **🟩 LOW PRIORITY (ONLY IF TIME LEFT)**
+
+
+# **9️⃣ Database Design (Basics)**
+
+⭐⭐ (Short Answer)
+
+## **Meaning of Database Design**
+
+**Database design** is the process of **organizing data structure** by defining tables, attributes, relationships, and constraints to efficiently store and retrieve data.
+
+---
+
+## **Goals of Database Design**
+
+1. Minimize data redundancy
+    
+2. Ensure data consistency and integrity
+    
+3. Improve data security
+    
+4. Efficient data retrieval
+    
+5. Easy maintenance and scalability
+    
+
+---
+
+---
+
+# **🔟 Strengths and Weaknesses of E–R Model**
+
+⭐⭐
+
+## **Strengths of E–R Model**
+
+1. Simple and easy to understand
+    
+2. Graphical representation of data
+    
+3. Helps in database planning
+    
+4. Improves communication between users and designers
+    
+5. Independent of DBMS
+    
+
+---
+
+## **Weaknesses of E–R Model**
+
+1. Not suitable for very complex systems
+    
+2. No standard notation universally followed
+    
+3. Cannot represent procedural logic
+    
+4. Large diagrams become confusing
+    
+5. Needs conversion to relational model
