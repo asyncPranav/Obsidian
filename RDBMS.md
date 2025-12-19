@@ -137,6 +137,32 @@ A DBMS allows **multiple users to access the database simultaneously**.
 
 ---
 
-# **Conclusion**
 
-A DBMS provides a systematic and efficient way to store and manage data by offering features like **self-describing nature, data independence, abstraction, multiple views, and multi-user access**, making it superior to traditional file systems.
+# **File System vs Database System (DBMS)**
+
+## **Definition (Intro – 1 mark)**
+
+A **file system** stores data in separate files managed by the operating system, whereas a **Database Management System (DBMS)** stores data in an integrated database and provides controlled access to it.
+
+---
+
+## **Difference between File System and DBMS**
+
+|**Basis of Comparison**|**File System**|**Database System (DBMS)**|
+|---|---|---|
+|**Data Redundancy**|High data redundancy due to duplicate files|Minimal redundancy due to centralized database|
+|**Data Consistency**|Data inconsistency may occur|Data consistency is maintained|
+|**Data Sharing**|Data sharing is difficult|Data sharing is easy among multiple users|
+|**Security**|Less security, handled by OS|High security using authorization and access control|
+|**Data Integrity**|Integrity constraints are difficult to enforce|Integrity constraints are easily enforced|
+|**Backup & Recovery**|Manual and difficult|Automatic backup and recovery mechanisms|
+|**Data Independence**|No data independence|Logical and physical data independence supported|
+|**Concurrency Control**|Not supported|Supported using transaction management|
+|**Query Processing**|No query language support|SQL support for efficient querying|
+|**Maintenance Cost**|High maintenance cost|Lower maintenance cost in long term|
+
+---
+
+## **Why DBMS is Better than File System? (Conclusion – 2 marks)**
+
+A DBMS is better than a file system because it **reduces redundancy**, **maintains consistency**, **ensures data security and integrity**, supports **multi-user access**, provides **backup and recovery**, and offers **data independence**, making data management more efficient and reliable.
