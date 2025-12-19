@@ -639,3 +639,152 @@ Database users interact with the DBMS in different ways, while the DBA plays a c
 
 
 ### **🟨 IMPORTANT (MEDIUM–HIGH CHANCE)**
+
+
+# **7️⃣ Entity–Relationship (E–R) Model – Basics**
+
+⭐⭐⭐⭐ (10 Marks)
+
+## **Introduction (1 mark)**
+
+The **Entity–Relationship (E-R) Model** is a **conceptual data model** used to represent the **structure of a database** using entities, attributes, and relationships.
+
+---
+
+## **1. Entity**
+
+An **entity** is a real-world object that has an **independent existence** and can be uniquely identified.
+
+**Example:** Student, Employee, Course
+
+---
+
+## **2. Attribute**
+
+An **attribute** describes a **property of an entity**.
+
+**Example:**  
+Student → Roll_No, Name, Age
+
+---
+
+## **3. Relationship**
+
+A **relationship** represents an **association between two or more entities**.
+
+**Example:**  
+Student _enrolls in_ Course
+
+---
+
+## **4. Strong Entity**
+
+A **strong entity**:
+
+- Has a **primary key**
+    
+- Exists independently
+    
+
+**Example:**  
+Student (Roll_No is primary key)
+
+---
+
+## **5. Weak Entity**
+
+A **weak entity**:
+
+- **Does not have a primary key**
+    
+- Depends on a strong entity for identification
+    
+
+---
+
+### **Example of Weak Entity**
+
+**Dependent** depends on **Employee**
+
+- Employee (Emp_ID) → Strong entity
+    
+- Dependent (Name, Age) → Weak entity
+    
+
+Dependent is identified using **Emp_ID + Name**
+
+---
+
+## **Difference between Strong and Weak Entity**
+
+|Strong Entity|Weak Entity|
+|---|---|
+|Has primary key|No primary key|
+|Exists independently|Depends on strong entity|
+|Represented by single rectangle|Represented by double rectangle|
+
+---
+
+## **Conclusion (1–2 marks)**
+
+The E-R model provides a clear and simple way to design databases by representing real-world data using entities, attributes, and relationships.
+
+
+---
+
+
+# **8️⃣ Data Modeling & Phases of Database Modeling**
+
+⭐⭐⭐ (Short Answer / 5–7 Marks)
+
+## **1. Data Modeling**
+
+**Data modeling** is the process of creating a **conceptual representation** of data and its relationships before designing a database.
+
+---
+
+## **2. Phases of Database Modeling**
+
+### **1️⃣ Conceptual Design**
+
+- High-level design using **E-R diagrams**
+    
+- Independent of DBMS
+    
+
+---
+
+### **2️⃣ Logical Design**
+
+- Converts conceptual model into **relational schema**
+    
+- Defines tables, keys, and relationships
+    
+
+---
+
+### **3️⃣ Physical Design**
+
+- Defines **storage structure**
+    
+- Indexes, file organization, and memory allocation
+    
+
+---
+
+## **3. Benefits of Data Modeling**
+
+- Improves data understanding
+    
+- Reduces redundancy
+    
+- Ensures data consistency
+    
+- Saves development time
+    
+
+---
+
+## **Conclusion**
+
+Data modeling helps in designing a **well-structured, efficient, and scalable** database system.
