@@ -1472,4 +1472,121 @@ SQL provides a **comprehensive set of commands** for **creating, manipulating, c
 
 ---
 
+# **2️⃣ DDL Commands (Data Definition Language)**
+
+## **Introduction**
+
+**DDL (Data Definition Language)** is used to **define and manage database structures**, such as tables, schemas, and indexes.  
+It **focuses on the structure of the database**, not the data itself.
+
+---
+
+## **1️⃣ CREATE**
+
+- **Purpose:** To **create new database objects** like tables, views, or databases.
+    
+- **Use:** Defines the structure of tables and columns.
+    
+- **Example:** Creating a table named `Student`.
+    
+
+---
+
+## **2️⃣ DROP**
+
+- **Purpose:** To **delete existing database objects permanently**.
+    
+- **Use:** Removes the table or database along with its structure and data.
+    
+- **Example:** Dropping the `Student` table.
+    
+
+---
+
+## **3️⃣ ALTER**
+
+- **Purpose:** To **modify the structure of an existing table**.
+    
+- **Use:** Can add, delete, or modify columns and constraints.
+    
+- **Example:** Adding a new column `Course` to the `Student` table.
+    
+
+---
+
+## **4️⃣ TRUNCATE**
+
+- **Purpose:** To **delete all data from a table** while **keeping its structure intact**.
+    
+- **Use:** Quickly removes all rows without logging individual deletions.
+    
+- **Example:** Removing all records from the `Student` table.
+
+
+---
+
+# **3️⃣ DML Commands (Data Manipulation Language)**
+
+## **Introduction**
+
+**DML (Data Manipulation Language)** is used to **manipulate data stored in database tables**.  
+It allows users to **insert, update, delete, and retrieve data**, but does **not affect the table structure**.
+
+---
+
+## **1️⃣ SELECT**
+
+- **Purpose:** To **retrieve data** from one or more tables.
+    
+- **Optional Clauses:**
+    
+    - **WHERE:** Selects rows based on a **condition**.  
+        _Example:_ Select students with Age > 20.
+        
+    - **DISTINCT:** Retrieves **unique values** only.  
+        _Example:_ Select unique courses from Student table.
+        
+    - **ORDER BY:** Sorts the result **ascending or descending**.  
+        _Example:_ Order students by Name in ascending order.
+        
+
+---
+
+## **2️⃣ INSERT**
+
+- **Purpose:** To **add new rows (tuples)** into a table.
+    
+- **Use:** Adds new records while maintaining **integrity constraints**.
+    
+- **Example:** Adding a new student to the Student table.
+    
+
+---
+
+## **3️⃣ UPDATE**
+
+- **Purpose:** To **modify existing data** in one or more rows.
+    
+- **Use:** Updates values while maintaining **data consistency**.
+    
+- **Example:** Changing the Course of a student from BSc to BTech.
+    
+
+---
+
+## **4️⃣ DELETE**
+
+- **Purpose:** To **remove existing rows** from a table.
+    
+- **Use:** Deletes records based on **conditions**, maintaining referential integrity.
+    
+- **Example:** Removing students who have left the college.
+
+
+
+---
+
+
+
+
 
