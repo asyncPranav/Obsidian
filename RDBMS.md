@@ -1631,7 +1631,69 @@ It allows users to **insert, update, delete, and retrieve data**, but does **not
 
 
 
+# **5️⃣ Aggregate Functions in SQL**
 
+## **Introduction (1 mark)**
+
+**Aggregate functions** perform **calculations on a set of values** and return a **single summary value**.  
+They are commonly used in **reporting, grouping, and analytics**.
+
+---
+
+## **Common Aggregate Functions (5–6 marks)**
+
+|Function|Purpose|Example|
+|---|---|---|
+|**COUNT()**|Counts the number of rows|COUNT(*) → Number of students|
+|**SUM()**|Adds values of a column|SUM(Marks) → Total marks of all students|
+|**AVG()**|Calculates average value|AVG(Marks) → Average marks|
+|**MIN()**|Returns minimum value|MIN(Age) → Youngest student|
+|**MAX()**|Returns maximum value|MAX(Age) → Oldest student|
+
+---
+
+## **Use with GROUP BY**
+
+- **GROUP BY** is used to **group rows with same values** in one or more columns.
+    
+- Aggregate functions can then **summarize each group separately**.
+    
+
+**Example:**
+
+- Total marks obtained by students in each course.
+    
+
+```sql
+SELECT Course, SUM(Marks)
+FROM Student
+GROUP BY Course;
+
+```
+
+---
+
+## **Use with HAVING**
+
+- **HAVING** is used to **filter groups** based on aggregate values (like WHERE but for groups).
+    
+
+**Example:**
+
+- Courses with total marks > 200.
+    
+
+```sql
+SELECT Course, SUM(Marks)
+FROM Student
+GROUP BY Course
+HAVING SUM(Marks) > 200;
+```
+---
+
+## **Conclusion (1 mark)**
+
+Aggregate functions allow **summarizing and analyzing data efficiently**, especially when combined with **GROUP BY** and **HAVING** clauses.
 
 
 
