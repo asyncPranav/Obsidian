@@ -1099,3 +1099,49 @@ They ensure **data integrity, consistency, and reliability** in relational datab
 
 Codd’s rules define a **fully relational DBMS**.  
 They ensure **data consistency, integrity, independence, and accessibility**, forming the foundation for **modern relational databases**.
+
+
+---
+
+# **3️⃣ Advantages of the Relational Model**
+
+1. **Simplicity**
+    
+    - Data is stored in **tables (relations)**, making it easy to understand and use.
+        
+2. **Structural Independence**
+    
+    - Changes in **table structure** do not affect applications if keys and relationships are maintained.
+        
+3. **Easy Data Manipulation**
+    
+    - Supports **powerful query languages** like SQL for inserting, updating, deleting, and retrieving data.
+        
+4. **Data Integrity**
+    
+    - Enforces **primary key, foreign key, and other constraints** to maintain accuracy and consistency.
+        
+5. **Flexibility**
+    
+    - Easily accommodates **new data and changing relationships** without redesigning the database.
+        
+6. **Security**
+    
+    - Access can be controlled at **table or column level** to prevent unauthorized access.
+        
+7. **Data Consistency**
+    
+    - Minimizes redundancy and ensures all data is consistent across tables.
+        
+8. **Multi-user Support**
+    
+    - Multiple users can **simultaneously access and update** the database safely using transaction management.
+
+
+---
+
+
+
+### **🟧 HIGH PRIORITY (VERY LIKELY)**
+
+
