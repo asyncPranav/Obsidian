@@ -1898,3 +1898,78 @@ Normalization ensures **efficient database design**, **reduces redundancy**, **p
   
   ---
 
+# **2️⃣ Functional Dependencies (Single-Valued)**
+
+## **Introduction (1 mark)**
+
+A **functional dependency (FD)** is a relationship between two sets of attributes in a relation where **the value of one attribute (or set of attributes) uniquely determines the value of another attribute (or set of attributes)**.  
+It is a **fundamental concept in normalization**.
+
+---
+
+## **Notation (1 mark)**
+
+- Represented as:
+    
+
+A→BA \rightarrow BA→B
+
+- **Meaning:** Attribute **B** is **functionally dependent** on attribute **A**.
+    
+- **Example:**
+    
+    - In a Student table:
+        
+        - Roll_No → Name
+            
+        - This means **Roll_No uniquely determines the Name**.
+            
+
+---
+
+## **Use in Normal Forms (5–6 marks)**
+
+### **1. First Normal Form (1NF)**
+
+- Ensures **atomic values**, which reduces **repeating groups**.
+    
+- Functional dependencies are **identified to remove multivalued attributes**.
+    
+
+### **2. Second Normal Form (2NF)**
+
+- Eliminates **partial dependency**.
+    
+- A **non-prime attribute** should be fully dependent on the **whole primary key**, not part of it.
+    
+- **FD Example:**
+    
+    - Composite Key (Student_ID, Course_ID) → Grade
+        
+    - Grade depends on the **whole key**, not just Student_ID.
+        
+
+### **3. Third Normal Form (3NF)**
+
+- Eliminates **transitive dependency**.
+    
+- **FD Example:**
+    
+    - Emp_ID → Dept_ID → Dept_Name
+        
+    - Dept_Name depends **transitively** on Emp_ID → move Dept_Name to Department table.
+        
+
+### **4. Boyce-Codd Normal Form (BCNF)**
+
+- Ensures that **every determinant is a candidate key**.
+    
+- **FD Example:**
+    
+    - If Course → Instructor, but Course is not a candidate key, BCNF requires decomposition.
+
+
+
+---
+
+
