@@ -854,3 +854,15 @@ Data modeling helps in designing a **well-structured, efficient, and scalable** 
 4. Large diagrams become confusing
     
 5. Needs conversion to relational model
+
+
+
+---
+---
+---
+
+
+# **🔥 UNIT–2: RELATIONAL MODEL**
+
+
+### 
