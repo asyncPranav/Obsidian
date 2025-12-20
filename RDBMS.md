@@ -2340,3 +2340,119 @@ Detection and prevention techniques **ensure smooth transaction execution** in D
 
 
 ---
+
+# **Transaction in DBMS**
+
+## **1️⃣ What is a Transaction?**
+
+A **transaction** is a **logical unit of work** that performs **one or more database operations** (like read, write, update) as a **single unit**.
+
+- Either the transaction **completes fully (commit)** or **does not execute at all (abort/rollback)**.
+    
+- Ensures **consistency, integrity, and reliability** of the database.
+    
+
+---
+
+## **2️⃣ Properties of a Transaction (ACID)**
+
+1. **Atomicity:** All operations of a transaction succeed or none succeed.
+    
+2. **Consistency:** Transaction moves database from one valid state to another.
+    
+3. **Isolation:** Transactions execute independently without affecting each other.
+    
+4. **Durability:** Committed changes are permanent, even if system fails.
+    
+
+---
+
+## **3️⃣ Types of Transactions**
+
+### **a) Based on Purpose**
+
+1. **Read-only Transaction**
+    
+    - Only **reads data** and performs **no updates**.
+        
+    - Example: Viewing account balance.
+        
+2. **Update Transaction**
+    
+    - **Reads and modifies data**.
+        
+    - Example: Transferring money between accounts.
+        
+
+---
+
+### **b) Based on Execution**
+
+1. **Single-user Transaction**
+    
+    - Only **one user executes the transaction** at a time.
+        
+    - Example: Updating personal profile in a local database.
+        
+2. **Multi-user Transaction**
+    
+    - Multiple users **concurrently access and modify data**.
+        
+    - Requires **concurrency control** to avoid anomalies.
+        
+
+---
+
+### **c) Based on Duration**
+
+1. **Short Transactions**
+    
+    - Execute **quickly**, often read/write a few records.
+        
+    - Example: Updating a single student's marks.
+        
+2. **Long Transactions**
+    
+    - Take **more time** and may involve **multiple operations**.
+        
+    - Example: Processing end-of-month payroll for all employees.
+        
+
+---
+
+## **4️⃣ Transaction States (Lifecycle)**
+
+|State|Description|
+|---|---|
+|**Active**|Transaction is **executing**.|
+|**Partially Committed**|Final operation executed, but **not yet committed**.|
+|**Committed**|All operations **successfully completed**; changes permanent.|
+|**Failed**|Some operation failed; transaction **cannot commit**.|
+|**Aborted/Rolled Back**|Transaction **rolled back** to initial state; no changes saved.|
+|**Terminated**|Transaction **ends** after commit or rollback.|
+
+---
+
+## **5️⃣ Types of Failures**
+
+1. **System Crash:** Hardware or software failure during transaction.
+    
+2. **Transaction Failure:** Logical error or constraint violation.
+    
+3. **Media Failure:** Disk or storage corruption.
+    
+
+- **Recovery mechanisms** like **logs, checkpoints, and rollbacks** restore consistency.
+    
+
+---
+
+## **6️⃣ Importance of Transactions**
+
+- Ensures **data consistency and integrity**
+    
+- Prevents **lost updates, dirty reads, and temporary inconsistencies**
+    
+- Supports **concurrent multi-user environments**
+    
+- Guarantees **durability of committed changes**
