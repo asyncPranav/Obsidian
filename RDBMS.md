@@ -2456,3 +2456,90 @@ A **transaction** is a **logical unit of work** that performs **one or more data
 - Supports **concurrent multi-user environments**
     
 - Guarantees **durability of committed changes**
+
+
+---
+
+
+# **Concurrency in DBMS**
+
+## **1️⃣ What is Concurrency?**
+
+**Concurrency** occurs when **multiple transactions are executed simultaneously** in a database system.
+
+- Improves **system throughput** and **resource utilization**.
+    
+- Without proper control, concurrency can lead to **data anomalies and inconsistencies**.
+    
+
+---
+
+## **2️⃣ Types of Concurrency**
+
+1. **Read-Only Concurrency**
+    
+    - Transactions **only read data**, no updates.
+        
+    - Example: Multiple users viewing the same report.
+        
+2. **Update Concurrency**
+    
+    - Transactions **read and write data simultaneously**.
+        
+    - Requires **concurrency control** to avoid conflicts.
+        
+    - Example: Two users updating the same account balance.
+        
+
+---
+
+## **3️⃣ Problems in Concurrent Execution**
+
+### **a) Lost Update**
+
+- **Definition:** Two transactions simultaneously update the same data, and **one update overwrites the other**.
+    
+- **Example:**
+    
+    - T1 reads Account A = 100 and adds 50 → 150
+        
+    - T2 reads Account A = 100 and subtracts 30 → 70
+        
+    - Final balance = 70 (T1 update lost)
+        
+
+---
+
+### **b) Temporary Inconsistency**
+
+- **Definition:** A transaction reads **intermediate data** of another transaction that has **not yet committed**, causing inconsistency.
+    
+- **Example:**
+    
+    - T1 transfers $100: Debit A → 400, Credit B → 300
+        
+    - T2 reads B = 200 during transfer → temporary wrong balance
+        
+
+---
+
+### **c) Uncommitted Dependency (Dirty Read)**
+
+- **Definition:** A transaction reads data **written by another uncommitted transaction**.
+    
+- **Example:**
+    
+    - T1 updates Employee salary to 50,000 (not committed)
+        
+    - T2 reads salary = 50,000
+        
+    - T1 rolls back → T2 read **invalid data** (dirty read)
+        
+
+---
+
+## **4️⃣ Conclusion**
+
+- Concurrency improves **database performance**, but may cause **lost updates, temporary inconsistencies, and dirty reads**.
+    
+- To prevent these problems, DBMS uses **locks, 2PL, timestamps, and isolation levels**.
