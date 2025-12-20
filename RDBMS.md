@@ -2272,3 +2272,71 @@ A **deadlock** occurs when **two or more transactions are waiting indefinitely**
 
 Deadlocks **block concurrent transactions**, reducing system performance.  
 Detection and prevention techniques **ensure smooth transaction execution** in DBMS.
+
+---
+
+
+# **7️⃣ Deadlock in DBMS**
+
+## **Introduction (1 mark)**
+
+A **deadlock** occurs when **two or more transactions are waiting indefinitely** for resources **held by each other**, so **none of them can proceed**.
+
+---
+
+## **Necessary Conditions for Deadlock (4 marks)**
+
+1. **Mutual Exclusion**
+    
+    - At least one resource must be **held in a non-shareable mode**.
+        
+    - Only **one transaction** can use it at a time.
+        
+2. **Hold and Wait**
+    
+    - A transaction **holds at least one resource** and **waits for additional resources** held by other transactions.
+        
+3. **No Preemption**
+    
+    - Resources **cannot be forcibly taken** from a transaction; they are released **only voluntarily**.
+        
+4. **Circular Wait**
+    
+    - A set of transactions exists **such that each transaction is waiting for a resource held by the next transaction in a cycle**.
+        
+
+---
+
+## **Detection & Prevention (3–4 marks)**
+
+### **Detection:**
+
+- DBMS **monitors resource allocation graph** or uses **wait-for graph**.
+    
+- If a **cycle is detected**, a deadlock exists.
+    
+- Action: **Abort one or more transactions** to break the cycle.
+    
+
+### **Prevention:**
+
+- **Eliminate one or more necessary conditions**:
+    
+    1. **Mutual exclusion:** Make resources sharable if possible
+        
+    2. **Hold and wait:** Require transactions to request all resources at once
+        
+    3. **No preemption:** Preempt resources from transactions
+        
+    4. **Circular wait:** Impose an **ordering of resource requests**
+        
+
+---
+
+## **Conclusion (1 mark)**
+
+Deadlocks **block concurrent transactions**, reducing system performance.  
+Detection and prevention techniques **ensure smooth transaction execution** in DBMS.
+
+
+---
