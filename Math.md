@@ -222,3 +222,64 @@ Significant digits (or significant figures) of a number are the **meaningful dig
 ---
 
 
+### **Types of Errors in Numerical Computation**
+
+In numerical computation, **errors** are the differences between the **true value** and the **approximate or computed value**. The main types of errors are:
+
+---
+
+**1. Truncation Error:**
+
+- **Definition:** Error caused when an **infinite process** is approximated by a **finite process**.
+    
+- **Example:** Using first 3 terms of a series to approximate a function instead of the full infinite series.
+    
+- **Cause:** Ignoring higher-order terms in a formula or series.
+    
+
+---
+
+**2. Rounding Error:**
+
+- **Definition:** Error introduced when a number is **rounded off** to a limited number of significant digits.
+    
+- **Example:** Approximating 3.141592653.141592653.14159265 as 3.1423.1423.142 for calculations.
+    
+- **Cause:** Limited precision in computer storage or manual rounding.
+    
+
+---
+
+**3. Inherent (or Pre-existing) Error:**
+
+- **Definition:** Error already present in **measured or given data** before computation.
+    
+- **Example:** Measuring a length with a ruler that has a smallest division of 1 mm → true value has small inherent error.
+    
+- **Cause:** Limitations of instruments, human errors, or imprecise initial data.
+    
+
+---
+
+**Summary Table:**
+
+|Type of Error|Cause|Example|
+|---|---|---|
+|Truncation Error|Approximating infinite process|Using 3 terms of Taylor series|
+|Rounding Error|Limiting number of digits|3.14159265 → 3.142|
+|Inherent Error|Measurement/data limitation|Ruler reads ±1 mm|
+
+---
+
+**Key Point for Exam:**
+
+- Understanding these errors is **essential for numerical accuracy**.
+    
+- **Total error** in computation may be a combination of these three types.
+
+
+
+
+---
+
+
