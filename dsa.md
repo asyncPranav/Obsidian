@@ -592,3 +592,187 @@ LEVELORDER(root)
 2. Helps in searching and sorting
     
 3. Useful in expression evaluation
+
+
+---
+
+
+# **3️⃣ Trees & Binary Trees (Basics)** ⭐⭐⭐⭐
+
+_(10 Marks Answer)_
+
+---
+
+## **Definition of Tree**
+
+A **tree** is a **non-linear data structure** that consists of:
+
+- A finite set of **nodes**
+    
+- Connected by **edges**
+    
+- With one special node called the **root**
+    
+
+A tree represents **hierarchical relationships** between elements.
+
+---
+
+### **Formal Definition**
+
+A tree is a collection of nodes such that:
+
+- One node is designated as the **root**
+    
+- Remaining nodes are divided into **disjoint subtrees**
+    
+- Each subtree is itself a tree
+    
+
+---
+
+## **Definition of Binary Tree**
+
+A **binary tree** is a special type of tree in which:
+
+- Each node has **at most two children**
+    
+- These children are called:
+    
+    - **Left child**
+        
+    - **Right child**
+        
+
+---
+
+### **Formal Definition**
+
+A binary tree is a finite set of nodes which is either:
+
+- Empty, or
+    
+- Consists of a root node and two disjoint binary trees called the **left subtree** and **right subtree**
+    
+
+---
+
+## **Example of Binary Tree**
+
+```
+        A
+       / \
+      B   C
+     / \
+    D   E
+```
+
+---
+
+## **Properties of Binary Tree**
+
+1. Maximum number of children per node = **2**
+    
+2. Children are ordered as **left and right**
+    
+3. Maximum nodes at level _i_ = **2ⁱ**
+    
+4. Maximum nodes in height _h_ = **2ʰ − 1**
+    
+5. Minimum height for _n_ nodes = **⌈log₂(n+1)⌉**
+    
+6. A binary tree can be **empty**
+    
+
+---
+
+## **Difference Between Tree and Binary Tree** ⭐⭐⭐⭐
+
+|Basis|Tree|Binary Tree|
+|---|---|---|
+|Max children|Any number|At most 2|
+|Order of children|Not ordered|Ordered (Left & Right)|
+|Subtrees|Any number|At most 2|
+|Applications|File system|Searching, expressions|
+|Example|General hierarchy|BST, Heap|
+
+---
+
+## **Tree Terminology** ⭐⭐⭐⭐⭐
+
+### **1️⃣ Degree of a Node**
+
+- Number of children of a node
+    
+- Degree of tree = maximum degree of any node
+    
+
+---
+
+### **2️⃣ Root Node**
+
+- The topmost node of a tree
+    
+- Has **no parent**
+    
+
+---
+
+### **3️⃣ Leaf Node**
+
+- Node with **no children**
+    
+- Also called **external node**
+    
+
+---
+
+### **4️⃣ Parent Node**
+
+- A node which has one or more children
+    
+
+---
+
+### **5️⃣ Child Node**
+
+- Node directly connected below a parent
+    
+
+---
+
+### **6️⃣ Level of a Node**
+
+- Level of root = **0**
+    
+- Level of any node = level of parent + 1
+    
+
+---
+
+### **7️⃣ Height of a Tree**
+
+- Number of edges on the **longest path** from root to leaf
+    
+- Height = max level in the tree
+    
+
+---
+
+### **8️⃣ Depth of a Node**
+
+- Number of edges from root to that node
+    
+
+---
+
+### **9️⃣ Sibling Nodes**
+
+- Nodes having the **same parent**
+    
+
+---
+
+### **10️⃣ Subtree**
+
+- A tree formed by a node and its descendants
