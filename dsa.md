@@ -1052,13 +1052,29 @@ char[] tree = {' ', 'A', 'B', 'C', 'D', 'E'};
 
 ### **Java Node Structure**
 
-`class Node {     int data;     Node left, right;      Node(int data) {         this.data = data;         left = right = null;     } }`
+```
+class Node {
+    int data;
+    Node left, right;
+
+    Node(int data) {
+        this.data = data;
+        left = right = null;
+    }
+}
+```
 
 ---
 
 ### **Example Structure**
 
-      `[A]      /   \    [B]   [C]    / \  [D] [E]`
+```
+      [A]
+     /   \
+   [B]   [C]
+   / \
+ [D] [E]
+```
 
 ---
 
@@ -1090,3 +1106,8 @@ char[] tree = {' ', 'A', 'B', 'C', 'D', 'E'};
 |Flexibility|Less|More|
 |Pointer required|No|Yes|
 |Best used for|Heaps|BST, Expression Trees|
+
+
+---
+
+
