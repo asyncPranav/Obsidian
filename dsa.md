@@ -341,3 +341,216 @@ _(h = height of tree)_
 
 
 
+# **2️⃣ Tree Traversals — DFS & BFS** ⭐⭐⭐⭐⭐
+
+_(10 Marks Answer)_
+
+---
+
+## **Introduction to Tree Traversal**
+
+**Tree traversal** is the process of **visiting each node of a tree exactly once** in a specific order.
+
+Tree traversals are mainly classified into:
+
+1. **Depth First Search (DFS)**
+    
+2. **Breadth First Search (BFS)**
+    
+
+---
+
+## **1️⃣ Depth First Search (DFS)**
+
+### **Definition**
+
+**Depth First Search (DFS)** is a tree traversal technique in which:
+
+- We explore a node **as deep as possible** before backtracking.
+    
+
+DFS is mainly implemented using **recursion** or **stack**.
+
+---
+
+### **Types of DFS Traversals**
+
+DFS has **three types**:
+
+1. **Inorder Traversal**
+    
+2. **Preorder Traversal**
+    
+3. **Postorder Traversal**
+    
+
+---
+
+### **Example Tree (for all DFS traversals)**
+
+        `A        / \       B   C      / \   \     D   E   F`
+
+---
+
+## **1️⃣ Inorder Traversal (Left → Root → Right)**
+
+### **Definition**
+
+In **Inorder traversal**, nodes are visited in the following order:
+
+1. Left subtree
+    
+2. Root node
+    
+3. Right subtree
+    
+
+---
+
+### **Algorithm: Inorder Traversal**
+
+`INORDER(root) 1. If root ≠ NULL 2.    INORDER(root.left) 3.    Visit root 4.    INORDER(root.right)`
+
+---
+
+### **Inorder Traversal Output**
+
+`D  B  E  A  C  F`
+
+---
+
+### **Special Property**
+
+- Inorder traversal of a **BST gives sorted order**
+    
+
+---
+
+## **2️⃣ Preorder Traversal (Root → Left → Right)**
+
+### **Definition**
+
+In **Preorder traversal**, nodes are visited in:
+
+1. Root
+    
+2. Left subtree
+    
+3. Right subtree
+    
+
+---
+
+### **Algorithm: Preorder Traversal**
+
+`PREORDER(root) 1. If root ≠ NULL 2.    Visit root 3.    PREORDER(root.left) 4.    PREORDER(root.right)`
+
+---
+
+### **Preorder Traversal Output**
+
+`A  B  D  E  C  F`
+
+---
+
+### **Application**
+
+- Used to **create a copy of tree**
+    
+- Used in **expression tree evaluation**
+    
+
+---
+
+## **3️⃣ Postorder Traversal (Left → Right → Root)**
+
+### **Definition**
+
+In **Postorder traversal**, nodes are visited in:
+
+1. Left subtree
+    
+2. Right subtree
+    
+3. Root node
+    
+
+---
+
+### **Algorithm: Postorder Traversal**
+
+`POSTORDER(root) 1. If root ≠ NULL 2.    POSTORDER(root.left) 3.    POSTORDER(root.right) 4.    Visit root`
+
+---
+
+### **Postorder Traversal Output**
+
+`D  E  B  F  C  A`
+
+---
+
+### **Application**
+
+- Used for **deleting a tree**
+    
+- Used in **postfix expression evaluation**
+    
+
+---
+
+## **Time Complexity of DFS Traversals**
+
+- **O(n)** for all DFS traversals
+    
+- n = number of nodes
+    
+
+---
+
+## **2️⃣ Breadth First Search (BFS)**
+
+### **Definition**
+
+**Breadth First Search (BFS)** is a traversal technique where:
+
+- Nodes are visited **level by level**
+    
+- Also called **Level Order Traversal**
+    
+- Implemented using a **queue**
+    
+
+---
+
+### **Algorithm: Level Order Traversal**
+
+`LEVELORDER(root) 1. If root == NULL return 2. Create empty queue Q 3. Enqueue root into Q 4. While Q is not empty 5.    temp = Dequeue Q 6.    Visit temp 7.    If temp.left ≠ NULL          Enqueue temp.left 8.    If temp.right ≠ NULL          Enqueue temp.right`
+
+---
+
+### **Level Order Traversal Output**
+
+`A  B  C  D  E  F`
+
+---
+
+## **Difference Between DFS and BFS** ⭐⭐⭐⭐⭐
+
+|Basis|DFS|BFS|
+|---|---|---|
+|Full Form|Depth First Search|Breadth First Search|
+|Traversal Style|Goes deep first|Goes level by level|
+|Data Structure Used|Stack / Recursion|Queue|
+|Memory Usage|Less|More|
+|Applications|Expression trees|Shortest path|
+|Examples|Inorder, Preorder, Postorder|Level Order|
+
+---
+
+## **Advantages of Tree Traversals**
+
+1. Easy access to all nodes
+    
+2. Helps in searching and sorting
+    
+3. Useful in expression evaluation
