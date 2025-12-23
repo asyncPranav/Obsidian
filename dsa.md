@@ -1111,3 +1111,126 @@ class Node {
 ---
 
 
+# **8️⃣ Balanced Binary Search Trees (BSTs)** ⭐⭐⭐
+
+_(10 Marks Answer)_
+
+---
+
+## **Definition**
+
+A **Balanced Binary Search Tree (Balanced BST)** is a **BST in which the height of the left and right subtrees of every node differs by at most 1**.
+
+> Height difference = |height(left subtree) − height(right subtree)| ≤ 1
+
+- This ensures that the tree remains **approximately balanced**
+    
+- Prevents skewing, so operations remain **efficient** (O(log n))
+    
+
+---
+
+## **Why Balance is Important**
+
+- In a normal BST:
+    
+    - Worst-case (skewed) height = n → Operations take **O(n)**
+        
+- In a Balanced BST:
+    
+    - Height ≈ log₂(n) → Operations take **O(log n)**
+        
+- Balanced BST ensures **fast search, insertion, and deletion**
+    
+
+---
+
+## **Height Balance Idea**
+
+1. **Height of a node**: Number of edges on the longest path from node to a leaf
+    
+2. **Balance Factor (BF) of a node** = height(left subtree) − height(right subtree)
+    
+    - BF = 0, +1, or −1 → Tree is balanced at that node
+        
+    - BF > 1 or BF < −1 → Tree is **unbalanced**
+        
+
+---
+
+## **Example: AVL Tree (Balanced BST)**
+
+**AVL Tree** is the **most common type of Balanced BST**:
+
+```
+      30
+     /  \
+   20    40
+```
+
+- Here:
+    
+    - Height(left) = 1
+        
+    - Height(right) = 1
+        
+    - Balance Factor = 1 − 1 = 0 → Balanced
+        
+
+### If we insert 10:
+
+```
+      30
+     /  \
+   20    40
+  /
+10
+```
+
+- Height(left) = 2, Height(right) = 1 → BF = 1 → Still balanced
+    
+- If difference > 1 → **rotation needed** to maintain balance
+    
+
+---
+
+## **Rotations in AVL Tree (Conceptual)**
+
+1. **Left Rotation**
+    
+2. **Right Rotation**
+    
+3. **Left-Right Rotation**
+    
+4. **Right-Left Rotation**
+    
+
+> You only need to **mention rotations in exam**, no need to implement unless asked.
+
+---
+
+## **Java Reference (Basic Node Structure)**
+
+```java
+class Node {
+    int data;
+    Node left, right;
+    int height;  // used to calculate balance factor
+
+    Node(int data) {
+        this.data = data;
+        left = right = null;
+        height = 1; // leaf node height = 1
+    }
+}
+```
+
+---
+
+## **Advantages of Balanced BSTs**
+
+1. Efficient search, insert, delete → O(log n)
+    
+2. Prevents skewed BST → avoids worst-case O(n)
+    
+3. Used in databases, indexing, and memory-efficient storage
