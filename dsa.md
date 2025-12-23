@@ -284,7 +284,25 @@ After:
 
 ### **Algorithm: Delete in BST**
 
-`DELETE(root, key) 1. If root == NULL        return root 2. If key < root.data        root.left = DELETE(root.left, key) 3. Else if key > root.data        root.right = DELETE(root.right, key) 4. Else        If root has no child             delete node        Else if root has one child             replace with child        Else             find inorder successor             copy value             delete successor 5. Return root`
+```java
+DELETE(root, key)
+1. If root == NULL
+       return root
+2. If key < root.data
+       root.left = DELETE(root.left, key)
+3. Else if key > root.data
+       root.right = DELETE(root.right, key)
+4. Else
+       If root has no child
+            delete node
+       Else if root has one child
+            replace with child
+       Else
+            find inorder successor
+            copy value
+            delete successor
+5. Return root
+```
 
 ---
 
@@ -318,3 +336,8 @@ _(h = height of tree)_
 2. Worst case time complexity is **O(n)**
     
 3. Needs balancing (AVL, Red-Black Trees)
+
+---
+
+
+
