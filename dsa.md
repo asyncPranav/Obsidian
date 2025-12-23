@@ -75,7 +75,7 @@ For every node **N**:
 
 ### **Algorithm: Search in BST**
 
-```sh
+```java
 SEARCH(root, key)
 1. If root == NULL or root.data == key
        return root
@@ -83,7 +83,6 @@ SEARCH(root, key)
        return SEARCH(root.left, key)
 3. Else
        return SEARCH(root.right, key)
-
 ```
 
 ---
@@ -125,7 +124,15 @@ SEARCH(root, key)
 
 ### **Algorithm: Insert in BST**
 
-`INSERT(root, key) 1. If root == NULL        create new node and return 2. If key < root.data        INSERT(root.left, key) 3. Else if key > root.data        INSERT(root.right, key)`
+```java
+INSERT(root, key)
+1. If root == NULL
+       create new node and return
+2. If key < root.data
+       INSERT(root.left, key)
+3. Else if key > root.data
+       INSERT(root.right, key)
+```
 
 ---
 
@@ -144,11 +151,21 @@ SEARCH(root, key)
 
 Initial BST:
 
-      `30      /  \    20   40`
+```
+      30
+     /  \
+   20   40
+```
 
 After inserting 25:
 
-      `30      /  \    20   40      \      25`
+```
+      30
+     /  \
+   20   40
+     \
+     25
+```
 
 ---
 
@@ -175,7 +192,12 @@ There are **THREE CASES**.
 
 Delete **20**:
 
-`Before:          After:    30              30   /  \            /  \ 20   40          NULL 40`
+```
+Before:          After:
+   30              30
+  /  \            /  \
+20   40          NULL 40
+```
 
 ---
 
@@ -195,7 +217,16 @@ Delete **20**:
 
 Delete **30**:
 
-`Before:          After:    30              40      \               \      40               50        \         50`
+```
+Before:
+        50
+       /  \
+     30    70
+           /
+         60
+
+Inorder Successor of 50 = 60
+```
 
 ---
 
