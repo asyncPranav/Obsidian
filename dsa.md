@@ -218,14 +218,13 @@ Before:          After:
 Delete **30**:
 
 ```
-Before:
+Before:          After:
+   30              40
+     \               \
+     40               50
+       \
         50
-       /  \
-     30    70
-           /
-         60
 
-Inorder Successor of 50 = 60
 ```
 
 ---
@@ -263,9 +262,23 @@ Steps:
 
 Delete **50**:
 
-`Before:         50        /  \      30    70            /          60  Inorder Successor of 50 = 60`
+```
+Before:
+        50
+       /  \
+     30    70
+           /
+         60
 
-`After:         60        /  \      30    70`
+Inorder Successor of 50 = 60
+
+After:
+        60
+       /  \
+     30    70
+
+```
+
 
 ---
 
