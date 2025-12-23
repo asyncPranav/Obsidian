@@ -782,3 +782,286 @@ A binary tree is a finite set of nodes which is either:
 
 
 
+# **4️⃣ Properties, Types & Representation of Binary Trees** ⭐⭐⭐⭐
+
+_(10 Marks Answer — Java Reference)_
+
+---
+
+## **Introduction**
+
+A **binary tree** is a non-linear hierarchical data structure in which:
+
+- Each node has **at most two children**
+    
+- These children are called **left child** and **right child**
+    
+
+Binary trees are widely used in **searching, sorting, heaps, expression trees, and BSTs**.
+
+---
+
+## **Properties of Binary Trees**
+
+1. Maximum number of nodes at level _i_ = **2ⁱ**
+    
+2. Maximum number of nodes in a binary tree of height _h_ = **2ʰ − 1**
+    
+3. Minimum number of nodes in a binary tree of height _h_ = **h + 1**
+    
+4. Minimum height of a binary tree with _n_ nodes = **⌈log₂(n + 1)⌉**
+    
+5. Each node has **at most two children**
+    
+6. A binary tree can be **empty**
+    
+
+---
+
+## **Types of Binary Trees** ⭐⭐⭐⭐⭐
+
+---
+
+## **1️⃣ Full Binary Tree**
+
+### **Definition**
+
+A **full binary tree** is a binary tree in which:
+
+- Every node has **either 0 or 2 children**
+    
+
+---
+
+### **Example**
+```
+        A
+       / \
+      B   C
+     / \
+    D   E
+```
+
+---
+
+### **Key Property**
+
+- No node has **exactly one child**
+    
+
+---
+
+## **2️⃣ Complete Binary Tree**
+
+### **Definition**
+
+A **complete binary tree** is a binary tree in which:
+
+- All levels are completely filled
+    
+- Except possibly the **last level**
+    
+- Last level nodes are filled **from left to right**
+    
+
+---
+
+### **Example**
+
+```
+        A
+       / \
+      B   C
+     / \  /
+    D  E F
+```
+
+---
+
+### **Application**
+
+- Used in **Heap data structure**
+    
+
+---
+
+## **3️⃣ Perfect Binary Tree**
+
+### **Definition**
+
+A **perfect binary tree** is a binary tree in which:
+
+- All internal nodes have **two children**
+    
+- All leaf nodes are at the **same level**
+    
+
+---
+
+### **Example**
+
+        `A        / \       B   C      / \ / \     D  E F  G`
+
+---
+
+### **Property**
+
+- Total number of nodes = **2ʰ − 1**
+    
+
+---
+
+## **4️⃣ Skewed Binary Tree**
+
+### **Definition**
+
+A **skewed binary tree** is a binary tree in which:
+
+- Every node has **only one child**
+    
+
+---
+
+### **Types**
+
+1. **Left-skewed binary tree**
+    
+2. **Right-skewed binary tree**
+    
+
+---
+
+### **Example (Right Skewed)**
+
+`A  \   B    \     C      \       D`
+
+---
+
+### **Disadvantage**
+
+- Time complexity becomes **O(n)** (like a linked list)
+    
+
+---
+
+## **Representation of Binary Trees in Memory** ⭐⭐⭐⭐⭐
+
+Binary trees are represented in memory in **two ways**:
+
+---
+
+## **1️⃣ Array Representation**
+
+### **Concept**
+
+- Binary tree nodes are stored in an **array**
+    
+- Best suited for **complete binary trees**
+    
+
+---
+
+### **Index Formula**
+
+If a node is at index **i**:
+
+- Left child → **2i**
+    
+- Right child → **2i + 1**
+    
+- Parent → **⌊i / 2⌋**
+    
+
+---
+
+### **Example**
+
+        `A        / \       B   C      / \     D   E`
+
+Array representation:
+
+`Index:  1  2  3  4  5 Value:  A  B  C  D  E`
+
+---
+
+### **Java Representation (Array)**
+
+`char[] tree = {' ', 'A', 'B', 'C', 'D', 'E'};`
+
+---
+
+### **Advantages**
+
+1. Simple implementation
+    
+2. No pointer overhead
+    
+3. Fast access
+    
+
+---
+
+### **Disadvantages**
+
+1. Wastage of memory for sparse trees
+    
+2. Not suitable for skewed trees
+    
+
+---
+
+## **2️⃣ Linked Representation**
+
+### **Concept**
+
+- Each node contains:
+    
+    - Data
+        
+    - Reference to left child
+        
+    - Reference to right child
+        
+
+---
+
+### **Java Node Structure**
+
+`class Node {     int data;     Node left, right;      Node(int data) {         this.data = data;         left = right = null;     } }`
+
+---
+
+### **Example Structure**
+
+      `[A]      /   \    [B]   [C]    / \  [D] [E]`
+
+---
+
+### **Advantages**
+
+1. Efficient memory usage
+    
+2. Dynamic structure
+    
+3. Suitable for all types of trees
+    
+
+---
+
+### **Disadvantages**
+
+1. Extra memory for pointers
+    
+2. Slightly complex than array representation
+    
+
+---
+
+## **Comparison of Representations**
+
+|Basis|Array Representation|Linked Representation|
+|---|---|---|
+|Memory usage|Efficient for complete trees|Efficient for sparse trees|
+|Flexibility|Less|More|
+|Pointer required|No|Yes|
+|Best used for|Heaps|BST, Expression Trees|
