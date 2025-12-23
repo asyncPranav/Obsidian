@@ -499,7 +499,13 @@ In **Postorder traversal**, nodes are visited in:
 
 ### **Algorithm: Postorder Traversal**
 
-`POSTORDER(root) 1. If root ≠ NULL 2.    POSTORDER(root.left) 3.    POSTORDER(root.right) 4.    Visit root`
+```java
+POSTORDER(root)
+1. If root ≠ NULL
+2.    POSTORDER(root.left)
+3.    POSTORDER(root.right)
+4.    Visit root
+```
 
 ---
 
@@ -544,7 +550,19 @@ In **Postorder traversal**, nodes are visited in:
 
 ### **Algorithm: Level Order Traversal**
 
-`LEVELORDER(root) 1. If root == NULL return 2. Create empty queue Q 3. Enqueue root into Q 4. While Q is not empty 5.    temp = Dequeue Q 6.    Visit temp 7.    If temp.left ≠ NULL          Enqueue temp.left 8.    If temp.right ≠ NULL          Enqueue temp.right`
+```java
+LEVELORDER(root)
+1. If root == NULL return
+2. Create empty queue Q
+3. Enqueue root into Q
+4. While Q is not empty
+5.    temp = Dequeue Q
+6.    Visit temp
+7.    If temp.left ≠ NULL
+         Enqueue temp.left
+8.    If temp.right ≠ NULL
+         Enqueue temp.right
+```
 
 ---
 
