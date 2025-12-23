@@ -389,6 +389,11 @@ DFS has **three types**:
 ### **Example Tree (for all DFS traversals)**
 
 ```
+        A
+       / \
+      B   C
+     / \   \
+    D   E   F
 ```
 
 ---
@@ -410,13 +415,21 @@ In **Inorder traversal**, nodes are visited in the following order:
 
 ### **Algorithm: Inorder Traversal**
 
-`INORDER(root) 1. If root ≠ NULL 2.    INORDER(root.left) 3.    Visit root 4.    INORDER(root.right)`
+```java
+INORDER(root)
+1. If root ≠ NULL
+2.    INORDER(root.left)
+3.    Visit root
+4.    INORDER(root.right)
+```
 
 ---
 
 ### **Inorder Traversal Output**
 
-`D  B  E  A  C  F`
+```
+D  B  E  A  C  F
+```
 
 ---
 
@@ -444,7 +457,13 @@ In **Preorder traversal**, nodes are visited in:
 
 ### **Algorithm: Preorder Traversal**
 
-`PREORDER(root) 1. If root ≠ NULL 2.    Visit root 3.    PREORDER(root.left) 4.    PREORDER(root.right)`
+```java
+PREORDER(root)
+1. If root ≠ NULL
+2.    Visit root
+3.    PREORDER(root.left)
+4.    PREORDER(root.right)
+```
 
 ---
 
