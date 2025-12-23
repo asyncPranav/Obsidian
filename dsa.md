@@ -900,7 +900,13 @@ A **perfect binary tree** is a binary tree in which:
 
 ### **Example**
 
-        `A        / \       B   C      / \ / \     D  E F  G`
+```
+        A
+       / \
+      B   C
+     / \ / \
+    D  E F  G
+```
 
 ---
 
@@ -933,7 +939,15 @@ A **skewed binary tree** is a binary tree in which:
 
 ### **Example (Right Skewed)**
 
-`A  \   B    \     C      \       D`
+```
+A
+ \
+  B
+   \
+    C
+     \
+      D
+```
 
 ---
 
@@ -976,17 +990,28 @@ If a node is at index **i**:
 
 ### **Example**
 
-        `A        / \       B   C      / \     D   E`
+```
+        A
+       / \
+      B   C
+     / \
+    D   E
+```
 
 Array representation:
 
-`Index:  1  2  3  4  5 Value:  A  B  C  D  E`
+```
+Index:  1  2  3  4  5
+Value:  A  B  C  D  E
+```
 
 ---
 
 ### **Java Representation (Array)**
 
-`char[] tree = {' ', 'A', 'B', 'C', 'D', 'E'};`
+```
+char[] tree = {' ', 'A', 'B', 'C', 'D', 'E'};
+```
 
 ---
 
