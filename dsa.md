@@ -388,7 +388,8 @@ DFS has **three types**:
 
 ### **Example Tree (for all DFS traversals)**
 
-        `A        / \       B   C      / \   \     D   E   F`
+```
+```
 
 ---
 
