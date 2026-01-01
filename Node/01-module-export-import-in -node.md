@@ -180,7 +180,7 @@ console.log(greet('Alice')); // Hi Alice
 | Import         | `require('./file')`          | `import ... from './file'`  |
 | Export         | `module.exports` / `exports` | `export` / `export default` |
 | Execution      | Synchronous                  | Asynchronous capable        |
-| Code run in    |                              |                             |
+| Code run in    | Non strict mode              | Strict type                 |
 
 ---
 
