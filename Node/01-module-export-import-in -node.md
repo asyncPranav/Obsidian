@@ -466,11 +466,23 @@ project/
 
 **`add.js`**
 
-`function add(a, b) {     return a + b; }  module.exports = add; // CJS style`
+```js
+function add(a, b) {
+    return a + b;
+}
+
+module.exports = add; // CJS style
+```
 
 **`subtract.js`**
 
-`function subtract(a, b) {     return a - b; }  module.exports = subtract; // CJS style`
+```js
+function subtract(a, b) {
+    return a - b;
+}
+
+module.exports = subtract; // CJS style
+```
 
 ---
 
@@ -478,7 +490,14 @@ project/
 
 **`index.js` inside `utils` folder**
 
-`// Import individual modules const add = require('./add'); const subtract = require('./subtract');  // Export them together as a single object module.exports = { add, subtract };`
+```js
+// Import individual modules
+const add = require('./add');
+const subtract = require('./subtract');
+
+// Export them together as a single object
+module.exports = { add, subtract };
+```
 
 - Now `utils` folder can be treated as a **single module**.
     
@@ -491,7 +510,8 @@ project/
 
 **`app.js`**
 
-`// Import the whole folder const utils = require('./utils');  console.log(utils.add(10, 5));      // 15 console.log(utils.subtract(10, 5)); // 5`
+```
+```
 
 ✅ Notice: You **don’t have to write `./utils/index.js`**, Node.js **automatically resolves `index.js`** in the folder.
 
