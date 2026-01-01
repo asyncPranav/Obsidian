@@ -262,15 +262,21 @@ console.log(greet('Alice')); // Hello Alice
 
 **Example 2 – Single object export**
 
-`// config.mjs const config = { port: 3000, host: 'localhost' }; export default config;`
+```js
+// config.mjs
+const config = { port: 3000, host: 'localhost' };
+export default config;
+```
 
-`// app.mjs import config from './config.mjs'; console.log(config.port); // 3000`
+```js
+// app.mjs
+import config from './config.mjs';
+console.log(config.port); // 3000
+```
 
 ✅ **Rule of thumb:**  
 Use `default export` when your module **represents a single main functionality or object**.
-
 - e.g., a single class, single utility function, or configuration object.
-    
 
 ---
 
@@ -285,19 +291,37 @@ Use `default export` when your module **represents a single main functionality o
 
 **Syntax:**
 
-`export { name1, name2, name3 };`
+```js
+export { name1, name2, name3 };
+```
 
 Or directly when declaring:
 
-`export function add(a, b) { return a + b; } export function subtract(a, b) { return a - b; }`
+```js
+export function add(a, b) { return a + b; }
+export function subtract(a, b) { return a - b; }
+```
 
 **Example – Named exports**
 
-`// math.mjs export function add(a, b) { return a + b; } export function subtract(a, b) { return a - b; } export function multiply(a, b) { return a * b; } export const PI = 3.14;`
+```js
+// math.mjs
+export function add(a, b) { return a + b; }
+export function subtract(a, b) { return a - b; }
+export function multiply(a, b) { return a * b; }
+export const PI = 3.14;
+```
 
 **Importing named exports**
 
-`// app.mjs import { add, multiply, PI } from './math.mjs';  console.log(add(5, 3));      // 8 console.log(multiply(5, 3)); // 15 console.log(PI);              // 3.14`
+```js
+// app.mjs
+import { add, multiply, PI } from './math.mjs';
+
+console.log(add(5, 3));      // 8
+console.log(multiply(5, 3)); // 15
+console.log(PI);              // 3.14
+```
 
 **Import everything as an object**
 
