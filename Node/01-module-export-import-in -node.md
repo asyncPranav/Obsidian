@@ -77,7 +77,10 @@ Node.js has **two main module systems**:
 - `module.exports` exports a single object, function, or variable.
     
 - `exports` is shorthand for `module.exports` (but cannot replace `module.exports` completely).
+	
+    - `module.exports` **starts as an empty object `{}`**.
     
+- You can **add properties gradually** using `module.exports.x = x`.
 
 **Examples:**
 
