@@ -228,6 +228,116 @@ console.log(calc.divide(10, 5));   // 2
 
 ---
 
+## **1. Single Export in ESM**
+
+**Theory:**
+
+- Single export usually means you are exporting **one main thing** from a module.
+    
+- Use **`export default`** for this.
+    
+
+**Syntax:**
+
+```js
+export default value;   // can be function, object, class, variable
+```
+
+**Example 1 – Single function export**
+
+```js
+// greet.mjs
+export default function greet(name) {
+    return `Hello ${name}`;
+}
+```
+
+**Importing it:**
+
+```js
+// app.mjs
+import greet from './greet.mjs';
+console.log(greet('Alice')); // Hello Alice
+```
+
+**Example 2 – Single object export**
+
+`// config.mjs const config = { port: 3000, host: 'localhost' }; export default config;`
+
+`// app.mjs import config from './config.mjs'; console.log(config.port); // 3000`
+
+✅ **Rule of thumb:**  
+Use `default export` when your module **represents a single main functionality or object**.
+
+- e.g., a single class, single utility function, or configuration object.
+    
+
+---
+
+## **2. Multiple Export in ESM**
+
+**Theory:**
+
+- Multiple exports let you **export many functions, objects, or variables** from one module.
+    
+- Use **`export { ... }`** → these are called **named exports**.
+    
+
+**Syntax:**
+
+`export { name1, name2, name3 };`
+
+Or directly when declaring:
+
+`export function add(a, b) { return a + b; } export function subtract(a, b) { return a - b; }`
+
+**Example – Named exports**
+
+`// math.mjs export function add(a, b) { return a + b; } export function subtract(a, b) { return a - b; } export function multiply(a, b) { return a * b; } export const PI = 3.14;`
+
+**Importing named exports**
+
+`// app.mjs import { add, multiply, PI } from './math.mjs';  console.log(add(5, 3));      // 8 console.log(multiply(5, 3)); // 15 console.log(PI);              // 3.14`
+
+**Import everything as an object**
+
+`import * as math from './math.mjs';  console.log(math.add(2, 3));       // 5 console.log(math.multiply(2, 3));  // 6 console.log(math.PI);               // 3.14`
+
+✅ **Rule of thumb:**  
+Use **named exports** when your module **has multiple utilities or objects** and none of them is the single main feature.
+
+- e.g., a utility library with many functions (`math.js`, `string-utils.js`).
+    
+
+---
+
+## **3. Default vs Named – When to Use Which**
+
+|Use Case|Export Type|Example|
+|---|---|---|
+|Module has **one main thing**|`default`|Single class, single function, config object|
+|Module has **multiple utilities or constants**|`named`|Math functions, multiple helpers|
+|You want **easy import without curly braces**|`default`|`import greet from './greet.mjs';`|
+|You want **selective import**|`named`|`import { add, multiply } from './math.mjs';`|
+
+**Mixing both in one module:**
+
+`// example.mjs export const a = 10; export const b = 20; export default function sum(x, y) { return x + y; }`
+
+`// app.mjs import sum, { a, b } from './example.mjs'; console.log(sum(a, b)); // 30`
+
+---
+
+### ✅ **Key Takeaways**
+
+1. **Default export** → One main thing, imported without `{}`.
+    
+2. **Named export** → Multiple things, imported using `{}`.
+    
+3. **You can mix** both in one file, but usually **stick to one style per module** for clarity.
+
+---
+
 ✅ **Summary:**
 
 - **CommonJS:** `require` + `module.exports` → Default Node.js module system.
