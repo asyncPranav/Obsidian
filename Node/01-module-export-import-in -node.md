@@ -78,7 +78,8 @@ Node.js has **two main module systems**:
     
 - `exports` is shorthand for `module.exports` (but cannot replace `module.exports` completely).
 	
-- `module.exports` **starts as an empty object `{}`** or is an empty object by default.
+-  `module.exports` **starts as an empty object `{}`** or is an empty object by default.
+	
 ```js
 console.log(module.exports) // {}
 ```
@@ -110,6 +111,8 @@ module.exports = function(message) {
     console.log(`Log: ${message}`);
 };
 ```
+
+**c) Adding properties in**
 
 ### **Importing**
 
