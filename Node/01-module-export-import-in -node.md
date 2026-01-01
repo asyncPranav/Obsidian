@@ -631,3 +631,70 @@ module.exports = modules;
 3. **ESM version** → Explicit `export { ... }` or default export in `index.mjs`.
     
 4. **Dynamic exports** → Useful for large folders with many modules.
+
+
+
+---
+
+
+# **🤖 Importing JSON in Node.js**
+
+---
+
+## **1. Using CommonJS (CJS)**
+
+**Step 1:** Create `data.json`
+
+```json
+{
+  "name": "Alice",
+  "age": 25,
+  "city": "Delhi"
+}
+```
+
+**Step 2:** Import in `app.js` (CJS)
+
+`const data = require('./data.json');  console.log(data.name); // Alice console.log(data.age);  // 25 console.log(data.city); // Delhi`
+
+✅ **Note:** In CJS, `require()` automatically parses JSON. No need for `JSON.parse`.
+
+---
+
+## **2. Using ES Modules (ESM)**
+
+**Step 1:** Make sure your file is `.mjs` or `"type": "module"` is in `package.json`.
+
+`{   "type": "module" }`
+
+**Step 2:** Import JSON using `assert { type: "json" }` (Node 18+)
+
+`import data from './data.json' assert { type: 'json' };  console.log(data.name); // Alice console.log(data.age);  // 25`
+
+✅ **Important:**
+
+- `assert { type: 'json' }` is **required in ESM** to import JSON directly.
+    
+- Older Node versions (<18) may need `fs` + `JSON.parse`.
+    
+
+---
+
+## **3. Using `fs` module (Works in all Node versions)**
+
+`import fs from 'fs';  // Read JSON file const rawData = fs.readFileSync('./data.json', 'utf-8');  // Parse JSON const data = JSON.parse(rawData);  console.log(data.name); // Alice console.log(data.age);  // 25`
+
+- This works with **CJS or ESM**, but is **synchronous**.
+    
+- Can also use `fs.promises.readFile()` for async.
+    
+
+---
+
+### ✅ **Quick Summary**
+
+| Method                 | Syntax (CJS / ESM)                                       | Notes                                 |
+| ---------------------- | -------------------------------------------------------- | ------------------------------------- |
+| CommonJS (require)     | `const data = require('./data.json')`                    | Auto-parsed JSON                      |
+| ESM (Node 18+)         | `import data from './data.json' assert { type: 'json' }` | Requires assert                       |
+| `fs` module (any Node) | `const data = JSON.parse(fs.readFileSync(...))`          | Works in all versions, async possible |
