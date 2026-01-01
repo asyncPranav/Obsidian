@@ -142,6 +142,9 @@ log('Server started'); // Log: Server started
 
 #NOTE : If we export a single item then we can not import it with destructuring, but if we export an object then we can import it with or without destructuring 
 
+
+---
+
 ###  **`module.exports` vs `exports`**
 
 |Feature|`module.exports`|`exports` (shorthand)|
