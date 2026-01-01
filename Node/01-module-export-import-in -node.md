@@ -423,3 +423,10 @@ console.log(sum(a, b)); // 30
 - **ESM:** `import` + `export` → Modern JS standard.
     
 - **Modules** help keep code organized, reusable, and modular.
+
+
+---
+
+
+## **Advance knowledge**
+
