@@ -37,7 +37,13 @@ function subtract(a, b) {
 module.exports = { add, subtract };
 ```
 
-`// app.js const math = require('./math');  // importing user-defined module  console.log(math.add(5, 3));     // 8 console.log(math.subtract(5, 3));// 2`
+```js
+// app.js
+const math = require('./math');  // importing user-defined module
+
+console.log(math.add(5, 3));     // 8
+console.log(math.subtract(5, 3));// 2
+```
 
 ---
 
@@ -77,15 +83,40 @@ Node.js has **two main module systems**:
 
 **a) Exporting multiple things:**
 
-``// greetings.js function sayHello(name) {     return `Hello ${name}`; }  function sayBye(name) {     return `Bye ${name}`; }  module.exports = { sayHello, sayBye };``
+```js
+// greetings.js
+function sayHello(name) {
+    return `Hello ${name}`;
+}
+
+function sayBye(name) {
+    return `Bye ${name}`;
+}
+
+module.exports = { sayHello, sayBye };
+```
 
 **b) Exporting a single thing:**
 
-``// logger.js module.exports = function(message) {     console.log(`Log: ${message}`); };``
+```js
+// logger.js
+module.exports = function(message) {
+    console.log(`Log: ${message}`);
+};
+```
 
 ### **Importing**
 
-`// app.js const greetings = require('./greetings');  console.log(greetings.sayHello('Alice')); // Hello Alice console.log(greetings.sayBye('Bob'));     // Bye Bob  const log = require('./logger'); log('Server started'); // Log: Server started`
+```js
+// app.js
+const greetings = require('./greetings');
+
+console.log(greetings.sayHello('Alice')); // Hello Alice
+console.log(greetings.sayBye('Bob'));     // Bye Bob
+
+const log = require('./logger');
+log('Server started'); // Log: Server started
+```
 
 ---
 
@@ -100,11 +131,25 @@ Node.js has **two main module systems**:
 
 **a) Named exports**
 
-`// utils.mjs export function multiply(a, b) {     return a * b; }  export function divide(a, b) {     return a / b; }`
+```js
+// utils.mjs
+export function multiply(a, b) {
+    return a * b;
+}
+
+export function divide(a, b) {
+    return a / b;
+}
+```
 
 **b) Default export**
 
-``// greet.mjs export default function(name) {     return `Hi ${name}`; }``
+```js
+// greet.mjs
+export default function(name) {
+    return `Hi ${name}`;
+}
+```
 
 ### **Importing**
 
