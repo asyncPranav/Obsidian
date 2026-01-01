@@ -140,6 +140,18 @@ const log = require('./logger');
 log('Server started'); // Log: Server started
 ```
 
+
+ **d)  `module.exports` vs `exports`**
+
+| Feature             | `module.exports`             | `exports` (shorthand)            |
+| ------------------- | ---------------------------- | -------------------------------- |
+| Actual object used  | Yes                          | No, points to `module.exports`   |
+| Overwriting allowed | Yes (`module.exports = ...`) | No (`exports = ...` breaks link) |
+| Adding properties   | Yes (`module.exports.x = x`) | Yes (`exports.x = x`)            |
+|                     |                              |                                  |
+
+**Rule:** Always consider `module.exports` as the **true export object**.
+
 ---
 
 ## **4. ES Modules (ESM)**
