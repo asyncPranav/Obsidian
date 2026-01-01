@@ -153,14 +153,20 @@ export default function(name) {
 
 ### **Importing**
 
-`// app.mjs import { multiply, divide } from './utils.mjs'; console.log(multiply(5, 2)); // 10 console.log(divide(10, 2));  // 5  import greet from './greet.mjs'; console.log(greet('Alice')); // Hi Alice`
+```js
+// app.mjs
+import { multiply, divide } from './utils.mjs';
+console.log(multiply(5, 2)); // 10
+console.log(divide(10, 2));  // 5
+
+import greet from './greet.mjs';
+console.log(greet('Alice')); // Hi Alice
+```
 
 **Important:**
 
 - To use ESM, either:
-    
     - Name file `.mjs` **OR**
-        
     - Add `"type": "module"` in `package.json`.
         
 
@@ -183,11 +189,25 @@ export default function(name) {
 
 **calculator.js (CJS):**
 
-`function add(a, b) { return a + b; } function subtract(a, b) { return a - b; } function multiply(a, b) { return a * b; } function divide(a, b) { return a / b; }  module.exports = { add, subtract, multiply, divide };`
+```js
+function add(a, b) { return a + b; }
+function subtract(a, b) { return a - b; }
+function multiply(a, b) { return a * b; }
+function divide(a, b) { return a / b; }
+
+module.exports = { add, subtract, multiply, divide };
+```
 
 **app.js:**
 
-`const calc = require('./calculator');  console.log(calc.add(10, 5));      // 15 console.log(calc.subtract(10, 5)); // 5 console.log(calc.multiply(10, 5)); // 50 console.log(calc.divide(10, 5));   // 2`
+```js
+const calc = require('./calculator');
+
+console.log(calc.add(10, 5));      // 15
+console.log(calc.subtract(10, 5)); // 5
+console.log(calc.multiply(10, 5)); // 50
+console.log(calc.divide(10, 5));   // 2
+```
 
 ---
 
