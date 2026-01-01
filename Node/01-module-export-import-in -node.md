@@ -428,7 +428,7 @@ console.log(sum(a, b)); // 30
 ---
 
 
-## **Advance knowledge**
+# **Advance knowledge**
 
 # **Exporting and Importing a Folder in Node.js**
 
@@ -559,9 +559,19 @@ console.log(utils.subtract(10, 5)); // 5
 - You can also do **default export** from `index.mjs`:
     
 
-`// index.mjs import { add } from './add.mjs'; import { subtract } from './subtract.mjs';  export default { add, subtract };`
+```js
+// index.mjs
+import { add } from './add.mjs';
+import { subtract } from './subtract.mjs';
 
-`// app.mjs import utils from './utils/index.mjs'; console.log(utils.add(2,3)); // 5`
+export default { add, subtract };
+```
+
+```js
+// app.mjs
+import utils from './utils/index.mjs';
+console.log(utils.add(2,3)); // 5
+```
 
 ---
 
@@ -584,7 +594,21 @@ You can **automatically export all files in a folder** without manually importin
 
 **CJS example (`index.js`):**
 
-``const fs = require('fs'); const path = require('path');  const files = fs.readdirSync(__dirname); const modules = {};  files.forEach(file => {     if (file === 'index.js') return; // skip index.js     const name = path.basename(file, '.js');     modules[name] = require(`./${file}`); });  module.exports = modules;``
+```js
+const fs = require('fs');
+const path = require('path');
+
+const files = fs.readdirSync(__dirname);
+const modules = {};
+
+files.forEach(file => {
+    if (file === 'index.js') return; // skip index.js
+    const name = path.basename(file, '.js');
+    modules[name] = require(`./${file}`);
+});
+
+module.exports = modules;
+```
 
 - Now any new module added to the folder is **automatically exported**.
     
