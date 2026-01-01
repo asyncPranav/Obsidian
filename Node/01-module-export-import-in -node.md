@@ -510,7 +510,12 @@ module.exports = { add, subtract };
 
 **`app.js`**
 
-```
+```js
+// Import the whole folder
+const utils = require('./utils');
+
+console.log(utils.add(10, 5));      // 15
+console.log(utils.subtract(10, 5)); // 5
 ```
 
 ✅ Notice: You **don’t have to write `./utils/index.js`**, Node.js **automatically resolves `index.js`** in the folder.
@@ -523,19 +528,31 @@ Folder structure can be similar, but syntax changes:
 
 **`add.mjs`**
 
-`export function add(a, b) { return a + b; }`
+```js
+export function add(a, b) { return a + b; }
+```
 
 **`subtract.mjs`**
 
-`export function subtract(a, b) { return a - b; }`
+```js
+export function subtract(a, b) { return a - b; }
+```
 
 **`index.mjs`**
 
-`export { add } from './add.mjs'; export { subtract } from './subtract.mjs';`
+```js
+export { add } from './add.mjs';
+export { subtract } from './subtract.mjs';
+```
 
 **`app.mjs`**
 
-`import * as utils from './utils/index.mjs';  console.log(utils.add(10, 5));      // 15 console.log(utils.subtract(10, 5)); // 5`
+```js
+import * as utils from './utils/index.mjs';
+
+console.log(utils.add(10, 5));      // 15
+console.log(utils.subtract(10, 5)); // 5
+```
 
 - In ESM, you **must import/export explicitly**.
     
