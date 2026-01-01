@@ -140,6 +140,7 @@ const log = require('./logger');
 log('Server started'); // Log: Server started
 ```
 
+#NOTE : If we export 
 
 ###  **`module.exports` vs `exports`**
 
