@@ -112,7 +112,20 @@ module.exports = function(message) {
 };
 ```
 
-**c) Adding properties in**
+**c) Adding properties instead of overwriting `module.exports`**
+
+```js
+// math.js
+function calculateSum(a, b) { return a + b; }
+function calculateDiff(a, b) { return a - b; }
+
+module.exports.calculateSum = calculateSum;
+module.exports.calculateDiff = calculateDiff;
+
+// or shorthand
+exports.calculateSum = calculateSum;
+exports.calculateDiff = calculateDiff;
+```
 
 ### **Importing**
 
