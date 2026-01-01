@@ -655,7 +655,13 @@ module.exports = modules;
 
 **Step 2:** Import in `app.js` (CJS)
 
-`const data = require('./data.json');  console.log(data.name); // Alice console.log(data.age);  // 25 console.log(data.city); // Delhi`
+```js
+const data = require('./data.json');
+
+console.log(data.name); // Alice
+console.log(data.age);  // 25
+console.log(data.city); // Delhi
+```
 
 ✅ **Note:** In CJS, `require()` automatically parses JSON. No need for `JSON.parse`.
 
@@ -665,11 +671,20 @@ module.exports = modules;
 
 **Step 1:** Make sure your file is `.mjs` or `"type": "module"` is in `package.json`.
 
-`{   "type": "module" }`
+```json
+{
+  "type": "module"
+}
+```
 
 **Step 2:** Import JSON using `assert { type: "json" }` (Node 18+)
 
-`import data from './data.json' assert { type: 'json' };  console.log(data.name); // Alice console.log(data.age);  // 25`
+```js
+import data from './data.json' assert { type: 'json' };
+
+console.log(data.name); // Alice
+console.log(data.age);  // 25
+```
 
 ✅ **Important:**
 
@@ -682,7 +697,18 @@ module.exports = modules;
 
 ## **3. Using `fs` module (Works in all Node versions)**
 
-`import fs from 'fs';  // Read JSON file const rawData = fs.readFileSync('./data.json', 'utf-8');  // Parse JSON const data = JSON.parse(rawData);  console.log(data.name); // Alice console.log(data.age);  // 25`
+```js
+import fs from 'fs';
+
+// Read JSON file
+const rawData = fs.readFileSync('./data.json', 'utf-8');
+
+// Parse JSON
+const data = JSON.parse(rawData);
+
+console.log(data.name); // Alice
+console.log(data.age);  // 25
+```
 
 - This works with **CJS or ESM**, but is **synchronous**.
     
