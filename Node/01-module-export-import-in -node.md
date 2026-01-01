@@ -514,8 +514,8 @@ module.exports = { add, subtract };
 ```js
 // Import the whole folder
 const utils = require('./utils');
-const utils = require('./utils');
-
+// Or
+const { add, subtract } = require('./utils');
 
 console.log(utils.add(10, 5));      // 15
 console.log(utils.subtract(10, 5)); // 5
