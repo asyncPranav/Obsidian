@@ -258,7 +258,12 @@ console.log(calc.divide(10, 5));   // 2
     - CJS cannot directly import ESM without dynamic import.
         
 4. **Avoid overwriting `exports` directly**. Use `module.exports` if exporting a single item.
+	
+5.  **Default export** → one main thing, imported without `{}`
     
+6. **Named export** → multiple items, imported with `{}`
+    
+- **Gradual exports** in CJS → `module.exports.x = x` or `exports.x = x`
 
 ---
 
