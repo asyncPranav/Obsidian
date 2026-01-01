@@ -263,7 +263,7 @@ console.log(calc.divide(10, 5));   // 2
     
 6. **Named export** → multiple items, imported with `{}`
     
-- **Gradual exports** in CJS → `module.exports.x = x` or `exports.x = x`
+7. **Gradual exports** in CJS → `module.exports.x = x` or `exports.x = x`
 
 ---
 
