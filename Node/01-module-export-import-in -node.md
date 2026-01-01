@@ -428,7 +428,8 @@ console.log(sum(a, b)); // 30
 ---
 
 
-# **Advance knowledge**
+# **🤖 Advance knowledge**
+
 
 # **Exporting and Importing a Folder in Node.js**
 
@@ -513,6 +514,8 @@ module.exports = { add, subtract };
 ```js
 // Import the whole folder
 const utils = require('./utils');
+const utils = require('./utils');
+
 
 console.log(utils.add(10, 5));      // 15
 console.log(utils.subtract(10, 5)); // 5
