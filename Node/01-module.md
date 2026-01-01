@@ -325,7 +325,13 @@ console.log(PI);              // 3.14
 
 **Import everything as an object**
 
-`import * as math from './math.mjs';  console.log(math.add(2, 3));       // 5 console.log(math.multiply(2, 3));  // 6 console.log(math.PI);               // 3.14`
+```js
+import * as math from './math.mjs';
+
+console.log(math.add(2, 3));       // 5
+console.log(math.multiply(2, 3));  // 6
+console.log(math.PI);               // 3.14
+```
 
 ✅ **Rule of thumb:**  
 Use **named exports** when your module **has multiple utilities or objects** and none of them is the single main feature.
@@ -346,9 +352,18 @@ Use **named exports** when your module **has multiple utilities or objects** and
 
 **Mixing both in one module:**
 
-`// example.mjs export const a = 10; export const b = 20; export default function sum(x, y) { return x + y; }`
+```js
+// example.mjs
+export const a = 10;
+export const b = 20;
+export default function sum(x, y) { return x + y; }
+```
 
-`// app.mjs import sum, { a, b } from './example.mjs'; console.log(sum(a, b)); // 30`
+```js
+// app.mjs
+import sum, { a, b } from './example.mjs';
+console.log(sum(a, b)); // 30
+```
 
 ---
 
