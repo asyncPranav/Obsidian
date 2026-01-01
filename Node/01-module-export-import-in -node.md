@@ -174,12 +174,13 @@ console.log(greet('Alice')); // Hi Alice
 
 ## **5. Difference Between CommonJS & ESM**
 
-|Feature|CommonJS|ES Modules (ESM)|
-|---|---|---|
-|File extension|`.js`|`.mjs` or `"type":"module"`|
-|Import|`require('./file')`|`import ... from './file'`|
-|Export|`module.exports` / `exports`|`export` / `export default`|
-|Execution|Synchronous|Asynchronous capable|
+| Feature        | CommonJS                     | ES Modules (ESM)            |
+| -------------- | ---------------------------- | --------------------------- |
+| File extension | `.js`                        | `.mjs` or `"type":"module"` |
+| Import         | `require('./file')`          | `import ... from './file'`  |
+| Export         | `module.exports` / `exports` | `export` / `export default` |
+| Execution      | Synchronous                  | Asynchronous capable        |
+| Code run in    |                              |                             |
 
 ---
 
@@ -343,12 +344,12 @@ Use **named exports** when your module **has multiple utilities or objects** and
 
 ## **3. Default vs Named – When to Use Which**
 
-|Use Case|Export Type|Example|
-|---|---|---|
-|Module has **one main thing**|`default`|Single class, single function, config object|
-|Module has **multiple utilities or constants**|`named`|Math functions, multiple helpers|
-|You want **easy import without curly braces**|`default`|`import greet from './greet.mjs';`|
-|You want **selective import**|`named`|`import { add, multiply } from './math.mjs';`|
+| Use Case                                       | Export Type | Example                                       |
+| ---------------------------------------------- | ----------- | --------------------------------------------- |
+| Module has **one main thing**                  | `default`   | Single class, single function, config object  |
+| Module has **multiple utilities or constants** | `named`     | Math functions, multiple helpers              |
+| You want **easy import without curly braces**  | `default`   | `import greet from './greet.mjs';`            |
+| You want **selective import**                  | `named`     | `import { add, multiply } from './math.mjs';` |
 
 **Mixing both in one module:**
 
