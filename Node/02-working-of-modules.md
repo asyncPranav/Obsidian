@@ -133,7 +133,9 @@ Think of it as:
 
 Just a shortcut to `module.exports`
 
-`exports === module.exports  // true (initially)`
+```js
+exports === module.exports  // true (initially)
+```
 
 ---
 
@@ -159,11 +161,16 @@ Folder path of current file
 
 At the start of every file:
 
-`module.exports = {}; exports = module.exports;`
+```js
+module.exports = {};
+exports = module.exports;
+```
 
 So initially:
 
-`{}`
+```js
+{}
+```
 
 Nothing is exported yet.
 
@@ -173,19 +180,30 @@ Nothing is exported yet.
 
 ### Example 1: Exporting ONE thing
 
-`// greet.js module.exports = function greet(name) {   return "Hello " + name; };`
+```js
+// greet.js
+module.exports = function greet(name) {
+  return "Hello " + name;
+};
+```
 
 What happened internally?
 
-`module.exports = [Function]`
+```js
+module.exports = [Function]
+```
 
 So when someone does:
 
-`const greet = require('./greet');`
+```js
+const greet = require('./greet');
+```
 
 They receive:
 
-`greet → function`
+```js
+greet → function
+```
 
 ❌ This will FAIL:
 
