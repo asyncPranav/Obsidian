@@ -56,7 +56,10 @@ In Node.js:
 
 Example:
 
-`math.js  → module app.js   → module`
+```js
+math.js  → module
+app.js   → module
+```
 
 They **cannot see each other’s variables directly**.
 
@@ -66,11 +69,26 @@ They **cannot see each other’s variables directly**.
 
 You write this 👇
 
-`// math.js const secret = 123;  function add(a, b) {   return a + b; }`
+```js
+// math.js
+const secret = 123;
+
+function add(a, b) {
+  return a + b;
+}
+```
 
 But Node.js actually runs this 👇 (you never see it):
 
-`(function (exports, require, module, __filename, __dirname) {   const secret = 123;    function add(a, b) {     return a + b;   } });`
+```js
+(function (exports, require, module, __filename, __dirname) {
+  const secret = 123;
+
+  function add(a, b) {
+    return a + b;
+  }
+});
+```
 
 ⚠️ **THIS IS THE MOST IMPORTANT CONCEPT**
 
@@ -93,7 +111,11 @@ Every module automatically gets:
 
 An object representing the current file
 
-`module = {   exports: {} }`
+```js
+module = {
+  exports: {}
+}
+```
 
 ---
 
