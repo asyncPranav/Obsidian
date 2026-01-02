@@ -620,7 +620,9 @@ const secret = 999;
 
 ### app.js
 
-`console.log(secret); // ❌ Error`
+```js
+console.log(secret); // ❌ Error
+```
 
 Why?
 
@@ -637,9 +639,17 @@ This is called **module scope isolation**
 
 ### Example
 
-`// a.js const b = require('./b'); console.log('a loaded');`
+```js
+// a.js
+const b = require('./b');
+console.log('a loaded');
+```
 
-`// b.js const a = require('./a'); console.log('b loaded');`
+```js
+// b.js
+const a = require('./a');
+console.log('b loaded');
+```
 
 What happens?
 
@@ -665,7 +675,10 @@ What happens?
 
 ## 5️⃣ require() is Synchronous (Blocking)
 
-`const data = require('./bigFile'); console.log("After require");`
+```js
+const data = require('./bigFile');
+console.log("After require");
+```
 
 Node:
 
@@ -687,7 +700,10 @@ That’s why:
 
 ### CommonJS
 
-`const moduleName = './math'; const math = require(moduleName);`
+```js
+const moduleName = './math';
+const math = require(moduleName);
+```
 
 Works because `require` is just a function.
 
@@ -695,7 +711,9 @@ Works because `require` is just a function.
 
 ### ES Modules
 
-`const math = await import('./math.mjs');`
+```js
+const math = await import('./math.mjs');
+```
 
 - Returns a promise
     
