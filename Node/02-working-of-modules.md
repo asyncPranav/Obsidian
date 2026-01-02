@@ -692,7 +692,9 @@ Why?
 
 ### CommonJS (copy)
 
-`module.exports.count = 0;`
+```js
+module.exports.count = 0;
+```
 
 Importer gets a **copy**
 
@@ -700,9 +702,22 @@ Importer gets a **copy**
 
 ### ESM (live reference)
 
-`// counter.js export let count = 0;  export function inc() {   count++; }`
+```js
+// counter.js
+export let count = 0;
 
-`// app.js import { count, inc } from './counter.js';  inc(); console.log(count); // 1 ✅`
+export function inc() {
+  count++;
+}
+```
+
+```js
+// app.js
+import { count, inc } from './counter.js';
+
+inc();
+console.log(count); // 1 ✅
+```
 
 📌 `count` is **linked**, not copied
 
@@ -710,7 +725,11 @@ Importer gets a **copy**
 
 ## 7️⃣ Why You Cannot Reassign Imported Values
 
-`import { count } from './counter.js';  count = 5; // ❌ Error`
+```js
+import { count } from './counter.js';
+
+count = 5; // ❌ Error
+```
 
 Why?
 
@@ -725,7 +744,9 @@ Why?
 
 ### Named Export
 
-`export const a = 10;`
+```js
+export const a = 10;
+```
 
 Internally:
 
@@ -736,7 +757,9 @@ Internally:
 
 ### Default Export
 
-`export default function () {}`
+```js
+export default function () {}
+```
 
 Internally:
 
@@ -745,7 +768,9 @@ Internally:
 
 That’s why:
 
-`import anything from './file.js';`
+```js
+import anything from './file.js';
+```
 
 `anything` maps to `"default"`
 
