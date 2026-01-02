@@ -506,7 +506,9 @@ const math = require('./math');
 
 Same as thinking:
 
-`const math = runMathModule();`
+```js
+const math = runMathModule();
+```
 
 ---
 
