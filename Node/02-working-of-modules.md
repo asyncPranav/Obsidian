@@ -398,7 +398,10 @@ return module.exports;
 ## 9️⃣ Module Caching (Very Important)
 
 ```js
+const a = require('./math');
+const b = require('./math');
 
+console.log(a === b); // true
 ```
 
 Why?
@@ -421,15 +424,28 @@ Why?
 
 Structure:
 
-`utils/  ├─ add.js  ├─ subtract.js  └─ index.js`
+```txt
+utils/
+ ├─ add.js
+ ├─ subtract.js
+ └─ index.js
+```
 
 ### index.js
 
-`const add = require('./add'); const subtract = require('./subtract');  module.exports = { add, subtract };`
+```js
+const add = require('./add');
+const subtract = require('./subtract');
+
+module.exports = { add, subtract };
+```
 
 ### app.js
 
-`const utils = require('./utils'); utils.add(5, 3);`
+```js
+const utils = require('./utils');
+utils.add(5, 3);
+```
 
 📌 Node automatically loads `index.js`
 
@@ -437,11 +453,17 @@ Structure:
 
 ## 1️⃣1️⃣ JSON Modules (Behind the Scenes)
 
-`const data = require('./data.json');`
+```js
+const data = require('./data.json');
+```
 
 Internally Node does:
 
-`const file = readFile(); const parsed = JSON.parse(file); module.exports = parsed;`
+```js
+const file = readFile();
+const parsed = JSON.parse(file);
+module.exports = parsed;
+```
 
 So JSON is just **converted to object**.
 
@@ -478,7 +500,9 @@ So JSON is just **converted to object**.
 
 Example:
 
-`const math = require('./math');`
+```js
+const math = require('./math');
+```
 
 Same as thinking:
 
