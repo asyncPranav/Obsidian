@@ -737,11 +737,23 @@ const math = await import('./math.mjs');
 
 ## 8️⃣ Exporting Classes (Behind the Scene)
 
-`// user.js class User {   constructor(name) {     this.name = name;   } }  module.exports = User;`
+```js
+// user.js
+class User {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+module.exports = User;
+```
 
 Import:
 
-`const User = require('./user'); const u = new User("Amit");`
+```js
+const User = require('./user');
+const u = new User("Amit");
+```
 
 Still the same:
 
@@ -752,7 +764,13 @@ Still the same:
 
 ## 9️⃣ Environment-Based Exports (Real-World Pattern)
 
-`if (process.env.NODE_ENV === 'production') {   module.exports = require('./prod'); } else {   module.exports = require('./dev'); }`
+```js
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./prod');
+} else {
+  module.exports = require('./dev');
+}
+```
 
 Why this works:
 
