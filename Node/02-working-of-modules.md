@@ -778,7 +778,9 @@ import anything from './file.js';
 
 ## 9️⃣ Why You Can Rename Imports
 
-`import { add as sum } from './math.js';`
+```js
+import { add as sum } from './math.js';
+```
 
 Because:
 
@@ -802,9 +804,17 @@ ESM:
 
 Example works safely:
 
-`// a.js import { b } from './b.js'; export const a = 1;`
+```js
+// a.js
+import { b } from './b.js';
+export const a = 1;
+```
 
-`// b.js import { a } from './a.js'; export const b = a + 1;`
+```js
+// b.js
+import { a } from './a.js';
+export const b = a + 1;
+```
 
 ✔ No partial exports problem
 
@@ -812,7 +822,10 @@ Example works safely:
 
 ## 1️⃣1️⃣ import() (Dynamic Import)
 
-`const math = await import('./math.js'); math.add(5, 3);`
+```js
+const math = await import('./math.js');
+math.add(5, 3);
+```
 
 - Returns a Promise
     
@@ -825,7 +838,9 @@ Example works safely:
 
 ## 1️⃣2️⃣ Importing JSON in ESM
 
-`import data from './data.json' assert { type: 'json' };`
+```js
+import data from './data.json' assert { type: 'json' };
+```
 
 Why assertion?
 
