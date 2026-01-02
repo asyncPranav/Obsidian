@@ -543,7 +543,9 @@ const math = runMathModule();
 
 When you write:
 
-`require('./math');`
+```js
+require('./math');
+```
 
 Node does **NOT guess randomly**. It follows a **fixed order**.
 
@@ -566,11 +568,18 @@ If none found → ❌ error
 
 ### Example
 
-`require('./utils');`
+```js
+require('./utils');
+```
 
 Node tries:
 
-`utils.js utils.json utils.node utils/index.js   ✅`
+```js
+utils.js
+utils.json
+utils.node
+utils/index.js   ✅
+```
 
 This explains **why index.js works automatically**.
 
@@ -580,7 +589,9 @@ This explains **why index.js works automatically**.
 
 ### Built-in
 
-`const fs = require('fs');`
+```js
+const fs = require('fs');
+```
 
 Node knows these internally → **no path needed**
 
@@ -588,7 +599,10 @@ Node knows these internally → **no path needed**
 
 ### Local
 
-`require('./math');   // current folder require('../math'); // parent folder`
+```js
+require('./math');   // current folder
+require('../math'); // parent folder
+```
 
 📌 **Golden Rule**
 
@@ -600,7 +614,9 @@ Node knows these internally → **no path needed**
 
 ### math.js
 
-`const secret = 999;`
+```js
+const secret = 999;
+```
 
 ### app.js
 
