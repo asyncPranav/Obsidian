@@ -222,19 +222,40 @@ Why?
 
 ### Example 2: Exporting MULTIPLE things
 
-`// math.js function add(a, b) {   return a + b; }  function subtract(a, b) {   return a - b; }  module.exports = { add, subtract };`
+```js
+// math.js
+function add(a, b) {
+  return a + b;
+}
+
+function subtract(a, b) {
+  return a - b;
+}
+
+module.exports = { add, subtract };
+```
 
 Internally:
 
-`module.exports = {   add: [Function],   subtract: [Function] };`
+```js
+module.exports = {
+  add: [Function],
+  subtract: [Function]
+};
+```
 
 Now importing:
 
-`const math = require('./math'); math.add(5, 3);`
+```js
+const math = require('./math');
+math.add(5, 3);
+```
 
 OR using destructuring ✅
 
-`const { add, subtract } = require('./math');`
+```js
+const { add, subtract } = require('./math');
+```
 
 ✔ Works because export is an **object**
 
@@ -244,11 +265,25 @@ OR using destructuring ✅
 
 Because `module.exports` starts as `{}`
 
-`// math.js module.exports.add = function (a, b) {   return a + b; };  module.exports.subtract = function (a, b) {   return a - b; };`
+```js
+// math.js
+module.exports.add = function (a, b) {
+  return a + b;
+};
+
+module.exports.subtract = function (a, b) {
+  return a - b;
+};
+```
 
 This is SAME AS:
 
-`module.exports = {   add,   subtract };`
+```js
+module.exports = {
+  add,
+  subtract
+};
+```
 
 ### Why people use this style?
 
@@ -265,7 +300,10 @@ This is SAME AS:
 
 ### ✅ Correct
 
-`exports.add = add; exports.subtract = subtract;`
+```js
+exports.add = add;
+exports.subtract = subtract;
+```
 
 Why?
 
