@@ -307,13 +307,17 @@ exports.subtract = subtract;
 
 Why?
 
-`exports → points to module.exports`
+```js
+exports → points to module.exports
+```
 
 ---
 
 ### ❌ Wrong
 
-`exports = add;`
+```js
+exports = add;
+```
 
 Why?
 
@@ -332,7 +336,9 @@ Why?
 
 When Node sees:
 
-`const math = require('./math');`
+```js
+const math = require('./math');
+```
 
 Node does:
 
@@ -351,7 +357,9 @@ Looks for:
 
 If already loaded:
 
-`return cachedExports;`
+```js
+return cachedExports;
+```
 
 👉 Module runs **only once**
 
@@ -365,7 +373,11 @@ Reads JS code as text
 
 ### Step 4: Wrap in function
 
-`(function (exports, require, module) {   // file code });`
+```js
+(function (exports, require, module) {
+  // file code
+});
+```
 
 ---
 
@@ -377,13 +389,17 @@ Runs everything line by line
 
 ### Step 6: Return exports
 
-`return module.exports;`
+```js
+return module.exports;
+```
 
 ---
 
 ## 9️⃣ Module Caching (Very Important)
 
-`const a = require('./math'); const b = require('./math');  console.log(a === b); // true`
+```js
+
+```
 
 Why?
 
