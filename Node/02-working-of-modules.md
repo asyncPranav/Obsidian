@@ -599,7 +599,10 @@ export default function greet() {}
 
 ### Import
 
-`import { a, add } from './math.js'; import greet from './greet.js';`
+```js
+import { a, add } from './math.js';
+import greet from './greet.js';
+```
 
 ⚠️ `.js` extension is **mandatory in ESM**
 
@@ -609,7 +612,11 @@ export default function greet() {}
 
 ### CommonJS (what Node does)
 
-`(function (exports, require, module) {   // code })();`
+```js
+(function (exports, require, module) {
+  // code
+})();
+```
 
 ### ESM
 
@@ -654,7 +661,9 @@ Node:
 
 This is why:
 
-`import { x } from './a.js';`
+```js
+import { x } from './a.js';
+```
 
 must be at **top level**
 
@@ -664,7 +673,11 @@ must be at **top level**
 
 ❌ This is NOT allowed:
 
-`if (x) {   import './a.js'; }`
+```js
+if (x) {
+  import './a.js';
+}
+```
 
 Why?
 
