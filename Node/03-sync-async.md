@@ -439,18 +439,25 @@ console.log("4");
 #### Microtask Queue
 
 ```sh
-
+3
 ```
 
 #### Macrotask Queue
 
-`2`
+```sh
+2
+```
 
 ---
 
 ### Final Output
 
-`1 4 3 2`
+```sh
+1
+4
+3
+2
+```
 
 ---
 
@@ -477,7 +484,18 @@ console.log("4");
 
 ## 🎯 FINAL MENTAL MODEL (VERY IMPORTANT)
 
-`SYNC → Call Stack → Execute → Block  ASYNC → Node APIs → Queue → Event Loop → Call Stack`
+```txt
+SYNC
+→ Call Stack
+→ Execute
+→ Block
+
+ASYNC
+→ Node APIs
+→ Queue
+→ Event Loop
+→ Call Stack
+```
 
 ---
 
