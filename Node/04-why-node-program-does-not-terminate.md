@@ -118,7 +118,7 @@ https.get("https://dummyjson.com/products/1", (res) => {
 
 👉 **This keeps the event loop alive**
 
-**OR**
+**`OR`**
 
 - `https.get()` returns a **response stream**
     
