@@ -258,13 +258,20 @@ Call Stack
 **Output so far**
 
 ```sh
+Start
+End
 ```
 
 ---
 
 ### 📌 Step 2: Node APIs (Background)
 
-`Node APIs ────────────── | setTimeout | ──────────────`
+```sh
+Node APIs
+──────────────
+| setTimeout |
+──────────────
+```
 
 - Timer handled by **libuv**
     
@@ -288,11 +295,21 @@ Call Stack
 
 ### 📌 Step 4: Callback Execution
 
-`Call Stack ────────────── | log("Timer")| ────────────── (empty)`
+```js
+Call Stack
+──────────────
+| log("Timer")|
+──────────────
+(empty)
+```
 
 Final output:
 
-`Start End Timer`
+```sh
+Start
+End
+Timer
+```
 
 ---
 
@@ -332,13 +349,27 @@ Final output:
 
 ### 📌 Execution Priority Diagram
 
-`CALL STACK    ↓ MICROTASK QUEUE    ↓ MACROTASK QUEUE`
+```js
+CALL STACK
+   ↓
+MICROTASK QUEUE
+   ↓
+MACROTASK QUEUE
+```
 
 ---
 
 ## 🔟 Promise Example (Microtask)
 
-`console.log("A");  Promise.resolve().then(() => {   console.log("B"); });  console.log("C");`
+```js
+console.log("A");
+
+Promise.resolve().then(() => {
+  console.log("B");
+});
+
+console.log("C");
+```
 
 **Output**
 
