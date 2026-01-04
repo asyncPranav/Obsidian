@@ -373,17 +373,34 @@ console.log("C");
 
 **Output**
 
-`A C B`
+```sh
+A
+C
+B
+```
 
 ---
 
 ## 1️⃣1️⃣ async / await Internals
 
-`async function test() {   console.log("A");   await Promise.resolve();   console.log("B"); }  test(); console.log("C");`
+```js
+async function test() {
+  console.log("A");
+  await Promise.resolve();
+  console.log("B");
+}
+
+test();
+console.log("C");
+```
 
 **Output**
 
-`A C B`
+```sh
+A
+C
+B
+```
 
 📌 `await`:
 
@@ -398,7 +415,15 @@ console.log("C");
 
 ## 1️⃣2️⃣ MIXED Sync + Async (Most Important)
 
-`console.log("1");  setTimeout(() => console.log("2"), 0);  Promise.resolve().then(() => console.log("3"));  console.log("4");`
+```js
+console.log("1");
+
+setTimeout(() => console.log("2"), 0);
+
+Promise.resolve().then(() => console.log("3"));
+
+console.log("4");
+```
 
 ---
 
@@ -406,11 +431,16 @@ console.log("C");
 
 #### Sync Phase
 
-`1 4`
+```sh
+1
+4
+```
 
 #### Microtask Queue
 
-`3`
+```sh
+
+```
 
 #### Macrotask Queue
 
