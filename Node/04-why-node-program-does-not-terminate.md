@@ -207,7 +207,12 @@ This allows Node to close the socket properly.
 
 ### 🔹 Solution 2: Call `res.resume()` (Easiest)
 
-`https.get("https://dummyjson.com/products/1", (res) => {   res.resume(); // drains data & closes socket   console.log("data fetched successfully"); });`
+```js
+https.get("https://dummyjson.com/products/1", (res) => {
+  res.resume(); // drains data & closes socket
+  console.log("data fetched successfully");
+});
+```
 
 ✅ **Recommended for simple requests**
 
@@ -215,7 +220,9 @@ This allows Node to close the socket properly.
 
 ### 🔹 Solution 3: Force exit (NOT RECOMMENDED)
 
-`process.exit(0);`
+```js
+process.exit(0);
+```
 
 ⚠️ Bad practice unless absolutely required.
 
@@ -240,13 +247,26 @@ This allows Node to close the socket properly.
 
 ## 🧠 Final Beginner Mental Model
 
-`Node.js = Event Loop Manager  If ANY handle is alive: → Node stays alive  If NOTHING is alive: → Node exits`
+```js
+Node.js = Event Loop Manager
+
+If ANY handle is alive:
+→ Node stays alive
+
+If NOTHING is alive:
+→ Node exits
+```
 
 ---
 
 ## ✅ Final Corrected Version (BEST PRACTICE)
 
-`https.get("https://dummyjson.com/products/1", (res) => {   res.resume();   console.log("data fetched successfully"); });`
+```js
+https.get("https://dummyjson.com/products/1", (res) => {
+  res.resume();
+  console.log("data fetched successfully");
+});
+```
 
 ---
 
