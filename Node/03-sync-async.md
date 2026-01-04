@@ -114,6 +114,9 @@ console.log("C");
 **Output**
 
 ```sh
+A
+B
+C
 ```
 
 ---
@@ -122,13 +125,31 @@ console.log("C");
 
 #### TEXT DIAGRAM – SYNC EXECUTION
 
-`MAIN THREAD │ │  console.log("A")  ← executed │  console.log("B")  ← executed │  console.log("C")  ← executed │ END`
+```js
+MAIN THREAD
+│
+│  console.log("A")  ← executed
+│  console.log("B")  ← executed
+│  console.log("C")  ← executed
+│
+END
+```
 
 ---
 
 ### 📌 Call Stack View
 
-`Call Stack ────────────── | log("A")    | ────────────── | log("B")    | ────────────── | log("C")    | ────────────── (empty)`
+```js
+Call Stack
+──────────────
+| log("A")    |
+──────────────
+| log("B")    |
+──────────────
+| log("C")    |
+──────────────
+(empty)
+```
 
 📌 The Call Stack works on **LIFO (Last In, First Out)** principle.
 
@@ -136,7 +157,15 @@ console.log("C");
 
 ### 📌 Blocking Example (Very Important)
 
-`function heavyTask() {   for (let i = 0; i < 1e9; i++) {} }  console.log("Start"); heavyTask(); console.log("End");`
+```js
+function heavyTask() {
+  for (let i = 0; i < 1e9; i++) {}
+}
+
+console.log("Start");
+heavyTask();
+console.log("End");
+```
 
 **Explanation:**
 
@@ -200,17 +229,36 @@ Because:
 
 ### 📌 Example
 
-`console.log("Start");  setTimeout(() => {   console.log("Timer"); }, 0);  console.log("End");`
+```js
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Timer");
+}, 0);
+
+console.log("End");
+```
 
 ---
 
 ### 📌 Step 1: Sync Phase (Call Stack)
 
-`Call Stack ────────────── | log("Start")| ────────────── | setTimeout  | ────────────── | log("End")  | ────────────── (empty)`
+```js
+Call Stack
+──────────────
+| log("Start")|
+──────────────
+| setTimeout  |
+──────────────
+| log("End")  |
+──────────────
+(empty)
+```
 
 **Output so far**
 
-`Start End`
+```sh
+```
 
 ---
 
