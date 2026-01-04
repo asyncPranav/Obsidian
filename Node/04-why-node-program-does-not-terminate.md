@@ -118,6 +118,18 @@ https.get("https://dummyjson.com/products/1", (res) => {
 
 👉 **This keeps the event loop alive**
 
+**OR**
+
+- `https.get()` returns a **response stream**
+    
+- You **never read the data**
+    
+- You **never close / drain the stream**
+    
+- The underlying **TCP socket stays open**
+    
+- Node sees an active handle → **process stays alive**
+
 ---
 
 ## 3️⃣ `setTimeout`
