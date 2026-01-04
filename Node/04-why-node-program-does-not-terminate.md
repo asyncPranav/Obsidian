@@ -87,7 +87,7 @@ If **even ONE** thing is still active → process stays alive
 ## 1️⃣ Sync Code (Immediate Execution)
 
 ```js
-
+console.log("async.js file running");
 ```
 
 ✔ Printed  
@@ -97,7 +97,11 @@ If **even ONE** thing is still active → process stays alive
 
 ## 2️⃣ `https.get()` (MOST IMPORTANT)
 
-`https.get("https://dummyjson.com/products/1", (res) => {   console.log("data fetched successfully"); });`
+```js
+https.get("https://dummyjson.com/products/1", (res) => {
+  console.log("data fetched successfully");
+});
+```
 
 ### What really happens internally:
 
@@ -118,7 +122,11 @@ If **even ONE** thing is still active → process stays alive
 
 ## 3️⃣ `setTimeout`
 
-`setTimeout(() => {   console.log("settimeout called after 5 seconds"); }, 5000);`
+```js
+setTimeout(() => {
+  console.log("settimeout called after 5 seconds");
+}, 5000);
+```
 
 - Timer registered
     
@@ -133,7 +141,11 @@ If **even ONE** thing is still active → process stays alive
 
 ## 4️⃣ `fs.readFile`
 
-`fs.readFile("./file.txt", "utf8", (err, data) => {   console.log("file data : " + data); });`
+```js
+fs.readFile("./file.txt", "utf8", (err, data) => {
+  console.log("file data : " + data);
+});
+```
 
 - File read using libuv thread pool
     
@@ -163,7 +175,13 @@ If **even ONE** thing is still active → process stays alive
 
 ## 🔁 Event Loop View (Text Diagram)
 
-`CALL STACK       → empty MICROTASK QUEUE  → empty MACROTASK QUEUE  → empty THREAD POOL      → empty OPEN SOCKETS     → ❌ STILL OPEN (https)`
+```js
+CALL STACK       → empty
+MICROTASK QUEUE  → empty
+MACROTASK QUEUE  → empty
+THREAD POOL      → empty
+OPEN SOCKETS     → ❌ STILL OPEN (https)
+```
 
 ➡️ Node stays alive
 
@@ -173,7 +191,15 @@ If **even ONE** thing is still active → process stays alive
 
 ### 🔹 Solution 1: Consume & close the response
 
-`https.get("https://dummyjson.com/products/1", (res) => {   res.on("data", () => {});  // consume data    res.on("end", () => {     console.log("data fetched successfully");   }); });`
+```js
+https.get("https://dummyjson.com/products/1", (res) => {
+  res.on("data", () => {});  // consume data
+
+  res.on("end", () => {
+    console.log("data fetched successfully");
+  });
+});
+```
 
 This allows Node to close the socket properly.
 
