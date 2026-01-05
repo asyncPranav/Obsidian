@@ -3,7 +3,9 @@
 
 # 📁 Node.js `fs` Module – MOST IMPORTANT METHODS (FULL NOTES)
 
-`const fs = require("fs");`
+```js
+const fs = require("fs");
+```
 
 ---
 
@@ -19,7 +21,9 @@ If encoding is not provided, it returns a **Buffer**.
 
 ### 🧠 Syntax
 
-`fs.readFile(path, [options], callback)`
+```js
+fs.readFile(path, [options], callback)
+```
 
 ### Parameters
 
@@ -31,21 +35,38 @@ If encoding is not provided, it returns a **Buffer**.
 
 **options (optional):**
 
-`"utf8"`
+```js
+"utf8"
+```
 
 OR
 
-`{ encoding: "utf8", flag: "r" }`
+```js
+{ encoding: "utf8", flag: "r" }
+```
 
 ---
 
 ### 💻 Code Example
 
-`fs.readFile("data.txt", "utf8", (err, data) => {   if (err) {     console.log(err);     return;   }   console.log("File Content:", data); });  console.log("Reading file...");`
+```js
+fs.readFile("data.txt", "utf8", (err, data) => {
+  if (err) {
+    console.log(err);
+    return;
+  }
+  console.log("File Content:", data);
+});
+
+console.log("Reading file...");
+```
 
 ### 🖥 Output
 
-`Reading file... File Content: Hello Node.js`
+```sh
+Reading file...
+File Content: Hello Node.js
+```
 
 ---
 
