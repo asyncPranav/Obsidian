@@ -303,7 +303,9 @@ if (fs.existsSync("data.txt")) {
 
 ### 🖥 Output
 
-`File exists`
+```sh
+File exists
+```
 
 ---
 
@@ -317,17 +319,28 @@ Returns **metadata information** about a file or directory.
 
 ### 🧠 Syntax
 
-`fs.stat(path, callback)`
+```js
+fs.stat(path, callback)
+```
 
 ---
 
 ### 💻 Code Example
 
-`fs.stat("data.txt", (err, stats) => {   if (err) throw err;   console.log("Is File:", stats.isFile());   console.log("Size:", stats.size); });`
+```js
+fs.stat("data.txt", (err, stats) => {
+  if (err) throw err;
+  console.log("Is File:", stats.isFile());
+  console.log("Size:", stats.size);
+});
+```
 
 ### 🖥 Output
 
-`Is File: true Size: 120`
+```sh
+Is File: true
+Size: 120
+```
 
 ---
 
@@ -342,17 +355,29 @@ Best for **large files**.
 
 ### 🧠 Syntax
 
-`fs.createReadStream(path, [options])`
+```js
+fs.createReadStream(path, [options])
+```
 
 ---
 
 ### 💻 Code Example
 
-`const stream = fs.createReadStream("bigfile.txt", "utf8");  stream.on("data", (chunk) => {   console.log("Chunk received:", chunk); });`
+```js
+const stream = fs.createReadStream("bigfile.txt", "utf8");
+
+stream.on("data", (chunk) => {
+  console.log("Chunk received:", chunk);
+});
+```
 
 ### 🖥 Output
 
-`Chunk received: Hello Chunk received: Node Chunk received: JS`
+```sh
+Chunk received: Hello
+Chunk received: Node
+Chunk received: JS
+```
 
 ---
 
@@ -366,7 +391,9 @@ Writes data to a file **chunk by chunk** using streams.
 
 ### 🧠 Syntax
 
-`fs.createWriteStream(path, [options])`
+```js
+
+```
 
 ---
 
