@@ -166,17 +166,26 @@ Deletes a file **permanently** from the file system.
 
 ### 🧠 Syntax
 
-`fs.unlink(path, callback)`
+```js
+fs.unlink(path, callback)
+```
 
 ---
 
 ### 💻 Code Example
 
-`fs.unlink("delete.txt", (err) => {   if (err) throw err;   console.log("File deleted"); });`
+```js
+fs.unlink("delete.txt", (err) => {
+  if (err) throw err;
+  console.log("File deleted");
+});
+```
 
 ### 🖥 Output
 
-`File deleted`
+```sh
+File deleted
+```
 
 ---
 
@@ -191,21 +200,35 @@ Can create **nested directories** using `recursive: true`.
 
 ### 🧠 Syntax
 
-`fs.mkdir(path, [options], callback)`
+```js
+fs.mkdir(path, [options], callback)
+```
 
 **options (optional):**
 
-`{   recursive: false,   mode: 0o777 }`
+```js
+{
+  recursive: false,
+  mode: 0o777
+}
+```
 
 ---
 
 ### 💻 Code Example
 
-`fs.mkdir("parent/child", { recursive: true }, (err) => {   if (err) throw err;   console.log("Folder created"); });`
+```js
+fs.mkdir("parent/child", { recursive: true }, (err) => {
+  if (err) throw err;
+  console.log("Folder created");
+});
+```
 
 ### 🖥 Output
 
-`Folder created`
+```
+
+```
 
 ---
 
