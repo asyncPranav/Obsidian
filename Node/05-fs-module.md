@@ -392,18 +392,25 @@ Writes data to a file **chunk by chunk** using streams.
 ### 🧠 Syntax
 
 ```js
-
+fs.createWriteStream(path, [options])
 ```
 
 ---
 
 ### 💻 Code Example
 
-`const writeStream = fs.createWriteStream("stream.txt"); writeStream.write("Hello "); writeStream.write("Streams"); writeStream.end();`
+```js
+const writeStream = fs.createWriteStream("stream.txt");
+writeStream.write("Hello ");
+writeStream.write("Streams");
+writeStream.end();
+```
 
 ### 🖥 Output
 
-`stream.txt file created with content`
+```sh
+stream.txt file created with content
+```
 
 ---
 
