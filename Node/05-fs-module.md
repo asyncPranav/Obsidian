@@ -226,8 +226,8 @@ fs.mkdir("parent/child", { recursive: true }, (err) => {
 
 ### 🖥 Output
 
-```
-
+```sh
+Folder created
 ```
 
 ---
@@ -242,21 +242,35 @@ Reads the contents of a directory and returns a **list of files/folders**.
 
 ### 🧠 Syntax
 
-`fs.readdir(path, [options], callback)`
+```
+fs.readdir(path, [options], callback)
+```
 
 **options (optional):**
 
-`{   encoding: "utf8",   withFileTypes: false }`
+```js
+{
+  encoding: "utf8",
+  withFileTypes: false
+}
+```
 
 ---
 
 ### 💻 Code Example
 
-`fs.readdir("./", (err, files) => {   if (err) throw err;   console.log(files); });`
+```js
+fs.readdir("./", (err, files) => {
+  if (err) throw err;
+  console.log(files);
+});
+```
 
 ### 🖥 Output
 
-`[ 'app.js', 'data.txt', 'folder' ]`
+```sh
+[ 'app.js', 'data.txt', 'folder' ]
+```
 
 ---
 
@@ -271,13 +285,21 @@ Returns `true` or `false`.
 
 ### 🧠 Syntax
 
-`fs.existsSync(path)`
+```js
+fs.existsSync(path)
+```
 
 ---
 
 ### 💻 Code Example
 
-`if (fs.existsSync("data.txt")) {   console.log("File exists"); } else {   console.log("File not found"); }`
+```js
+if (fs.existsSync("data.txt")) {
+  console.log("File exists");
+} else {
+  console.log("File not found");
+}
+```
 
 ### 🖥 Output
 
