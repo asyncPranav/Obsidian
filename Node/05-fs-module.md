@@ -441,3 +441,20 @@ stream.txt file created with content
 |stat|File info|
 |createReadStream|Read large file|
 |createWriteStream|Write large file|
+
+---
+
+## **🧠 CRAWL-MERS (fs METHODS DIAGRAM)**
+
+```js
+C → Create        → fs.writeFile(), fs.mkdir()
+R → Read          → fs.readFile(), fs.readdir()
+A → Append        → fs.appendFile()
+W → Wipe (Delete) → fs.unlink(), fs.rm()
+L → Look (Check)  → fs.existsSync()
+M → Move/Rename  → fs.rename()
+E → Examine       → fs.stat()
+R → Read Stream  → fs.createReadStream()
+S → Stream Write → fs.createWriteStream()
+
+```
