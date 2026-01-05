@@ -447,14 +447,81 @@ stream.txt file created with content
 ## **🧠 CRAWL-MERS (fs METHODS DIAGRAM)**
 
 ```js
-C → Create        → fs.writeFile(), fs.mkdir()
-R → Read          → fs.readFile(), fs.readdir()
-A → Append        → fs.appendFile()
-W → Wipe (Delete) → fs.unlink(), fs.rm()
-L → Look (Check)  → fs.existsSync()
-M → Move/Rename  → fs.rename()
-E → Examine       → fs.stat()
-R → Read Stream  → fs.createReadStream()
-S → Stream Write → fs.createWriteStream()
-
+C → Create        →  fs.writeFile(), fs.mkdir()
+R → Read          →  fs.readFile(), fs.readdir()
+A → Append        →  fs.appendFile()
+W → Wipe (Delete) →  fs.unlink(), fs.rm()
+L → Look (Check)  →  fs.existsSync()
+M → Move/Rename   →  fs.rename()
+E → Examine       →  fs.stat()
+R → Read Stream   →  fs.createReadStream()
+S → Stream Write  →  fs.createWriteStream()
 ```
+
+## 🔹 FULL MAPPING (ACTION → METHOD)
+
+### **C → Create**
+
+- `fs.writeFile()` → create file
+    
+- `fs.mkdir()` → create folder
+    
+
+---
+
+### **R → Read**
+
+- `fs.readFile()` → read file content
+    
+- `fs.readdir()` → read folder content
+    
+
+---
+
+### **A → Append**
+
+- `fs.appendFile()` → add data to file
+    
+
+---
+
+### **W → Wipe (Delete)**
+
+- `fs.unlink()` → delete file
+    
+- `fs.rm()` → delete file/folder
+    
+
+---
+
+### **L → Look (Check)**
+
+- `fs.existsSync()` → check existence
+    
+
+---
+
+### **M → Move**
+
+- `fs.rename()` → rename or move file
+    
+
+---
+
+### **E → Examine**
+
+- `fs.stat()` → get file info (size, type)
+    
+
+---
+
+### **R → Read Stream**
+
+- `fs.createReadStream()` → read large file
+    
+
+---
+
+### **S → Stream Write**
+
+- `fs.createWriteStream()` → write large file
