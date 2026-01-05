@@ -80,7 +80,9 @@ Creates a **new file or overwrites an existing file** with given data.
 
 ### 🧠 Syntax
 
-`fs.writeFile(file, data, [options], callback)`
+```js
+fs.writeFile(file, data, [options], callback)
+```
 
 ### Parameters
 
@@ -93,17 +95,30 @@ Creates a **new file or overwrites an existing file** with given data.
 
 **options (optional):**
 
-`{   encoding: "utf8",   mode: 0o666,   flag: "w" }`
+```js
+{
+  encoding: "utf8",
+  mode: 0o666,
+  flag: "w"
+}
+```
 
 ---
 
 ### 💻 Code Example
 
-`fs.writeFile("write.txt", "Hello FS Module", (err) => {   if (err) throw err;   console.log("File written successfully"); });`
+```js
+fs.writeFile("write.txt", "Hello FS Module", (err) => {
+  if (err) throw err;
+  console.log("File written successfully");
+});
+```
 
 ### 🖥 Output
 
-`File written successfully`
+```sh
+File written successfully
+```
 
 ---
 
@@ -118,17 +133,26 @@ Mostly used for **logs**.
 
 ### 🧠 Syntax
 
-`fs.appendFile(path, data, [options], callback)`
+```js
+fs.appendFile(path, data, [options], callback)
+```
 
 ---
 
 ### 💻 Code Example
 
-`fs.appendFile("write.txt", "\nNew log entry", (err) => {   if (err) throw err;   console.log("Data appended"); });`
+```js
+fs.appendFile("write.txt", "\nNew log entry", (err) => {
+  if (err) throw err;
+  console.log("Data appended");
+});
+```
 
 ### 🖥 Output
 
-`Data appended`
+```sh
+Data appended
+```
 
 ---
 
