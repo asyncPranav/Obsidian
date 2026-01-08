@@ -495,14 +495,24 @@ Returns network interface details.
 ### Example
 
 ```js
-
+console.log(os.networkInterfaces());
 ```
 
 ---
 
 ### Sample Output (simplified)
 
-`{   Ethernet: [     {       address: '192.168.1.10',       family: 'IPv4',       internal: false     }   ] }`
+```sh
+{
+  Ethernet: [
+    {
+      address: '192.168.1.10',
+      family: 'IPv4',
+      internal: false
+    }
+  ]
+}
+```
 
 ---
 
@@ -525,7 +535,9 @@ Returns default temp directory.
 
 ### Example
 
-`console.log(os.tmpdir());`
+```js
+console.log(os.tmpdir());
+```
 
 ---
 
@@ -548,11 +560,15 @@ Returns CPU byte order.
 
 ### Example
 
-`console.log(os.endianness());`
+```js
+console.log(os.endianness());
+```
 
 ### Output
 
-`LE`
+```sh
+LE
+```
 
 ---
 
@@ -575,7 +591,9 @@ Provides OS-specific constants.
 
 ### Example
 
-`console.log(os.constants.signals.SIGTERM);`
+```js
+console.log(os.constants.signals.SIGTERM);
+```
 
 ---
 
