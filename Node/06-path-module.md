@@ -263,21 +263,29 @@ Creates an **absolute path**.
 
 ### Example 1: Single argument
 
-`console.log(path.resolve("file.txt"));`
+```js
+console.log(path.resolve("file.txt"));
+```
 
 ### Output
 
-`C:\project\file.txt`
+```sh
+C:\project\file.txt
+```
 
 ---
 
 ### Example 2: Multiple arguments
 
-`console.log(path.resolve("src", "utils", "app.js"));`
+```js
+console.log(path.resolve("src", "utils", "app.js"));
+```
 
 ### Output
 
-`C:\project\src\utils\app.js`
+```sh
+C:\project\src\utils\app.js
+```
 
 ---
 
@@ -286,11 +294,15 @@ Creates an **absolute path**.
 - If a segment starts with `/`, everything before it is ignored.
     
 
-`path.resolve("a", "/b", "c");`
+```js
+path.resolve("a", "/b", "c");
+```
 
 Output:
 
-`\b\c`
+```sh
+\b\c
+```
 
 ---
 
@@ -315,7 +327,10 @@ Checks whether a path is **absolute**.
 
 ### Example
 
-`console.log(path.isAbsolute("/user/docs")); console.log(path.isAbsolute("docs/file.txt"));`
+```js
+console.log(path.isAbsolute("/user/docs"));
+console.log(path.isAbsolute("docs/file.txt"));
+```
 
 ### Output
 
