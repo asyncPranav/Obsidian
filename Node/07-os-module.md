@@ -376,7 +376,8 @@ console.log(os.uptime());
 
 ### Convert to hours
 
-```j
+```js
+console.log((os.uptime() / 3600).toFixed(2) + " hours");
 ```
 
 ---
@@ -400,11 +401,21 @@ Returns info about the **current user**.
 
 ### Example
 
-`console.log(os.userInfo());`
+```js
+console.log(os.userInfo());
+```
 
 ### Output
 
-`{   uid: -1,   gid: -1,   username: 'Admin',   homedir: 'C:\\Users\\Admin',   shell: null }`
+```sh
+{
+  uid: -1,
+  gid: -1,
+  username: 'Admin',
+  homedir: 'C:\\Users\\Admin',
+  shell: null
+}
+```
 
 ---
 
@@ -427,11 +438,15 @@ Returns home directory of current user.
 
 ### Example
 
-`console.log(os.homedir());`
+```js
+console.log(os.homedir());
+```
 
 ### Output
 
-`C:\Users\Admin`
+```sh
+C:\Users\Admin
+```
 
 ---
 
@@ -454,7 +469,9 @@ Returns system hostname.
 
 ### Example
 
-`console.log(os.hostname());`
+```js
+console.log(os.hostname());
+```
 
 ---
 
@@ -477,7 +494,9 @@ Returns network interface details.
 
 ### Example
 
-`console.log(os.networkInterfaces());`
+```js
+
+```
 
 ---
 
