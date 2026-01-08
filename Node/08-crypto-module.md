@@ -435,7 +435,11 @@ Memory-hard password hashing algorithm.
 
 ### Example
 
-`crypto.scrypt("password", "salt", 64, (err, key) => {   console.log(key.toString("hex")); });`
+```js
+crypto.scrypt("password", "salt", 64, (err, key) => {
+  console.log(key.toString("hex"));
+});
+```
 
 ---
 
@@ -456,7 +460,11 @@ Used for **digital signatures**.
 
 ### Example (Simple)
 
-`const sign = crypto.createSign("SHA256"); sign.update("important data"); const signature = sign.sign(privateKey, "hex");`
+```js
+const sign = crypto.createSign("SHA256");
+sign.update("important data");
+const signature = sign.sign(privateKey, "hex");
+```
 
 ---
 
@@ -473,7 +481,24 @@ Used for **digital signatures**.
 
 # 🧪 REAL-WORLD MINI PROJECT: Password Hashing
 
-`const crypto = require("crypto");  function hashPassword(password) {   const salt = crypto.randomBytes(16).toString("hex");   const hash = crypto.pbkdf2Sync(password, salt, 100000, 64, "sha512")                     .toString("hex");   return { salt, hash }; }  function verifyPassword(password, salt, hash) {   const verifyHash = crypto.pbkdf2Sync(password, salt, 100000, 64, "sha512")                           .toString("hex");   return verifyHash === hash; }  const user = hashPassword("mypassword"); console.log(user); console.log(verifyPassword("mypassword", user.salt, user.hash));`
+```js
+const crypto = require("crypto");
+
+function hashPassword(password) {
+  const salt = crypto.randomBytes(16).toString("hex");
+  const hash = crypto.pbkdf2Sync(password, salt, 100000, 64, "sha512").toString("hex");
+  return { salt, hash };
+}
+
+function verifyPassword(password, salt, hash) {
+  const verifyHash = crypto.pbkdf2Sync(password, salt, 100000, 64, "sha512").toString("hex");
+  return verifyHash === hash;
+}
+
+const user = hashPassword("mypassword");
+console.log(user);
+console.log(verifyPassword("mypassword", user.salt, user.hash));
+```
 
 ---
 
