@@ -164,21 +164,29 @@ Returns the **extension of a file** (including `.`).
 
 ### Example 1
 
-`console.log(path.extname("image.png"));`
+```js
+console.log(path.extname("image.png"));
+```
 
 ### Output
 
-`.png`
+```sh
+.png
+```
 
 ---
 
 ### Example 2: No extension
 
-`console.log(path.extname("README"));`
+```js
+console.log(path.extname("README"));
+```
 
 ### Output
 
-`(empty string)`
+```sh
+(empty string)
+```
 
 ---
 
@@ -207,21 +215,30 @@ Safely **joins multiple path segments** into one clean path.
 
 ### Example 1: Simple join
 
-`console.log(path.join("user", "docs", "file.txt"));`
+```js
+console.log(path.join("user", "docs", "file.txt"));
+```
 
 ### Output
 
-`user\docs\file.txt   (Windows) user/docs/file.txt  (Linux/Mac)`
+```sh
+user\docs\file.txt   (Windows)
+user/docs/file.txt  (Linux/Mac)
+```
 
 ---
 
 ### Example 2: Messy input
 
-`console.log(path.join("user/", "/docs", "//file.txt"));`
+```js
+console.log(path.join("user/", "/docs", "//file.txt"));
+```
 
 ### Output
 
-`user/docs/file.txt`
+```sh
+user/docs/file.txt
+```
 
 ---
 
