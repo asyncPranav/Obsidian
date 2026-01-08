@@ -321,7 +321,17 @@ Encrypts data using a **key & IV**.
 
 ### Example
 
-`const algorithm = "aes-256-cbc"; const key = crypto.randomBytes(32); const iv = crypto.randomBytes(16);  const cipher = crypto.createCipheriv(algorithm, key, iv); let encrypted = cipher.update("Secret Message", "utf8", "hex"); encrypted += cipher.final("hex");  console.log(encrypted);`
+```js
+const algorithm = "aes-256-cbc";
+const key = crypto.randomBytes(32);
+const iv = crypto.randomBytes(16);
+
+const cipher = crypto.createCipheriv(algorithm, key, iv);
+let encrypted = cipher.update("Secret Message", "utf8", "hex");
+encrypted += cipher.final("hex");
+
+console.log(encrypted);
+```
 
 ---
 
@@ -344,11 +354,19 @@ Decrypts encrypted data.
 
 ### Example
 
-`const decipher = crypto.createDecipheriv(algorithm, key, iv); let decrypted = decipher.update(encrypted, "hex", "utf8"); decrypted += decipher.final("utf8");  console.log(decrypted);`
+```js
+const decipher = crypto.createDecipheriv(algorithm, key, iv);
+let decrypted = decipher.update(encrypted, "hex", "utf8");
+decrypted += decipher.final("utf8");
+
+console.log(decrypted);
+```
 
 ### Output
 
-`Secret Message`
+```sh
+Secret Message
+```
 
 ---
 
@@ -362,7 +380,9 @@ Returns supported hash algorithms.
 
 ### Example
 
-`console.log(crypto.getHashes());`
+```js
+console.log(crypto.getHashes());
+```
 
 ---
 
@@ -383,11 +403,18 @@ Compares two values securely (prevents timing attacks).
 
 ### Example
 
-`const a = Buffer.from("abc"); const b = Buffer.from("abc");  console.log(crypto.timingSafeEqual(a, b));`
+```js
+const a = Buffer.from("abc");
+const b = Buffer.from("abc");
+
+console.log(crypto.timingSafeEqual(a, b));
+```
 
 ### Output
 
-`true`
+```sh
+true
+```
 
 ---
 
