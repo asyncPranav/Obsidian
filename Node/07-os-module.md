@@ -608,7 +608,16 @@ console.log(os.constants.signals.SIGTERM);
 
 # ⭐ REAL-WORLD MINI PROJECT
 
-`const os = require("os");  console.log("System Info"); console.log("OS:", os.type()); console.log("Platform:", os.platform()); console.log("CPU cores:", os.cpus().length); console.log("Total RAM:", (os.totalmem()/1e9).toFixed(2), "GB"); console.log("Free RAM:", (os.freemem()/1e9).toFixed(2), "GB");`
+```js
+const os = require("os");
+
+console.log("System Info");
+console.log("OS:", os.type());
+console.log("Platform:", os.platform());
+console.log("CPU cores:", os.cpus().length);
+console.log("Total RAM:", (os.totalmem()/1e9).toFixed(2), "GB");
+console.log("Free RAM:", (os.freemem()/1e9).toFixed(2), "GB");
+```
 
 ---
 
