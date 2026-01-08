@@ -47,7 +47,9 @@ Without crypto:
 
 ## 3️⃣ Importing crypto module
 
-`const crypto = require("crypto");`
+```js
+const crypto = require("crypto");
+```
 
 No installation needed.
 
@@ -122,7 +124,9 @@ Creates a **hash object** using a hashing algorithm.
 
 ### Syntax
 
-`crypto.createHash(algorithm)`
+```js
+crypto.createHash(algorithm)
+```
 
 Common algorithms:
 
@@ -137,11 +141,21 @@ Common algorithms:
 
 ### Example
 
-`const crypto = require("crypto");  const hash = crypto.createHash("sha256"); hash.update("password123"); const result = hash.digest("hex");  console.log(result);`
+```js
+const crypto = require("crypto");
+
+const hash = crypto.createHash("sha256");
+hash.update("password123");
+const result = hash.digest("hex");
+
+console.log(result);
+```
 
 ### Output (example)
 
-`ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f`
+```sh
+ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f
+```
 
 ---
 
@@ -164,13 +178,19 @@ Creates a **keyed hash** (Hash + Secret key).
 
 ### Syntax
 
-`crypto.createHmac(algorithm, secretKey)`
+```js
+crypto.createHmac(algorithm, secretKey)
+```
 
 ---
 
 ### Example
 
-`const hmac = crypto.createHmac("sha256", "secret-key"); hmac.update("hello"); console.log(hmac.digest("hex"));`
+```js
+const hmac = crypto.createHmac("sha256", "secret-key");
+hmac.update("hello");
+console.log(hmac.digest("hex"));
+```
 
 ---
 
@@ -193,7 +213,9 @@ Generates **cryptographically secure random data**.
 
 ### Example
 
-`crypto.randomBytes(16, (err, buffer) => {   console.log(buffer.toString("hex")); });`
+```js
+
+```
 
 ### Output
 
