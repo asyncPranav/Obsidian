@@ -522,7 +522,10 @@ console.log(path.sep);
 
 ### Output
 
-`\   (Windows) /   (Linux/Mac)`
+```sh
+\   (Windows)
+/   (Linux/Mac)
+```
 
 ---
 
@@ -541,11 +544,16 @@ Separator used in environment variables.
 
 ---
 
-`console.log(path.delimiter);`
+```js
+console.log(path.delimiter);
+```
 
 ### Output
 
-`;  (Windows) :  (Linux/Mac)`
+```sh
+;  (Windows)
+:  (Linux/Mac)
+```
 
 ---
 
@@ -558,7 +566,16 @@ Separator used in environment variables.
 
 # ⭐ BEST PRACTICE EXAMPLE
 
-`const fs = require("fs"); const path = require("path");  const filePath = path.join(__dirname, "data", "info.txt");  fs.readFile(filePath, "utf8", (err, data) => {   console.log(data); });`
+```js
+const fs = require("fs");
+const path = require("path");
+
+const filePath = path.join(__dirname, "data", "info.txt");
+
+fs.readFile(filePath, "utf8", (err, data) => {
+  console.log(data);
+});
+```
 
 ✔ Works on all OS  
 ✔ Production safe
