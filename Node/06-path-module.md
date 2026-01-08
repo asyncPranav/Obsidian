@@ -98,10 +98,15 @@ file.txt
 
 ### Example 2: Remove extension
 
+```js
+console.log(path.basename(filePath, ".txt"));
+```
 
 ### Output
 
-`file`
+```js
+file
+```
 
 ---
 
@@ -126,11 +131,17 @@ Returns the **directory (folder) portion** of a path.
 
 ### Example
 
-`const dir = path.dirname("/user/docs/file.txt"); console.log(dir);`
+```js
+const dir = path.dirname("/user/docs/file.txt");
+console.log(dir);
+```
+``
 
 ### Output
 
-`/user/docs`
+```sh
+/user/docs
+```
 
 ---
 
