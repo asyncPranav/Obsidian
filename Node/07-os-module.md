@@ -43,13 +43,19 @@ In real applications, we often need to:
 
 📌 Example:
 
-`if (os.platform() === "win32") {   // Windows-specific logic }`
+```js
+if (os.platform() === "win32") {
+  // Windows-specific logic
+}
+```
 
 ---
 
 ## 3️⃣ Importing the os module
 
-`const os = require("os");`
+```js
+const os = require("os");
+```
 
 No installation needed.
 
@@ -87,11 +93,18 @@ Returns the **platform** on which Node.js is running.
 
 ### Example
 
-`const os = require("os"); console.log(os.platform());`
+```js
+const os = require("os");
+console.log(os.platform());
+```
 
 ### Output
 
-`win32    → Windows linux    → Linux darwin   → macOS`
+```sh
+win32    → Windows
+linux    → Linux
+darwin   → macOS
+```
 
 ---
 
@@ -114,7 +127,9 @@ Returns the **OS name**.
 
 ### Example
 
-`console.log(os.type());`
+```js
+console.log(os.type());
+```
 
 ### Output
 
