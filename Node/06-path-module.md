@@ -334,7 +334,10 @@ console.log(path.isAbsolute("docs/file.txt"));
 
 ### Output
 
-`true false`
+```sh
+true
+false
+```
 
 ---
 
@@ -357,11 +360,22 @@ Breaks a path into an **object with useful properties**.
 
 ### Example
 
-`const result = path.parse("/user/docs/file.txt"); console.log(result);`
+```js
+const result = path.parse("/user/docs/file.txt");
+console.log(result);
+```
 
 ### Output
 
-`{   root: '/',   dir: '/user/docs',   base: 'file.txt',   ext: '.txt',   name: 'file' }`
+```sh
+{
+  root: '/',
+  dir: '/user/docs',
+  base: 'file.txt',
+  ext: '.txt',
+  name: 'file'
+}
+```
 
 ---
 
@@ -386,11 +400,21 @@ Builds a path **from an object**.
 
 ### Example
 
-`const obj = {   dir: "/user/docs",   name: "file",   ext: ".txt" };  console.log(path.format(obj));`
+```js
+const obj = {
+  dir: "/user/docs",
+  name: "file",
+  ext: ".txt"
+};
+
+console.log(path.format(obj));
+```
 
 ### Output
 
-`/user/docs/file.txt`
+```sh
+/user/docs/file.txt
+```
 
 ---
 
