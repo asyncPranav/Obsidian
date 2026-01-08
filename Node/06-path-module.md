@@ -442,11 +442,15 @@ Cleans up a path by:
 
 ### Example
 
-`console.log(path.normalize("/user//docs/../file.txt"));`
+```js
+console.log(path.normalize("/user//docs/../file.txt"));
+```
 
 ### Output
 
-`/user/file.txt`
+```sh
+/user/file.txt
+```
 
 ---
 
@@ -469,21 +473,29 @@ Returns a **relative path** from one location to another.
 
 ### Example
 
-`console.log(path.relative("/user/docs", "/user/docs/file.txt"));`
+```js
+console.log(path.relative("/user/docs", "/user/docs/file.txt"));
+```
 
 ### Output
 
-`file.txt`
+```sh
+file.txt
+```
 
 ---
 
 ### Example 2
 
-`console.log(path.relative("/user/docs", "/user/images/photo.png"));`
+```js
+console.log(path.relative("/user/docs", "/user/images/photo.png"));
+```
 
 ### Output
 
-`../images/photo.png`
+```sh
+../images/photo.png
+```
 
 ---
 
@@ -504,7 +516,9 @@ Returns OS-specific path separator.
 
 ---
 
-`console.log(path.sep);`
+```js
+console.log(path.sep);
+```
 
 ### Output
 
