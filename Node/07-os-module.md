@@ -231,7 +231,22 @@ console.log(cpus);
 
 ### Sample Output (simplified)
 
-`[   {     model: 'Intel(R) Core(TM) i7',     speed: 2600,     times: {       user: 123456,       nice: 0,       sys: 34567,       idle: 987654,       irq: 0     }   },   ... ]`
+```sh
+[
+  {
+    model: 'Intel(R) Core(TM) i7',
+    speed: 2600,
+    times: {
+      user: 123456,
+      nice: 0,
+      sys: 34567,
+      idle: 987654,
+      irq: 0
+    }
+  },
+  ...
+]
+```
 
 ---
 
@@ -248,11 +263,15 @@ console.log(cpus);
 
 ### Example: Number of cores
 
-`console.log(os.cpus().length);`
+```js
+console.log(os.cpus().length);
+```
 
 ### Output
 
-`8`
+```sh
+8
+```
 
 ---
 
@@ -277,11 +296,15 @@ Returns total system memory in **bytes**.
 
 ### Example
 
-`console.log(os.totalmem());`
+```js
+console.log(os.totalmem());
+```
 
 ### Output
 
-`17179869184`
+```sh
+17179869184
+```
 
 ---
 
