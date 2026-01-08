@@ -133,7 +133,11 @@ console.log(os.type());
 
 ### Output
 
-`Windows_NT Linux Darwin`
+```sh
+Windows_NT
+Linux
+Darwin
+```
 
 ---
 
@@ -156,11 +160,15 @@ Returns the **OS version**.
 
 ### Example
 
-`console.log(os.release());`
+```js
+console.log(os.release());
+```
 
 ### Output
 
-`10.0.22631`
+```sh
+10.0.22631
+```
 
 ---
 
@@ -183,11 +191,17 @@ Returns the **CPU architecture**.
 
 ### Example
 
-`console.log(os.arch());`
+```js
+console.log(os.arch());
+```
 
 ### Output
 
-`x64 arm arm64`
+```sh
+x64
+arm
+arm64
+```
 
 ---
 
@@ -210,7 +224,10 @@ Returns **information about each CPU core**.
 
 ### Example
 
-`const cpus = os.cpus(); console.log(cpus);`
+```js
+const cpus = os.cpus();
+console.log(cpus);
+```
 
 ### Sample Output (simplified)
 
