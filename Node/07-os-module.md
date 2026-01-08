@@ -310,7 +310,9 @@ console.log(os.totalmem());
 
 ### Convert to GB
 
-`console.log((os.totalmem() / 1024 / 1024 / 1024).toFixed(2) + " GB");`
+```js
+console.log((os.totalmem() / 1024 / 1024 / 1024).toFixed(2) + " GB");
+```
 
 ---
 
@@ -333,13 +335,17 @@ Returns available free memory in **bytes**.
 
 ### Example
 
-`console.log(os.freemem());`
+```js
+console.log(os.freemem());
+```
 
 ---
 
 ### Convert to GB
 
-`console.log((os.freemem() / 1024 / 1024 / 1024).toFixed(2) + " GB");`
+```js
+console.log((os.freemem() / 1024 / 1024 / 1024).toFixed(2) + " GB");
+```
 
 ---
 
@@ -362,13 +368,16 @@ Returns system uptime in **seconds**.
 
 ### Example
 
-`console.log(os.uptime());`
+```js
+console.log(os.uptime());
+```
 
 ---
 
 ### Convert to hours
 
-`console.log((os.uptime() / 3600).toFixed(2) + " hours");`
+```j
+```
 
 ---
 
