@@ -214,18 +214,25 @@ Generates **cryptographically secure random data**.
 ### Example
 
 ```js
-
+crypto.randomBytes(16, (err, buffer) => {
+  console.log(buffer.toString("hex"));
+});
 ```
 
 ### Output
 
-`9f86d081884c7d659a2feaa0c55ad015`
+```sh
+9f86d081884c7d659a2feaa0c55ad015
+```
 
 ---
 
 ### Sync version
 
-`const buf = crypto.randomBytes(8); console.log(buf.toString("hex"));`
+```js
+const buf = crypto.randomBytes(8);
+console.log(buf.toString("hex"));
+```
 
 ---
 
@@ -252,25 +259,44 @@ This is **slow on purpose** → more secure.
 
 ### Syntax
 
-`crypto.pbkdf2(password, salt, iterations, keylen, digest, callback)`
+```js
+crypto.pbkdf2(password, salt, iterations, keylen, digest, callback)
+```
 
 ---
 
 ### Example (Async)
 
-`crypto.pbkdf2("mypassword", "salt123", 100000, 64, "sha512",   (err, derivedKey) => {     console.log(derivedKey.toString("hex")); });`
+```js
+crypto.pbkdf2("mypassword", "salt123", 100000, 64, "sha512",
+  (err, derivedKey) => {
+    console.log(derivedKey.toString("hex"));
+});
+```
 
 ---
 
 ### Sync version
 
-`const key = crypto.pbkdf2Sync(   "mypassword",   "salt123",   100000,   64,   "sha512" );  console.log(key.toString("hex"));`
+```js
+const key = crypto.pbkdf2Sync(
+  "mypassword",
+  "salt123",
+  100000,
+  64,
+  "sha512"
+);
+
+console.log(key.toString("hex"));
+```
 
 ---
 
 ### Output
 
-`a5d7c9c2b1f4...`
+```sh
+a5d7c9c2b1f4...
+```
 
 ---
 
