@@ -53,7 +53,9 @@ C:\project\src\index.js
 
 Path relative to current working directory.
 
-`src/index.js`
+```js
+src/index.js
+```
 
 ---
 
@@ -71,23 +73,31 @@ Returns the **last part of the path**, usually the **file name**.
 
 ### Syntax
 
-`path.basename(path, [extension])`
+```js
+path.basename(path, [extension])
+```
 
 ---
 
 ### Example 1: Basic usage
 
-`const path = require("path");  const filePath = "/user/docs/file.txt"; console.log(path.basename(filePath));`
+```js
+const path = require("path");
+
+const filePath = "/user/docs/file.txt";
+console.log(path.basename(filePath));
+```
 
 ### Output
 
-`file.txt`
+```js
+file.txt
+```
 
 ---
 
 ### Example 2: Remove extension
 
-`console.log(path.basename(filePath, ".txt"));`
 
 ### Output
 
