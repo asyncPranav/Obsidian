@@ -283,13 +283,23 @@ console.log(req.headers["user-agent"]);
 
 ### 🔹 Example
 
-`res.statusCode = 404; res.end("Not Found");`
+```js
+res.statusCode = 404;
+res.end("Not Found");
+```
 
 ---
 
 ## 1️⃣2️⃣ Serving Files using Stream (BEST PRACTICE)
 
-`const fs = require("fs");  http.createServer((req, res) => {   const stream = fs.createReadStream("file.txt");   stream.pipe(res); });`
+```js
+const fs = require("fs");
+
+http.createServer((req, res) => {
+  const stream = fs.createReadStream("file.txt");
+  stream.pipe(res);
+});
+```
 
 ✔ Efficient  
 ✔ Low memory  
@@ -301,13 +311,33 @@ console.log(req.headers["user-agent"]);
 
 ### 🔹 `http.get()` (GET request)
 
-`http.get("http://example.com", res => {   res.on("data", chunk => {     console.log(chunk.toString());   }); });`
+```js
+http.get("http://example.com", res => {
+  res.on("data", chunk => {
+    console.log(chunk.toString());
+  });
+});
+```
 
 ---
 
 ### 🔹 `http.request()` (Custom request)
 
-`const options = {   hostname: "example.com",   path: "/",   method: "GET" };  const req = http.request(options, res => {   res.on("data", chunk => {     console.log(chunk.toString());   }); });  req.end();`
+```js
+const options = {
+  hostname: "example.com",
+  path: "/",
+  method: "GET"
+};
+
+const req = http.request(options, res => {
+  res.on("data", chunk => {
+    console.log(chunk.toString());
+  });
+});
+
+req.end();
+```
 
 ---
 
@@ -317,7 +347,15 @@ console.log(req.headers["user-agent"]);
 
 Uses **SSL/TLS encryption**.
 
-`const https = require("https");  https.get("https://dummyjson.com/products/1", res => {   res.on("data", chunk => {     console.log(chunk.toString());   }); });`
+```js
+const https = require("https");
+
+https.get("https://dummyjson.com/products/1", res => {
+  res.on("data", chunk => {
+    console.log(chunk.toString());
+  });
+});
+```
 
 ---
 
