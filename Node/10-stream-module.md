@@ -186,19 +186,28 @@ Used to **write data chunk by chunk**.
 
 ### 🔹 Create Writable Stream
 
-`const fs = require("fs");  const writeStream = fs.createWriteStream("output.txt");`
+```js
+const fs = require("fs");
+
+const writeStream = fs.createWriteStream("output.txt");
+```
 
 ---
 
 ### 🔹 Writing Data
 
-`writeStream.write("Hello "); writeStream.write("World");`
+```js
+writeStream.write("Hello ");
+writeStream.write("World");
+```
 
 ---
 
 ### 🔹 Ending the Stream
 
-`writeStream.end();`
+```js
+writeStream.end();
+```
 
 ---
 
@@ -208,13 +217,30 @@ Used to **write data chunk by chunk**.
 
 Triggered when writing is done.
 
-`writeStream.on("finish", () => {   console.log("Writing finished"); });`
+```js
+writeStream.on("finish", () => {
+  console.log("Writing finished");
+});
+```
 
 ---
 
 ### 🔹 Complete Writable Example
 
-`const fs = require("fs");  const writeStream = fs.createWriteStream("output.txt");  writeStream.write("Node "); writeStream.write("Streams");  writeStream.end();  writeStream.on("finish", () => {   console.log("Data written successfully"); });`
+```js
+const fs = require("fs");
+
+const writeStream = fs.createWriteStream("output.txt");
+
+writeStream.write("Node ");
+writeStream.write("Streams");
+
+writeStream.end();
+
+writeStream.on("finish", () => {
+  console.log("Data written successfully");
+});
+```
 
 ---
 
@@ -236,7 +262,9 @@ Node handles everything.
 
 ### 🔹 Syntax
 
-`readableStream.pipe(writableStream);`
+```js
+readableStream.pipe(writableStream);
+```
 
 ---
 
