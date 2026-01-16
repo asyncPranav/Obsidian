@@ -116,7 +116,15 @@ Hello from Node Server
 
 ### 🔹 Example: Access request info
 
-`http.createServer((req, res) => {   console.log(req.url);   console.log(req.method);   console.log(req.headers);    res.end("Check console"); });`
+```js
+http.createServer((req, res) => {
+  console.log(req.url);
+  console.log(req.method);
+  console.log(req.headers);
+
+  res.end("Check console");
+});
+```
 
 ---
 
@@ -141,7 +149,14 @@ Used to **send response back to client**.
 
 ### 🔹 Example: Sending JSON response
 
-`http.createServer((req, res) => {   res.setHeader("Content-Type", "application/json");   res.statusCode = 200;    res.end(JSON.stringify({ msg: "Hello API" })); });`
+```js
+http.createServer((req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  res.statusCode = 200;
+
+  res.end(JSON.stringify({ msg: "Hello API" }));
+});
+```
 
 ---
 
@@ -153,7 +168,18 @@ Used to **send response back to client**.
 
 ### 🔹 Basic Routing Example
 
-`http.createServer((req, res) => {   if (req.url === "/") {     res.end("Home Page");   } else if (req.url === "/about") {     res.end("About Page");   } else {     res.statusCode = 404;     res.end("Page Not Found");   } });`
+```js
+http.createServer((req, res) => {
+  if (req.url === "/") {
+    res.end("Home Page");
+  } else if (req.url === "/about") {
+    res.end("About Page");
+  } else {
+    res.statusCode = 404;
+    res.end("Page Not Found");
+  }
+});
+```
 
 ---
 
