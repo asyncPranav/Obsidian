@@ -32,9 +32,12 @@ https → Secure (encrypted using SSL/TLS)
 ```txt
 Client (Browser / Postman)
 	|
-    ↓ request
+	| request
+    ↓ 
 Server (Node.js http)
-    ↓ response
+	|
+	| response
+    ↓ 
 Client
 ```
 
@@ -53,7 +56,10 @@ Every request has:
 
 ## 3️⃣ Importing the Module
 
-`const http = require("http"); const https = require("https");`
+```js
+const http = require("http");
+const https = require("https");
+```
 
 ---
 
