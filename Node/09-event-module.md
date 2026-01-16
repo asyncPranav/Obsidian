@@ -375,7 +375,9 @@ console.log(emitter.eventNames());
 
 ### Output
 
-`[ 'login', 'logout' ]`
+```sh
+[ 'login', 'logout' ]
+```
 
 ---
 
@@ -391,7 +393,9 @@ Default = **10**
 
 ### Example
 
-`emitter.setMaxListeners(20);`
+```js
+emitter.setMaxListeners(20);
+```
 
 ---
 
@@ -403,7 +407,9 @@ Prevents **memory leaks**
 
 ## 🔹 10. `emitter.getMaxListeners()`
 
-`console.log(emitter.getMaxListeners());`
+```js
+console.log(emitter.getMaxListeners());
+```
 
 ---
 
@@ -421,13 +427,21 @@ If `error` event is emitted and **no listener exists**, Node.js crashes.
 
 ### Example
 
-`emitter.on("error", (err) => {   console.log("Error occurred:", err.message); });  emitter.emit("error", new Error("Something broke"));`
+```js
+emitter.on("error", (err) => {
+  console.log("Error occurred:", err.message);
+});
+
+emitter.emit("error", new Error("Something broke"));
+```
 
 ---
 
 ### Output
 
-`Error occurred: Something broke`
+```sh
+Error occurred: Something broke
+```
 
 ---
 
@@ -446,7 +460,12 @@ If `error` event is emitted and **no listener exists**, Node.js crashes.
 
 ### Example
 
-`emitter.on("event", () => console.log("First")); emitter.on("event", () => console.log("Second"));  emitter.emit("event");`
+```js
+emitter.on("event", () => console.log("First"));
+emitter.on("event", () => console.log("Second"));
+
+emitter.emit("event");
+```
 
 ---
 
