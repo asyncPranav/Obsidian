@@ -368,13 +368,20 @@ https.get("https://dummyjson.com/products/1", res => {
 
 👉 That’s why we use:
 
-`req.on("data") res.write()`
+```js
+req.on("data")
+res.write()
+```
 
 ---
 
 ## 1️⃣6️⃣ Error Handling
 
-`server.on("error", err => {   console.log("Server error:", err); });`
+```js
+server.on("error", err => {
+  console.log("Server error:", err);
+});
+```
 
 ---
 
