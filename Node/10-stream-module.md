@@ -1,7 +1,7 @@
 
 ---
 
-# 📦 Node.js `stream` Module — COMPLETE NOTES (Beginner Friendly)
+# 📦 Node.js `stream` Module — COMPLETE NOTES 
 
 ---
 
@@ -31,7 +31,11 @@ Imagine watching a YouTube video:
 
 ### ❌ Without streams
 
-`fs.readFile("bigfile.mp4", (err, data) => {   // loads entire file into memory });`
+```js
+fs.readFile("bigfile.mp4", (err, data) => {
+  // loads entire file into memory
+});
+```
 
 Problems:
 
@@ -44,7 +48,9 @@ Problems:
 
 ### ✅ With streams
 
-`fs.createReadStream("bigfile.mp4");`
+```js
+fs.createReadStream("bigfile.mp4");
+```
 
 Benefits:
 
@@ -63,7 +69,12 @@ Benefits:
 
 Node.js has **4 types of streams** 👇
 
-`1. Readable  → Read data 2. Writable  → Write data 3. Duplex    → Read + Write 4. Transform → Modify data while reading/writing`
+```txt
+1. Readable  → Read data
+2. Writable  → Write data
+3. Duplex    → Read + Write
+4. Transform → Modify data while reading/writing
+```
 
 ---
 
@@ -86,7 +97,11 @@ Used to **read data chunk by chunk**.
 
 ### 🔹 Create Readable Stream (File)
 
-`const fs = require("fs");  const readStream = fs.createReadStream("file.txt");`
+```js
+const fs = require("fs");
+
+const readStream = fs.createReadStream("file.txt");
+```
 
 ---
 
