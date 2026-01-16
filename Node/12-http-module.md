@@ -67,15 +67,31 @@ const https = require("https");
 
 ### 🔹 Syntax
 
-`http.createServer((req, res) => {   // handle request });`
+```js
+http.createServer((req, res) => {
+  // handle request
+});
+```
 
 ### 🔹 Simple Server Example
 
-`const http = require("http");  const server = http.createServer((req, res) => {   res.end("Hello from Node Server"); });  server.listen(3000, () => {   console.log("Server running on port 3000"); });`
+```js
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  res.end("Hello from Node Server");
+});
+
+server.listen(3000, () => {
+  console.log("Server running on port 3000");
+});
+```
 
 ### 📤 Output (browser)
 
-`Hello from Node Server`
+```sh
+Hello from Node Server
+```
 
 ---
 
