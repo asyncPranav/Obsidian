@@ -471,13 +471,23 @@ emitter.emit("event");
 
 ### Output
 
-`First Second`
+```sh
+First
+Second
+```
 
 ---
 
 # 🔀 Events + Async Code
 
-`emitter.on("asyncEvent", async () => {   await new Promise(res => setTimeout(res, 1000));   console.log("Async done"); });  emitter.emit("asyncEvent");`
+```js
+emitter.on("asyncEvent", async () => {
+  await new Promise(res => setTimeout(res, 1000));
+  console.log("Async done");
+});
+
+emitter.emit("asyncEvent");
+```
 
 ---
 
@@ -498,7 +508,16 @@ Many Node.js classes extend EventEmitter:
 
 ### Example
 
-`const EventEmitter = require("events");  class MyEmitter extends EventEmitter {}  const myEmitter = new MyEmitter();  myEmitter.on("hello", () => console.log("Hello!")); myEmitter.emit("hello");`
+```js
+const EventEmitter = require("events");
+
+class MyEmitter extends EventEmitter {}
+
+const myEmitter = new MyEmitter();
+
+myEmitter.on("hello", () => console.log("Hello!"));
+myEmitter.emit("hello");
+```
 
 ---
 
@@ -508,19 +527,31 @@ Many Node.js classes extend EventEmitter:
 
 ## Example 1: Login System
 
-``emitter.on("login", user => {   console.log(`${user} logged in`); });  emitter.emit("login", "Pranav");``
+```js
+emitter.on("login", user => {
+  console.log(`${user} logged in`);
+});
+
+emitter.emit("login", "Pranav");
+```
 
 ---
 
 ## Example 2: File Upload Progress
 
-``emitter.on("progress", percent => {   console.log(`Uploaded ${percent}%`); });``
+```js
+emitter.on("progress", percent => {
+  console.log(`Uploaded ${percent}%`);
+});
+```
 
 ---
 
 ## Example 3: Order Processing
 
-`orderPlaced → paymentDone → shipped → delivered`
+```js
+orderPlaced → paymentDone → shipped → delivered
+```
 
 Each step = event
 
