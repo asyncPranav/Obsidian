@@ -196,7 +196,15 @@ http.createServer((req, res) => {
 
 ### 🔹 Method Handling Example
 
-`http.createServer((req, res) => {   if (req.method === "GET") {     res.end("GET request");   } else if (req.method === "POST") {     res.end("POST request");   } });`
+```js
+http.createServer((req, res) => {
+  if (req.method === "GET") {
+    res.end("GET request");
+  } else if (req.method === "POST") {
+    res.end("POST request");
+  }
+});
+```
 
 ---
 
@@ -210,7 +218,20 @@ Request body comes as **stream (chunks)**.
 
 ### 🔹 Reading POST body
 
-`http.createServer((req, res) => {   let body = "";    req.on("data", chunk => {     body += chunk;   });    req.on("end", () => {     console.log(body);     res.end("Data received");   }); });`
+```js
+http.createServer((req, res) => {
+  let body = "";
+
+  req.on("data", chunk => {
+    body += chunk;
+  });
+
+  req.on("end", () => {
+    console.log(body);
+    res.end("Data received");
+  });
+});
+```
 
 ---
 
@@ -233,13 +254,17 @@ Examples:
 
 ### 🔹 Setting headers
 
-`res.setHeader("Content-Type", "text/plain");`
+```js
+res.setHeader("Content-Type", "text/plain");
+```
 
 ---
 
 ### 🔹 Reading headers
 
-`console.log(req.headers["user-agent"]);`
+```js
+console.log(req.headers["user-agent"]);
+```
 
 ---
 
