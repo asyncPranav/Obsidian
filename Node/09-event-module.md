@@ -72,7 +72,9 @@ So instead of waiting, Node.js:
 
 ## 4️⃣ Importing the events module
 
-`const EventEmitter = require("events");`
+```js
+const EventEmitter = require("events");
+```
 
 ---
 
@@ -91,7 +93,9 @@ We create objects from it to:
 
 ### Creating an EventEmitter object
 
-`const emitter = new EventEmitter();`
+```js
+const emitter = new EventEmitter();
+```
 
 ---
 
@@ -121,19 +125,32 @@ Registers a **listener** for an event.
 
 ### Syntax
 
-`emitter.on(eventName, callback)`
+```js
+emitter.on(eventName, callback)
+```
 
 ---
 
 ### Example
 
-`const EventEmitter = require("events"); const emitter = new EventEmitter();  emitter.on("greet", () => {   console.log("Hello User!"); });  emitter.emit("greet");`
+```js
+const EventEmitter = require("events");
+const emitter = new EventEmitter();
+
+emitter.on("greet", () => {
+  console.log("Hello User!");
+});
+
+emitter.emit("greet");
+```
 
 ---
 
 ### Output
 
-`Hello User!`
+```js
+Hello User!
+```
 
 ---
 
