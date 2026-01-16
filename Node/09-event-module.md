@@ -148,7 +148,7 @@ emitter.emit("greet");
 
 ### Output
 
-```js
+```sh
 Hello User!
 ```
 
@@ -173,13 +173,21 @@ Triggers an event.
 
 ### Example with data passing
 
-`emitter.on("sum", (a, b) => {   console.log(a + b); });  emitter.emit("sum", 10, 20);`
+```js
+emitter.on("sum", (a, b) => {
+  console.log(a + b);
+});
+
+emitter.emit("sum", 10, 20);
+```
 
 ---
 
 ### Output
 
-`30`
+```sh
+30
+```
 
 ---
 
@@ -200,13 +208,22 @@ Runs listener **only one time**.
 
 ### Example
 
-`emitter.once("login", () => {   console.log("User logged in"); });  emitter.emit("login"); emitter.emit("login");`
+```js
+emitter.once("login", () => {
+  console.log("User logged in");
+});
+
+emitter.emit("login");
+emitter.emit("login");
+```
 
 ---
 
 ### Output
 
-`User logged in`
+```sh
+User logged in
+```
 
 ---
 
@@ -227,13 +244,23 @@ Removes a specific listener.
 
 ### Example
 
-`function handler() {   console.log("Event handled"); }  emitter.on("test", handler); emitter.off("test", handler);  emitter.emit("test");`
+```js
+function handler() {
+  console.log("Event handled");
+}
+
+emitter.on("test", handler);
+emitter.off("test", handler);
+
+emitter.emit("test");
+```
 
 ---
 
 ### Output
 
-`(no output)`
+```sh
+```
 
 ---
 
