@@ -270,7 +270,14 @@ readableStream.pipe(writableStream);
 
 ### 🔹 File Copy Example (BEST EXAMPLE)
 
-`const fs = require("fs");  const readStream = fs.createReadStream("source.txt"); const writeStream = fs.createWriteStream("dest.txt");  readStream.pipe(writeStream);`
+```js
+const fs = require("fs");
+
+const readStream = fs.createReadStream("source.txt");
+const writeStream = fs.createWriteStream("dest.txt");
+
+readStream.pipe(writeStream);
+```
 
 ✔ Efficient  
 ✔ Fast  
@@ -295,7 +302,23 @@ Can **read and write both**.
 
 ### 🔹 Example (basic concept)
 
-`const { Duplex } = require("stream");  const duplex = new Duplex({   read(size) {     this.push("Hello");     this.push(null);   },   write(chunk, encoding, callback) {     console.log(chunk.toString());     callback();   } });  duplex.on("data", data => console.log(data.toString())); duplex.write("World");`
+```js
+const { Duplex } = require("stream");
+
+const duplex = new Duplex({
+  read(size) {
+    this.push("Hello");
+    this.push(null);
+  },
+  write(chunk, encoding, callback) {
+    console.log(chunk.toString());
+    callback();
+  }
+});
+
+duplex.on("data", data => console.log(data.toString()));
+duplex.write("World");
+```
 
 ---
 
@@ -320,13 +343,26 @@ A special Duplex stream that **modifies data**.
 
 ### 🔹 Example: Convert to Uppercase
 
-`const { Transform } = require("stream");  const upperCaseTransform = new Transform({   transform(chunk, encoding, callback) {     this.push(chunk.toString().toUpperCase());     callback();   } });  process.stdin.pipe(upperCaseTransform).pipe(process.stdout);`
+```js
+const { Transform } = require("stream");
+
+const upperCaseTransform = new Transform({
+  transform(chunk, encoding, callback) {
+    this.push(chunk.toString().toUpperCase());
+    callback();
+  }
+});
+
+process.stdin.pipe(upperCaseTransform).pipe(process.stdout);
+```
 
 ---
 
 ### 🧠 Flow
 
-`Input → Transform → Output`
+```sh
+Input → Transform → Output
+```
 
 ---
 
@@ -383,7 +419,15 @@ Writable stream states:
 
 ### Sending file using stream
 
-`const http = require("http"); const fs = require("fs");  http.createServer((req, res) => {   const stream = fs.createReadStream("file.txt");   stream.pipe(res); }).listen(3000);`
+```js
+const http = require("http");
+const fs = require("fs");
+
+http.createServer((req, res) => {
+  const stream = fs.createReadStream("file.txt");
+  stream.pipe(res);
+}).listen(3000);
+```
 
 ✔ Fast  
 ✔ Efficient  
