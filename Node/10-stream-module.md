@@ -111,7 +111,11 @@ const readStream = fs.createReadStream("file.txt");
 
 Fires when a chunk is available.
 
-`readStream.on("data", (chunk) => {   console.log(chunk); });`
+```js
+readStream.on("data", (chunk) => {
+  console.log(chunk);
+});
+```
 
 ---
 
@@ -119,7 +123,11 @@ Fires when a chunk is available.
 
 Fires when reading is finished.
 
-`readStream.on("end", () => {   console.log("File reading finished"); });`
+```js
+readStream.on("end", () => {
+  console.log("File reading finished");
+});
+```
 
 ---
 
@@ -127,17 +135,37 @@ Fires when reading is finished.
 
 Fires if error occurs.
 
-`readStream.on("error", (err) => {   console.log(err); });`
+```js
+readStream.on("error", (err) => {
+  console.log(err);
+});
+```
 
 ---
 
 ### 🔹 Complete Readable Example
 
-`const fs = require("fs");  const readStream = fs.createReadStream("file.txt", "utf8");  readStream.on("data", (chunk) => {   console.log("Chunk:", chunk); });  readStream.on("end", () => {   console.log("Reading completed"); });`
+```js
+const fs = require("fs");
+
+const readStream = fs.createReadStream("file.txt", "utf8");
+
+readStream.on("data", (chunk) => {
+  console.log("Chunk:", chunk);
+});
+
+readStream.on("end", () => {
+  console.log("Reading completed");
+});
+```
 
 ### 📤 Output (example)
 
-`Chunk: Hello Chunk: World Reading completed`
+```sh
+Chunk: Hello
+Chunk: World
+Reading completed
+```
 
 ---
 
