@@ -260,6 +260,7 @@ emitter.emit("test");
 ### Output
 
 ```sh
+(no output)
 ```
 
 ---
@@ -283,13 +284,21 @@ Removes **all listeners** for an event.
 
 ### Example
 
-`emitter.on("data", () => console.log("Listener 1")); emitter.on("data", () => console.log("Listener 2"));  emitter.removeAllListeners("data"); emitter.emit("data");`
+```js
+emitter.on("data", () => console.log("Listener 1"));
+emitter.on("data", () => console.log("Listener 2"));
+
+emitter.removeAllListeners("data");
+emitter.emit("data");
+```
 
 ---
 
 ### Output
 
-`(no output)`
+```sh
+(no output)
+```
 
 ---
 
@@ -303,13 +312,20 @@ Returns number of listeners.
 
 ### Example
 
-`emitter.on("event", () => {}); emitter.on("event", () => {});  console.log(emitter.listenerCount("event"));`
+```js
+emitter.on("event", () => {});
+emitter.on("event", () => {});
+
+console.log(emitter.listenerCount("event"));
+```
 
 ---
 
 ### Output
 
-`2`
+```sh
+2
+```
 
 ---
 
@@ -323,7 +339,9 @@ Returns array of listener functions.
 
 ### Example
 
-`console.log(emitter.listeners("event"));`
+```js
+console.log(emitter.listeners("event"));
+```
 
 ---
 
@@ -346,7 +364,12 @@ Returns list of registered event names.
 
 ### Example
 
-`emitter.on("login", () => {}); emitter.on("logout", () => {});  console.log(emitter.eventNames());`
+```js
+emitter.on("login", () => {});
+emitter.on("logout", () => {});
+
+console.log(emitter.eventNames());
+```
 
 ---
 
