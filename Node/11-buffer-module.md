@@ -193,21 +193,35 @@ console.log(buf[2]); // 67
 
 ## 9️⃣ Modify Buffer Data
 
-`const buf = Buffer.alloc(5);  buf[0] = 72; buf[1] = 105;  console.log(buf.toString());`
+```js
+const buf = Buffer.alloc(5);
+
+buf[0] = 72;
+buf[1] = 105;
+
+console.log(buf.toString());
+```
 
 ### 📤 Output
 
-`Hi`
+```js
+Hi
+```
 
 ---
 
 ## 🔟 Buffer Length
 
-`const buf = Buffer.from("Hello"); console.log(buf.length);`
+```js
+const buf = Buffer.from("Hello");
+console.log(buf.length);
+```
 
 ### 📤 Output
 
-`5`
+```sh
+5
+```
 
 👉 Length is in **bytes**, not characters.
 
@@ -227,7 +241,15 @@ console.log(buf[2]); // 67
 
 Streams send data in **Buffer chunks**.
 
-`const fs = require("fs");  const stream = fs.createReadStream("file.txt");  stream.on("data", chunk => {   console.log(chunk); // Buffer });`
+```js
+const fs = require("fs");
+
+const stream = fs.createReadStream("file.txt");
+
+stream.on("data", chunk => {
+  console.log(chunk); // Buffer
+});
+```
 
 ---
 
@@ -235,13 +257,19 @@ Streams send data in **Buffer chunks**.
 
 ### 🔹 Reading file gives Buffer
 
-`fs.readFile("file.txt", (err, data) => {   console.log(data); // Buffer });`
+```js
+fs.readFile("file.txt", (err, data) => {
+  console.log(data); // Buffer
+});
+```
 
 ---
 
 ### 🔹 Convert to string
 
-`data.toString();`
+```js
+data.toString();
+```
 
 ---
 
@@ -249,7 +277,9 @@ Streams send data in **Buffer chunks**.
 
 HTTP requests & responses use Buffer.
 
-`req.on("data", chunk => {   console.log(chunk); // Buffer });`
+```js
+
+```
 
 ---
 
