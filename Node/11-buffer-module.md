@@ -127,7 +127,10 @@ console.log(buf);
 
 ### 3️⃣ `Buffer.allocUnsafe()` ❌ (Fast but risky)
 
-`const buf = Buffer.allocUnsafe(5); console.log(buf);`
+```js
+const buf = Buffer.allocUnsafe(5);
+console.log(buf);
+```
 
 ⚠️ May contain **old memory data**
 
@@ -146,27 +149,43 @@ console.log(buf);
 
 ### 🔹 Example
 
-`const buf = Buffer.from("Hello", "utf8"); console.log(buf.toString("hex"));`
+```js
+const buf = Buffer.from("Hello", "utf8");
+console.log(buf.toString("hex"));
+```
 
 ### 📤 Output
 
-`48656c6c6f`
+```sh
+48656c6c6f
+```
 
 ---
 
 ## 7️⃣ Convert Buffer to String
 
-`const buf = Buffer.from("Node"); console.log(buf.toString());`
+```js
+const buf = Buffer.from("Node");
+console.log(buf.toString());
+```
 
 ### 📤 Output
 
-`Node`
+```sh
+Node
+```
 
 ---
 
 ## 8️⃣ Access Buffer Data (Byte Level)
 
-`const buf = Buffer.from("ABC");  console.log(buf[0]); // 65 console.log(buf[1]); // 66 console.log(buf[2]); // 67`
+```js
+const buf = Buffer.from("ABC");
+
+console.log(buf[0]); // 65
+console.log(buf[1]); // 66
+console.log(buf[2]); // 67
+```
 
 👉 ASCII values
 
