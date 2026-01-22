@@ -86,11 +86,19 @@ Hello Alice!
 
 ### 🔹 Example with multiple listeners:
 
-``myEmitter.on("greet", (name) => console.log("Hi there!")); myEmitter.on("greet", (name) => console.log(`Hello ${name}!`));  myEmitter.emit("greet", "Bob");``
+```js
+myEmitter.on("greet", (name) => console.log("Hi there!"));
+myEmitter.on("greet", (name) => console.log(`Hello ${name}!`));
+
+myEmitter.emit("greet", "Bob");
+```
 
 ✅ Output:
 
-`Hi there! Hello Bob!`
+```sh
+Hi there!
+Hello Bob!
+```
 
 ---
 
@@ -109,7 +117,16 @@ Hello Alice!
 
 ### 🔹 Example: File copy
 
-`const fs = require("fs");  const readStream = fs.createReadStream("input.txt"); const writeStream = fs.createWriteStream("output.txt");  readStream.pipe(writeStream);  console.log("File is being copied...");`
+```js
+const fs = require("fs");
+
+const readStream = fs.createReadStream("input.txt");
+const writeStream = fs.createWriteStream("output.txt");
+
+readStream.pipe(writeStream);
+
+console.log("File is being copied...");
+```
 
 - This copies `input.txt` → `output.txt`.
     
@@ -127,7 +144,10 @@ Hello Alice!
 - You can listen to events like:
     
 
-`readStream.on("data", (chunk) => console.log("Received chunk", chunk.length)); readStream.on("end", () => console.log("Reading done"));`
+```js
+readStream.on("data", (chunk) => console.log("Received chunk", chunk.length));
+readStream.on("end", () => console.log("Reading done"));
+```
 
 - So **streams + pipe** combine **EventEmitter + flow control**.
     
