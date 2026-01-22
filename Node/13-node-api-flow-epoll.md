@@ -53,11 +53,22 @@ Node.js allows you to **start a task and continue executing the next line of cod
 
 Example:
 
-`const fs = require("fs");  fs.readFile("file.txt", "utf8", (err, data) => {   console.log("File read complete"); });  console.log("End of program");`
+```js
+const fs = require("fs");
+
+fs.readFile("file.txt", "utf8", (err, data) => {
+  console.log("File read complete");
+});
+
+console.log("End of program");
+```
 
 ✅ Output:
 
-`End of program File read complete`
+```sh
+End of program
+File read complete
+```
 
 - Node doesn’t wait for the file to finish reading.
     
@@ -97,7 +108,13 @@ Node.js uses **libuv**, a C library that manages **all asynchronous operations**
 
 Let’s take a **file read example**:
 
-`const fs = require("fs");  fs.readFile("file.txt", "utf8", (err, data) => {   console.log("File read complete"); });`
+```js
+const fs = require("fs");
+
+fs.readFile("file.txt", "utf8", (err, data) => {
+  console.log("File read complete");
+});
+```
 
 Step by step:
 
@@ -154,7 +171,13 @@ Step by step:
 
 Some tasks are **CPU-heavy**, like:
 
-`const crypto = require("crypto");  crypto.pbkdf2("password", "salt", 5000000, 50, "sha512", () => {   console.log("Done hashing"); });`
+```js
+const crypto = require("crypto");
+
+crypto.pbkdf2("password", "salt", 5000000, 50, "sha512", () => {
+  console.log("Done hashing");
+});
+```
 
 - Node offloads these to the **libuv thread pool** (default 4 threads).
     
@@ -184,7 +207,20 @@ Node executes async callbacks in **phases**:
 
 ### Example:
 
-`const fs = require("fs"); const crypto = require("crypto");  crypto.pbkdf2("password", "salt", 5000000, 50, "sha512", () => {   console.log("PBKDF2 done"); });  fs.readFile("file.txt", "utf8", () => {   console.log("File read complete"); });  console.log("End of JS code");`
+```js
+const fs = require("fs");
+const crypto = require("crypto");
+
+crypto.pbkdf2("password", "salt", 5000000, 50, "sha512", () => {
+  console.log("PBKDF2 done");
+});
+
+fs.readFile("file.txt", "utf8", () => {
+  console.log("File read complete");
+});
+
+console.log("End of JS code");
+```
 
 Flow:
 
