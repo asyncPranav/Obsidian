@@ -224,7 +224,24 @@ console.log("End of JS code");
 
 Flow:
 
-`JS thread:   -> registers pbkdf2   -> registers fs.readFile   -> prints "End of JS code"  libuv:   -> offloads PBKDF2 to thread pool (CPU-heavy)   -> monitors file descriptor with epoll/kqueue  Event loop:   -> executes callbacks as tasks complete Output may be:   End of JS code   File read complete   PBKDF2 done`
+```sh
+JS thread:
+  -> registers pbkdf2
+  -> registers fs.readFile
+  -> prints "End of JS code"
+
+libuv:
+  -> offloads PBKDF2 to thread pool (CPU-heavy)
+  -> monitors file descriptor with epoll/kqueue
+
+Event loop:
+  -> executes callbacks as tasks complete
+  
+Output may be:
+  End of JS code
+  File read complete
+  PBKDF2 done
+```
 
 > Notice how Node **never blocks JS thread**, even with CPU-heavy or I/O tasks.
 
