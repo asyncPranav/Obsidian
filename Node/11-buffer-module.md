@@ -278,14 +278,22 @@ data.toString();
 HTTP requests & responses use Buffer.
 
 ```js
-
+req.on("data", chunk => {
+  console.log(chunk); // Buffer
+});
 ```
 
 ---
 
 ## 1️⃣5️⃣ Writing Buffer to File
 
-`const buf = Buffer.from("Hello Buffer");  fs.writeFile("test.txt", buf, () => {   console.log("Written"); });`
+```js
+const buf = Buffer.from("Hello Buffer");
+
+fs.writeFile("test.txt", buf, () => {
+  console.log("Written");
+});
+```
 
 ---
 
@@ -307,17 +315,31 @@ HTTP requests & responses use Buffer.
 
 ### 🔹 `slice()` Example
 
-`const buf = Buffer.from("NodeJS"); const part = buf.slice(0, 4);  console.log(part.toString());`
+```js
+const buf = Buffer.from("NodeJS");
+const part = buf.slice(0, 4);
+
+console.log(part.toString());
+```
 
 ### 📤 Output
 
-`Node`
+```sh
+Node
+```
 
 ---
 
 ### 🔹 `copy()` Example
 
-`const buf1 = Buffer.from("Hello"); const buf2 = Buffer.alloc(5);  buf1.copy(buf2);  console.log(buf2.toString());`
+```js
+const buf1 = Buffer.from("Hello");
+const buf2 = Buffer.alloc(5);
+
+buf1.copy(buf2);
+
+console.log(buf2.toString());
+```
 
 ---
 
@@ -327,7 +349,9 @@ HTTP requests & responses use Buffer.
 
 Always use:
 
-`Buffer.alloc()`
+```js
+Buffer.alloc()
+```
 
 ---
 
