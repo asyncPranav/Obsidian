@@ -70,7 +70,9 @@ Node.js introduced **Buffer** to:
 
 ## 4️⃣ Importing Buffer
 
-`const { Buffer } = require("buffer");`
+```js
+const { Buffer } = require("buffer");
+```
 
 (You can also use `Buffer` directly)
 
@@ -91,11 +93,16 @@ Used to create buffer from:
 - another buffer
     
 
-`const buf = Buffer.from("Hello"); console.log(buf);`
+```js
+const buf = Buffer.from("Hello");
+console.log(buf);
+```
 
 ### 📤 Output
 
-`<Buffer 48 65 6c 6c 6f>`
+```sh
+<Buffer 48 65 6c 6c 6f>
+```
 
 👉 These are **hexadecimal byte values**
 
@@ -105,11 +112,16 @@ Used to create buffer from:
 
 Creates an empty buffer with fixed size.
 
-`const buf = Buffer.alloc(5); console.log(buf);`
+```js
+const buf = Buffer.alloc(5);
+console.log(buf);
+```
 
 ### 📤 Output
 
-`<Buffer 00 00 00 00 00>`
+```sh
+<Buffer 00 00 00 00 00>
+```
 
 ---
 
