@@ -72,7 +72,9 @@ db.createCollection("collection_name")
 
 **Example:**
 
-```mongo
+```js
+> db.createCollection("students")
+{ ok: 1 }
 ```
 
 - `students` is now a collection inside `myDB`.
@@ -81,7 +83,9 @@ db.createCollection("collection_name")
 **Tip:**  
 You **don’t always need `db.createCollection()`**. MongoDB creates a collection automatically when you **insert the first document**.
 
-`> db.students.insertOne({name: "John", age: 20})`
+```js
+> db.students.insertOne({name: "John", age: 20})
+```
 
 - After this, the `students` collection is created automatically.
     
@@ -92,7 +96,9 @@ You **don’t always need `db.createCollection()`**. MongoDB creates a collectio
 
 **Command:**
 
-`show collections`
+```js
+show collections
+```
 
 **What it does:**
 
@@ -101,7 +107,10 @@ You **don’t always need `db.createCollection()`**. MongoDB creates a collectio
 
 **Example:**
 
-`> show collections students`
+```js
+> show collections
+students
+```
 
 ---
 
