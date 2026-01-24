@@ -327,3 +327,33 @@ db.stats()
 
 ---
 
+## **1️⃣ Rename a Collection**
+
+**Command:**
+
+```js
+db.collection_name.renameCollection("new_collection_name")
+```
+
+**What it does:**
+
+- Changes the **name of a collection** in the current database.
+    
+
+**Example:**
+
+```js
+> db.students.renameCollection("learners")
+{ ok: 1 }
+```
+
+- Now, instead of `students`, the collection is called `learners`.
+    
+- `show collections` will reflect the new name.
+    
+
+**Tip:**
+
+- The **new name must not already exist** in the same database.
+    
+- Works even if the collection has documents inside.
