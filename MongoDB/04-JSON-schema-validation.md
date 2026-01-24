@@ -237,11 +237,26 @@ email: {
 
 ### **Example: Address Object**
 
-`address: {   bsonType: "object",   required: ["city", "pincode"],   properties: {     city: { bsonType: "string" },     pincode: { bsonType: "string" }   } }`
+```js
+address: {
+  bsonType: "object",
+  required: ["city", "pincode"],
+  properties: {
+    city: { bsonType: "string" },
+    pincode: { bsonType: "string" }
+  }
+}
+```
 
 Insert:
 
-`db.students.insertOne({   name: "Amit",   age: 21,   address: { city: "Delhi", pincode: "110001" } })`
+```js
+db.students.insertOne({
+  name: "Amit",
+  age: 21,
+  address: { city: "Delhi", pincode: "110001" }
+})
+```
 
 ---
 
@@ -249,21 +264,62 @@ Insert:
 
 ### **Example: Subjects Array**
 
-`subjects: {   bsonType: "array",   items: {     bsonType: "string"   } }`
+```js
+subjects: {
+  bsonType: "array",
+  items: {
+    bsonType: "string"
+  }
+}
+```
 
 Valid:
 
-`subjects: ["Math", "Physics"]`
+```js
+subjects: ["Math", "Physics"]
+```
 
 Invalid:
 
-`subjects: ["Math", 101]`
+```js
+subjects: ["Math", 101]
+```
 
 ---
 
 ## **8️⃣ Full Real-World Schema Example**
 
-`db.createCollection("users", {   validator: {     $jsonSchema: {       bsonType: "object",       required: ["name", "email", "age"],       properties: {         name: {           bsonType: "string",           minLength: 3         },         email: {           bsonType: "string",           pattern: "^.+@.+\\..+$"         },         age: {           bsonType: "int",           minimum: 18         },         isActive: {           bsonType: "bool"         },         roles: {           bsonType: "array",           items: { bsonType: "string" }         }       }     }   } })`
+```js
+db.createCollection("users", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["name", "email", "age"],
+      properties: {
+        name: {
+          bsonType: "string",
+          minLength: 3
+        },
+        email: {
+          bsonType: "string",
+          pattern: "^.+@.+\\..+$"
+        },
+        age: {
+          bsonType: "int",
+          minimum: 18
+        },
+        isActive: {
+          bsonType: "bool"
+        },
+        roles: {
+          bsonType: "array",
+          items: { bsonType: "string" }
+        }
+      }
+    }
+  }
+})
+```
 
 ---
 
