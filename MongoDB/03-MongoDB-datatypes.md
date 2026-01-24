@@ -193,7 +193,14 @@ db.users.insertOne({name: "Amit", joinedAt: new Date()})
 
 ### **(A) Object (Embedded Document)**
 
-`{   address: {     city: "Delhi",     pincode: "110001"   } }`
+```js
+{
+  address: {
+    city: "Delhi",
+    pincode: "110001"
+  }
+}
+```
 
 ✔ Enables nested data  
 ✔ Avoids joins
@@ -202,7 +209,9 @@ db.users.insertOne({name: "Amit", joinedAt: new Date()})
 
 ### **(B) Array**
 
-`{skills: ["JavaScript", "Node.js", "MongoDB"]}`
+```js
+{skills: ["JavaScript", "Node.js", "MongoDB"]}
+```
 
 Arrays can contain:
 
@@ -213,7 +222,9 @@ Arrays can contain:
 - Objects
     
 
-`{items: [{name: "Pen"}, {name: "Book"}]}`
+```js
+{items: [{name: "Pen"}, {name: "Book"}]}
+```
 
 ---
 
@@ -226,7 +237,9 @@ Arrays can contain:
 - 12-byte value
     
 
-`{_id: ObjectId("65a9c0c4e8f1a1b2c3d4e5f6")}`
+```js
+{_id: ObjectId("65a9c0c4e8f1a1b2c3d4e5f6")}
+```
 
 Structure:
 
@@ -246,7 +259,9 @@ Structure:
 - Stores images, files, blobs
     
 
-`{file: BinData(0, "U29tZUJpbmFyeURhdGE=")}`
+```js
+{file: BinData(0, "U29tZUJpbmFyeURhdGE=")}
+```
 
 ---
 
