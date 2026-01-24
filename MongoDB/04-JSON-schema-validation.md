@@ -149,7 +149,9 @@ Defines data type.
 
 Example:
 
-`age: { bsonType: "int" }`
+```js
+age: { bsonType: "int" }
+```
 
 ---
 
@@ -157,7 +159,9 @@ Example:
 
 Defines **mandatory fields**.
 
-`required: ["name", "email"]`
+```js
+required: ["name", "email"]
+```
 
 ❌ Missing required field → insert fails
 
@@ -167,7 +171,12 @@ Defines **mandatory fields**.
 
 Defines rules for each field.
 
-`properties: {   name: { bsonType: "string" },   age: { bsonType: "int" } }`
+```js
+properties: {
+  name: { bsonType: "string" },
+  age: { bsonType: "int" }
+}
+```
 
 ---
 
@@ -175,7 +184,13 @@ Defines rules for each field.
 
 Used for numbers.
 
-`age: {   bsonType: "int",   minimum: 18,   maximum: 60 }`
+```js
+age: {
+  bsonType: "int",
+  minimum: 18,
+  maximum: 60
+}
+```
 
 ---
 
@@ -183,7 +198,13 @@ Used for numbers.
 
 Used for strings.
 
-`username: {   bsonType: "string",   minLength: 3,   maxLength: 15 }`
+```js
+username: {
+  bsonType: "string",
+  minLength: 3,
+  maxLength: 15
+}
+```
 
 ---
 
@@ -191,7 +212,11 @@ Used for strings.
 
 Restrict values to a fixed list.
 
-`gender: {   enum: ["male", "female", "other"] }`
+```js
+gender: {
+  enum: ["male", "female", "other"]
+}
+```
 
 ---
 
@@ -199,7 +224,12 @@ Restrict values to a fixed list.
 
 Used for regex validation (emails, phone numbers).
 
-`email: {   bsonType: "string",   pattern: "^.+@.+\\..+$" }`
+```js
+email: {
+  bsonType: "string",
+  pattern: "^.+@.+\\..+$"
+}
+```
 
 ---
 
