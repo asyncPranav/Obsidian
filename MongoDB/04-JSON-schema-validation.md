@@ -114,6 +114,7 @@ db.createCollection("students", {
 })
 ```
 
+
 ---
 
 ### ✅ Valid Insert
@@ -135,6 +136,42 @@ Document failed validation
 ```
 
 ---
+
+
+### **Modifying existing collection's schema**
+
+```js
+db.runCommand({
+  collMod: "students",
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["name", "age"],
+      title: "Student Object Validation",
+      properties: {
+        name: {
+          bsonType: "string",
+          description: "must be a string and is required"
+        },
+        age: {
+          bsonType: "int",
+          minimum: 18,
+          maximum: 30,
+          description: "must be an integer between 18 and 30"
+        },
+        course: {
+          bsonType: "string",
+          enum: ["BCA", "Btech", "Bsc"],
+          description: "Course must be bca or betch or bsc"
+        }
+      }
+    }
+  }
+});
+```
+
+---
+
 
 ## **5️⃣ Important JSON Schema Keywords**
 
