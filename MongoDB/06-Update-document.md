@@ -232,7 +232,209 @@ db.students.updateOne(
 
 ---
 
+## **1️⃣ `$push` – Add element(s) to the end of an array**
 
+- Adds **one element** or **multiple elements** using `$each`.
+    
+- Can also use `$position`, `$sort`, `$slice`.
+    
+
+```js
+// Single element
+db.students.updateOne(
+  { name: "Bob" },
+  { $push: { skills: "MongoDB" } }
+)
+
+// Multiple elements
+db.students.updateOne(
+  { name: "Bob" },
+  { $push: { skills: { $each: ["React", "Express"] } } }
+)
+
+// Insert at specific position
+db.students.updateOne(
+  { name: "Bob" },
+  { $push: { skills: { $each: ["Python"], $position: 0 } } } // Insert at index 0
+)
+
+// Limit array size and sort
+db.students.updateOne(
+  { name: "Bob" },
+  { $push: { scores: { $each: [80, 90], $slice: -5, $sort: -1 } } }
+)
+```
+
+- `$slice` → keeps only **last N elements**
+    
+- `$sort` → sort array after inserting
+    
+
+---
+
+## **2️⃣ `$addToSet` – Add only unique elements**
+
+- Ensures **no duplicates** in array
+    
+
+```js
+db.students.updateOne(
+  { name: "Bob" },
+  { $addToSet: { skills: "Node.js" } }
+)
+
+// Multiple unique elements
+db.students.updateOne(
+  { name: "Bob" },
+  { $addToSet: { skills: { $each: ["Java", "C++"] } } }
+)
+```
+
+---
+
+## **3️⃣ `$pop` – Remove first or last element**
+
+- `$pop: 1` → remove last element
+    
+- `$pop: -1` → remove first element
+    
+
+```js
+db.students.updateOne({ name: "Bob" }, { $pop: { skills: 1 } })
+db.students.updateOne({ name: "Bob" }, { $pop: { skills: -1 } })
+```
+
+---
+
+## **4️⃣ `$pull` – Remove matching element(s)**
+
+- Removes **all elements that match condition**
+    
+
+```js
+db.students.updateOne(
+  { name: "Bob" },
+  { $pull: { skills: "React" } }
+)
+
+// Remove all elements greater than 80
+db.students.updateOne(
+  { name: "Bob" },
+  { $pull: { scores: { $gt: 80 } } }
+)
+```
+
+- `$pull` works with:
+    
+    - Exact values
+        
+    - Query conditions (`$gt`, `$lt`, `$in`, `$nin`, `$regex`)
+        
+
+---
+
+## **5️⃣ `$pullAll` – Remove multiple specific values**
+
+- Remove **multiple exact values** at once
+    
+
+```js
+
+```
+
+---
+
+## **6️⃣ `$push` + `$each` + `$position` + `$sort` + `$slice` (Advanced)**
+
+- Combine options to:
+    
+    - Insert multiple items
+        
+    - Insert at custom index
+        
+    - Sort array
+        
+    - Limit array length
+        
+
+`db.students.updateOne(   { name: "Bob" },   { $push: { scores: { $each: [70, 85, 95], $position: 1, $sort: -1, $slice: 3 } } } )`
+
+- Keeps **top 3 scores** sorted descending
+    
+
+---
+
+## **7️⃣ `$` Positional Operator – Update matched array element**
+
+- Update **first element that matches query condition**
+    
+
+`db.students.updateOne(   { name: "Bob", "scores": 85 },   { $set: { "scores.$": 90 } } )`
+
+- `$` → updates **first matching element** of the array
+    
+
+---
+
+## **8️⃣ `$[]` – All Array Elements (Update Many Elements)**
+
+- Update **all elements** in an array
+    
+
+`db.students.updateOne(   { name: "Bob" },   { $inc: { "scores.$[]": 5 } } // Add 5 to all scores )`
+
+---
+
+## **9️⃣ `$[<identifier>]` – Filtered Positional Operator**
+
+- Update **specific elements matching condition** in array
+    
+
+`db.students.updateOne(   { name: "Bob" },   { $set: { "scores.$[elem]": 100 } },   { arrayFilters: [{ "elem": { $lt: 50 } }] } )`
+
+- Updates only elements `<50` to `100`
+    
+
+---
+
+## **10️⃣ `$slice` with `$push`**
+
+- Keep array length limited
+    
+
+`db.students.updateOne(   { name: "Bob" },   { $push: { scores: { $each: [60,70], $slice: -5 } } }  )`
+
+- Keeps only last 5 elements
+    
+
+---
+
+## **Summary Table: Array Update Operators**
+
+|Operator|Use|Example|
+|---|---|---|
+|`$push`|Add element(s) to end|`{ $push: {skills: "MongoDB"} }`|
+|`$each`|Add multiple elements|`{ $push: {skills: {$each: ["React","Node"]}} }`|
+|`$position`|Insert at index|`{ $push: {skills: {$each:["Python"], $position:0}} }`|
+|`$sort`|Sort array after push|`{ $push: {scores: {$each:[70,80], $sort:-1}} }`|
+|`$slice`|Limit array size|`{ $push: {scores: {$each:[70,80], $slice:-3}} }`|
+|`$addToSet`|Add unique only|`{ $addToSet: {skills: "Node.js"} }`|
+|`$pop`|Remove first/last|`{ $pop: {skills: 1} }`|
+|`$pull`|Remove matching elements|`{ $pull: {skills: "React"} }`|
+|`$pullAll`|Remove multiple exact|`{ $pullAll: {skills: ["React","Python"]} }`|
+|`$`|Update first matching array element|`{ "scores.$": 90 }`|
+|`$[]`|Update all array elements|`{ "scores.$[]": 5 }`|
+|`$[<id>]`|Update filtered elements|`{ "scores.$[elem]": 100 }` with `arrayFilters`|
+
+---
+
+💡 **Practice Tips:**
+
+1. Try adding, removing, and updating array elements in **different ways**
+    
+2. Use `$push + $each + $slice + $sort` → emulate **leaderboards**
+    
+3. Use `$[]` and `$[<identifier>]` → update **all or filtered array elements**
 
 ---
 
