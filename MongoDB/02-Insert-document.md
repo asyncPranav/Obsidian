@@ -197,7 +197,7 @@ db.students.createIndex({name: 1}, {unique: true})
     
 
 ```js
-
+db.students.insertOne({name: "Henry", hobbies: ["Reading", "Chess"]})
 ```
 
 2. Insert large amounts of data efficiently → **`insertMany()`**.
