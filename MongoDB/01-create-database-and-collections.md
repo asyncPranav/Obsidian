@@ -372,3 +372,90 @@ db.getCollectionNames().forEach(function(c) { db[c].drop() })
 
 ---
 
+## **Additional Useful Commands / Tips for Chapter 1**
+
+### **1️⃣ Show all collections as an array**
+
+```js
+db.getCollectionNames()
+```
+
+- Similar to `show collections`, but returns an **array of collection names**.
+    
+
+```js
+> db.getCollectionNames()
+["learners", "courses"]
+```
+
+---
+
+### **2️⃣ Quick shortcut / help**
+
+```js
+help
+```
+
+- Lists all **mongosh shell commands**.
+    
+
+```js
+db.help()
+```
+
+- Shows **all commands related to the current database**.
+    
+
+---
+
+### **3️⃣ Rename a field in a collection**
+
+- You can rename a field in **all documents**:
+    
+
+```js
+db.collection_name.updateMany(
+  {},
+  { $rename: { "oldFieldName": "newFieldName" } }
+)
+```
+
+**Example:**
+
+`db.learners.updateMany({}, { $rename: { "name": "fullName" } })`
+
+---
+
+### **4️⃣ Insert documents with different fields**
+
+- MongoDB is **schema-less**, so documents in the same collection can have **different fields**.
+    
+
+`db.learners.insertOne({fullName: "Dave", age: 24, grade: "A"}) db.learners.insertOne({fullName: "Eva", age: 22})`
+
+---
+
+### **5️⃣ Copy a collection (optional beginner tip)**
+
+`db.originalCollection.aggregate([   { $match: {} },   { $out: "copyCollection" } ])`
+
+- Makes a **full copy of a collection** with all documents.
+    
+
+---
+
+✅ With these, **Chapter 1 is complete**. You now know how to:
+
+- Work with databases (`show dbs`, `use`, `db`, `dropDatabase`, `db.stats()`)
+    
+- Work with collections (`createCollection`, `show collections`, `drop`, `renameCollection`)
+    
+- Insert documents (`insertOne`, `insertMany`)
+    
+- Query documents (`find`, `pretty`)
+    
+- Count documents (`countDocuments`)
+    
+- Rename fields and clear DB
+    
+- Help and shortcuts (`help`, `db.help()`)
