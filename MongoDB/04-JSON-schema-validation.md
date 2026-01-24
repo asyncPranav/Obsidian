@@ -448,12 +448,15 @@ You now know:
 ### **Modifying existing collection's schema**
 
 ```js
+### **Modifying existing collection's schema**
+
+```js
 db.runCommand({
   collMod: "students",
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["name", "age"], 
+      required: ["name", "age"],
       title: "Student Object Validation",
       properties: {
         name: {
@@ -467,12 +470,13 @@ db.runCommand({
           description: "must be an integer between 18 and 30"
         },
         course: {
-	      bsonType: "string",
-	      enum: ["BCA", "Btech", "Bsc"],
-	      description: "Course must be bca or betch or bsc"
+          bsonType: "string",
+          enum: ["BCA", "Btech", "Bsc"],
+          description: "Course must be bca or betch or bsc"
         }
       }
     }
-})
+  }
 });
+
 ```
