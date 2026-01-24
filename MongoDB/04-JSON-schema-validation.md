@@ -102,7 +102,8 @@ db.createCollection("students", {
           minimum: 18,
           maximum: 30,
           description: "must be an integer between 18 and 30"
-        }
+        },
+        course
       }
     }
   }
