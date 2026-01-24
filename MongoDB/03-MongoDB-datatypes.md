@@ -360,7 +360,11 @@ db.users.find({age: {$type: 16}})
 
 ## **1️⃣1️⃣ Use in JSON Schema Validation**
 
-`age: { bsonType: "int" } price: { bsonType: "decimal" } createdAt: { bsonType: "date" }`
+```js
+age: { bsonType: "int" }
+price: { bsonType: "decimal" }
+createdAt: { bsonType: "date" }
+```
 
 ---
 
