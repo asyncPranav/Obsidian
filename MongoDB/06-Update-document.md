@@ -126,7 +126,7 @@ db.students.updateOne({name: "Bob"}, {$inc: {age: 1}})
     
 
 ```js
-
+db.students.updateOne({name: "Charlie"}, {$mul: {score: 2}})
 ```
 
 ---
@@ -136,7 +136,9 @@ db.students.updateOne({name: "Bob"}, {$inc: {age: 1}})
 - Rename a field
     
 
-`db.students.updateOne({name: "Alice"}, {$rename: {"grade": "class"}})`
+```js
+db.students.updateOne({name: "Alice"}, {$rename: {"grade": "class"}})
+```
 
 ---
 
@@ -145,7 +147,9 @@ db.students.updateOne({name: "Bob"}, {$inc: {age: 1}})
 - Removes a field
     
 
-`db.students.updateOne({name: "Alice"}, {$unset: {city: ""}})`
+```js
+db.students.updateOne({name: "Alice"}, {$unset: {city: ""}})
+```
 
 ---
 
@@ -154,7 +158,10 @@ db.students.updateOne({name: "Bob"}, {$inc: {age: 1}})
 - Updates field **only if new value is smaller/larger**
     
 
-`db.students.updateOne({name: "Bob"}, {$min: {age: 20}}) db.students.updateOne({name: "Bob"}, {$max: {age: 25}})`
+```js
+db.students.updateOne({name: "Bob"}, {$min: {age: 20}})
+db.students.updateOne({name: "Bob"}, {$max: {age: 25}})
+```
 
 ---
 
@@ -163,7 +170,9 @@ db.students.updateOne({name: "Bob"}, {$inc: {age: 1}})
 - Updates a field to **current date/time**
     
 
-`db.students.updateOne({name: "Alice"}, {$currentDate: {lastModified: true}})`
+```js
+db.students.updateOne({name: "Alice"}, {$currentDate: {lastModified: true}})
+```
 
 - Creates `lastModified` as `Date`.
     
@@ -175,7 +184,13 @@ db.students.updateOne({name: "Bob"}, {$inc: {age: 1}})
 - If **document doesn’t exist**, insert a new one
     
 
-`db.students.updateOne(   { name: "Zara" },   { $set: {age: 20, grade: "A"} },   { upsert: true } )`
+```js
+db.students.updateOne(
+  { name: "Zara" },
+  { $set: {age: 20, grade: "A"} },
+  { upsert: true }
+)
+```
 
 - Creates Zara if she doesn’t exist.
     
