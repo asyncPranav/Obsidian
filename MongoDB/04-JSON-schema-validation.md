@@ -90,7 +90,8 @@ db.createCollection("students", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["name", "age"],
+      required: ["name", "age"], 
+      title: "Student Object Validation",
       properties: {
         name: {
           bsonType: "string",
