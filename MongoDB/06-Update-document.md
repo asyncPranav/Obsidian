@@ -52,7 +52,12 @@ db.collection_name.updateMany(
 
 **Example:**
 
-`db.students.updateMany(   { grade: "B" },   { $set: { grade: "B+" } } )`
+```js
+db.students.updateMany(
+  { grade: "B" },
+  { $set: { grade: "B+" } }
+)
+```
 
 - Updates **all students with grade B** to B+.
     
@@ -63,11 +68,21 @@ db.collection_name.updateMany(
 
 **Syntax:**
 
-`db.collection_name.replaceOne(   { <filter> },   { <new_document> } )`
+```js
+db.collection_name.replaceOne(
+  { <filter> },
+  { <new_document> }
+)
+```
 
 **Example:**
 
-`db.students.replaceOne(   { name: "Alice" },   { name: "Alice", age: 23, grade: "A+" } )`
+```js
+db.students.replaceOne(
+  { name: "Alice" },
+  { name: "Alice", age: 23, grade: "A+" }
+)
+```
 
 - Replaces the **entire document**.
     
@@ -85,7 +100,9 @@ db.collection_name.updateMany(
 - Sets value of a field, creates it if not exists
     
 
-`db.students.updateOne({name: "Bob"}, {$set: {age: 23, city: "Delhi"}})`
+```js
+db.students.updateOne({name: "Bob"}, {$set: {age: 23, city: "Delhi"}})
+```
 
 ---
 
@@ -94,7 +111,9 @@ db.collection_name.updateMany(
 - Increments (or decrements) a numeric field
     
 
-`db.students.updateOne({name: "Bob"}, {$inc: {age: 1}})`
+```js
+db.students.updateOne({name: "Bob"}, {$inc: {age: 1}})
+```
 
 - Decreases: `{$inc: {age: -1}}`
     
@@ -106,7 +125,9 @@ db.collection_name.updateMany(
 - Multiplies numeric field
     
 
-`db.students.updateOne({name: "Charlie"}, {$mul: {score: 2}})`
+```js
+
+```
 
 ---
 
