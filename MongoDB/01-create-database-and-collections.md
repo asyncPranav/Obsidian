@@ -407,9 +407,18 @@ db.help()
 
 
 ```js
-> db.students.help()
+db.students.help()
 ```
 
+ **`db.collection_name.help()`**
+
+**What it does:**
+
+- Shows **all commands you can run on that specific collection**.
+    
+- It’s like a **mini cheat sheet for that collection**.
+    
+- Very useful when you are learning or forget syntax.
 
 ---
 
