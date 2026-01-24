@@ -213,7 +213,9 @@ db.students.insertMany([
 
 **Command:**
 
-`db.collection_name.find()`
+```js
+db.collection_name.find()
+```
 
 **What it does:**
 
@@ -222,11 +224,16 @@ db.students.insertMany([
 
 **Example:**
 
-`> db.students.find() { _id: ObjectId("650c3c9f3a1a9e0b1f4d2f5a"), name: "Alice", age: 21 }`
+```js
+> db.students.find()
+{ _id: ObjectId("650c3c9f3a1a9e0b1f4d2f5a"), name: "Alice", age: 21 }
+```
 
 **Optional:** Make it pretty for easy reading:
 
-`db.students.find().pretty()`
+```js
+db.students.find().pretty()
+```
 
 ---
 
@@ -234,7 +241,9 @@ db.students.insertMany([
 
 **Command:**
 
-`db.collection_name.drop()`
+```js
+db.collection_name.drop()
+```
 
 **What it does:**
 
@@ -243,7 +252,10 @@ db.students.insertMany([
 
 **Example:**
 
-`> db.students.drop() true`
+```js
+> db.students.drop()
+true
+```
 
 ---
 
@@ -251,11 +263,16 @@ db.students.insertMany([
 
 **Command:**
 
-`db.collection_name.countDocuments()`
+```js
+db.collection_name.countDocuments()
+```
 
 **Example:**
 
-`> db.students.countDocuments() 3`
+```js
+> db.students.countDocuments()
+3
+```
 
 ---
 
