@@ -441,3 +441,12 @@ You now know:
 - Modify existing schema
     
 - Validation levels & actions
+
+---
+
+
+### **Modifying existing collection's schema**
+
+```js
+
+```
