@@ -357,3 +357,14 @@ db.collection_name.renameCollection("new_collection_name")
 - The **new name must not already exist** in the same database.
     
 - Works even if the collection has documents inside.
+
+---
+
+### **4️⃣ Drop all collections (clear DB)**
+
+- Sometimes you want to **empty a database** but keep it:
+    
+
+```js
+db.getCollectionNames().forEach(function(c) { db[c].drop() })
+```
