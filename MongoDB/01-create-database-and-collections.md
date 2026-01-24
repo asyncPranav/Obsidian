@@ -3,6 +3,52 @@
 
 ## **Chapter 1: Create Database and Collections**
 
+### **1️⃣ Show current database**
+
+**Command:**
+
+```js
+db
+```
+
+**What it does:**
+
+- Shows the **name of the current database** you are working on.
+    
+
+**Example:**
+
+```js
+> db
+myDB
+```
+
+---
+
+### **2️⃣ Drop a database**
+
+**Command:**
+
+```js
+db.dropDatabase()
+```
+
+**What it does:**
+
+- Deletes the **current database** permanently. Be careful!
+    
+
+**Example:**
+
+```js
+> db.dropDatabase()
+{ ok: 1 }
+```
+
+- After this, `show dbs` will no longer show this database.
+
+---
+
 
 ### **1️⃣ Show all databases**
 
