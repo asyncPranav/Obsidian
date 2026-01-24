@@ -202,7 +202,12 @@ db.students.updateOne(
 - Use **dot notation** to update nested fields:
     
 
-`db.students.updateOne(   { name: "Alice" },   { $set: {"address.city": "Mumbai"} } )`
+```js
+db.students.updateOne(
+  { name: "Alice" },
+  { $set: {"address.city": "Mumbai"} }
+)
+```
 
 - If `address` object exists → updates `city`.
     
@@ -215,7 +220,12 @@ db.students.updateOne(
 
 ### **(A) Update element by index**
 
-`db.students.updateOne(   { name: "Bob" },   { $set: {"skills.0": "Node.js"} } )`
+```js
+db.students.updateOne(
+  { name: "Bob" },
+  { $set: {"skills.0": "Node.js"} }
+)
+```
 
 - Updates **first element** of `skills` array.
     
@@ -224,7 +234,12 @@ db.students.updateOne(
 
 ### **(B) Add element to array**
 
-`db.students.updateOne(   { name: "Bob" },   { $push: {skills: "MongoDB"} } )`
+```js
+db.students.updateOne(
+  { name: "Bob" },
+  { $push: {skills: "MongoDB"} }
+)
+```
 
 - Adds element to **end of array**
     
@@ -233,13 +248,23 @@ db.students.updateOne(
 
 ### **(C) Add multiple elements**
 
-`db.students.updateOne(   { name: "Bob" },   { $push: {skills: {$each: ["React", "Express"]}} } )`
+```js
+db.students.updateOne(
+  { name: "Bob" },
+  { $push: {skills: {$each: ["React", "Express"]}} }
+)
+```
 
 ---
 
 ### **(D) Add unique element**
 
-`db.students.updateOne(   { name: "Bob" },   { $addToSet: {skills: "Node.js"} } )`
+```js
+db.students.updateOne(
+  { name: "Bob" },
+  { $addToSet: {skills: "Node.js"} }
+)
+```
 
 - Adds only if it doesn’t exist
     
@@ -248,7 +273,12 @@ db.students.updateOne(
 
 ### **(E) Remove elements from array**
 
-`db.students.updateOne(   { name: "Bob" },   { $pull: {skills: "React"} } )`
+```js
+db.students.updateOne(
+  { name: "Bob" },
+  { $pull: {skills: "React"} }
+)
+```
 
 - Removes all occurrences of `React` from `skills`.
     
