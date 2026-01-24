@@ -106,7 +106,7 @@ db.createCollection("students", {
         course: {
 	      bsonType: "string",
 	      enum: ["BCA", "Btech", "Bsc"],
-	      description: ""
+	      description: "Course must be bca or betch or bsc"
         }
       }
     }
