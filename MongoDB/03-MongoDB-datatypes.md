@@ -267,7 +267,9 @@ Structure:
 
 ### **(C) Regular Expression**
 
-`{name: /rahul/i}`
+```js
+{name: /rahul/i}
+```
 
 Used in search queries.
 
@@ -275,7 +277,9 @@ Used in search queries.
 
 ### **(D) JavaScript Code**
 
-`{calc: function() { return 2 + 2 }}`
+```js
+{calc: function() { return 2 + 2 }}
+```
 
 ⚠ Rarely used (security & performance reasons)
 
@@ -283,7 +287,10 @@ Used in search queries.
 
 ### **(E) MinKey & MaxKey**
 
-`{min: MinKey()} {max: MaxKey()}`
+```js
+{min: MinKey()}
+{max: MaxKey()}
+```
 
 Used for:
 
@@ -300,13 +307,17 @@ Used for:
 
 ### **(A) Symbol** (Deprecated)
 
-`Symbol("abc")`
+```js
+Symbol("abc")
+```
 
 ---
 
 ### **(B) Undefined** (Deprecated)
 
-`{value: undefined}`
+```js
+{value: undefined}
+```
 
 ❌ Avoid using
 
@@ -316,11 +327,15 @@ Used for:
 
 ### **Check type using `$type`**
 
-`db.users.find({age: {$type: "int"}})`
+```js
+db.users.find({age: {$type: "int"}})
+```
 
 OR numeric code:
 
-`db.users.find({age: {$type: 16}})`
+```js
+db.users.find({age: {$type: 16}})
+```
 
 ---
 
