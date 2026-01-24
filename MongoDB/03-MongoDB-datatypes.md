@@ -165,12 +165,14 @@ Used for:
     
 
 ```js
-
+{createdAt: new Date()}
 ```
 
 Example:
 
-`db.users.insertOne({name: "Amit", joinedAt: new Date()})`
+```js
+db.users.insertOne({name: "Amit", joinedAt: new Date()})
+```
 
 ---
 
@@ -179,7 +181,9 @@ Example:
 - Used internally for replication & oplog
     
 
-`{ts: Timestamp()}`
+```js
+{ts: Timestamp()}
+```
 
 ⚠ Rarely used in applications
 
