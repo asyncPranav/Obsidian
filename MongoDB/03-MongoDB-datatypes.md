@@ -283,7 +283,9 @@ Local time:
 
 Stored as:
 
-`ISODate("2026-01-24T04:30:00.000Z")`
+```js
+ISODate("2026-01-24T04:30:00.000Z")
+```
 
 📌 `Z` means **UTC time**
 
@@ -300,7 +302,13 @@ MongoDB converts automatically:
 
 ### Find documents after a certain date
 
-`db.users.find({   joinedAt: {     $gte: ISODate("2024-01-01T00:00:00Z")   } })`
+```js
+db.users.find({
+  joinedAt: {
+    $gte: ISODate("2024-01-01T00:00:00Z")
+  }
+})
+```
 
 ---
 
@@ -308,17 +316,26 @@ MongoDB converts automatically:
 
 ❌ Storing date as string:
 
-`{ joinedAt: "2024-01-24" }`
+```js
+{ joinedAt: "2024-01-24" }
+```
 
 ✔ Correct:
 
-`{ joinedAt: ISODate("2024-01-24T00:00:00Z") }`
+```js
+{ joinedAt: ISODate("2024-01-24T00:00:00Z") }
+```
 
 ---
 
 ## **8️⃣ JSON Schema Validation for Date**
 
-`joinedAt: {   bsonType: "date",   description: "must be a valid date" }`
+```js
+joinedAt: {
+  bsonType: "date",
+  description: "must be a valid date"
+}
+```
 
 ---
 
