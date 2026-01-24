@@ -280,7 +280,9 @@ db.collection_name.countDocuments()
 
 **Command:**
 
-`db.stats()`
+```js
+db.stats()
+```
 
 **What it does:**
 
@@ -289,7 +291,18 @@ db.collection_name.countDocuments()
 
 **Example:**
 
-`> db.stats() {   db: "myDB",   collections: 1,   objects: 3,   avgObjSize: 45,   dataSize: 135,   storageSize: 8192,   ... }`
+```js
+> db.stats()
+{
+  db: "myDB",
+  collections: 1,
+  objects: 3,
+  avgObjSize: 45,
+  dataSize: 135,
+  storageSize: 8192,
+  ...
+}
+```
 
 ---
 
@@ -310,3 +323,7 @@ db.collection_name.countDocuments()
 |Drop database|`db.dropDatabase()`|
 |Count documents|`db.collection_name.countDocuments()`|
 |Database stats|`db.stats()`|
+
+
+---
+
