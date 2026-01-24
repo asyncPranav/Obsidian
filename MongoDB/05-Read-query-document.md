@@ -159,25 +159,36 @@ db.students.find({grade: "A"}, {name: 1, age: 1, _id: 0})
 
 Output:
 
-`{ name: "Alice", age: 21 }`
+```js
+{ name: "Alice", age: 21 }
+```
 
 ---
 
 ### **Sort Results**
 
-`db.students.find().sort({age: 1})   // Ascending db.students.find().sort({age: -1})  // Descending`
+```js
+db.students.find().sort({age: 1})   // Ascending
+db.students.find().sort({age: -1})  // Descending
+```
 
 ---
 
 ### **Limit & Skip (Pagination)**
 
-`db.students.find().limit(3)   // First 3 documents db.students.find().skip(2)    // Skip first 2 documents db.students.find().skip(2).limit(3)  // Skip 2, next 3`
+```js
+db.students.find().limit(3)   // First 3 documents
+db.students.find().skip(2)    // Skip first 2 documents
+db.students.find().skip(2).limit(3)  // Skip 2, next 3
+```
 
 ---
 
 ### **Count Documents**
 
-`db.students.find({grade: "A"}).count()`
+```js
+db.students.find({grade: "A"}).count()
+```
 
 - Returns number of documents matching query
     
@@ -186,7 +197,9 @@ Output:
 
 ### **Explain Query Performance (Optional)**
 
-`db.students.find({age: {$gte: 22}}).explain("executionStats")`
+```js
+db.students.find({age: {$gte: 22}}).explain("executionStats")
+```
 
 - Helps **analyze performance**, useful with large collections
     
@@ -195,7 +208,9 @@ Output:
 
 ### **Query on Dates**
 
-`db.students.find({joinedAt: {$gte: ISODate("2025-01-01T00:00:00Z")}})`
+```js
+db.students.find({joinedAt: {$gte: ISODate("2025-01-01T00:00:00Z")}})
+```
 
 - Works with **Date / ISODate** fields
     
