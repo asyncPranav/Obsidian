@@ -327,7 +327,17 @@ db.createCollection("users", {
 
 Use **`collMod`**:
 
-`db.runCommand({   collMod: "students",   validator: {     $jsonSchema: {       bsonType: "object",       required: ["name", "age"]     }   } })`
+```js
+db.runCommand({
+  collMod: "students",
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["name", "age"]
+    }
+  }
+})
+```
 
 ---
 
@@ -342,7 +352,9 @@ MongoDB provides **2 validation levels**:
 |`strict`|Applies to all inserts & updates|
 |`moderate`|Applies only to new documents|
 
-`validationLevel: "strict"`
+```js
+validationLevel: "strict"
+```
 
 ---
 
@@ -353,13 +365,30 @@ MongoDB provides **2 validation levels**:
 |`error`|Reject invalid document|
 |`warn`|Allow insert but log warning|
 
-`validationAction: "error"`
+```js
+validationAction: "error"
+```
 
 ---
 
 ## **1️⃣1️⃣ Complete Syntax with Level & Action**
 
-`db.createCollection("products", {   validator: {     $jsonSchema: {       bsonType: "object",       required: ["name", "price"],       properties: {         name: { bsonType: "string" },         price: { bsonType: "double", minimum: 0 }       }     }   },   validationLevel: "strict",   validationAction: "error" })`
+```js
+db.createCollection("products", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["name", "price"],
+      properties: {
+        name: { bsonType: "string" },
+        price: { bsonType: "double", minimum: 0 }
+      }
+    }
+  },
+  validationLevel: "strict",
+  validationAction: "error"
+})
+```
 
 ---
 
