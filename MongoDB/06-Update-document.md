@@ -339,7 +339,10 @@ db.students.updateOne(
     
 
 ```js
-
+db.students.updateOne(
+  { name: "Bob" },
+  { $pullAll: { skills: ["React", "Python"] } }
+)
 ```
 
 ---
@@ -357,7 +360,12 @@ db.students.updateOne(
     - Limit array length
         
 
-`db.students.updateOne(   { name: "Bob" },   { $push: { scores: { $each: [70, 85, 95], $position: 1, $sort: -1, $slice: 3 } } } )`
+```js
+db.students.updateOne(
+  { name: "Bob" },
+  { $push: { scores: { $each: [70, 85, 95], $position: 1, $sort: -1, $slice: 3 } } }
+)
+```
 
 - Keeps **top 3 scores** sorted descending
     
@@ -369,7 +377,12 @@ db.students.updateOne(
 - Update **first element that matches query condition**
     
 
-`db.students.updateOne(   { name: "Bob", "scores": 85 },   { $set: { "scores.$": 90 } } )`
+```js
+db.students.updateOne(
+  { name: "Bob", "scores": 85 },
+  { $set: { "scores.$": 90 } }
+)
+```
 
 - `$` → updates **first matching element** of the array
     
@@ -381,7 +394,12 @@ db.students.updateOne(
 - Update **all elements** in an array
     
 
-`db.students.updateOne(   { name: "Bob" },   { $inc: { "scores.$[]": 5 } } // Add 5 to all scores )`
+```js
+db.students.updateOne(
+  { name: "Bob" },
+  { $inc: { "scores.$[]": 5 } } // Add 5 to all scores
+)
+```
 
 ---
 
@@ -390,7 +408,13 @@ db.students.updateOne(
 - Update **specific elements matching condition** in array
     
 
-`db.students.updateOne(   { name: "Bob" },   { $set: { "scores.$[elem]": 100 } },   { arrayFilters: [{ "elem": { $lt: 50 } }] } )`
+```js
+db.students.updateOne(
+  { name: "Bob" },
+  { $set: { "scores.$[elem]": 100 } },
+  { arrayFilters: [{ "elem": { $lt: 50 } }] }
+)
+```
 
 - Updates only elements `<50` to `100`
     
@@ -402,7 +426,12 @@ db.students.updateOne(
 - Keep array length limited
     
 
-`db.students.updateOne(   { name: "Bob" },   { $push: { scores: { $each: [60,70], $slice: -5 } } }  )`
+```js
+db.students.updateOne(
+  { name: "Bob" },
+  { $push: { scores: { $each: [60,70], $slice: -5 } } } 
+)
+```
 
 - Keeps only last 5 elements
     
@@ -438,18 +467,6 @@ db.students.updateOne(
 
 ---
 
-### **(F) Pop first or last element**
-
-```js
-db.students.updateOne(
-  { name: "Bob" },
-  { $pop: {skills: 1} }   // 1 = last element
-)
-db.students.updateOne(
-  { name: "Bob" },
-  { $pop: {skills: -1} }  // -1 = first element
-)
-```
 
 ---
 
