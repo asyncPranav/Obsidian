@@ -287,13 +287,27 @@ db.students.updateOne(
 
 ### **(F) Pop first or last element**
 
-`db.students.updateOne(   { name: "Bob" },   { $pop: {skills: 1} }   // 1 = last element ) db.students.updateOne(   { name: "Bob" },   { $pop: {skills: -1} }  // -1 = first element )`
+```js
+db.students.updateOne(
+  { name: "Bob" },
+  { $pop: {skills: 1} }   // 1 = last element
+)
+db.students.updateOne(
+  { name: "Bob" },
+  { $pop: {skills: -1} }  // -1 = first element
+)
+```
 
 ---
 
 ## **8️⃣ Update Many Arrays (Multiple Docs)**
 
-`db.students.updateMany(   { grade: "B" },   { $set: {"status": "Active"} } )`
+```js
+db.students.updateMany(
+  { grade: "B" },
+  { $set: {"status": "Active"} }
+)
+```
 
 - Updates **all matching documents**.
     
@@ -302,7 +316,16 @@ db.students.updateOne(
 
 ## **9️⃣ Upsert + Nested + Array Example**
 
-`db.students.updateOne(   { name: "Zara" },   {      $set: {"age": 20, "address.city": "Delhi"},     $push: {skills: {$each: ["JavaScript","MongoDB"]}}   },   { upsert: true } )`
+```js
+db.students.updateOne(
+  { name: "Zara" },
+  { 
+    $set: {"age": 20, "address.city": "Delhi"},
+    $push: {skills: {$each: ["JavaScript","MongoDB"]}}
+  },
+  { upsert: true }
+)
+```
 
 - Combines **nested updates, array updates, and upsert**.
     
