@@ -422,7 +422,9 @@ db.collection_name.updateMany(
 
 **Example:**
 
-`db.learners.updateMany({}, { $rename: { "name": "fullName" } })`
+```js
+db.learners.updateMany({}, { $rename: { "name": "fullName" } })
+```
 
 ---
 
@@ -431,13 +433,21 @@ db.collection_name.updateMany(
 - MongoDB is **schema-less**, so documents in the same collection can have **different fields**.
     
 
-`db.learners.insertOne({fullName: "Dave", age: 24, grade: "A"}) db.learners.insertOne({fullName: "Eva", age: 22})`
+```js
+db.learners.insertOne({fullName: "Dave", age: 24, grade: "A"})
+db.learners.insertOne({fullName: "Eva", age: 22})
+```
 
 ---
 
 ### **5️⃣ Copy a collection (optional beginner tip)**
 
-`db.originalCollection.aggregate([   { $match: {} },   { $out: "copyCollection" } ])`
+```js
+db.originalCollection.aggregate([
+  { $match: {} },
+  { $out: "copyCollection" }
+])
+```
 
 - Makes a **full copy of a collection** with all documents.
     
