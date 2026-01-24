@@ -206,7 +206,13 @@ db.users.insertOne({
 
 ### **What MongoDB actually stores**
 
-`{   "_id": ObjectId("..."),   "name": "Amit",   "joinedAt": ISODate("2026-01-24T04:30:00.000Z") }`
+```js
+{
+  "_id": ObjectId("..."),
+  "name": "Amit",
+  "joinedAt": ISODate("2026-01-24T04:30:00.000Z")
+}
+```
 
 👉 **Important:**
 
@@ -221,7 +227,12 @@ db.users.insertOne({
 
 You can also insert dates manually:
 
-`db.users.insertOne({   name: "Rahul",   joinedAt: ISODate("2024-06-15T10:30:00Z") })`
+```js
+db.users.insertOne({
+  name: "Rahul",
+  joinedAt: ISODate("2024-06-15T10:30:00Z")
+})
+```
 
 ✔ Stored in UTC  
 ✔ ISO-8601 standard
@@ -230,7 +241,9 @@ You can also insert dates manually:
 
 ## **4️⃣ ISO-8601 Date Format Structure**
 
-`YYYY-MM-DDTHH:MM:SS.mmmZ`
+```js
+YYYY-MM-DDTHH:MM:SS.mmmZ
+```
 
 |Part|Meaning|
 |---|---|
@@ -246,7 +259,9 @@ You can also insert dates manually:
 
 Example:
 
-`ISODate("2025-12-31T18:30:00.000Z")`
+```js
+ISODate("2025-12-31T18:30:00.000Z")
+```
 
 ---
 
@@ -256,11 +271,15 @@ MongoDB **always stores Date in UTC**.
 
 ### Example (India – IST):
 
-`new Date()`
+```js
+new Date()
+```
 
 Local time:
 
-`24 Jan 2026 10:00 AM IST`
+```js
+24 Jan 2026 10:00 AM IST
+```
 
 Stored as:
 
