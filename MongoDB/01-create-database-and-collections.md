@@ -8,7 +8,7 @@
 
 **Command:**
 
-```mongo
+```js
 show dbs
 ```
 
@@ -21,7 +21,12 @@ show dbs
 
 **Example:**
 
-`> show dbs admin    0.000GB local    0.000GB myDB     0.001GB`
+```js
+> show dbs
+admin    0.000GB
+local    0.000GB
+myDB     0.001GB
+```
 
 ---
 
@@ -29,7 +34,9 @@ show dbs
 
 **Command:**
 
-`use <database_name>`
+```js
+use <database_name>
+```
 
 **What it does:**
 
@@ -40,7 +47,10 @@ show dbs
 
 **Example:**
 
-`> use myDB switched to db myDB`
+```js
+> use myDB
+switched to db myDB
+```
 
 - At this point, `myDB` is created in memory. If you run `show dbs`, you might **not see it yet** until you create a collection or insert data.
     
@@ -51,7 +61,9 @@ show dbs
 
 **Command:**
 
-`db.createCollection("collection_name")`
+```js
+db.createCollection("collection_name")
+```
 
 **What it does:**
 
@@ -60,7 +72,8 @@ show dbs
 
 **Example:**
 
-`> db.createCollection("students") { ok: 1 }`
+```mongo
+```
 
 - `students` is now a collection inside `myDB`.
     
