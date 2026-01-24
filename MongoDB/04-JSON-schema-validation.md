@@ -29,7 +29,9 @@ MongoDB uses **JSON Schema (draft-07 style)** for validation.
 
 Without validation:
 
-`db.students.insertOne({name: "Aman", age: "twenty"})`
+```js
+db.students.insertOne({name: "Aman", age: "twenty"})
+```
 
 ❌ `age` is string instead of number → MongoDB accepts it
 
@@ -64,27 +66,67 @@ You define rules:
 
 ### **Basic Syntax**
 
-`db.createCollection("collection_name", {   validator: {     $jsonSchema: {       bsonType: "object",       required: [ "field1", "field2" ],       properties: {         field1: { bsonType: "string" },         field2: { bsonType: "int" }       }     }   } })`
+```js
+db.createCollection("collection_name", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: [ "field1", "field2" ],
+      properties: {
+        field1: { bsonType: "string" },
+        field2: { bsonType: "int" }
+      }
+    }
+  }
+})
+```
 
 ---
 
 ### **Example: Students Collection**
 
-`db.createCollection("students", {   validator: {     $jsonSchema: {       bsonType: "object",       required: ["name", "age"],       properties: {         name: {           bsonType: "string",           description: "must be a string and is required"         },         age: {           bsonType: "int",           minimum: 18,           maximum: 30,           description: "must be an integer between 18 and 30"         }       }     }   } })`
+```js
+db.createCollection("students", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["name", "age"],
+      properties: {
+        name: {
+          bsonType: "string",
+          description: "must be a string and is required"
+        },
+        age: {
+          bsonType: "int",
+          minimum: 18,
+          maximum: 30,
+          description: "must be an integer between 18 and 30"
+        }
+      }
+    }
+  }
+})
+```
 
 ---
 
 ### ✅ Valid Insert
 
-`db.students.insertOne({name: "Rahul", age: 22})`
+```js
+db.students.insertOne({name: "Rahul", age: 22})
+```
 
 ### ❌ Invalid Insert
 
-`db.students.insertOne({name: "Rahul", age: "22"})`
+```js
+db.students.insertOne({name: "Rahul", age: "22"})
+```
 
 MongoDB Error:
 
-`Document failed validation`
+```js
+Document failed validation
+```
 
 ---
 
