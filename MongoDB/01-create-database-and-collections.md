@@ -368,3 +368,7 @@ db.collection_name.renameCollection("new_collection_name")
 ```js
 db.getCollectionNames().forEach(function(c) { db[c].drop() })
 ```
+
+
+---
+
