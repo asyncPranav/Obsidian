@@ -66,7 +66,9 @@ db.collection_name.find({field: value})
 
 **Example:**
 
-`db.students.find({grade: "A"})`
+```js
+db.students.find({grade: "A"})
+```
 
 - Returns all students with grade "A"
     
@@ -86,7 +88,9 @@ db.collection_name.find({field: value})
 
 **Example:**
 
-`db.students.find({age: {$gte: 22}})`
+```js
+db.students.find({age: {$gte: 22}})
+```
 
 ---
 
@@ -101,7 +105,9 @@ db.collection_name.find({field: value})
 
 **Example:**
 
-`db.students.find({$or: [{grade: "A"}, {age: 22}]})`
+```js
+db.students.find({$or: [{grade: "A"}, {age: 22}]})
+```
 
 ---
 
@@ -116,13 +122,17 @@ db.collection_name.find({field: value})
 
 **Example:**
 
-`db.students.find({skills: {$all: ["JavaScript", "MongoDB"]}})`
+```js
+db.students.find({skills: {$all: ["JavaScript", "MongoDB"]}})
+```
 
 ---
 
 ### **Query Nested Documents**
 
-`db.students.find({"address.city": "Delhi"})`
+```js
+db.students.find({"address.city": "Delhi"})
+```
 
 - Dot notation `.` allows querying **nested fields**.
     
@@ -131,7 +141,10 @@ db.collection_name.find({field: value})
 
 ### **Query Using Regular Expressions**
 
-`db.students.find({name: /^A/})  // Names starting with 'A' db.students.find({name: /rahul/i}) // Case-insensitive search`
+```js
+db.students.find({name: /^A/})  // Names starting with 'A'
+db.students.find({name: /rahul/i}) // Case-insensitive search
+```
 
 ---
 
@@ -140,7 +153,9 @@ db.collection_name.find({field: value})
 - Use projection to **return only required fields**.
     
 
-`db.students.find({grade: "A"}, {name: 1, age: 1, _id: 0})`
+```js
+db.students.find({grade: "A"}, {name: 1, age: 1, _id: 0})
+```
 
 Output:
 
