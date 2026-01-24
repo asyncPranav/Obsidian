@@ -169,3 +169,127 @@ students
 3. `db.createCollection("students")` → create collection
     
 4. `show collections` → see collections
+
+
+---
+
+### **3️⃣ Insert a document (creates collection automatically if not exists)**
+
+**Command:**
+
+```js
+db.collection_name.insertOne({key: "value"})
+```
+
+**What it does:**
+
+- Adds a **document** (like a row in SQL) to a collection.
+    
+- If the collection doesn’t exist, MongoDB **creates it automatically**.
+    
+
+**Example:**
+
+```js
+> db.students.insertOne({name: "Alice", age: 21})
+{
+  acknowledged: true,
+  insertedId: ObjectId("650c3c9f3a1a9e0b1f4d2f5a")
+}
+```
+
+**Insert multiple documents at once:**
+
+```js
+db.students.insertMany([
+  {name: "Bob", age: 22},
+  {name: "Charlie", age: 23}
+])
+```
+
+---
+
+### **4️⃣ Find / Show documents**
+
+**Command:**
+
+`db.collection_name.find()`
+
+**What it does:**
+
+- Shows all documents in the collection.
+    
+
+**Example:**
+
+`> db.students.find() { _id: ObjectId("650c3c9f3a1a9e0b1f4d2f5a"), name: "Alice", age: 21 }`
+
+**Optional:** Make it pretty for easy reading:
+
+`db.students.find().pretty()`
+
+---
+
+### **5️⃣ Drop a collection**
+
+**Command:**
+
+`db.collection_name.drop()`
+
+**What it does:**
+
+- Deletes the **entire collection** permanently.
+    
+
+**Example:**
+
+`> db.students.drop() true`
+
+---
+
+### **6️⃣ Count documents in a collection**
+
+**Command:**
+
+`db.collection_name.countDocuments()`
+
+**Example:**
+
+`> db.students.countDocuments() 3`
+
+---
+
+### **7️⃣ Show stats of database**
+
+**Command:**
+
+`db.stats()`
+
+**What it does:**
+
+- Shows useful info about the current database (collections count, size, etc.)
+    
+
+**Example:**
+
+`> db.stats() {   db: "myDB",   collections: 1,   objects: 3,   avgObjSize: 45,   dataSize: 135,   storageSize: 8192,   ... }`
+
+---
+
+### ✅ **Summary of Commands for Chapter 1**
+
+|Task|Command|
+|---|---|
+|Show all databases|`show dbs`|
+|Switch/create database|`use dbName`|
+|Show current database|`db`|
+|Create collection|`db.createCollection("collection_name")`|
+|Show collections|`show collections`|
+|Insert document|`db.collection_name.insertOne({})`|
+|Insert multiple|`db.collection_name.insertMany([{},{},...])`|
+|Show documents|`db.collection_name.find()`|
+|Pretty print documents|`db.collection_name.find().pretty()`|
+|Drop collection|`db.collection_name.drop()`|
+|Drop database|`db.dropDatabase()`|
+|Count documents|`db.collection_name.countDocuments()`|
+|Database stats|`db.stats()`|
