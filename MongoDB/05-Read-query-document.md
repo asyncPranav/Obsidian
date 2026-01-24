@@ -11,15 +11,23 @@ MongoDB allows you to **read documents** from a collection using **find commands
 
 **Command:**
 
-`db.collection_name.find()`
+```js
+db.collection_name.find()
+```
 
 **Example:**
 
-`> db.students.find() { _id: ObjectId("650c3c9f3a1a9e0b1f4d2f5a"), name: "Alice", age: 21, grade: "A" } { _id: ObjectId("650c3d9f3a1a9e0b1f4d2f5b"), name: "Bob", age: 22, grade: "B" }`
+```js
+> db.students.find()
+{ _id: ObjectId("650c3c9f3a1a9e0b1f4d2f5a"), name: "Alice", age: 21, grade: "A" }
+{ _id: ObjectId("650c3d9f3a1a9e0b1f4d2f5b"), name: "Bob", age: 22, grade: "B" }
+```
 
 **Pretty Print:**
 
-`db.students.find().pretty()`
+```js
+db.students.find().pretty()
+```
 
 - Shows documents in a **readable format**.
     
@@ -30,11 +38,16 @@ MongoDB allows you to **read documents** from a collection using **find commands
 
 **Command:**
 
-`db.collection_name.findOne(query)`
+```js
+db.collection_name.findOne(query)
+```
 
 **Example:**
 
-`> db.students.findOne({name: "Alice"}) { _id: ObjectId("650c3c9f3a1a9e0b1f4d2f5a"), name: "Alice", age: 21, grade: "A" }`
+```js
+> db.students.findOne({name: "Alice"})
+{ _id: ObjectId("650c3c9f3a1a9e0b1f4d2f5a"), name: "Alice", age: 21, grade: "A" }
+```
 
 - Returns **first matching document**.
     
@@ -47,7 +60,9 @@ MongoDB allows you to **read documents** from a collection using **find commands
 
 ### **Basic Query**
 
-`db.collection_name.find({field: value})`
+```js
+db.collection_name.find({field: value})
+```
 
 **Example:**
 
