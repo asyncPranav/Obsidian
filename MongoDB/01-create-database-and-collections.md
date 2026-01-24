@@ -404,7 +404,12 @@ db.help()
 ```
 
 - Shows **all commands related to the current database**.
-    
+
+
+```js
+> db.students.help()
+```
+
 
 ---
 
