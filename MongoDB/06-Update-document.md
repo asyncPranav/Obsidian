@@ -232,56 +232,7 @@ db.students.updateOne(
 
 ---
 
-### **(B) Add element to array**
 
-```js
-db.students.updateOne(
-  { name: "Bob" },
-  { $push: {skills: "MongoDB"} }
-)
-```
-
-- Adds element to **end of array**
-    
-
----
-
-### **(C) Add multiple elements**
-
-```js
-db.students.updateOne(
-  { name: "Bob" },
-  { $push: {skills: {$each: ["React", "Express"]}} }
-)
-```
-
----
-
-### **(D) Add unique element**
-
-```js
-db.students.updateOne(
-  { name: "Bob" },
-  { $addToSet: {skills: "Node.js"} }
-)
-```
-
-- Adds only if it doesn’t exist
-    
-
----
-
-### **(E) Remove elements from array**
-
-```js
-db.students.updateOne(
-  { name: "Bob" },
-  { $pull: {skills: "React"} }
-)
-```
-
-- Removes all occurrences of `React` from `skills`.
-    
 
 ---
 
