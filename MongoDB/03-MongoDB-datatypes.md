@@ -93,7 +93,9 @@ Used for:
 - Represents missing or empty value
     
 
-`{middleName: null}`
+```js
+{middleName: null}
+```
 
 ---
 
@@ -106,7 +108,9 @@ Used for:
 - Range: **-2³¹ to 2³¹-1**
     
 
-`{age: NumberInt(25)}`
+```js
+{age: NumberInt(25)}
+```
 
 📌 Default numbers may be stored as **double**, so use `NumberInt()` when needed.
 
@@ -119,7 +123,9 @@ Used for:
 - Used for large numbers
     
 
-`{population: NumberLong("9000000000")}`
+```js
+{population: NumberLong("9000000000")}
+```
 
 ---
 
@@ -130,7 +136,9 @@ Used for:
 - Default numeric type
     
 
-`{price: 99.99}`
+```js
+{price: 99.99}
+```
 
 ---
 
@@ -141,7 +149,9 @@ Used for:
 - Used for **money, financial data**
     
 
-`{salary: NumberDecimal("12345.67")}`
+```js
+{salary: NumberDecimal("12345.67")}
+```
 
 ✔ Prevents floating-point rounding issues
 
@@ -154,7 +164,9 @@ Used for:
 - Stores date & time (milliseconds since Unix epoch)
     
 
-`{createdAt: new Date()}`
+```js
+
+```
 
 Example:
 
