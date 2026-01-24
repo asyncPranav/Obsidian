@@ -92,7 +92,7 @@ db.collection_name.insertMany([
     
 
 ```js
-
+db.students.insertMany([...], {ordered: false})
 ```
 
 - `ordered: false` → MongoDB continues inserting even if some documents fail.
@@ -105,7 +105,9 @@ db.collection_name.insertMany([
 - MongoDB automatically creates `_id` if you don’t provide one, but you can set your own:
     
 
-`db.students.insertOne({_id: 101, name: "Eva", age: 20})`
+```js
+db.students.insertOne({_id: 101, name: "Eva", age: 20})
+```
 
 **Note:**
 
@@ -123,7 +125,14 @@ db.collection_name.insertMany([
 
 **Example:**
 
-`db.students.insertOne({     name: "Frank",     age: 25,     address: { city: "Delhi", pincode: "110001" },     subjects: ["Math", "Science", "English"] })`
+```js
+db.students.insertOne({
+    name: "Frank",
+    age: 25,
+    address: { city: "Delhi", pincode: "110001" },
+    subjects: ["Math", "Science", "English"]
+})
+```
 
 - `address` → nested document
     
@@ -134,7 +143,10 @@ db.collection_name.insertMany([
 
 ## **5️⃣ Insert Documents Using Variables**
 
-`let student = {name: "Grace", age: 22, grade: "B"} db.students.insertOne(student)`
+```js
+let student = {name: "Grace", age: 22, grade: "B"}
+db.students.insertOne(student)
+```
 
 - Useful for inserting **dynamic data** from your application.
     
@@ -146,11 +158,22 @@ db.collection_name.insertMany([
 - After inserting, always check:
     
 
-`db.students.find() db.students.find().pretty()  // formatted output`
+```js
+db.students.find()
+db.students.find().pretty()  // formatted output
+```
 
 **Example:**
 
-`> db.students.find().pretty() {   _id: ObjectId("650c3c9f3a1a9e0b1f4d2f5a"),   name: "Alice",   age: 21,   grade: "A" }`
+```js
+> db.students.find().pretty()
+{
+  _id: ObjectId("650c3c9f3a1a9e0b1f4d2f5a"),
+  name: "Alice",
+  age: 21,
+  grade: "A"
+}
+```
 
 ---
 
@@ -159,7 +182,9 @@ db.collection_name.insertMany([
 - Use **unique `_id`** or create a **unique index** on a field:
     
 
-`db.students.createIndex({name: 1}, {unique: true})`
+```js
+db.students.createIndex({name: 1}, {unique: true})
+```
 
 - Then try to insert a document with the same `name` → MongoDB throws error.
     
@@ -171,7 +196,9 @@ db.collection_name.insertMany([
 1. MongoDB is **schema-less** → documents can have different fields:
     
 
-`db.students.insertOne({name: "Henry", hobbies: ["Reading", "Chess"]})`
+```js
+
+```
 
 2. Insert large amounts of data efficiently → **`insertMany()`**.
     
