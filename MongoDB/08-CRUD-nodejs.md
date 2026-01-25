@@ -437,7 +437,17 @@ This only:
 
 ## 🧠 FINAL EXECUTION FLOW (VERY IMPORTANT)
 
-`require mongodb    ↓ create MongoClient object    ↓ connect to MongoDB server    ↓ select database    ↓ select collection`
+```js
+require mongodb
+   ↓
+create MongoClient object
+   ↓
+connect to MongoDB server
+   ↓
+select database
+   ↓
+select collection
+```
 
 ---
 
