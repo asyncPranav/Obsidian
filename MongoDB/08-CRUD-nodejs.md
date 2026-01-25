@@ -256,7 +256,9 @@ What it does:
 
 ### Analogy
 
-`new MongoClient(uri)`
+```js
+new MongoClient(uri)
+```
 
 is like:
 
@@ -267,7 +269,9 @@ is like:
 
 ## 4️⃣ Async Function `main`
 
-`async function main() {`
+```js
+async function main() {
+```
 
 ### Why async?
 
@@ -282,7 +286,9 @@ Because:
 
 `async` allows:
 
-`await client.connect();`
+```js
+await client.connect();
+```
 
 ---
 
@@ -290,13 +296,17 @@ Because:
 
 You would need:
 
-`client.connect().then(...).catch(...)`
+```js
+client.connect().then(...).catch(...)
+```
 
 ---
 
 ## 5️⃣ Connect to MongoDB
 
-`await client.connect();`
+```js
+await client.connect();
+```
 
 ### This is the MOST IMPORTANT LINE
 
