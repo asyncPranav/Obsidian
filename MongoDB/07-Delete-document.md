@@ -239,11 +239,15 @@ db.collection_name.drop()
 
 ### ✅ Example
 
-`db.students.drop()`
+```js
+db.students.drop()
+```
 
 **Result:**
 
-`true`
+```js
+true
+```
 
 🚨 **Cannot be undone**
 
@@ -262,7 +266,9 @@ db.collection_name.drop()
 
 ### **Drop Current Database**
 
-`db.dropDatabase()`
+```js
+db.dropDatabase()
+```
 
 ### 🔍 What it does
 
@@ -279,11 +285,16 @@ db.collection_name.drop()
 
 ### ✅ Example
 
-`use myDB db.dropDatabase()`
+```js
+use myDB
+db.dropDatabase()
+```
 
 **Result:**
 
-`{ ok: 1 }`
+```js
+{ ok: 1 }
+```
 
 🚨 **Dangerous command**
 
@@ -291,7 +302,9 @@ db.collection_name.drop()
 
 ## 🔹 **7️⃣ Delete All Collections in a Database**
 
-`db.getCollectionNames().forEach(c => db[c].drop())`
+```js
+db.getCollectionNames().forEach(c => db[c].drop())
+```
 
 ✔ Clears DB  
 ✔ Keeps database name
@@ -305,7 +318,9 @@ db.collection_name.drop()
 
 ### **Soft Delete Example**
 
-`db.users.updateOne(   { email: "test@gmail.com" },   { $set: { isDeleted: true, deletedAt: new Date() } } )`
+```js
+
+```
 
 Then query only active users:
 
