@@ -546,7 +546,12 @@ const users = db.collection(COLLECTION_NAME);
 
 ## 5️⃣ Optional: Insert multiple users at once
 
-`await users.insertMany([   { name: "Amit", age: 25, course: "BCA" },   { name: "Ravi", age: 22, course: "B.Tech" } ]);`
+```js
+await users.insertMany([
+  { name: "Amit", age: 25, course: "BCA" },
+  { name: "Ravi", age: 22, course: "B.Tech" }
+]);
+```
 
 **Why:**
 
@@ -561,7 +566,13 @@ const users = db.collection(COLLECTION_NAME);
 
 Sometimes, if your app crashes, connection may remain open.
 
-`process.on("SIGINT", async () => {   await client.close();   console.log("MongoDB connection closed due to app termination");   process.exit(); });`
+```js
+process.on("SIGINT", async () => {
+  await client.close();
+  console.log("MongoDB connection closed due to app termination");
+  process.exit();
+});
+```
 
 **Why:**
 
