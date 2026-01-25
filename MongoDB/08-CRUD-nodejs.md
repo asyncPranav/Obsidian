@@ -166,7 +166,9 @@ It tells Node:
 
 ### Breaking this URI into parts
 
-`mongodb+srv://`
+```js
+mongodb+srv://
+```
 
 - Protocol
     
@@ -181,14 +183,18 @@ It tells Node:
 
 ---
 
-`namasteNode`
+```js
+namasteNode
+```
 
 - MongoDB **username**
     
 
 ---
 
-`namasteNodePass`
+```js
+namasteNodePass
+```
 
 - MongoDB **password**
     
@@ -197,7 +203,9 @@ It tells Node:
 
 ---
 
-`@namastenode.jqcz9u9.mongodb.net`
+```js
+@namastenode.jqcz9u9.mongodb.net
+```
 
 - Cluster hostname
     
@@ -206,7 +214,9 @@ It tells Node:
 
 ---
 
-`/?appName=namasteNode`
+```js
+/?appName=namasteNode
+```
 
 - Optional query parameters
     
@@ -223,7 +233,9 @@ It tells Node:
 
 ## 3️⃣ Create MongoClient Instance
 
-`const client = new MongoClient(uri);`
+```js
+const client = new MongoClient(uri);
+```
 
 ### IMPORTANT: This does NOT connect yet ❌
 
