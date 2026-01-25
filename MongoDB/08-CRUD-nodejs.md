@@ -680,7 +680,9 @@ async function runCRUD() {
 
 ---
 
-  `try {`
+```js
+  try {
+```
 
 - Start a **try block** to catch any errors that happen during MongoDB operations.
     
@@ -689,7 +691,10 @@ async function runCRUD() {
 
 ---
 
-    `const database = client.db('sample_mflix');     const movies = database.collection('movies');`
+```js
+    const database = client.db('sample_mflix');
+    const movies = database.collection('movies');
+```
 
 - `database` → selects a MongoDB database (created lazily if it doesn’t exist)
     
