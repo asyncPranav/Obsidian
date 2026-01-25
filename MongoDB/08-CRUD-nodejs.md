@@ -7,34 +7,19 @@ const uri =  "mongodb+srv://namasteNode:namasteNodePass@namastenode.jqcz9u9.mon
 
 const client = new MongoClient(uri);
 
-  
-
 async function main() {
-
   await client.connect();
-
   console.log("MongoDB connected");
-
   
-
   const db = client.db("HelloWorld");
-
   const users = db.collection("User");
 
-  
-
   // create
-
   console.log("\n--------------Creating user--------------\n");
-
   const created = await users.insertOne({
-
     name: "Vageesh",
-
     age: 34,
-
     course: "MCA",
-
   });
 
   
