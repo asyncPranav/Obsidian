@@ -644,7 +644,9 @@ runCRUD().catch(console.dir);
 
 # ✅ Full Explanation
 
-`const { MongoClient } = require('mongodb');`
+```js
+const { MongoClient } = require('mongodb');
+```
 
 - Imports `MongoClient` from the official MongoDB driver.
     
@@ -653,7 +655,9 @@ runCRUD().catch(console.dir);
 
 ---
 
-`async function runGetStarted() {`
+```js
+async function runCRUD() {
+```
 
 - Creates an **async function** to use `await` for MongoDB operations.
     
@@ -662,7 +666,10 @@ runCRUD().catch(console.dir);
 
 ---
 
-  `const uri = '<connection string URI>';   const client = new MongoClient(uri);`
+```js
+  const uri = '<connection string URI>';
+  const client = new MongoClient(uri);
+```
 
 - `uri` is your MongoDB connection string (Atlas, local, etc.)
     
