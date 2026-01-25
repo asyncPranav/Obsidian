@@ -426,3 +426,13 @@ select collection
 ✔ `new MongoClient()` does NOT connect  
 ✔ `client.connect()` opens network connection  
 ✔ DB & collection are created lazily
+
+
+---
+
+
+## ** ✅ IMPROVEMENT**
+
+
+
+
