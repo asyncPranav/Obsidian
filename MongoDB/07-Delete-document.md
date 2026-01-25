@@ -99,7 +99,9 @@ db.students.deleteMany({})
 
 ## **C) Delete ALL documents but keep collection**
 
-`db.students.deleteMany({})`
+```js
+db.students.deleteMany({})
+```
 
 - Collection stays
     
@@ -114,7 +116,9 @@ db.students.deleteMany({})
 
 **Command:**
 
-`db.collection_name.findOneAndDelete(filter)`
+```js
+db.collection_name.findOneAndDelete(filter)
+```
 
 ### 🔍 What it does
 
@@ -127,11 +131,19 @@ db.students.deleteMany({})
 
 ### ✅ Example
 
-`db.students.findOneAndDelete({ name: "Alice" })`
+```js
+db.students.findOneAndDelete({ name: "Alice" })
+```
 
 **Output:**
 
-`{   _id: ObjectId("..."),   name: "Alice",   age: 21 }`
+```js
+{
+  _id: ObjectId("..."),
+  name: "Alice",
+  age: 21
+}
+```
 
 📌 Useful when:
 
@@ -150,7 +162,8 @@ You can delete using **query operators**:
 
 ### **Comparison Operators**
 
-`$eq   $ne $gt   $gte $lt   $lte`
+```js
+```
 
 Example:
 
