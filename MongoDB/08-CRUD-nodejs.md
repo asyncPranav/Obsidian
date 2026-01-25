@@ -340,7 +340,9 @@ await client.connect();
 
 ## 6️⃣ Log Confirmation
 
-`console.log("MongoDB connected");`
+```js
+console.log("MongoDB connected");
+```
 
 This line runs **only after**:  
 ✔ Connection successful
@@ -351,7 +353,9 @@ If connection fails → this line never runs.
 
 ## 7️⃣ Select Database
 
-`const db = client.db("HelloWorld");`
+```js
+const db = client.db("HelloWorld");
+```
 
 ### IMPORTANT CONCEPT
 
@@ -384,13 +388,18 @@ Meaning:
 
 ### Mental model
 
-`client → MongoDB Server db     → One database inside server`
+```js
+client → MongoDB Server
+db     → One database inside server
+```
 
 ---
 
 ## 8️⃣ Select Collection
 
-`const users = db.collection("User");`
+```js
+const users = db.collection("User");
+```
 
 ### Again: NO collection created yet ❌
 
