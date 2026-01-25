@@ -797,3 +797,101 @@ All inside the `try` block, and connection is **always closed** in `finally`.
 
 
 ---
+
+
+The line is:
+
+```js
+runCRUD().catch(console.dir);
+```
+
+---
+
+## 1️⃣ `runCRUD()`
+
+- `runCRUD` is your **async function** that we defined:
+    
+
+```js
+async function runCRUD() {
+  // CRUD operations...
+}
+```
+
+- When you **call an async function**, it **always returns a Promise**, even if you don’t explicitly return anything.
+    
+
+---
+
+### What is a Promise?
+
+- A **Promise** represents a value that **may not be available yet**, usually because some **asynchronous operation** is still running.
+    
+- In our case, `runCRUD()` returns a Promise because it uses `await client.connect()`, `insertOne()`, etc. — all **async MongoDB operations**.
+    
+
+---
+
+## 2️⃣ `.catch()`
+
+- Promises can be **resolved** (success) or **rejected** (error).
+    
+- `.catch()` is a method that runs **if the Promise is rejected**, i.e., if **an error occurs anywhere inside runCRUD()**.
+    
+
+Example:
+
+```js
+async function example() {
+  throw new Error("Oops!");
+}
+
+example().catch(err => console.log("Error caught:", err.message));
+```
+
+Output:
+
+```sh
+Error caught: Oops!
+```
+
+---
+
+## 3️⃣ `console.dir`
+
+- `console.dir` is a **Node.js method** for printing objects or errors in a more **readable and detailed way** than `console.log`.
+    
+- So, if `runCRUD()` throws any error, `console.dir` prints the full **error object** including message and stack trace.
+    
+
+---
+
+## ✅ So putting it together
+
+```js
+
+```
+
+1. Calls `runCRUD()` → returns a Promise.
+    
+2. If `runCRUD()` **fails anywhere** (MongoDB connection fails, insert fails, etc.), `.catch(console.dir)` **catches the error** and prints it nicely.
+    
+
+---
+
+### Important:
+
+- Without `.catch()`, if an error occurs inside `runCRUD()`, Node will print a **“UnhandledPromiseRejectionWarning”** and the program may crash.
+    
+- `.catch(console.dir)` is **safest way to handle async errors for top-level calls**.
+    
+
+---
+
+💡 **Analogy:**
+
+`runCRUD() → “Start the CRUD operation task” .catch(console.dir) → “If the task fails, show me the problem in detail”`
+
+---
+
+If you want, I can draw a **simple flow diagram showing runCRUD() execution + .catch() handling errors**, which makes it very beginner-friendly to visualize.
