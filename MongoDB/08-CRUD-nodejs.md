@@ -869,7 +869,7 @@ Error caught: Oops!
 ## ✅ So putting it together
 
 ```js
-
+runCRUD().catch(console.dir);
 ```
 
 1. Calls `runCRUD()` → returns a Promise.
@@ -890,8 +890,8 @@ Error caught: Oops!
 
 💡 **Analogy:**
 
-`runCRUD() → “Start the CRUD operation task” .catch(console.dir) → “If the task fails, show me the problem in detail”`
+```txt
+runCRUD() → “Start the CRUD operation task”
+.catch(console.dir) → “If the task fails, show me the problem in detail”
+```
 
----
-
-If you want, I can draw a **simple flow diagram showing runCRUD() execution + .catch() handling errors**, which makes it very beginner-friendly to visualize.
