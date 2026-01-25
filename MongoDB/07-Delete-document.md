@@ -163,27 +163,46 @@ You can delete using **query operators**:
 ### **Comparison Operators**
 
 ```js
+$eq   $ne
+$gt   $gte
+$lt   $lte
 ```
 
 Example:
 
-`db.students.deleteMany({ marks: { $gte: 90 } })`
+```js
+db.students.deleteMany({ marks: { $gte: 90 } })
+```
 
 ---
 
 ### **Logical Operators**
 
-`$and $or $not $nor`
+```js
+$and
+$or
+$not
+$nor
+```
 
 Example:
 
-`db.students.deleteMany({   $or: [     { age: { $lt: 18 } },     { status: "inactive" }   ] })`
+```js
+db.students.deleteMany({
+  $or: [
+    { age: { $lt: 18 } },
+    { status: "inactive" }
+  ]
+})
+```
 
 ---
 
 ### **Array Delete**
 
-`db.students.deleteMany({ skills: "React" })`
+```js
+db.students.deleteMany({ skills: "React" })
+```
 
 Deletes documents where `skills` array contains `"React"`.
 
@@ -191,7 +210,11 @@ Deletes documents where `skills` array contains `"React"`.
 
 ## 🔹 **4️⃣ Delete using `_id` (Most Accurate)**
 
-`db.students.deleteOne({   _id: ObjectId("650c3c9f3a1a9e0b1f4d2f5a") })`
+```js
+db.students.deleteOne({
+  _id: ObjectId("650c3c9f3a1a9e0b1f4d2f5a")
+})
+```
 
 ✔ Fast  
 ✔ Unique  
@@ -203,7 +226,9 @@ Deletes documents where `skills` array contains `"React"`.
 
 ### **A) Drop Collection**
 
-`db.collection_name.drop()`
+```js
+db.collection_name.drop()
+```
 
 ### 🔍 What it does
 
