@@ -34,11 +34,15 @@ db.collection_name.deleteOne(filter)
 
 ### ✅ Example
 
-`db.students.deleteOne({ name: "Bob" })`
+```js
+db.students.deleteOne({ name: "Bob" })
+```
 
 **Result:**
 
-`{ acknowledged: true, deletedCount: 1 }`
+```js
+{ acknowledged: true, deletedCount: 1 }
+```
 
 ---
 
@@ -57,7 +61,9 @@ db.collection_name.deleteOne(filter)
 
 **Command:**
 
-`db.collection_name.deleteMany(filter)`
+```js
+db.collection_name.deleteMany(filter)
+```
 
 ### 🔍 What it does
 
@@ -66,19 +72,25 @@ db.collection_name.deleteOne(filter)
 
 ### ✅ Example
 
-`db.students.deleteMany({ age: { $lt: 18 } })`
+```js
+db.students.deleteMany({ age: { $lt: 18 } })
+```
 
 Deletes all students whose age is less than 18.
 
 **Result:**
 
-`{ acknowledged: true, deletedCount: 5 }`
+```js
+{ acknowledged: true, deletedCount: 5 }
+```
 
 ---
 
 ### ❗ Important Warning ⚠️
 
-`db.students.deleteMany({})`
+```js
+db.students.deleteMany({})
+```
 
 🚨 **Deletes ALL documents in collection**  
 (Collection remains, documents gone)
