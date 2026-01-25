@@ -641,3 +641,13 @@ async function runCRUD() {
 runCRUD().catch(console.dir);
 
 ```
+
+**✅ Full Explanation**
+
+- Imports `MongoClient` from the official MongoDB driver.
+    
+- `MongoClient` is the main class that handles connection, queries, and closing connections.
+-  Creates an **async function** to use `await` for MongoDB operations.
+    
+- Wrapping all operations in a function is **cleaner** than writing everything in global scope.
+
