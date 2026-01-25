@@ -606,3 +606,38 @@ For professional / production-level Node + MongoDB code: add **try/catch, await 
 
 
 
+## ✅ Modern way of writing
+
+
+```js
+const { MongoClient } = require('mongodb');
+
+async function runCRUD() {
+  // Replace with your MongoDB connection URI
+  const uri = "mongodb+srv://namasteNode:namasteNodePass@namastenode.jqcz9u9.mongodb.net/?appName=namasteNode";
+  const client = new MongoClient(uri);
+
+  try {
+    // Connect to MongoDB
+    await client.connect();
+    console.log("MongoDB connected");
+
+    // Select database and collection
+    const db = client.db("HelloWorld");
+    const users = db.collection("User");
+    
+    // CRUD operation goes here ...
+
+  } catch (err) {
+    console.error("Error occurred:", err);
+  } finally {
+    // Ensure the MongoDB connection is closed
+    await client.close();
+    console.log("MongoDB connection closed");
+  }
+}
+
+// Run the CRUD operations
+runCRUD().catch(console.dir);
+
+```
