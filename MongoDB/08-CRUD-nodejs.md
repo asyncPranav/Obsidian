@@ -501,11 +501,23 @@ If the document does not exist, `matchedCount = 0` and nothing happens silently.
 
 ✅ You can log a better message:
 
-`if (result.matchedCount === 0) {   console.log("No user found to update"); } else {   console.log("User updated successfully"); }`
+```js
+if (result.matchedCount === 0) {
+  console.log("No user found to update");
+} else {
+  console.log("User updated successfully");
+}
+```
 
 Same for delete:
 
-`if (deleted.deletedCount === 0) {   console.log("No user found to delete"); } else {   console.log("User deleted successfully"); }`
+```js
+if (deleted.deletedCount === 0) {
+  console.log("No user found to delete");
+} else {
+  console.log("User deleted successfully");
+}
+```
 
 **Why:**
 
@@ -518,7 +530,10 @@ Same for delete:
 
 ## 4️⃣ Optional: Use constants for collection names
 
-`const COLLECTION_NAME = "User"; const users = db.collection(COLLECTION_NAME);`
+```js
+const COLLECTION_NAME = "User";
+const users = db.collection(COLLECTION_NAME);
+```
 
 **Why:**
 
