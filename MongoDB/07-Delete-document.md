@@ -319,12 +319,17 @@ db.getCollectionNames().forEach(c => db[c].drop())
 ### **Soft Delete Example**
 
 ```js
-
+db.users.updateOne(
+  { email: "test@gmail.com" },
+  { $set: { isDeleted: true, deletedAt: new Date() } }
+)
 ```
 
 Then query only active users:
 
-`db.users.find({ isDeleted: false })`
+```js
+db.users.find({ isDeleted: false })
+```
 
 📌 Used in:
 
@@ -341,11 +346,15 @@ Then query only active users:
 
 ### **Step 1: Preview**
 
-`db.students.find({ age: { $lt: 18 } })`
+```js
+db.students.find({ age: { $lt: 18 } })
+```
 
 ### **Step 2: Delete**
 
-`db.students.deleteMany({ age: { $lt: 18 } })`
+```js
+db.students.deleteMany({ age: { $lt: 18 } })
+```
 
 ✔ Always preview before delete
 
@@ -355,7 +364,9 @@ Then query only active users:
 
 🚫 **DO NOT USE**
 
-`db.students.remove()`
+```js
+db.students.remove()
+```
 
 Reason:
 
@@ -368,7 +379,12 @@ Reason:
 
 ## 🔹 **11️⃣ Delete Return Values**
 
-`{   acknowledged: true,   deletedCount: 3 }`
+```js
+{
+  acknowledged: true,
+  deletedCount: 3
+}
+```
 
 |Field|Meaning|
 |---|---|
