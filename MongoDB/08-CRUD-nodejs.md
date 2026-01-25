@@ -601,3 +601,8 @@ process.on("SIGINT", async () => {
 For learning: your code is perfect.  
 For professional / production-level Node + MongoDB code: add **try/catch, await client.close(), proper logs**.
 
+
+---
+
+
+
