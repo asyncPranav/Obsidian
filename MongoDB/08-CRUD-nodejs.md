@@ -705,7 +705,10 @@ async function runCRUD() {
 
 ---
 
-    `const query = { title: 'Back to the Future' };     const movie = await movies.findOne(query);`
+```js
+    const query = { title: 'Back to the Future' };
+    const movie = await movies.findOne(query);
+```
 
 - `query` → MongoDB **filter object**
     
@@ -718,18 +721,31 @@ async function runCRUD() {
 
 ---
 
-    `console.log(movie);`
+```js
+    console.log(movie);
+```
 
 - Prints the retrieved movie document to the console.
     
 - Example output:
     
 
-`{   _id: ObjectId("..."),   title: "Back to the Future",   year: 1985,   genres: ["Adventure", "Comedy", "Sci-Fi"] }`
+```json
+{
+  _id: ObjectId("..."),
+  title: "Back to the Future",
+  year: 1985,
+  genres: ["Adventure", "Comedy", "Sci-Fi"]
+}
+```
 
 ---
 
-  `} finally {     await client.close();   }`
+```js
+  } finally {
+    await client.close();
+  }
+```
 
 - **Finally block** ensures that the connection is **always closed**, even if an error occurs.
     
@@ -740,7 +756,9 @@ async function runCRUD() {
 
 ---
 
-`runGetStarted().catch(console.dir);`
+```js
+runGetStarted().catch(console.dir);
+```
 
 - Calls the async function.
     
@@ -776,3 +794,6 @@ async function runCRUD() {
     
 
 All inside the `try` block, and connection is **always closed** in `finally`.
+
+
+---
