@@ -409,7 +409,13 @@ ask() called
 ❌ This will NOT work:
 
 ```js
-
+function ask() {
+  let value;
+  rl.question("Enter:", (input) => {
+    value = input;
+  });
+  return value; // ❌ undefined
+}
 ```
 
 Because:
@@ -431,17 +437,28 @@ Because `await` tells JS:
 
 # 🧠 Super Simple Mental Model
 
-`ask() = Ask question + WAIT await ask() = Wait + Get answer`
+```js
+ask() = Ask question + WAIT
+await ask() = Wait + Get answer
+```
 
 ---
 
 # 🧪 Tiny Example (Test Your Understanding)
 
-`async function test() {   const name = await ask("Enter your name: ");   console.log("Hello", name); }`
+```js
+async function test() {
+  const name = await ask("Enter your name: ");
+  console.log("Hello", name);
+}
+```
 
 🖥 Terminal:
 
-`Enter your name: Vageesh Hello Vageesh`
+```js
+Enter your name: Vageesh
+Hello Vageesh
+```
 
 ---
 
