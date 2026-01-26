@@ -227,14 +227,20 @@ So we create our **own Promise**.
 ## 🟢 FULL CODE AGAIN
 
 ```js
-
+function ask(questionText) {
+  return new Promise((resolve) => {
+    rl.question(questionText, (input) => resolve(input));
+  });
+}
 ```
 
 ---
 
 ## 🔹 Line 1
 
-`function ask(questionText) {`
+```js
+function ask(questionText) {
+```
 
 ### What this means:
 
@@ -247,13 +253,17 @@ So we create our **own Promise**.
 
 Example:
 
-`ask("Enter your name: ");`
+```js
+ask("Enter your name: ");
+```
 
 ---
 
 ## 🔹 Line 2
 
-`return new Promise((resolve) => {`
+```js
+return new Promise((resolve) => {
+```
 
 ### Beginner meaning of Promise:
 
@@ -294,7 +304,9 @@ When `resolve(value)` is called:
 
 ## 🔹 Line 3
 
-`rl.question(questionText, (input) => resolve(input));`
+```js
+rl.question(questionText, (input) => resolve(input));
+```
 
 Let’s break this VERY slowly 👇
 
