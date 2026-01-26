@@ -141,7 +141,10 @@ I’ll assume **you know only basic JS functions**, nothing about Promises or as
 
 You want to do this:
 
-`const text = ask("Enter your name: "); console.log(text);`
+```js
+const text = ask("Enter your name: ");
+console.log(text);
+```
 
 But **JavaScript cannot do this directly** because:
 
@@ -180,11 +183,20 @@ JavaScript needs the **same waiting mechanism**.
 
 Look at this code:
 
-`rl.question("Enter name: ", (answer) => {   console.log(answer); }); console.log("Done");`
+```js
+rl.question("Enter name: ", (answer) => {
+  console.log(answer);
+});
+console.log("Done");
+```
 
 ### What happens?
 
-`Done (user types name) name`
+```js
+Done
+(user types name)
+name
+```
 
 ❌ JavaScript **does NOT wait**  
 Because `rl.question()` works in **callback style**
@@ -214,7 +226,9 @@ So we create our **own Promise**.
 
 ## 🟢 FULL CODE AGAIN
 
-`function ask(questionText) {   return new Promise((resolve) => {     rl.question(questionText, (input) => resolve(input));   }); }`
+```js
+
+```
 
 ---
 
