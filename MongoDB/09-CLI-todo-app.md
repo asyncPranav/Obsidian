@@ -516,7 +516,7 @@ But your code **correctly does NOT** do that.
 ### Add this clarification:
 
 ```js
-
+function ask(questionText) { ... }
 ```
 
 Why this is correct:
@@ -543,7 +543,11 @@ Add this rule clearly:
 
 Example:
 
-`async function addTodo() {   const text = await ask("Enter todo:"); }`
+```js
+async function addTodo() {
+  const text = await ask("Enter todo:");
+}
+```
 
 Without `async`, this would crash.
 
