@@ -6,7 +6,7 @@ const readline = require("readline");
 const { MongoClient } = require("mongodb");
 
 const uri =
-  "mongodb+srv://namasteNode:namasteNodePass@namastenode.jqcz9u9.mongodb.net/?appName=namasteNode";
+"mongodb+srv://namasteNode:namasteNodePass@namastenode.jqcz9u9.mongodb.net/?appName=namasteNode";
 const client = new MongoClient(uri);
 
 const rl = readline.createInterface({
