@@ -129,3 +129,276 @@ async function main() {
 main().catch(console.error);
 ```
 
+
+## **Why Promisification**
+
+Let’s go **very slow**, **very simple**, and **from absolute beginner level**.  
+I’ll assume **you know only basic JS functions**, nothing about Promises or async yet.
+
+---
+
+# 🌱 What problem are we solving?
+
+You want to do this:
+
+`const text = ask("Enter your name: "); console.log(text);`
+
+But **JavaScript cannot do this directly** because:
+
+- User typing happens **later**
+    
+- JS does **not stop** and wait automatically
+    
+
+So we need a **way to wait** until the user types something.
+
+---
+
+# 🧠 Real-Life Example (Understand FIRST)
+
+Imagine this situation:
+
+> You ask your friend a question on WhatsApp  
+> You **cannot continue the conversation** until your friend replies
+
+So you:
+
+1. Ask the question
+    
+2. Wait
+    
+3. Friend replies
+    
+4. Continue
+    
+
+JavaScript needs the **same waiting mechanism**.
+
+---
+
+# 🔴 Why `rl.question()` alone is not enough
+
+Look at this code:
+
+`rl.question("Enter name: ", (answer) => {   console.log(answer); }); console.log("Done");`
+
+### What happens?
+
+`Done (user types name) name`
+
+❌ JavaScript **does NOT wait**  
+Because `rl.question()` works in **callback style**
+
+---
+
+# 🧩 Solution Idea (Simple words)
+
+We want:
+
+> “Ask a question and **pause** until user answers”
+
+JavaScript can pause **only if we use `await`**
+
+But:
+
+- `await` works **ONLY with Promises**
+    
+
+So we create our **own Promise**.
+
+---
+
+# 🔑 Now let’s understand the code STEP-BY-STEP
+
+---
+
+## 🟢 FULL CODE AGAIN
+
+`function ask(questionText) {   return new Promise((resolve) => {     rl.question(questionText, (input) => resolve(input));   }); }`
+
+---
+
+## 🔹 Line 1
+
+`function ask(questionText) {`
+
+### What this means:
+
+- We are creating a function called `ask`
+    
+- It takes **one argument**
+    
+    - `questionText` → text shown to user
+        
+
+Example:
+
+`ask("Enter your name: ");`
+
+---
+
+## 🔹 Line 2
+
+`return new Promise((resolve) => {`
+
+### Beginner meaning of Promise:
+
+> A Promise is a **box** that will contain a value **in the future**
+
+Right now:
+
+- We don’t have the answer
+    
+- User hasn’t typed anything
+    
+- So Promise is **empty**
+    
+
+Later:
+
+- User types something
+    
+- Promise gets filled
+    
+
+---
+
+## 🔹 What is `resolve`?
+
+Think of `resolve` like this:
+
+> “Hey Promise, I got the value now!”
+
+When `resolve(value)` is called:
+
+- Promise is completed
+    
+- Value becomes available
+    
+
+---
+
+## 🔹 Line 3
+
+`rl.question(questionText, (input) => resolve(input));`
+
+Let’s break this VERY slowly 👇
+
+---
+
+### 🔸 `rl.question(...)`
+
+- Shows the question in terminal
+    
+- Waits for user input
+    
+- When user presses ENTER → callback runs
+    
+
+---
+
+### 🔸 `(input) => { ... }`
+
+- `input` = whatever user typed
+    
+- Example:
+    
+    - User types: `Learn MongoDB`
+        
+    - `input = "Learn MongoDB"`
+        
+
+---
+
+### 🔸 `resolve(input)`
+
+This line means:
+
+> “User has answered → store this value inside Promise”
+
+So Promise becomes:
+
+`Promise → "Learn MongoDB"`
+
+---
+
+## 🔹 Line 4
+
+`});`
+
+- Ends Promise
+    
+- Ends function
+    
+
+---
+
+# 🧠 FINAL RESULT OF `ask()`
+
+When you call:
+
+`const text = await ask("Enter todo text: ");`
+
+What actually happens:
+
+1. Question is shown
+    
+2. Program **pauses**
+    
+3. User types something
+    
+4. Promise resolves
+    
+5. `text` gets the value
+    
+
+---
+
+# 📊 Execution Flow (VERY IMPORTANT)
+
+`ask() called │ ├─ rl.question shown │ ├─ program WAITS │ ├─ user types input │ ├─ resolve(input) called │ └─ await continues with value`
+
+---
+
+# ❓ Why not return input directly?
+
+❌ This will NOT work:
+
+`function ask() {   let value;   rl.question("Enter:", (input) => {     value = input;   });   return value; // ❌ undefined }`
+
+Because:
+
+- `return` runs **before** user types
+    
+- JavaScript does not wait
+    
+
+---
+
+# ✅ Why Promise works
+
+Because `await` tells JS:
+
+> “Do not move forward until Promise is finished”
+
+---
+
+# 🧠 Super Simple Mental Model
+
+`ask() = Ask question + WAIT await ask() = Wait + Get answer`
+
+---
+
+# 🧪 Tiny Example (Test Your Understanding)
+
+`async function test() {   const name = await ask("Enter your name: ");   console.log("Hello", name); }`
+
+🖥 Terminal:
+
+`Enter your name: Vageesh Hello Vageesh`
+
+---
+
+# 🏁 Final One-Line Explanation
+
+> We wrap `rl.question()` inside a Promise so that we can pause the program using `await` until the user provides input.
