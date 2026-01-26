@@ -344,13 +344,17 @@ This line means:
 
 So Promise becomes:
 
-`Promise → "Learn MongoDB"`
+```js
+Promise → "Learn MongoDB"
+```
 
 ---
 
 ## 🔹 Line 4
 
-`});`
+```js
+});
+```
 
 - Ends Promise
     
@@ -363,7 +367,9 @@ So Promise becomes:
 
 When you call:
 
-`const text = await ask("Enter todo text: ");`
+```js
+const text = await ask("Enter todo text: ");
+```
 
 What actually happens:
 
@@ -382,7 +388,19 @@ What actually happens:
 
 # 📊 Execution Flow (VERY IMPORTANT)
 
-`ask() called │ ├─ rl.question shown │ ├─ program WAITS │ ├─ user types input │ ├─ resolve(input) called │ └─ await continues with value`
+```js
+ask() called
+│
+├─ rl.question shown
+│
+├─ program WAITS
+│
+├─ user types input
+│
+├─ resolve(input) called
+│
+└─ await continues with value
+```
 
 ---
 
@@ -390,7 +408,9 @@ What actually happens:
 
 ❌ This will NOT work:
 
-`function ask() {   let value;   rl.question("Enter:", (input) => {     value = input;   });   return value; // ❌ undefined }`
+```js
+
+```
 
 Because:
 
