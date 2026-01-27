@@ -354,11 +354,21 @@ JSX is:
 
 Target UI:
 
-`<div id="parent">   <div id="child">     <h1>I am h1 tag</h1>   </div> </div>`
+```html
+<div id="parent">
+  <div id="child">
+    <h1>I am h1 tag</h1>
+  </div>
+</div>
+```
 
 ### Visual hierarchy
 
-`parent  └── child       └── h1`
+```txt
+parent
+ └── child
+      └── h1
+```
 
 ---
 
@@ -386,12 +396,12 @@ So:
 
 ### Step 1: Create `<h1>` (innermost)
 
-```html
-<div id="parent">
-  <div id="child">
-    <h1>I am h1 tag</h1>
-  </div>
-</div>
+```js
+const h1 = React.createElement(
+  "h1",
+  {},
+  "I am h1 tag"
+);
 ```
 
 ✅ First element created  
@@ -401,10 +411,12 @@ So:
 
 ### Step 2: Create `child` div (uses h1)
 
-```txt
-parent
- └── child
-      └── h1
+```js
+const child = React.createElement(
+  "div",
+  { id: "child" },
+  h1
+);
 ```
 
 ➡️ `child` **depends on h1**
@@ -414,10 +426,10 @@ parent
 ### Step 3: Create `parent` div (uses child)
 
 ```js
-const h1 = React.createElement(
-  "h1",
-  {},
-  "I am h1 tag"
+const parent = React.createElement(
+  "div",
+  { id: "parent" },
+  child
 );
 ```
 
