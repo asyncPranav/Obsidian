@@ -386,7 +386,12 @@ So:
 
 ### Step 1: Create `<h1>` (innermost)
 
-```
+```html
+<div id="parent">
+  <div id="child">
+    <h1>I am h1 tag</h1>
+  </div>
+</div>
 ```
 
 ✅ First element created  
@@ -396,7 +401,11 @@ So:
 
 ### Step 2: Create `child` div (uses h1)
 
-`const child = React.createElement(   "div",   { id: "child" },   h1 );`
+```txt
+parent
+ └── child
+      └── h1
+```
 
 ➡️ `child` **depends on h1**
 
@@ -404,7 +413,13 @@ So:
 
 ### Step 3: Create `parent` div (uses child)
 
-`const parent = React.createElement(   "div",   { id: "parent" },   child );`
+```js
+const h1 = React.createElement(
+  "h1",
+  {},
+  "I am h1 tag"
+);
+```
 
 ➡️ `parent` **depends on child**
 
