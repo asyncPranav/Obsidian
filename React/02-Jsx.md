@@ -13,7 +13,9 @@ JSX allows us to **write HTML-like code inside JavaScript**.
 
 Example:
 
-`<h1>Hello World</h1>`
+```jsx
+<h1>Hello World</h1>
+```
 
 ⚠️ Important:
 
@@ -27,7 +29,17 @@ Example:
 
 In Chapter 1, we wrote this:
 
-`React.createElement(   "div",   {},   React.createElement(     "h1",     {},     "Hello"   ) );`
+```js
+React.createElement(
+  "div",
+  {},
+  React.createElement(
+    "h1",
+    {},
+    "Hello"
+  )
+);
+```
 
 ### Problems ❌
 
@@ -42,7 +54,11 @@ In Chapter 1, we wrote this:
 
 ### JSX Solution ✅
 
-`<div>   <h1>Hello</h1> </div>`
+```jsx
+<div>
+  <h1>Hello</h1>
+</div>
+```
 
 ➡️ Same result, **much cleaner**
 
