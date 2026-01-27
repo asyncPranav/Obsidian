@@ -283,7 +283,10 @@ function Card({ children }) {
 Usage:
 
 ```js
-
+<Card>
+  <h2>Title</h2>
+  <p>Description</p>
+</Card>
 ```
 
 📌 `children` allows **flexible UI composition**
@@ -292,7 +295,13 @@ Usage:
 
 ## 1️⃣3️⃣ Conditional Rendering Using Props
 
-`function User({ isLoggedIn }) {   return (     <h1>{isLoggedIn ? "Welcome" : "Please Login"}</h1>   ); }`
+```js
+function User({ isLoggedIn }) {
+  return (
+    <h1>{isLoggedIn ? "Welcome" : "Please Login"}</h1>
+  );
+}
+```
 
 ---
 
