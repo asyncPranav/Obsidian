@@ -145,7 +145,7 @@ Real DOM
 ✅ Correct:
 
 ```js
-
+<div className="box"></div>
 ```
 
 📌 Why?
@@ -159,11 +159,15 @@ Real DOM
 
 ❌ Wrong:
 
-`<div style="color:red"></div>`
+```jsx
+<div style="color:red"></div>
+```
 
 ✅ Correct:
 
-`<div style={{ color: "red" }}></div>`
+```jsx
+<div style={{ color: "red" }}></div>
+```
 
 ### Explanation:
 
@@ -180,17 +184,28 @@ You can use JavaScript inside JSX using `{}`.
 
 Example:
 
-`const name = "Rahul";  <h1>Hello {name}</h1>`
+```jsx
+const name = "Rahul";
+
+<h1>Hello {name}</h1>
+```
 
 Output:
 
-`<h1>Hello Rahul</h1>`
+```html
+<h1>Hello Rahul</h1>
+```
 
 ---
 
 ## 6️⃣ JSX with Numbers & Expressions
 
-`const a = 10; const b = 20;  <h1>Sum: {a + b}</h1>`
+```jsx
+const a = 10;
+const b = 20;
+
+<h1>Sum: {a + b}</h1>
+```
 
 ✔ Expressions allowed  
 ❌ Statements not allowed
