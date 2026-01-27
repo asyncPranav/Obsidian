@@ -153,7 +153,13 @@ function App() {
 
 ### Rendering to DOM
 
-`const root = ReactDOM.createRoot(   document.getElementById("root") );  root.render(<App />);`
+```js
+const root = ReactDOM.createRoot(
+  document.getElementById("root")
+);
+
+root.render(<App />);
+```
 
 📌 Note:
 
@@ -168,7 +174,21 @@ function App() {
 
 ### Example
 
-`function Button() {   return <button>Click Me</button>; }  function App() {   return (     <div>       <Button />       <Button />       <Button />     </div>   ); }`
+```js
+function Button() {
+  return <button>Click Me</button>;
+}
+
+function App() {
+  return (
+    <div>
+      <Button />
+      <Button />
+      <Button />
+    </div>
+  );
+}
+```
 
 ✔ Same component used multiple times  
 ✔ No duplication of code
@@ -179,7 +199,24 @@ function App() {
 
 ### Example
 
-`function Header() {   return <h1>Header</h1>; }  function Footer() {   return <h1>Footer</h1>; }  function App() {   return (     <div>       <Header />       <Footer />     </div>   ); }`
+```js
+function Header() {
+  return <h1>Header</h1>;
+}
+
+function Footer() {
+  return <h1>Footer</h1>;
+}
+
+function App() {
+  return (
+    <div>
+      <Header />
+      <Footer />
+    </div>
+  );
+}
+```
 
 📌 Components can contain **other components**.
 
@@ -197,7 +234,20 @@ Instead of inheritance, React uses **composition**.
 
 ### Example
 
-`function Card({ children }) {   return <div className="card">{children}</div>; }  function App() {   return (     <Card>       <h2>Title</h2>       <p>Description</p>     </Card>   ); }`
+```js
+function Card({ children }) {
+  return <div className="card">{children}</div>;
+}
+
+function App() {
+  return (
+    <Card>
+      <h2>Title</h2>
+      <p>Description</p>
+    </Card>
+  );
+}
+```
 
 📌 `children` allows flexible UI content.
 
@@ -214,7 +264,10 @@ Instead of inheritance, React uses **composition**.
 
 Example:
 
-`<Header />   // Component <h1>Title</h1> // HTML`
+```jsx
+<Header />   // Component
+<h1>Title</h1> // HTML
+```
 
 ---
 
