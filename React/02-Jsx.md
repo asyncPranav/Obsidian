@@ -68,11 +68,15 @@ React.createElement(
 
 ### JSX code:
 
-`<h1>Hello</h1>`
+```jsx
+<h1>Hello</h1>
+```
 
 ### Behind the scenes:
 
-`React.createElement("h1", {}, "Hello");`
+```js
+React.createElement("h1", {}, "Hello");
+```
 
 📌 **JSX does NOT run in browser directly**  
 It is **converted (transpiled)** into JavaScript.
@@ -90,7 +94,17 @@ JSX is converted using:
 
 ### Flow:
 
-`JSX  ↓ React.createElement()  ↓ React Element Object  ↓ Virtual DOM  ↓ Real DOM`
+```js
+JSX
+ ↓
+React.createElement()
+ ↓
+React Element Object
+ ↓
+Virtual DOM
+ ↓
+Real DOM
+```
 
 ---
 
@@ -100,11 +114,19 @@ JSX is converted using:
 
 ❌ Wrong:
 
-`<h1>Hello</h1> <h2>World</h2>`
+```jsx
+<h1>Hello</h1>
+<h2>World</h2>
+```
 
 ✅ Correct:
 
-`<div>   <h1>Hello</h1>   <h2>World</h2> </div>`
+```jsx
+<div>
+  <h1>Hello</h1>
+  <h2>World</h2>
+</div>
+```
 
 📌 Reason:
 
@@ -116,11 +138,15 @@ JSX is converted using:
 
 ❌ Wrong:
 
-`<div class="box"></div>`
+```jsx
+<div class="box"></div>
+```
 
 ✅ Correct:
 
-`<div className="box"></div>`
+```js
+
+```
 
 📌 Why?
 
