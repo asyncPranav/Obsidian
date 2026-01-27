@@ -477,12 +477,20 @@ import Header from "./Header.jsx";
 ## 9️⃣ Folder Structure (Best Practice)
 
 ```js
-
+src/
+ ├── components/
+ │    ├── Header.jsx
+ │    ├── Footer.jsx
+ │    └── Card.jsx
+ ├── App.jsx
+ └── main.jsx
 ```
 
 Import example:
 
-`import Header from "./components/Header";`
+```js
+import Header from "./components/Header";
+```
 
 ---
 
@@ -503,9 +511,23 @@ Import example:
 
 ## 1️⃣1️⃣ Component + Props + Export (Real Example)
 
-`// User.jsx function User({ name }) {   return <h1>{name}</h1>; }  export default User;`
+```js
+// User.jsx
+function User({ name }) {
+  return <h1>{name}</h1>;
+}
 
-`// App.jsx import User from "./User";  function App() {   return <User name="Rahul" />; }`
+export default User;
+```
+
+```js
+// App.jsx
+import User from "./User";
+
+function App() {
+  return <User name="Rahul" />;
+}
+```
 
 ---
 
