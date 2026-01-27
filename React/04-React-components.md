@@ -409,27 +409,55 @@ import { add } from "./Utils";
 
 ## 5️⃣ Exporting Multiple Components (Named Export)
 
-`// Components.jsx export function Header() {   return <h1>Header</h1>; }  export function Footer() {   return <h1>Footer</h1>; }`
+```js
+// Components.jsx
+export function Header() {
+  return <h1>Header</h1>;
+}
+
+export function Footer() {
+  return <h1>Footer</h1>;
+}
+```
 
 Import:
 
-`import { Header, Footer } from "./Components";`
+```js
+import { Header, Footer } from "./Components";
+```
 
 ---
 
 ## 6️⃣ Default + Named Export Together
 
-`// Button.jsx export default function Button() {   return <button>Click</button>; }  export function Icon() {   return <span>🔥</span>; }`
+```js
+// Button.jsx
+export default function Button() {
+  return <button>Click</button>;
+}
+
+export function Icon() {
+  return <span>🔥</span>;
+}
+```
 
 Import:
 
-`import Button, { Icon } from "./Button";`
+```js
+import Button, { Icon } from "./Button";
+```
 
 ---
 
 ## 7️⃣ Exporting Arrow Function Components
 
-`const Navbar = () => {   return <nav>Navbar</nav>; };  export default Navbar;`
+```js
+const Navbar = () => {
+  return <nav>Navbar</nav>;
+};
+
+export default Navbar;
+```
 
 ---
 
@@ -437,7 +465,10 @@ Import:
 
 These are valid:
 
-`import Header from "./Header"; import Header from "./Header.jsx";`
+```js
+import Header from "./Header";
+import Header from "./Header.jsx";
+```
 
 📌 React tools auto-resolve `.js` / `.jsx`
 
@@ -445,7 +476,9 @@ These are valid:
 
 ## 9️⃣ Folder Structure (Best Practice)
 
-`src/  ├── components/  │    ├── Header.jsx  │    ├── Footer.jsx  │    └── Card.jsx  ├── App.jsx  └── main.jsx`
+```js
+
+```
 
 Import example:
 
