@@ -179,12 +179,14 @@ const age = props.age;
 ### Object
 
 ```js
-
+<User info={{ city: "Delhi", country: "India" }} />
 ```
 
 ### Function (IMPORTANT ⭐)
 
-`<User onClick={handleClick} />`
+```js
+<User onClick={handleClick} />
+```
 
 ---
 
@@ -199,7 +201,11 @@ const age = props.age;
 
 ### Example
 
-`function User({ name = "Guest" }) {   return <h1>Hello {name}</h1>; }`
+```js
+function User({ name = "Guest" }) {
+  return <h1>Hello {name}</h1>;
+}
+```
 
 If parent does not pass `name`, default is used.
 
@@ -211,7 +217,9 @@ If parent does not pass `name`, default is used.
 
 ❌ Wrong:
 
-`props.name = "Amit";`
+```js
+props.name = "Amit";
+```
 
 ✅ Correct:
 
@@ -235,7 +243,11 @@ If parent does not pass `name`, default is used.
 
 Example:
 
-`function Parent() {   return <Child value="Hello" />; }`
+```js
+function Parent() {
+  return <Child value="Hello" />;
+}
+```
 
 Child cannot directly change parent’s data.
 
@@ -262,11 +274,17 @@ Child cannot directly change parent’s data.
 
 ### Example
 
-`function Card({ children }) {   return <div className="card">{children}</div>; }`
+```js
+function Card({ children }) {
+  return <div className="card">{children}</div>;
+}
+```
 
 Usage:
 
-`<Card>   <h2>Title</h2>   <p>Description</p> </Card>`
+```js
+
+```
 
 📌 `children` allows **flexible UI composition**
 
