@@ -124,6 +124,22 @@ This is the **heart of your project**.
 Example:
 
 ```json
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "My React project",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "vite": "^4.0.0"
+  }
+}
 ```
 
 ---
@@ -174,7 +190,13 @@ Example:
 
 Example from `package-lock.json`:
 
-`"react": {   "version": "18.2.0",   "resolved": "https://registry.npmjs.org/react/-/react-18.2.0.tgz",   "integrity": "sha512-xyz123..." }`
+```js
+"react": {
+  "version": "18.2.0",
+  "resolved": "https://registry.npmjs.org/react/-/react-18.2.0.tgz",
+  "integrity": "sha512-xyz123..."
+}
+```
 
 ---
 
@@ -217,7 +239,13 @@ Command to install:
 
 Flow:
 
-`package.json    ↓ npm install node_modules + package-lock.json    ↓ builder (Vite/Parcel/Webpack) bundle.js / dev server → browser`
+```js
+package.json
+   ↓ npm install
+node_modules + package-lock.json
+   ↓ builder (Vite/Parcel/Webpack)
+bundle.js / dev server → browser
+```
 
 ---
 
