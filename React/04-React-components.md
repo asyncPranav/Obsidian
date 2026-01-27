@@ -69,12 +69,19 @@ With components ✅:
 
 ### Syntax
 
-```
+```jsx
+function Hello() {
+  return <h1>Hello React</h1>;
+}
 ```
 
 OR (Arrow function)
 
-`const Hello = () => {   return <h1>Hello React</h1>; };`
+```jsx
+const Hello = () => {
+  return <h1>Hello React</h1>;
+};
+```
 
 📌 A functional component:
 
@@ -100,11 +107,15 @@ OR (Arrow function)
 
 ❌ Wrong:
 
-`function header() {}`
+```jsx
+function header() {}
+```
 
 ✅ Correct:
 
-`function Header() {}`
+```jsx
+function Header() {}
+```
 
 📌 Reason:
 
@@ -116,7 +127,16 @@ OR (Arrow function)
 
 ### Basic Example
 
-`function App() {   return (     <div>       <h1>Hello</h1>       <p>Welcome to React</p>     </div>   ); }`
+```jsx
+function App() {
+  return (
+    <div>
+      <h1>Hello</h1>
+      <p>Welcome to React</p>
+    </div>
+  );
+}
+```
 
 ### Important Rules:
 
