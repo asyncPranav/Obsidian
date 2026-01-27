@@ -111,7 +111,12 @@ Here:
 
 Example:
 
-`props = {   name: "Rahul",   age: 22 }`
+```js
+props = {
+  name: "Rahul",
+  age: 22
+}
+```
 
 📌 You should **never modify** this object.
 
@@ -130,11 +135,18 @@ Example:
 
 ### Example
 
-`function User({ name, age }) {   return <h1>{name} is {age} years old</h1>; }`
+```js
+function User({ name, age }) {
+  return <h1>{name} is {age} years old</h1>;
+}
+```
 
 Equivalent to:
 
-`const name = props.name; const age = props.age;`
+```js
+const name = props.name;
+const age = props.age;
+```
 
 ---
 
@@ -142,23 +154,33 @@ Equivalent to:
 
 ### String
 
-`<User name="Rahul" />`
+```js
+<User name="Rahul" />
+```
 
 ### Number
 
-`<User age={25} />`
+```js
+<User age={25} />
+```
 
 ### Boolean
 
-`<User isAdmin={true} />`
+```js
+<User isAdmin={true} />
+```
 
 ### Array
 
-`<User skills={["JS", "React"]} />`
+```js
+<User skills={["JS", "React"]} />
+```
 
 ### Object
 
-`<User info={{ city: "Delhi", country: "India" }} />`
+```js
+
+```
 
 ### Function (IMPORTANT ⭐)
 
