@@ -153,21 +153,43 @@ React.createElement("h1", {}, "I am h1 tag")
 
 ### Step 2: Create child `<div>`
 
-`React.createElement(   "div",   { id: "child" },   React.createElement("h1", {}, "I am h1 tag") )`
+```js
+React.createElement(
+  "div",
+  { id: "child" },
+  React.createElement("h1", {}, "I am h1 tag")
+)
+```
 
 Represents:
 
-`<div id="child">   <h1>I am h1 tag</h1> </div>`
+```html
+<div id="child">
+  <h1>I am h1 tag</h1>
+</div>
+```
 
 ---
 
 ### Step 3: Create parent `<div>`
 
-`React.createElement(   "div",   { id: "parent", style: { border: "2px solid red" } },   childDiv )`
+```js
+React.createElement(
+  "div",
+  { id: "parent", style: { border: "2px solid red" } },
+  childDiv
+)
+```
 
 Represents:
 
-`<div id="parent" style="border:2px solid red">   <div id="child">     <h1>I am h1 tag</h1>   </div> </div>`
+```js
+<div id="parent" style="border:2px solid red">
+  <div id="child">
+    <h1>I am h1 tag</h1>
+  </div>
+</div>
+```
 
 ---
 
@@ -175,7 +197,9 @@ Represents:
 
 ❌ Wrong (HTML style):
 
-`style: "border: 2px solid red"`
+```js
+style: "border: 2px solid red"
+```
 
 ✅ Correct (React style):
 
