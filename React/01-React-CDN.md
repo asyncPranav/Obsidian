@@ -439,7 +439,21 @@ const parent = React.createElement(
 
 ## 4️⃣ Same thing written inline (what you wrote)
 
-`const parent = React.createElement(   "div",   { id: "parent" },   React.createElement(     "div",     { id: "child" },     React.createElement(       "h1",       {},       "I am h1 tag"     )   ) );`
+```js
+const parent = React.createElement(
+  "div",
+  { id: "parent" },
+  React.createElement(
+    "div",
+    { id: "child" },
+    React.createElement(
+      "h1",
+      {},
+      "I am h1 tag"
+    )
+  )
+);
+```
 
 ### Execution order (internally)
 
@@ -471,11 +485,27 @@ const parent = React.createElement(
 
 JSX:
 
-`<div id="parent">   <div id="child">     <h1>I am h1 tag</h1>   </div> </div>`
+```jsx
+<div id="parent">
+  <div id="child">
+    <h1>I am h1 tag</h1>
+  </div>
+</div>
+```
 
 Behind the scenes:
 
-`React.createElement(   "div",   { id: "parent" },   React.createElement(     "div",     { id: "child" },     React.createElement("h1", {}, "I am h1 tag")   ) );`
+```js
+React.createElement(
+  "div",
+  { id: "parent" },
+  React.createElement(
+    "div",
+    { id: "child" },
+    React.createElement("h1", {}, "I am h1 tag")
+  )
+);
+```
 
 👉 JSX **looks outside → in**  
 👉 React execution is **inside → out**
