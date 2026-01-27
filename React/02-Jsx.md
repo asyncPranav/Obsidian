@@ -216,11 +216,15 @@ const b = 20;
 
 ❌ if-else statements
 
-`{ if (x > 10) {} }`
+```jsx
+{ if (x > 10) {} }
+```
 
 ❌ for loops
 
-`{ for (let i=0; i<5; i++) {} }`
+```jsx
+{ for (let i=0; i<5; i++) {} }
+```
 
 ✔ Only **expressions**, not statements
 
@@ -230,7 +234,9 @@ const b = 20;
 
 ### Using ternary operator:
 
-`{isLoggedIn ? <h1>Welcome</h1> : <h1>Please Login</h1>}`
+```jsx
+{isLoggedIn ? <h1>Welcome</h1> : <h1>Please Login</h1>}
+```
 
 📌 Ternary is allowed because it is an **expression**
 
@@ -240,11 +246,15 @@ const b = 20;
 
 ❌ Wrong:
 
-`<img src="img.png">`
+```jsx
+<img src="img.png">
+```
 
 ✅ Correct:
 
-`<img src="img.png" />`
+```jsx
+<img src="img.png" />
+```
 
 📌 All JSX tags must be **closed**
 
@@ -254,11 +264,15 @@ const b = 20;
 
 This is valid JSX:
 
-`const element = <h1>Hello</h1>;`
+```jsx
+const element = <h1>Hello</h1>;
+```
 
 JSX becomes:
 
-`const element = React.createElement("h1", {}, "Hello");`
+```jsx
+const element = React.createElement("h1", {}, "Hello");
+```
 
 ➡️ JSX produces **React Elements**
 
