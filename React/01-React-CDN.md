@@ -8,76 +8,46 @@ _(Learning React from ZERO – No JSX, No Build Tools)_
 
 ```html
 <!DOCTYPE html>
-
 <html lang="en">
 
-  
-
 <head>
-
-  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Document</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
-
-  
-
 <body>
 
-  
+  <div id="root"></div>
 
-  <div id="root"></div>
+  <!-- react cdn -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-  
+  <script>
+    /*
+      <div id="parent">
+        <div id="child">
+          <h1>I am h1 tag</h1>
+        </div>
+      </div>
+    */
 
-  <!-- react cdn -->
+    // SYNTAX : React.createElement("tagName", attributeObject, children)
+    const parent = React.createElement(
+      "div",
+      { id: "parent", style: { background: "salmon" } },
+      React.createElement(
+        "div",
+        { id: "child" },
+        React.createElement("h1", {}, "I am h1 tag")
+      )
+    );
 
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-
-  
-  
-
-  <script>
-
-  
-
-    /*
-
-      <div id="parent">
-
-        <div id="child">
-
-          <h1>I am h1 tag</h1>
-
-        </div>
-
-      </div>
-
-    */
-
-  
-
-    // SYNTAX : React.createElement("tagName", attributeObject, children)
-
-    const parent = React.createElement("div",{ id: "parent", style: { background: "salmon" } },React.createElement("div",{ id: "child" },React.createElement("h1",{},"I am h1 tag")));
-
-    const root = ReactDOM.createRoot(document.getElementById("root"));
-
-    root.render(parent);
-
-  
-
-  </script>
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(parent);
+  </script>
 
 </body>
-
-  
-
 </html>
 ```
 
