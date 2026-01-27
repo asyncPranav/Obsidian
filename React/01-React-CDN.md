@@ -203,7 +203,9 @@ style: "border: 2px solid red"
 
 ✅ Correct (React style):
 
-`style: { border: "2px solid red" }`
+```js
+style: { border: "2px solid red" }
+```
 
 ### Why?
 
@@ -214,7 +216,10 @@ style: "border: 2px solid red"
 
 Example:
 
-`backgroundColor: "blue" fontSize: "20px"`
+```js
+backgroundColor: "blue"
+fontSize: "20px"
+```
 
 ---
 
@@ -231,7 +236,15 @@ React Element is:
 
 Example (simplified):
 
-`{   type: "div",   props: {     id: "parent",     children: [...]   } }`
+```js
+{
+  type: "div",
+  props: {
+    id: "parent",
+    children: [...]
+  }
+}
+```
 
 📌 React compares these objects using **Virtual DOM**
 
@@ -261,7 +274,11 @@ Example (simplified):
 
 ## 1️⃣1️⃣ `ReactDOM.createRoot()`
 
-`const root = ReactDOM.createRoot(   document.getElementById("root") );`
+```js
+const root = ReactDOM.createRoot(
+  document.getElementById("root")
+);
+```
 
 ### Purpose:
 
@@ -276,7 +293,9 @@ Example (simplified):
 
 ## 1️⃣2️⃣ Rendering UI
 
-`root.render(parent);`
+```js
+root.render(parent);
+```
 
 Meaning:  
 👉 Convert React element  
