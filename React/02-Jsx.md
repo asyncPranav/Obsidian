@@ -293,7 +293,15 @@ JSX hides this complexity but logic remains same.
 
 ## 1️⃣2️⃣ JSX with ReactDOM.render / root.render
 
-`const root = ReactDOM.createRoot(   document.getElementById("root") );  root.render(   <h1>Hello JSX</h1> );`
+```jsx
+const root = ReactDOM.createRoot(
+  document.getElementById("root")
+);
+
+root.render(
+  <h1>Hello JSX</h1>
+);
+```
 
 ➡️ JSX passed directly to `render()`
 
