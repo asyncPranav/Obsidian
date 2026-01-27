@@ -76,7 +76,10 @@ React works in **3 steps**:
 
 ## 4️⃣ Including React using CDN
 
-`<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script> <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>`
+```js
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+```
 
 ### Why two scripts?
 
@@ -92,7 +95,13 @@ React works in **3 steps**:
 
 ## 5️⃣ UI we want to build
 
-`<div id="parent">   <div id="child">     <h1>I am h1 tag</h1>   </div> </div>`
+```jss
+<div id="parent">
+  <div id="child">
+    <h1>I am h1 tag</h1>
+  </div>
+</div>
+```
 
 ❌ This is **not written directly in HTML**  
 ✅ This UI is created **using JavaScript + React**
@@ -103,15 +112,25 @@ React works in **3 steps**:
 
 ### Syntax
 
-`React.createElement(   tagName,   attributesObject,   children )`
+```js
+React.createElement(
+  tagName,
+  attributesObject,
+  children
+)
+```
 
 ### Example
 
-`React.createElement("h1", {}, "Hello")`
+```js
+React.createElement("h1", {}, "Hello")
+```
 
 Means:
 
-`<h1>Hello</h1>`
+```html
+<h1>Hello</h1>
+```
 
 ---
 
@@ -119,7 +138,9 @@ Means:
 
 ### Step 1: Create `<h1>`
 
-`React.createElement("h1", {}, "I am h1 tag")`
+```js
+React.createElement("h1", {}, "I am h1 tag")
+```
 
 - `"h1"` → HTML tag
     
