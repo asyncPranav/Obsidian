@@ -66,17 +66,35 @@ If you write:
 
 Then internally:
 
-`props.children = [   <h2>Title</h2>,   <p>Description</p> ];`
+```js
+props.children = [
+  <h2>Title</h2>,
+  <p>Description</p>
+];
+```
 
 ---
 
 ## 4️⃣ Basic Example of `children`
 
-`function Box({ children }) {   return (     <div style={{ border: "2px solid black", padding: "10px" }}>       {children}     </div>   ); }`
+```js
+function Box({ children }) {
+  return (
+    <div style={{ border: "2px solid black", padding: "10px" }}>
+      {children}
+    </div>
+  );
+}
+```
 
 Usage:
 
-`<Box>   <h1>Hello</h1>   <p>Welcome</p> </Box>`
+```js
+<Box>
+  <h1>Hello</h1>
+  <p>Welcome</p>
+</Box>
+```
 
 📌 `Box` does not care **what content is passed**
 
@@ -86,7 +104,9 @@ Usage:
 
 ### ❌ Normal props
 
-`<Card title="Hello" description="World" />`
+```js
+<Card title="Hello" description="World" />
+```
 
 ### ✅ Using `children`
 
