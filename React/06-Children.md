@@ -110,7 +110,12 @@ Usage:
 
 ### ✅ Using `children`
 
-`<Card>   <h1>Hello</h1>   <p>World</p> </Card>`
+```js
+<Card>
+  <h1>Hello</h1>
+  <p>World</p>
+</Card>
+```
 
 |Normal Props|children|
 |---|---|
@@ -124,11 +129,21 @@ Usage:
 
 ### Single child
 
-`<Card>   <h1>Hello</h1> </Card>`
+```js
+<Card>
+  <h1>Hello</h1>
+</Card>
+```
 
 ### Multiple children
 
-`<Card>   <h1>Hello</h1>   <p>React</p>   <button>Click</button> </Card>`
+```js
+<Card>
+  <h1>Hello</h1>
+  <p>React</p>
+  <button>Click</button>
+</Card>
+```
 
 Both work without any change.
 
@@ -146,7 +161,11 @@ Both work without any change.
 
 Examples:
 
-`<Box>Hello</Box> <Box>{10 + 20}</Box> <Box><Button /></Box>`
+```js
+<Box>Hello</Box>
+<Box>{10 + 20}</Box>
+<Box><Button /></Box>
+```
 
 ---
 
@@ -154,11 +173,26 @@ Examples:
 
 This is the **real power of React**.
 
-`function Layout({ children }) {   return (     <div>       <header>Header</header>       <main>{children}</main>       <footer>Footer</footer>     </div>   ); }`
+```js
+function Layout({ children }) {
+  return (
+    <div>
+      <header>Header</header>
+      <main>{children}</main>
+      <footer>Footer</footer>
+    </div>
+  );
+}
+```
 
 Usage:
 
-`<Layout>   <h1>Dashboard</h1>   <p>User Info</p> </Layout>`
+```js
+<Layout>
+  <h1>Dashboard</h1>
+  <p>User Info</p>
+</Layout>
+```
 
 📌 Layout stays same  
 📌 Content changes
