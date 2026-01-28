@@ -179,11 +179,17 @@ In functional components:
 
 ### ❌ Wrong
 
-`<button onClick={handleClick(5)}>Click</button>`
+```jsx
+<button onClick={handleClick(5)}>Click</button>
+```
 
 ### ✅ Correct
 
-`<button onClick={() => handleClick(5)}>   Click </button>`
+```jsx
+<button onClick={() => handleClick(5)}>
+  Click
+</button>
+```
 
 ---
 
@@ -223,7 +229,12 @@ In functional components:
 
 ### Example (Form)
 
-`function handleSubmit(e) {   e.preventDefault();   console.log("Form submitted"); }`
+```jsx
+function handleSubmit(e) {
+  e.preventDefault();
+  console.log("Form submitted");
+}
+```
 
 📌 Prevents page reload
 
@@ -251,7 +262,13 @@ Benefits:
 - Same as DOM bubbling
     
 
-`<div onClick={() => console.log("Parent")}>   <button onClick={() => console.log("Child")}>     Click   </button> </div>`
+```jsx
+<div onClick={() => console.log("Parent")}>
+  <button onClick={() => console.log("Child")}>
+    Click
+  </button>
+</div>
+```
 
 ---
 
