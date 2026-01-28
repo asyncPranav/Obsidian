@@ -201,7 +201,19 @@ Usage:
 
 ## 9️⃣ Wrapping Other Components with `children`
 
-`function Card({ children }) {   return <div className="card">{children}</div>; }  function App() {   return (     <Card>       <Profile />     </Card>   ); }`
+```js
+function Card({ children }) {
+  return <div className="card">{children}</div>;
+}
+
+function App() {
+  return (
+    <Card>
+      <Profile />
+    </Card>
+  );
+}
+```
 
 ✔ Card wraps Profile  
 ✔ Profile is child
@@ -210,7 +222,12 @@ Usage:
 
 ## 🔟 Conditional Rendering with `children`
 
-`function Alert({ children }) {   if (!children) return null;   return <div className="alert">{children}</div>; }`
+```js
+function Alert({ children }) {
+  if (!children) return null;
+  return <div className="alert">{children}</div>;
+}
+```
 
 ---
 
@@ -218,11 +235,17 @@ Usage:
 
 ❌ Less flexible:
 
-`<Card content={<h1>Hello</h1>} />`
+```js
+<Card content={<h1>Hello</h1>} />
+```
 
 ✅ Best practice:
 
-`<Card>   <h1>Hello</h1> </Card>`
+```js
+<Card>
+  <h1>Hello</h1>
+</Card>
+```
 
 📌 Industry standard = `children`
 
@@ -241,11 +264,15 @@ Usage:
 
 ❌
 
-`<Card />`
+```js
+<Card />
+```
 
 ✅
 
-`<Card>Content</Card>`
+```js
+<Card>Content</Card>
+```
 
 ---
 
