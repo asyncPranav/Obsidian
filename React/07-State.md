@@ -170,7 +170,10 @@ setCount(count + 1);
 
 ### ✅ Correct (Functional Update)
 
-`setCount(prevCount => prevCount + 1); setCount(prevCount => prevCount + 1);`
+```jsx
+setCount(prevCount => prevCount + 1);
+setCount(prevCount => prevCount + 1);
+```
 
 📌 Always use functional update when:
 
@@ -181,11 +184,18 @@ setCount(count + 1);
 
 ## 9️⃣ State with Objects
 
-`const [user, setUser] = useState({   name: "Rahul",   age: 22 });`
+```jsx
+const [user, setUser] = useState({
+  name: "Rahul",
+  age: 22
+});
+```
 
 ### Updating Object State
 
-`setUser({ ...user, age: 23 });`
+```jsx
+setUser({ ...user, age: 23 });
+```
 
 📌 Spread operator is mandatory  
 📌 React does **NOT** merge objects automatically
@@ -194,11 +204,15 @@ setCount(count + 1);
 
 ## 🔟 State with Arrays
 
-`const [items, setItems] = useState([]);`
+```jsx
+const [items, setItems] = useState([]);
+```
 
 Add item:
 
-`setItems([...items, "Apple"]);`
+```jsx
+setItems([...items, "Apple"]);
+```
 
 📌 Never mutate arrays directly (`push` ❌)
 
@@ -208,7 +222,11 @@ Add item:
 
 If initial state is heavy computation:
 
-`const [value, setValue] = useState(() => {   return expensiveCalculation(); });`
+```jsx
+const [value, setValue] = useState(() => {
+  return expensiveCalculation();
+});
+```
 
 📌 Function runs only once
 
@@ -218,7 +236,10 @@ If initial state is heavy computation:
 
 React batches multiple state updates for performance.
 
-`setCount(c => c + 1); setCount(c => c + 1);`
+```jsx
+setCount(c => c + 1);
+setCount(c => c + 1);
+```
 
 ✔ Results in +2  
 ✔ Single re-render
@@ -253,7 +274,12 @@ React batches multiple state updates for performance.
 - Props copies
     
 
-`// ❌ Bad const [fullName, setFullName] = useState(   firstName + lastName );`
+```jsx
+// ❌ Bad
+const [fullName, setFullName] = useState(
+  firstName + lastName
+);
+```
 
 ---
 
