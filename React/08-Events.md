@@ -106,7 +106,11 @@ React automatically passes an **event object** containing information about the 
 
 ### Example
 
-`function handleClick(e) {   console.log(e); }`
+```jsx
+function handleClick(e) {
+  console.log(e);
+}
+```
 
 📌 Common properties:
 
@@ -123,7 +127,15 @@ React automatically passes an **event object** containing information about the 
 
 ### Example
 
-`function App() {   function handleChange(e) {     console.log(e.target.value);   }    return <input onChange={handleChange} />; }`
+```jsx
+function App() {
+  function handleChange(e) {
+    console.log(e.target.value);
+  }
+
+  return <input onChange={handleChange} />;
+}
+```
 
 📌 `onChange` fires on **every keystroke**
 
@@ -133,7 +145,14 @@ React automatically passes an **event object** containing information about the 
 
 React controls input value using state.
 
-`const [text, setText] = useState("");  <input   value={text}   onChange={(e) => setText(e.target.value)} />`
+```jsx
+const [text, setText] = useState("");
+
+<input
+  value={text}
+  onChange={(e) => setText(e.target.value)}
+/>
+```
 
 ✔ React state is the **single source of truth**
 
@@ -148,7 +167,9 @@ In functional components:
 - Arrow functions auto bind
     
 
-`<button onClick={handleClick}>Click</button>`
+```jsx
+<button onClick={handleClick}>Click</button>
+```
 
 📌 Binding issues exist only in class components
 
