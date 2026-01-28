@@ -288,7 +288,12 @@ const [fullName, setFullName] = useState(
 When multiple components need same data:  
 👉 Move state to **common parent**
 
-`function Parent() {   const [count, setCount] = useState(0);   return <Child count={count} />; }`
+```jsx
+function Parent() {
+  const [count, setCount] = useState(0);
+  return <Child count={count} />;
+}
+```
 
 (We’ll cover deeply later)
 
