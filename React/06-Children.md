@@ -11,7 +11,7 @@
 
 `children` is a **special prop** that contains **whatever is written between the opening and closing tag of a component**.
 
-```js
+```jsx
 <Card>
   <h1>Hello</h1>
   <p>This is content</p>
