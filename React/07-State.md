@@ -58,13 +58,13 @@ A **hook** is a special function that lets you use React features in functional 
 
 ### useState Syntax
 
-```js
+```jsx
 const [state, setState] = useState(initialValue);
 ```
 
 ### Example
 
-```js
+```jsx
 import { useState } from "react";
 
 function Counter() {
@@ -84,17 +84,23 @@ function Counter() {
 
 ### ❌ Wrong (Direct Update)
 
-```js
+```jsx
 count = count + 1; // ❌
 ```
 
 ### ✅ Correct
 
-`setCount(count + 1);`
+```jsx
+setCount(count + 1);
+```
 
 ### Example with Button
 
-`<button onClick={() => setCount(count + 1)}>   Increment </button>`
+```jsx
+<button onClick={() => setCount(count + 1)}>
+  Increment
+</button>
+```
 
 📌 State must be updated **using setter function only**
 
@@ -129,13 +135,20 @@ count = count + 1; // ❌
 
 Example:
 
-`function Child({ name }) { // props   const [age, setAge] = useState(20); // state }`
+```jsx
+function Child({ name }) { // props
+  const [age, setAge] = useState(20); // state
+}
+```
 
 ---
 
 ## 7️⃣ Multiple State Variables
 
-`const [name, setName] = useState("Rahul"); const [age, setAge] = useState(22);`
+```jsx
+const [name, setName] = useState("Rahul");
+const [age, setAge] = useState(22);
+```
 
 ✔ Each state is independent  
 ✔ Clean and readable
@@ -150,7 +163,10 @@ State updates are **asynchronous**.
 
 ❌ Wrong:
 
-`setCount(count + 1); setCount(count + 1);`
+```jsx
+setCount(count + 1);
+setCount(count + 1);
+```
 
 ### ✅ Correct (Functional Update)
 
