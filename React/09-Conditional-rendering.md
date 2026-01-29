@@ -214,11 +214,25 @@ const [show, setShow] = useState(false)
 
 You can render **entire components conditionally**.
 
-`function App() {   return (     <div>       {isAdmin ? <AdminPanel /> : <UserPanel />}     </div>   ) }`
+```jsx
+function App() {
+  return (
+    <div>
+      {isAdmin ? <AdminPanel /> : <UserPanel />}
+    </div>
+  )
+}
+```
 
 ### Conditional Rendering Based on Props
 
-`function Alert({ type }) {   if (type === "error") return <ErrorAlert />   if (type === "success") return <SuccessAlert />   return null }`
+```jsx
+function Alert({ type }) {
+  if (type === "error") return <ErrorAlert />
+  if (type === "success") return <SuccessAlert />
+  return null
+}
+```
 
 ---
 
@@ -226,15 +240,27 @@ You can render **entire components conditionally**.
 
 ### Using Ternary
 
-`<button className={isActive ? "active" : "inactive"}>   Click </button>`
+```jsx
+<button className={isActive ? "active" : "inactive"}>
+  Click
+</button>
+```
 
 ### Using Template Literals
 
-``<button className={`btn ${isActive ? "btn-active" : ""}`}>   Click </button>``
+```jsx
+<button className={`btn ${isActive ? "btn-active" : ""}`}>
+  Click
+</button>
+```
 
 ### Real Example
 
-`<input   className={hasError ? "input error" : "input"} />`
+```jsx
+<input
+  className={hasError ? "input error" : "input"}
+/>
+```
 
 ---
 
@@ -242,7 +268,9 @@ You can render **entire components conditionally**.
 
 ### 🔐 Authentication
 
-`{user ? <Logout /> : <Login />}`
+```jsx
+{user ? <Logout /> : <Login />}
+```
 
 ### ⏳ Loading State
 
