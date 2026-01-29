@@ -274,15 +274,23 @@ function Alert({ type }) {
 
 ### ⏳ Loading State
 
-`{loading && <Spinner />}`
+```jsx
+{loading && <Spinner />}
+```
 
 ### ❌ Error Handling
 
-`{error ? <ErrorMessage /> : <Data />}`
+```jsx
+{error ? <ErrorMessage /> : <Data />}
+```
 
 ### 📦 Empty State
 
-`{items.length === 0   ? <p>No items found</p>   : <ItemList items={items} />}`
+```jsx
+{items.length === 0
+  ? <p>No items found</p>
+  : <ItemList items={items} />}
+```
 
 ---
 
