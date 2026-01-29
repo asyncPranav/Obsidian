@@ -50,15 +50,40 @@ You **cannot write `if` directly inside JSX**.
 ❌ Invalid:
 
 ```jsx
+return (
+  <div>
+    if (isLoggedIn) {
+      <Dashboard />
+    }
+  </div>
+)
 ```
 
 ### ✅ Correct Way: Use `if` _before_ return
 
-`function App() {   if (isLoggedIn) {     return <Dashboard />   }    return <Login /> }`
+```jsx
+function App() {
+  if (isLoggedIn) {
+    return <Dashboard />
+  }
+
+  return <Login />
+}
+```
 
 ### ✅ Another Pattern: Variable Assignment
 
-`let content  if (isLoggedIn) {   content = <Dashboard /> } else {   content = <Login /> }  return <div>{content}</div>`
+```jsx
+let content
+
+if (isLoggedIn) {
+  content = <Dashboard />
+} else {
+  content = <Login />
+}
+
+return <div>{content}</div>
+```
 
 ### 📌 When to Use `if`
 
@@ -77,15 +102,25 @@ The ternary operator is the **most common** way to do conditional rendering in J
 
 ### ✅ Syntax
 
-`condition ? expressionIfTrue : expressionIfFalse`
+```jsx
+condition ? expressionIfTrue : expressionIfFalse
+```
 
 ### Example
 
-`{isLoggedIn ? <Dashboard /> : <Login />}`
+```jsx
+{isLoggedIn ? <Dashboard /> : <Login />}
+```
 
 ### Nested Ternary (Avoid if Possible)
 
-`{status === "loading"   ? <Loader />   : status === "error"   ? <Error />   : <Data />}`
+```jsx
+{status === "loading"
+  ? <Loader />
+  : status === "error"
+  ? <Error />
+  : <Data />}
+```
 
 ⚠️ **Too many nested ternaries reduce readability**
 
