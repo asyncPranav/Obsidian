@@ -4,6 +4,24 @@
 # 📘 DEEP C LANGUAGE — CHAPTER-WISE ROADMAP
 
 ---
+## **Chapter 0: Setup
+
+
+You must work like a real C programmer.
+
+- Compiler: `gcc` or `clang`
+    
+- OS: Linux preferred (or WSL)
+    
+- Learn to compile manually:
+    
+
+`gcc -Wall -Wextra -Werror file.c`
+
+If you don’t use warnings → you’re learning C wrong.
+
+----
+
 
 ## **Chapter 1: C Language & Program Structure**
 
