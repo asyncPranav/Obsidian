@@ -16,7 +16,9 @@ You must work like a real C programmer.
 - Learn to compile manually:
     
 
-`gcc -Wall -Wextra -Werror file.c`
+```sh
+gcc -Wall -Wextra -Werror file.c
+```
 
 If you don’t use warnings → you’re learning C wrong.
 
