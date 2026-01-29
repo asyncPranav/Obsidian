@@ -6,7 +6,6 @@
 ---
 ## **Chapter 0: Setup
 
-
 You must work like a real C programmer.
 
 - Compiler: `gcc` or `clang`
