@@ -598,10 +598,12 @@ If you truly complete this roadmap:
         - Large modular systems
             
     - Without being demotivated
-    - 
+
 
 
 ---
+
+
 # **ADVANCE ROADMAP**
 
 Perfect. Once you **finish this roadmap**, you will have **strong foundational C skills**, and the next step is to move into **advanced C and systems-level programming**, where you can do **real-world, high-performance projects**.
