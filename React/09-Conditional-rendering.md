@@ -141,11 +141,15 @@ condition ? expressionIfTrue : expressionIfFalse
 
 If the condition is `true`, React renders the component.
 
-`condition && <Component />`
+```jsx
+condition && <Component />
+```
 
 ### Example
 
-`{isLoggedIn && <Dashboard />}`
+```jsx
+{isLoggedIn && <Dashboard />}
+```
 
 If `isLoggedIn` is `false`, nothing is rendered.
 
@@ -155,13 +159,17 @@ Falsy values like `0` will render `0`.
 
 ❌ Bad:
 
-`{items.length && <ItemList />}`
+```jsx
+{items.length && <ItemList />}
+```
 
 If `items.length` is `0`, React renders `0`.
 
 ✅ Fix:
 
-`{items.length > 0 && <ItemList />}`
+```jsx
+{items.length > 0 && <ItemList />}
+```
 
 ### 📌 When to Use `&&`
 
@@ -176,15 +184,27 @@ If `items.length` is `0`, React renders `0`.
 
 ### Using State
 
-`const [show, setShow] = useState(false)  <button onClick={() => setShow(!show)}>Toggle</button>  {show && <p>Hello World</p>}`
+```jsx
+const [show, setShow] = useState(false)
+
+<button onClick={() => setShow(!show)}>Toggle</button>
+
+{show && <p>Hello World</p>}
+```
 
 ### Using Ternary
 
-`{show ? <Modal /> : null}`
+```jsx
+{show ? <Modal /> : null}
+```
 
 ### Using CSS (Visibility Only)
 
-`<div style={{ display: show ? "block" : "none" }}>   Hidden Content </div>`
+```jsx
+<div style={{ display: show ? "block" : "none" }}>
+  Hidden Content
+</div>
+```
 
 📌 Prefer conditional rendering over CSS hiding when possible.
 
