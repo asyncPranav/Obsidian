@@ -406,7 +406,13 @@ Radio Button 2:
 - If you want to pre-select a default option:
     
 
-`const [formData, setFormData] = useState({   gender: "male",  // Male selected initially   country: "India",   agree: false });`
+```jsx
+const [formData, setFormData] = useState({
+  gender: "male",  // Male selected initially
+  country: "India",
+  agree: false
+});
+```
 
 - Radio button automatically reflects the state on first render.
     
@@ -421,6 +427,7 @@ Radio Button 2:
 |`checked`|Boolean, whether the radio is selected or not|
 |`formData.gender === value`|React calculates `checked` from state|
 |`onChange`|Updates state when user clicks|
+
 ---
 
 ### B) **Checkbox**
