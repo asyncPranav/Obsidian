@@ -476,7 +476,12 @@ checked={false} // checkbox unticked
 Inside your universal `handleChange`:
 
 ```jsx
+const { name, value, type, checked } = e.target;
 
+setFormData(prevData => ({
+  ...prevData,
+  [name]: type === "checkbox" ? checked : value
+}));
 ```
 
 - `type === "checkbox"` → use `checked` (boolean)
