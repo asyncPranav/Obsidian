@@ -104,7 +104,13 @@ export default AdvanceForm;
 
 ## 1️⃣ The State: `formData`
 
-`const [formData, setFormData] = useState({   gender: "",   country: "India",   agree: false, });`
+```jsx
+const [formData, setFormData] = useState({
+  gender: "",
+  country: "India", //can be empty too, ""
+  agree: false,
+});
+```
 
 ### Explanation:
 
@@ -134,7 +140,16 @@ export default AdvanceForm;
 
 ## 2️⃣ Universal `handleChange` Function
 
-`const handleChange = (e) => {   const { name, value, type, checked } = e.target;    setFormData((prevData) => ({     ...prevData,     [name]: type === "checkbox" ? checked : value,   })); };`
+```jsx
+const handleChange = (e) => {
+  const { name, value, type, checked } = e.target;
+
+  setFormData((prevData) => ({
+    ...prevData,
+    [name]: type === "checkbox" ? checked : value,
+  }));
+};
+```
 
 ### Let’s understand this line by line:
 
