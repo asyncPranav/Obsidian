@@ -272,7 +272,13 @@ function User(props) {
 
 ## 1️⃣2️⃣ Conditional Rendering inside Lists (Extra Topic ⭐)
 
-`{users.map(user =>   user.isActive ? (     <li key={user.id}>{user.name}</li>   ) : null )}`
+```jsx
+{users.map(user =>
+  user.isActive ? (
+    <li key={user.id}>{user.name}</li>
+  ) : null
+)}
+```
 
 ---
 
