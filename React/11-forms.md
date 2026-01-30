@@ -426,7 +426,22 @@ React accesses it using **refs**.
 ### Example: Uncontrolled Input
 
 ```jsx
+import { useRef } from "react";
 
+function Form() {
+  const inputRef = useRef();
+
+  function handleSubmit() {
+    console.log(inputRef.current.value);
+  }
+
+  return (
+    <>
+      <input type="text" ref={inputRef} />
+      <button onClick={handleSubmit}>Submit</button>
+    </>
+  );
+}
 ```
 
 📌 DOM controls the input  
@@ -448,7 +463,15 @@ React accesses it using **refs**.
 
 ## 3️⃣ Handling Text Inputs
 
-`const [text, setText] = useState("");  <input   type="text"   value={text}   onChange={(e) => setText(e.target.value)} />`
+```jsx
+const [text, setText] = useState("");
+
+<input
+  type="text"
+  value={text}
+  onChange={(e) => setText(e.target.value)}
+/>
+```
 
 📌 `onChange` fires on every keystroke  
 📌 Always bind `value`
@@ -457,7 +480,14 @@ React accesses it using **refs**.
 
 ## 4️⃣ Handling Textarea
 
-`const [message, setMessage] = useState("");  <textarea   value={message}   onChange={(e) => setMessage(e.target.value)} />`
+```jsx
+const [message, setMessage] = useState("");
+
+<textarea
+  value={message}
+  onChange={(e) => setMessage(e.target.value)}
+/>
+```
 
 📌 Same as text input  
 📌 No special syntax
@@ -468,7 +498,15 @@ React accesses it using **refs**.
 
 ### Single Checkbox
 
-`const [isChecked, setIsChecked] = useState(false);  <input   type="checkbox"   checked={isChecked}   onChange={(e) => setIsChecked(e.target.checked)} />`
+```jsx
+const [isChecked, setIsChecked] = useState(false);
+
+<input
+  type="checkbox"
+  checked={isChecked}
+  onChange={(e) => setIsChecked(e.target.checked)}
+/>
+```
 
 📌 Use `checked`, NOT `value`
 
