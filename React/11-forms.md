@@ -119,7 +119,11 @@ User types → onChange event triggers
 
 ## 6️⃣ Event Object (`e`) Explained Slowly
 
-`function handleChange(e) {   console.log(e); }`
+```js
+function handleChange(e) {
+  console.log(e);
+}
+```
 
 `e` (event object) contains:
 
@@ -136,7 +140,13 @@ User types → onChange event triggers
 
 ### Step 1: Create State
 
-`import { useState } from "react";  function App() {   const [name, setName] = useState(""); }`
+```jsx
+import { useState } from "react";
+
+function App() {
+  const [name, setName] = useState("");
+}
+```
 
 📌 `name` → stores input value  
 📌 `setName` → updates value
@@ -145,7 +155,9 @@ User types → onChange event triggers
 
 ### Step 2: Create Input WITHOUT onChange (Problem)
 
-`<input type="text" value={name} />`
+```jsx
+<input type="text" value={name} />
+```
 
 ❌ Input becomes **read-only**  
 ❌ User cannot type
@@ -159,7 +171,11 @@ Because React controls value, but no way to update it
 
 ### Step 3: Create Handler Function
 
-`function handleNameChange(event) {   setName(event.target.value); }`
+```jsx
+function handleNameChange(event) {
+  setName(event.target.value);
+}
+```
 
 📌 Reads typed value  
 📌 Updates state
