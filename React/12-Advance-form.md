@@ -153,51 +153,7 @@ const handleChange = (e) => {
 
 ### Let’s understand this line by line:
 
-1. **`e` (event)**:
-    
-    - This is the event object that React passes automatically when a user interacts with an input.
-        
-    - Example: when user clicks a radio button, types in a select, or checks a checkbox.
-        
-2. **Destructuring `e.target`**:
-    
 
-```jsx
-const { name, value, type, checked } = e.target;
-```
-
-- `name` → the `name` attribute of the input.
-    
-    - Radio buttons, checkbox, and select all have `name` in your form.
-        
-    - Example: `"gender"` or `"country"` or `"agree"`.
-        
-- `value` → the value of the input.
-    
-    - Example: for radio button `<input value="male" />`, value is `"male"`.
-        
-- `type` → the type of input: `"radio"`, `"checkbox"`, `"select-one"`, `"text"`.
-    
-- `checked` → `true` or `false` for checkboxes (and also works for radio buttons internally).
-    
-
-3. **Update state using `setFormData`**:
-    
-
-`setFormData((prevData) => ({   ...prevData,   [name]: type === "checkbox" ? checked : value, }));`
-
-- `prevData` → the current state
-    
-- `...prevData` → copy all existing fields
-    
-- `[name]: type === "checkbox" ? checked : value` → update only the changed field
-    
-    - If checkbox, use `checked` (true/false)
-        
-    - Else, use `value` (string)
-        
-
-💡 This makes **one function work for all input types**. No need for multiple `onChange` functions.
 
 ---
 
