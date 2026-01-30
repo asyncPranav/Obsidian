@@ -408,56 +408,6 @@ function handleSubmit(e) {
 
 > **If input has `value`, it MUST have `onChange`**
 
----
-
-
----
-
-## 🔹 Uncontrolled Components
-
-### Definition
-
-An **uncontrolled component** stores its value **in the DOM**, not in React state.
-
-React accesses it using **refs**.
-
----
-
-### Example: Uncontrolled Input
-
-```jsx
-import { useRef } from "react";
-
-function Form() {
-  const inputRef = useRef();
-
-  function handleSubmit() {
-    console.log(inputRef.current.value);
-  }
-
-  return (
-    <>
-      <input type="text" ref={inputRef} />
-      <button onClick={handleSubmit}>Submit</button>
-    </>
-  );
-}
-```
-
-📌 DOM controls the input  
-📌 Less React control  
-📌 Used rarely (file inputs, legacy code)
-
----
-
-### Controlled vs Uncontrolled (Comparison)
-
-|Controlled|Uncontrolled|
-|---|---|
-|State-driven|DOM-driven|
-|Easy validation|Hard validation|
-|Recommended|Limited use|
-|More code|Less code|
 
 ---
 
