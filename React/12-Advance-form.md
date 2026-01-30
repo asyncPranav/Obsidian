@@ -710,7 +710,7 @@ React re-renders input → controlled UI
 
 ## 7️⃣ Mental Flow Diagram
 
-```txt
+```css
 User interacts → onChange triggers → handleChange runs → updates state → React re-renders → UI updated
 ```
 
