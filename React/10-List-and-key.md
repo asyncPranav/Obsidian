@@ -101,7 +101,9 @@ function App() {
 
 A **key** is a **special attribute** that helps React **identify which list item has changed, added, or removed**.
 
-`<li key="1">Apple</li>`
+```jsx
+<li key="1">Apple</li>
+```
 
 📌 Keys are **not available as props**  
 📌 Used internally by React
@@ -134,7 +136,19 @@ With keys ✅:
 
 ## 6️⃣ Using Keys with `.map()`
 
-`const fruits = ["Apple", "Banana", "Mango"];  function App() {   return (     <ul>       {fruits.map((fruit, index) => (         <li key={index}>{fruit}</li>       ))}     </ul>   ); }`
+```jsx
+const fruits = ["Apple", "Banana", "Mango"];
+
+function App() {
+  return (
+    <ul>
+      {fruits.map((fruit, index) => (
+        <li key={index}>{fruit}</li>
+      ))}
+    </ul>
+  );
+}
+```
 
 ⚠️ This works, but **NOT recommended** (explained below).
 
@@ -153,11 +167,15 @@ If list order changes:
 
 Example scenario:
 
-`["Apple", "Banana", "Mango"]`
+```js
+["Apple", "Banana", "Mango"]
+```
 
 Remove `Apple`:
 
-`["Banana", "Mango"]`
+```js
+["Banana", "Mango"]
+```
 
 Indexes change:
 
@@ -184,7 +202,23 @@ Otherwise ❌ avoid
 
 ### Use **Unique & Stable IDs**
 
-`const users = [   { id: 1, name: "Rahul" },   { id: 2, name: "Amit" },   { id: 3, name: "Neha" } ];  function App() {   return (     <ul>       {users.map(user => (         <li key={user.id}>{user.name}</li>       ))}     </ul>   ); }`
+```jsx
+const users = [
+  { id: 1, name: "Rahul" },
+  { id: 2, name: "Amit" },
+  { id: 3, name: "Neha" }
+];
+
+function App() {
+  return (
+    <ul>
+      {users.map(user => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
+  );
+}
+```
 
 ✔ Unique  
 ✔ Stable  
