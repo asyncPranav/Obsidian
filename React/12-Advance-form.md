@@ -170,7 +170,7 @@ const { name, value, type, checked } = e.target;
     
     - Radio buttons, checkbox, and select all have `name` in your form.
         
-    - Example: `"gender"` or ``or `"agree"`.
+    - Example: `"gender"` or `"country"` or `"agree"`.
         
 - `value` → the value of the input.
     
