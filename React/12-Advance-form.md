@@ -552,6 +552,15 @@ Example from your code:
 </select>
 ```
 
+- User selects USA:
+    
+    - `e.target.name = "country"`
+        
+    - `e.target.type = "select-one"`
+        
+    - `e.target.value = "USA"`
+        
+    - `e.target.checked` → ignored for select
 ---
 
 ## 1️⃣ `value` for select
