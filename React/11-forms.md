@@ -813,14 +813,19 @@ It creates a **reference** (pointer) to an element.
 
 ## 6️⃣ Syntax of `useRef`
 
-`import { useRef } from "react";  const myRef = useRef();`
+```jsx
+import { useRef } from "react";
+
+const myRef = useRef();
+```
 
 - `myRef` is an object
     
 - Actual DOM element is stored in:
     
-
-`myRef.current`
+```jsx
+myRef.current
+```
 
 ---
 
@@ -830,13 +835,20 @@ It creates a **reference** (pointer) to an element.
 
 ### Step 1: Create a ref
 
-`import { useRef } from "react";  function App() {   const inputRef = useRef();`
+```jsx
+import { useRef } from "react";
+
+function App() {
+  const inputRef = useRef();
+```
 
 ---
 
 ### Step 2: Attach ref to input
 
-`<input type="text" ref={inputRef} />`
+```jsx
+<input type="text" ref={inputRef} />
+```
 
 📌 React now knows which DOM element to track
 
@@ -844,13 +856,18 @@ It creates a **reference** (pointer) to an element.
 
 ### Step 3: Read value when needed
 
-`function handleSubmit() {   console.log(inputRef.current.value); }`
+```jsx
+function handleSubmit() {
+  console.log(inputRef.current.value);
+}
+```
 
 ---
 
 ### Step 4: Full Example
 
-`import { useRef } from "react";  function App() {   const inputRef = useRef();    function handleSubmit() {     alert(inputRef.current.value);   }    return (     <>       <input type="text" ref={inputRef} />       <button onClick={handleSubmit}>Submit</button>     </>   ); }  export default App;`
+```j
+```
 
 ---
 
