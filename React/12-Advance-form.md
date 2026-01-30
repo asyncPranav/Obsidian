@@ -495,16 +495,21 @@ setFormData(prevData => ({
 
 1️⃣ Initial state:
 
-`formData.agree = false`
+```jsx
+formData.agree = false
+```
 
 - Checkbox appears **unticked**:
     
-
-`checked={formData.agree}  // false → not ticked`
+```jsx
+checked={formData.agree}  // false → not ticked
+```
 
 2️⃣ User clicks checkbox → `handleChange` triggers:
 
-`[name]: type === "checkbox" ? checked : value`
+```jsx
+[name]: type === "checkbox" ? checked : value
+```
 
 - `[name]` → `"agree"`
     
@@ -515,12 +520,16 @@ setFormData(prevData => ({
 
 State updates:
 
-`formData.agree = true`
+```jsx
+formData.agree = true
+```
 
 - React re-renders → checkbox is **now ticked**:
     
 
-`checked={formData.agree} // true`
+```jsx
+checked={formData.agree} // true
+```
 
 3️⃣ User unticks → `checked` = false → state updates → checkbox unticked.
 
