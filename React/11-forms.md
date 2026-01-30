@@ -184,7 +184,13 @@ function handleNameChange(event) {
 
 ### Step 4: Attach `onChange`
 
-`<input   type="text"   value={name}   onChange={handleNameChange} />`
+```jsx
+<input
+  type="text"
+  value={name}
+  onChange={handleNameChange}
+/>
+```
 
 ✅ Now input works  
 ✅ React controls input  
@@ -194,13 +200,40 @@ function handleNameChange(event) {
 
 ## 9️⃣ Full Working Example (Beginner Version)
 
-`import { useState } from "react";  function App() {   const [name, setName] = useState("");    function handleNameChange(e) {     setName(e.target.value);   }    return (     <>       <h2>Name: {name}</h2>        <input         type="text"         value={name}         onChange={handleNameChange}         placeholder="Enter your name"       />     </>   ); }  export default App;`
+```jsx
+import { useState } from "react";
+
+function App() {
+  const [name, setName] = useState("");
+
+  function handleNameChange(e) {
+    setName(e.target.value);
+  }
+
+  return (
+    <>
+      <h2>Name: {name}</h2>
+
+      <input
+        type="text"
+        value={name}
+        onChange={handleNameChange}
+        placeholder="Enter your name"
+      />
+    </>
+  );
+}
+
+export default App;
+```
 
 ---
 
 ## 🔟 Why `value` is Required
 
-`value={name}`
+```jsx
+value={name}
+```
 
 Because:
 
@@ -216,7 +249,12 @@ Because:
 ⚠️ Beginners should use function first  
 Later, you can write:
 
-`<input   value={name}   onChange={(e) => setName(e.target.value)} />`
+```jsx
+<input
+  value={name}
+  onChange={(e) => setName(e.target.value)}
+/>
+```
 
 ⚠️ This is **short syntax**, not magic  
 It does **same thing**
@@ -227,13 +265,19 @@ It does **same thing**
 
 ### Step 1: State
 
-`const [isChecked, setIsChecked] = useState(false);`
+```jsx
+const [isChecked, setIsChecked] = useState(false);
+```
 
 ---
 
 ### Step 2: Handler
 
-`function handleCheckboxChange(e) {   setIsChecked(e.target.checked); }`
+```jsx
+function handleCheckboxChange(e) {
+  setIsChecked(e.target.checked);
+}
+```
 
 📌 `checked` is boolean (true/false)
 
@@ -241,7 +285,13 @@ It does **same thing**
 
 ### Step 3: Input
 
-`<input   type="checkbox"   checked={isChecked}   onChange={handleCheckboxChange} />`
+```jsx
+<input
+  type="checkbox"
+  checked={isChecked}
+  onChange={handleCheckboxChange}
+/>
+```
 
 ---
 
