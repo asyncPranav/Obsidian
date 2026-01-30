@@ -245,7 +245,17 @@ Radio buttons allow **only one option to be selected at a time**.
 
 ## 4️⃣ Handling Select Dropdown
 
-`<select   name="country"   value={formData.country}   onChange={handleChange} >   <option value="USA">USA</option>   <option value="India">India</option>   <option value="Japan">Japan</option> </select>`
+```jsx
+<select
+  name="country"
+  value={formData.country}
+  onChange={handleChange}
+>
+  <option value="USA">USA</option>
+  <option value="India">India</option>
+  <option value="Japan">Japan</option>
+</select>
+```
 
 - `value={formData.country}` → controlled input
     
@@ -270,7 +280,14 @@ Radio buttons allow **only one option to be selected at a time**.
 
 ## 5️⃣ Handling Checkbox
 
-`<input   type="checkbox"   name="agree"   checked={formData.agree}   onChange={handleChange} />`
+```jsx
+<input
+  type="checkbox"
+  name="agree"
+  checked={formData.agree}
+  onChange={handleChange}
+/>
+```
 
 - `checked={formData.agree}` → controlled by state (true/false)
     
@@ -283,7 +300,12 @@ Radio buttons allow **only one option to be selected at a time**.
 
 ## 6️⃣ Handling Form Submission
 
-`const handleSubmit = (e) => {   e.preventDefault(); // stop page reload   console.log(formData); };`
+```jsx
+const handleSubmit = (e) => {
+  e.preventDefault(); // stop page reload
+  console.log(formData);
+};
+```
 
 - `e.preventDefault()` → prevents the page from reloading
     
@@ -327,7 +349,13 @@ Radio buttons allow **only one option to be selected at a time**.
     - `formData` contains:
         
 
-`{   gender: "female",   country: "Japan",   agree: true }`
+```js
+{
+  gender: "female",
+  country: "Japan",
+  agree: true
+}
+```
 
 ---
 
