@@ -205,7 +205,15 @@ const { name, value, type, checked } = e.target;
 
 Radio buttons allow **only one option to be selected at a time**.
 
-`<input   type="radio"   name="gender"   value="male"   checked={formData.gender === "male"}   onChange={handleChange} />`
+```jsx
+<input
+  type="radio"
+  name="gender"
+  value="male"
+  checked={formData.gender === "male"}
+  onChange={handleChange}
+/>
+```
 
 - `type="radio"` → React knows it’s a radio button
     
