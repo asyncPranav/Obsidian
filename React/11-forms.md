@@ -299,7 +299,11 @@ function handleCheckboxChange(e) {
 
 ### HTML Problem
 
-`<form>   <button type="submit">Submit</button> </form>`
+```jsx
+<form>
+  <button type="submit">Submit</button>
+</form>
+```
 
 ➡ Page reloads  
 ➡ React app breaks
@@ -308,9 +312,18 @@ function handleCheckboxChange(e) {
 
 ### React Solution
 
-`function handleSubmit(e) {   e.preventDefault(); // stops reload   console.log("Form submitted"); }`
+```jsx
+function handleSubmit(e) {
+  e.preventDefault(); // stops reload
+  console.log("Form submitted");
+}
+```
 
-`<form onSubmit={handleSubmit}>   <button type="submit">Submit</button> </form>`
+```jsx
+<form onSubmit={handleSubmit}>
+  <button type="submit">Submit</button>
+</form>
+```
 
 ---
 
