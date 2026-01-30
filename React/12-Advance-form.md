@@ -564,7 +564,7 @@ Example from your code:
 Example:
 
 ```jsx
-
+value="India"  // dropdown shows India selected
 ```
 
 ---
@@ -573,7 +573,9 @@ Example:
 
 Inside your universal `handleChange`:
 
-`[name]: type === "checkbox" ? checked : value`
+```jsx
+[name]: type === "checkbox" ? checked : value
+```
 
 - `type !== "checkbox"` → store `value`
     
@@ -586,23 +588,33 @@ Inside your universal `handleChange`:
 
 1️⃣ Initial state:
 
-`formData.country = "India"`
+```jsx
+formData.country = "India"
+```
 
 - React sets the `<select>` to India:
     
 
-`value={formData.country} // India selected`
+```jsx
+value={formData.country} // India selected
+```
 
 2️⃣ User selects `"USA"` → `onChange` triggers:
 
-`name = "country" value = "USA" type = "select-one"`
+```jsx
+name = "country"
+value = "USA"
+type = "select-one"
+```
 
 - Checkbox condition is false → store `value`
     
 - State updates:
     
 
-`formData.country = "USA"`
+```jsx
+formData.country = "USA"
+```
 
 - React re-renders → dropdown shows **USA selected**
     
@@ -646,7 +658,17 @@ Inside your universal `handleChange`:
 
 ### 5️⃣ Flow Diagram (Conceptually)
 
-`User clicks checkbox / radio / selects dropdown            ↓    onChange triggers → e.target info            ↓    handleChange checks input type            ↓    Updates state (true/false or value)            ↓ React re-renders input → controlled UI`
+```jsx
+User clicks checkbox / radio / selects dropdown
+           ↓
+   onChange triggers → e.target info
+           ↓
+   handleChange checks input type
+           ↓
+   Updates state (true/false or value)
+           ↓
+React re-renders input → controlled UI
+```
 
 ---
 
