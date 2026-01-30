@@ -1,35 +1,30 @@
 
 ---
-# React Advanced Form Handling: Radio, Checkbox, and Select
+# React Advanced Form: Radio, Checkbox, and Select
 
-In this tutorial, we'll go through a React form that includes **radio buttons**, **checkboxes**, and **select dropdowns**, and explain how to handle all these inputs using `useState`.
+This example shows a React form with **radio buttons**, **checkbox**, and **select dropdown** using a single state object.
 
 ---
 
-## Complete Code: `AdvanceForm.js`
+## Code: `AdvanceForm.js`
 
-```jsx
+```javascript
 import { useState } from "react";
 
 const AdvanceForm = () => {
-  // 1. Define form state using useState
   const [formData, setFormData] = useState({
-    gender: "",     // For radio buttons
-    country: "India", // For select dropdown
-    agree: false,   // For checkbox
+    gender: "",
+    country: "India",
+    agree: false,
   });
 
-  // 2. Handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent page reload
-    console.log(formData); // Display form data in console
+    e.preventDefault();
+    console.log(formData);
   };
 
-  // 3. Handle input changes
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-
-    // Update state based on input type
     setFormData((prevData) => ({
       ...prevData,
       [name]: type === "checkbox" ? checked : value,
@@ -38,15 +33,14 @@ const AdvanceForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Advance Form Component: checkbox, radio, select</h2>
-
-      {/* Radio Buttons */}
+      <h2>Advance Form Component : checkbox, radio, select</h2>
       <label>
         <input
           type="radio"
           name="gender"
           value="male"
           checked={formData.gender === "male"}
+          // onChange={(e) => setFormData({...formData, gender: e.target.value})}
           onChange={handleChange}
         />
         Male
@@ -58,19 +52,19 @@ const AdvanceForm = () => {
           name="gender"
           value="female"
           checked={formData.gender === "female"}
+          // onChange={(e) => setFormData({...formData, gender: e.target.value})}
           onChange={handleChange}
         />
         Female
       </label>
-
-      <br /><br />
-
-      {/* Select Dropdown */}
+      <br />
+      <br />
       <label>
         Select your country:
         <select
           name="country"
           value={formData.country}
+          // onChange={(e) => setFormData({ ...formData, country: e.target.value })}
           onChange={handleChange}
         >
           <option value="USA">USA</option>
@@ -81,22 +75,20 @@ const AdvanceForm = () => {
           <option value="Thailand">Thailand</option>
         </select>
       </label>
-
-      <br /><br />
-
-      {/* Checkbox */}
+      <br />
+      <br />
       <label>
         <input
           type="checkbox"
           name="agree"
           checked={formData.agree}
+          // onChange={(e) => setFormData({ ...formData, agree: e.target.checked })}
           onChange={handleChange}
         />
         I agree to the terms and conditions
       </label>
-
-      <br /><br />
-
+      <br />
+      <br />
       <button type="submit">Submit</button>
     </form>
   );
