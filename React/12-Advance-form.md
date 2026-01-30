@@ -157,7 +157,9 @@ const handleChange = (e) => {
 
 Whenever you attach `onChange` to an input:
 
-`<input type="text" name="name" onChange={handleChange} />`
+```jsx
+<input type="text" name="name" onChange={handleChange} />
+```
 
 - **`e` is automatically passed** by React
     
@@ -168,17 +170,26 @@ Whenever you attach `onChange` to an input:
 
 Example: If user types in a text input:
 
-`e.target => <input type="text" name="name" value="John" />`
+```jsx
+e.target => <input type="text" name="name" value="John" />
+```
 
 ---
 
 ## 2️⃣ Destructuring `e.target`
 
-`const { name, value, type, checked } = e.target;`
+```jsx
+const { name, value, type, checked } = e.target;
+```
 
 This is **just shorthand**:
 
-`const name = e.target.name; const value = e.target.value; const type = e.target.type; const checked = e.target.checked;`
+```jsx
+const name = e.target.name;
+const value = e.target.value;
+const type = e.target.type;
+const checked = e.target.checked;
+```
 
 - **`name`** → the input’s `name` attribute (`"gender"`, `"country"`, `"agree"`)
     
@@ -200,7 +211,12 @@ This is **just shorthand**:
 - Then **overwrite only the field that changed**
     
 
-`{   ...prevData,           // keep all existing form fields   [name]: type === "checkbox" ? checked : value }`
+```jsx
+{
+  ...prevData,           // keep all existing form fields
+  [name]: type === "checkbox" ? checked : value
+}
+```
 
 ---
 
