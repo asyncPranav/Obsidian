@@ -616,7 +616,9 @@ function handleSubmit(e) {
 ```
 
 ```jsx
-
+<form onSubmit={handleSubmit}>
+  <button type="submit">Submit</button>
+</form>
 ```
 
 📌 `e.preventDefault()` is mandatory
@@ -627,7 +629,18 @@ function handleSubmit(e) {
 
 ### Example: Required Field Validation
 
-`function handleSubmit(e) {   e.preventDefault();    if (!formData.email) {     alert("Email is required");     return;   }    console.log(formData); }`
+```jsx
+function handleSubmit(e) {
+  e.preventDefault();
+
+  if (!formData.email) {
+    alert("Email is required");
+    return;
+  }
+
+  console.log(formData);
+}
+```
 
 📌 Validation logic runs **before submission**
 
@@ -635,9 +648,17 @@ function handleSubmit(e) {
 
 ## 1️⃣1️⃣ Controlled Validation with State
 
-`const [error, setError] = useState("");  if (!email) {   setError("Email is required"); }`
+```jsx
+const [error, setError] = useState("");
 
-`{error && <p style={{ color: "red" }}>{error}</p>}`
+if (!email) {
+  setError("Email is required");
+}
+```
+
+```jsx
+{error && <p style={{ color: "red" }}>{error}</p>}
+```
 
 ---
 
