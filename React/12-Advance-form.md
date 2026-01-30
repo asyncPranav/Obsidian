@@ -691,33 +691,6 @@ React re-renders input → controlled UI
     
 4. **Universal `handleChange`** can handle all 3 types
 
----
-
-### C) **Select Dropdown**
-
-Example:
-
-`<select name="country" value={formData.country} onChange={handleChange}>   <option value="India">India</option>   <option value="USA">USA</option> </select>`
-
-- User selects USA:
-    
-    - `e.target.name = "country"`
-        
-    - `e.target.type = "select-one"`
-        
-    - `e.target.value = "USA"`
-        
-    - `e.target.checked` → ignored for select
-        
-- Function evaluates:
-    
-
-`[name]: type === "checkbox" ? checked : value => "country": "USA"`
-
-- Updates state:
-    
-
-`formData = {   gender: "male",   country: "USA",   agree: true }`
 
 ✅ Works because select is **treated like text input**, value stored in state.
 
