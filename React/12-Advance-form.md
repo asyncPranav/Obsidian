@@ -162,13 +162,15 @@ const handleChange = (e) => {
 2. **Destructuring `e.target`**:
     
 
-`const { name, value, type, checked } = e.target;`
+```jsx
+const { name, value, type, checked } = e.target;
+```
 
 - `name` → the `name` attribute of the input.
     
     - Radio buttons, checkbox, and select all have `name` in your form.
         
-    - Example: `"gender"` or `"agree"`.
+    - Example: `"gender"` or ``or `"agree"`.
         
 - `value` → the value of the input.
     
