@@ -661,7 +661,8 @@ formData.country = "USA"
 - **State is always the source of truth**
     
 - React re-renders form inputs whenever state changes
-    
+
+✅ Works because select is **treated like text input**, value stored in state.
 
 ---
 
@@ -692,7 +693,7 @@ React re-renders input → controlled UI
 4. **Universal `handleChange`** can handle all 3 types
 
 
-✅ Works because select is **treated like text input**, value stored in state.
+
 
 ---
 
@@ -709,7 +710,9 @@ React re-renders input → controlled UI
 
 ## 7️⃣ Mental Flow Diagram
 
-`User interacts → onChange triggers → handleChange runs → updates state → React re-renders → UI updated`
+```txt
+User interacts → onChange triggers → handleChange runs → updates state → React re-renders → UI updated
+```
 
 ---
 
