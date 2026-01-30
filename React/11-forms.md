@@ -514,7 +514,23 @@ const [isChecked, setIsChecked] = useState(false);
 
 ## 6️⃣ Handling Radio Buttons
 
-`const [gender, setGender] = useState("");  <input   type="radio"   value="male"   checked={gender === "male"}   onChange={(e) => setGender(e.target.value)} /> Male  <input   type="radio"   value="female"   checked={gender === "female"}   onChange={(e) => setGender(e.target.value)} /> Female`
+```jsx
+const [gender, setGender] = useState("");
+
+<input
+  type="radio"
+  value="male"
+  checked={gender === "male"}
+  onChange={(e) => setGender(e.target.value)}
+/> Male
+
+<input
+  type="radio"
+  value="female"
+  checked={gender === "female"}
+  onChange={(e) => setGender(e.target.value)}
+/> Female
+```
 
 📌 Radio buttons share the same state  
 📌 Compare value for `checked`
@@ -523,7 +539,15 @@ const [isChecked, setIsChecked] = useState(false);
 
 ## 7️⃣ Handling Select Dropdown
 
-`const [city, setCity] = useState("");  <select value={city} onChange={(e) => setCity(e.target.value)}>   <option value="">Select city</option>   <option value="Delhi">Delhi</option>   <option value="Mumbai">Mumbai</option> </select>`
+```jsx
+const [city, setCity] = useState("");
+
+<select value={city} onChange={(e) => setCity(e.target.value)}>
+  <option value="">Select city</option>
+  <option value="Delhi">Delhi</option>
+  <option value="Mumbai">Mumbai</option>
+</select>
+```
 
 📌 Controlled dropdown  
 📌 `value` + `onChange`
@@ -534,11 +558,37 @@ const [isChecked, setIsChecked] = useState(false);
 
 ### Best Pattern: Single State Object
 
-`const [formData, setFormData] = useState({   name: "",   email: "", });`
+```jsx
+const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+});
+```
 
-`function handleChange(e) {   const { name, value } = e.target;    setFormData({     ...formData,     [name]: value,   }); }`
+```jsx
+function handleChange(e) {
+  const { name, value } = e.target;
 
-`<input   name="name"   value={formData.name}   onChange={handleChange} />  <input   name="email"   value={formData.email}   onChange={handleChange} />`
+  setFormData({
+    ...formData,
+    [name]: value,
+  });
+}
+```
+
+```jsx
+<input
+  name="name"
+  value={formData.name}
+  onChange={handleChange}
+/>
+
+<input
+  name="email"
+  value={formData.email}
+  onChange={handleChange}
+/>
+```
 
 📌 Clean  
 📌 Scalable  
@@ -558,9 +608,16 @@ React apps are **single-page apps**, so we stop that.
 
 ### Example
 
-`function handleSubmit(e) {   e.preventDefault();   console.log("Form submitted"); }`
+```jsx
+function handleSubmit(e) {
+  e.preventDefault();
+  console.log("Form submitted");
+}
+```
 
-`<form onSubmit={handleSubmit}>   <button type="submit">Submit</button> </form>`
+```jsx
+
+```
 
 📌 `e.preventDefault()` is mandatory
 
