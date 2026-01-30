@@ -541,7 +541,16 @@ checked={formData.agree} // true
 
 Example from your code:
 
-`<select   name="country"   value={formData.country}   onChange={handleChange} >   <option value="USA">USA</option>   <option value="India">India</option> </select>`
+```jsx
+<select
+  name="country"
+  value={formData.country}
+  onChange={handleChange}
+>
+  <option value="USA">USA</option>
+  <option value="India">India</option>
+</select>
+```
 
 ---
 
@@ -554,7 +563,9 @@ Example from your code:
 
 Example:
 
-`value="India"  // dropdown shows India selected`
+```jsx
+
+```
 
 ---
 
