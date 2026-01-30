@@ -336,7 +336,10 @@ handleChange(e)
     
 
 ```jsx
-
+setFormData(prev => ({
+  ...prev,
+  [name]: value  // type !== checkbox
+}))
 ```
 
 - Here:
@@ -348,7 +351,9 @@ handleChange(e)
 - State updates:
     
 
-`formData.gender = "male"`
+```jsx
+formData.gender = "male"
+```
 
 - React re-renders
     
@@ -357,7 +362,10 @@ handleChange(e)
 
 #### After Re-render
 
-`checked={formData.gender === "male"}  // "male" === "male" → true checked={formData.gender === "female"}  // "male" === "female" → false`
+```jsx
+checked={formData.gender === "male"}  // "male" === "male" → true
+checked={formData.gender === "female"}  // "male" === "female" → false
+```
 
 ✅ Result: Male button is **selected**, Female button is **deselected**
 
@@ -368,7 +376,17 @@ handleChange(e)
 
 ### 3️⃣ Mental Picture
 
-`State: formData.gender = "male"  Radio Button 1:   value = "male"   checked = formData.gender === "male"  → true → selected  Radio Button 2:   value = "female"   checked = formData.gender === "female" → false → not selected`
+```jsx
+State: formData.gender = "male"
+
+Radio Button 1:
+  value = "male"
+  checked = formData.gender === "male"  → true → selected
+
+Radio Button 2:
+  value = "female"
+  checked = formData.gender === "female" → false → not selected
+```
 
 - Only one radio in the group is `true`
     
