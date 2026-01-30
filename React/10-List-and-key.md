@@ -228,19 +228,27 @@ function App() {
 
 ## 9️⃣ Keys with Components (IMPORTANT)
 
-`<User key={user.id} name={user.name} />`
+```jsx
+<User key={user.id} name={user.name} />
+```
 
 📌 Key goes on **component**, not inside it
 
 ❌ Wrong:
 
-`<User name={user.name} />`
+```jsx
+<User name={user.name} />
+```
 
 ---
 
 ## 🔟 Keys Are NOT Props (Common Confusion)
 
-`function User(props) {   console.log(props.key); // ❌ undefined }`
+```jsx
+function User(props) {
+  console.log(props.key); // ❌ undefined
+}
+```
 
 ✔ Keys are used internally  
 ❌ Not accessible via props
@@ -249,7 +257,14 @@ function App() {
 
 ## 1️⃣1️⃣ Rendering Lists with Fragments
 
-`{items.map(item => (   <React.Fragment key={item.id}>     <h3>{item.title}</h3>     <p>{item.description}</p>   </React.Fragment> ))}`
+```jsx
+{items.map(item => (
+  <React.Fragment key={item.id}>
+    <h3>{item.title}</h3>
+    <p>{item.description}</p>
+  </React.Fragment>
+))}
+```
 
 📌 Fragment can also have a key
 
