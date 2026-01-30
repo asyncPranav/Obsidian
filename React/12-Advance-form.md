@@ -270,7 +270,10 @@ User clicks Male:
 - Example:
     
 
-`checked={true}  // radio appears selected checked={false} // radio appears unselected`
+```jsx
+checked={true}  // radio appears selected
+checked={false} // radio appears unselected
+```
 
 So `checked` **must always be true or false**, not a string like `"male"`.
 
@@ -286,7 +289,9 @@ So `checked` **must always be true or false**, not a string like `"male"`.
 - The comparison:
     
 
-`formData.gender === "male"`
+```jsx
+formData.gender === "male"
+```
 
 - Returns **true** if state matches this radio button
     
@@ -299,7 +304,13 @@ So `checked` **must always be true or false**, not a string like `"male"`.
 
 #### Initial State
 
-`formData = {   gender: "",   country: "India",   agree: false };`
+```jsx
+formData = {
+  gender: "",
+  country: "India",
+  agree: false
+};
+```
 
 - First render:
     
@@ -317,12 +328,16 @@ So `checked` **must always be true or false**, not a string like `"male"`.
 - `onChange` triggers:
     
 
-`handleChange(e)`
+```jsx
+handleChange(e)
+```
 
 - Inside function:
     
 
-`setFormData(prev => ({   ...prev,   [name]: value  // type !== checkbox }))`
+```jsx
+
+```
 
 - Here:
     
