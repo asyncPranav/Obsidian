@@ -136,6 +136,46 @@ function handleChange(e) {
 
 ---
 
+## 2️⃣ Controlled vs Uncontrolled Components (CORE CONCEPT ⭐)
+
+---
+
+## 🔹 Controlled Components
+
+### Definition
+
+A **controlled component** is a form element whose value is **controlled by React state**.
+
+> React state = single source of truth
+
+---
+
+### Example: Controlled Text Input
+
+```jsx
+import { useState } from "react";
+
+function Form() {
+  const [name, setName] = useState("");
+
+  return (
+    <input
+      type="text"
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+    />
+  );
+}
+```
+
+📌 Input value comes from **state**  
+📌 Every change updates state  
+📌 Most commonly used in React
+
+---
+
+
+
 ## 7️⃣ First Basic Controlled Input (STEP BY STEP)
 
 ### Step 1: Create State
@@ -370,13 +410,6 @@ function handleSubmit(e) {
 
 ---
 
-## ✅ Final Summary
-
-✔ `onChange` listens to input changes  
-✔ Event object carries typed value  
-✔ State stores input data  
-✔ React re-renders UI  
-✔ Controlled components are preferred
 
 ---
 
@@ -392,7 +425,9 @@ React accesses it using **refs**.
 
 ### Example: Uncontrolled Input
 
-`import { useRef } from "react";  function Form() {   const inputRef = useRef();    function handleSubmit() {     console.log(inputRef.current.value);   }    return (     <>       <input type="text" ref={inputRef} />       <button onClick={handleSubmit}>Submit</button>     </>   ); }`
+```jsx
+
+```
 
 📌 DOM controls the input  
 📌 Less React control  
