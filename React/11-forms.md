@@ -1011,7 +1011,7 @@ User → Event → State → UI
 ### Uncontrolled:
 
 ```js
-
+User → DOM → React reads when needed
 ```
 
 ---
