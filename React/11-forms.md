@@ -378,32 +378,6 @@ function handleSubmit(e) {
 ✔ React re-renders UI  
 ✔ Controlled components are preferred
 
-
----
-
-
-## 2️⃣ Controlled vs Uncontrolled Components (CORE CONCEPT ⭐)
-
----
-
-## 🔹 Controlled Components
-
-### Definition
-
-A **controlled component** is a form element whose value is **controlled by React state**.
-
-> React state = single source of truth
-
----
-
-### Example: Controlled Text Input
-
-`import { useState } from "react";  function Form() {   const [name, setName] = useState("");    return (     <input       type="text"       value={name}       onChange={(e) => setName(e.target.value)}     />   ); }`
-
-📌 Input value comes from **state**  
-📌 Every change updates state  
-📌 Most commonly used in React
-
 ---
 
 ## 🔹 Uncontrolled Components
