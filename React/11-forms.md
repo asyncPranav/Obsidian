@@ -866,7 +866,25 @@ function handleSubmit() {
 
 ### Step 4: Full Example
 
-```j
+```jsx
+import { useRef } from "react";
+
+function App() {
+  const inputRef = useRef();
+
+  function handleSubmit() {
+    alert(inputRef.current.value);
+  }
+
+  return (
+    <>
+      <input type="text" ref={inputRef} />
+      <button onClick={handleSubmit}>Submit</button>
+    </>
+  );
+}
+
+export default App;
 ```
 
 ---
@@ -882,7 +900,33 @@ function handleSubmit() {
 
 ## 9️⃣ Uncontrolled Form Example
 
-`import { useRef } from "react";  function Form() {   const nameRef = useRef();   const emailRef = useRef();    function handleSubmit(e) {     e.preventDefault();      const data = {       name: nameRef.current.value,       email: emailRef.current.value,     };      console.log(data);   }    return (     <form onSubmit={handleSubmit}>       <input type="text" ref={nameRef} />       <input type="email" ref={emailRef} />       <button type="submit">Submit</button>     </form>   ); }`
+```jsx
+import { useRef } from "react";
+
+function Form() {
+  const nameRef = useRef();
+  const emailRef = useRef();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const data = {
+      name: nameRef.current.value,
+      email: emailRef.current.value,
+    };
+
+    console.log(data);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" ref={nameRef} />
+      <input type="email" ref={emailRef} />
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+```
 
 ---
 
@@ -890,9 +934,15 @@ function handleSubmit() {
 
 File input **cannot be controlled** properly using state.
 
-`const fileRef = useRef();  <input type="file" ref={fileRef} />`
+```jsx
+const fileRef = useRef();
 
-`console.log(fileRef.current.files[0]);`
+<input type="file" ref={fileRef} />
+```
+
+```jsx
+console.log(fileRef.current.files[0]);
+```
 
 ---
 
@@ -954,11 +1004,15 @@ Avoid uncontrolled when:
 
 ### Controlled:
 
-`User → Event → State → UI`
+```js
+User → Event → State → UI
+```
 
 ### Uncontrolled:
 
-`User → DOM → React reads when needed`
+```js
+
+```
 
 ---
 
