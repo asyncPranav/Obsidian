@@ -240,8 +240,6 @@ else → store value (string)
 
 ### A) **Radio Buttons**
 
-Here’s the line in question:
-
 ```jsx
 <input
   type="radio"
@@ -252,6 +250,15 @@ Here’s the line in question:
 />
 ```
 
+User clicks Male:
+
+- `e.target.name = "gender"`
+    
+- `e.target.value = "male"`
+    
+- `e.target.type = "radio"`
+    
+- `e.target.checked = true` (radio clicked)
 ---
 
 ## 1️⃣ What does `checked` mean?
