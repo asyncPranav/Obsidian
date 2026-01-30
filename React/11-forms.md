@@ -758,6 +758,10 @@ React usually wants **state control**, but **sometimes we don’t want React to 
 
 > An **uncontrolled component** is a form element whose value is **controlled by the DOM itself**, not by React state.
 
+>An **uncontrolled component** stores its value **in the DOM**, not in React state.
+
+- React accesses it using **refs**.
+	
 - No `value` prop
     
 - No `onChange` for storing state
