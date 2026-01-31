@@ -29,15 +29,18 @@
   "editor.fontSize": 14.7,
   "editor.tabSize": 2,
   "editor.largeFileOptimizations": false,
+  "editor.smoothScrolling": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.letterSpacing": 0,
+  "editor.renderLineHighlight": "none",
 
   // EDITOR CURSOR & SCROLLBAR
   "editor.cursorStyle": "line",
+  "editor.cursorWidth": 3,
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.cursorBlinking": "smooth",
+  "editor.cursorBlinking": "expand",
   "editor.scrollbar.horizontalScrollbarSize": 10,
   "editor.scrollbar.verticalScrollbarSize": 10,
-  "editor.renderLineHighlight": "none",
-  "editor.lineNumbers": "on",
 
   // COLOR CUSTOMIZATIONS
   "workbench.colorCustomizations": {
@@ -52,27 +55,14 @@
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 100,
 
-  // CODE FORMATTING - HTML
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "vscode.css-language-features"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  // CODE FORMATTING
+  "[html]": { "editor.defaultFormatter": "vscode.html-language-features" },
+  "[css]": { "editor.defaultFormatter": "vscode.css-language-features" },
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
 
-  // PRETTIER SETTINGS
   "prettier.tabWidth": 2,
 
   // JAVASCRIPT SETTINGS
@@ -95,29 +85,23 @@
     "unknown": "off"
   },
   "terminal.integrated.fontLigatures.fallbackLigatures": [
-    "<--","<---","<<-","<-","->","->>","-->","--->",
-    "<==","<===","<<=","<=","=>","=>>","==>","===>",
-    ">=",">>=","<->","<-->","<--->","<---->","<=>",
-    "<==>","<===>","<====>", "::",":::","<","</","</>","/>",
-    ">","==","!=","/=","~=","<>","===","!==","!===",
-    "<:",":=","*=","*+","<*","<*>","*>","<|","<|>",
-    "|>", "+*","=*","=:"," :>","/*","*/","+++","<!--","<!---"
+    "<--","<---","<<-","<-","->","->>","-->","--->","<==","<===",
+    "<<=","<=","=>","=>>","==>","===>",">=",">>=","<->","<-->","<--->",
+    "<---->","<=>","<==>","<===>","<====>", "::",":::","<","</","</>","/>",
+    ">","==","!=","/=","~=","<>","===","!==","!===","<:",":=","*=",
+    "*+","<*","<*>","*>","<|","<|>","|>", "+*","=*","=:"," :>","/*","*/",
+    "+++","<!--","<!---"
   ],
 
-  // EXTENSION SETTINGS - Code Runner
+  // EXTENSIONS
   "code-runner.runInTerminal": true,
-
-  // EXTENSION SETTINGS - Live Server
   "liveServer.settings.donotShowInfoMsg": true,
   "liveServer.settings.donotVerifyTags": true,
-
-  // EXTENSION SETTINGS - Tabnine
   "tabnine.experimentalAutoImports": true,
-
-  // EXTENSION SETTINGS - Rainbow Brackets
   "RainbowBrackets.depreciation-notice": false,
 
   // SCREENCAST MODE
   "screencastMode.verticalOffset": 10
 }
+
 
