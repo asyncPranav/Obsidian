@@ -122,5 +122,6 @@
   // SCREENCAST MODE
   "screencastMode.verticalOffset": 10
 }
+```
 
 
