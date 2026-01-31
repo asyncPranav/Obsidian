@@ -31,14 +31,20 @@
   "editor.largeFileOptimizations": false,
 
   // EDITOR CURSOR & SCROLLBAR
+  "editor.cursorStyle": "line",
   "editor.cursorSmoothCaretAnimation": "on",
-  "editor.cursorBlinking": "expand",
+  "editor.cursorBlinking": "smooth",
   "editor.scrollbar.horizontalScrollbarSize": 10,
   "editor.scrollbar.verticalScrollbarSize": 10,
+  "editor.renderLineHighlight": "none",
+  "editor.lineNumbers": "on",
 
   // COLOR CUSTOMIZATIONS
   "workbench.colorCustomizations": {
     "editor.background": "#191919",
+    "editorCursor.foreground": "#FFD700",
+    "editorLineNumber.foreground": "#555555",
+    "editorLineNumber.activeForeground": "#FFD700"
   },
   "glassit.alpha": 220,
 
@@ -48,22 +54,22 @@
 
   // CODE FORMATTING - HTML
   "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.defaultFormatter": "vscode.html-language-features"
   },
   "[css]": {
-    "editor.defaultFormatter": "vscode.css-language-features",
+    "editor.defaultFormatter": "vscode.css-language-features"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   // PRETTIER SETTINGS
@@ -75,7 +81,7 @@
 
   // TERMINAL SETTINGS
   "terminal.integrated.defaultProfile.windows": "Git Bash",
-  "terminal.integrated.shellIntegration.enabled": false, // Fix for Git Bash PATH issue in VS Code
+  "terminal.integrated.shellIntegration.enabled": false,
   "terminal.integrated.suggest.enabled": true,
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.cursorBlinking": true,
@@ -86,83 +92,32 @@
   "terminal.integrated.suggest.quickSuggestions": {
     "commands": "on",
     "arguments": "on",
-    "unknown": "off",
+    "unknown": "off"
   },
   "terminal.integrated.fontLigatures.fallbackLigatures": [
-    "<--",
-    "<---",
-    "<<-",
-    "<-",
-    "->",
-    "->>",
-    "-->",
-    "--->",
-    "<==",
-    "<===",
-    "<<=",
-    "<=",
-    "=>",
-    "=>>",
-    "==>",
-    "===>",
-    ">=",
-    ">>=",
-    "<->",
-    "<-->",
-    "<--->",
-    "<---->",
-    "<=>",
-    "<==>",
-    "<===>",
-    "<====>",
-    "::",
-    ":::",
-    "<",
-    "</",
-    "</>",
-    "/>",
-    ">",
-    "==",
-    "!=",
-    "/=",
-    "~=",
-    "<>",
-    "===",
-    "!==",
-    "!===",
-    "<:",
-    ":=",
-    "*=",
-    "*+",
-    "<*",
-    "<*>",
-    "*>",
-    "<|",
-    "<|>",
-    "|>",
-    "+*",
-    "=*",
-    "=:",
-    ":>",
-    "/*",
-    "*/",
-    "+++",
-    "<!--",
-    "<!---",
-  ], 
+    "<--","<---","<<-","<-","->","->>","-->","--->",
+    "<==","<===","<<=","<=","=>","=>>","==>","===>",
+    ">=",">>=","<->","<-->","<--->","<---->","<=>",
+    "<==>","<===>","<====>", "::",":::","<","</","</>","/>",
+    ">","==","!=","/=","~=","<>","===","!==","!===",
+    "<:",":=","*=","*+","<*","<*>","*>","<|","<|>",
+    "|>", "+*","=*","=:"," :>","/*","*/","+++","<!--","<!---"
+  ],
+
   // EXTENSION SETTINGS - Code Runner
-  "code-runner.runInTerminal": true, 
-  
+  "code-runner.runInTerminal": true,
+
   // EXTENSION SETTINGS - Live Server
   "liveServer.settings.donotShowInfoMsg": true,
-  "liveServer.settings.donotVerifyTags": true, 
-  
+  "liveServer.settings.donotVerifyTags": true,
+
   // EXTENSION SETTINGS - Tabnine
-  "tabnine.experimentalAutoImports": true, 
-  
+  "tabnine.experimentalAutoImports": true,
+
   // EXTENSION SETTINGS - Rainbow Brackets
-  "RainbowBrackets.depreciation-notice": false, 
-  
+  "RainbowBrackets.depreciation-notice": false,
+
   // SCREENCAST MODE
-  "screencastMode.verticalOffset": 10,
+  "screencastMode.verticalOffset": 10
 }
+
