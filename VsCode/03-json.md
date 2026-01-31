@@ -189,8 +189,8 @@
     
     // Minimap (if you enable it)
     "minimap.background": "#191919",
-    "minimap.selectionHighlight": "#264f78",
-    "minimap.findMatchHighlight": "#515c6a",
+    "minimap.selectionHighlight": "#264f7880",
+    "minimap.findMatchHighlight": "#515c6a80",
   },
   "glassit.alpha": 220,
 
