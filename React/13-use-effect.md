@@ -124,7 +124,11 @@ useEffect(() => {
 
 ### 🟢 Runs When State Changes
 
-`useEffect(() => {   console.log("Count changed:", count); }, [count]);`
+```jsx
+useEffect(() => {
+  console.log("Count changed:", count);
+}, [count]);
+```
 
 📌 Runs only when `count` changes
 
@@ -151,7 +155,11 @@ The dependency array tells React:
 
 ### ❌ Common Mistake
 
-`useEffect(() => {   setCount(count + 1); }, [count]);`
+```jsx
+useEffect(() => {
+  setCount(count + 1);
+}, [count]);
+```
 
 ⚠️ Infinite loop!
 
@@ -202,13 +210,29 @@ Examples:
 
 ### 🧹 Cleanup Syntax
 
-`useEffect(() => {   return () => {     // cleanup code   }; }, []);`
+```jsx
+useEffect(() => {
+  return () => {
+    // cleanup code
+  };
+}, []);
+```
 
 ---
 
 ### Example: setInterval
 
-`useEffect(() => {   const timer = setInterval(() => {     console.log("Running...");   }, 1000);    return () => {     clearInterval(timer);   }; }, []);`
+```jsx
+useEffect(() => {
+  const timer = setInterval(() => {
+    console.log("Running...");
+  }, 1000);
+
+  return () => {
+    clearInterval(timer);
+  };
+}, []);
+```
 
 ---
 
@@ -218,7 +242,13 @@ Examples:
 
 ### 🔹 1. Fetching Data (API Calls)
 
-`useEffect(() => {   fetch("https://api.example.com/users")     .then(res => res.json())     .then(data => setUsers(data)); }, []);`
+```jsx
+useEffect(() => {
+  fetch("https://api.example.com/users")
+    .then(res => res.json())
+    .then(data => setUsers(data));
+}, []);
+```
 
 📌 Runs once when component mounts  
 📌 Fetching is a **side effect**
@@ -227,7 +257,9 @@ Examples:
 
 ### 🔹 2. Listening to Window Events
 
-`useEffect(() => {   const handleResize = () => {     console.log(window.innerWidth);   };    window.addEventListener("resize", handleResize);    return () => {     window.removeEventListener("resize", handleResize);   }; }, []);`
+```jsx
+
+```
 
 📌 Cleanup removes event listener
 
