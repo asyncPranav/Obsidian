@@ -39,7 +39,15 @@ Side effects are:
 
 ### ❌ Wrong Way (Anti-pattern)
 
-``function App() {   const [count, setCount] = useState(0);    document.title = `Count: ${count}`; // ❌ BAD    return <button onClick={() => setCount(count + 1)}>+</button>; }``
+```jsx
+function App() {
+  const [count, setCount] = useState(0);
+
+  document.title = `Count: ${count}`; // ❌ BAD
+
+  return <button onClick={() => setCount(count + 1)}>+</button>;
+}
+```
 
 ❌ Problem:
 
@@ -52,7 +60,11 @@ Side effects are:
 
 ### ✅ Correct Way: useEffect
 
-``useEffect(() => {   document.title = `Count: ${count}`; });``
+```jsx
+useEffect(() => {
+  document.title = `Count: ${count}`;
+});
+```
 
 👉 React says:
 
@@ -68,7 +80,11 @@ Side effects are:
 
 ### 🔹 Syntax
 
-`useEffect(() => {   // side effect code }, [dependencies]);`
+```jsx
+useEffect(() => {
+  // side effect code
+}, [dependencies]);
+```
 
 ### Breakdown:
 
@@ -83,7 +99,11 @@ Side effects are:
 
 ### 🟢 Runs on Every Render
 
-`useEffect(() => {   console.log("Component rendered"); });`
+```jsx
+useEffect(() => {
+  console.log("Component rendered");
+});
+```
 
 📌 No dependency array → runs after **every render**
 
@@ -91,7 +111,11 @@ Side effects are:
 
 ### 🟢 Runs Only Once (On Mount)
 
-`useEffect(() => {   console.log("Component mounted"); }, []);`
+```jsx
+useEffect(() => {
+  console.log("Component mounted");
+}, []);
+```
 
 📌 Empty dependency array `[]`  
 👉 Runs **only once** when component loads
