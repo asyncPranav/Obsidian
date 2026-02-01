@@ -258,7 +258,17 @@ useEffect(() => {
 ### 🔹 2. Listening to Window Events
 
 ```jsx
+useEffect(() => {
+  const handleResize = () => {
+    console.log(window.innerWidth);
+  };
 
+  window.addEventListener("resize", handleResize);
+
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+}, []);
 ```
 
 📌 Cleanup removes event listener
@@ -267,7 +277,15 @@ useEffect(() => {
 
 ### 🔹 3. Subscriptions (Example)
 
-`useEffect(() => {   const subscription = subscribeToService();    return () => {     subscription.unsubscribe();   }; }, []);`
+```jsx
+useEffect(() => {
+  const subscription = subscribeToService();
+
+  return () => {
+    subscription.unsubscribe();
+  };
+}, []);
+```
 
 ---
 
@@ -283,11 +301,22 @@ useEffect(() => {
 
 ### ❌ Wrong async usage
 
-`useEffect(async () => { // ❌   const data = await fetchData(); }, []);`
+```jsx
+useEffect(async () => { // ❌
+  const data = await fetchData();
+}, []);
+```
 
 ### ✅ Correct way
 
-`useEffect(() => {   async function fetchData() {     const data = await fetchData();   }   fetchData(); }, []);`
+```jsx
+useEffect(() => {
+  async function fetchData() {
+    const data = await fetchData();
+  }
+  fetchData();
+}, []);
+```
 
 ---
 
