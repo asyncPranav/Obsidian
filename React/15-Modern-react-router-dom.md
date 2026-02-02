@@ -200,7 +200,18 @@ const router = createBrowserRouter([
 
 ### 🔹 Use `<Outlet />`
 
-`import { Outlet } from "react-router-dom";  function Dashboard() {   return (     <>       <h2>Dashboard</h2>       <Outlet />     </>   ); }`
+```jsx
+import { Outlet } from "react-router-dom";
+
+function Dashboard() {
+  return (
+    <>
+      <h2>Dashboard</h2>
+      <Outlet />
+    </>
+  );
+}
+```
 
 📌 Outlet renders child routes
 
@@ -210,13 +221,33 @@ const router = createBrowserRouter([
 
 ### 🔹 Common Layout Example
 
-`function Layout() {   return (     <>       <Navbar />       <Outlet />       <Footer />     </>   ); }`
+```jsx
+function Layout() {
+  return (
+    <>
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </>
+  );
+}
+```
 
 ---
 
 ### 🔹 Layout in Router
 
-`const router = createBrowserRouter([   {     element: <Layout />,     children: [       { path: "/", element: <Home /> },       { path: "/about", element: <About /> },     ],   }, ]);`
+```jsx
+const router = createBrowserRouter([
+  {
+    element: <Layout />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/about", element: <About /> },
+    ],
+  },
+]);
+```
 
 📌 Layout stays same  
 📌 Only page content changes
@@ -227,7 +258,15 @@ const router = createBrowserRouter([
 
 ### 🔹 Using `errorElement`
 
-`const router = createBrowserRouter([   {     path: "/",     element: <Home />,     errorElement: <NotFound />,   }, ]);`
+```jsx
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <NotFound />,
+  },
+]);
+```
 
 📌 Handles:
 
@@ -242,7 +281,9 @@ const router = createBrowserRouter([
 
 ### 🔹 `Link` works same
 
-`<Link to="/about">About</Link>`
+```jsx
+<Link to="/about">About</Link>
+```
 
 ---
 
