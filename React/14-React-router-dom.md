@@ -77,7 +77,9 @@ This is where **React Router** comes in.
 
 ## 3️⃣ Installing React Router
 
-`npm install react-router-dom`
+```jsx
+npm install react-router-dom
+```
 
 📌 This installs:
 
@@ -109,7 +111,15 @@ This is where **React Router** comes in.
 
 ### 🔹 Setup (Main Entry)
 
-`import { BrowserRouter } from "react-router-dom";  ReactDOM.createRoot(document.getElementById("root")).render(   <BrowserRouter>     <App />   </BrowserRouter> );`
+```jsx
+import { BrowserRouter } from "react-router-dom";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
+```
 
 📌 Without `BrowserRouter`, routing **will not work**
 
@@ -133,7 +143,19 @@ This is where **React Router** comes in.
 
 ### 🔹 Basic Example
 
-`import { Routes, Route } from "react-router-dom";  function App() {   return (     <Routes>       <Route path="/" element={<Home />} />       <Route path="/about" element={<About />} />       <Route path="/contact" element={<Contact />} />     </Routes>   ); }`
+```jsx
+import { Routes, Route } from "react-router-dom";
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
+  );
+}
+```
 
 📌 `element` receives JSX  
 📌 React renders component based on URL
@@ -144,7 +166,9 @@ This is where **React Router** comes in.
 
 ### ❌ `<a>` Tag (Wrong for React)
 
-`<a href="/about">About</a>`
+```jsx
+<a href="/about">About</a>
+```
 
 ❌ Causes full page reload  
 ❌ SPA behavior breaks
@@ -153,7 +177,11 @@ This is where **React Router** comes in.
 
 ### ✅ `<Link>` (Correct Way)
 
-`import { Link } from "react-router-dom";  <Link to="/about">About</Link>`
+```jsx
+import { Link } from "react-router-dom";
+
+<Link to="/about">About</Link>
+```
 
 ✔ No reload  
 ✔ Faster navigation  
@@ -163,7 +191,17 @@ This is where **React Router** comes in.
 
 ### 🔹 NavLink (Active Styling)
 
-`import { NavLink } from "react-router-dom";  <NavLink   to="/about"   className={({ isActive }) => (isActive ? "active" : "")} >   About </NavLink>`
+```jsx
+import { NavLink } from "react-router-dom";
+
+<NavLink
+  to="/about"
+  className={({ isActive }) => (isActive ? "active" : "")}
+>
+  About
+</NavLink>
+
+```
 
 📌 `NavLink` automatically knows:
 
