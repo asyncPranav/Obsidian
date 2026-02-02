@@ -289,15 +289,25 @@ const router = createBrowserRouter([
 
 ### 🔹 `useNavigate` works same
 
-`const navigate = useNavigate(); navigate("/login");`
+```jsx
+const navigate = useNavigate();
+navigate("/login");
+```
 
 ---
 
 ## 1️⃣1️⃣ Dynamic Routes (Same)
 
-`{   path: "/product/:id",   element: <Product /> }`
+```jsx
+{
+  path: "/product/:id",
+  element: <Product />
+}
+```
 
-`const { id } = useParams();`
+```jsx
+const { id } = useParams();
+```
 
 ---
 
@@ -351,4 +361,3 @@ Think like this:
 - Layouts use `<Outlet />`
     
 - Modern routing is preferred in new apps
-- 
