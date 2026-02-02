@@ -326,7 +326,16 @@ Used for:
 ### 🔹 Outlet (Where child renders)
 
 ```jsx
+import { Outlet } from "react-router-dom";
 
+function Dashboard() {
+  return (
+    <>
+      <h2>Dashboard</h2>
+      <Outlet />
+    </>
+  );
+}
 ```
 
 📌 `<Outlet />` is **placeholder** for child routes
@@ -339,13 +348,17 @@ Used for:
 
 When user enters:
 
-`/some-random-page`
+```txt
+/some-random-page
+```
 
 ---
 
 ### 🔹 Catch All Route
 
-`<Route path="*" element={<NotFound />} />`
+```jsx
+<Route path="*" element={<NotFound />} />
+```
 
 📌 Must be last route
 
@@ -367,7 +380,17 @@ When user enters:
 
 ## 1️⃣2️⃣ Complete Flow (Mental Model)
 
-`URL change    ↓ BrowserRouter detects    ↓ Routes checks matching path    ↓ Correct component renders    ↓ Outlet renders nested routes`
+```jsx
+URL change
+   ↓
+BrowserRouter detects
+   ↓
+Routes checks matching path
+   ↓
+Correct component renders
+   ↓
+Outlet renders nested routes
+```
 
 ---
 
