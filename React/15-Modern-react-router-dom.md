@@ -71,7 +71,17 @@ Think of it as:
 
 ### 🔹 Mental Model
 
-`Routes config (JS)         ↓ createBrowserRouter()         ↓ Router object         ↓ RouterProvider         ↓ App renders`
+```jsx
+Routes config (JS)
+        ↓
+createBrowserRouter()
+        ↓
+Router object
+        ↓
+RouterProvider
+        ↓
+App renders
+```
 
 ---
 
@@ -92,7 +102,9 @@ Think of it as:
 
 ## 4️⃣ Installing (Same Package)
 
-`npm install react-router-dom`
+```sh
+npm install react-router-dom
+```
 
 No separate install needed.
 
@@ -104,13 +116,34 @@ No separate install needed.
 
 ### 🟢 Step 1: Create Pages
 
-`function Home() {   return <h1>Home Page</h1>; }  function About() {   return <h1>About Page</h1>; }`
+```jsx
+function Home() {
+  return <h1>Home Page</h1>;
+}
+
+function About() {
+  return <h1>About Page</h1>;
+}
+```
 
 ---
 
 ### 🟢 Step 2: Create Router Config
 
-`import { createBrowserRouter } from "react-router-dom";  const router = createBrowserRouter([   {     path: "/",     element: <Home />,   },   {     path: "/about",     element: <About />,   }, ]);`
+```jsx
+import { createBrowserRouter } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/about",
+    element: <About />,
+  },
+]);
+```
 
 📌 This array is the **route tree**
 
@@ -118,7 +151,13 @@ No separate install needed.
 
 ### 🟢 Step 3: Provide Router
 
-`import { RouterProvider } from "react-router-dom";  ReactDOM.createRoot(document.getElementById("root")).render(   <RouterProvider router={router} /> );`
+```jsx
+import { RouterProvider } from "react-router-dom";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <RouterProvider router={router} />
+);
+```
 
 ---
 
@@ -138,7 +177,24 @@ No separate install needed.
 
 ### 🔹 Parent + Children
 
-`const router = createBrowserRouter([   {     path: "/dashboard",     element: <Dashboard />,     children: [       {         path: "profile",         element: <Profile />,       },       {         path: "settings",         element: <Settings />,       },     ],   }, ]);`
+```jsx
+const router = createBrowserRouter([
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+      {
+        path: "settings",
+        element: <Settings />,
+      },
+    ],
+  },
+]);
+```
 
 ---
 
