@@ -200,7 +200,6 @@ import { NavLink } from "react-router-dom";
 >
   About
 </NavLink>
-
 ```
 
 📌 `NavLink` automatically knows:
@@ -226,19 +225,31 @@ import { NavLink } from "react-router-dom";
 
 Dynamic parts of URL:
 
-`/products/101 /products/102`
+```txt
+/products/101
+/products/102
+```
 
 ---
 
 ### 🔹 Route with Param
 
-`<Route path="/product/:id" element={<Product />} />`
+```jsx
+<Route path="/product/:id" element={<Product />} />
+```
 
 ---
 
 ### 🔹 Access Param using `useParams`
 
-`import { useParams } from "react-router-dom";  function Product() {   const { id } = useParams();   return <h2>Product ID: {id}</h2>; }`
+```jsx
+import { useParams } from "react-router-dom";
+
+function Product() {
+  const { id } = useParams();
+  return <h2>Product ID: {id}</h2>;
+}
+```
 
 📌 `id` comes from URL  
 📌 Useful for:
@@ -269,7 +280,19 @@ Dynamic parts of URL:
 
 ### 🔹 Example
 
-`import { useNavigate } from "react-router-dom";  function Login() {   const navigate = useNavigate();    const handleLogin = () => {     navigate("/dashboard");   };    return <button onClick={handleLogin}>Login</button>; }`
+```jsx
+import { useNavigate } from "react-router-dom";
+
+function Login() {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate("/dashboard");
+  };
+
+  return <button onClick={handleLogin}>Login</button>;
+}
+```
 
 📌 Similar to `history.push()` (old)
 
@@ -291,13 +314,20 @@ Used for:
 
 ### 🔹 Parent Route
 
-`<Route path="/dashboard" element={<Dashboard />}>   <Route path="profile" element={<Profile />} />   <Route path="settings" element={<Settings />} /> </Route>`
+```jsx
+<Route path="/dashboard" element={<Dashboard />}>
+  <Route path="profile" element={<Profile />} />
+  <Route path="settings" element={<Settings />} />
+</Route>
+```
 
 ---
 
 ### 🔹 Outlet (Where child renders)
 
-`import { Outlet } from "react-router-dom";  function Dashboard() {   return (     <>       <h2>Dashboard</h2>       <Outlet />     </>   ); }`
+```jsx
+
+```
 
 📌 `<Outlet />` is **placeholder** for child routes
 
