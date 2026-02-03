@@ -301,7 +301,16 @@ So **DashboardLayout** wraps all pages.
 
 ### **fetchUser.js**
 
-`export const fetchUser = async () => {   // Simulate API call   return new Promise((resolve) => {     setTimeout(() => {       resolve({ name: "John Doe", email: "john@example.com" });     }, 500);   }); };`
+```jsx
+export const fetchUser = async () => {
+  // Simulate API call
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ name: "John Doe", email: "john@example.com" });
+    }, 500);
+  });
+};
+```
 
 - Simulates **fetching user data** from a server.
     
@@ -316,7 +325,29 @@ So **DashboardLayout** wraps all pages.
 
 ### **router.jsx**
 
-`import { createBrowserRouter } from "react-router-dom"; import DashboardLayout from "./layouts/DashboardLayout"; import Home from "./pages/Home"; import Profile from "./pages/Profile"; import Settings from "./pages/Settings"; import NotFound from "./pages/NotFound"; import { fetchUser } from "./api/fetchUser";  export const router = createBrowserRouter([   {     path: "/dashboard",     element: <DashboardLayout />,     children: [       { index: true, element: <Home /> },           // /dashboard       { path: "profile", element: <Profile />, loader: fetchUser }, // /dashboard/profile       { path: "settings", element: <Settings /> }, // /dashboard/settings       { path: "*", element: <NotFound /> },         // nested 404     ],   },   { path: "*", element: <NotFound /> }, // global 404 ]);`
+```jsx
+import { createBrowserRouter } from "react-router-dom";
+import DashboardLayout from "./layouts/DashboardLayout";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
+import NotFound from "./pages/NotFound";
+import { fetchUser } from "./api/fetchUser";
+
+export const router = createBrowserRouter([
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      { index: true, element: <Home /> },           // /dashboard
+      { path: "profile", element: <Profile />, loader: fetchUser }, // /dashboard/profile
+      { path: "settings", element: <Settings /> }, // /dashboard/settings
+      { path: "*", element: <NotFound /> },         // nested 404
+    ],
+  },
+  { path: "*", element: <NotFound /> }, // global 404
+]);
+```
 
 **Key Concepts:**
 
@@ -335,7 +366,16 @@ So **DashboardLayout** wraps all pages.
 
 ## **6️⃣ App.jsx**
 
-`import { RouterProvider } from "react-router-dom"; import { router } from "./router";  const App = () => {   return <RouterProvider router={router} />; };  export default App;`
+```jsx
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router";
+
+const App = () => {
+  return <RouterProvider router={router} />;
+};
+
+export default App;
+```
 
 - `RouterProvider` → Connects **router configuration** to the app.
     
@@ -346,7 +386,17 @@ So **DashboardLayout** wraps all pages.
 
 ## **7️⃣ main.jsx**
 
-`import React from "react"; import ReactDOM from "react-dom/client"; import App from "./App";  ReactDOM.createRoot(document.getElementById("root")).render(   <React.StrictMode>     <App />   </React.StrictMode> );`
+```jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+```
 
 - This is **entry point**.
     
