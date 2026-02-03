@@ -129,15 +129,46 @@ For example, your **Profile page** needs user data (`name` and `email`). Instead
 
 **fetchUser.js**
 
-`export const fetchUser = async () => {   // Simulate API call   return new Promise((resolve) => {     setTimeout(() => {       resolve({ name: "John Doe", email: "john@example.com" });     }, 500); // wait 0.5s   }); };`
+```js
+export const fetchUser = async () => {
+  // Simulate API call
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ name: "John Doe", email: "john@example.com" });
+    }, 500); // wait 0.5s
+  });
+};
+```
 
 **router.jsx**
 
-`{   path: "profile",   element: <Profile />,   loader: fetchUser, // ← attach loader here }`
+```jsx
+{
+  path: "profile",
+  element: <Profile />,
+  loader: fetchUser, // ← attach loader here
+}
+```
 
 **Profile.jsx**
 
-`import { useLoaderData } from "react-router-dom";  const Profile = () => {   const user = useLoaderData(); // ← this gets the data from loader    return (     <div>       <h2>Profile Page</h2>       <p>Name: {user.name}</p>       <p>Email: {user.email}</p>     </div>   ); };  export default Profile;`
+```jsx
+import { useLoaderData } from "react-router-dom";
+
+const Profile = () => {
+  const user = useLoaderData(); // ← this gets the data from loader
+
+  return (
+    <div>
+      <h2>Profile Page</h2>
+      <p>Name: {user.name}</p>
+      <p>Email: {user.email}</p>
+    </div>
+  );
+};
+
+export default Profile;
+```
 
 **What happens:**
 
