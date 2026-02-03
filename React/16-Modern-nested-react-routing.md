@@ -52,7 +52,13 @@ export default Profile;
 
 ### **Home.jsx**
 
-`const Home = () => {   return <h2>Dashboard Home</h2>; };  export default Home;`
+```jsx
+const Home = () => {
+  return <h2>Dashboard Home</h2>;
+};
+
+export default Home;
+```
 
 - Simple page, just text.
     
@@ -63,7 +69,9 @@ export default Profile;
 
 ### **Profile.jsx (with loader example)**
 
-`import { useLoaderData } from "react-router-dom";  const Profile = () => {   const user = useLoaderData(); // this gets data from loader   return (     <div>       <h2>Profile Page</h2>       <p>Name: {user.name}</p>       <p>Email: {user.email}</p>     </div>   ); };  export default Profile;`
+```jsx
+
+```
 
 - `useLoaderData()` → Special React Router hook that **gets data before the page renders**.
     
