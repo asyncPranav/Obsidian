@@ -443,7 +443,11 @@ const Profile = () => {
 
 Example:
 
-`import { redirect } from "react-router-dom";  const loader = () => redirect("/dashboard");`
+```jsx
+import { redirect } from "react-router-dom";
+
+const loader = () => redirect("/dashboard");
+```
 
 - When the loader runs, the router sees the redirect → changes the URL to `/dashboard`.
     
@@ -454,7 +458,12 @@ Example:
 
 ## **3️⃣ Combining loader + redirect**
 
-`{   path: "/",   loader: () => redirect("/dashboard"), }`
+```jsx
+{
+  path: "/",
+  loader: () => redirect("/dashboard"),
+}
+```
 
 Step by step what happens:
 
