@@ -211,22 +211,7 @@ useEffect(() => {
 
 ---
 
-## **5️⃣ Nested Routes + Loader**
-
-Even if `/dashboard` has a layout, loader still works:
-
-`/dashboard  ├─ /dashboard/profile (loader fetches user)  ├─ /dashboard/settings`
-
-- `DashboardLayout` renders first (header + nav)
-    
-- `<Outlet />` shows the page
-    
-- Loader fetches data for **Profile** only
-    
-
----
-
-### **6️⃣ Full example flow**
+## **5️⃣  Full example flow**
 
 1. Go to `/dashboard/profile`
     
@@ -245,7 +230,9 @@ No need for `<Spinner>` unless you want a loading state explicitly.
 
 ### **Settings.jsx**
 
-`const Settings = () => {   return <h2>Settings Page</h2>; };  export default Settings;`
+```jsx
+
+```
 
 - Another simple page.
     
