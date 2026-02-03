@@ -326,7 +326,7 @@ export const fetchUser = async () => {
 ### **router.jsx**
 
 ```jsx
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, redirect } from "react-router-dom";
 import DashboardLayout from "./layouts/DashboardLayout";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
@@ -334,20 +334,26 @@ import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import { fetchUser } from "./api/fetchUser";
 
-export const router = createBrowserRouter([
-
+const router = createBrowserRouter([
+  {
+    path: "/",
+    loader: () => redirect("/dashboard"), // ← direct redirect
+  },
   {
     path: "/dashboard",
     element: <DashboardLayout />,
     children: [
-      { index: true, element: <Home /> },           // /dashboard
-      { path: "profile", element: <Profile />, loader: fetchUser }, // /dashboard/profile
-      { path: "settings", element: <Settings /> }, // /dashboard/settings
-      { path: "*", element: <NotFound /> },         // nested 404
+      { index: true, element: <Home /> },
+      { path: "profile", element: <Profile />, loader: fetchUser },
+      { path: "settings", element: <Settings /> },
+      { path: "*", element: <NotFound /> }, // nested 4
     ],
   },
   { path: "*", element: <NotFound /> }, // global 404
 ]);
+
+export default router;
+
 ```
 
 **Key Concepts:**
