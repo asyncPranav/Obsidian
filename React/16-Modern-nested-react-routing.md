@@ -346,7 +346,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "profile", element: <Profile />, loader: fetchUser },
       { path: "settings", element: <Settings /> },
-      { path: "*", element: <NotFound /> }, // nested 4
+      { path: "*", element: <NotFound /> }, // nested 404
     ],
   },
   { path: "*", element: <NotFound /> }, // global 404
@@ -355,6 +355,19 @@ const router = createBrowserRouter([
 export default router;
 
 ```
+
+### **✅ How it works**
+
+1. User visits `/`.
+    
+2. React Router sees the `/` route has a loader.
+    
+3. The loader runs: `redirect("/dashboard")`.
+    
+4. Browser URL changes to `/dashboard` automatically.
+    
+5. The `/dashboard` route renders with `DashboardLayout` and its nested routes.
+
 
 **Key Concepts:**
 
