@@ -231,7 +231,11 @@ No need for `<Spinner>` unless you want a loading state explicitly.
 ### **Settings.jsx**
 
 ```jsx
+const Settings = () => {
+  return <h2>Settings Page</h2>;
+};
 
+export default Settings;
 ```
 
 - Another simple page.
@@ -241,7 +245,10 @@ No need for `<Spinner>` unless you want a loading state explicitly.
 
 ### **NotFound.jsx**
 
-`const NotFound = () => <h2>404 - Page Not Found</h2>; export default NotFound;`
+```jsx
+const NotFound = () => <h2>404 - Page Not Found</h2>;
+export default NotFound;
+```
 
 - This page appears when a URL **doesn’t match** any route.
     
@@ -252,7 +259,26 @@ No need for `<Spinner>` unless you want a loading state explicitly.
 
 ### **DashboardLayout.jsx**
 
-`import { NavLink, Outlet } from "react-router-dom";  const DashboardLayout = () => {   return (     <div>       <h1>Dashboard</h1>       <nav>         <NavLink to="/dashboard" end>Home</NavLink>{" | "}         <NavLink to="/dashboard/profile">Profile</NavLink>{" | "}         <NavLink to="/dashboard/settings">Settings</NavLink>       </nav>       <hr />       <Outlet />     </div>   ); };  export default DashboardLayout;`
+```jsx
+import { NavLink, Outlet } from "react-router-dom";
+
+const DashboardLayout = () => {
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      <nav>
+        <NavLink to="/dashboard" end>Home</NavLink>{" | "}
+        <NavLink to="/dashboard/profile">Profile</NavLink>{" | "}
+        <NavLink to="/dashboard/settings">Settings</NavLink>
+      </nav>
+      <hr />
+      <Outlet />
+    </div>
+  );
+};
+
+export default DashboardLayout;
+```
 
 **Key Concepts:**
 
