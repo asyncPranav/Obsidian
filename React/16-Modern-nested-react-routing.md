@@ -198,7 +198,11 @@ export default Profile;
 
 You could write this inside `<Profile />`:
 
-`useEffect(() => {   fetchUser().then(setUser); }, []);`
+```jsx
+useEffect(() => {
+  fetchUser().then(setUser);
+}, []);
+```
 
 - Problem: The page first renders **without data** → you need loading states.
     
