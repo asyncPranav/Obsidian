@@ -380,7 +380,9 @@ export default router;
 - **Nested 404** → If you go `/dashboard/unknown`, it shows nested 404.
     
 - **Global 404** → If you go `/unknown`, it shows global 404.
-    
+
+
+
 
 ---
 
