@@ -453,25 +453,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 ---
 
-### **9️⃣ Running the Project**
-
-1. Install packages:
-    
-
-`npm install react react-dom react-router-dom vite`
-
-2. Start dev server:
-    
-
-`npm run dev`
-
-3. Open browser → test URLs:
-    
-
-`/dashboard          → Home /dashboard/profile  → Profile (loader fetches user) /dashboard/settings → Settings /dashboard/unknown  → Nested 404 /unknown            → Global 404`
-
----
-
 💡 **Tips for beginners:**
 
 - Always use `Outlet` in **layout components** for nested routes.
