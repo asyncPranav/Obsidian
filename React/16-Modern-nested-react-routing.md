@@ -335,6 +335,7 @@ import NotFound from "./pages/NotFound";
 import { fetchUser } from "./api/fetchUser";
 
 export const router = createBrowserRouter([
+
   {
     path: "/dashboard",
     element: <DashboardLayout />,
