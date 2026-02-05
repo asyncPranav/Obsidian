@@ -122,13 +122,26 @@ function App() {
 
 ### 🟢 Step 2: Child Updates Parent State
 
-`function InputBox({ text, setText }) {   return (     <input       value={text}       onChange={(e) => setText(e.target.value)}     />   ); }`
+```jsx
+function InputBox({ text, setText }) {
+  return (
+    <input
+      value={text}
+      onChange={(e) => setText(e.target.value)}
+    />
+  );
+}
+```
 
 ---
 
 ### 🟢 Step 3: Other Child Uses Same State
 
-`function Display({ text }) {   return <h2>{text}</h2>; }`
+```jsx
+function Display({ text }) {
+  return <h2>{text}</h2>;
+}
+```
 
 ---
 
@@ -160,7 +173,17 @@ Because:
 
 ### 🔹 Child Triggers Parent Action
 
-`function App() {   const [count, setCount] = useState(0);    return <Counter onIncrement={() => setCount(count + 1)} />; }  function Counter({ onIncrement }) {   return <button onClick={onIncrement}>+</button>; }`
+```jsx
+function App() {
+  const [count, setCount] = useState(0);
+
+  return <Counter onIncrement={() => setCount(count + 1)} />;
+}
+
+function Counter({ onIncrement }) {
+  return <button onClick={onIncrement}>+</button>;
+}
+```
 
 📌 Child doesn’t own state  
 📌 Child requests change via function
@@ -182,7 +205,18 @@ Because:
 
 ### Example: Filtered List
 
-`function App() {   const [filter, setFilter] = useState("");    return (     <>       <FilterInput setFilter={setFilter} />       <ItemList filter={filter} />     </>   ); }`
+```jsx
+function App() {
+  const [filter, setFilter] = useState("");
+
+  return (
+    <>
+      <FilterInput setFilter={setFilter} />
+      <ItemList filter={filter} />
+    </>
+  );
+}
+```
 
 ---
 
@@ -233,7 +267,18 @@ If multiple components show same data → state should exist once.
 
 ## 1️⃣3️⃣ Real-World Example (Form)
 
-`function App() {   const [formData, setFormData] = useState({ name: "", email: "" });    return (     <>       <Form setFormData={setFormData} />       <Preview data={formData} />     </>   ); }`
+```jsx
+function App() {
+  const [formData, setFormData] = useState({ name: "", email: "" });
+
+  return (
+    <>
+      <Form setFormData={setFormData} />
+      <Preview data={formData} />
+    </>
+  );
+}
+```
 
 📌 Live preview without duplication
 
