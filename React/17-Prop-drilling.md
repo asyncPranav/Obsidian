@@ -207,7 +207,15 @@ But does **not eliminate** drilling
 
 Instead of passing props down, pass **components as children**
 
-`function App() {   return (     <Layout>       <UserProfile />     </Layout>   ); }`
+```jsx
+function App() {
+  return (
+    <Layout>
+      <UserProfile />
+    </Layout>
+  );
+}
+```
 
 📌 Data stays closer to where used
 
@@ -228,19 +236,27 @@ Context allows:
 
 ### 🔹 Create Context
 
-`const UserContext = React.createContext();`
+```jsx
+const UserContext = React.createContext();
+```
 
 ---
 
 ### 🔹 Provide Context
 
-`<UserContext.Provider value="Rahul">   <App /> </UserContext.Provider>`
+```jsx
+<UserContext.Provider value="Rahul">
+  <App />
+</UserContext.Provider>
+```
 
 ---
 
 ### 🔹 Consume Context
 
-`const user = useContext(UserContext);`
+```jsx
+const user = useContext(UserContext);
+```
 
 📌 No prop passing  
 📌 Direct access
