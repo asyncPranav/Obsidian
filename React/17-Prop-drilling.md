@@ -83,7 +83,25 @@ function Child({ user }) {
 
 ### 🔹 Deep Component Tree
 
-`function App() {   const user = "Rahul";    return <A user={user} />; }  function A({ user }) {   return <B user={user} />; }  function B({ user }) {   return <C user={user} />; }  function C({ user }) {   return <h1>Hello {user}</h1>; }`
+```jsx
+function App() {
+  const user = "Rahul";
+
+  return <A user={user} />;
+}
+
+function A({ user }) {
+  return <B user={user} />;
+}
+
+function B({ user }) {
+  return <C user={user} />;
+}
+
+function C({ user }) {
+  return <h1>Hello {user}</h1>;
+}
+```
 
 📌 Problem:
 
@@ -121,7 +139,25 @@ If later you rename `user` to `username`:
 
 ### 🔹 Passing State Updater
 
-`function App() {   const [theme, setTheme] = useState("dark");    return <Navbar theme={theme} setTheme={setTheme} />; }  function Navbar({ theme, setTheme }) {   return <Menu theme={theme} setTheme={setTheme} />; }  function Menu({ theme, setTheme }) {   return (     <button onClick={() => setTheme("light")}>       Change Theme     </button>   ); }`
+```jsx
+function App() {
+  const [theme, setTheme] = useState("dark");
+
+  return <Navbar theme={theme} setTheme={setTheme} />;
+}
+
+function Navbar({ theme, setTheme }) {
+  return <Menu theme={theme} setTheme={setTheme} />;
+}
+
+function Menu({ theme, setTheme }) {
+  return (
+    <button onClick={() => setTheme("light")}>
+      Change Theme
+    </button>
+  );
+}
+```
 
 📌 `Navbar` doesn’t care about `theme`  
 📌 Still forced to pass both
