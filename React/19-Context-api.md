@@ -96,7 +96,7 @@ const UserContext = createContext();
 📌 Default value can be passed (optional)
 
 ```jsx
-const UserContext = createContext("Guest");8 
+const UserContext = createContext("Guest");8 w
 ```
 
 ---
@@ -116,7 +116,8 @@ Provider:
 
 ### 🔹 Basic Example
 
-`<UserContext.Provider value="Rahul">   <App /> </UserContext.Provider>`
+```js
+```
 
 📌 Every child of `<App />` can access `"Rahul"`
 
@@ -124,7 +125,9 @@ Provider:
 
 ### 🔹 Provider with State (Most Common)
 
-`function UserProvider({ children }) {   const [user, setUser] = useState("Rahul");    return (     <UserContext.Provider value={{ user, setUser }}>       {children}     </UserContext.Provider>   ); }`
+
+j
+a;'/  0p.;/.;/'l̥..l̥lm  mj mjcdszza`function UserProvider({ children }) {   const [user, setUser] = useState("Rahul");    return (     <UserContext.Provider value={{ user, setUser }}>       {children}     </UserContext.Provider>   ); }`
 
 📌 Context can share **data + functions**
 
