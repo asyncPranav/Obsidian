@@ -241,7 +241,11 @@ App → A → B → C → D
 
 With context:
 
-`App (Provider)    ↓ D (useContext)`
+```jsx
+App (Provider)
+   ↓
+D (useContext)
+```
 
 📌 Direct access  
 📌 No unnecessary props
@@ -262,7 +266,9 @@ When context value changes:
 
 Avoid:
 
-`<UserContext.Provider value={{ user, theme, settings }}>`
+```jsx
+<UserContext.Provider value={{ user, theme, settings }}>
+```
 
 Better:
 
@@ -275,7 +281,13 @@ Better:
 
 ## 1️⃣1️⃣ Multiple Contexts
 
-`<AuthContext.Provider>   <ThemeContext.Provider>     <App />   </ThemeContext.Provider> </AuthContext.Provider>`
+```jsx
+<AuthContext.Provider>
+  <ThemeContext.Provider>
+    <App />
+  </ThemeContext.Provider>
+</AuthContext.Provider>
+```
 
 ✔ Separation of concerns  
 ✔ Better performance
@@ -284,7 +296,13 @@ Better:
 
 ## 1️⃣2️⃣ Context + useEffect Example
 
-`useEffect(() => {   if (user) {     fetchUserData(user);   } }, [user]);`
+```jsx
+useEffect(() => {
+  if (user) {
+    fetchUserData(user);
+  }
+}, [user]);
+```
 
 📌 Context value used in effects normally
 
