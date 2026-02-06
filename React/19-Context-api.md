@@ -163,7 +163,11 @@ const { user, setUser } = useContext(UserContext);
 
 ### 🔹 Old Way (Consumer Component)
 
-`<UserContext.Consumer>   {(value) => <h1>{value}</h1>} </UserContext.Consumer>`
+```jsx
+<UserContext.Consumer>
+  {(value) => <h1>{value}</h1>}
+</UserContext.Consumer>
+```
 
 ❌ Rarely used now
 
@@ -175,25 +179,55 @@ const { user, setUser } = useContext(UserContext);
 
 ### 🟢 Context File
 
-`// UserContext.js import { createContext } from "react";  export const UserContext = createContext();`
+```jsx
+// UserContext.js
+import { createContext } from "react";
+
+export const UserContext = createContext();
+```
 
 ---
 
 ### 🟢 Provider
 
-`export function UserProvider({ children }) {   const [user, setUser] = useState("Guest");    return (     <UserContext.Provider value={{ user, setUser }}>       {children}     </UserContext.Provider>   ); }`
+```jsx
+export function UserProvider({ children }) {
+  const [user, setUser] = useState("Guest");
+
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
+  );
+}
+```
 
 ---
 
 ### 🟢 Wrap App
 
-`<UserProvider>   <App /> </UserProvider>`
+```jsx
+<UserProvider>
+  <App />
+</UserProvider>
+```
 
 ---
 
 ### 🟢 Consume Anywhere
 
-`function Profile() {   const { user, setUser } = useContext(UserContext);    return (     <>       <h2>{user}</h2>       <button onClick={() => setUser("Admin")}>Login</button>     </>   ); }`
+```jsx
+function Profile() {
+  const { user, setUser } = useContext(UserContext);
+
+  return (
+    <>
+      <h2>{user}</h2>
+      <button onClick={() => setUser("Admin")}>Login</button>
+    </>
+  );
+}
+```
 
 ---
 
@@ -201,7 +235,9 @@ const { user, setUser } = useContext(UserContext);
 
 Without context:
 
-`App → A → B → C → D`
+```jsx
+App → A → B → C → D
+```
 
 With context:
 
