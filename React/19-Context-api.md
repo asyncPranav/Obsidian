@@ -10,11 +10,23 @@
 
 ### 🔴 Problem: Prop Drilling
 
-`App  └── Layout       └── Navbar            └── Profile                 └── UserName`
+```jsx
+App
+ └── Layout
+      └── Navbar
+           └── Profile
+                └── UserName
+```
 
 If `user` is in `App`:
 
-`<App user={user}>   <Layout user={user}>     <Navbar user={user}>       <Profile user={user}>         <UserName user={user} />`
+```jsx
+<App user={user}>
+  <Layout user={user}>
+    <Navbar user={user}>
+      <Profile user={user}>
+        <UserName user={user} />
+```
 
 ❌ Ugly  
 ❌ Hard to maintain  
@@ -74,12 +86,18 @@ There are **3 main parts**:
 
 ## 5️⃣ Step 1: Creating Context
 
-`import { createContext } from "react";  const UserContext = createContext();`
+```jsx
+import { createContext } from "react";
+
+const UserContext = createContext();
+```
 
 📌 This creates a **Context object**  
 📌 Default value can be passed (optional)
 
-`const UserContext = createContext("Guest");`
+```jsx
+const UserContext = createContext("Guest");8 
+```
 
 ---
 
