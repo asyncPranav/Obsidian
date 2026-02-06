@@ -116,7 +116,10 @@ Provider:
 
 ### 🔹 Basic Example
 
-```js
+```jsx
+<UserContext.Provider value="Rahul">
+  <App />
+</UserContext.Provider>
 ```
 
 📌 Every child of `<App />` can access `"Rahul"`
@@ -126,8 +129,17 @@ Provider:
 ### 🔹 Provider with State (Most Common)
 
 
-j
-a;'/  0p.;/.;/'l̥..l̥lm  mj mjcdszza`function UserProvider({ children }) {   const [user, setUser] = useState("Rahul");    return (     <UserContext.Provider value={{ user, setUser }}>       {children}     </UserContext.Provider>   ); }`
+```jsx
+function UserProvider({ children }) {
+  const [user, setUser] = useState("Rahul");
+
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
+  );
+}
+```
 
 📌 Context can share **data + functions**
 
@@ -137,7 +149,11 @@ a;'/  0p.;/.;/'l̥..l̥lm  mj mjcdszza`function UserProvider({ children }) {   c
 
 ### 🔹 Using `useContext` (Modern Way)
 
-`import { useContext } from "react";  const { user, setUser } = useContext(UserContext);`
+```jsx
+import { useContext } from "react";
+
+const { user, setUser } = useContext(UserContext);
+```
 
 ✔ Clean  
 ✔ Easy  
