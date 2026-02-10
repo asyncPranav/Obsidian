@@ -332,7 +332,17 @@ Component unmounts before fetch completes → memory leak
 
 ### 🔹 Solution: AbortController
 
-`useEffect(() => {   const controller = new AbortController();    fetch(url, { signal: controller.signal })     .then(res => res.json())     .then(data => setData(data));    return () => controller.abort(); }, []);`
+```jsx
+useEffect(() => {
+  const controller = new AbortController();
+
+  fetch(url, { signal: controller.signal })
+    .then(res => res.json())
+    .then(data => setData(data));
+
+  return () => controller.abort();
+}, []);
+```
 
 ---
 
