@@ -96,7 +96,14 @@ function Users() {
 
 ### 🔹 Mapping Over Data
 
-```j
+```jsx
+return (
+  <ul>
+    {users.map(user => (
+      <li key={user.id}>{user.name}</li>
+    ))}
+  </ul>
+);
 ```
 
 📌 `key` is mandatory  
@@ -106,7 +113,9 @@ function Users() {
 
 ### 🔹 Conditional Rendering
 
-`{users.length === 0 ? <p>No Data</p> : users.map(...)}`
+```jsx
+{users.length === 0 ? <p>No Data</p> : users.map(...)}
+```
 
 ---
 
@@ -124,19 +133,37 @@ function Users() {
 
 ### 🔹 State Setup
 
-`const [loading, setLoading] = useState(true); const [error, setError] = useState(null);`
+```jsx
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+```
 
 ---
 
 ### 🔹 Full Example
 
-`useEffect(() => {   setLoading(true);   fetch("https://api.example.com/users")     .then(res => {       if (!res.ok) throw new Error("Failed to fetch");       return res.json();     })     .then(data => setUsers(data))     .catch(err => setError(err.message))     .finally(() => setLoading(false)); }, []);`
+```jsx
+useEffect(() => {
+  setLoading(true);
+  fetch("https://api.example.com/users")
+    .then(res => {
+      if (!res.ok) throw new Error("Failed to fetch");
+      return res.json();
+    })
+    .then(data => setUsers(data))
+    .catch(err => setError(err.message))
+    .finally(() => setLoading(false));
+}, []);
+```
 
 ---
 
 ### 🔹 UI Handling
 
-`if (loading) return <h2>Loading...</h2>; if (error) return <h2>{error}</h2>;`
+```jsx
+if (loading) return <h2>Loading...</h2>;
+if (error) return <h2>{error}</h2>;
+```
 
 ---
 
