@@ -266,25 +266,44 @@ Fetching data **page by page** instead of all at once.
 
 Example:
 
-`?page=1 ?page=2`
+```jsx
+?page=1
+?page=2
+```
 
 ---
 
 ### 🔹 State Setup
 
-`const [page, setPage] = useState(1);`
+```jsx
+const [page, setPage] = useState(1);
+```
 
 ---
 
 ### 🔹 Fetch with Pagination
 
-``useEffect(() => {   fetch(`https://api.example.com/posts?page=${page}`)     .then(res => res.json())     .then(data => setPosts(data)); }, [page]);``
+```jsx
+useEffect(() => {
+  fetch(`https://api.example.com/posts?page=${page}`)
+    .then(res => res.json())
+    .then(data => setPosts(data));
+}, [page]);
+```
 
 ---
 
 ### 🔹 Pagination Buttons
 
-`<button onClick={() => setPage(page - 1)} disabled={page === 1}>   Prev </button>  <button onClick={() => setPage(page + 1)}>   Next </button>`
+```jsx
+<button onClick={() => setPage(page - 1)} disabled={page === 1}>
+  Prev
+</button>
+
+<button onClick={() => setPage(page + 1)}>
+  Next
+</button>
+```
 
 ---
 
