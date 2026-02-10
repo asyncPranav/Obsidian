@@ -1,7 +1,7 @@
 
 ---
 
-# 📘 Chapter: Fetching Data from APIs (Very Detailed Notes)
+# 📘 Chapter: Fetching Data from APIs
 
 ---
 
@@ -58,13 +58,33 @@ In React:
 
 ### 🔹 Basic Syntax of fetch()
 
-`fetch("https://api.example.com/users")   .then(res => res.json())   .then(data => console.log(data))   .catch(err => console.error(err));`
+```jsx
+fetch("https://api.example.com/users")
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+```
 
 ---
 
 ### 🔹 Fetch inside useEffect
 
-`import { useEffect, useState } from "react";  function Users() {   const [users, setUsers] = useState([]);    useEffect(() => {     fetch("https://api.example.com/users")       .then(res => res.json())       .then(data => setUsers(data))       .catch(err => console.log(err));   }, []);    return <div>Users Component</div>; }`
+```jsx
+import { useEffect, useState } from "react";
+
+function Users() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("https://api.example.com/users")
+      .then(res => res.json())
+      .then(data => setUsers(data))
+      .catch(err => console.log(err));
+  }, []);
+
+  return <div>Users Component</div>;
+}
+```
 
 📌 Empty dependency array `[]` → runs **only once**
 
@@ -76,7 +96,8 @@ In React:
 
 ### 🔹 Mapping Over Data
 
-`return (   <ul>     {users.map(user => (       <li key={user.id}>{user.name}</li>     ))}   </ul> );`
+```j
+```
 
 📌 `key` is mandatory  
 📌 Avoid using index as key
