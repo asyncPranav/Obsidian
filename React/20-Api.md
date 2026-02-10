@@ -175,13 +175,23 @@ if (error) return <h2>{error}</h2>;
 
 Axios is a **third-party HTTP client library**.
 
-`npm install axios`
+```sh
+npm install axios
+```
 
 ---
 
 ### 🔹 Axios Example
 
-`import axios from "axios";  useEffect(() => {   axios.get("https://api.example.com/users")     .then(res => setUsers(res.data))     .catch(err => console.log(err)); }, []);`
+```jsx
+import axios from "axios";
+
+useEffect(() => {
+  axios.get("https://api.example.com/users")
+    .then(res => setUsers(res.data))
+    .catch(err => console.log(err));
+}, []);
+```
 
 ---
 
@@ -205,13 +215,29 @@ Axios is a **third-party HTTP client library**.
 
 ### 🔹 Using fetch() – POST
 
-`fetch("https://api.example.com/users", {   method: "POST",   headers: {     "Content-Type": "application/json"   },   body: JSON.stringify({     name: "Rahul",     email: "rahul@gmail.com"   }) });`
+```jsx
+fetch("https://api.example.com/users", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    name: "Rahul",
+    email: "rahul@gmail.com"
+  })
+});
+```
 
 ---
 
 ### 🔹 Using Axios – POST
 
-`axios.post("https://api.example.com/users", {   name: "Rahul",   email: "rahul@gmail.com" });`
+```jsx
+axios.post("https://api.example.com/users", {
+  name: "Rahul",
+  email: "rahul@gmail.com"
+});
+```
 
 📌 Axios auto converts object → JSON
 
@@ -219,7 +245,14 @@ Axios is a **third-party HTTP client library**.
 
 ## 9️⃣ Handling Forms + POST
 
-`function handleSubmit(e) {   e.preventDefault();    axios.post("/api/users", formData)     .then(() => alert("User Created")); }`
+```jsx
+function handleSubmit(e) {
+  e.preventDefault();
+
+  axios.post("/api/users", formData)
+    .then(() => alert("User Created"));
+}
+```
 
 ---
 
