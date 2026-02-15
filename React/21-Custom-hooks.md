@@ -371,22 +371,24 @@ src/
 
 ## **2️⃣ Context – Theme / Auth**
 
-// src/context/ThemeContext.jsx  
-import { createContext, useState } from "react";  
-  
-export const ThemeContext = createContext();  
-  
-export const ThemeProvider = ({ children }) => {  
-  const [darkMode, setDarkMode] = useState(true);  
-  
-  const toggleTheme = () => setDarkMode(prev => !prev);  
-  
-  return (  
-    <ThemeContext.Provider value={{ darkMode, toggleTheme }}>  
-      {children}  
-    </ThemeContext.Provider>  
-  );  
+```js
+// src/context/ThemeContext.jsx
+import { createContext, useState } from "react";
+
+export const ThemeContext = createContext();
+
+export const ThemeProvider = ({ children }) => {
+  const [darkMode, setDarkMode] = useState(true);
+
+  const toggleTheme = () => setDarkMode(prev => !prev);
+
+  return (
+    <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 };
+```
 
 - Global theme available to all components
     
@@ -399,28 +401,30 @@ export const ThemeProvider = ({ children }) => {
 
 ### a) useUsers – Fetch + Manage Users
 
-// src/hooks/useUsers.jsx  
-import { useState, useEffect } from "react";  
-  
-export const useUsers = () => {  
-  const [users, setUsers] = useState([]);  
-  const [loading, setLoading] = useState(true);  
-  const [error, setError] = useState(null);  
-  
-  // Fetch users  
-  useEffect(() => {  
-    fetch("https://jsonplaceholder.typicode.com/users")  
-      .then(res => res.json())  
-      .then(data => setUsers(data))  
-      .catch(err => setError(err.message))  
-      .finally(() => setLoading(false));  
-  }, []);  
-  
-  const addUser = (user) => setUsers(prev => [...prev, user]);  
-  const deleteUser = (id) => setUsers(prev => prev.filter(u => u.id !== id));  
-  
-  return { users, loading, error, addUser, deleteUser };  
+```js
+// src/hooks/useUsers.jsx
+import { useState, useEffect } from "react";
+
+export const useUsers = () => {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Fetch users
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(res => res.json())
+      .then(data => setUsers(data))
+      .catch(err => setError(err.message))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const addUser = (user) => setUsers(prev => [...prev, user]);
+  const deleteUser = (id) => setUsers(prev => prev.filter(u => u.id !== id));
+
+  return { users, loading, error, addUser, deleteUser };
 };
+```
 
 ✅ Encapsulates **all user logic**
 
@@ -428,21 +432,23 @@ export const useUsers = () => {
 
 ### b) useForm – Form Handling
 
-// src/hooks/useForm.jsx  
-import { useState } from "react";  
-  
-export const useForm = (initialValues) => {  
-  const [formData, setFormData] = useState(initialValues);  
-  
-  const handleChange = (e) => {  
-    const { name, value } = e.target;  
-    setFormData(prev => ({ ...prev, [name]: value }));  
-  };  
-  
-  const resetForm = () => setFormData(initialValues);  
-  
-  return { formData, handleChange, resetForm };  
+```js
+// src/hooks/useForm.jsx
+import { useState } from "react";
+
+export const useForm = (initialValues) => {
+  const [formData, setFormData] = useState(initialValues);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const resetForm = () => setFormData(initialValues);
+
+  return { formData, handleChange, resetForm };
 };
+```
 
 ---
 
@@ -450,19 +456,21 @@ export const useForm = (initialValues) => {
 
 ### a) Header.jsx – Theme Toggle
 
-import { useContext } from "react";  
-import { ThemeContext } from "../context/ThemeContext";  
-  
-export const Header = () => {  
-  const { darkMode, toggleTheme } = useContext(ThemeContext);  
-  
-  return (  
-    <header style={{ background: darkMode ? "#333" : "#eee", color: darkMode ? "#fff" : "#000", padding: "1rem" }}>  
-      <h1>User Dashboard</h1>  
-      <button onClick={toggleTheme}>Toggle Theme</button>  
-    </header>  
-  );  
+```js
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
+
+export const Header = () => {
+  const { darkMode, toggleTheme } = useContext(ThemeContext);
+
+  return (
+    <header style={{ background: darkMode ? "#333" : "#eee", color: darkMode ? "#fff" : "#000", padding: "1rem" }}>
+      <h1>User Dashboard</h1>
+      <button onClick={toggleTheme}>Toggle Theme</button>
+    </header>
+  );
 };
+```
 
 ---
 
