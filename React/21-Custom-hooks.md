@@ -221,18 +221,20 @@ export default useFetch;
 
 **Usage:**
 
-function UsersList() {  
-  const { data: users, loading, error } = useFetch("https://jsonplaceholder.typicode.com/users");  
-  
-  if (loading) return <p>Loading...</p>;  
-  if (error) return <p>Error!</p>;  
-  
-  return (  
-    <ul>  
-      {users.map(u => <li key={u.id}>{u.name}</li>)}  
-    </ul>  
-  );  
+```js
+function UsersList() {
+  const { data: users, loading, error } = useFetch("https://jsonplaceholder.typicode.com/users");
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error!</p>;
+
+  return (
+    <ul>
+      {users.map(u => <li key={u.id}>{u.name}</li>)}
+    </ul>
+  );
 }
+```
 
 ✅ All fetching logic is **encapsulated**, component stays clean
 
