@@ -22,12 +22,14 @@ A **Custom Hook** is a **JavaScript function** that:
 
 ### 🔹 Syntax
 
-function useCustomHook() {  
-  const [state, setState] = useState(initialValue);  
-  
-  // some logic  
-  return [state, setState]; // or return object  
+```js
+function useCustomHook() {
+  const [state, setState] = useState(initialValue);
+
+  // some logic
+  return [state, setState]; // or return object
 }
+```
 
 ---
 
