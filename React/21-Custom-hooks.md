@@ -476,47 +476,52 @@ export const Header = () => {
 
 ### b) UserForm.jsx – Add User
 
-import { useForm } from "../hooks/useForm";  
-  
-export const UserForm = ({ addUser }) => {  
-  const { formData, handleChange, resetForm } = useForm({ name: "", email: "" });  
-  
-  const handleSubmit = (e) => {  
-    e.preventDefault();  
-    addUser({ ...formData, id: Date.now() });  
-    resetForm();  
-  };  
-  
-  return (  
-    <form onSubmit={handleSubmit}>  
-      <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />  
-      <input name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />  
-      <button type="submit">Add User</button>  
-    </form>  
-  );  
+```js
+import { useForm } from "../hooks/useForm";
+
+export const UserForm = ({ addUser }) => {
+  const { formData, handleChange, resetForm } = useForm({ name: "", email: "" });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addUser({ ...formData, id: Date.now() });
+    resetForm();
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
+      <input name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
+      <button type="submit">Add User</button>
+    </form>
+  );
 };
+```
 
 ---
 
 ### c) UserList.jsx – Display + Delete
 
-export const UserList = ({ users, deleteUser }) => {  
-  return (  
-    <ul>  
-      {users.map(u => (  
-        <li key={u.id}>  
-          {u.name} - {u.email}  
-          <button onClick={() => deleteUser(u.id)}>Delete</button>  
-        </li>  
-      ))}  
-    </ul>  
-  );  
+```js
+export const UserList = ({ users, deleteUser }) => {
+  return (
+    <ul>
+      {users.map(u => (
+        <li key={u.id}>
+          {u.name} - {u.email}
+          <button onClick={() => deleteUser(u.id)}>Delete</button>
+        </li>
+      ))}
+    </ul>
+  );
 };
+```
 
 ---
 
 ## **5️⃣ App.jsx – Putting Everything Together**
 
+```
 import { ThemeProvider } from "./context/ThemeContext";  
 import { useUsers } from "./hooks/useUsers";  
 import { Header } from "./components/Header";  
@@ -538,6 +543,7 @@ function App() {
 }  
   
 export default App;
+```
 
 ---
 
