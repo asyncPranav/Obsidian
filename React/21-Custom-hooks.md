@@ -81,38 +81,42 @@ Instead of repeating it:
 
 ### 🔹 Example: `useCounter`
 
-import { useState } from "react";  
-  
-function useCounter(initialValue = 0) {  
-  const [count, setCount] = useState(initialValue);  
-  
-  const increment = () => setCount(prev => prev + 1);  
-  const decrement = () => setCount(prev => prev - 1);  
-  const reset = () => setCount(initialValue);  
-  
-  return { count, increment, decrement, reset };  
-}  
-  
+```js
+import { useState } from "react";
+
+function useCounter(initialValue = 0) {
+  const [count, setCount] = useState(initialValue);
+
+  const increment = () => setCount(prev => prev + 1);
+  const decrement = () => setCount(prev => prev - 1);
+  const reset = () => setCount(initialValue);
+
+  return { count, increment, decrement, reset };
+}
+
 export default useCounter;
+```
 
 ---
 
 ### 🔹 Using the Custom Hook
 
-import useCounter from "./useCounter";  
-  
-function CounterComponent() {  
-  const { count, increment, decrement, reset } = useCounter(5);  
-  
-  return (  
-    <div>  
-      <h1>{count}</h1>  
-      <button onClick={increment}> + </button>  
-      <button onClick={decrement}> - </button>  
-      <button onClick={reset}> Reset </button>  
-    </div>  
-  );  
+```js
+import useCounter from "./useCounter";
+
+function CounterComponent() {
+  const { count, increment, decrement, reset } = useCounter(5);
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={increment}> + </button>
+      <button onClick={decrement}> - </button>
+      <button onClick={reset}> Reset </button>
+    </div>
+  );
 }
+```
 
 ✅ Clean, reusable, and state is encapsulated
 
@@ -127,23 +131,25 @@ Suppose multiple components need **form handling logic**:
 - With custom hook → reuse
     
 
-// useForm.js  
-import { useState } from "react";  
-  
-function useForm(initialValues) {  
-  const [formData, setFormData] = useState(initialValues);  
-  
-  const handleChange = (e) => {  
-    const { name, value } = e.target;  
-    setFormData(prev => ({ ...prev, [name]: value }));  
-  };  
-  
-  const resetForm = () => setFormData(initialValues);  
-  
-  return { formData, handleChange, resetForm };  
-}  
-  
+```js
+// useForm.js
+import { useState } from "react";
+
+function useForm(initialValues) {
+  const [formData, setFormData] = useState(initialValues);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const resetForm = () => setFormData(initialValues);
+
+  return { formData, handleChange, resetForm };
+}
+
 export default useForm;
+```
 
 ---
 
