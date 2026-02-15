@@ -318,3 +318,242 @@ If you want, I can **next create a full practical project** combining:
 - `useState`
     
 - `useEffect`
+    
+- `Custom Hooks`
+    
+- `Context API`
+    
+
+So you can **practice real-world reusable code** 🚀
+
+
+---
+
+Perfect! 🚀 Let’s build a **full practical project** that combines **useState, useEffect, Custom Hooks, and Context API**.
+
+We’ll make a **“User Management Dashboard”** (simple, text-based UI for clarity) where you can:
+
+- Fetch users from an API
+    
+- Add / Delete users locally
+    
+- Update user status
+    
+- Share theme or authentication state globally via Context
+    
+- Encapsulate logic in **Custom Hooks**
+    
+
+---
+
+# 📝 Project Plan: User Management Dashboard
+
+---
+
+## **1️⃣ Folder Structure**
+
+```js
+src/
+├─ App.jsx
+├─ index.jsx
+├─ context/
+│   └─ ThemeContext.jsx
+├─ hooks/
+│   ├─ useUsers.jsx
+│   └─ useForm.jsx
+├─ components/
+│   ├─ UserList.jsx
+│   ├─ UserForm.jsx
+│   └─ Header.jsx
+```
+
+---
+
+## **2️⃣ Context – Theme / Auth**
+
+// src/context/ThemeContext.jsx  
+import { createContext, useState } from "react";  
+  
+export const ThemeContext = createContext();  
+  
+export const ThemeProvider = ({ children }) => {  
+  const [darkMode, setDarkMode] = useState(true);  
+  
+  const toggleTheme = () => setDarkMode(prev => !prev);  
+  
+  return (  
+    <ThemeContext.Provider value={{ darkMode, toggleTheme }}>  
+      {children}  
+    </ThemeContext.Provider>  
+  );  
+};
+
+- Global theme available to all components
+    
+- Avoids passing `darkMode` as props everywhere
+    
+
+---
+
+## **3️⃣ Custom Hooks**
+
+### a) useUsers – Fetch + Manage Users
+
+// src/hooks/useUsers.jsx  
+import { useState, useEffect } from "react";  
+  
+export const useUsers = () => {  
+  const [users, setUsers] = useState([]);  
+  const [loading, setLoading] = useState(true);  
+  const [error, setError] = useState(null);  
+  
+  // Fetch users  
+  useEffect(() => {  
+    fetch("https://jsonplaceholder.typicode.com/users")  
+      .then(res => res.json())  
+      .then(data => setUsers(data))  
+      .catch(err => setError(err.message))  
+      .finally(() => setLoading(false));  
+  }, []);  
+  
+  const addUser = (user) => setUsers(prev => [...prev, user]);  
+  const deleteUser = (id) => setUsers(prev => prev.filter(u => u.id !== id));  
+  
+  return { users, loading, error, addUser, deleteUser };  
+};
+
+✅ Encapsulates **all user logic**
+
+---
+
+### b) useForm – Form Handling
+
+// src/hooks/useForm.jsx  
+import { useState } from "react";  
+  
+export const useForm = (initialValues) => {  
+  const [formData, setFormData] = useState(initialValues);  
+  
+  const handleChange = (e) => {  
+    const { name, value } = e.target;  
+    setFormData(prev => ({ ...prev, [name]: value }));  
+  };  
+  
+  const resetForm = () => setFormData(initialValues);  
+  
+  return { formData, handleChange, resetForm };  
+};
+
+---
+
+## **4️⃣ Components**
+
+### a) Header.jsx – Theme Toggle
+
+import { useContext } from "react";  
+import { ThemeContext } from "../context/ThemeContext";  
+  
+export const Header = () => {  
+  const { darkMode, toggleTheme } = useContext(ThemeContext);  
+  
+  return (  
+    <header style={{ background: darkMode ? "#333" : "#eee", color: darkMode ? "#fff" : "#000", padding: "1rem" }}>  
+      <h1>User Dashboard</h1>  
+      <button onClick={toggleTheme}>Toggle Theme</button>  
+    </header>  
+  );  
+};
+
+---
+
+### b) UserForm.jsx – Add User
+
+import { useForm } from "../hooks/useForm";  
+  
+export const UserForm = ({ addUser }) => {  
+  const { formData, handleChange, resetForm } = useForm({ name: "", email: "" });  
+  
+  const handleSubmit = (e) => {  
+    e.preventDefault();  
+    addUser({ ...formData, id: Date.now() });  
+    resetForm();  
+  };  
+  
+  return (  
+    <form onSubmit={handleSubmit}>  
+      <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />  
+      <input name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />  
+      <button type="submit">Add User</button>  
+    </form>  
+  );  
+};
+
+---
+
+### c) UserList.jsx – Display + Delete
+
+export const UserList = ({ users, deleteUser }) => {  
+  return (  
+    <ul>  
+      {users.map(u => (  
+        <li key={u.id}>  
+          {u.name} - {u.email}  
+          <button onClick={() => deleteUser(u.id)}>Delete</button>  
+        </li>  
+      ))}  
+    </ul>  
+  );  
+};
+
+---
+
+## **5️⃣ App.jsx – Putting Everything Together**
+
+import { ThemeProvider } from "./context/ThemeContext";  
+import { useUsers } from "./hooks/useUsers";  
+import { Header } from "./components/Header";  
+import { UserForm } from "./components/UserForm";  
+import { UserList } from "./components/UserList";  
+  
+function App() {  
+  const { users, loading, error, addUser, deleteUser } = useUsers();  
+  
+  return (  
+    <ThemeProvider>  
+      <Header />  
+      <UserForm addUser={addUser} />  
+      {loading && <p>Loading...</p>}  
+      {error && <p>Error: {error}</p>}  
+      <UserList users={users} deleteUser={deleteUser} />  
+    </ThemeProvider>  
+  );  
+}  
+  
+export default App;
+
+---
+
+## **6️⃣ Key Features Implemented**
+
+- `useState` → state management for users and forms
+    
+- `useEffect` → fetching data on mount
+    
+- **Custom Hooks** → `useUsers` & `useForm`
+    
+- **Context API** → global theme
+    
+- Add/Delete user functionality
+    
+- Loading/Error handling
+    
+
+---
+
+## ✅ Learning Outcomes
+
+- You see **Custom Hooks + Context + State + Effects** in action
+    
+- UI logic and data logic are **separated**
+    
+- Reusability and scalability are enforced
