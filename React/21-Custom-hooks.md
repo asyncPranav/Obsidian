@@ -155,38 +155,40 @@ export default useForm;
 
 ### 🔹 Usage Example
 
-import useForm from "./useForm";  
-  
-function LoginForm() {  
-  const { formData, handleChange, resetForm } = useForm({  
-    username: "",  
-    password: ""  
-  });  
-  
-  const handleSubmit = (e) => {  
-    e.preventDefault();  
-    console.log(formData);  
-    resetForm();  
-  };  
-  
-  return (  
-    <form onSubmit={handleSubmit}>  
-      <input  
-        type="text"  
-        name="username"  
-        value={formData.username}  
-        onChange={handleChange}  
-      />  
-      <input  
-        type="password"  
-        name="password"  
-        value={formData.password}  
-        onChange={handleChange}  
-      />  
-      <button type="submit">Login</button>  
-    </form>  
-  );  
+```js
+import useForm from "./useForm";
+
+function LoginForm() {
+  const { formData, handleChange, resetForm } = useForm({
+    username: "",
+    password: ""
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    resetForm();
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        name="username"
+        value={formData.username}
+        onChange={handleChange}
+      />
+      <input
+        type="password"
+        name="password"
+        value={formData.password}
+        onChange={handleChange}
+      />
+      <button type="submit">Login</button>
+    </form>
+  );
 }
+```
 
 📌 Now, `useForm` can be used in **SignupForm, ContactForm, etc.**
 
@@ -194,26 +196,28 @@ function LoginForm() {
 
 ## 6️⃣ Custom Hooks + useEffect (Fetching Data Example)
 
-import { useState, useEffect } from "react";  
-  
-function useFetch(url) {  
-  const [data, setData] = useState([]);  
-  const [loading, setLoading] = useState(true);  
-  const [error, setError] = useState(null);  
-  
-  useEffect(() => {  
-    setLoading(true);  
-    fetch(url)  
-      .then(res => res.json())  
-      .then(json => setData(json))  
-      .catch(err => setError(err))  
-      .finally(() => setLoading(false));  
-  }, [url]);  
-  
-  return { data, loading, error };  
-}  
-  
+```js
+import { useState, useEffect } from "react";
+
+function useFetch(url) {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch(url)
+      .then(res => res.json())
+      .then(json => setData(json))
+      .catch(err => setError(err))
+      .finally(() => setLoading(false));
+  }, [url]);
+
+  return { data, loading, error };
+}
+
 export default useFetch;
+```
 
 **Usage:**
 
