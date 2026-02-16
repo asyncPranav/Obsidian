@@ -521,27 +521,27 @@ export const UserList = ({ users, deleteUser }) => {
 
 ## **5️⃣ App.jsx – Putting Everything Together**
 
-```
-import { ThemeProvider } from "./context/ThemeContext";  
-import { useUsers } from "./hooks/useUsers";  
-import { Header } from "./components/Header";  
-import { UserForm } from "./components/UserForm";  
-import { UserList } from "./components/UserList";  
-  
-function App() {  
-  const { users, loading, error, addUser, deleteUser } = useUsers();  
-  
-  return (  
-    <ThemeProvider>  
-      <Header />  
-      <UserForm addUser={addUser} />  
-      {loading && <p>Loading...</p>}  
-      {error && <p>Error: {error}</p>}  
-      <UserList users={users} deleteUser={deleteUser} />  
-    </ThemeProvider>  
-  );  
-}  
-  
+```js
+import { ThemeProvider } from "./context/ThemeContext";
+import { useUsers } from "./hooks/useUsers";
+import { Header } from "./components/Header";
+import { UserForm } from "./components/UserForm";
+import { UserList } from "./components/UserList";
+
+function App() {
+  const { users, loading, error, addUser, deleteUser } = useUsers();
+
+  return (
+    <ThemeProvider>
+      <Header />
+      <UserForm addUser={addUser} />
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      <UserList users={users} deleteUser={deleteUser} />
+    </ThemeProvider>
+  );
+}
+
 export default App;
 ```
 
