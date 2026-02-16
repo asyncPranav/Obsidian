@@ -140,11 +140,13 @@ function reducer(state, action) {
 
 **Usage:**
 
+```js
 <input  
   type="number"  
   value={state.step}  
   onChange={(e) => dispatch({ type: "SET_STEP", payload: Number(e.target.value) })}  
 />
+```
 
 - `payload` → optional data passed to reducer
     
@@ -153,6 +155,7 @@ function reducer(state, action) {
 
 ## 6️⃣ useReducer with Arrays – Todo Example
 
+```js
 const initialState = [];  
   
 function reducer(state, action) {  
@@ -169,9 +172,11 @@ function reducer(state, action) {
       return state;  
   }  
 }
+```
 
 **Usage:**
 
+```js
 const [todos, dispatch] = useReducer(reducer, initialState);  
   
 // Add todo  
@@ -182,6 +187,7 @@ dispatch({ type: "TOGGLE_TODO", payload: todoId });
   
 // Delete todo  
 dispatch({ type: "DELETE_TODO", payload: todoId });
+```
 
 ✅ Perfect for **complex CRUD operations** in React
 
@@ -194,6 +200,7 @@ dispatch({ type: "DELETE_TODO", payload: todoId });
 - Example: Auth, Theme, Cart, Todo App
     
 
+```js
 // AuthContext.js  
 import { createContext, useReducer } from "react";  
   
@@ -216,6 +223,7 @@ export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);  
   return <AuthContext.Provider value={{ state, dispatch }}>{children}</AuthContext.Provider>;  
 };
+```
 
 - Any component can **dispatch LOGIN/LOGOUT actions globally**
     
