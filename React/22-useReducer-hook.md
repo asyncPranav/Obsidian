@@ -42,6 +42,7 @@ const [state, dispatch] = useReducer(reducer, initialState);
 
 ### 🔹 Reducer Function
 
+```js
 function reducer(state, action) {  
   switch(action.type) {  
     case "INCREMENT":  
@@ -52,6 +53,7 @@ function reducer(state, action) {
       return state;  
   }  
 }
+```
 
 ---
 
