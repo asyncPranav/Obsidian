@@ -59,6 +59,7 @@ function reducer(state, action) {
 
 ## 3️⃣ Basic Example – Counter
 
+```js
 import { useReducer } from "react";  
   
 const initialState = { count: 0 };  
@@ -90,6 +91,8 @@ function Counter() {
 }  
   
 export default Counter;
+```
+
 
 **Explanation:**
 
@@ -118,6 +121,7 @@ export default Counter;
 
 ## 5️⃣ useReducer with Object State
 
+```js
 const initialState = { count: 0, step: 1 };  
   
 function reducer(state, action) {  
@@ -132,6 +136,7 @@ function reducer(state, action) {
       return state;  
   }  
 }
+```
 
 **Usage:**
 
