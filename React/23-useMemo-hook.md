@@ -65,7 +65,9 @@ const memoizedValue = useMemo(() => {   return someExpensiveCalculation(); }, [d
 
 # 4️⃣ Basic Example (Without useMemo)
 
-`function Example() {   const [count, setCount] = useState(0);   const [text, setText] = useState("");    const expensiveCalculation = () => {     console.log("Calculating...");     return count * 2;   };    const result = expensiveCalculation();    return (     <>       <h2>{result}</h2>       <button onClick={() => setCount(count + 1)}>Increment</button>       <input value={text} onChange={(e) => setText(e.target.value)} />     </>   ); }`
+```js
+function Example() {   const [count, setCount] = useState(0);   const [text, setText] = useState("");    const expensiveCalculation = () => {     console.log("Calculating...");     return count * 2;   };    const result = expensiveCalculation();    return (     <>       <h2>{result}</h2>       <button onClick={() => setCount(count + 1)}>Increment</button>       <input value={text} onChange={(e) => setText(e.target.value)} />     </>   ); }
+```
 
 ❌ Problem:
 
