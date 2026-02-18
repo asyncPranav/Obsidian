@@ -229,7 +229,17 @@ const obj = useMemo(() => ({ name: "John" }), []);
 
 # 1️⃣1️⃣ Expensive Example (Large Loop)
 
-`const expensiveCalculation = (num) => {   console.log("Running heavy task...");   for (let i = 0; i < 1000000000; i++) {}   return num * 2; };  const result = useMemo(() => {   return expensiveCalculation(count); }, [count]);`
+```jsx
+const expensiveCalculation = (num) => {
+  console.log("Running heavy task...");
+  for (let i = 0; i < 1000000000; i++) {}
+  return num * 2;
+};
+
+const result = useMemo(() => {
+  return expensiveCalculation(count);
+}, [count]);
+```
 
 Now it runs only when `count` changes.
 
@@ -237,7 +247,11 @@ Now it runs only when `count` changes.
 
 # 1️⃣2️⃣ Dependency Array Explained
 
-`useMemo(() => {   return calculation(); }, [a, b]);`
+```jsx
+useMemo(() => {
+  return calculation();
+}, [a, b]);
+```
 
 Re-runs only when:
 
@@ -248,7 +262,9 @@ Re-runs only when:
 
 If empty:
 
-`useMemo(() => calculation(), []);`
+```jsx
+useMemo(() => calculation(), []);
+```
 
 Runs only once (on mount)
 
@@ -291,11 +307,17 @@ Instead of storing derived state:
 
 ❌ Bad practice:
 
-`const [total, setTotal] = useState(0);`
+```jsx
+const [total, setTotal] = useState(0);
+```
 
 Better:
 
-`const total = useMemo(() => {   return items.reduce((sum, item) => sum + item.price, 0); }, [items]);`
+```jsx
+const total = useMemo(() => {
+  return items.reduce((sum, item) => sum + item.price, 0);
+}, [items]);
+```
 
 Now total updates automatically when items change.
 
@@ -331,7 +353,11 @@ If no → avoid
 
 Imagine Expense App:
 
-`const totalExpense = useMemo(() => {   return expenses.reduce((sum, exp) => sum + exp.amount, 0); }, [expenses]);`
+```jsx
+const totalExpense = useMemo(() => {
+  return expenses.reduce((sum, exp) => sum + exp.amount, 0);
+}, [expenses]);
+```
 
 - Only recalculates when expenses change
     
@@ -342,7 +368,8 @@ Imagine Expense App:
 
 # 1️⃣9️⃣ Visual Flow
 
-`Component Re-renders         ↓ Check Dependencies         ↓ Changed? → YES → Recalculate         ↓ Changed? → NO  → Return Cached Value`
+```j
+```
 
 ---
 
