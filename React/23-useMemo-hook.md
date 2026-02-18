@@ -368,7 +368,18 @@ const totalExpense = useMemo(() => {
 
 # 1️⃣9️⃣ Visual Flow
 
-```j
+```jsx
+Component Re-renders
+		|
+        ↓
+Check Dependencies
+		|
+        ↓
+Changed? → YES → Recalculate
+		|
+		
+        ↓
+Changed? → NO  → Return Cached Value
 ```
 
 ---
