@@ -66,7 +66,26 @@ const memoizedValue = useMemo(() => {   return someExpensiveCalculation(); }, [d
 # 4️⃣ Basic Example (Without useMemo)
 
 ```js
-function Example() {   const [count, setCount] = useState(0);   const [text, setText] = useState("");    const expensiveCalculation = () => {     console.log("Calculating...");     return count * 2;   };    const result = expensiveCalculation();    return (     <>       <h2>{result}</h2>       <button onClick={() => setCount(count + 1)}>Increment</button>       <input value={text} onChange={(e) => setText(e.target.value)} />     </>   ); }
+function Example() {
+  const [count, setCount] = useState(0);
+  const [text, setText] = useState("");
+
+  const expensiveCalculation = () => {
+    console.log("Calculating...");
+    return count * 2;
+  };
+
+  const result = expensiveCalculation();
+
+  return (
+    <>
+      <h2>{result}</h2>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <input value={text} onChange={(e) => setText(e.target.value)} />
+    </>
+  );
+}
+
 ```
 
 ❌ Problem:
@@ -82,7 +101,14 @@ function Example() {   const [count, setCount] = useState(0);   const [text, set
 
 # 5️⃣ Same Example Using useMemo
 
-`import { useMemo } from "react";  const result = useMemo(() => {   console.log("Calculating...");   return count * 2; }, [count]);`
+```js
+import { useMemo } from "react";
+
+const result = useMemo(() => {
+  console.log("Calculating...");
+  return count * 2;
+}, [count]);
+```
 
 ✅ Now:
 
@@ -127,7 +153,24 @@ Avoid it when:
 
 # 8️⃣ Real World Example – Filtering Large List
 
-`function ProductList({ products, search }) {    const filteredProducts = useMemo(() => {     return products.filter(product =>       product.name.toLowerCase().includes(search.toLowerCase())     );   }, [products, search]);    return (     <ul>       {filteredProducts.map(product => (         <li key={product.id}>{product.name}</li>       ))}     </ul>   ); }`
+```js
+function ProductList({ products, search }) {
+
+  const filteredProducts = useMemo(() => {
+    return products.filter(product =>
+      product.name.toLowerCase().includes(search.toLowerCase())
+    );
+  }, [products, search]);
+
+  return (
+    <ul>
+      {filteredProducts.map(product => (
+        <li key={product.id}>{product.name}</li>
+      ))}
+    </ul>
+  );
+}
+```
 
 ✅ Filters only when:
 
@@ -150,7 +193,10 @@ Not on every re-render.
 
 Example:
 
-`const memoizedValue = useMemo(() => compute(), []); const memoizedFunction = useCallback(() => doSomething(), []);`
+```jsx
+const memoizedValue = useMemo(() => compute(), []);
+const memoizedFunction = useCallback(() => doSomething(), []);
+```
 
 ---
 
@@ -158,7 +204,13 @@ Example:
 
 Important concept ⚠
 
-`const obj = { name: "John" };  useMemo(() => {   console.log("Runs every time!"); }, [obj]);`
+```jsx
+const obj = { name: "John" };
+
+useMemo(() => {
+  console.log("Runs every time!");
+}, [obj]);
+```
 
 ❌ This runs every render because:
 
@@ -169,7 +221,9 @@ Important concept ⚠
 
 Correct way:
 
-`const obj = useMemo(() => ({ name: "John" }), []);`
+```jsx
+const obj = useMemo(() => ({ name: "John" }), []);
+```
 
 ---
 
