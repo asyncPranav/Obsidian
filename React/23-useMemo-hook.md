@@ -50,7 +50,9 @@ Then unnecessary recalculations can slow down the app.
 
 # 3️⃣ Syntax of useMemo
 
-`const memoizedValue = useMemo(() => {   return someExpensiveCalculation(); }, [dependencies]);`
+```js
+const memoizedValue = useMemo(() => {   return someExpensiveCalculation(); }, [dependencies]);
+```
 
 ### Parameters:
 
