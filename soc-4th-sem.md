@@ -643,134 +643,138 @@ The Art of Thinking teaches that by developing a calm, clear, and aware mind, a 
 
 ## 🔹 Introduction
 
-According to Maharishi Mahesh Yogi, speaking is not just talking — it is a way to **express thoughts clearly and influence others positively**.
+According to Maharishi Mahesh Yogi, speaking is not just about using words, but about **expressing ideas clearly, confidently, and effectively** so that others understand and feel influenced.
 
-👉 Good speaking helps to:
+Effective speaking comes from:
 
-- Communicate ideas clearly
-- Inspire people
-- Build strong relationships
+- Clear thinking
+- Calm mind
+- Inner confidence
 
 👉 In simple words:  
-**Clear thinking + calm mind = effective speaking**
-
----
-
-# 🔹 Core Idea (1 Line Trick)
-
-👉 **“Think clearly → Speak clearly → Impact strongly”**
+**Good speaking = clear ideas + proper expression + strong impact**
 
 ---
 
 # 🔹 Principles of Effective Speaking
 
-## 1. Speaking Reflects Consciousness
+## 1. Speaking as an Expression of Consciousness
 
-- Speech depends on your **state of mind**
+- Our speech reflects our **state of mind (consciousness)**
+- If the mind is:
+    - Calm → speech is clear and confident
+    - Disturbed → speech becomes confusing
 
-✔ Calm mind → clear and confident speech  
-✔ Confused mind → unclear speech
+👉 Therefore, improving inner awareness improves speaking
 
 👉 Easy line:  
-**Clear mind = clear speech**
+**Clear mind leads to clear speech**
 
 ---
 
-## 2. Align Speech with Natural Law
+## 2. Aligning Speech with Natural Law
 
-- Speak in a way that is:
+- Speech should be:
     - Natural
     - Positive
     - Helpful
-
-👉 Such speech is:
-
-- Easily understood
-- Well accepted
+- When speech is aligned with natural law:
+    - People understand easily
+    - Communication becomes effective
 
 👉 Easy line:  
-**Right words → Right impact**
+**Right words create right impact**
 
 ---
 
-## 3. Importance of Inner Silence
+## 3. Role of Inner Silence
 
-- Silence improves speaking power
-- Meditation (TM) creates inner calmness
+- Silence is the base of powerful speaking
+- Meditation (TM) helps develop inner silence
 
-👉 When speech comes from silence:
+👉 Speech coming from inner calmness:
 
-- It becomes powerful
-- People listen more
+- Sounds confident
+- Attracts attention
+- Has strong impact
 
 👉 Easy line:  
 **Silence makes speech powerful**
 
 ---
 
-## 4. Unity of Thought, Speech & Action
+## 4. Unity of Thought, Speech and Action
 
-- What you think, say, and do should match
+- What we:
+    - Think
+    - Speak
+    - Do
+
+should be the same
 
 👉 This creates:
 
 - Trust
 - Authenticity
+- Respect
 
 👉 Easy line:  
-**Be real → people trust you**
+**Be consistent → people trust you**
 
 ---
 
-# 🔹 Steps to Master Speaking
+# 🔹 Steps to Master the Art of Speaking
 
-## 1. Develop Clear Thinking
+## 1. Develop Inner Clarity
 
 - First think clearly, then speak
-- Avoid confusion
-
-👉 Meditation helps remove mental clutter
+- Avoid speaking with confusion
+- Meditation helps remove mental clutter
 
 👉 Easy line:  
-**Clear thought = clear speech**
+**Clear thinking = effective speaking**
 
 ---
 
-## 2. Speak with Awareness
+## 2. Speak with Awareness and Presence
 
-- Be present while speaking
-- Pay attention to listener
+- Stay fully focused while speaking
+- Pay attention to listener and situation
 
-👉 Avoid speaking without thinking
+👉 Avoid careless or automatic speaking
 
 👉 Easy line:  
-**Be aware while speaking**
+**Speak with attention**
 
 ---
 
 ## 3. Choose Words Carefully
 
 - Use:
-    - Simple words
-    - Meaningful sentences
+    - Simple
+    - Clear
+    - Meaningful words
+- Avoid complicated language
 
-✔ Avoid complex or confusing language
+👉 Positive words create better impact
 
 👉 Easy line:  
-**Simple words = better understanding**
+**Simple words = strong communication**
 
 ---
 
 ## 4. Control Tone and Delivery
 
-- How you speak matters:
+The way we speak is very important:
 
-✔ Tone → calm and respectful  
-✔ Speed → neither too fast nor too slow  
-✔ Volume → clear but not loud
+- **Tone** → calm, polite, confident
+- **Speed** → not too fast or too slow
+- **Volume** → clear and appropriate
+
+👉 Good delivery makes message effective
 
 👉 Easy line:  
-**Good delivery = effective speech**
+**How you speak matters**
 
 ---
 
@@ -779,23 +783,23 @@ According to Maharishi Mahesh Yogi, speaking is not just talking — it is a way
 - Speak according to:
     - Audience level
     - Their understanding
+- Show empathy and connection
 
-👉 Show empathy and connection
+👉 This improves communication
 
 👉 Easy line:  
-**Know your listener**
+**Know your audience**
 
 ---
 
 ## 6. Use Silence (Pause)
 
 - Pause between sentences
-- Helps:
-    - Emphasize points
-    - Improve understanding
+- Helps listener understand better
+- Highlights important points
 
 👉 Easy line:  
-**Pause = power in speech**
+**Pause increases impact**
 
 ---
 
@@ -804,37 +808,25 @@ According to Maharishi Mahesh Yogi, speaking is not just talking — it is a way
 - Speak honestly
 - Match words with actions
 
-👉 Builds trust
+👉 Builds trust and credibility
 
 👉 Easy line:  
-**Truthful speech = strong impact**
+**Truthful speech builds trust**
 
 ---
 
 # 🔹 Qualities of Effective Speaking
 
-A good speaker has:
+An effective speaker has:
 
 - **Clarity** → easy to understand
 - **Purpose** → clear goal
-- **Confidence** → no hesitation
+- **Confidence** → speaks without fear
 - **Empathy** → understands others
 - **Positivity** → inspiring words
 
 👉 Easy summary:  
-**Clarity + Confidence + Positivity = Good speaking**
-
----
-
-# 🔹 Practical Tips
-
-- Practice meditation (TM) → calm mind
-- Practice speaking regularly
-- Observe good speakers
-- Take feedback to improve
-
-👉 Easy line:  
-**Practice makes perfect speaker**
+**Clarity + Confidence + Positivity + Empathy = Effective speaking**
 
 ---
 
@@ -842,12 +834,24 @@ A good speaker has:
 
 - Better communication
 - Strong relationships
-- Leadership skills
-- Confidence
+- Leadership ability
+- Increased confidence
 - Ability to influence others
 
 👉 Easy line:  
-**Good speaking = success in life**
+**Good speaking leads to success**
+
+---
+
+# 🔹 Practical Techniques
+
+- Practice meditation (TM)
+- Rehearse before important speaking
+- Observe good speakers
+- Take feedback to improve
+
+👉 Easy line:  
+**Practice improves speaking skills**
 
 ---
 
@@ -855,16 +859,16 @@ A good speaker has:
 
 - TM-Sidhi → improves speech quality
 - Group discussions → improve communication
-- Study sound (Vedic knowledge) → deeper understanding
+- Study of sound → deeper understanding
 
 ---
 
 # 🔹 Conclusion (Exam Ready ⭐)
 
-The Art of Speaking teaches that effective communication comes from a calm and clear mind. By practicing meditation, choosing words carefully, and speaking with awareness and confidence, a person can communicate ideas powerfully and create a positive impact on others.
+The Art of Speaking teaches that effective communication comes from a calm and clear mind. By developing inner clarity, choosing words carefully, and speaking with confidence and awareness, a person can communicate ideas effectively and create a strong positive impact on others.
 
 ---
 
 # 🎯 Quick Revision Trick
 
-👉 **Think → Speak → Connect → Influence**
+👉 **Think clearly → Speak simply → Connect deeply → Influence strongly**
