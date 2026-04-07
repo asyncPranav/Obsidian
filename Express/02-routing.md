@@ -160,6 +160,7 @@ For bigger apps, we **split routes into separate files** using `express.Router()
 
 `routes/user.js`
 
+```js
 const express = require('express');  
 const router = express.Router();  
   
@@ -167,11 +168,13 @@ router.get('/profile', (req, res) => res.send('User Profile'));
 router.get('/settings', (req, res) => res.send('User Settings'));  
   
 module.exports = router;
+```
 
 ### **Step 2 – Use router in main file**
 
 `app.js`
 
+```js
 const express = require('express');  
 const app = express();  
 const userRoutes = require('./routes/user');  
@@ -179,6 +182,7 @@ const userRoutes = require('./routes/user');
 app.use('/user', userRoutes);  
   
 app.listen(3000, () => console.log('Server running'));
+```
 
 - `/user/profile` → `User Profile`
 - `/user/settings` → `User Settings`
@@ -193,6 +197,7 @@ app.listen(3000, () => console.log('Server running'));
 
 Middleware can **run before a route** to do something like **check login, log requests, validate data**.
 
+```js
 function checkLogin(req, res, next) {  
     console.log('Checking if user is logged in...');  
     next(); // move to next middleware or route  
@@ -201,6 +206,7 @@ function checkLogin(req, res, next) {
 app.get('/dashboard', checkLogin, (req, res) => {  
     res.send('Welcome to Dashboard');  
 });
+```
 
 ---
 
@@ -208,12 +214,14 @@ app.get('/dashboard', checkLogin, (req, res) => {
 
 You can **nest routers inside routers**.
 
+```js
 const adminRouter = express.Router();  
   
 adminRouter.get('/users', (req, res) => res.send('Admin Users'));  
 adminRouter.get('/settings', (req, res) => res.send('Admin Settings'));  
   
 app.use('/admin', adminRouter);
+```
 
 - `/admin/users` → Admin Users
 - `/admin/settings` → Admin Settings
