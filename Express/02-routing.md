@@ -26,7 +26,7 @@ A **route** is made of 3 things:
 
 ### **Example:**
 
-```
+```js
 const express = require('express');  
 const app = express();  
 const PORT = 3000;  
@@ -56,10 +56,12 @@ We use **:parameterName** to capture these.
 
 ### **Example:**
 
+```js
 app.get('/user/:id', (req, res) => {  
     const userId = req.params.id;  
     res.send(`You requested User ID: ${userId}`);  
 });
+```
 
 - URL: `http://localhost:3000/user/101`
 - Output: `You requested User ID: 101`
@@ -67,10 +69,12 @@ app.get('/user/:id', (req, res) => {
 
 ### **Multiple Parameters:**
 
+```js
 app.get('/user/:userId/book/:bookId', (req, res) => {  
     const { userId, bookId } = req.params;  
     res.send(`User ${userId} wants Book ${bookId}`);  
 });
+```
 
 - URL: `/user/5/book/10` → Output: `User 5 wants Book 10`
 
@@ -84,10 +88,12 @@ Query parameters come **after `?` in a URL**.
 
 ### **Example:**
 
+```js
 app.get('/search', (req, res) => {  
     const searchTerm = req.query.q;   
     res.send(`You searched for: ${searchTerm}`);  
 });
+```
 
 - URL: `http://localhost:3000/search?q=express`
 - Output: `You searched for: express`
@@ -104,10 +110,12 @@ app.get('/search', (req, res) => {
 
 ### **Example:**
 
+```js
 app.get('/book', (req, res) => res.send('Getting all books'));  
 app.post('/book', (req, res) => res.send('Adding a new book'));  
 app.put('/book', (req, res) => res.send('Updating book'));  
 app.delete('/book', (req, res) => res.send('Deleting book'));
+```
 
 ---
 
@@ -115,10 +123,12 @@ app.delete('/book', (req, res) => res.send('Deleting book'));
 
 If you want to use **multiple methods on the same URL**, use **route chaining**.
 
+```js
 app.route('/book')  
    .get((req, res) => res.send('Get all books'))  
    .post((req, res) => res.send('Add a new book'))  
    .put((req, res) => res.send('Update book info'));
+```
 
 ✅ **Benefit:**  
 Keeps your code **clean** instead of writing `app.get`, `app.post` separately.
@@ -130,10 +140,12 @@ Keeps your code **clean** instead of writing `app.get`, `app.post` separately.
 - Some route parts can be **optional**.
 - Use `?` at the end.
 
+```js
 app.get('/user/:name?', (req, res) => {  
     const name = req.params.name || 'Guest';  
     res.send(`Hello, ${name}`);  
 });
+```
 
 - `/user/John` → `Hello, John`
 - `/user` → `Hello, Guest`
