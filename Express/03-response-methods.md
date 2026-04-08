@@ -863,7 +863,9 @@ res.download("report.pdf");
 
 Send file
 
+```js
 res.sendFile(__dirname + "/index.html");
+```
 
 ---
 
@@ -871,7 +873,9 @@ res.sendFile(__dirname + "/index.html");
 
 Set cookie
 
+```js
 res.cookie("user", "john");
+```
 
 ---
 
@@ -879,7 +883,9 @@ res.cookie("user", "john");
 
 Delete cookie
 
+```js
 res.clearCookie("user");
+```
 
 ---
 
@@ -933,6 +939,7 @@ res.headersSent
 
 # Interview Style Example
 
+```js
 app.get('/test', (req, res) => {  
   
     if(res.headersSent){  
@@ -944,3 +951,4 @@ app.get('/test', (req, res) => {
     });  
   
 });
+```
