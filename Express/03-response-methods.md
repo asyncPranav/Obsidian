@@ -715,12 +715,16 @@ console.log(res.get("X-Test"));
 
 Sets content-type
 
+```js
 res.type("json");  
 res.send({name:"john"});
+```
 
 Same as:
 
+```
 Content-Type: application/json
+```
 
 ---
 
@@ -730,6 +734,7 @@ Used for **content negotiation**
 
 Server sends response based on request type
 
+```js
 app.get('/', (req, res) => {  
   
     res.format({  
@@ -749,6 +754,7 @@ app.get('/', (req, res) => {
     });  
   
 });
+```
 
 Client decides format.
 
@@ -758,10 +764,12 @@ Client decides format.
 
 Sets link header
 
+```js
 res.links({  
   next: 'http://api.example.com?page=2',  
   last: 'http://api.example.com?page=5'  
 });
+```
 
 Used in pagination APIs.
 
@@ -771,8 +779,10 @@ Used in pagination APIs.
 
 Sets location header
 
+```js
 res.location('/dashboard');  
 res.send("redirecting");
+```
 
 Often used before redirect.
 
@@ -782,7 +792,9 @@ Often used before redirect.
 
 Adds Vary header
 
+```js
 res.vary('User-Agent');
+```
 
 Used for caching control.
 
@@ -792,27 +804,33 @@ Used for caching control.
 
 Set custom status message
 
+```js
 res.statusMessage = "Everything OK";  
 res.status(200).send("done");
 
+```
 ---
 
 # 13. res.write()
 
 Write response manually
 
+```js
 res.write("Hello ");  
 res.write("World");  
 res.end();
 
+```
 ---
 
 # 14. res.flushHeaders()
 
 Send headers immediately
 
+```js
 res.set("X-Test", "value");  
 res.flushHeaders();
+```
 
 Used in streaming.
 
@@ -822,8 +840,10 @@ Used in streaming.
 
 Sets file as attachment
 
+```js
 res.attachment("file.pdf");  
 res.sendFile("file.pdf");
+```
 
 Forces download.
 
@@ -833,7 +853,9 @@ Forces download.
 
 Download file
 
+```js
 res.download("report.pdf");
+```
 
 ---
 
