@@ -485,3 +485,408 @@ res.cookie() → set cookie
 
 # Few More Methods
 
+
+# 1. res.jsonp()
+
+`res.jsonp()` sends **JSON with JSONP support**
+
+JSONP = **JSON with Padding**  
+Used for **cross-domain requests** (old technique before CORS)
+
+### Normal JSON
+
+```js
+res.json({name: "John"});
+```
+
+Response:
+
+```json
+{"name":"John"}
+```
+
+---
+
+### JSONP response
+
+```js
+res.jsonp({name: "John"});
+```
+
+If client requests:
+
+```
+/api?callback=myFunc
+```
+
+Response becomes:
+
+```
+myFunc({"name":"John"})
+```
+
+Express automatically wraps JSON in callback.
+
+---
+
+### Example
+
+app.get('/data', (req, res) => {  
+    res.jsonp({  
+        user: "john",  
+        age: 25  
+    });  
+});
+
+Used rarely today.  
+Modern apps use **CORS instead**.
+
+---
+
+# 2. res.sendStatus()
+
+Shortcut for:
+
+res.status(code).send(message)
+
+Example:
+
+res.sendStatus(404);
+
+Same as:
+
+res.status(404).send("Not Found");
+
+---
+
+### Common sendStatus
+
+res.sendStatus(200)  
+res.sendStatus(201)  
+res.sendStatus(400)  
+res.sendStatus(401)  
+res.sendStatus(403)  
+res.sendStatus(404)  
+res.sendStatus(500)
+
+---
+
+### Example
+
+app.get('/user', (req, res) => {  
+  
+    const user = null;  
+  
+    if(!user){  
+        return res.sendStatus(404);  
+    }  
+  
+    res.send(user);  
+});
+
+---
+
+# 3. res.headersSent
+
+This is **NOT a function**  
+It is a **boolean property**
+
+It tells:
+
+> Has response already been sent?
+
+returns:
+
+true  
+false
+
+---
+
+### Example
+
+app.get('/', (req, res) => {  
+  
+    res.send("Hello");  
+  
+    console.log(res.headersSent);  
+  
+});
+
+Output:
+
+true
+
+Because response already sent.
+
+---
+
+### Why useful?
+
+To prevent **sending multiple responses**
+
+app.get('/', (req, res) => {  
+  
+    if(!res.headersSent){  
+        res.send("Hello");  
+    }  
+  
+});
+
+---
+
+# 4. res.append()
+
+Adds header value
+
+res.append("Warning", "199 misc warning");
+
+Example:
+
+app.get('/', (req, res) => {  
+  
+    res.append("Custom-Header", "hello");  
+    res.send("done");  
+  
+});
+
+---
+
+# 5. res.set()
+
+Sets response header
+
+res.set("Content-Type", "text/plain");
+
+Multiple headers:
+
+res.set({  
+    "Content-Type": "text/plain",  
+    "X-Custom": "hello"  
+});
+
+---
+
+# 6. res.get()
+
+Get header value
+
+res.get("Content-Type");
+
+Example:
+
+res.set("X-Test", "value");  
+console.log(res.get("X-Test"));
+
+---
+
+# 7. res.type()
+
+Sets content-type
+
+res.type("json");  
+res.send({name:"john"});
+
+Same as:
+
+Content-Type: application/json
+
+---
+
+# 8. res.format()
+
+Used for **content negotiation**
+
+Server sends response based on request type
+
+app.get('/', (req, res) => {  
+  
+    res.format({  
+  
+        'text/plain': function(){  
+            res.send('text response');  
+        },  
+  
+        'text/html': function(){  
+            res.send('<h1>html response</h1>');  
+        },  
+  
+        'application/json': function(){  
+            res.json({message: "json response"});  
+        }  
+  
+    });  
+  
+});
+
+Client decides format.
+
+---
+
+# 9. res.links()
+
+Sets link header
+
+res.links({  
+  next: 'http://api.example.com?page=2',  
+  last: 'http://api.example.com?page=5'  
+});
+
+Used in pagination APIs.
+
+---
+
+# 10. res.location()
+
+Sets location header
+
+res.location('/dashboard');  
+res.send("redirecting");
+
+Often used before redirect.
+
+---
+
+# 11. res.vary()
+
+Adds Vary header
+
+res.vary('User-Agent');
+
+Used for caching control.
+
+---
+
+# 12. res.statusMessage
+
+Set custom status message
+
+res.statusMessage = "Everything OK";  
+res.status(200).send("done");
+
+---
+
+# 13. res.write()
+
+Write response manually
+
+res.write("Hello ");  
+res.write("World");  
+res.end();
+
+---
+
+# 14. res.flushHeaders()
+
+Send headers immediately
+
+res.set("X-Test", "value");  
+res.flushHeaders();
+
+Used in streaming.
+
+---
+
+# 15. res.attachment()
+
+Sets file as attachment
+
+res.attachment("file.pdf");  
+res.sendFile("file.pdf");
+
+Forces download.
+
+---
+
+# 16. res.download()
+
+Download file
+
+res.download("report.pdf");
+
+---
+
+# 17. res.sendFile()
+
+Send file
+
+res.sendFile(__dirname + "/index.html");
+
+---
+
+# 18. res.cookie()
+
+Set cookie
+
+res.cookie("user", "john");
+
+---
+
+# 19. res.clearCookie()
+
+Delete cookie
+
+res.clearCookie("user");
+
+---
+
+# Complete List (All Response Methods)
+
+res.send()  
+res.json()  
+res.jsonp()  
+res.status()  
+res.sendStatus()  
+res.redirect()  
+res.render()  
+res.sendFile()  
+res.download()  
+res.end()  
+res.set()  
+res.get()  
+res.append()  
+res.type()  
+res.format()  
+res.links()  
+res.location()  
+res.vary()  
+res.cookie()  
+res.clearCookie()  
+res.attachment()  
+res.write()  
+res.flushHeaders()
+
+Property:
+
+res.headersSent
+
+---
+
+# Most Important for Exams
+
+These are usually asked:
+
+res.send()  
+res.json()  
+res.jsonp()  
+res.status()  
+res.sendStatus()  
+res.redirect()  
+res.render()  
+res.sendFile()  
+res.headersSent
+
+---
+
+# Interview Style Example
+
+app.get('/test', (req, res) => {  
+  
+    if(res.headersSent){  
+        return;  
+    }  
+  
+    res.status(200).json({  
+        message: "Working"  
+    });  
+  
+});
