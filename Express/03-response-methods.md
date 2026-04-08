@@ -70,6 +70,7 @@ Browser renders HTML.
 
 ## Send Object
 
+```js
 app.get('/user', (req, res) => {  
     res.send({  
         name: "John",  
@@ -77,27 +78,34 @@ app.get('/user', (req, res) => {
     });  
 });
 
+```
 Express automatically converts object → JSON
 
 ---
 
 ## Send Array
 
+```js
 app.get('/users', (req, res) => {  
     res.send(["john", "sam", "alex"]);  
 });
+```
 
 ---
 
 ## Send Number
 
+```js
 res.send(200);
+```
 
 ⚠️ This sends HTTP status instead — avoid this.
 
 Use:
 
+```js
 res.status(200).send("OK");
+```
 
 ---
 
@@ -117,12 +125,14 @@ This method sends **JSON only**
 
 Used in **API development**
 
+```js
 app.get('/api', (req, res) => {  
     res.json({  
         success: true,  
         message: "Working"  
     });  
 });
+```
 
 Difference:
 
