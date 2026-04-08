@@ -239,7 +239,9 @@ res.redirect("https://google.com");
 
 ## Redirect with status
 
+```js
 res.redirect(301, '/new-page');
+```
 
 301 → permanent redirect
 
@@ -249,13 +251,17 @@ res.redirect(301, '/new-page');
 
 Sends file to client
 
+```js
 res.sendFile(__dirname + "/index.html");
+```
 
 Example:
 
+```js
 app.get('/', (req, res) => {  
     res.sendFile(__dirname + "/index.html");  
 });
+```
 
 Used for:
 
@@ -270,9 +276,11 @@ Used for:
 
 Forces file download
 
+```js
 app.get('/download', (req, res) => {  
     res.download('report.pdf');  
 });
+```
 
 Browser downloads instead of opening.
 
@@ -282,11 +290,13 @@ Browser downloads instead of opening.
 
 Used with template engines (EJS, Pug)
 
+```js
 app.get('/profile', (req, res) => {  
     res.render('profile', {  
         name: "John"  
     });  
 });
+```
 
 This renders:
 
@@ -298,10 +308,12 @@ views/profile.ejs
 
 Ends response manually
 
+```js
 app.get('/', (req, res) => {  
     res.write("Hello");  
     res.end();  
 });
+```
 
 Usually not needed.
 
@@ -313,10 +325,12 @@ res.send() automatically ends.
 
 Sets response headers
 
+```js
 app.get('/', (req, res) => {  
     res.set('Content-Type', 'text/plain');  
     res.send("Hello");  
 });
+```
 
 ---
 
@@ -324,7 +338,9 @@ app.get('/', (req, res) => {
 
 Same as res.set()
 
+```js
 res.header("Content-Type", "application/json");
+```
 
 ---
 
