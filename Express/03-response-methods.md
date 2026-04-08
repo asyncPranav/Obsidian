@@ -161,25 +161,31 @@ Common status codes:
 
 ## Example
 
+```js
 app.get('/success', (req, res) => {  
     res.status(200).send("Success");  
 });
+```
 
 ---
 
 ## Error Example
 
+```js
 app.get('/error', (req, res) => {  
     res.status(500).send("Server error");  
 });
 
+```
 ---
 
 ## Chaining (Very Common)
 
+```js
 res.status(200).json({  
     message: "OK"  
 });
+```
 
 ---
 
@@ -191,15 +197,21 @@ This method:
 - sends default message
 - ends response
 
+```js
 res.sendStatus(404);
+```
 
 Output:
 
+```
 Not Found
+```
 
 Same as:
 
+```js
 res.status(404).send("Not Found");
+```
 
 ---
 
@@ -207,17 +219,21 @@ res.status(404).send("Not Found");
 
 Redirects user to another route
 
+```js
 app.get('/home', (req, res) => {  
     res.redirect('/');  
 });
 
+```
 User visits `/home` → redirected to `/`
 
 ---
 
 ## Redirect external site
 
+```js
 res.redirect("https://google.com");
+```
 
 ---
 
