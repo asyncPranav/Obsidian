@@ -531,12 +531,14 @@ Express automatically wraps JSON in callback.
 
 ### Example
 
+```js
 app.get('/data', (req, res) => {  
     res.jsonp({  
         user: "john",  
         age: 25  
     });  
 });
+```
 
 Used rarely today.  
 Modern apps use **CORS instead**.
@@ -547,20 +549,27 @@ Modern apps use **CORS instead**.
 
 Shortcut for:
 
+```js
 res.status(code).send(message)
+```
 
 Example:
 
+```js
 res.sendStatus(404);
+```
 
 Same as:
 
+```js
 res.status(404).send("Not Found");
+```
 
 ---
 
 ### Common sendStatus
 
+```js
 res.sendStatus(200)  
 res.sendStatus(201)  
 res.sendStatus(400)  
@@ -568,11 +577,13 @@ res.sendStatus(401)
 res.sendStatus(403)  
 res.sendStatus(404)  
 res.sendStatus(500)
+```
 
 ---
 
 ### Example
 
+```js
 app.get('/user', (req, res) => {  
   
     const user = null;  
@@ -583,6 +594,7 @@ app.get('/user', (req, res) => {
   
     res.send(user);  
 });
+```
 
 ---
 
@@ -597,8 +609,10 @@ It tells:
 
 returns:
 
+```
 true  
 false
+```
 
 ---
 
