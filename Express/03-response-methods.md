@@ -32,7 +32,6 @@ It can send:
 
 - string
 - HTML
-- JSON
 - object
 - array
 - buffer
