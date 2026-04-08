@@ -478,3 +478,10 @@ res.render() → render template
 res.end() → end response  
 res.set() → set headers  
 res.cookie() → set cookie
+
+
+---
+
+
+# Few More Methods
+
