@@ -618,6 +618,7 @@ false
 
 ### Example
 
+```js
 app.get('/', (req, res) => {  
   
     res.send("Hello");  
@@ -625,10 +626,13 @@ app.get('/', (req, res) => {
     console.log(res.headersSent);  
   
 });
+```
 
 Output:
 
+```
 true
+```
 
 Because response already sent.
 
@@ -638,6 +642,7 @@ Because response already sent.
 
 To prevent **sending multiple responses**
 
+```js
 app.get('/', (req, res) => {  
   
     if(!res.headersSent){  
@@ -645,6 +650,7 @@ app.get('/', (req, res) => {
     }  
   
 });
+```
 
 ---
 
@@ -652,16 +658,20 @@ app.get('/', (req, res) => {
 
 Adds header value
 
+```js
 res.append("Warning", "199 misc warning");
+```
 
 Example:
 
+```js
 app.get('/', (req, res) => {  
   
     res.append("Custom-Header", "hello");  
     res.send("done");  
   
 });
+```
 
 ---
 
@@ -669,14 +679,18 @@ app.get('/', (req, res) => {
 
 Sets response header
 
+```js
 res.set("Content-Type", "text/plain");
+```
 
 Multiple headers:
 
+```js
 res.set({  
     "Content-Type": "text/plain",  
     "X-Custom": "hello"  
 });
+```
 
 ---
 
@@ -684,12 +698,16 @@ res.set({
 
 Get header value
 
+```js
 res.get("Content-Type");
+```
 
 Example:
 
+```js
 res.set("X-Test", "value");  
 console.log(res.get("X-Test"));
+```
 
 ---
 
