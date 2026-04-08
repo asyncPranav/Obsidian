@@ -348,8 +348,10 @@ res.header("Content-Type", "application/json");
 
 Sets content type
 
+```js
 res.type("html");  
 res.send("<h1>Hello</h1>");
+```
 
 ---
 
@@ -357,8 +359,10 @@ res.send("<h1>Hello</h1>");
 
 Sets location header
 
+```js
 res.location('/dashboard');  
 res.send("Redirecting");
+```
 
 Usually used before redirect.
 
@@ -368,8 +372,10 @@ Usually used before redirect.
 
 Set cookie in browser
 
+```js
 res.cookie("user", "john");  
 res.send("cookie set");
+```
 
 ---
 
@@ -377,13 +383,16 @@ res.send("cookie set");
 
 Remove cookie
 
+```js
 res.clearCookie("user");  
 res.send("cookie removed");
+```
 
 ---
 
 # Real API Example Using Multiple Response Methods
 
+```js
 app.get('/user/:id', (req, res) => {  
   
     const id = req.params.id;  
@@ -402,6 +411,7 @@ app.get('/user/:id', (req, res) => {
     }  
   
 });
+```
 
 ---
 
@@ -411,12 +421,16 @@ You can send **only one response**
 
 Wrong:
 
+```js
 res.send("hello");  
 res.send("again");
+```
 
 Correct:
 
+```js
 res.send("hello");
+```
 
 ---
 
@@ -435,6 +449,7 @@ res.download()
 
 # Flow Example
 
+```js
 app.get('/login', (req, res) => {  
   
     const loggedIn = false;  
@@ -447,6 +462,7 @@ app.get('/login', (req, res) => {
   
     res.send("Welcome");  
 });
+```
 
 ---
 
