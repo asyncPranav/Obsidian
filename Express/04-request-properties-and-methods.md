@@ -162,8 +162,10 @@ Output:
 
 Access values:
 
+```js
 req.query.q  
 req.query.page
+```
 
 ---
 
@@ -187,10 +189,12 @@ Used to get **data sent in request body**
 
 Example sending JSON:
 
+```json
 {  
 "name":"john",  
 "age":20  
 }
+```
 
 ---
 
@@ -198,13 +202,16 @@ Example sending JSON:
 
 You must enable middleware:
 
+```js
 app.use(express.json())  
 app.use(express.urlencoded({extended:true}))
+```
 
 ---
 
 ## Example
 
+```js
 app.post('/user', (req, res) => {  
   
     console.log(req.body);  
@@ -212,17 +219,22 @@ app.post('/user', (req, res) => {
     res.send("done");  
   
 });
+```
 
 Request body:
 
+```json
 {  
 "name":"john",  
 "age":20  
 }
+```
 
 Output:
 
+```json
 { name: 'john', age: 20 }
+```
 
 ---
 
@@ -243,6 +255,7 @@ Headers contain:
 
 ## Example
 
+```js
 app.get('/', (req,res)=>{  
   
  console.log(req.headers)  
@@ -250,14 +263,17 @@ app.get('/', (req,res)=>{
  res.send("ok")  
   
 })
+```
 
 Output example:
 
+```
 {  
  host: 'localhost:3000',  
  'user-agent': 'chrome',  
  accept: '*/*'  
 }
+```
 
 ---
 
