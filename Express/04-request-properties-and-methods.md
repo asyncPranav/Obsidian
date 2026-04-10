@@ -66,20 +66,27 @@ app.get('/user/:id', (req, res) => {
 
 If user visits:
 
+```
 /user/10
+```
 
 Output:
 
+```json
 { id: '10' }
+```
 
 Access specific value:
 
+```js
 req.params.id
+```
 
 ---
 
 ## Multiple params
 
+```js
 app.get('/user/:id/book/:bookid', (req,res)=>{  
   
  console.log(req.params.id)  
@@ -88,15 +95,20 @@ app.get('/user/:id/book/:bookid', (req,res)=>{
  res.send("ok")  
   
 })
+```
 
 URL:
 
+```
 /user/5/book/20
+```
 
 Output:
 
+```
 5  
 20
+```
 
 ---
 
@@ -110,18 +122,23 @@ Query string appears after `?`
 
 Example:
 
+```
 /search?q=node&page=2
+```
 
 ---
 
 ## Syntax
 
+```js
 req.query.name
+```
 
 ---
 
 ## Example
 
+```js
 app.get('/search', (req, res) => {  
   
     console.log(req.query);  
@@ -129,14 +146,19 @@ app.get('/search', (req, res) => {
     res.send("done");  
   
 });
+```
 
 URL:
 
+```
 /search?q=node&page=2
+```
 
 Output:
 
+```json
 { q: 'node', page: '2' }
+```
 
 Access values:
 
