@@ -553,59 +553,231 @@ These are functions on req
 
 ---
 
-# req.accepts()
+# 1. req.get(field)
 
-Checks accepted response type
+### What it does
+
+Gets value of a request header.
+
+### Syntax
+
+```js
+req.get("Header-Name")
+```
+
+### Example
+
+```js
+app.get('/', (req,res)=>{  
+    console.log(req.get("User-Agent"))  
+    res.send("ok")  
+})
+```
+
+Use: read headers like auth token, content-type, browser info.
+
+---
+
+# 2. req.header(field)
+
+Same as `req.get()`
+
+```js
+req.header("Authorization")
+```
+
+---
+
+# 3. req.accepts(type)
+
+### What it does
+
+Checks if client accepts given response type.
+
+### Syntax
 
 ```js
 req.accepts("json")
 ```
 
+### Example
+
+app.get('/', (req,res)=>{  
+  
+    if(req.accepts("json")){  
+        res.json({msg:"json"})  
+    }else{  
+        res.send("text")  
+    }  
+  
+})
+
+Use: content negotiation.
+
 ---
 
-# req.is()
+# 4. req.acceptsCharsets()
 
-Check request content type
+### What it does
 
-```js
+Checks accepted charset
+
+req.acceptsCharsets("utf-8")
+
+---
+
+# 5. req.acceptsEncodings()
+
+### What it does
+
+Checks accepted encoding
+
+req.acceptsEncodings("gzip")
+
+---
+
+# 6. req.acceptsLanguages()
+
+### What it does
+
+Checks accepted language
+
+req.acceptsLanguages("en")
+
+---
+
+# 7. req.is(type)
+
+### What it does
+
+Checks request content-type
+
+### Syntax
+
 req.is("application/json")
-```
+
+### Example
+
+app.post('/', (req,res)=>{  
+  
+    if(req.is("application/json")){  
+        res.send("JSON data")  
+    }else{  
+        res.send("Other type")  
+    }  
+  
+})
+
+Use: validate body type.
 
 ---
 
-# Complete Example (All Together)
+# 8. req.param(name) ⚠ deprecated
 
-```js
-app.post('/user/:id', (req,res)=>{  
+### What it does
+
+Gets value from params, body, or query.
+
+req.param("id")
+
+Avoid using (deprecated)
+
+---
+
+# 9. req.range(size)
+
+### What it does
+
+Parses Range header
+
+Used for file streaming.
+
+req.range(1000)
+
+Rarely used.
+
+---
+
+# 10. req.app
+
+Returns Express app instance
+
+req.app
+
+Example:
+
+req.app.get("env")
+
+---
+
+# 11. req.res
+
+Reference to response object
+
+req.res
+
+Rarely used.
+
+---
+
+# 12. req.next
+
+Reference to next middleware
+
+req.next
+
+Rarely used directly.
+
+---
+
+# Most Important Request Methods (Real Projects)
+
+You will mainly use:
+
+-> req.get()  
+-> req.header()  
+-> req.accepts()  
+-> req.is()
+
+Others are rarely used.
+
+---
+
+# Example Using Multiple Methods
+
+app.post('/test',(req,res)=>{  
   
- console.log("params:", req.params)  
+ console.log(req.get("Content-Type"))  
   
- console.log("query:", req.query)  
+ console.log(req.accepts("json"))  
   
- console.log("body:", req.body)  
-  
- console.log("method:", req.method)  
-  
- console.log("url:", req.url)  
-  
- console.log("headers:", req.headers)  
+ console.log(req.is("application/json"))  
   
  res.send("done")  
   
 })
-```
 
-Request:
+---
 
-```
-POST /user/10?page=2
-```
+# Summary
 
-Body:
+Yes — Express request methods include:
 
-```
-{name:"john"}
-```
+req.get()  
+req.header()  
+req.accepts()  
+req.acceptsCharsets()  
+req.acceptsEncodings()  
+req.acceptsLanguages()  
+req.is()  
+req.param() (deprecated)  
+req.range()
+
+But **only these are commonly used**:
+
+req.get()  
+req.accepts()  
+req.is()
 
 ---
 
