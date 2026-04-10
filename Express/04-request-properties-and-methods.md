@@ -523,11 +523,15 @@ Used in router middleware
 
 # Example
 
+```js
 app.use('/admin', router)
+```
 
 Inside router:
 
+```
 req.baseUrl = /admin
+```
 
 ---
 
@@ -537,7 +541,9 @@ req.baseUrl = /admin
 
 Returns true if AJAX request
 
+```js
 console.log(req.xhr)
+```
 
 ---
 
@@ -551,7 +557,9 @@ These are functions on req
 
 Checks accepted response type
 
+```js
 req.accepts("json")
+```
 
 ---
 
@@ -559,12 +567,15 @@ req.accepts("json")
 
 Check request content type
 
+```js
 req.is("application/json")
+```
 
 ---
 
 # Complete Example (All Together)
 
+```js
 app.post('/user/:id', (req,res)=>{  
   
  console.log("params:", req.params)  
@@ -582,14 +593,19 @@ app.post('/user/:id', (req,res)=>{
  res.send("done")  
   
 })
+```
 
 Request:
 
+```
 POST /user/10?page=2
+```
 
 Body:
 
+```jso
 {name:"john"}
+```
 
 ---
 
