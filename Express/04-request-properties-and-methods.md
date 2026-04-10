@@ -602,6 +602,7 @@ req.accepts("json")
 
 ### Example
 
+```js
 app.get('/', (req,res)=>{  
   
     if(req.accepts("json")){  
@@ -611,6 +612,7 @@ app.get('/', (req,res)=>{
     }  
   
 })
+```
 
 Use: content negotiation.
 
@@ -622,7 +624,9 @@ Use: content negotiation.
 
 Checks accepted charset
 
+```js
 req.acceptsCharsets("utf-8")
+```
 
 ---
 
@@ -632,7 +636,9 @@ req.acceptsCharsets("utf-8")
 
 Checks accepted encoding
 
+```js
 req.acceptsEncodings("gzip")
+```
 
 ---
 
@@ -642,7 +648,9 @@ req.acceptsEncodings("gzip")
 
 Checks accepted language
 
+```js
 req.acceptsLanguages("en")
+```
 
 ---
 
@@ -654,10 +662,13 @@ Checks request content-type
 
 ### Syntax
 
+```js
 req.is("application/json")
+```
 
 ### Example
 
+```js
 app.post('/', (req,res)=>{  
   
     if(req.is("application/json")){  
@@ -667,6 +678,7 @@ app.post('/', (req,res)=>{
     }  
   
 })
+```
 
 Use: validate body type.
 
@@ -678,7 +690,9 @@ Use: validate body type.
 
 Gets value from params, body, or query.
 
+```js
 req.param("id")
+```
 
 Avoid using (deprecated)
 
@@ -692,7 +706,9 @@ Parses Range header
 
 Used for file streaming.
 
+```js
 req.range(1000)
+```
 
 Rarely used.
 
@@ -702,11 +718,15 @@ Rarely used.
 
 Returns Express app instance
 
+```js
 req.app
+```
 
 Example:
 
+```js
 req.app.get("env")
+```
 
 ---
 
@@ -714,7 +734,9 @@ req.app.get("env")
 
 Reference to response object
 
+```js
 req.res
+```
 
 Rarely used.
 
