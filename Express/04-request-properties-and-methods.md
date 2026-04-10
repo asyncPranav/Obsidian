@@ -292,6 +292,7 @@ DELETE
 
 ## Example
 
+```js
 app.get('/', (req,res)=>{  
   
  console.log(req.method)  
@@ -299,10 +300,13 @@ app.get('/', (req,res)=>{
  res.send("ok")  
   
 })
+```
 
 Output:
 
+```
 GET
+```
 
 ---
 
@@ -314,12 +318,15 @@ Returns full URL requested
 
 Example:
 
+```
 /user/10?page=2
+```
 
 ---
 
 ## Example
 
+```js
 app.get('/user/:id', (req,res)=>{  
   
  console.log(req.url)  
@@ -327,10 +334,13 @@ app.get('/user/:id', (req,res)=>{
  res.send("ok")  
   
 })
+```
 
 Output:
 
+```
 /user/10?page=2
+```
 
 ---
 
@@ -342,17 +352,23 @@ Returns **only path**, without query
 
 Example:
 
+```
 /user/10
+```
 
 ---
 
 ## Example
 
+```js
 console.log(req.path)
+```
 
 Output:
 
+```
 /user/10
+```
 
 ---
 
@@ -364,13 +380,17 @@ Returns domain name
 
 Example:
 
+```
 localhost
+```
 
 ---
 
 ## Example
 
+```js
 console.log(req.hostname)
+```
 
 ---
 
@@ -380,11 +400,15 @@ console.log(req.hostname)
 
 Returns client IP address
 
+```js
 console.log(req.ip)
+```
 
 Example output:
 
+```
 127.0.0.1
+```
 
 ---
 
@@ -397,7 +421,9 @@ Returns protocol used
 http  
 https
 
+```js
 console.log(req.protocol)
+```
 
 ---
 
