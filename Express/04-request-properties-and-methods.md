@@ -433,11 +433,15 @@ console.log(req.protocol)
 
 Returns true if HTTPS
 
+```js
 console.log(req.secure)
+```
 
 Output:
 
+```
 false
+```
 
 ---
 
@@ -449,12 +453,15 @@ Used to get header value
 
 ## Syntax
 
+```js
 req.get("header-name")
+```
 
 ---
 
 ## Example
 
+```js
 app.get('/', (req,res)=>{  
   
  console.log(req.get("User-Agent"))  
@@ -462,6 +469,7 @@ app.get('/', (req,res)=>{
  res.send("ok")  
   
 })
+```
 
 ---
 
@@ -473,15 +481,21 @@ Gets cookies sent by client
 
 Requires middleware:
 
+```js
 npm install cookie-parser
+```
 
+```js
 app.use(require("cookie-parser")())
+```
 
 ---
 
 ## Example
 
+```js
 console.log(req.cookies)
+```
 
 ---
 
@@ -491,7 +505,9 @@ console.log(req.cookies)
 
 Returns original full URL
 
+```js
 console.log(req.originalUrl)
+```
 
 ---
 
