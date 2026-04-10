@@ -746,7 +746,9 @@ Rarely used.
 
 Reference to next middleware
 
+```js
 req.next
+```
 
 Rarely used directly.
 
