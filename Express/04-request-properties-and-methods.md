@@ -603,7 +603,7 @@ POST /user/10?page=2
 
 Body:
 
-```jso
+```
 {name:"john"}
 ```
 
@@ -627,7 +627,9 @@ req.cookies
 
 URL:
 
+```
 /user/5?sort=asc
+```
 
 req.params.id → 5  
 req.query.sort → asc  
