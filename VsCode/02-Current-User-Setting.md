@@ -3,6 +3,12 @@
 
 ```json
 {
+
+  // Suppress warning about missing schemas for JSON files, you can enable this if you want VS Code to automatically download and use JSON schemas for validation and IntelliSense in JSON files. However, it may cause performance issues if you have a large number of JSON files or if the schemas are large.
+
+  "json.schemaDownload.enable": false,
+  
+  
   // WINDOW & LAYOUT SETTINGS
   "workbench.sideBar.location": "right",
   "window.zoomLevel": 0,
