@@ -1160,3 +1160,291 @@ The Art of Action teaches that actions performed from inner stability and aligne
 
 👉 **Stability → Intention → Action → Efficiency → Success**
 
+
+---
+
+
+
+# 📘 F. ART OF BEHAVIOUR: Key to Fruitful Relationships
+
+## 🔹 Introduction
+
+According to Maharishi Mahesh Yogi, the **Art of Behaviour** means interacting with others in a **harmonious, respectful, and positive way**. When behaviour comes from inner peace and alignment with natural law, relationships become **strong, meaningful, and fruitful**.
+
+👉 In simple words:  
+**Inner peace → Good behaviour → Strong relationships**
+
+---
+
+# 🔹 Principles of the Art of Behaviour
+
+## 1. Behaviour as an Expression of Inner State
+
+- Behaviour reflects our **state of mind**
+    
+- If a person is calm and happy:
+    
+    - Behaviour becomes positive
+        
+    - Relationships improve
+        
+- Stress and anger damage relationships
+    
+
+👉 Easy line:  
+**Peaceful mind = positive behaviour**
+
+---
+
+## 2. Alignment with Natural Law
+
+- Behaviour aligned with natural law is:
+    
+    - Natural
+        
+    - Supportive
+        
+    - Helpful for everyone
+        
+- Such behaviour comes from higher awareness and creates harmony
+    
+
+👉 Easy line:  
+**Natural behaviour creates harmony**
+
+---
+
+## 3. Respect for Individual and Collective
+
+- Everyone has the same inner Being
+    
+- Respecting others creates:
+    
+    - Understanding
+        
+    - Mutual appreciation
+        
+    - Strong relationships
+        
+
+👉 Easy line:  
+**Respect others to build relationships**
+
+---
+
+## 4. Non-Harmful Behaviour (Ahimsa)
+
+- Behaviour should not harm others
+    
+- Words, actions, and intentions should be positive
+    
+
+👉 This promotes:
+
+- Peace
+    
+- Cooperation
+    
+- Trust
+    
+
+👉 Easy line:  
+**Do no harm, spread positivity**
+
+---
+
+## 5. Selfless Service
+
+- Helping others without selfish motives strengthens relationships
+    
+- Selfless behaviour creates deeper emotional bonds
+    
+
+👉 Easy line:  
+**Selfless action builds strong bonds**
+
+---
+
+# 🔹 Steps to Master the Art of Behaviour
+
+## 1. Develop Inner Fulfillment
+
+- Meditation helps remove stress and create happiness
+    
+- A happy person naturally behaves positively
+    
+
+👉 Easy line:  
+**Happy inside = kind outside**
+
+---
+
+## 2. Practice Empathy and Compassion
+
+- Understand others’ feelings and needs
+    
+- Respond with patience and kindness
+    
+
+👉 This reduces conflicts and improves relationships
+
+👉 Easy line:  
+**Understand others before reacting**
+
+---
+
+## 3. Communicate Effectively
+
+- Speak clearly and respectfully
+    
+- Listen carefully to others
+    
+
+👉 Good communication strengthens relationships
+
+👉 Easy line:  
+**Listen more, speak wisely**
+
+---
+
+## 4. Build Trust and Integrity
+
+- Be honest and consistent
+    
+- Keep promises
+    
+- Match words with actions
+    
+
+👉 This builds trust
+
+👉 Easy line:  
+**Honesty builds trust**
+
+---
+
+## 5. Maintain Positive Attitude
+
+- Focus on strengths of others
+    
+- Avoid criticism, negativity, and gossip
+    
+
+👉 Positive behaviour creates harmony
+
+👉 Easy line:  
+**Stay positive with others**
+
+---
+
+## 6. Be Flexible and Adaptable
+
+- Adjust according to situations
+    
+- Be ready to compromise
+    
+
+👉 This helps maintain relationships
+
+👉 Easy line:  
+**Flexibility keeps relationships strong**
+
+---
+
+## 7. Show Love and Gratitude
+
+- Appreciate people around you
+    
+- Express thanks and kindness
+    
+
+👉 Small gestures strengthen bonds
+
+👉 Easy line:  
+**Gratitude improves relationships**
+
+---
+
+# 🔹 Qualities of Fruitful Behaviour
+
+Good behaviour includes:
+
+- **Kindness** → caring attitude
+    
+- **Respect** → valuing others
+    
+- **Integrity** → honesty and consistency
+    
+- **Empathy** → understanding feelings
+    
+- **Patience** → calm reactions
+    
+- **Generosity** → helping others
+    
+- **Coherence** → thoughts and actions match
+    
+
+👉 Easy summary:  
+**Kindness + Respect + Honesty = Good behaviour**
+
+---
+
+# 🔹 Benefits of Art of Behaviour
+
+- Strong relationships
+    
+- Better communication
+    
+- Inner happiness
+    
+- Social harmony
+    
+- Leadership qualities
+    
+
+👉 Easy line:  
+**Good behaviour creates strong relationships**
+
+---
+
+# 🔹 Advanced Practices
+
+- Transcendental Meditation (TM) → inner calm
+    
+- TM-Sidhi → improves interaction
+    
+- Study of Vedic knowledge → ideal behaviour
+    
+- Group meditation → better relationships
+    
+
+---
+
+# 🔹 Practical Techniques
+
+- Start day with gratitude
+    
+- Pause before reacting
+    
+- Listen carefully
+    
+- Apologize and forgive
+    
+- Do small acts of kindness
+    
+
+👉 Easy line:  
+**Pause → Understand → Respond kindly**
+
+---
+
+# 🔹 Conclusion (Exam Ready ⭐)
+
+The Art of Behaviour teaches that harmonious relationships develop when behaviour comes from inner peace, respect, and positivity. By practicing empathy, effective communication, and selfless service, a person can create **fruitful relationships** and contribute to social harmony.
+
+---
+
+# 🎯 Quick Revision Trick
+
+👉 **Peace → Respect → Kindness → Trust → Strong relationships**
+
