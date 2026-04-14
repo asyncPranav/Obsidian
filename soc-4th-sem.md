@@ -682,7 +682,194 @@ The Absolute is the permanent foundation of reality, while the Relative is the c
 ---
 
 
+# 📘 7. How to Contact and Live Being
 
+## 🔹 Meaning of Contacting Being
+
+Contacting Being does not mean anything mystical or external. It simply means becoming aware of your own inner existence and present experience.
+
+👉 In simple words:  
+**Being = awareness of “I exist” and observing what is happening inside me (thoughts, feelings, awareness)**
+
+---
+
+## 🔹 Why we don’t normally live in Being
+
+Most of the time our attention goes outward or into thoughts like:
+
+- past → regrets, mistakes
+    
+- future → fear, exams, placement
+    
+- outside world → phone, people, noise
+    
+
+👉 Because of this, we live on the surface level of life (thoughts and reactions), instead of the deeper level of awareness (Being).
+
+---
+
+## 🔹 How to Contact Being
+
+### 1. Self-Observation
+
+- observe your thoughts and emotions without judging them
+    
+- just notice what is happening inside you
+    
+
+👉 Example:  
+Instead of thinking “I am bad at coding”  
+you observe: “I am feeling frustrated because the logic is not working yet”
+
+👉 This creates mental clarity and reduces emotional pressure.
+
+---
+
+### 2. Mindfulness (Present Awareness)
+
+- stay fully present in the current moment
+    
+- focus on one task at a time
+    
+- be aware of breath, body, and thoughts
+    
+
+👉 Result:
+
+- better concentration
+    
+- fewer mistakes
+    
+- calm and stable mind
+    
+
+---
+
+### 3. Reflection Technique
+
+At the end of the day, ask yourself:
+
+- what did I learn today?
+    
+- what disturbed my peace?
+    
+- how can I respond better tomorrow?
+    
+
+👉 This builds self-awareness and improves inner stability over time.
+
+---
+
+## 🔹 How to Live Being in Daily Life
+
+### 1. Align Thought, Speech, and Action
+
+- think clearly
+    
+- speak honestly
+    
+- act responsibly
+    
+
+👉 When these three are aligned, inner confusion reduces and life feels more balanced.
+
+---
+
+### 2. Handling Failure and Stress
+
+In student/CS life:
+
+- exams may fail
+    
+- bugs may occur
+    
+- projects may not work
+    
+
+👉 Living in Being means:
+
+- accepting failure as feedback
+    
+- learning instead of blaming
+    
+- staying emotionally stable even in pressure
+    
+
+---
+
+### 3. Relationships and Teamwork
+
+- listen carefully without interrupting
+    
+- respect different opinions
+    
+- respond calmly instead of reacting emotionally
+    
+
+👉 A stable inner state improves communication and teamwork.
+
+---
+
+## 🔹 Being vs Becoming
+
+- **Becoming** → always chasing future goals (job, success, salary)
+    
+- **Being** → living with awareness in the present moment
+    
+
+👉 A balanced life includes both:
+
+- work for future goals
+    
+- but stay peaceful and aware in the present
+    
+
+---
+
+## 🔹 Application in Daily Life
+
+### Academic Life
+
+- better focus in studies
+    
+- reduced exam fear
+    
+- improved understanding and problem-solving
+    
+
+### Professional Life
+
+- better decision-making
+    
+- effective teamwork
+    
+- reduced stress at work
+    
+
+### Social Life
+
+- healthier relationships
+    
+- emotional balance
+    
+- confidence in interactions
+    
+
+### Technology Life
+
+- technology improves efficiency
+    
+- Being ensures correct, balanced, and ethical use
+    
+
+---
+
+## 🔹 Conclusion
+
+Contacting and living Being is a practical way of living with awareness in daily life. It helps in managing thoughts, emotions, and actions more clearly.
+
+👉 Final idea:  
+**“I am not just a programmer or student, I am a conscious human being who learns, thinks, and acts.”**
 
 
 ----
