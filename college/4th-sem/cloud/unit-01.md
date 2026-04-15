@@ -4013,9 +4013,3 @@ Cloud services are delivery models of computing resources over the internet, div
 ---
 
 # 🚀 YOU HAVE NOW COMPLETED UNIT 1
-
-If you want, I can give:  
-👉 🔥 FULL UNIT 1 SUPER SHORT REVISION SHEET (MOST IMPORTANT FOR EXAM NIGHT)  
-👉 OR last-minute 2/5/10 marks questions
-
-Just say 👍
