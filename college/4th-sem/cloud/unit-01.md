@@ -830,3 +830,423 @@ VERY HIGH PROBABILITY QUESTION
 
 If you want next topic:  
 👉 Peer-to-Peer Computing (I'll make it even more diagram-heavy + exam focused)
+
+
+
+----
+
+
+# ✅ Unit 1 — Topic 3
+
+# Peer-to-Peer (P2P) Computing — VERY DETAILED THEORY + DIAGRAMS
+
+---
+
+# 1. Introduction (Core Idea)
+
+Peer-to-Peer (P2P) computing is a **decentralized computing model** in which all computers (called peers) are equal participants.
+
+Unlike Client–Server model, there is:
+
+- ❌ No dedicated server
+    
+- ❌ No central control
+    
+- ✅ Every computer acts as both client and server
+    
+
+This makes P2P a **distributed and self-organizing system**.
+
+---
+
+# 2. Meaning of Peer-to-Peer Computing
+
+> Peer-to-Peer computing is a distributed network architecture in which each node (peer) can act as both a client and a server, sharing resources directly with other peers without a central server.
+
+---
+
+# 3. What is a Peer?
+
+A **peer** is:
+
+> Any computer/device connected in a P2P network that can request and provide services.
+
+Each peer:
+
+- Requests data (like client)
+    
+- Provides data (like server)
+    
+
+---
+
+# 4. Basic Working of P2P
+
+Step-by-step flow:
+
+1. Peer joins network
+    
+2. Peer announces available resources
+    
+3. Another peer searches for resource
+    
+4. Direct connection is established
+    
+5. Data is transferred
+    
+6. Connection may terminate or continue
+    
+
+---
+
+# 5. P2P Architecture (MAIN DIAGRAM)
+
+## 🔷 Diagram 1: Basic P2P Network
+
+```id="f6c9z9"
+   Peer A ↔ Peer B
+     ↕        ↕
+   Peer C ↔ Peer D
+```
+
+👉 Every node is connected with multiple nodes  
+👉 No central server exists
+
+---
+
+# 6. P2P vs Client–Server (Core Difference Visual)
+
+## 🔷 Client–Server Model:
+
+```id="v6kq8g"
+   Client 1
+   Client 2
+   Client 3
+        ↓
+     SERVER
+```
+
+---
+
+## 🔷 Peer-to-Peer Model:
+
+```id="p2p1"
+Peer A ↔ Peer B
+  ↕        ↕
+Peer C ↔ Peer D
+```
+
+👉 In P2P: everyone is equal  
+👉 In Client-Server: server is powerful center
+
+---
+
+# 7. Types of Peer-to-Peer Architecture
+
+---
+
+## 🔷 (A) Pure P2P Architecture
+
+### Meaning:
+
+> There is no central server or control node. All peers are equal.
+
+### Diagram:
+
+```id="purep2p"
+Peer A ↔ Peer B ↔ Peer C
+  ↕        ↕        ↕
+Peer D ↔ Peer E ↔ Peer F
+```
+
+### Features:
+
+- Fully decentralized
+    
+- No indexing server
+    
+- Hard to control
+    
+- Very robust
+    
+
+### Example:
+
+- BitTorrent
+    
+- Blockchain networks
+    
+
+---
+
+## 🔷 (B) Hybrid P2P Architecture
+
+### Meaning:
+
+> A central server exists only for indexing/searching, but data transfer happens between peers.
+
+### Diagram:
+
+```id="hybridp2p"
+        INDEX SERVER
+             |
+   -----------------------
+   |         |          |
+Peer A    Peer B     Peer C
+   ↕         ↕          ↕
+ (data transfer between peers)
+```
+
+### Features:
+
+- Central server helps locate resources
+    
+- Actual sharing is peer-to-peer
+    
+- More efficient than pure P2P
+    
+
+### Example:
+
+- Old Napster
+    
+- Some file-sharing systems
+    
+
+---
+
+# 8. Characteristics of P2P Computing
+
+### 1. Decentralization
+
+No central authority controls network
+
+### 2. Resource Sharing
+
+Peers share:
+
+- Files
+    
+- Storage
+    
+- CPU power
+    
+- Bandwidth
+    
+
+### 3. Self-Organization
+
+Peers join/leave freely
+
+### 4. Scalability
+
+More peers → more resources → stronger network
+
+### 5. Direct Communication
+
+Peers communicate without intermediaries
+
+---
+
+# 9. How Data is Shared in P2P
+
+Example:
+
+- Peer A has a file
+    
+- Peer B wants it
+    
+
+Flow:
+
+```id="shareflow"
+Peer B → searches file
+Peer A → responds
+Direct connection formed
+File transferred
+```
+
+---
+
+# 10. Real-Life Examples (VERY IMPORTANT FOR EXAM)
+
+### 1. BitTorrent
+
+- File downloading system
+    
+- Users upload + download simultaneously
+    
+
+### 2. Blockchain
+
+- No central authority
+    
+- Every node verifies transactions
+    
+
+### 3. Skype (old version)
+
+- Direct voice/video communication
+    
+
+### 4. File sharing in LAN
+
+- Students sharing files in lab
+    
+
+---
+
+# 11. Advantages of P2P Computing
+
+### 1. No Server Cost
+
+No expensive central server needed
+
+### 2. High Scalability
+
+More peers → more system power
+
+### 3. Fault Tolerance
+
+If one peer fails, others continue
+
+### 4. Efficient Resource Utilization
+
+All nodes contribute resources
+
+### 5. Fast Sharing (in some cases)
+
+Direct peer connection reduces delay
+
+---
+
+# 12. Disadvantages of P2P Computing
+
+### 1. Security Issues
+
+No central control → higher risk
+
+### 2. Data Integrity Problems
+
+Files may be corrupted or fake
+
+### 3. Difficult Management
+
+No administrator control
+
+### 4. Uneven Performance
+
+Some peers are fast, some slow
+
+### 5. Legal Issues
+
+Often used in piracy/file sharing
+
+---
+
+# 13. P2P vs Client–Server (VERY IMPORTANT TABLE)
+
+|Feature|Client–Server|Peer-to-Peer|
+|---|---|---|
+|Structure|Centralized|Decentralized|
+|Server|Present|Not required|
+|Control|Server controls|No control|
+|Scalability|Limited|High|
+|Failure|Server failure critical|No single failure|
+|Cost|High|Low|
+
+---
+
+# 14. Exam Definition (WRITE THIS)
+
+Peer-to-Peer computing is a distributed network model in which each computer (peer) acts as both a client and a server, sharing resources directly with other peers without the need for a centralized server.
+
+---
+
+# 15. 5-MARK ANSWER (EXAM READY)
+
+Peer-to-Peer computing is a decentralized network architecture in which all nodes are equal and act as both client and server. Peers share resources directly without using a central server. It is widely used in file-sharing systems like BitTorrent and blockchain networks. It is scalable and cost-effective but has security and management challenges. It differs from client–server architecture as there is no central control.
+
+---
+
+# 16. 10-MARK ANSWER STRUCTURE (VERY IMPORTANT)
+
+If asked in exam:
+
+### Write:
+
+1. Definition
+    
+2. Diagram (Pure P2P + Hybrid)
+    
+3. Characteristics
+    
+4. Types
+    
+5. Advantages
+    
+6. Disadvantages
+    
+7. Examples
+    
+8. Comparison
+    
+
+---
+
+# 17. Exam Importance ⭐⭐⭐⭐⭐
+
+VERY HIGH PROBABILITY QUESTION
+
+---
+
+### 🔥 Expected Questions:
+
+### 2 Marks:
+
+- Define P2P computing
+    
+- What is a peer?
+    
+
+### 5 Marks:
+
+- Explain P2P architecture
+    
+- Advantages of P2P
+    
+
+### 10 Marks:
+
+- Explain Peer-to-Peer computing with diagram
+    
+- Compare Client–Server and P2P
+    
+
+### Diagram Questions:
+
+- Draw P2P architecture
+    
+- Draw pure and hybrid P2P
+    
+
+---
+
+# 18. Quick Revision (Last Minute)
+
+- No server
+    
+- All peers equal
+    
+- Direct sharing
+    
+- Highly scalable
+    
+- Used in torrents + blockchain
+    
+
+---
+
+If you want next:  
+👉 Distributed Computing (VERY IMPORTANT for Cloud exams)  
+Just say **next** 👍
