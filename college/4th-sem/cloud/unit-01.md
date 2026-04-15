@@ -357,3 +357,476 @@ OR
 👉 Make **1-page revision sheet for exam night**
 
 Just say 👍
+
+
+
+----
+
+
+
+# ✅ Unit 1 — Topic 2
+
+# Client–Server Computing (VERY DETAILED + DIAGRAMS)
+
+---
+
+# 1. Introduction (Core Concept)
+
+Client–Server computing is one of the most important foundations of modern distributed systems and cloud computing.
+
+It is a model where computing tasks are divided between two roles:
+
+- **Client → requests service**
+    
+- **Server → provides service**
+    
+
+This model replaced older centralized systems and became the backbone of internet applications like web browsing, banking, email, and online services.
+
+---
+
+# 2. Meaning of Client–Server Model
+
+> Client–Server computing is a distributed application structure in which tasks are divided between service requesters (clients) and service providers (servers), communicating over a network.
+
+In simple terms:
+
+- Client asks “Give me data/service”
+    
+- Server replies “Here it is”
+    
+
+---
+
+# 3. What is a Client?
+
+A **client** is any device or software that:
+
+- Initiates a request
+    
+- Sends request to server
+    
+- Displays results to user
+    
+
+### Examples of Clients:
+
+- Web browser (Chrome, Firefox)
+    
+- Mobile apps (YouTube app, Instagram)
+    
+- ATM machine
+    
+- Email application
+    
+
+### Client Role:
+
+- UI (User Interface)
+    
+- Sends request
+    
+- Receives response
+    
+
+---
+
+# 4. What is a Server?
+
+A **server** is a powerful system that:
+
+- Stores data
+    
+- Processes requests
+    
+- Sends responses
+    
+- Handles multiple clients at the same time
+    
+
+### Examples:
+
+- Web server (Apache, Nginx)
+    
+- Database server (MySQL, Oracle)
+    
+- File server
+    
+- Cloud servers (AWS, Azure)
+    
+
+---
+
+# 5. Basic Working of Client–Server Model
+
+### Step-by-step process:
+
+1. Client sends request
+    
+2. Request travels through network
+    
+3. Server receives request
+    
+4. Server processes request
+    
+5. Server sends response
+    
+6. Client displays result
+    
+
+---
+
+## 🔷 Diagram 1: Basic Client–Server Communication
+
+```
+   CLIENT (User Device)
+          |
+          |  Request (HTTP, API call)
+          ↓
+   ----------------------
+   |      SERVER        |
+   |  Process Request   |
+   |  Access Database   |
+   ----------------------
+          ↑
+          |  Response (Data/Webpage)
+          |
+   CLIENT (Browser/App)
+```
+
+---
+
+# 6. History of Client–Server Computing (VERY IMPORTANT)
+
+Client–Server model evolved from older computing systems:
+
+---
+
+## 🔴 1. Mainframe Era (1960s–1970s)
+
+- One powerful computer (Mainframe)
+    
+- Many dumb terminals connected
+    
+- All processing done in central system
+    
+
+### Problems:
+
+- Very expensive
+    
+- No flexibility
+    
+- Single point failure
+    
+
+---
+
+## 🟡 2. Personal Computing Era (1980s)
+
+- Each user had own computer
+    
+- No sharing between systems
+    
+
+### Problems:
+
+- No centralized control
+    
+- Data duplication
+    
+- No collaboration
+    
+
+---
+
+## 🟢 3. Client–Server Era (1990s onwards)
+
+Solution introduced:
+
+- Clients handle UI
+    
+- Server handles processing + data
+    
+- Network connects both
+    
+
+👉 This became modern enterprise computing model
+
+---
+
+# 7. Types of Client–Server Architecture
+
+---
+
+## 🔷 (A) Two-Tier Architecture
+
+### Structure:
+
+```
+CLIENT  ↔  SERVER (Database)
+```
+
+### Diagram:
+
+```
+   [ CLIENT ]
+        |
+        | Request
+        ↓
+   [ DATABASE SERVER ]
+        ↑
+        | Response
+```
+
+### Features:
+
+- Client directly interacts with server
+    
+- Simple structure
+    
+- Used in small applications
+    
+
+### Example:
+
+- Desktop banking software
+    
+
+---
+
+## 🔷 (B) Three-Tier Architecture (VERY IMPORTANT)
+
+### Structure:
+
+```
+CLIENT → APPLICATION SERVER → DATABASE SERVER
+```
+
+---
+
+### Diagram:
+
+```
+   [ CLIENT / UI ]
+          |
+          | Request
+          ↓
+   [ APPLICATION SERVER ]
+          |
+          | Query
+          ↓
+   [ DATABASE SERVER ]
+          ↑
+          | Data
+          |
+   [ APPLICATION SERVER ]
+          ↑
+          | Response
+   [ CLIENT ]
+```
+
+---
+
+### Explanation:
+
+### 1. Client Tier
+
+- UI layer
+    
+- Browser/app
+    
+
+### 2. Application Tier
+
+- Business logic
+    
+- Processing
+    
+
+### 3. Data Tier
+
+- Database
+    
+- Data storage
+    
+
+---
+
+### Example:
+
+- Amazon
+    
+- Banking websites
+    
+- Online booking systems
+    
+
+---
+
+# 8. Characteristics of Client–Server Computing
+
+### 1. Centralized Server
+
+All data stored in server
+
+### 2. Multiple Clients
+
+Many users connect at same time
+
+### 3. Request–Response Model
+
+Communication always in request-response format
+
+### 4. Network Dependency
+
+Requires internet/LAN
+
+### 5. Resource Sharing
+
+Same server resources used by all clients
+
+---
+
+# 9. Real-Life Example (VERY IMPORTANT)
+
+## Banking System Example:
+
+```
+ATM (Client)
+   ↓ request balance
+Bank Server
+   ↓ fetch data
+Database
+   ↓ response
+ATM shows balance
+```
+
+👉 Every ATM is a client  
+👉 Bank system is server
+
+---
+
+# 10. Advantages of Client–Server Model
+
+### 1. Centralized Management
+
+Easy control of system
+
+### 2. Data Security
+
+Data stored in secure server
+
+### 3. Resource Sharing
+
+Multiple clients share server
+
+### 4. Easy Backup
+
+Only server backup needed
+
+### 5. Scalable (to some extent)
+
+More clients can be added
+
+---
+
+# 11. Disadvantages
+
+### 1. Server Overload
+
+Too many requests slow system
+
+### 2. Single Point Failure
+
+If server fails → system stops
+
+### 3. High Cost
+
+Powerful server required
+
+### 4. Network Dependency
+
+No network → no system
+
+---
+
+# 12. Client–Server vs Cloud (VERY IMPORTANT)
+
+|Feature|Client–Server|Cloud Computing|
+|---|---|---|
+|Infrastructure|Fixed server|Virtual servers|
+|Scalability|Limited|High (auto-scale)|
+|Cost|High setup cost|Pay-as-you-use|
+|Maintenance|Manual|Provider managed|
+|Flexibility|Low|Very high|
+
+👉 Cloud computing = advanced form of client–server
+
+---
+
+# 13. Exam Definition (WRITE THIS)
+
+Client–Server computing is a distributed computing model in which client devices request services from centralized servers, and servers process these requests and return responses over a network.
+
+---
+
+# 14. 5-MARK ANSWER (EXAM READY)
+
+Client–Server computing is a model in which clients request services and servers provide them over a network. The client handles user interface while the server handles data processing and storage. It evolved from mainframe and personal computing systems. It is widely used in applications such as banking systems, web applications, and email services. The model supports centralized control and resource sharing but suffers from server dependency and scalability limitations.
+
+---
+
+# 15. Exam Importance ⭐⭐⭐⭐⭐
+
+VERY HIGH PROBABILITY QUESTION
+
+---
+
+### 🔥 Most Expected Questions:
+
+### 2 Marks:
+
+- Define Client–Server computing
+    
+- What is a client and server?
+    
+
+### 5 Marks:
+
+- Explain Client–Server architecture
+    
+- Explain two-tier and three-tier architecture
+    
+
+### 10 Marks:
+
+- Explain history of Client–Server computing in detail
+    
+
+### Diagram Questions:
+
+- Draw Client–Server architecture
+    
+- Draw three-tier architecture
+    
+
+---
+
+# 16. Quick Revision (Last Minute)
+
+- Client requests
+    
+- Server responds
+    
+- Two-tier = simple
+    
+- Three-tier = modern web apps
+    
+- Foundation of cloud computing
+    
+
+---
+
+If you want next topic:  
+👉 Peer-to-Peer Computing (I'll make it even more diagram-heavy + exam focused)
