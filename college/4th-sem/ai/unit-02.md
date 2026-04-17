@@ -1920,3 +1920,564 @@ AO* is a heuristic search algorithm used for solving AND-OR graphs. In OR nodes,
 ---
 
 
+# Minimax Algorithm (Game Playing)
+
+🔥 **Exam Importance: VERY VERY HIGH (Most expected 10-mark question in Unit–2)**
+
+Minimax is the **fundamental algorithm for adversarial search (game playing)**. It is always asked along with **Alpha–Beta pruning**.
+
+---
+
+# 1. What is Minimax Algorithm?
+
+Minimax is a decision-making algorithm used in **two-player games** where:
+
+- One player tries to **maximize gain (MAX)**
+    
+- Other player tries to **minimize gain (MIN)**
+    
+
+👉 It assumes both players are **perfectly rational**.
+
+---
+
+## ✔ Exam Definition:
+
+**Minimax is a recursive algorithm used in game playing that selects the optimal move for a player by assuming that the opponent also plays optimally.**
+
+---
+
+# 2. Key Idea of Minimax
+
+- MAX player tries to get **maximum score**
+    
+- MIN player tries to reduce MAX score
+    
+- Game is represented as a **tree**
+    
+- Terminal states have utility values
+    
+
+---
+
+# 3. Game Tree Concept
+
+```id="minimax1"
+            MAX
+          /     \
+        MIN     MIN
+       /  \     /  \
+      3    5   2    9
+```
+
+- MAX chooses best value from MIN results
+    
+- MIN chooses smallest value
+    
+
+---
+
+# 4. Working Principle (Step-by-Step)
+
+- Construct full game tree
+    
+- Assign utility values to leaf nodes
+    
+- Start from bottom (terminal nodes)
+    
+- MIN level → choose minimum value
+    
+- MAX level → choose maximum value
+    
+- Propagate values upward
+    
+- Root node gives optimal decision
+    
+
+---
+
+# 5. Example (Simple Walkthrough)
+
+### Step 1: Leaf nodes values
+
+- 3, 5, 2, 9
+    
+
+### Step 2: MIN nodes
+
+- MIN(3,5) = 3
+    
+- MIN(2,9) = 2
+    
+
+### Step 3: MAX node
+
+- MAX(3,2) = 3
+    
+
+👉 Final decision = **3**
+
+---
+
+# 6. Minimax Algorithm (Steps for Exam Writing)
+
+1. Generate game tree
+    
+2. Assign utility values to terminal nodes
+    
+3. If node is MAX level:
+    
+    - Choose maximum value from children
+        
+4. If node is MIN level:
+    
+    - Choose minimum value from children
+        
+5. Repeat recursively until root
+    
+6. Root value gives optimal move
+    
+
+---
+
+# 7. Utility Function
+
+Utility function gives score of a game state:
+
+- Win → +10 (or +1)
+    
+- Lose → −10 (or −1)
+    
+- Draw → 0
+    
+
+---
+
+# 8. Properties of Minimax
+
+## ✔ Completeness
+
+✔ Yes (if tree is finite)
+
+---
+
+## ✔ Optimality
+
+✔ Yes (if opponent plays optimally)
+
+---
+
+## ✔ Time Complexity
+
+- **O(b^d)**  
+    b = branching factor  
+    d = depth of tree
+    
+
+👉 Expensive for large games
+
+---
+
+## ✔ Space Complexity
+
+- **O(bd)** (DFS based)
+    
+
+---
+
+# 9. Advantages of Minimax
+
+🔥 Important for exam
+
+- Finds optimal move
+    
+- Works for competitive games
+    
+- Simple concept
+    
+- Basis of many AI game systems
+    
+- Ensures best decision against rational opponent
+    
+
+---
+
+# 10. Disadvantages of Minimax
+
+- Very slow for large trees
+    
+- High computation cost
+    
+- Not practical without optimization
+    
+- Assumes perfect opponent
+    
+- Cannot handle uncertainty well
+    
+
+---
+
+# 11. Minimax with Depth Limit
+
+In real systems:
+
+- Full tree is not generated
+    
+- Search is limited to certain depth
+    
+- Heuristic evaluation is used
+    
+
+👉 Called **Depth-Limited Minimax**
+
+---
+
+# 12. Minimax vs Alpha–Beta (VERY IMPORTANT)
+
+|Feature|Minimax|Alpha–Beta|
+|---|---|---|
+|Nodes|All explored|Pruned nodes|
+|Speed|Slow|Faster|
+|Result|Optimal|Optimal|
+|Efficiency|Low|High|
+
+---
+
+# 13. Applications of Minimax
+
+- Chess AI
+    
+- Tic-Tac-Toe
+    
+- Checkers
+    
+- Connect-4
+    
+- Any two-player competitive game
+    
+
+---
+
+# 14. Short Note (Exam Ready)
+
+Minimax is a recursive algorithm used in two-player games where one player tries to maximize gain and the other tries to minimize it. The algorithm builds a game tree, assigns utility values to terminal nodes, and propagates values upward using MAX and MIN rules. It ensures optimal decision making assuming both players play optimally.
+
+---
+
+# 15. Exam Probability
+
+- Definition → ⭐⭐⭐⭐⭐
+    
+- Algorithm steps → ⭐⭐⭐⭐⭐
+    
+- Example tree → ⭐⭐⭐⭐⭐
+    
+- Properties → ⭐⭐⭐⭐⭐
+    
+- Comparison → ⭐⭐⭐⭐⭐
+    
+
+
+
+---
+
+
+# Alpha–Beta Pruning
+
+🔥 **Exam Importance: VERY HIGH (Almost always asked with Minimax in Unit–2)**
+
+Alpha–Beta pruning is an **optimization technique of Minimax algorithm** used in **game playing (adversarial search)** to reduce the number of nodes evaluated.
+
+---
+
+# 1. What is Alpha–Beta Pruning?
+
+Alpha–Beta pruning is a technique used in **game tree search** that **eliminates branches which cannot influence the final decision**.
+
+👉 It improves the efficiency of Minimax by **skipping unnecessary nodes**.
+
+---
+
+## ✔ Exam Definition:
+
+**Alpha–Beta pruning is an optimization of the Minimax algorithm that reduces the number of nodes evaluated in the search tree by pruning branches that cannot affect the final decision.**
+
+---
+
+# 2. Key Idea of Alpha–Beta Pruning
+
+- Not all nodes need to be explored
+    
+- If a move is clearly worse, ignore it
+    
+- Save time and computation
+    
+- Same result as Minimax, but faster
+    
+
+---
+
+# 3. Why Alpha–Beta Pruning is Needed?
+
+Minimax explores:
+
+- Entire game tree
+    
+- Very large number of nodes
+    
+
+Problem:
+
+- Too slow
+    
+- Not practical for deep games
+    
+
+👉 Alpha–Beta solves this by pruning useless branches.
+
+---
+
+# 4. Meaning of Alpha and Beta
+
+## ✔ Alpha (α)
+
+- Best value for **MAX player so far**
+    
+- Maximum lower bound
+    
+
+👉 Represents: “Best option found for MAX”
+
+---
+
+## ✔ Beta (β)
+
+- Best value for **MIN player so far**
+    
+- Minimum upper bound
+    
+
+👉 Represents: “Best option found for MIN”
+
+---
+
+# 5. Core Rule of Pruning
+
+👉 If at any point:
+
+**α ≥ β → Stop exploring that branch (PRUNE)**
+
+This is the most important rule.
+
+---
+
+# 6. Working of Alpha–Beta Pruning (Step-by-Step)
+
+- Start from root node
+    
+- Initialize:
+    
+    - α = −∞
+        
+    - β = +∞
+        
+- Traverse tree using Minimax order
+    
+- Update α and β values
+    
+- At each node check condition:
+    
+    - If α ≥ β → prune branch
+        
+- Continue until root decision is made
+    
+
+---
+
+# 7. Simple Example Idea
+
+### Game Tree Concept:
+
+```
+           MAX
+        /        \
+      MIN        MIN
+     /   \      /   \
+    3     5    2     9
+```
+
+### Steps:
+
+- Left MIN gives value = 3
+    
+- Right MIN starts exploring
+    
+- If 2 already worse than 3 (depending on context)
+    
+- Remaining branch may be pruned
+    
+
+👉 Unnecessary nodes are skipped
+
+---
+
+# 8. Types of Pruning
+
+## ✔ Alpha Cutoff
+
+- Happens at MAX node
+    
+- When α ≥ β
+    
+- Stop exploring further MIN branches
+    
+
+---
+
+## ✔ Beta Cutoff
+
+- Happens at MIN node
+    
+- When β ≤ α
+    
+- Stop exploring further MAX branches
+    
+
+---
+
+# 9. Alpha–Beta Algorithm (Exam Steps)
+
+1. Initialize α = −∞, β = +∞
+    
+2. Start Minimax traversal
+    
+3. At MAX node:
+    
+    - Update α = max(α, value)
+        
+4. At MIN node:
+    
+    - Update β = min(β, value)
+        
+5. If α ≥ β → prune remaining branches
+    
+6. Return best value
+    
+
+---
+
+# 10. Properties of Alpha–Beta Pruning
+
+## ✔ Completeness
+
+✔ Same as Minimax (complete if tree finite)
+
+---
+
+## ✔ Optimality
+
+✔ Same optimal result as Minimax
+
+---
+
+## ✔ Time Complexity
+
+- Best case: **O(b^(d/2))**
+    
+- Worst case: **O(b^d)** (no pruning)
+    
+
+👉 Very efficient in best case
+
+---
+
+## ✔ Space Complexity
+
+- Same as Minimax: O(bd)
+    
+
+---
+
+# 11. Advantages of Alpha–Beta Pruning
+
+🔥 Important exam points
+
+- Reduces number of nodes evaluated
+    
+- Faster than Minimax
+    
+- Gives same optimal result
+    
+- Improves efficiency significantly
+    
+- Useful in real-time games
+    
+
+---
+
+# 12. Disadvantages
+
+- Depends on move ordering
+    
+- Worst case same as Minimax
+    
+- Still exponential in nature
+    
+- Complex implementation in large trees
+    
+
+---
+
+# 13. Alpha–Beta vs Minimax (VERY IMPORTANT)
+
+|Feature|Minimax|Alpha–Beta|
+|---|---|---|
+|Nodes explored|All|Fewer (pruned)|
+|Speed|Slow|Faster|
+|Result|Optimal|Optimal|
+|Efficiency|Low|High|
+|Technique|Basic|Optimized|
+
+---
+
+# 14. Applications
+
+- Chess AI
+    
+- Tic-Tac-Toe
+    
+- Checkers
+    
+- Game playing programs
+    
+- Decision making in competitive environments
+    
+
+---
+
+# 15. Short Note (Exam Ready)
+
+Alpha–Beta pruning is an optimization technique of Minimax algorithm used in game playing. It eliminates branches that do not affect final decision using α and β values. If α ≥ β, the branch is pruned. It reduces computation and improves efficiency while giving the same optimal result as Minimax.
+
+---
+
+# 16. Exam Probability
+
+- Definition → ⭐⭐⭐⭐⭐
+    
+- Alpha & Beta explanation → ⭐⭐⭐⭐⭐
+    
+- Algorithm steps → ⭐⭐⭐⭐⭐
+    
+- Pruning condition → ⭐⭐⭐⭐⭐
+    
+- Minimax comparison → ⭐⭐⭐⭐⭐
+    
+
+---
+
+# Next Topic (VERY IMPORTANT 🔥)
+
+👉 **Minimax Algorithm (core game playing question)**
+
+Say **next** 👍
