@@ -397,3 +397,344 @@ Main methods:
 ---
 
 
+# Uninformed Search Strategies (Blind Search)
+
+## 👉 Breadth First Search (BFS) & Depth First Search (DFS)
+
+🔥 **Exam Importance: VERY HIGH (Most expected long question)**
+
+Uninformed search means the algorithm has **no extra knowledge (heuristics)** about the goal. It only uses:
+
+- Initial state
+    
+- Goal test
+    
+- Successor function
+    
+
+So it explores the state space **blindly**.
+
+---
+
+# 1. Breadth First Search (BFS)
+
+🔥 **VERY IMPORTANT (10 marks question favourite)**
+
+## ✔ Definition
+
+- BFS is a search strategy in which the algorithm explores the **state space level by level**.
+    
+- It expands all nodes at the current depth before moving to the next depth level.
+    
+
+---
+
+## ✔ Key Idea
+
+- “Explore all nearest nodes first, then move deeper”
+    
+- Works like **spreading in waves**
+    
+
+---
+
+## ✔ Data Structure Used
+
+- **Queue (FIFO – First In First Out)**
+    
+
+---
+
+## ✔ Working Steps (Algorithm Style)
+
+- Start with the initial node and insert it into the queue
+    
+- Remove the front node from the queue
+    
+- Check whether it is the goal state
+    
+- If yes → stop (solution found)
+    
+- If not → expand the node (generate all child nodes)
+    
+- Add all child nodes to the back of the queue
+    
+- Repeat until goal is found or queue becomes empty
+    
+
+---
+
+## ✔ Example Tree
+
+```id="p9q6s3"
+        A
+      /   \
+     B     C
+    / \   / \
+   D   E F   G
+```
+
+### BFS Traversal Order:
+
+- A
+    
+- B, C
+    
+- D, E, F, G
+    
+
+👉 Final order: **A → B → C → D → E → F → G**
+
+---
+
+## ✔ Properties of BFS
+
+### 1. Completeness
+
+- BFS is **complete**
+    
+- It will always find a solution if one exists
+    
+
+---
+
+### 2. Optimality
+
+- BFS is **optimal** if all step costs are equal
+    
+- It finds the **shortest path (minimum number of steps)**
+    
+
+---
+
+### 3. Time Complexity
+
+- **O(b^d)**  
+    Where:
+    
+- b = branching factor (children per node)
+    
+- d = depth of solution
+    
+
+👉 Expands many nodes → can be slow
+
+---
+
+### 4. Space Complexity
+
+- **O(b^d)**  
+    👉 Stores all nodes at a level → very memory expensive
+    
+
+---
+
+## ✔ Advantages of BFS
+
+- Guarantees shortest path solution
+    
+- Always finds solution if it exists
+    
+- Simple and easy to implement
+    
+
+---
+
+## ✔ Disadvantages of BFS
+
+- Very high memory usage
+    
+- Slow for large search spaces
+    
+- Not suitable for deep solutions
+    
+
+---
+
+## ✔ When to Use BFS
+
+- When solution is **near the root**
+    
+- When **shortest path is required**
+    
+- When state space is small
+    
+
+---
+
+# 2. Depth First Search (DFS)
+
+🔥 **VERY IMPORTANT (frequently asked)**
+
+---
+
+## ✔ Definition
+
+- DFS is a search strategy where the algorithm explores the **deepest path first before backtracking**.
+    
+- It goes deep into one branch until it cannot proceed further.
+    
+
+---
+
+## ✔ Key Idea
+
+- “Go as deep as possible, then come back”
+    
+- Works like exploring one full path first
+    
+
+---
+
+## ✔ Data Structure Used
+
+- **Stack (LIFO – Last In First Out)**  
+    OR
+    
+- Recursion (function call stack)
+    
+
+---
+
+## ✔ Working Steps (Algorithm Style)
+
+- Start with the initial node
+    
+- Visit the node and mark it
+    
+- Expand one child node
+    
+- Go deeper into that child
+    
+- Continue until no further node exists
+    
+- If goal not found → backtrack
+    
+- Explore next unvisited path
+    
+- Repeat until goal is found
+    
+
+---
+
+## ✔ Example Tree
+
+```id="7h3m0q"
+        A
+      /   \
+     B     C
+    / \   / \
+   D   E F   G
+```
+
+### DFS Traversal Order (one possible order):
+
+- A
+    
+- B
+    
+- D
+    
+- E
+    
+- C
+    
+- F
+    
+- G
+    
+
+👉 Final order: **A → B → D → E → C → F → G**
+
+_(Order may change depending on implementation)_
+
+---
+
+## ✔ Properties of DFS
+
+### 1. Completeness
+
+- DFS is **not complete**
+    
+- May get stuck in infinite depth
+    
+
+---
+
+### 2. Optimality
+
+- DFS is **not optimal**
+    
+- It does not guarantee shortest path
+    
+
+---
+
+### 3. Time Complexity
+
+- **O(b^m)**  
+    Where:
+    
+- m = maximum depth of search space
+    
+
+---
+
+### 4. Space Complexity
+
+- **O(bm)**  
+    👉 Very memory efficient compared to BFS
+    
+
+---
+
+## ✔ Advantages of DFS
+
+- Requires very little memory
+    
+- Simple implementation
+    
+- Can reach deep solutions quickly
+    
+
+---
+
+## ✔ Disadvantages of DFS
+
+- May go in wrong direction
+    
+- Can get stuck in infinite loop
+    
+- Does not guarantee shortest path
+    
+
+---
+
+## ✔ When to Use DFS
+
+- When memory is limited
+    
+- When solution is deep in the tree
+    
+- When approximate solution is acceptable
+    
+
+---
+
+# 3. BFS vs DFS (VERY IMPORTANT EXAM TABLE)
+
+|Feature|BFS|DFS|
+|---|---|---|
+|Approach|Level by level|Depth wise|
+|Data structure|Queue|Stack|
+|Memory usage|High|Low|
+|Completeness|Yes|No|
+|Optimality|Yes (if equal cost)|No|
+|Speed|Slower|Faster (sometimes)|
+
+---
+
+
+
+---
+
