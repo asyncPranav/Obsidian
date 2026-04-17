@@ -862,7 +862,541 @@ Uninformed search explores the state space without any additional information ab
 
 ---
 
-If you want next:  
-👉 **Heuristic Search (Hill Climbing, A*, AO*) – VERY IMPORTANT UNIT 2 TOPIC**
+# Informed Search (Heuristic Search)
 
-Just say **next** 👍
+🔥 **Exam Importance: VERY HIGH (Almost guaranteed long question in Unit-2)**
+
+Informed search is the **smarter version of search algorithms** in AI.
+
+---
+
+# 1. What is Informed Search?
+
+Informed search is a search strategy in which the algorithm uses **extra knowledge about the problem (called heuristic knowledge)** to find the goal faster.
+
+This extra knowledge helps AI to decide:
+
+- which path is better
+    
+- which node should be expanded first
+    
+
+---
+
+## ✔ Exam Definition:
+
+**Informed search is a search strategy that uses heuristic function (h(n)) to estimate the cost from current state to goal state and guides the search efficiently.**
+
+---
+
+# 2. Key Idea of Informed Search
+
+- Instead of exploring blindly
+    
+- AI uses “intelligence” (heuristics)
+    
+- It selects the **most promising path first**
+    
+
+👉 So search becomes:  
+**Goal-directed instead of random exploration**
+
+---
+
+# 3. Heuristic Function (VERY IMPORTANT)
+
+🔥 Must write in exam
+
+Heuristic function is written as:
+
+**h(n)**
+
+It gives:
+
+- Estimated cost from node n to goal
+    
+
+---
+
+## ✔ Meaning:
+
+- Low h(n) → closer to goal
+    
+- High h(n) → far from goal
+    
+
+---
+
+## ✔ Example:
+
+If you are in city A and want to reach city D:
+
+- A → D (100 km) → h(n) = 100
+    
+- B → D (50 km) → h(n) = 50
+    
+
+So B is better choice.
+
+---
+
+# 4. Components of Informed Search
+
+Important for theory answer
+
+### 1. Initial State
+
+Starting node
+
+### 2. Goal State
+
+Target node
+
+### 3. Heuristic Function (h(n))
+
+Estimated cost to goal
+
+### 4. Path Cost (g(n))
+
+Actual cost from start to node
+
+### 5. Evaluation Function
+
+Used in A*:
+
+👉 **f(n) = g(n) + h(n)**
+
+---
+
+# 5. How Informed Search Works
+
+Step-by-step idea:
+
+- Start from initial node
+    
+- Calculate heuristic value for all nodes
+    
+- Choose node with best (lowest) value
+    
+- Expand that node
+    
+- Repeat until goal is found
+    
+
+---
+
+# 6. Advantages of Informed Search
+
+🔥 Important points for exam
+
+- Faster than uninformed search
+    
+- Explores fewer nodes
+    
+- More efficient
+    
+- Uses intelligent decision making
+    
+- Suitable for large problems
+    
+
+---
+
+# 7. Disadvantages of Informed Search
+
+- Requires good heuristic function
+    
+- If heuristic is wrong → wrong result
+    
+- Designing heuristic is difficult
+    
+- Can be expensive in complex systems
+    
+
+---
+
+# 8. Types of Informed Search Strategies
+
+🔥 VERY IMPORTANT (UNIT-2 core topic)
+
+### 1. Greedy Best First Search
+
+- Uses only h(n)
+    
+- Chooses node closest to goal
+    
+
+---
+
+### 2. A* Search
+
+- Uses both:
+    
+    - g(n) → cost so far
+        
+    - h(n) → estimated cost
+        
+
+👉 f(n) = g(n) + h(n)
+
+Most important algorithm in AI
+
+---
+
+### 3. Hill Climbing
+
+- Moves step by step toward better solution
+    
+- Local search method
+    
+
+---
+
+### 4. AO* Algorithm
+
+- Used for AND-OR graphs
+    
+- Solves complex problems by decomposition
+    
+
+---
+
+# 9. Example of Informed Search
+
+Suppose AI is solving maze problem:
+
+Without heuristic:
+
+- tries all paths randomly (slow)
+    
+
+With heuristic:
+
+- always moves toward exit direction (fast)
+    
+
+---
+
+# 10. Informed vs Uninformed (Quick Link)
+
+|Feature|Informed Search|Uninformed Search|
+|---|---|---|
+|Knowledge|Uses heuristic|No knowledge|
+|Speed|Fast|Slow|
+|Efficiency|High|Low|
+|Intelligence|Yes|No|
+
+---
+
+# 11. Short Note (Exam Ready)
+
+Informed search is a search technique in which heuristic information is used to estimate the cost from current node to goal node. It improves efficiency by expanding only promising nodes. Common informed search methods are Greedy search, A*, Hill climbing and AO*.
+
+---
+
+# 12. Exam Probability
+
+- Informed search definition → ⭐⭐⭐⭐⭐
+    
+- Heuristic function → ⭐⭐⭐⭐⭐
+    
+- A* algorithm → ⭐⭐⭐⭐⭐
+    
+- Comparison questions → ⭐⭐⭐⭐⭐
+    
+- Types → ⭐⭐⭐⭐
+    
+
+---
+
+# Hill Climbing Algorithm (Heuristic Search)
+
+🔥 **Exam Importance: VERY HIGH (Most asked 10 marks question in Unit-2)**
+
+Hill Climbing is one of the **most important heuristic search techniques** in AI.
+
+---
+
+# 1. What is Hill Climbing?
+
+Hill Climbing is a **heuristic search algorithm** used to find the **best solution by continuously improving the current state**.
+
+It works like:  
+👉 “Start from a solution and keep improving step by step until no better option is available.”
+
+---
+
+## ✔ Exam Definition:
+
+**Hill Climbing is a local search algorithm in which the next state is chosen based on the best heuristic value among neighboring states, and the process continues until a goal or optimal state is reached.**
+
+---
+
+# 2. Key Idea of Hill Climbing
+
+- Start with an initial solution
+    
+- Check neighboring states
+    
+- Move to the best neighbor
+    
+- Repeat until no better state exists
+    
+
+👉 It always tries to go “uphill” toward better solution
+
+---
+
+# 3. Types of Hill Climbing
+
+🔥 Very important for exam
+
+## 1. Simple Hill Climbing
+
+- Checks one neighbor at a time
+    
+- If better → move
+    
+- If not → stop or continue checking
+    
+
+---
+
+## 2. Steepest Ascent Hill Climbing
+
+- Checks **all neighbors**
+    
+- Chooses the best among them
+    
+- More accurate than simple version
+    
+
+---
+
+## 3. Stochastic Hill Climbing
+
+- Randomly selects a better neighbor
+    
+- Does not check all states
+    
+- Faster but less precise
+    
+
+---
+
+# 4. Working of Hill Climbing (Step-by-step)
+
+- Start with initial state
+    
+- Evaluate current state using heuristic function
+    
+- Generate all possible neighboring states
+    
+- Compare their values
+    
+- Select the best neighbor
+    
+- Move to that state
+    
+- Repeat process
+    
+- Stop when no better neighbor exists
+    
+
+---
+
+# 5. Example Idea (Easy Understanding)
+
+Suppose AI is trying to find **highest peak in mountain area**
+
+- Start at random position
+    
+- Move upward step by step
+    
+- Keep climbing higher
+    
+- Stop when no higher path exists
+    
+
+👉 That is why it is called “Hill Climbing”
+
+---
+
+# 6. State Space Diagram (Conceptual)
+
+```
+        50
+       /  \
+     40    60
+    / \    / \
+   30 45  55  70  ← Goal (best state)
+```
+
+AI moves:  
+40 → 45 → 55 → 70 (best)
+
+---
+
+# 7. Evaluation Function
+
+Hill Climbing uses heuristic:
+
+👉 **h(n)** = value of current state
+
+Goal:
+
+- maximize or minimize h(n)
+    
+
+---
+
+# 8. Properties of Hill Climbing
+
+### ✔ Completeness
+
+❌ Not complete  
+(may not find solution)
+
+---
+
+### ✔ Optimality
+
+❌ Not optimal  
+(may stop at local best)
+
+---
+
+### ✔ Time Complexity
+
+✔ Fast in practice  
+Depends on state space
+
+---
+
+### ✔ Space Complexity
+
+✔ Very low  
+Only current state stored
+
+---
+
+# 9. Advantages of Hill Climbing
+
+🔥 Important for exam
+
+- Simple algorithm
+    
+- Requires very less memory
+    
+- Works well for optimization problems
+    
+- Fast compared to BFS/DFS
+    
+- Useful in large search spaces
+    
+
+---
+
+# 10. Disadvantages of Hill Climbing
+
+🔥 VERY IMPORTANT (often asked)
+
+### 1. Local Maxima Problem
+
+- Gets stuck in local best solution
+    
+- Not global best
+    
+
+---
+
+### 2. Plateau Problem
+
+- Flat area with same value
+    
+- No direction to move
+    
+
+---
+
+### 3. Ridge Problem
+
+- Difficult path like narrow ridge
+    
+- Hard to find correct direction
+    
+
+---
+
+### 4. No Backtracking
+
+- Once moved, cannot go back
+    
+- May miss better solution
+    
+
+---
+
+# 11. Real Life Example
+
+### Image Recognition / Optimization:
+
+- AI improves model step by step
+    
+- Stops when no improvement found
+    
+
+### Route Optimization:
+
+- AI improves path gradually
+    
+- Stops when best local route found
+    
+
+---
+
+# 12. Hill Climbing Algorithm (Exam Steps)
+
+1. Start with initial state
+    
+2. Evaluate current state
+    
+3. Generate neighbors
+    
+4. Select best neighbor
+    
+5. If better → move
+    
+6. Repeat
+    
+7. Stop when no improvement
+    
+
+---
+
+# 13. Hill Climbing vs Other Search
+
+|Feature|Hill Climbing|BFS|
+|---|---|---|
+|Type|Heuristic|Uninformed|
+|Memory|Low|High|
+|Optimal|No|Yes|
+|Strategy|Local improvement|Level search|
+
+---
+
+# 14. Short Note (Exam Ready)
+
+Hill climbing is a heuristic search technique used for optimization problems. It starts with an initial state and moves to the best neighboring state based on heuristic value. The process continues until no better neighbor exists. However, it may get stuck in local maxima, plateau or ridge problems.
+
+---
+
+
+
+---
+
+# Next Topic (VERY IMPORTANT 🔥)
+
+👉 __A_ Search Algorithm (most important in Unit-2)_*
+
+Say **next** and I’ll explain it in full exam format.
