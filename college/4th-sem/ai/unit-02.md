@@ -2740,17 +2740,307 @@ An evaluation function is a heuristic function used in game playing to estimate 
 
 ---
 
-# Next Topic (VERY IMPORTANT 🔥)
+# Problem Reduction (AND–OR Problem Solving)
 
-👉 **Problem Reduction OR Adversarial Search final revision (if needed)**
+🔥 **Exam Importance: VERY HIGH (Important 10-mark question in Unit–2)**
 
-Tell me if you want:
+Problem reduction is a **technique used in AI to solve complex problems by breaking them into smaller sub-problems**.
 
-- Unit 2 full revision sheet
+It is closely related to **AO*** and **AND–OR graphs**.
+
+---
+
+# 1. What is Problem Reduction?
+
+Problem reduction means:  
+👉 Breaking a large problem into **smaller sub-problems**, solving them individually, and combining their solutions to solve the main problem.
+
+---
+
+## ✔ Exam Definition:
+
+**Problem reduction is a problem-solving technique in AI where a complex problem is decomposed into simpler sub-problems, and solutions of sub-problems are combined to solve the original problem.**
+
+---
+
+# 2. Key Idea of Problem Reduction
+
+- Large problem → divided into smaller parts
     
-- Important questions (very likely exam)
+- Sub-problems → solved independently
     
-- MCQ set for practice
+- Combine results → final solution
     
 
-Just say 👍
+👉 This reduces complexity of solving big problems.
+
+---
+
+# 3. AND–OR Graph Representation (VERY IMPORTANT)
+
+Problem reduction is represented using **AND–OR graphs**.
+
+---
+
+## ✔ OR Node (Choice)
+
+- Represents alternative solutions
+    
+- Only ONE path is required
+    
+
+👉 Example:  
+To reach goal:  
+Path A OR Path B
+
+---
+
+## ✔ AND Node (Decomposition)
+
+- Represents problem splitting
+    
+- ALL sub-problems must be solved
+    
+
+👉 Example:  
+To complete project:  
+Task 1 AND Task 2 AND Task 3
+
+---
+
+# 4. Example of Problem Reduction
+
+### Example: Solving a big problem
+
+Goal: “Write a software system”
+
+It can be reduced into:
+
+- Design module  
+    AND
+    
+- Coding module  
+    AND
+    
+- Testing module
+    
+
+👉 All must be completed → AND relation
+
+---
+
+Or alternative approach:
+
+- Use Tool A  
+    OR
+    
+- Use Tool B
+    
+
+👉 Only one is needed → OR relation
+
+---
+
+# 5. Working of Problem Reduction
+
+Step-by-step:
+
+- Start with main problem
+    
+- Check if it is solvable directly
+    
+- If not → break into sub-problems
+    
+- Represent using AND/OR structure
+    
+- Solve sub-problems recursively
+    
+- Combine solutions
+    
+- Get final solution
+    
+
+---
+
+# 6. Problem Reduction Tree
+
+```id="pr1a2b"
+            Goal
+           /    \
+        OR        AND
+       /           /  \
+   Method A     Sub1  Sub2
+```
+
+- OR → choose best method
+    
+- AND → solve all subparts
+    
+
+---
+
+# 7. Relation with AO* Algorithm (VERY IMPORTANT)
+
+Problem reduction is solved using:
+
+👉 **AO* Algorithm**
+
+Because AO*:
+
+- Works on AND–OR graphs
+    
+- Finds optimal solution path
+    
+- Handles decomposition problems
+    
+
+---
+
+# 8. Properties of Problem Reduction
+
+## ✔ Decomposability
+
+- Problem can be divided into smaller parts
+    
+
+---
+
+## ✔ Hierarchical Structure
+
+- Problems are structured in levels
+    
+
+---
+
+## ✔ Reusability
+
+- Sub-problems can be reused
+    
+
+---
+
+## ✔ Efficiency
+
+- Reduces complexity of large problems
+    
+
+---
+
+# 9. Advantages
+
+🔥 Important exam points
+
+- Simplifies complex problems
+    
+- Makes large problems manageable
+    
+- Encourages modular solving
+    
+- Used in planning systems
+    
+- Improves efficiency of search
+    
+
+---
+
+# 10. Disadvantages
+
+- Not all problems can be decomposed
+    
+- Combining solutions may be complex
+    
+- Requires proper representation
+    
+- May increase overhead in graph construction
+    
+
+---
+
+# 11. Applications of Problem Reduction
+
+- AI planning systems
+    
+- Expert systems
+    
+- Software development planning
+    
+- Game playing strategies
+    
+- Robotics task planning
+    
+
+---
+
+# 12. Simple Real-Life Example
+
+### Making tea:
+
+Goal: Make tea
+
+Break into sub-problems:
+
+- Boil water
+    
+- Add tea leaves
+    
+- Add milk
+    
+- Serve tea
+    
+
+👉 All steps needed → AND structure
+
+---
+
+# 13. OR Example
+
+Goal: Travel to city
+
+- Bus route OR Train route OR Flight route
+    
+
+👉 Only one is required
+
+---
+
+# 14. Short Note (Exam Ready)
+
+Problem reduction is a technique in AI where a complex problem is broken into smaller sub-problems. These sub-problems are represented using AND-OR graphs. AND nodes require all sub-problems to be solved, while OR nodes represent alternative choices. The technique is used in AO* algorithm for efficient problem solving.
+
+---
+
+# 15. Exam Probability
+
+- Definition → ⭐⭐⭐⭐⭐
+    
+- AND–OR explanation → ⭐⭐⭐⭐⭐
+    
+- Diagram → ⭐⭐⭐⭐⭐
+    
+- AO* link → ⭐⭐⭐⭐⭐
+    
+- Examples → ⭐⭐⭐⭐⭐
+    
+
+---
+
+# 🎯 Unit-2 Final Tip (VERY IMPORTANT)
+
+If exam is tomorrow, revise only:
+
+- BFS + DFS
+    
+- A*
+    
+- Minimax
+    
+- Alpha-Beta pruning
+    
+- AO*
+    
+- Problem Reduction
+    
+
+👉 These cover almost entire paper.
+
+---
