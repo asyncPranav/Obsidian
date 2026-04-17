@@ -335,3 +335,65 @@ I’ll send **next part now**.
 
 
 
+# Uninformed (Uniform) Search Strategies
+
+🔥 **Exam Importance: VERY HIGH (Almost guaranteed question)**
+
+In many syllabi, “Uniform search” usually means **Uninformed / Blind Search**.  
+It includes methods where AI has **no extra knowledge (heuristics)** about the goal.
+
+So AI only uses:
+
+- Initial state
+- Goal test
+- Successor function
+- Path cost (sometimes)
+
+---
+
+# 1. What is Uninformed Search?
+
+Uninformed search is a type of search in which the algorithm **does not know anything about the goal direction** except the problem definition.
+
+It does NOT use:
+
+- Heuristic values
+- Guessing
+- Experience
+
+It only explores the search space blindly.
+
+### Exam Definition:
+
+**Uninformed search is a search strategy that explores the state space without any domain knowledge or heuristic information about the goal.**
+
+---
+
+# 2. Characteristics of Uninformed Search
+
+🔥 Important for theory question
+
+- No extra knowledge about goal direction
+- Uses only problem definition
+- Explores all possible paths
+- Can be slow for large problems
+- May explore unnecessary nodes
+- Guaranteed to find solution in some methods (like BFS)
+
+---
+
+# 3. Types of Uninformed Search (VERY IMPORTANT)
+
+Main methods:
+
+1. Breadth First Search (BFS)
+2. Depth First Search (DFS)
+3. Uniform Cost Search (UCS)
+4. Depth Limited Search (DLS)
+5. Iterative Deepening DFS (IDDFS)
+
+(Your syllabus mainly focuses on BFS and DFS, but UCS is often asked extra)
+
+---
+
+
