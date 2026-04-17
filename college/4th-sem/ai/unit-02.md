@@ -1919,23 +1919,4 @@ AO* is a heuristic search algorithm used for solving AND-OR graphs. In OR nodes,
 
 ---
 
-# 15. Exam Probability
-
-- Definition → ⭐⭐⭐⭐⭐
-    
-- AND-OR concept → ⭐⭐⭐⭐⭐
-    
-- Algorithm steps → ⭐⭐⭐⭐⭐
-    
-- AO* vs A* → ⭐⭐⭐⭐⭐
-    
-- Cost rules → ⭐⭐⭐⭐⭐
-    
-
----
-
-
-
-
----
 
