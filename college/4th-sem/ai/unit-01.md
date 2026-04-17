@@ -279,3 +279,257 @@ AI winter → ⭐⭐⭐⭐
 Timeline → ⭐⭐⭐⭐
 
 ---
+
+
+
+# UNIT–1 Topic 4: Intelligent Agents
+
+🔥 **Exam Importance: VERY HIGH (Most Important Topic)**
+
+- Long answer (10 marks)
+    
+- Definition question
+    
+- Types of agents
+    
+- Agent structure
+    
+- PEAS often asked
+    
+- Agent vs Environment
+    
+
+This topic is **guaranteed from exam point of view**.
+
+---
+
+# 1. What is an Agent?
+
+An **Agent** is anything that **perceives environment using sensors and acts upon environment using actuators.**
+
+In simple words:  
+Agent = **Sense + Think + Act**
+
+### Exam Definition
+
+**An intelligent agent is an entity that perceives its environment through sensors and acts upon that environment using actuators to achieve a goal.**
+
+---
+
+# 2. Examples of Agents
+
+Very important — write 3–4 in exam
+
+Robot  
+Self driving car  
+Human  
+Thermostat  
+Chatbot  
+Vacuum cleaner robot
+
+---
+
+# 3. Structure of Agent
+
+Agent works in three steps:
+
+Environment → Sensors → Agent → Actuators → Environment
+
+Explanation:
+
+Sensors → take input  
+Agent → decides action  
+Actuators → perform action
+
+Example: Self Driving Car
+
+Sensors → camera, radar  
+Agent → AI system  
+Actuators → steering, brakes
+
+---
+
+# 4. Agent Function
+
+Agent function tells **what action to take** for every percept.
+
+Agent Function:  
+Percept → Action
+
+Example:  
+If obstacle detected → stop car
+
+---
+
+# 5. Agent Program
+
+Agent program is **actual implementation** running on machine.
+
+Agent = Architecture + Program
+
+Architecture:  
+Hardware
+
+Program:  
+Software logic
+
+Example:  
+Robot body → architecture  
+Robot code → program
+
+---
+
+# 6. Intelligent Agent
+
+An **Intelligent Agent** is one that:
+
+- Makes correct decision
+    
+- Achieves goal
+    
+- Acts rationally
+    
+- Uses knowledge
+    
+
+In simple words:  
+**Intelligent agent = smart decision making agent**
+
+---
+
+# 7. Types of Agents (Very Very Important)
+
+Most asked question
+
+### 1. Simple Reflex Agent
+
+- Works on current percept only
+    
+- Uses condition-action rule
+    
+- No memory
+    
+
+Example:  
+If temperature high → turn on fan
+
+---
+
+### 2. Model Based Reflex Agent
+
+- Uses internal memory
+    
+- Knows past state
+    
+- Maintains world model
+    
+
+Example:  
+Robot remembering map
+
+---
+
+### 3. Goal Based Agent
+
+- Has goal
+    
+- Chooses action to reach goal
+    
+- Uses search
+    
+
+Example:  
+GPS navigation
+
+---
+
+### 4. Utility Based Agent
+
+- Chooses best solution
+    
+- Uses utility value
+    
+- Handles multiple choices
+    
+
+Example:  
+Route with shortest time
+
+---
+
+### 5. Learning Agent
+
+- Learns from experience
+    
+- Improves performance
+    
+- Most advanced
+    
+
+Example:  
+Self driving car learning
+
+---
+
+# Types Summary Table
+
+|Agent Type|Feature|
+|---|---|
+|Simple reflex|current state only|
+|Model based|uses memory|
+|Goal based|has goal|
+|Utility based|best solution|
+|Learning agent|learns from experience|
+
+---
+
+# 8. Example of Intelligent Agent
+
+Vacuum Cleaner Agent
+
+Sensors → dirt sensor  
+Agent → decision logic  
+Actuator → move, suck dirt
+
+If dirt → clean  
+If clean → move
+
+---
+
+# 9. Diagram (Write in Exam)
+
+Environment → Sensors → Agent → Actuators → Environment
+
+This diagram is very important
+
+---
+
+# 10. Short Note (Exam Ready)
+
+An intelligent agent is an entity that perceives environment using sensors and acts using actuators. Agents take percept as input and produce action as output. Types of agents include simple reflex agent, model based agent, goal based agent, utility based agent and learning agent.
+
+---
+
+# What Examiner Asks
+
+Most common questions:
+
+Define intelligent agent  
+Types of agents  
+Agent structure  
+Agent function  
+Agent vs environment  
+Learning agent
+
+---
+
+# Exam Probability
+
+Intelligent agent definition → ⭐⭐⭐⭐⭐  
+Types of agents → ⭐⭐⭐⭐⭐  
+Structure of agent → ⭐⭐⭐⭐⭐  
+Agent function → ⭐⭐⭐⭐  
+Examples → ⭐⭐⭐⭐
+
+---
+
