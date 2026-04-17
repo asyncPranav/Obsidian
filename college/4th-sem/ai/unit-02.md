@@ -2476,8 +2476,281 @@ Alpha–Beta pruning is an optimization technique of Minimax algorithm used in g
 
 ---
 
+# Evaluation Function (Heuristic Evaluation Function)
+
+🔥 **Exam Importance: VERY HIGH (Often asked with Minimax / Game Playing)**
+
+Evaluation function is a key concept in **game playing (adversarial search)**, especially when full search of game tree is not possible.
+
+---
+
+# 1. What is Evaluation Function?
+
+An evaluation function is a function that **assigns a numerical value to a game state** to estimate how good that state is for a player.
+
+👉 It is used when we cannot go till the final (terminal) state due to large search space.
+
+---
+
+## ✔ Exam Definition:
+
+**An evaluation function is a heuristic function that estimates the utility (goodness) of a game state when the complete search of the game tree is not possible.**
+
+---
+
+# 2. Why Evaluation Function is Needed?
+
+In real games like chess:
+
+- Game tree is extremely large
+    
+- Impossible to reach final winning state
+    
+- So AI stops at a certain depth
+    
+
+👉 Then evaluation function is used to judge the position.
+
+---
+
+# 3. Key Idea
+
+- Instead of exact result
+    
+- AI estimates result
+    
+- Gives a score to each state
+    
+- Higher score = better position
+    
+
+---
+
+# 4. Evaluation Function in Minimax
+
+In **depth-limited Minimax**:
+
+- Terminal nodes are replaced with evaluation function values
+    
+- AI uses these values to decide best move
+    
+
+👉 Formula idea:
+
+- Utility replaced by **Eval(n)**
+    
+
+---
+
+# 5. General Form
+
+Evaluation function:
+
+👉 **f(n) = w1 × feature1 + w2 × feature2 + ... + wn × featuren**
+
+Where:
+
+- features = game properties
+    
+- weights = importance of each feature
+    
+
+---
+
+# 6. Example (Chess Evaluation Function)
+
+AI may consider:
+
+- Material advantage (pieces count)
+    
+- King safety
+    
+- Control of center
+    
+- Mobility of pieces
+    
+
+Example scoring:
+
+- Queen = +9
+    
+- Rook = +5
+    
+- Bishop/Knight = +3
+    
+- Pawn = +1
+    
+
+👉 Evaluation = total score difference
+
+---
+
+# 7. Properties of Good Evaluation Function
+
+🔥 Very important for exams
+
+A good evaluation function should:
+
+### 1. Accurate
+
+- Should correctly estimate position strength
+    
+
+### 2. Fast
+
+- Should be quick to compute
+    
+
+### 3. Discriminative
+
+- Should differentiate between good and bad states
+    
+
+### 4. Domain dependent
+
+- Should be designed for specific game
+    
+
+---
+
+# 8. Types of Evaluation Functions
+
+## 1. Static Evaluation Function
+
+- Used at non-terminal nodes
+    
+- Gives approximate value
+    
+- Used in depth-limited search
+    
+
+---
+
+## 2. Heuristic Evaluation Function
+
+- Based on experience and rules
+    
+- Not exact but useful estimate
+    
+
+---
+
+# 9. Role in Game Playing
+
+Evaluation function helps:
+
+- Choose best move
+    
+- Compare game states
+    
+- Replace full tree search
+    
+- Improve Minimax efficiency
+    
+
+---
+
+# 10. Example (Simple Game)
+
+Suppose:
+
+- State A = +10
+    
+- State B = +5
+    
+- State C = -3
+    
+
+👉 AI selects A (best score)
+
+---
+
+# 11. Evaluation Function in Depth-Limited Minimax
+
+Steps:
+
+- Go to fixed depth
+    
+- Apply evaluation function at leaf nodes
+    
+- Propagate values upward using Minimax
+    
+- Choose best move
+    
+
+---
+
+# 12. Advantages
+
+🔥 Important points
+
+- Reduces computation time
+    
+- Makes large games solvable
+    
+- Works without full tree expansion
+    
+- Enables real-time decision making
+    
+
+---
+
+# 13. Disadvantages
+
+- Not always accurate
+    
+- Depends on good feature selection
+    
+- May mislead decision if poorly designed
+    
+- Domain specific (not universal)
+    
+
+---
+
+# 14. Evaluation Function vs Utility Function
+
+|Feature|Evaluation Function|Utility Function|
+|---|---|---|
+|Usage|Non-terminal nodes|Terminal nodes|
+|Value|Estimated|Exact|
+|Accuracy|Approximate|Accurate|
+|Used in|Depth-limited search|Full search|
+
+---
+
+# 15. Short Note (Exam Ready)
+
+An evaluation function is a heuristic function used in game playing to estimate the value of a game state when complete search is not possible. It assigns a numerical score based on features like material, position, and mobility. It is mainly used in depth-limited minimax to select the best move efficiently.
+
+---
+
+# 16. Exam Probability
+
+- Definition → ⭐⭐⭐⭐⭐
+    
+- Need of evaluation function → ⭐⭐⭐⭐⭐
+    
+- Properties → ⭐⭐⭐⭐⭐
+    
+- Example (chess) → ⭐⭐⭐⭐⭐
+    
+- Minimax link → ⭐⭐⭐⭐⭐
+    
+
+---
+
 # Next Topic (VERY IMPORTANT 🔥)
 
-👉 **Minimax Algorithm (core game playing question)**
+👉 **Problem Reduction OR Adversarial Search final revision (if needed)**
 
-Say **next** 👍
+Tell me if you want:
+
+- Unit 2 full revision sheet
+    
+- Important questions (very likely exam)
+    
+- MCQ set for practice
+    
+
+Just say 👍
