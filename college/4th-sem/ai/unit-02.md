@@ -1395,8 +1395,3 @@ Hill climbing is a heuristic search technique used for optimization problems. It
 
 ---
 
-# Next Topic (VERY IMPORTANT 🔥)
-
-👉 __A_ Search Algorithm (most important in Unit-2)_*
-
-Say **next** and I’ll explain it in full exam format.
