@@ -738,3 +738,131 @@ _(Order may change depending on implementation)_
 
 ---
 
+
+# Difference Between Uninformed (Uniform) and Informed Search
+
+🔥 **Exam Importance: VERY HIGH (frequently asked 5–10 marks question)**
+
+This is one of the **most repeated comparison questions** in AI exams.
+
+---
+
+# 1. Uninformed Search (Blind Search)
+
+Uninformed search is a search strategy in which the algorithm **does not have any extra knowledge about the goal**.
+
+It only knows:
+
+- Initial state
+    
+- Goal test
+    
+- Possible actions
+    
+
+It explores the search space **blindly**.
+
+### Examples:
+
+- BFS (Breadth First Search)
+    
+- DFS (Depth First Search)
+    
+- Uniform Cost Search (UCS)
+    
+
+---
+
+# 2. Informed Search (Heuristic Search)
+
+Informed search is a strategy in which the algorithm **uses additional knowledge (heuristics)** to guide the search toward the goal.
+
+It tries to choose the **best possible path first**.
+
+### Examples:
+
+- A* Search
+    
+- Hill Climbing
+    
+- AO* Search
+    
+
+---
+
+# 3. Key Difference (Main Idea)
+
+- Uninformed search = “Search without knowledge”
+    
+- Informed search = “Search with knowledge (intelligence)”
+    
+
+---
+
+# 4. Difference Table (VERY IMPORTANT FOR EXAM)
+
+|Feature|Uninformed Search|Informed Search|
+|---|---|---|
+|Definition|Searches without extra knowledge|Uses heuristic knowledge to guide search|
+|Other name|Blind search|Heuristic search|
+|Knowledge used|No domain knowledge|Uses domain knowledge (heuristics)|
+|Goal direction|Not guided|Directed toward goal|
+|Efficiency|Less efficient|More efficient|
+|Speed|Slower|Faster|
+|Memory usage|Usually high|Optimized due to guidance|
+|Examples|BFS, DFS, UCS|A*, Hill Climbing, AO*|
+|Optimal solution|Sometimes (BFS/UCS)|Often optimal (A*)|
+|Decision making|Blind exploration|Intelligent decision making|
+
+---
+
+# 5. Simple Explanation (Easy to Remember)
+
+- Uninformed search = **explores all paths without thinking**
+    
+- Informed search = **uses intelligence to choose best path**
+    
+
+---
+
+# 6. Real-Life Example (Very Useful in Exams)
+
+### Finding shortest path in city:
+
+#### Uninformed Search:
+
+- Try every road randomly
+    
+- Might take long time
+    
+
+#### Informed Search:
+
+- Uses GPS + traffic + distance
+    
+- Directly chooses best route
+    
+
+---
+
+# 7. Conclusion (Write in Exam)
+
+Uninformed search explores the state space without any additional information about the goal, while informed search uses heuristics to guide the search process efficiently toward the goal. Therefore, informed search is more efficient and faster compared to uninformed search.
+
+---
+
+# Exam Probability
+
+- Difference question → ⭐⭐⭐⭐⭐ VERY HIGH
+    
+- BFS/DFS comparison → ⭐⭐⭐⭐⭐
+    
+- A* link questions → ⭐⭐⭐⭐
+    
+
+---
+
+If you want next:  
+👉 **Heuristic Search (Hill Climbing, A*, AO*) – VERY IMPORTANT UNIT 2 TOPIC**
+
+Just say **next** 👍
