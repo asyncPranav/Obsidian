@@ -1392,6 +1392,550 @@ Hill climbing is a heuristic search technique used for optimization problems. It
 ---
 
 
+# A* Search Algorithm
+
+🔥 **Exam Importance: VERY VERY HIGH (Top scoring + most asked algorithm in Unit–2)**
+
+A* is the **most important informed search algorithm** in AI exams.  
+Almost guaranteed question: __“Explain A_ algorithm with example”_*
+
+---
+
+# 1. What is A* Search?
+
+A* is an **informed (heuristic) search algorithm** used to find the **shortest and most optimal path** from a start node to a goal node.
+
+It combines:
+
+- Actual cost so far
+    
+- Estimated cost to goal
+    
+
+---
+
+## ✔ Exam Definition:
+
+__A_ search is a best-first search algorithm that uses both actual cost (g(n)) and heuristic cost (h(n)) to find the optimal solution efficiently._*
+
+---
+
+# 2. Key Idea of A*
+
+A* selects the node that looks **most promising overall**, not just cheapest so far.
+
+It uses:
+
+👉 **f(n) = g(n) + h(n)**
+
+Where:
+
+- g(n) = cost from start to current node
+    
+- h(n) = estimated cost from current node to goal
+    
+- f(n) = total estimated cost
+    
+
+---
+
+# 3. Meaning of Components
+
+### 1. g(n) – Actual Cost
+
+- Distance traveled from start node to current node
+    
+- Known cost
+    
+
+---
+
+### 2. h(n) – Heuristic Cost
+
+- Estimated cost from current node to goal
+    
+- Guess based on knowledge
+    
+
+---
+
+### 3. f(n) – Total Cost
+
+- Total estimated cost
+    
+- Used for selection
+    
+
+---
+
+# 4. Working Principle of A*
+
+Step-by-step:
+
+- Start from initial node
+    
+- Calculate f(n) for all nodes
+    
+- Select node with lowest f(n)
+    
+- Expand that node
+    
+- Update costs of neighbors
+    
+- Repeat until goal is reached
+    
+
+---
+
+# 5. Simple Example Idea
+
+Suppose you are traveling:
+
+- g(n): distance already traveled
+    
+- h(n): estimated distance to destination
+    
+- f(n): total expected distance
+    
+
+AI chooses path with **lowest total cost**
+
+---
+
+# 6. A* Algorithm Steps (Exam Writing Format)
+
+1. Start with initial node
+    
+2. Add it to OPEN list
+    
+3. Keep CLOSED list empty
+    
+4. Repeat until goal found:
+    
+    - Select node with lowest f(n) from OPEN
+        
+    - Move it to CLOSED
+        
+    - Generate child nodes
+        
+    - Compute g(n), h(n), f(n)
+        
+    - Add/update nodes in OPEN
+        
+5. Stop when goal node is selected
+    
+
+---
+
+# 7. Data Structures Used
+
+- OPEN list → nodes to be explored
+    
+- CLOSED list → already explored nodes
+    
+
+---
+
+# 8. Example (Small Graph Concept)
+
+```id="k1s8d9"
+Start (S)
+   |
+   A (f=6)
+   |
+   B (f=4)
+   |
+Goal (G)
+```
+
+A* selects node with lowest f(n) at each step → reaches goal optimally.
+
+---
+
+# 9. Properties of A*
+
+## ✔ Completeness
+
+✔ Yes (if branching factor is finite)
+
+---
+
+## ✔ Optimality
+
+✔ Yes (if heuristic is admissible)
+
+---
+
+## ✔ Time Complexity
+
+- Exponential in worst case
+    
+- But better than BFS in practice
+    
+
+---
+
+## ✔ Space Complexity
+
+- High (stores all generated nodes)
+    
+
+---
+
+# 10. Condition for Optimal A*
+
+A* is optimal if heuristic is:
+
+### ✔ Admissible Heuristic
+
+- Never overestimates actual cost
+    
+- h(n) ≤ true cost
+    
+
+---
+
+# 11. Advantages of A*
+
+🔥 Important for exam
+
+- Finds optimal solution
+    
+- More efficient than BFS
+    
+- Uses intelligent guidance
+    
+- Reduces unnecessary search
+    
+- Widely used in real applications
+    
+
+---
+
+# 12. Disadvantages of A*
+
+- Requires good heuristic
+    
+- High memory usage
+    
+- Can be slow for large graphs
+    
+- Complex implementation
+    
+
+---
+
+# 13. A* vs Other Algorithms
+
+|Feature|A*|BFS|DFS|
+|---|---|---|---|
+|Type|Informed|Uninformed|Uninformed|
+|Optimal|Yes|Yes|No|
+|Uses heuristic|Yes|No|No|
+|Efficiency|High|Medium|Low|
+|Memory|High|High|Low|
+
+---
+
+# 14. Real Life Applications
+
+- GPS navigation systems
+    
+- Google Maps shortest path
+    
+- Robotics path planning
+    
+- Games (path finding in NPCs)
+    
+- Network routing
+    
+
+---
+
+# 15. Short Note (Exam Ready)
+
+A* is an informed search algorithm that uses both actual cost g(n) and heuristic cost h(n) to compute f(n) = g(n) + h(n). It selects the node with minimum f(n) and expands it. A* is complete and optimal if heuristic is admissible and is widely used in pathfinding problems.
+
+---
+
+# AO* Algorithm (AND–OR Search Algorithm)
+
+🔥 **Exam Importance: VERY HIGH (Often asked 10 marks, especially with A*)**
+
+AO* is a **heuristic search algorithm used for AND–OR graphs**, where the problem is solved by **breaking it into subproblems**.
+
+---
+
+# 1. What is AO* Algorithm?
+
+AO* (And-Or Star) is an **informed search algorithm** used to find the **optimal solution in AND-OR graphs** using heuristic information.
+
+It is an extension of A* but designed for **problem decomposition**.
+
+---
+
+## ✔ Exam Definition:
+
+__AO_ is a heuristic search algorithm used for solving problems represented by AND-OR graphs, where solution requires combining results of multiple subproblems._*
+
+---
+
+# 2. Key Idea of AO*
+
+- Some problems can be divided into subproblems
+    
+- All subproblems must be solved (AND case)
+    
+- OR case means choose one best option
+    
+- AO* finds **minimum cost solution graph**
+    
+
+---
+
+# 3. AND-OR Graph Concept (VERY IMPORTANT)
+
+## ✔ OR Node
+
+- Represents **choice**
+    
+- Only ONE path is needed
+    
+
+👉 Example:  
+Choose route A OR B
+
+---
+
+## ✔ AND Node
+
+- Represents **decomposition**
+    
+- ALL branches must be solved
+    
+
+👉 Example:  
+To complete project:  
+Task 1 AND Task 2 AND Task 3
+
+---
+
+# 4. Structure of AND-OR Graph
+
+```id="m7k2q1"
+        S
+      /   \
+     A     B
+   (AND)  (OR)
+   /  \     \
+  C    D     E
+```
+
+- OR → choose best path
+    
+- AND → must solve both children
+    
+
+---
+
+# 5. Working Principle of AO*
+
+AO* works like A*, but for AND-OR graphs.
+
+Step-by-step:
+
+- Start from initial node
+    
+- Assign heuristic values h(n)
+    
+- Expand most promising node
+    
+- For OR nodes → select minimum cost child
+    
+- For AND nodes → sum cost of all children
+    
+- Update cost of parent nodes
+    
+- Repeat until solution graph is found
+    
+
+---
+
+# 6. Cost Calculation in AO*
+
+## ✔ For OR nodes:
+
+👉 Cost = Minimum cost among children
+
+---
+
+## ✔ For AND nodes:
+
+👉 Cost = Sum of all children costs
+
+---
+
+# 7. Algorithm Steps (Exam Format)
+
+1. Start from initial node
+    
+2. Assign heuristic values to all nodes
+    
+3. Mark initial node as unsolved
+    
+4. Select most promising node
+    
+5. Expand node
+    
+6. Compute costs:
+    
+    - OR → minimum cost child
+        
+    - AND → sum of all children
+        
+7. Update parent node cost
+    
+8. Mark solved nodes
+    
+9. Repeat until root is solved
+    
+
+---
+
+# 8. Example Idea (Simple Understanding)
+
+Suppose goal is:
+
+### To build software system:
+
+- Option 1: Use tool A
+    
+- Option 2: Use modules B AND C AND D
+    
+
+AO* will:
+
+- Compare OR path
+    
+- Add AND path cost
+    
+- Choose minimum cost solution
+    
+
+---
+
+# 9. Properties of AO* Algorithm
+
+## ✔ Completeness
+
+✔ Yes (if finite graph)
+
+---
+
+## ✔ Optimality
+
+✔ Yes (if heuristic is admissible)
+
+---
+
+## ✔ Time Complexity
+
+- Exponential in worst case
+    
+- Better than brute force search
+    
+
+---
+
+## ✔ Space Complexity
+
+- High (stores graph structure)
+    
+
+---
+
+# 10. Advantages of AO*
+
+🔥 Important for exam
+
+- Solves complex decomposition problems
+    
+- Finds optimal solution graph
+    
+- Uses heuristic efficiently
+    
+- Better than brute force AND-OR search
+    
+- Useful in real AI planning problems
+    
+
+---
+
+# 11. Disadvantages of AO*
+
+- Complex algorithm
+    
+- Difficult to design heuristic
+    
+- High memory usage
+    
+- Not suitable for simple problems
+    
+- Implementation is harder than A*
+    
+
+---
+
+# 12. AO* vs A* (VERY IMPORTANT QUESTION)
+
+|Feature|AO*|A*|
+|---|---|---|
+|Graph type|AND-OR graph|Simple graph|
+|Problem type|Decomposition problems|Path finding|
+|Cost calculation|AND = sum, OR = min|g(n)+h(n)|
+|Usage|Complex AI problems|Shortest path problems|
+|Complexity|Higher|Lower|
+
+---
+
+# 13. Applications of AO*
+
+- Planning systems
+    
+- Game problem decomposition
+    
+- Expert systems
+    
+- Decision-making problems
+    
+- Robotics task planning
+    
+
+---
+
+# 14. Short Note (Exam Ready)
+
+AO* is a heuristic search algorithm used for solving AND-OR graphs. In OR nodes, the minimum cost path is selected, while in AND nodes all subproblems must be solved and their costs are added. AO* finds the optimal solution graph using heuristic guidance.
+
+---
+
+# 15. Exam Probability
+
+- Definition → ⭐⭐⭐⭐⭐
+    
+- AND-OR concept → ⭐⭐⭐⭐⭐
+    
+- Algorithm steps → ⭐⭐⭐⭐⭐
+    
+- AO* vs A* → ⭐⭐⭐⭐⭐
+    
+- Cost rules → ⭐⭐⭐⭐⭐
+    
+
+---
+
+
+
 
 ---
 
