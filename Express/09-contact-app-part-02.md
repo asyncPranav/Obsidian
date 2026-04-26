@@ -615,10 +615,3 @@ You DO NOT need:
 
 ---
 
-If you want, I can next explain:
-
-🔥 how model name becomes collection name internally  
-🔥 or how MVC structure should be properly organized in your contact app  
-🔥 or fix your project into production-level structure
-
-Just tell 👍
