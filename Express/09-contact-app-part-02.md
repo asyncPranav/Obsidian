@@ -2248,3 +2248,8 @@ You now understand:
 
 
 ---
+
+
+# **📲 DELETE CONTACT**
+
+
