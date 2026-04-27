@@ -1747,13 +1747,4 @@ Add contact = form submit → req.body → create() → MongoDB → redirect
 
 ---
 
-Next I can explain:
-
-- update contact (important)
-    
-- delete contact
-    
-- full CRUD flow
-    
-
-Just tell.
+# **UPDATE CONT**
