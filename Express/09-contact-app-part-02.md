@@ -615,4 +615,617 @@ You DO NOT need:
 
 ---
 
-# **PART-02 ()**
+# **PART-02 (worked on fetching db and show-contact)**
+
+    
+
+---
+
+# 🧠 What Part-02 Actually Does
+
+Now your app:
+
+✔ reads contacts from MongoDB  
+✔ displays them in table  
+✔ uses dynamic IDs  
+✔ shows single contact  
+✔ prepares update/delete routes
+
+Before this → static HTML  
+Now → database-driven UI
+
+---
+
+# 📁 index.js (FULL UNDERSTANDING)
+
+---
+
+# 1. Import Section
+
+```js
+const express = require("express");
+const mongoose = require("mongoose");
+const Contact = require("./models/contacts.models");
+```
+
+## What each import does
+
+### express
+
+Creates backend server
+
+### mongoose
+
+Connects MongoDB with Node.js
+
+### Contact
+
+Your model representing `contacts` collection
+
+This model allows:
+
+```js
+Contact.find()
+Contact.create()
+Contact.findById()
+Contact.deleteOne()
+```
+
+---
+
+# 2. Create Express App
+
+```js
+const app = express();
+const PORT = 3000;
+```
+
+This creates your server.
+
+Your app will run on:
+
+```
+http://localhost:3000
+```
+
+---
+
+# 3. MongoDB Connection
+
+```js
+mongoose
+  .connect("mongodb://localhost:27017/contacts-crud")
+```
+
+This connects your app to MongoDB database.
+
+---
+
+## Connection URL Breakdown
+
+```
+mongodb://localhost:27017/contacts-crud
+```
+
+|Part|Meaning|
+|---|---|
+|mongodb://|MongoDB protocol|
+|localhost|local computer DB|
+|27017|default MongoDB port|
+|contacts-crud|database name|
+
+MongoDB automatically creates database if not exists.
+
+---
+
+# Connection Success
+
+```js
+.then(() => console.log("Database connected"))
+```
+
+Runs when DB connected successfully.
+
+---
+
+# Connection Error
+
+```js
+.catch((err) => console.log(err));
+```
+
+Runs when DB connection fails.
+
+---
+
+# 4. Middlewares
+
+## Set EJS engine
+
+```js
+app.set("view engine", "ejs");
+```
+
+This tells Express:
+
+"Render `.ejs` templates"
+
+Without this:
+
+```
+res.render() will not work
+```
+
+---
+
+## Form middleware
+
+```js
+app.use(express.urlencoded({ extended: false }));
+```
+
+This reads form data.
+
+Example form:
+
+```
+first_name=John
+email=john@test.com
+```
+
+becomes:
+
+```js
+req.body = {
+  first_name: "John",
+  email: "john@test.com"
+}
+```
+
+---
+
+## Static middleware
+
+```js
+app.use(express.static("public"));
+```
+
+This allows:
+
+```
+public/style.css
+public/bootstrap.css
+```
+
+to be used in HTML.
+
+---
+
+# 5. HOME ROUTE (MOST IMPORTANT)
+
+```js
+app.get("/", async (req, res) => {
+  const contacts = await Contact.find();
+  res.render("home", { contacts: contacts });
+});
+```
+
+This route:
+
+✔ gets all contacts from DB  
+✔ sends to EJS  
+✔ displays table
+
+---
+
+# Step-by-step Flow
+
+User opens:
+
+```
+http://localhost:3000/
+```
+
+This route runs.
+
+---
+
+## Step 1: Fetch contacts
+
+```js
+const contacts = await Contact.find();
+```
+
+This queries MongoDB.
+
+It returns array:
+
+```
+[
+ {first_name:"John"},
+ {first_name:"Alex"}
+]
+```
+
+---
+
+## Step 2: Send data to EJS
+
+```js
+res.render("home", { contacts: contacts });
+```
+
+This sends:
+
+```
+contacts = array
+```
+
+to home.ejs
+
+---
+
+# 🧠 home.ejs Dynamic Loop
+
+```ejs
+<% contacts.forEach(contact=> { %>
+```
+
+This loops over contacts.
+
+If 3 contacts:
+
+Loop runs 3 times.
+
+---
+
+Example:
+
+contacts =
+
+```
+[
+ {name:"A"},
+ {name:"B"},
+ {name:"C"}
+]
+```
+
+Loop prints 3 rows.
+
+---
+
+# Display fields
+
+```ejs
+<%= contact.first_name %>
+```
+
+Prints first name.
+
+---
+
+```ejs
+<%= contact.last_name %>
+```
+
+Prints last name.
+
+---
+
+```ejs
+<%= contact.email %>
+```
+
+Prints email.
+
+---
+
+```ejs
+<%= contact.phone %>
+```
+
+Prints phone.
+
+---
+
+# IMPORTANT: MongoDB _id
+
+Every document has:
+
+```
+_id: 687s8d8s8d
+```
+
+This is unique.
+
+Used for:
+
+- show contact
+    
+- update contact
+    
+- delete contact
+    
+
+---
+
+# Show button
+
+```ejs
+href="/show-contact/<%= contact._id %>"
+```
+
+Example result:
+
+```
+/show-contact/687s8d8s8d
+```
+
+This sends ID to route.
+
+---
+
+# Edit button
+
+```ejs
+update-contact/<%= contact._id %>
+```
+
+Example:
+
+```
+/update-contact/687s8d8s8d
+```
+
+---
+
+# Delete button
+
+```ejs
+/delete-contact/<%= contact._id %>
+```
+
+---
+
+# 6. SHOW CONTACT ROUTE
+
+```js
+app.get("/show-contact/:id", async (req, res) => {
+```
+
+This is dynamic route.
+
+---
+
+# :id parameter
+
+URL:
+
+```
+/show-contact/123
+```
+
+Express extracts:
+
+```
+req.params.id = 123
+```
+
+---
+
+# Fetch single contact
+
+```js
+const contact = await Contact.findById(req.params.id);
+```
+
+This returns:
+
+```
+{
+ first_name:"John",
+ email:"john@test.com"
+}
+```
+
+---
+
+# Send to EJS
+
+```js
+res.render("show-contact", { contact: contact });
+```
+
+EJS receives:
+
+```
+contact object
+```
+
+---
+
+# show-contact.ejs
+
+Display contact:
+
+```
+<%= contact.first_name %>
+```
+
+---
+
+Display email:
+
+```
+<%= contact.email %>
+```
+
+---
+
+Display phone:
+
+```
+<%= contact.phone %>
+```
+
+---
+
+# Dynamic edit button
+
+```
+/update-contact/<%= contact._id %>
+```
+
+---
+
+# Dynamic delete button
+
+```
+/delete-contact/<%= contact._id %>
+```
+
+---
+
+# 7. ADD CONTACT ROUTE
+
+```js
+app.get("/add-contact", (req, res) => {
+  res.render("add-contact");
+});
+```
+
+Shows form.
+
+---
+
+POST route (empty)
+
+```js
+app.post("/add-contact", (req, res) => {});
+```
+
+Will insert into MongoDB later.
+
+---
+
+# 8. UPDATE ROUTE
+
+```js
+app.get("/update-contact/:id", (req, res) => {
+  res.render("update-contact");
+});
+```
+
+Will later:
+
+- fetch contact
+    
+- prefill form
+    
+
+---
+
+# 9. DELETE ROUTE
+
+```js
+app.get("/delete-contact/:id", (req, res) => {});
+```
+
+Will delete document.
+
+---
+
+# FULL REQUEST FLOW
+
+User opens home
+
+↓
+
+GET /
+
+↓
+
+Contact.find()
+
+↓
+
+MongoDB returns contacts
+
+↓
+
+res.render()
+
+↓
+
+EJS loops contacts
+
+↓
+
+Table displayed
+
+↓
+
+User clicks show
+
+↓
+
+GET /show-contact/:id
+
+↓
+
+Contact.findById()
+
+↓
+
+show-contact.ejs rendered
+
+---
+
+# IMPORTANT CONCEPTS YOU LEARNED
+
+Dynamic routes  
+MongoDB querying  
+Mongoose find()  
+findById()  
+Passing data to EJS  
+EJS loops  
+Using _id  
+Dynamic links
+
+---
+
+# CRUD STATUS
+
+Create ❌  
+Read ✔  
+Update ❌  
+Delete ❌
+
+Only READ completed.
+
+---
+
+# VERY IMPORTANT DIFFERENCE
+
+find()
+
+returns ARRAY
+
+```
+[{}, {}, {}]
+```
+
+findById()
+
+returns OBJECT
+
+```
+{}
+```
+
+---
+
+# One line summary
+
+Part-02 connects MongoDB and dynamically displays contacts using Mongoose queries and EJS loops.
