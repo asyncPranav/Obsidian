@@ -24,50 +24,21 @@
     >
   </div>
 </form>
+
+<!-- Category filter pills -->
+<div class="flex items-center gap-1.5 mb-6 overflow-x-auto pb-1" style="scrollbar-width: none;">
+  <% const categories = ['all','coding','education','resource','entertainment','news','other']; %>
+
+  <% categories.forEach(function(cat) { %>
+    <a
+      href="/?category=<%= cat %><%= typeof searchQuery !== 'undefined' && searchQuery ? '&search=' + searchQuery : '' %>"
+      class="filter-btn <%= selectedCategory === cat ? 'active' : '' %>"
+    >
+      <%= cat %>
+    </a>
+  <% }); %>
+</div>
+
 ```
 
 ---
-
-## 🏷️ Category Filter Pills
-
-```html
-
-```
-
----
-
-## 🧠 What this setup does
-
-### 🔍 Search Form
-- Sends `search` via GET request
-- Keeps selected category using hidden input
-- Preserves search value after reload
-
----
-
-### 🏷️ Category Pills
-- Each category is a clickable link
-- Keeps search query while changing category
-- Highlights active category using:
-```ejs
-selectedCategory === cat ? 'active' : ''
-```
-
----
-
-## ⚡ Final Result URL Examples
-
-```
-/?search=node&category=coding
-/?search=api&category=resource
-/?category=education
-```
-
----
-
-## 🚀 Why this is a good design
-
-- No JavaScript needed
-- Clean URL structure
-- Fully bookmarkable/shareable filters
-- Maintains state (search + category)
