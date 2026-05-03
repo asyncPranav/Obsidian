@@ -1,7 +1,7 @@
 
 ---
 
-## 🔎 Search + Category Filter (EJS Template)
+## 🔎 Search + Category Filter (home.ejs Template)
 
 ### Search Form
 ```html
@@ -30,20 +30,8 @@
 
 ## 🏷️ Category Filter Pills
 
-```ejs
-<!-- Category filter pills -->
-<div class="flex items-center gap-1.5 mb-6 overflow-x-auto pb-1" style="scrollbar-width: none;">
-  <% const categories = ['all','coding','education','resource','entertainment','news','other']; %>
+```html
 
-  <% categories.forEach(function(cat) { %>
-    <a
-      href="/?category=<%= cat %><%= typeof searchQuery !== 'undefined' && searchQuery ? '&search=' + searchQuery : '' %>"
-      class="filter-btn <%= selectedCategory === cat ? 'active' : '' %>"
-    >
-      <%= cat %>
-    </a>
-  <% }); %>
-</div>
 ```
 
 ---
