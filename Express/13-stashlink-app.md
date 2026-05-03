@@ -1,9 +1,6 @@
 
 ---
 
-
-
-
 ## 🔎 Search + Category Filter (home.ejs Template)
 
 ### Search Form
