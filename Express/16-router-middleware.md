@@ -438,3 +438,284 @@ Use it when:
 
 ---
 
+
+Below is a **clean, real-world style example of Router Middleware in Express.js**, split into **multiple files** like in production projects.
+
+I’ll also add **detailed comments so you understand every line clearly**.
+
+---
+
+# 📁 Project Structure
+
+```text
+project/
+│
+├── app.js
+└── routes/
+    └── userRoutes.js
+```
+
+---
+
+# 📄 1. `routes/userRoutes.js` (Router + Router Middleware)
+
+```js
+// Import express
+const express = require("express");
+
+// Create router instance
+const router = express.Router();
+
+
+// =====================================
+// 🔹 1. ROUTER-LEVEL MIDDLEWARE (GLOBAL FOR THIS ROUTER)
+// =====================================
+
+// This middleware runs for ALL routes inside this router
+router.use((req, res, next) => {
+  console.log("🔵 Router Middleware Running");
+
+  // Logs request method and URL (relative to router)
+  console.log(`Method: ${req.method}, URL: ${req.url}`);
+
+  // Example: add custom data to request object
+  req.requestTime = new Date().toISOString();
+
+  // Pass control to next middleware/route
+  next();
+});
+
+
+// =====================================
+// 🔹 2. PATH-SPECIFIC ROUTER MIDDLEWARE
+// =====================================
+
+// This runs only for routes starting with /admin
+router.use("/admin", (req, res, next) => {
+  console.log("🔐 Admin Middleware (Router Level)");
+
+  const isAdmin = true; // pretend auth check
+
+  if (!isAdmin) {
+    return res.status(403).send("Access Denied");
+  }
+
+  next();
+});
+
+
+// =====================================
+// 🔹 3. ROUTES INSIDE ROUTER
+// =====================================
+
+// Home route inside router
+router.get("/", (req, res) => {
+  console.log("🏠 User Home Route");
+
+  res.send(`User Home Page | Time: ${req.requestTime}`);
+});
+
+
+// Profile route
+router.get("/profile", (req, res) => {
+  console.log("👤 Profile Route");
+
+  res.send(`User Profile Page | Time: ${req.requestTime}`);
+});
+
+
+// Admin route (protected by /admin middleware)
+router.get("/admin/dashboard", (req, res) => {
+  console.log("🛡️ Admin Dashboard Route");
+
+  res.send("Admin Dashboard");
+});
+
+
+// =====================================
+// 🔹 EXPORT ROUTER
+// =====================================
+
+module.exports = router;
+```
+
+---
+
+# 📄 2. `app.js` (Main Application File)
+
+```js
+// Import express
+const express = require("express");
+
+// Create app
+const app = express();
+
+
+// =====================================
+// 🔹 1. APPLICATION-LEVEL MIDDLEWARE
+// =====================================
+
+// Runs for EVERY request in the app
+app.use((req, res, next) => {
+  console.log("🌍 App-Level Middleware");
+
+  console.log(`Incoming Request: ${req.method} ${req.url}`);
+
+  next();
+});
+
+
+// Built-in middleware (parses JSON body)
+app.use(express.json());
+
+
+// =====================================
+// 🔹 2. IMPORT ROUTER
+// =====================================
+
+const userRoutes = require("./routes/userRoutes");
+
+
+// =====================================
+// 🔹 3. MOUNT ROUTER
+// =====================================
+
+// All routes inside userRoutes will start with /user
+app.use("/user", userRoutes);
+
+
+// =====================================
+// 🔹 4. DEFAULT ROUTE
+// =====================================
+
+app.get("/", (req, res) => {
+  res.send("🏠 Main Home Page");
+});
+
+
+// =====================================
+// 🔹 5. 404 MIDDLEWARE (NOT FOUND)
+// =====================================
+
+app.use((req, res) => {
+  console.log("❌ 404 Middleware");
+
+  res.status(404).send("Route Not Found");
+});
+
+
+// =====================================
+// 🔹 START SERVER
+// =====================================
+
+app.listen(3000, () => {
+  console.log("🚀 Server running on http://localhost:3000");
+});
+```
+
+---
+
+# 🔥 How This Works (Execution Flow)
+
+### Example request:
+
+👉 `GET /user/profile`
+
+### Flow:
+
+```text
+1. App Middleware runs
+2. Router Middleware runs
+3. /user route middleware runs
+4. Route handler executes
+5. Response sent
+```
+
+---
+
+# 🔹 Key Concepts in This Code
+
+## ✅ 1. Router Middleware
+
+```js
+router.use((req, res, next) => { ... });
+```
+
+👉 Runs for ALL routes in that router
+
+---
+
+## ✅ 2. Path-based Router Middleware
+
+```js
+router.use("/admin", ...)
+```
+
+👉 Runs only for `/admin/*`
+
+---
+
+## ✅ 3. App Middleware
+
+```js
+app.use((req, res, next) => { ... });
+```
+
+👉 Runs for entire application
+
+---
+
+## ✅ 4. Mounting Router
+
+```js
+app.use("/user", userRoutes);
+```
+
+👉 Adds `/user` prefix to all router routes
+
+---
+
+# 🔥 Real-world Understanding
+
+Think like this:
+
+### 🏢 App = Building
+
+### 🚪 Router = Department
+
+### 👮 Middleware = Security Guards
+
+|Type|Where it works|
+|---|---|
+|App Middleware|Whole building|
+|Router Middleware|Only that department|
+|Path Middleware|Specific rooms inside department|
+
+---
+
+# 🔹 Final Summary
+
+- Router middleware = `router.use()`
+    
+- Works only inside that router
+    
+- Can modify request object
+    
+- Can block requests (auth checks)
+    
+- Helps in modular architecture
+    
+- Always use `next()` to continue flow
+    
+- Mounted using `app.use("/path", router)`
+    
+
+---
+
+If you want next level, I can give you:  
+🔥 JWT authentication using router middleware  
+🔥 Real project (User + Admin system)  
+🔥 Folder structure used in companies  
+🔥 Interview questions on middleware
+
+Just tell 👍
