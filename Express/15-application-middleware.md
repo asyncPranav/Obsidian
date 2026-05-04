@@ -379,9 +379,3 @@ app.use((req, res, next) => {
 
 ---
 
-If you want, I can also give:  
-✅ interview questions  
-✅ real project structure  
-✅ diagrams for revision
-
-Just tell 👍
