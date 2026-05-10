@@ -788,16 +788,16 @@ app.listen(process.env.PORT, () => {
 Let's trace through the entire lifecycle of a user interaction with the above server:
 
 ```
-┌─────────────────────────────────────────────────────────┐
+┌──────────────────────────────────────────────────────────┐
 │                   SERVER STARTS                          │
 │  Session middleware initialized                          │
 │  MongoStore connected — ready to save sessions           │
-└───────────────────────────┬─────────────────────────────┘
+└───────────────────────────┬──────────────────────────────┘
                             │
                             ▼
-┌─────────────────────────────────────────────────────────┐
+┌──────────────────────────────────────────────────────────┐
 │         REQUEST: POST /login                             │
-│  Body: { username: "pranav", password: "Secret@123" }   │
+│  Body: { username: "pranav", password: "Secret@123" }    │
 │                                                          │
 │  1. express.json() parses body → req.body populated      │
 │  2. session middleware runs → checks cookie              │
@@ -813,12 +813,12 @@ Let's trace through the entire lifecycle of a user interaction with the above se
 │     { _id: "abc123", session: { isLoggedIn: true, ... }} │
 │  8. Response sent with Set-Cookie header:                │
 │     Set-Cookie: sessionId=abc123; HttpOnly; SameSite=... │
-└───────────────────────────┬─────────────────────────────┘
+└───────────────────────────┬──────────────────────────────┘
                             │
                             ▼
-┌─────────────────────────────────────────────────────────┐
+┌──────────────────────────────────────────────────────────┐
 │         REQUEST: GET /dashboard                          │
-│  Cookie: sessionId=abc123   ← browser sends this auto!  │
+│  Cookie: sessionId=abc123   ← browser sends this auto!   │
 │                                                          │
 │  1. session middleware runs                              │
 │  2. Reads cookie → extracts "abc123"                     │
@@ -829,10 +829,10 @@ Let's trace through the entire lifecycle of a user interaction with the above se
 │     req.session.isLoggedIn === true ✓ → next()           │
 │  7. Route handler runs                                   │
 │  8. Returns dashboard data for "pranav"                  │
-└───────────────────────────┬─────────────────────────────┘
+└───────────────────────────┬──────────────────────────────┘
                             │
                             ▼
-┌─────────────────────────────────────────────────────────┐
+┌──────────────────────────────────────────────────────────┐
 │         REQUEST: GET /admin                              │
 │  Cookie: sessionId=abc123                                │
 │                                                          │
@@ -840,10 +840,10 @@ Let's trace through the entire lifecycle of a user interaction with the above se
 │  2. isAuthenticated → req.session.isLoggedIn === true ✓  │
 │  3. isAdmin → req.session.role === "admin" ✓             │
 │  4. Route handler returns admin panel data               │
-└───────────────────────────┬─────────────────────────────┘
+└───────────────────────────┬──────────────────────────────┘
                             │
                             ▼
-┌─────────────────────────────────────────────────────────┐
+┌──────────────────────────────────────────────────────────┐
 │         REQUEST: POST /logout                            │
 │  Cookie: sessionId=abc123                                │
 │                                                          │
@@ -853,7 +853,7 @@ Let's trace through the entire lifecycle of a user interaction with the above se
 │  4. MongoDB session document "abc123" DELETED            │
 │  5. res.clearCookie("sessionId") → browser deletes cookie│
 │  6. "abc123" is now worthless — session is gone          │
-└───────────────────────────┬─────────────────────────────┘
+└───────────────────────────┬──────────────────────────────┘
                             │
                             ▼
 ┌─────────────────────────────────────────────────────────┐
