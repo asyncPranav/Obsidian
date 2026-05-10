@@ -787,7 +787,7 @@ app.listen(process.env.PORT, () => {
 
 Let's trace through the entire lifecycle of a user interaction with the above server:
 
-```
+```js
 ┌──────────────────────────────────────────────────────────┐
 │                   SERVER STARTS                          │
 │  Session middleware initialized                          │
@@ -856,13 +856,13 @@ Let's trace through the entire lifecycle of a user interaction with the above se
 └───────────────────────────┬──────────────────────────────┘
                             │
                             ▼
-┌─────────────────────────────────────────────────────────┐
+┌──────────────────────────────────────────────────────────┐
 │   REQUEST: GET /dashboard (after logout, no cookie)      │
 │                                                          │
 │  1. session middleware → no cookie → no session          │
 │  2. isAuthenticated → req.session.isLoggedIn undefined   │
 │  3. Returns 401: "Authentication required. Please log in"│
-└─────────────────────────────────────────────────────────┘
+└──────────────────────────────────────────────────────────┘
 ```
 
 ---
