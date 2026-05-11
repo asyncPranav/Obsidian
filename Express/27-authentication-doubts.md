@@ -726,16 +726,3 @@ Cookie = ID card
 Session = server database for that ID
 
 ---
-
-If you want next level understanding, I can explain:
-
-- 🔐 session vs JWT (VERY important)
-    
-- 🧠 how authentication really works in real apps
-    
-- 🚀 how to protect routes using middleware
-    
-- ⚡ how Redis session stores work
-    
-
-Just tell 👍
