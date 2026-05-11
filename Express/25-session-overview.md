@@ -389,7 +389,7 @@ Sessions are used in:
 
 Got it — you mean **Express Session notes** (`express-session`) not general Express.js notes.
 
-# Complete `express-session` Notes (Very Detailed)
+# 🔥Complete `express-session` Notes (Very Detailed)
 
 # 1. What is Session?
 
