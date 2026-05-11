@@ -215,7 +215,7 @@ This becomes important as your app grows.
 
 
 ---
-# **🔍Which approach is better ??**
+# 🔍Which approach is better ??
 
 For most real-world Express + Mongoose applications, this is generally preferred:
 
