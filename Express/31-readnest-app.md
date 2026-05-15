@@ -1,6 +1,8 @@
 
 ----
 
+# Folder Structure 
+
 ```
 readnest/
 │
@@ -25,10 +27,9 @@ readnest/
 │   └── validateMiddleware.js
 │
 ├── models/
-│   ├── User.js
-│   ├── Book.js
-│   ├── Bookmark.js
-│   └── Review.js
+│   ├── User.model.js
+│   ├── Book.model.js
+│   └── Review.model.js
 │
 ├── routes/
 │   ├── authRoutes.js
@@ -94,3 +95,7 @@ readnest/
 │
 └── node_modules/
 ```
+
+
+
+# User.model.
