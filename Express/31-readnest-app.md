@@ -860,27 +860,5 @@ That’s why schemas are extremely important in backend.
 
 ---
 
-# One More Advanced Thing
+#DOUBT - **Bookmark field in userSchema**
 
-This schema can also have:
-
-- methods
-    
-- middleware/hooks
-    
-- virtuals
-    
-- indexes
-    
-- custom validators
-    
-
-Example:
-
-```js
-userSchema.pre("save", async function () {
-   // hash password
-})
-```
-
-You’ll learn these next.
