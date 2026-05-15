@@ -98,7 +98,7 @@ readnest/
 
 
 
-# User.model.js
+# 👤 User.model.js
 
 ```js
 import mongoose from "mongoose";
@@ -1417,4 +1417,4 @@ And `.populate()` converts IDs into actual book data.
 
 ---
 
-# 
+# 📚 Book
