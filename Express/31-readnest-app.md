@@ -1794,23 +1794,3 @@ It holds:
     
 
 ---
-
-# ⚡ Super Simple Summary
-
-Book.model.js =
-
-👉 stores book details  
-👉 connects to User (creator)  
-👉 connects to Reviews  
-👉 used in bookmarks
-
----
-
-If you want next step, I can explain:
-
-✔ Book controller (CRUD logic)  
-✔ how file upload works with multer in this schema  
-✔ how bookmark + book + user flow works end-to-end  
-✔ or how to design review system
-
-Just tell 👍
