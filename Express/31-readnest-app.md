@@ -1417,4 +1417,5 @@ And `.populate()` converts IDs into actual book data.
 
 ---
 
-# 📚 Book
+# 📚 Book.model.js
+
