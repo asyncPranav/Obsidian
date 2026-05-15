@@ -1490,12 +1490,12 @@ const bookSchema = new mongoose.Schema(
     },
 
     coverImage: {
-      type: String,
+      type: String, // store cover image path or url
       required: true,
     },
 
     pdfFile: {
-      type: String,
+      type: String, // store book pdf path or url
       required: true,
     },
 
