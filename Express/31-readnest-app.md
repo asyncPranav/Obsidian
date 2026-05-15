@@ -1426,53 +1426,45 @@ const bookSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: [true, "Title is required"],
+      required: true,
       trim: true,
-      minlength: 2,
-      maxlength: 100,
     },
 
     author: {
       type: String,
-      required: [true, "Author is required"],
+      required: true,
       trim: true,
-      maxlength: 100,
     },
 
     description: {
       type: String,
-      required: [true, "Description is required"],
-      minlength: 10,
-    },
-
-    category: {
-      type: String,
-      trim: true,
-      default: "General",
+      required: true,
     },
 
     coverImage: {
-      type: String, // file path or URL
-      default: "",
+      type: String,
+      required: true,
     },
 
     pdfFile: {
-      type: String, // file path
-      default: "",
+      type: String,
+      required: true,
     },
 
-    uploadedBy: {
+    createdBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
 
-    averageRating: {
-      type: Number,
-      default: 0,
-    },
+    reviews: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Review",
+      },
+    ],
 
-    totalRatings: {
+    rating: {
       type: Number,
       default: 0,
     },
