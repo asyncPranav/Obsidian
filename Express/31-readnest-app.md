@@ -1419,3 +1419,70 @@ And `.populate()` converts IDs into actual book data.
 
 # 📚 Book.model.js
 
+```js
+import mongoose from "mongoose";
+
+const bookSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: [true, "Title is required"],
+      trim: true,
+      minlength: 2,
+      maxlength: 100,
+    },
+
+    author: {
+      type: String,
+      required: [true, "Author is required"],
+      trim: true,
+      maxlength: 100,
+    },
+
+    description: {
+      type: String,
+      required: [true, "Description is required"],
+      minlength: 10,
+    },
+
+    category: {
+      type: String,
+      trim: true,
+      default: "General",
+    },
+
+    coverImage: {
+      type: String, // file path or URL
+      default: "",
+    },
+
+    pdfFile: {
+      type: String, // file path
+      default: "",
+    },
+
+    uploadedBy: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+
+    averageRating: {
+      type: Number,
+      default: 0,
+    },
+
+    totalRatings: {
+      type: Number,
+      default: 0,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const Book = mongoose.model("Book", bookSchema);
+
+export default Book;
+```
