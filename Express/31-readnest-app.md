@@ -2,7 +2,7 @@
 ----
 # READNEST APP
 
-**Book model :** [[31-readnest-app#📚 Book.model.js]]
+**Folder structure :** [[31-readnest-app#Folder Structure]]
 **User model :** [[31-readnest-app#👤 User.model.js]]
 **Book model :** [[31-readnest-app#📚 Book.model.js]]
 
