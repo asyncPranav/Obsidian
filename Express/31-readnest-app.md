@@ -2,9 +2,9 @@
 ----
 # READNEST APP
 
-**Folder structure : ** 
-
-**Book.**[[31-readnest-app#📚 Book.model.js]]
+**Book model :** [[31-readnest-app#📚 Book.model.js]]
+**User model :** [[31-readnest-app#👤 User.model.js]]
+**Book model :** [[31-readnest-app#📚 Book.model.js]]
 
 
 # Folder Structure 
