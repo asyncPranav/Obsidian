@@ -51,6 +51,8 @@ This is one of the most confused topics for beginners. Let's clarify it once and
 
 A **cookie** is a tiny piece of data stored **in the browser**. Anyone who can access the browser can read the cookie. Cookies are sent automatically with every HTTP request to the domain that set them.
 
+
+
 A **session** is a storage space on the **server**. The browser only knows about the session through its **session ID**, which is itself stored in a cookie. The actual sensitive data (like your user ID, role, cart items) lives on the server — never in the browser.
 
 ```
