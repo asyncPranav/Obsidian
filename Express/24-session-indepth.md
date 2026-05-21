@@ -100,13 +100,15 @@ SESSION approach (more secure):
 ```
 
 
-||Cookie|Session|
+| Features             |Cookie|Session|
 |---|---|---|
-|**Where data lives**|Browser|Server|
-|**Security**|Lower (user can see/modify)|Higher (user only has the ID)|
-|**Storage limit**|~4KB|Depends on server storage|
-|**Expiry**|Set by server, persists after browser close|Usually expires when browser closes (configurable)|
-|**Use case**|Non-sensitive preferences, tracking|Login state, cart, sensitive user data|
+| **Where data lives** |Browser|Server|
+| **Security**         |Lower (user can see/modify)|Higher (user only has the ID)|
+| **Storage limit**    |~4KB|Depends on server storage|
+| **Expiry**           |Set by server, persists after browser close|Usually expires when browser closes (configurable)|
+| **Use case**         |Non-sensitive preferences, tracking|Login state, cart, sensitive user data|
+
+
 ---
 
 ## 3. How Sessions Work — The Complete Flow
