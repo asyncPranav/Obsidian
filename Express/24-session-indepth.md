@@ -480,6 +480,135 @@ app.use(session({
 
 With this setup, sessions are saved as documents in your MongoDB database. They survive server restarts and work across multiple server instances. This is what you'll use in real Node.js/MongoDB projects.
 
+```js
+app.use(
+
+  session({
+
+    secret: "secret-password",
+
+    resave: false,
+
+    saveUnlimited: false,
+
+    store: MongoStore.create({
+
+      mongoUrl: "mongodb://localhost:27017/sessionDB",
+
+  
+
+      // By default, connect-mongo will create a collection named "sessions" in the specified MongoDB database to store session data. You can customize the collection name by providing the "collectionName" option when creating the MongoStore instance. For example:
+
+      collectionName: "mySessions",
+
+  
+
+      // We can also set the time-to-live (TTL) for sessions in MongoDB using the "ttl" option. This option specifies the duration (in seconds) for which a session should be stored in the database before it expires. For example, to set a TTL of 1 hour (3600 seconds), you can use:
+
+      ttl: 3600, // session expires after 1 hour : same as cookie maxAge, if ttl is set then you can remove cookie maxAge, because ttl will handle session expiration in MongoDB, and the cookie will simply be a reference to the session stored in the database. However, if you want to keep the cookie expiration in sync with the session expiration in MongoDB, you can set both ttl and cookie maxAge to the same value (e.g., 3600 seconds for 1 hour) to ensure that the session expires consistently on both the client and server sides.
+
+  
+
+    }),
+
+    // Browser deletes cookie after time
+
+    // Server deletes session from DB after time
+
+    cookie: { maxAge: 1000 * 60 * 60 }, // session expires after 1 hour
+
+  }),
+
+);
+```
+
+## ❌ Wrong / misleading part
+
+> “same as cookie maxAge, if ttl is set then you can remove cookie maxAge”
+
+This is **not always true**.
+
+---
+
+## ✅ Correct understanding
+
+### 1. `ttl` (server side)
+
+- Controls how long session data stays in **MongoDB**
+    
+- In **seconds**
+    
+- After TTL, session is deleted from DB
+    
+
+---
+
+### 2. `cookie.maxAge` (client side)
+
+- Controls how long cookie stays in **browser**
+    
+- In **milliseconds**
+    
+- After this, browser deletes the cookie
+    
+
+---
+
+## ⚠️ Important difference
+
+They are **NOT the same thing**, and **one does NOT replace the other**.
+
+---
+
+## ✔️ What actually happens:
+
+### If ONLY `ttl` is set:
+
+- Session will expire in DB ✔️
+    
+- But cookie may still exist in browser ❗
+    
+- User sends cookie → server says session not found → user logged out
+    
+
+---
+
+### If ONLY `cookie.maxAge` is set:
+
+- Cookie disappears from browser ✔️
+    
+- But session may still exist in DB ❗
+    
+
+---
+
+## ✔️ Best practice (correct comment idea)
+
+```js
+ttl: 3600, // session data expiration time in MongoDB (seconds)
+
+cookie: { maxAge: 1000 * 60 * 60 } // cookie expiration time in browser (milliseconds)
+
+// Best practice: keep both equal so client and server expire together
+```
+
+---
+
+## ⭐ Final answer to your question:
+
+> “same as cookie maxAge?”
+
+👉 **No. They are similar in purpose but NOT the same.**
+
+- `ttl` = server-side expiry
+    
+- `maxAge` = client-side expiry
+    
+
+---
+
+If you want, I can give you a 10-second real-life analogy that makes this permanently clear.
+
 ### 9.3 Redis Store (Fastest — Enterprise Production)
 
 Redis is an in-memory data store that is extremely fast for read/write operations, making it the industry-standard choice for session storage at scale. Setup is more involved but the pattern is the same:
