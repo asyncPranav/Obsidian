@@ -348,7 +348,7 @@ Bas backend ke liye enough database understanding build karo.
 const userSchema = new mongoose.Schema({
   name: String
 })
-````
+```
 
 ### Validation
 
