@@ -99,14 +99,14 @@ SESSION approach (more secure):
   ← Sensitive data stays on the server. Browser only holds a key.
 ```
 
-| Cookie | Session |
-|---|---|
-| **Where data lives** | Browser | Server |
-| **Security** | Lower (user can see/modify) | Higher (user only has the ID) |
-| **Storage limit** | ~4KB | Depends on server storage |
-| **Expiry** | Set by server, persists after browser close | Usually expires when browser closes (configurable) |
-| **Use case** | Non-sensitive preferences, tracking | Login state, cart, sensitive user data |
 
+||Cookie|Session|
+|---|---|---|
+|**Where data lives**|Browser|Server|
+|**Security**|Lower (user can see/modify)|Higher (user only has the ID)|
+|**Storage limit**|~4KB|Depends on server storage|
+|**Expiry**|Set by server, persists after browser close|Usually expires when browser closes (configurable)|
+|**Use case**|Non-sensitive preferences, tracking|Login state, cart, sensitive user data|
 ---
 
 ## 3. How Sessions Work — The Complete Flow
