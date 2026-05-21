@@ -521,7 +521,8 @@ This is **not always true**.
 - In **seconds**
     
 - After TTL, session is deleted from DB
-    
+	
+- Server deletes session from DB after time
 
 ---
 
@@ -532,7 +533,8 @@ This is **not always true**.
 - In **milliseconds**
     
 - After this, browser deletes the cookie
-    
+	
+- Browser deletes cookie after time
 
 ---
 
