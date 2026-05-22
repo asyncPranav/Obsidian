@@ -124,46 +124,46 @@ Evil.com cannot steal the token because of the **Same-Origin Policy** — browse
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                         LEGITIMATE FLOW                                  │
-│                                                                          │
-│  1. Browser → GET /transfer-form → Server                                │
-│                                                                          │
-│  2. Server generates CSRF token: "abc123secret"                          │
-│     Stores it in session: req.session.csrfToken = "abc123secret"         │
-│     Sends HTML form with token embedded:                                 │
-│     <input type="hidden" name="_csrf" value="abc123secret" />            │
-│                                                                          │
-│  3. Browser renders the form (token is in the HTML)                      │
-│                                                                          │
-│  4. User fills in form and clicks Submit                                 │
-│     Browser → POST /transfer                                             │
-│       Body: { to: "friend", amount: 100, _csrf: "abc123secret" }         │
-│       Cookie: sid=xyz789                                                 │
-│                                                                          │
-│  5. Server receives request                                              │
-│     Reads token from body: "abc123secret"                                │
-│     Reads token from session: "abc123secret"                             │
-│     They match → ✓ Process the transfer                                  │
+│                         LEGITIMATE FLOW                                 │
+│                                                                         │
+│  1. Browser → GET /transfer-form → Server                               │
+│                                                                         │
+│  2. Server generates CSRF token: "abc123secret"                         │
+│     Stores it in session: req.session.csrfToken = "abc123secret"        │
+│     Sends HTML form with token embedded:                                │
+│     <input type="hidden" name="_csrf" value="abc123secret" />           │
+│                                                                         │
+│  3. Browser renders the form (token is in the HTML)                     │
+│                                                                         │
+│  4. User fills in form and clicks Submit                                │
+│     Browser → POST /transfer                                            │
+│       Body: { to: "friend", amount: 100, _csrf: "abc123secret" }        │
+│       Cookie: sid=xyz789                                                │
+│                                                                         │
+│  5. Server receives request                                             │
+│     Reads token from body: "abc123secret"                               │
+│     Reads token from session: "abc123secret"                            │
+│     They match → ✓ Process the transfer                                 │
 └─────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                           CSRF ATTACK FLOW                               │
-│                                                                          │
-│  1. Attacker creates evil.com with a hidden form targeting /transfer     │
-│                                                                          │
-│  2. Victim visits evil.com while logged into myapp.com                   │
-│                                                                          │
-│  3. Evil form submits:                                                   │
-│     Browser → POST /transfer                                             │
+│                           CSRF ATTACK FLOW                              │
+│                                                                         │
+│  1. Attacker creates evil.com with a hidden form targeting /transfer    │
+│                                                                         │
+│  2. Victim visits evil.com while logged into myapp.com                  │
+│                                                                         │
+│  3. Evil form submits:                                                  │
+│     Browser → POST /transfer                                            │
 │       Body: { to: "hacker", amount: 50000 }  ← NO _csrf token!          │
-│       Cookie: sid=xyz789  ← browser attaches automatically               │
-│                                                                          │
-│  4. Server receives request                                              │
-│     Reads token from body: undefined (missing!)                          │
-│     Reads token from session: "abc123secret"                             │
+│       Cookie: sid=xyz789  ← browser attaches automatically              │
+│                                                                         │
+│  4. Server receives request                                             │
+│     Reads token from body: undefined (missing!)                         │
+│     Reads token from session: "abc123secret"                            │
 │     They DON'T match → ✗ Request rejected with 403 Forbidden            │
-│                                                                          │
-│  5. Attack defeated ✓                                                    │
+│                                                                         │
+│  5. Attack defeated ✓                                                   │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
