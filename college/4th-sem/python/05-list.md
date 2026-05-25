@@ -1006,8 +1006,6 @@ Output:
 	
 - count() → count occurrences
 
----
-
 
 ---
 
