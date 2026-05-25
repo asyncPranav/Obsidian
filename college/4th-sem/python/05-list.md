@@ -1001,7 +1001,7 @@ Output:
 - reverse() → reverse order
     
 - clear() → remove all items
-    
+- count() → count occurences
 
 ---
 
