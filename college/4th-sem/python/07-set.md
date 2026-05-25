@@ -971,17 +971,3 @@ Say:
 > “Set uses hashing internally, which provides very fast lookup operations.”
 
 This sounds advanced and professional.
-
-Next most important topic:
-
-- Dictionary (VERY IMPORTANT)
-    
-- Functions
-    
-- String in detail
-    
-- Loops
-    
-- OOP basics
-    
-- Exception Handling
