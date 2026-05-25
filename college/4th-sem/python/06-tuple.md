@@ -866,22 +866,3 @@ Say:
 > “Tuple is faster because immutability allows Python to optimize memory allocation and execution.”
 
 This sounds much more professional.
-
-Next important topics:
-
-- Set
-    
-- Dictionary
-    
-- String in detail
-    
-- Functions
-    
-- Loops
-    
-- OOPs
-    
-- Exception Handling
-    
-
-Send next topic.
