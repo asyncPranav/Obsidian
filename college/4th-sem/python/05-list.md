@@ -997,7 +997,8 @@ Output:
 - pop() → remove by index
     
 - sort() → sorting (change original list)
-- 
+	
+- sorted() → sorting (creates new sorted list)
     
 - reverse() → reverse order
     
@@ -1007,21 +1008,6 @@ Output:
 
 ---
 
-# Memory Trick for Important Methods
-
-## “AIR PCR SIC”
-
-|Letter|Method|
-|---|---|
-|A|append|
-|I|insert|
-|R|remove|
-|P|pop|
-|C|clear|
-|R|reverse|
-|S|sort|
-|I|index|
-|C|count|
 
 ---
 
@@ -1039,22 +1025,3 @@ Say:
 > “List is an ordered and mutable collection datatype used to store multiple heterogeneous elements.”
 
 This sounds much more professional.
-
-Next best topics:
-
-- Tuple
-    
-- Set
-    
-- Dictionary
-    
-- String in detail
-    
-- Functions
-    
-- Loops
-    
-- OOP basics
-    
-
-Send next topic.
