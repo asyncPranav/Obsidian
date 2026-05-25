@@ -996,12 +996,14 @@ Output:
     
 - pop() → remove by index
     
-- sort() → sorting
+- sort() → sorting (change original list)
+- 
     
 - reverse() → reverse order
     
 - clear() → remove all items
-- count() → count occurences
+	
+- count() → count occurrences
 
 ---
 
