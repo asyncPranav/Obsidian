@@ -651,3 +651,235 @@ Those are the three outcomes you'll use most often in `fileFilter`.
 
 ---
 
+The `.test()` method belongs to **Regular Expressions (Regex)**.
+
+It checks whether a string matches a pattern and returns:
+
+```js
+true
+```
+
+or
+
+```js
+false
+```
+
+---
+
+### Simple Example
+
+```js
+const regex = /hello/;
+
+console.log(regex.test("hello world"));
+```
+
+Output:
+
+```js
+true
+```
+
+Because `"hello"` exists in `"hello world"`.
+
+---
+
+### Another Example
+
+```js
+const regex = /hello/;
+
+console.log(regex.test("good morning"));
+```
+
+Output:
+
+```js
+false
+```
+
+Because `"hello"` is not present.
+
+---
+
+### In Your Multer Example
+
+```js
+const allowed = /jpeg|jpg|png|webp/;
+```
+
+This regex means:
+
+```text
+jpeg OR jpg OR png OR webp
+```
+
+Now suppose:
+
+```js
+file.mimetype = "image/jpeg";
+```
+
+Then:
+
+```js
+allowed.test(file.mimetype);
+```
+
+becomes:
+
+```js
+/jpeg|jpg|png|webp/.test("image/jpeg")
+```
+
+Since `"jpeg"` is present in `"image/jpeg"`:
+
+```js
+true
+```
+
+---
+
+### More Examples
+
+```js
+const allowed = /jpeg|jpg|png|webp/;
+
+console.log(allowed.test("image/jpeg"));
+```
+
+Output:
+
+```js
+true
+```
+
+---
+
+```js
+console.log(allowed.test("image/png"));
+```
+
+Output:
+
+```js
+true
+```
+
+---
+
+```js
+console.log(allowed.test("application/pdf"));
+```
+
+Output:
+
+```js
+false
+```
+
+Because none of:
+
+```text
+jpeg
+jpg
+png
+webp
+```
+
+exist in `"application/pdf"`.
+
+---
+
+### Extension Example
+
+Suppose:
+
+```js
+file.originalname = "photo.jpg";
+```
+
+Then:
+
+```js
+path.extname(file.originalname)
+```
+
+returns:
+
+```js
+".jpg"
+```
+
+Now:
+
+```js
+allowed.test(".jpg")
+```
+
+becomes:
+
+```js
+/jpeg|jpg|png|webp/.test(".jpg")
+```
+
+Output:
+
+```js
+true
+```
+
+because `.jpg` contains `"jpg"`.
+
+---
+
+### Think of `.test()` as
+
+```js
+regex.test(string)
+```
+
+Meaning:
+
+> "Does this string match my pattern?"
+
+Examples:
+
+```js
+/abc/.test("abcdef")   // true
+```
+
+```js
+/abc/.test("xyz")      // false
+```
+
+```js
+/png/.test("image/png") // true
+```
+
+```js
+/png/.test("image/jpeg") // false
+```
+
+---
+
+For production code, many developers skip regex entirely and use:
+
+```js
+const allowedTypes = [
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+];
+
+allowedTypes.includes(file.mimetype);
+```
+
+because it's easier to read than:
+
+```js
+/jpeg|jpg|png|webp/.test(file.mimetype)
+```
+
+When you're learning, focus on understanding `.includes()` first. It's used more often in day-to-day backend validation than regex `.test()`.
