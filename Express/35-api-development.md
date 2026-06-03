@@ -190,27 +190,27 @@ Incoming Request: POST /api/users
                          │
                          ▼
               ┌─────────────────────┐
-              │  express.json()      │  ← parses JSON body into req.body
+              │  express.json()     │  ← parses JSON body into req.body
               └──────────┬──────────┘
                          │
                          ▼
               ┌─────────────────────┐
-              │  cors() middleware   │  ← adds CORS headers for browser clients
+              │  cors() middleware  │  ← adds CORS headers for browser clients
               └──────────┬──────────┘
                          │
                          ▼
               ┌─────────────────────┐
-              │  morgan() logger     │  ← logs: POST /api/users 201 42ms
+              │  morgan() logger    │  ← logs: POST /api/users 201 42ms
               └──────────┬──────────┘
                          │
                          ▼
               ┌─────────────────────┐
-              │  Route matching      │  ← finds: router.post("/users", ...)
+              │  Route matching     │  ← finds: router.post("/users", ...)
               └──────────┬──────────┘
                          │
                          ▼
               ┌─────────────────────┐
-              │  Auth middleware     │  ← checks JWT/session, populates req.user
+              │  Auth middleware    │  ← checks JWT/session, populates req.user
               └──────────┬──────────┘
                          │
                          ▼
