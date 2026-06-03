@@ -215,18 +215,18 @@ Incoming Request: POST /api/users
                          │
                          ▼
               ┌─────────────────────┐
-              │  Validator           │  ← checks body fields with express-validator
+              │  Validator          │  ← checks body fields with express-validator
               └──────────┬──────────┘
                          │
                          ▼
               ┌─────────────────────┐
-              │  Controller function │  ← your actual business logic
-              │  (createUser)        │     queries DB, builds response
+              │  Controller function│  ← your actual business logic
+              │  (createUser)       │     queries DB, builds response
               └──────────┬──────────┘
                          │
                          ▼
               ┌─────────────────────┐
-              │  Error handler       │  ← catches anything that went wrong
+              │  Error handler      │  ← catches anything that went wrong
               └──────────┬──────────┘
                          │
                          ▼
