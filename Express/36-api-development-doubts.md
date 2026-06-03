@@ -8,17 +8,25 @@ if student not found then delete the uploaded image immediately before sending r
 
 ```js
 if (!student) {
-    if (req.file) {
+  if (req.file) {
     // delete the uploaded image if student not found
     try {
-        await fs.unlink(req.file.path);
+      await fs.unlink(req.file.path);
     } catch (error) {
-        console.log("Uploaded image not found");
+      console.log("Uploaded image not found");
     }
+  }
+
+  return res.status(404).json({ message: "Student not found" });
 }
-    return res.status(404).json({ message: "Student not found" });
-    }
 ```
+
+
+---
+
+
+# Problem-02 :
+##### 
 
 
 ```js
