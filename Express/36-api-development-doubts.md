@@ -1484,5 +1484,250 @@ This order prevents:
 
 ---
 
-# Flow After adding validateObjectID middleware
+# Flow After adding validateObjectId middleware
+
+Since you've added `validateObjectId` :
+
+```js
+router.put(
+  "/:id",
+  validateObjectId,
+  upload.single("profile_pic"),
+  async (req, res) => {
+```
+
+the flow is now much safer.
+
+# Flowchart
+
+```text
+Client sends PUT request
+(with student id + optional image)
+                │
+                ▼
+┌──────────────────────────┐
+│ validateObjectId         │
+└──────────────────────────┘
+                │
+        Valid ObjectId?
+           /         \
+          /           \
+        NO             YES
+        │               │
+        ▼               ▼
+ Return 400       Multer Middleware
+ "Invalid ID"     upload.single()
+        │               │
+        │               ▼
+        │        Image uploaded
+        │        (req.file created)
+        │               │
+        │               ▼
+        │       Route Handler Starts
+        │               │
+        │               ▼
+        │    Student.findById(id)
+        │               │
+        │               ▼
+        │        Student Found?
+        │          /       \
+        │         /         \
+        │       NO           YES
+        │       │             │
+        │       ▼             ▼
+        │ Delete uploaded   Store old image path
+        │ image (if any)          │
+        │       │                 ▼
+        │       │         New image uploaded?
+        │       │            /         \
+        │       │           /           \
+        │       │         NO             YES
+        │       │         │               │
+        │       │         │               ▼
+        │       │         │     Add new image path
+        │       │         │     to updatedData
+        │       │         │
+        │       │         ▼
+        │       │   Try Database Update
+        │       │         │
+        │       │         ▼
+        │       │   Update Successful?
+        │       │      /         \
+        │       │     /           \
+        │       │   NO             YES
+        │       │   │               │
+        │       │   ▼               ▼
+        │       │ Delete newly   Delete old image
+        │       │ uploaded file  (if exists)
+        │       │   │               │
+        │       │   ▼               ▼
+        │       │ Throw Error   Send Updated Student
+        │       │   │               Response
+        │       │   ▼
+        │       │ Outer Catch
+        │       │ Send Error Response
+        │       │
+        │       ▼
+        │ Return 404
+        │ "Student not found"
+        │
+        ▼
+Request Ends
+```
+
+---
+
+# Most Important Paths
+
+## 1. Invalid ID
+
+```text
+Request
+   │
+   ▼
+validateObjectId
+   │
+   ▼
+Invalid ID
+   │
+   ▼
+400 Response
+   │
+   ▼
+Multer NEVER runs
+   │
+   ▼
+No image uploaded
+```
+
+✅ No orphan file
+
+---
+
+## 2. Student Not Found
+
+```text
+Request
+   │
+   ▼
+validateObjectId
+   │
+   ▼
+Multer uploads image
+   │
+   ▼
+findById()
+   │
+   ▼
+student = null
+   │
+   ▼
+Delete uploaded image
+   │
+   ▼
+404 Response
+```
+
+✅ No orphan file
+
+---
+
+## 3. Database Update Fails
+
+```text
+Request
+   │
+   ▼
+validateObjectId
+   │
+   ▼
+Multer uploads image
+   │
+   ▼
+findById()
+   │
+   ▼
+Student exists
+   │
+   ▼
+Try DB Update
+   │
+   ▼
+Fails
+   │
+   ▼
+Delete newly uploaded image
+   │
+   ▼
+throw error
+   │
+   ▼
+Outer catch
+   │
+   ▼
+500 Response
+```
+
+✅ No orphan file
+
+---
+
+## 4. Successful Update
+
+```text
+Request
+   │
+   ▼
+validateObjectId
+   │
+   ▼
+Multer uploads image
+   │
+   ▼
+findById()
+   │
+   ▼
+Student exists
+   │
+   ▼
+DB Update Success
+   │
+   ▼
+Delete old image
+   │
+   ▼
+Send updated student
+```
+
+✅ Database and filesystem remain synchronized
+
+---
+
+# Golden Rule Behind This Design
+
+```text
+Validate ID
+      ↓
+Upload File
+      ↓
+Verify Student Exists
+      ↓
+Update Database
+      ↓
+Delete Old File
+      ↓
+Send Response
+```
+
+And if anything fails after upload:
+
+```text
+Upload File
+      ↓
+Operation Fails
+      ↓
+Delete Uploaded File
+```
+
+This ensures there are no orphan files and no broken image references.
 
