@@ -62,8 +62,6 @@ router.put("/:id", upload.single("profile_pic"), async (req, res) => {
 ```
 
 
-It happens because **the filesystem and MongoDB are two separate systems**, and your code performs operations on them one after another.
-
 Let's walk through your code step by step.
 
 ### Initial state
