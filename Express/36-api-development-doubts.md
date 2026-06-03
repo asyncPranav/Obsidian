@@ -1,6 +1,6 @@
 
 ---
-
+# P
 ```js
 // update a student
 router.put("/:id", upload.single("profile_pic"), async (req, res) => {
