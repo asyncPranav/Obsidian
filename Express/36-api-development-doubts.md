@@ -915,3 +915,17 @@ This API ensures consistency between MongoDB and filesystem by carefully control
 # Problem-03 :
 
 Even after applying this  below code image get uploaded to server folder on put request for an invalid id 
+
+```js
+if (!student) {  
+	if (req.file) {  
+		// delete the uploaded image if student not found  
+		try {  
+			await fs.unlink(req.file.path);  
+		} catch (error) {  
+			console.log("Uploaded image not found");  
+		}  
+	}  
+return res.status(404).json({ message: "Student not found" });  
+}
+```
