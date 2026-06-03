@@ -26,7 +26,13 @@ if (!student) {
 
 
 # Problem-02 :
-##### 
+
+When updating a student’s profile image, the system deletes the old image and then updates the database separately.
+
+Since these two actions are not connected, if the database update fails after deleting the old image, the system becomes inconsistent — the database may still point to a file that no longer exists, or an uploaded new file may remain unused on the server.
+
+This happens because file operations and database operations are independent and cannot automatically undo each other.
+
 
 
 ```js
