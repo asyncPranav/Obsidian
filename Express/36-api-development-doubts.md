@@ -911,8 +911,3 @@ This API ensures consistency between MongoDB and filesystem by carefully control
 
 ---
 
-If you want next step, I can convert this into:
-
-✔ Interview answer (2 minutes speaking format)  
-✔ Flowchart diagram  
-✔ Or simplified 10-line version for quick revision
