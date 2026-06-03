@@ -1,6 +1,9 @@
 
 ---
-# Problem-02 :  
+# Problem-01 :
+**Problem : if student not found and user uploaded a new image then that image will be stored in uploads folder without any reference in database and it will consume storage unnecessarily.**
+
+
 ```js
 // update a student
 router.put("/:id", upload.single("profile_pic"), async (req, res) => {
