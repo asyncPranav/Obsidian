@@ -207,7 +207,7 @@ That's why deleting the old image **after** a successful database update is usua
 
 
 
-# SolutUpdate Student with Profile Image (Safe File Handling)
+# Solution: Update Student with Profile Image (Safe File Handling)
 
 ## Goal
 
@@ -238,16 +238,16 @@ This prevents:
 router.put("/:id", upload.single("profile_pic"), async (req, res) => {
   try {
     const student = await Student.findById(req.params.id);
-
+	
     if (!student) {
       // Problem :
       // Multer uploads image before this route handler executes.
       // If student does not exist, uploaded image will remain in uploads folder
       // without any database reference.
-
+	
       // Solution :
       // Delete uploaded image immediately before returning response.
-
+	
       if (req.file) {
         try {
           await fs.unlink(req.file.path);
@@ -255,7 +255,7 @@ router.put("/:id", upload.single("profile_pic"), async (req, res) => {
           console.log("Uploaded image not found");
         }
       }
-
+	
       return res.status(404).json({
         message: "Student not found",
       });
