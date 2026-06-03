@@ -7,18 +7,16 @@
 if student not found then delete the uploaded image immediately before sending response to client
 
 ```js
-    if (!student) {
-      // Problem : if student not found and user uploaded a new image then that image will be stored in uploads folder without any reference in database and it will consume storage unnecessarily.
-      // Solution : if student not found then delete the uploaded image immediately before sending response to client
-      if (req.file) {
-        // delete the uploaded image if student not found
-        try {
-          await fs.unlink(req.file.path);
-        } catch (error) {
-          console.log("Uploaded image not found");
-        }
-      }
-      return res.status(404).json({ message: "Student not found" });
+if (!student) {
+    if (req.file) {
+    // delete the uploaded image if student not found
+    try {
+        await fs.unlink(req.file.path);
+    } catch (error) {
+        console.log("Uploaded image not found");
+    }
+}
+    return res.status(404).json({ message: "Student not found" });
     }
 ```
 
