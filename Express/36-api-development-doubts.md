@@ -1285,3 +1285,199 @@ Better fix:
 
 ---
 
+Here's the flow of your **current code**:
+
+```text
+Client sends PUT request
+(with profile_pic + student id)
+            │
+            ▼
+┌─────────────────────┐
+│ Multer Middleware   │
+│ upload.single()     │
+└─────────────────────┘
+            │
+            ▼
+Image saved in uploads folder
+(req.file created)
+            │
+            ▼
+Route Handler Starts
+            │
+            ▼
+Student.findById(req.params.id)
+            │
+            ▼
+      Student Found?
+         /      \
+        /        \
+      NO          YES
+      │            │
+      ▼            ▼
+Delete uploaded   Store old image path
+image (if any)          │
+      │                 ▼
+      │          New image uploaded?
+      │             /        \
+      │            /          \
+      │          NO            YES
+      │          │              │
+      │          │              ▼
+      │          │     Add new image path
+      │          │     to updatedData
+      │          │
+      │          ▼
+      │   Try DB Update
+      │          │
+      │          ▼
+      │    Update Success?
+      │       /      \
+      │      /        \
+      │    NO          YES
+      │    │            │
+      │    ▼            ▼
+      │ Delete new   Delete old image
+      │ uploaded     (if exists)
+      │ image            │
+      │    │             │
+      │    ▼             ▼
+      │ Throw Error   Send Updated
+      │    │          Student Response
+      │    ▼
+      │ Outer Catch
+      │ Send Error
+      │ Response
+      │
+      ▼
+Send 404 Response
+```
+
+---
+
+## Special Case: Invalid MongoDB ID
+
+For an invalid ID like:
+
+```text
+PUT /students/abc123
+```
+
+Current flow is:
+
+```text
+Request
+   │
+   ▼
+Multer uploads image
+   │
+   ▼
+Image saved in uploads/
+   │
+   ▼
+Student.findById("abc123")
+   │
+   ▼
+Mongoose throws CastError
+   │
+   ▼
+Outer Catch Block
+   │
+   ▼
+400 "Invalid student ID"
+```
+
+### Problem
+
+Notice what did NOT happen:
+
+```text
+Image uploaded
+      │
+      ▼
+CastError thrown
+      │
+      ▼
+Code never reaches:
+
+if (!student) {
+   await fs.unlink(...)
+}
+```
+
+because `findById()` throws before returning `null`.
+
+Result:
+
+```text
+uploads/new.jpg   ← still exists
+```
+
+Database:
+
+```text
+No update happened
+```
+
+This creates an **orphan file**.
+
+---
+
+## Production-Safe Flow
+
+```text
+Request
+   │
+   ▼
+Validate ObjectId
+   │
+   ├── Invalid ID
+   │      │
+   │      ▼
+   │   Return 400
+   │   (No upload occurs)
+   │
+   ▼
+Multer Upload
+   │
+   ▼
+Route Logic
+   │
+   ▼
+Database Update
+   │
+   ├── Fail
+   │      │
+   │      ▼
+   │ Delete newly uploaded image
+   │
+   ▼
+Success
+   │
+   ▼
+Delete old image
+   │
+   ▼
+Send Response
+```
+
+### Golden Rule
+
+```text
+Validate Request
+       ↓
+Upload File
+       ↓
+Update Database
+       ↓
+Delete Old File
+```
+
+This order prevents:
+
+- Orphan files
+    
+- Broken image references
+    
+- Database/file-system inconsistency
+    
+- Unnecessary uploads for invalid requests
