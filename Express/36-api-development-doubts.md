@@ -930,3 +930,176 @@ return res.status(404).json({ message: "Student not found" });
 }
 ```
 
+# Solution :
+
+Yes — this is a **very important observation**, and you caught a real flaw in your flow.
+
+Let’s fix it clearly.
+
+---
+
+# 💥 Why image still uploads on invalid ID?
+
+Because of this:
+
+```js
+router.put("/:id", upload.single("profile_pic"), async (req, res) => {
+```
+
+### ⚠️ Important truth:
+
+👉 Multer runs **BEFORE your route handler**
+
+So execution order is:
+
+1. Request comes
+    
+2. Multer uploads file ✅
+    
+3. Your code runs
+    
+4. You check ID → invalid → return error ❌
+    
+
+---
+
+# 💥 Result
+
+Even if ID is invalid:
+
+- image is already saved in `/uploads`
+    
+- DB is never touched
+    
+- file becomes orphan
+    
+
+---
+
+# 🧠 Root problem
+
+> Validation is happening AFTER file upload
+
+---
+
+# ✅ SOLUTION (BEST PRACTICE)
+
+We must **validate ID BEFORE Multer saves file**.
+
+---
+
+# 🚀 FIX 1 (BEST FIX): Validate ID in middleware BEFORE upload
+
+```js
+const mongoose = require("mongoose");
+
+const validateObjectId = (req, res, next) => {
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    return res.status(400).json({
+      message: "Invalid student ID",
+    });
+  }
+  next();
+};
+```
+
+---
+
+## 👉 Apply it BEFORE multer:
+
+```js
+router.put(
+  "/:id",
+  validateObjectId,
+  upload.single("profile_pic"),
+  async (req, res) => {
+```
+
+---
+
+# 🎯 Now flow becomes:
+
+## If ID is invalid:
+
+```txt
+validateObjectId → stops request
+Multer NEVER runs
+NO image uploaded ❌
+```
+
+✔ BEST solution  
+✔ No orphan files  
+✔ Saves storage  
+✔ Efficient
+
+---
+
+# ⚡ FIX 2 (backup safety net)
+
+Even with validation, keep this as fallback:
+
+```js
+if (req.file && !student) {
+  await fs.unlink(req.file.path);
+}
+```
+
+---
+
+# 🧠 WHY THIS IS IMPORTANT
+
+Your current problem happens because:
+
+> ❌ File upload is happening before validation
+
+So the fix is:
+
+> ✔ Validate first → then upload file
+
+---
+
+# 🔥 FINAL CORRECT FLOW (PRODUCTION STYLE)
+
+### Step 1
+
+Validate ID ❗ (BEFORE multer)
+
+### Step 2
+
+Upload file
+
+### Step 3
+
+Check student exists
+
+### Step 4
+
+Update DB
+
+### Step 5
+
+Clean files
+
+---
+
+# 🧠 SIMPLE RULE TO REMEMBER
+
+> “Never upload a file before validating request input.”
+
+---
+
+# 🚀 FINAL ANSWER
+
+✔ Your bug is NOT in update logic  
+✔ Bug is in middleware order
+
+---
+
+If you want next step, I can:
+
+- 🔥 rewrite your whole route in **production-grade clean architecture**
+    
+- or show **how companies (Cloudinary/S3 systems) completely avoid this problem**
+    
+
+Just tell 👍
