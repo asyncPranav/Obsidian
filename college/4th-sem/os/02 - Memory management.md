@@ -171,22 +171,3 @@ Address Translation
 ↓
 External Fragmentation Removed
 ```
-
-If you write:
-
-- Definition
-    
-- Diagram
-    
-- Page Table
-    
-- Address Translation
-    
-- 5 Advantages
-    
-- 4 Disadvantages
-    
-
-you can easily score **8–10 marks out of 10** or **12–14 marks out of 15** on a paging question.
-
-**Professor's exam tip:** In OS exams, a neat diagram of Pages → Frames and Logical Address → Page Table → Physical Address often earns extra marks even if the theory is not perfectly written.
