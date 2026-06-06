@@ -1173,3 +1173,342 @@ If you remember this single line, you can reconstruct the entire chapter during 
 ---
 
 ⚠️ Professor's Prediction: The next thing most examiners ask after theory is a **numerical on FIFO, LRU, or Optimal page replacement (counting page faults)**. That numerical is often worth 5–10 marks by itself and is one of the most frequently repeated questions in OS papers.
+
+
+---
+
+
+# DEMAND PAGING ⭐⭐⭐⭐⭐
+
+(**Very Important Exam Topic – Easy Scoring**)
+
+---
+
+# Introduction
+
+In traditional paging, all pages of a process are loaded into memory before execution starts.
+
+This wastes memory because many pages may not be used immediately or at all.
+
+To solve this problem, **Demand Paging** was introduced.
+
+---
+
+# Definition
+
+**Demand Paging is a memory management technique in which pages of a process are loaded into main memory only when they are required (demanded) during execution.**
+
+---
+
+# Easy Understanding
+
+Think like this:
+
+👉 You don’t bring all chapters of a book at once  
+👉 You only open and read the chapter you need
+
+Similarly:
+
+- Only required pages are loaded into RAM
+    
+- Other pages stay in secondary storage (disk)
+    
+
+---
+
+# Working of Demand Paging
+
+## Step-by-Step Process
+
+### Step 1: Process Starts
+
+Only a few pages are loaded initially into memory.
+
+---
+
+### Step 2: CPU Generates Logical Address
+
+CPU tries to access a page.
+
+---
+
+### Step 3: Page Check
+
+OS checks page table:
+
+- If page is in memory → execution continues
+    
+- If page is NOT in memory → PAGE FAULT occurs
+    
+
+---
+
+### Step 4: Page Fault Handling
+
+When page fault occurs:
+
+OS performs following steps:
+
+1. Check if reference is valid
+    
+2. Find free frame in memory
+    
+3. If no free frame → use Page Replacement Algorithm
+    
+4. Load required page from disk into memory
+    
+5. Update page table
+    
+6. Restart instruction
+    
+
+---
+
+## Diagram (Very Important for Exam)
+
+```text
+CPU Request
+    ↓
+Page Table Check
+    ↓
+Is Page in Memory?
+   ↓ YES              ↓ NO
+Continue          PAGE FAULT
+                      ↓
+             Load Page from Disk
+                      ↓
+              Update Page Table
+                      ↓
+                Execute Process
+```
+
+---
+
+# Page Fault
+
+## Definition
+
+A **page fault** occurs when a program tries to access a page that is not currently in main memory.
+
+---
+
+# Advantages of Demand Paging
+
+## 1. Efficient Memory Utilization
+
+Only required pages are loaded, so memory is not wasted.
+
+---
+
+## 2. Faster Initial Loading
+
+Process starts quickly because full program is not loaded.
+
+---
+
+## 3. Supports Large Programs
+
+Programs larger than physical memory can execute.
+
+---
+
+## 4. Better CPU Utilization
+
+Less memory usage allows more processes in memory.
+
+---
+
+## 5. Reduced Disk I/O (overall)
+
+Only required pages are transferred.
+
+---
+
+# Disadvantages of Demand Paging
+
+## 1. Page Fault Overhead
+
+Each page fault requires disk access, which is slow.
+
+---
+
+## 2. Increased Execution Time
+
+Frequent page faults slow down performance.
+
+---
+
+## 3. Complex Memory Management
+
+Requires page tables and handling mechanisms.
+
+---
+
+## 4. Risk of Thrashing
+
+If too many page faults occur, system becomes slow.
+
+---
+
+# Performance of Demand Paging ⭐⭐⭐⭐⭐
+
+Very important theory question.
+
+---
+
+## Factors Affecting Performance
+
+### 1. Page Fault Rate
+
+If page fault rate is high → performance decreases.
+
+If page fault rate is low → performance increases.
+
+---
+
+### 2. Memory Access Time
+
+Memory access is fast, but disk access during page fault is slow.
+
+So overall performance depends on:
+
+```text
+Effective Access Time
+```
+
+---
+
+## Effective Access Time (Simple Idea)
+
+- Memory access = Fast
+    
+- Page fault handling = Slow
+    
+
+So:
+
+👉 More page faults = slower system  
+👉 Less page faults = faster system
+
+---
+
+## Impact Summary
+
+|Condition|Performance|
+|---|---|
+|Low page faults|High performance|
+|High page faults|Low performance|
+|Balanced usage|Optimal performance|
+
+---
+
+# Thrashing Connection (Important Point)
+
+If page faults become too frequent:
+
+👉 CPU spends more time loading pages than executing instructions
+
+This condition is called **Thrashing**
+
+---
+
+# Advantages Summary (Write in Exam)
+
+- Efficient memory usage
+    
+- Faster program loading
+    
+- Supports large programs
+    
+- Improves system throughput
+    
+
+---
+
+# Disadvantages Summary (Write in Exam)
+
+- Page fault overhead
+    
+- Increased execution time
+    
+- Complex implementation
+    
+- May cause thrashing
+    
+
+---
+
+# 5 Marks Answer (Exact Exam Writing)
+
+**Demand Paging is a memory management technique in which a page is loaded into main memory only when it is required during execution. When a required page is not found in memory, a page fault occurs and the page is fetched from secondary storage. Demand paging improves memory utilization but may increase execution time due to page faults.**
+
+---
+
+# 10–15 Marks Answer Structure
+
+If question comes:
+
+### “Explain Demand Paging”
+
+Write in this order:
+
+1. Definition
+    
+2. Concept
+    
+3. Working with diagram
+    
+4. Page fault explanation
+    
+5. Advantages
+    
+6. Disadvantages
+    
+7. Performance explanation
+    
+8. Conclusion
+    
+
+---
+
+# One-Minute Revision
+
+```text
+Demand Paging
+
+↓
+
+Load page only when needed
+
+↓
+
+Page Fault occurs if page not in memory
+
+↓
+
+OS loads page from disk
+
+↓
+
+Update page table
+
+↓
+
+Continue execution
+```
+
+---
+
+# Golden Exam Line
+
+**“Demand Paging loads pages only on demand, reducing memory usage but increasing page fault overhead.”**
+
+---
+
+Next topic you should study is:
+
+👉 **Thrashing ⭐⭐⭐⭐⭐ (very frequently asked with Demand Paging)**  
+OR  
+👉 **Page Replacement Algorithms numerical (FIFO/LRU/OPT)**
+
+Tell me which one next and I will prepare it in exact exam-writing format.
