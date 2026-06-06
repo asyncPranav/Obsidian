@@ -777,3 +777,399 @@ These five points alone usually earn a large portion of the marks in comparison 
 ---
 
 
+Excellent. This is one of the highest-scoring topics in OS because examiners usually ask either:
+
+- Explain FIFO/LRU/Optimal.
+    
+- Compare FIFO, LRU and Optimal.
+    
+- Solve a page fault numerical.
+    
+
+For exam writing, don't memorize huge paragraphs. Memorize the definitions, working principle, and comparison table.
+
+---
+
+# PAGE REPLACEMENT ALGORITHMS
+
+## Introduction
+
+In a demand paging system, when a page fault occurs and all memory frames are occupied, the Operating System must remove one page from memory to make space for the required page.
+
+The method used to select the page to be removed is called a **Page Replacement Algorithm**.
+
+### Need of Page Replacement
+
+When:
+
+- A required page is not present in memory.
+    
+- All frames are already full.
+    
+
+The OS must:
+
+1. Remove an existing page.
+    
+2. Load the required page.
+    
+
+Therefore, page replacement algorithms are used to decide which page should be replaced.
+
+---
+
+# FIFO (First In First Out)
+
+## Definition
+
+FIFO (First In First Out) is a page replacement algorithm in which the page that entered memory first is removed first.
+
+### Working Principle
+
+The oldest page in memory is selected for replacement.
+
+FIFO follows the same principle as a queue.
+
+```text
+First Page In
+      ↓
+First Page Out
+```
+
+### Example
+
+Frames = 3
+
+Pages loaded:
+
+```text
+1 → 2 → 3
+```
+
+Now page 4 arrives.
+
+FIFO removes:
+
+```text
+1
+```
+
+because it entered memory first.
+
+---
+
+## Advantages of FIFO
+
+1. Simple to understand.
+    
+2. Easy to implement.
+    
+3. Requires less overhead.
+    
+
+---
+
+## Disadvantages of FIFO
+
+1. May remove frequently used pages.
+    
+2. Produces more page faults.
+    
+3. Suffers from Belady's Anomaly.
+    
+
+---
+
+## Memory Trick
+
+```text
+FIFO
+
+Oldest Page Out
+```
+
+Remember:
+
+**First Come, First Leave**
+
+---
+
+# LRU (Least Recently Used)
+
+## Definition
+
+LRU (Least Recently Used) is a page replacement algorithm that replaces the page which has not been used for the longest period of time.
+
+### Working Principle
+
+The page that was used least recently is removed.
+
+### Example
+
+Memory contains:
+
+```text
+1 2 3
+```
+
+Recent usage:
+
+```text
+3 used recently
+2 used recently
+1 not used for long time
+```
+
+If page 4 arrives:
+
+```text
+Remove 1
+Insert 4
+```
+
+because page 1 was least recently used.
+
+---
+
+## Advantages of LRU
+
+1. Better performance than FIFO.
+    
+2. Lower page fault rate.
+    
+3. Keeps frequently used pages in memory.
+    
+
+---
+
+## Disadvantages of LRU
+
+1. More complex implementation.
+    
+2. Requires tracking page usage history.
+    
+3. Higher overhead.
+    
+
+---
+
+## Memory Trick
+
+```text
+LRU
+
+Least Recently Used
+↓
+Remove the page
+not used for longest time.
+```
+
+Remember:
+
+**Use it or Lose it**
+
+---
+
+# OPTIMAL (OPT)
+
+## Definition
+
+Optimal Page Replacement Algorithm replaces the page that will not be used for the longest time in the future.
+
+### Working Principle
+
+Look into the future and remove the page whose next use is farthest away.
+
+### Example
+
+Memory contains:
+
+```text
+1 2 3
+```
+
+Future reference string:
+
+```text
+4 2 1 5
+```
+
+Page 3 will not be used again.
+
+Therefore:
+
+```text
+Remove 3
+Insert 4
+```
+
+---
+
+## Advantages of Optimal
+
+1. Produces minimum page faults.
+    
+2. Best possible performance.
+    
+3. Used as benchmark for comparison.
+    
+
+---
+
+## Disadvantages of Optimal
+
+1. Future references must be known.
+    
+2. Impossible to implement practically.
+    
+3. Used mainly for theoretical comparison.
+    
+
+---
+
+## Memory Trick
+
+```text
+OPTIMAL
+
+Remove page
+used farthest in future
+```
+
+Remember:
+
+**Knows the Future**
+
+---
+
+# Comparison of FIFO, LRU and Optimal
+
+|FIFO|LRU|Optimal|
+|---|---|---|
+|First page loaded is removed|Least recently used page removed|Page used farthest in future removed|
+|Simple|Moderate complexity|Complex|
+|Low overhead|Higher overhead|Not practical|
+|More page faults|Fewer page faults than FIFO|Minimum page faults|
+|Practical|Practical|Theoretical|
+|May suffer Belady's anomaly|Does not suffer Belady's anomaly|Does not suffer Belady's anomaly|
+
+---
+
+# Belady's Anomaly
+
+## Definition
+
+Belady's Anomaly is a condition in which increasing the number of memory frames increases the number of page faults.
+
+This anomaly occurs in FIFO.
+
+### Important Point
+
+```text
+FIFO → Belady's Anomaly
+LRU → No
+OPT → No
+```
+
+Exam favorite one-liner.
+
+---
+
+# 5 Marks Answer
+
+## Explain FIFO Page Replacement
+
+FIFO (First In First Out) is a page replacement algorithm in which the page that entered memory first is replaced first. It follows the queue principle and removes the oldest page from memory whenever a new page needs to be loaded and memory is full. FIFO is simple to implement but may produce a large number of page faults.
+
+---
+
+## Explain LRU Page Replacement
+
+LRU (Least Recently Used) replaces the page that has not been used for the longest period of time. It assumes that pages used recently are likely to be used again. LRU generally performs better than FIFO but requires additional overhead to keep track of page usage.
+
+---
+
+## Explain Optimal Page Replacement
+
+Optimal Page Replacement replaces the page that will not be used for the longest time in the future. It produces the minimum number of page faults and is considered the best algorithm. However, it is not practical because future page references cannot be predicted accurately.
+
+---
+
+# 10 Marks Answer Structure
+
+When asked:
+
+### "Explain Page Replacement Algorithms"
+
+Write in this order:
+
+1. Introduction
+    
+2. FIFO
+    
+    - Definition
+        
+    - Working
+        
+    - Advantages
+        
+    - Disadvantages
+        
+3. LRU
+    
+    - Definition
+        
+    - Working
+        
+    - Advantages
+        
+    - Disadvantages
+        
+4. Optimal
+    
+    - Definition
+        
+    - Working
+        
+    - Advantages
+        
+    - Disadvantages
+        
+5. Comparison Table
+    
+6. Conclusion
+    
+
+---
+
+# One-Minute Revision Before Exam
+
+```text
+FIFO
+↓
+Oldest Page Out
+
+LRU
+↓
+Least Recently Used Page Out
+
+OPTIMAL
+↓
+Page Used Farthest in Future Out
+```
+
+### Golden Memory Formula
+
+```text
+FIFO = Past Entry
+
+LRU = Past Usage
+
+OPT = Future Usage
+```
+
+If you remember this single line, you can reconstruct the entire chapter during the exam.
+
+---
+
+⚠️ Professor's Prediction: The next thing most examiners ask after theory is a **numerical on FIFO, LRU, or Optimal page replacement (counting page faults)**. That numerical is often worth 5–10 marks by itself and is one of the most frequently repeated questions in OS papers.
