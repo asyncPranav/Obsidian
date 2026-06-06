@@ -2384,3 +2384,185 @@ Brought back when needed (Swap In)
 
 ---
 
+# CONTIGUOUS vs NON-CONTIGUOUS MEMORY ALLOCATION ⭐⭐⭐
+
+(**Very Important Comparison Question**)
+
+---
+
+# Introduction
+
+Memory allocation is the process of assigning memory space to processes.
+
+It is mainly of two types:
+
+1. Contiguous Memory Allocation
+    
+2. Non-Contiguous Memory Allocation
+    
+
+---
+
+# CONTIGUOUS MEMORY ALLOCATION
+
+## Definition
+
+**Contiguous Memory Allocation is a memory management technique in which each process is allocated a single continuous block of memory.**
+
+---
+
+## Easy Meaning
+
+👉 Process is stored in one single straight block of memory  
+👉 All parts of process are together
+
+---
+
+## Example
+
+```text
+Process A → 10 MB → stored in one continuous block
+```
+
+---
+
+## Diagram
+
+```text
+MAIN MEMORY
+
+| Process A | Process B | Process C |
+(continuous blocks)
+```
+
+---
+
+# NON-CONTIGUOUS MEMORY ALLOCATION
+
+## Definition
+
+**Non-Contiguous Memory Allocation is a memory management technique in which a process is divided into smaller parts and these parts are stored in different locations of memory.**
+
+---
+
+## Easy Meaning
+
+👉 Process is split into pieces  
+👉 Pieces are stored anywhere in memory
+
+---
+
+## Example
+
+```text
+Process A → divided into pages/segments → stored in different frames
+```
+
+---
+
+## Diagram
+
+```text
+MAIN MEMORY
+
+| P1 |     | P3 | P2 |     | P4 |
+(Process parts scattered)
+```
+
+---
+
+# Difference Between Contiguous and Non-Contiguous Allocation ⭐⭐⭐⭐⭐
+
+|Contiguous Allocation|Non-Contiguous Allocation|
+|---|---|
+|Process stored in single continuous block|Process divided into parts|
+|Memory is not flexible|Memory is flexible|
+|Causes external fragmentation|Reduces external fragmentation (Paging)|
+|Difficult memory utilization|Better memory utilization|
+|Simple implementation|Complex implementation|
+|Process must fit in one block|Process can be scattered|
+|Less efficient|More efficient|
+|Example: Fixed Partitioning|Example: Paging, Segmentation|
+
+---
+
+# Key Point (Very Important)
+
+👉 Contiguous = One continuous block  
+👉 Non-Contiguous = Multiple scattered blocks
+
+---
+
+# Advantages of Contiguous Allocation
+
+1. Simple and easy to implement
+    
+2. Fast access to memory
+    
+3. Less overhead
+    
+
+---
+
+# Disadvantages of Contiguous Allocation
+
+1. External fragmentation
+    
+2. Poor memory utilization
+    
+3. Difficult to find large continuous space
+    
+4. Process size limitation
+    
+
+---
+
+# Advantages of Non-Contiguous Allocation
+
+1. Better memory utilization
+    
+2. No need for continuous memory
+    
+3. Reduces external fragmentation (Paging)
+    
+4. Supports large processes
+    
+
+---
+
+# Disadvantages of Non-Contiguous Allocation
+
+1. Complex implementation
+    
+2. Overhead of page/segment table
+    
+3. Slower address translation
+    
+
+---
+
+# 5 Marks Answer (Exact Exam Writing)
+
+**Contiguous Memory Allocation is a technique in which each process is allocated a single continuous block of memory. Non-Contiguous Memory Allocation is a technique in which a process is divided into smaller parts and stored in different memory locations. Contiguous allocation is simple but suffers from external fragmentation, whereas non-contiguous allocation improves memory utilization but is complex in implementation.**
+
+---
+
+# One-Minute Revision
+
+```text
+Contiguous → One Block → Simple → Fragmentation Problem
+
+Non-Contiguous → Many Blocks → Complex → Better Utilization
+```
+
+---
+
+# Golden Exam Line
+
+**“Contiguous allocation assigns a single continuous block of memory to a process, while non-contiguous allocation divides the process into parts and stores them at different memory locations for better utilization.”**
+
+---
+
+Next high-probability topic:
+
+👉 **Partition Management Techniques OR Segmentation with Paging OR Demand Segmentation (tell me and I’ll continue same exam-ready format)**
