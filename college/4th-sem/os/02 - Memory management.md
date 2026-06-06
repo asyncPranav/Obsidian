@@ -1936,3 +1936,247 @@ Conversion → MMU
 
 ---
 
+# MEMORY HIERARCHY ⭐⭐⭐⭐
+
+(**Very Important Short + Long Answer – Easy Scoring Topic**)
+
+---
+
+# Definition
+
+**Memory Hierarchy is the arrangement of different types of memory in a computer system in a layered manner based on speed, cost, and capacity.**
+
+---
+
+# Easy Meaning
+
+👉 Computer memory is arranged like a pyramid  
+👉 Fast memory is small and expensive  
+👉 Slow memory is large and cheap
+
+So OS uses a combination of all memories to get best performance.
+
+---
+
+# Memory Hierarchy Diagram (VERY IMPORTANT)
+
+👉 Draw this exactly in exam
+
+```text
+            +------------------+
+            |   Registers      |  (Fastest, Smallest)
+            +------------------+
+            |     Cache        |
+            +------------------+
+            |      RAM         |
+            +------------------+
+            |     SSD/HDD      |
+            +------------------+
+            |  Magnetic Tape   |  (Slowest, Largest)
+            +------------------+
+```
+
+---
+
+# Explanation of Each Level
+
+## 1. Registers
+
+- Located inside CPU
+    
+- Fastest memory
+    
+- Very small size
+    
+- Stores immediate data for CPU
+    
+
+---
+
+## 2. Cache Memory
+
+- Faster than RAM
+    
+- Stores frequently used data
+    
+- Reduces CPU access time
+    
+
+---
+
+## 3. Main Memory (RAM)
+
+- Primary memory
+    
+- Stores currently running programs
+    
+- Medium speed
+    
+
+---
+
+## 4. Secondary Memory (HDD/SSD)
+
+- Stores data permanently
+    
+- Slow compared to RAM
+    
+- Large storage capacity
+    
+
+---
+
+## 5. Magnetic Tape (or Backup Memory)
+
+- Very slow
+    
+- Used for backup storage
+    
+- Very large capacity
+    
+
+---
+
+# Characteristics of Memory Hierarchy
+
+## 1. Speed
+
+👉 Top level = Fastest  
+👉 Bottom level = Slowest
+
+---
+
+## 2. Cost
+
+👉 Top level = Expensive  
+👉 Bottom level = Cheap
+
+---
+
+## 3. Capacity
+
+👉 Top level = Small  
+👉 Bottom level = Large
+
+---
+
+# Key Principle (Very Important)
+
+```text
+Fast Memory → Expensive → Small Size
+
+Slow Memory → Cheap → Large Size
+```
+
+---
+
+# Why Memory Hierarchy is Used?
+
+## 1. To balance cost and performance
+
+Fast memory is costly, so small amount is used.
+
+---
+
+## 2. To reduce access time
+
+Frequently used data is stored in faster memory.
+
+---
+
+## 3. To improve CPU performance
+
+CPU gets data quickly from cache or RAM.
+
+---
+
+# Working Concept (Simple)
+
+👉 CPU first checks Registers  
+👉 Then Cache  
+👉 Then RAM  
+👉 Then Secondary Storage
+
+---
+
+# Memory Access Flow Diagram
+
+```text
+CPU
+ ↓
+Registers
+ ↓
+Cache Memory
+ ↓
+RAM
+ ↓
+Hard Disk
+ ↓
+Backup Storage
+```
+
+---
+
+# Advantages of Memory Hierarchy
+
+1. Improves system performance
+    
+2. Reduces memory access time
+    
+3. Cost-effective system design
+    
+4. Efficient use of fast memory
+    
+5. Balances speed and storage
+    
+
+---
+
+# Disadvantages
+
+1. Complex design
+    
+2. Maintenance overhead
+    
+3. Data consistency issues between levels
+    
+
+---
+
+# 5 Marks Answer (Exact Exam Writing)
+
+**Memory Hierarchy is the arrangement of different types of memory in a computer system based on speed, cost, and capacity. It consists of Registers, Cache Memory, Main Memory, Secondary Memory, and Backup Memory. The top level memory is fast but small and expensive, while the lower levels are slow but large and cheap. Memory hierarchy improves system performance by storing frequently used data in faster memory.**
+
+---
+
+# One-Minute Revision
+
+```text
+Registers → Fastest
+
+Cache → Fast
+
+RAM → Medium
+
+HDD → Slow
+
+Tape → Slowest
+```
+
+---
+
+# Golden Exam Line
+
+**“Memory hierarchy is the arrangement of memory levels based on speed, cost, and capacity to achieve efficient system performance.”**
+
+---
+
+# Exam Tip ⭐
+
+If question comes “Draw Memory Hierarchy”:
+
+👉 Always draw pyramid  
+👉 Always show order (Registers → Cache → RAM → HDD → Tape)  
+👉 Label Fastest at top and Slowest at bottom
+
+---
