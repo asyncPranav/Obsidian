@@ -497,4 +497,278 @@ External Fragmentation
 
 This single trick helps retain the difference even during the exam.
 
---
+---
+
+# Paging vs Segmentation ⭐⭐⭐⭐⭐
+
+**(Most Frequently Asked Comparison Question)**
+
+📌 This question is asked almost every year in:
+
+- 2 Marks
+    
+- 5 Marks
+    
+- 10 Marks
+    
+
+If you memorize this table properly, you can score full marks.
+
+---
+
+# Introduction
+
+Both **Paging** and **Segmentation** are memory management techniques used by the Operating System.
+
+The main difference is:
+
+- **Paging divides memory physically into fixed-size pages.**
+    
+- **Segmentation divides memory logically into variable-size segments.**
+    
+
+---
+
+# Difference Between Paging and Segmentation
+
+|Paging|Segmentation|
+|---|---|
+|Memory is divided into **Pages**|Memory is divided into **Segments**|
+|Pages are **fixed size**|Segments are **variable size**|
+|It is a **physical memory management technique**|It is a **logical memory management technique**|
+|Page size remains same|Segment size may vary|
+|Uses **Page Table**|Uses **Segment Table**|
+|Address = **Page Number + Offset**|Address = **Segment Number + Offset**|
+|Eliminates **External Fragmentation**|Suffers from **External Fragmentation**|
+|May cause **Internal Fragmentation**|Internal Fragmentation is minimal|
+|Programmer does not see pages|Programmer can see segments|
+|Easier to implement|More complex to implement|
+|Memory divided without considering program structure|Memory divided according to program structure|
+
+---
+
+# Diagram Comparison
+
+### Paging
+
+```text
+Program
+
+Page 0
+Page 1
+Page 2
+Page 3
+
+↓
+
+Memory Frames
+
+Frame 5 ← Page 0
+Frame 2 ← Page 1
+Frame 7 ← Page 2
+Frame 1 ← Page 3
+```
+
+Pages are equal in size.
+
+---
+
+### Segmentation
+
+```text
+Program
+
+Code Segment
+Data Segment
+Stack Segment
+Function Segment
+
+↓
+
+Stored at different locations in memory
+```
+
+Segments are different in size.
+
+---
+
+# Address Translation Comparison
+
+### Paging
+
+Logical Address:
+
+```text
+(Page Number, Offset)
+```
+
+Page Table gives:
+
+```text
+Page Number → Frame Number
+```
+
+Physical Address:
+
+```text
+(Frame Number, Offset)
+```
+
+---
+
+### Segmentation
+
+Logical Address:
+
+```text
+(Segment Number, Offset)
+```
+
+Segment Table gives:
+
+```text
+Base Address + Limit
+```
+
+Physical Address:
+
+```text
+Base + Offset
+```
+
+---
+
+# Easy Memory Trick
+
+Imagine a book.
+
+## Paging
+
+The book is divided into equal pages.
+
+```text
+Page 1
+Page 2
+Page 3
+Page 4
+```
+
+All pages have the same size.
+
+---
+
+## Segmentation
+
+The book is divided into chapters.
+
+```text
+Chapter 1 = 10 pages
+
+Chapter 2 = 20 pages
+
+Chapter 3 = 15 pages
+```
+
+Each chapter has a different size.
+
+---
+
+### Remember
+
+**Paging = Equal Pieces**
+
+**Segmentation = Meaningful Sections**
+
+This one line alone can help you remember the entire difference.
+
+---
+
+# Advantages Comparison
+
+### Paging
+
+- Eliminates external fragmentation.
+    
+- Better memory utilization.
+    
+- Supports virtual memory.
+    
+
+### Segmentation
+
+- Matches programmer's view.
+    
+- Easy protection and sharing.
+    
+- Better program organization.
+    
+
+---
+
+# Disadvantages Comparison
+
+### Paging
+
+- Internal fragmentation.
+    
+- Page table overhead.
+    
+
+### Segmentation
+
+- External fragmentation.
+    
+- Compaction may be required.
+    
+
+---
+
+# Conclusion
+
+Paging and Segmentation are memory management techniques used by the Operating System. Paging divides memory into fixed-size pages and eliminates external fragmentation, while Segmentation divides memory into logical variable-size segments and provides better program organization and protection.
+
+---
+
+# 5 Marks Exam Answer
+
+**Paging and Segmentation are memory management techniques. Paging divides memory into fixed-size pages and uses a page table, whereas Segmentation divides memory into variable-size logical segments and uses a segment table. Paging eliminates external fragmentation but may cause internal fragmentation, while Segmentation supports logical organization but suffers from external fragmentation.**
+
+---
+
+# One-Minute Revision Before Exam
+
+```text
+PAGING
+
+Fixed Size
+Pages
+Page Table
+Page No + Offset
+External Fragmentation Removed
+Internal Fragmentation Possible
+
+----------------------------
+
+SEGMENTATION
+
+Variable Size
+Code/Data/Stack
+Segment Table
+Segment No + Offset
+External Fragmentation Present
+Programmer Visible
+```
+
+### Golden Exam Trick
+
+If you forget everything, write these 5 keywords:
+
+|Paging|Segmentation|
+|---|---|
+|Fixed Size|Variable Size|
+|Physical|Logical|
+|Page Table|Segment Table|
+|Internal Fragmentation|External Fragmentation|
+|Page No + Offset|Segment No + Offset|
+
+These five points alone usually earn a large portion of the marks in comparison questions.
