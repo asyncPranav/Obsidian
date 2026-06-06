@@ -2180,3 +2180,207 @@ If question comes “Draw Memory Hierarchy”:
 👉 Label Fastest at top and Slowest at bottom
 
 ---
+
+# SWAPPING ⭐⭐⭐
+
+(**Important Short + Long Answer Topic**)
+
+---
+
+# Definition
+
+**Swapping is a memory management technique in which a process is temporarily moved from main memory (RAM) to secondary memory (disk) and later brought back into main memory for execution.**
+
+---
+
+# Easy Meaning
+
+👉 If RAM is full, OS moves some process to disk  
+👉 Later when needed, it brings it back to RAM
+
+So:
+
+**Swap Out = RAM → Disk**  
+**Swap In = Disk → RAM**
+
+---
+
+# Swapping Diagram (Very Important)
+
+```text
+MAIN MEMORY (RAM)
+
+Process A
+Process B
+Process C
+
+        ↓ Swap Out
+
+SECONDARY MEMORY (DISK)
+
+Process D (stored temporarily)
+
+        ↑ Swap In
+
+Process D loaded back into RAM
+```
+
+---
+
+# Working of Swapping
+
+## Step 1: Memory Full
+
+RAM has no free space.
+
+---
+
+## Step 2: OS Selects Process
+
+OS selects a process that is not currently in use.
+
+---
+
+## Step 3: Swap Out
+
+Selected process is moved from RAM to disk.
+
+---
+
+## Step 4: Free Space Created
+
+Now RAM has space for new process.
+
+---
+
+## Step 5: Swap In
+
+When needed, process is brought back from disk to RAM.
+
+---
+
+# Key Terms
+
+## Swap Out
+
+👉 Moving process from RAM to disk
+
+---
+
+## Swap In
+
+👉 Moving process from disk to RAM
+
+---
+
+# Advantages of Swapping
+
+## 1. Increases Degree of Multiprogramming
+
+More processes can be stored in system.
+
+---
+
+## 2. Better CPU Utilization
+
+CPU always has process to execute.
+
+---
+
+## 3. Efficient Memory Usage
+
+RAM is used effectively.
+
+---
+
+## 4. Supports Large Processes
+
+Large programs can run even if RAM is small.
+
+---
+
+## 5. Improves System Throughput
+
+More processes are handled over time.
+
+---
+
+# Disadvantages of Swapping
+
+## 1. High Overhead
+
+Swapping requires disk access which is slow.
+
+---
+
+## 2. Slow Performance
+
+Frequent swapping reduces system speed.
+
+---
+
+## 3. Increased Execution Time
+
+Process execution is delayed due to transfer time.
+
+---
+
+## 4. Requires Fast Disk
+
+Performance depends on disk speed.
+
+---
+
+## 5. Context Switching Overhead
+
+Extra time needed to save and restore processes.
+
+---
+
+# Important Point (Exam Line)
+
+**Swapping is useful for memory management but may reduce system performance due to slow disk operations.**
+
+---
+
+# Simple Real-Life Example
+
+👉 Think of a small desk (RAM)  
+👉 Only few books can stay on desk  
+👉 Extra books are kept in cupboard (disk)  
+👉 When needed, book is brought back to desk
+
+---
+
+# 5 Marks Answer (Exact Exam Writing)
+
+**Swapping is a memory management technique in which a process is temporarily moved from main memory (RAM) to secondary memory (disk) and later brought back into main memory for execution. It is used when RAM is full to increase the degree of multiprogramming. Swapping improves CPU utilization but increases overhead due to slow disk access.**
+
+---
+
+# One-Minute Revision
+
+```text
+Swapping
+
+↓
+
+RAM full
+
+↓
+
+Process moved to disk (Swap Out)
+
+↓
+
+Brought back when needed (Swap In)
+```
+
+---
+
+# Golden Exam Line
+
+**“Swapping is a technique in which processes are moved between main memory and secondary memory to free RAM and improve multiprogramming.”**
+
+---
+
