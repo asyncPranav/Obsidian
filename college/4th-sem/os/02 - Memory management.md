@@ -496,3 +496,5 @@ External Fragmentation
 (Code, Data, Stack, Functions)
 
 This single trick helps retain the difference even during the exam.
+
+--
