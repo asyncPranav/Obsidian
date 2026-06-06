@@ -772,3 +772,8 @@ If you forget everything, write these 5 keywords:
 |Page No + Offset|Segment No + Offset|
 
 These five points alone usually earn a large portion of the marks in comparison questions.
+
+
+---
+
+
