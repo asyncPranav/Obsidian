@@ -1709,3 +1709,520 @@ Banker’s Algorithm:
 ---
 
 
+# 🔥 DEADLOCK DETECTION ⭐⭐⭐⭐⭐
+
+(UNIT 3 – VERY IMPORTANT THEORY + ALGORITHM TOPIC)
+
+---
+
+# 📌 INTRODUCTION
+
+## 📖 Definition (Exam Ready)
+
+**Deadlock Detection is a technique in which the operating system allows deadlock to occur and then periodically checks the system to determine whether a deadlock has happened among processes.**
+
+👉 Unlike prevention and avoidance, here OS does NOT stop deadlock—it finds it after it occurs.
+
+---
+
+# 🧠 EASY MEANING
+
+👉 “Let deadlock happen first, then detect it using algorithm.”
+
+---
+
+# ⭐ KEY IDEA ⭐⭐⭐⭐⭐
+
+```text
+Allow system to run → Check for cycle / stuck processes → Detect deadlock
+```
+
+---
+
+# 📊 SIMPLE DIAGRAM
+
+```text
+Processes execute → Resources stuck → OS checks → DEADLOCK FOUND ❌
+```
+
+---
+
+# 📌 WHEN DEADLOCK DETECTION IS USED?
+
+👉 Used when:
+
+- Deadlock is rare
+    
+- Prevention is costly
+    
+- System performance is priority
+    
+
+---
+
+# ⭐ METHODS OF DEADLOCK DETECTION ⭐⭐⭐⭐⭐
+
+There are **two main methods**:
+
+```text
+1. Single Instance Resource Detection (Wait-For Graph)
+2. Multiple Instance Resource Detection (Algorithm based)
+```
+
+---
+
+# 🟢 1. WAIT-FOR GRAPH METHOD ⭐⭐⭐⭐⭐
+
+## 📖 Definition
+
+**Wait-For Graph is a simplified graph used for deadlock detection where nodes represent processes and edges represent waiting relationships between processes.**
+
+---
+
+## 📊 DIAGRAM
+
+```text
+P1 → P2 → P3 → P1  ❌ Cycle = Deadlock
+```
+
+---
+
+## 🧠 EASY MEANING
+
+👉 “If cycle exists → deadlock exists”
+
+---
+
+## ✔ RULE
+
+- Cycle present → Deadlock
+    
+- No cycle → No deadlock
+    
+
+---
+
+# 🟡 2. MULTIPLE INSTANCE RESOURCE ALGORITHM ⭐⭐⭐⭐⭐
+
+## 📖 Definition
+
+**This method is used when resources have multiple instances, and the system checks whether processes can complete using available resources or not.**
+
+---
+
+## 📌 DATA STRUCTURES USED
+
+```text
+1. Available → free resources
+2. Allocation → resources given
+3. Request / Need → remaining requirement
+```
+
+---
+
+## 🔁 BASIC IDEA
+
+```text
+Find process whose Need ≤ Available → execute → release → repeat
+```
+
+---
+
+## 📊 FLOW DIAGRAM
+
+```text
+Check Available
+      ↓
+Find executable process
+      ↓
+Allocate & run process
+      ↓
+Release resources
+      ↓
+Repeat until no progress
+      ↓
+If stuck → DEADLOCK
+```
+
+---
+
+# 📌 DEADLOCK DETECTION RESULT
+
+## ✔ If all processes finish:
+
+👉 No deadlock
+
+## ❌ If some processes remain stuck:
+
+👉 Deadlock exists
+
+---
+
+# 📌 ADVANTAGES ⭐⭐⭐
+
+✔ No need for prior knowledge of max resources  
+✔ Better system utilization  
+✔ Works well in dynamic systems
+
+---
+
+# 📌 DISADVANTAGES ⭐⭐⭐⭐⭐
+
+❌ Overhead of running detection algorithm  
+❌ Performance cost  
+❌ Needs system interruption periodically
+
+---
+
+# 🧠 MEMORY TRICK ⭐⭐⭐⭐⭐
+
+```text
+Detection = "Let it happen, then catch it"
+```
+
+OR
+
+```text
+Detect = RUN → CHECK → FIND DEADLOCK
+```
+
+---
+
+# 📌 5 MARK ANSWER (EXAM READY)
+
+**Deadlock detection is a technique in which the operating system allows deadlock to occur and then checks the system to determine whether a deadlock has happened. It can be implemented using a Wait-For Graph for single instance resources or using an algorithm for multiple instance resources. If a cycle is found in the graph or processes cannot proceed further, deadlock is detected.**
+
+---
+
+# 📌 10 MARK ANSWER STRUCTURE
+
+Write in exam:
+
+1. Definition
+    
+2. Concept (allow and detect)
+    
+3. Methods (Wait-for graph + algorithm)
+    
+4. Diagram
+    
+5. Result (cycle = deadlock)
+    
+6. Advantages & disadvantages
+    
+7. Conclusion
+    
+
+---
+
+# 🔥 ONE-MINUTE REVISION
+
+```text
+Deadlock Detection:
+
+→ Allow deadlock first
+→ Then detect it
+→ Methods:
+   1. Wait-for graph (cycle detection)
+   2. Resource allocation algorithm
+→ Cycle = deadlock
+```
+
+---
+
+# 🔥 DEADLOCK RECOVERY ⭐⭐⭐⭐⭐
+
+(UNIT 3 – VERY IMPORTANT THEORY QUESTION)
+
+---
+
+# 📌 INTRODUCTION
+
+## 📖 Definition (Exam Ready)
+
+**Deadlock Recovery is a technique used by the Operating System to break a deadlock after it has been detected by taking corrective actions such as terminating processes or preempting resources.**
+
+👉 It is the **final step after deadlock detection**.
+
+---
+
+# 🧠 EASY MEANING
+
+👉 “If deadlock happens, fix it by removing processes or taking back resources.”
+
+---
+
+# ⭐ WHEN IS RECOVERY USED?
+
+```text
+Deadlock Occurs → Detect → Recovery → System Restored
+```
+
+---
+
+# 📊 OVERALL FLOW DIAGRAM ⭐⭐⭐⭐⭐
+
+```text
+Deadlock Detected
+        ↓
+Recovery Needed
+        ↓
+1. Process Termination
+OR
+2. Resource Preemption
+        ↓
+System Restored
+```
+
+---
+
+# ⭐ METHODS OF DEADLOCK RECOVERY ⭐⭐⭐⭐⭐
+
+---
+
+# 🟢 1. PROCESS TERMINATION ⭐⭐⭐⭐⭐
+
+---
+
+## 📖 Definition (Exam Ready)
+
+**Process termination is a recovery method in which one or more processes involved in the deadlock are forcibly terminated to break the deadlock cycle.**
+
+---
+
+## 🧠 EASY MEANING
+
+👉 “Kill process to break deadlock.”
+
+---
+
+# 📌 TYPES OF PROCESS TERMINATION
+
+---
+
+## 🔴 (A) Terminate ALL Processes
+
+### 📖 Definition
+
+**All processes involved in deadlock are terminated at once.**
+
+---
+
+### 📊 DIAGRAM
+
+```text
+P1 ↔ P2 ↔ P3 (deadlock)
+
+→ Kill all processes
+→ System free ✔
+```
+
+---
+
+### ✔ ADVANTAGE
+
+- Simple and fast recovery
+    
+
+### ❌ DISADVANTAGE
+
+- Heavy loss of work
+    
+
+---
+
+## 🟡 (B) Terminate ONE PROCESS AT A TIME ⭐⭐⭐⭐⭐
+
+### 📖 Definition
+
+**Processes are terminated one by one until the deadlock is removed.**
+
+---
+
+### 📊 DIAGRAM
+
+```text
+P1 ↔ P2 ↔ P3
+
+Kill P2 → deadlock breaks ✔
+```
+
+---
+
+### ✔ HOW PROCESS IS SELECTED?
+
+OS considers:
+
+- Priority of process
+    
+- Resources used
+    
+- Execution time
+    
+- Importance
+    
+
+---
+
+### 🧠 EASY MEANING
+
+👉 “Kill smallest or least important process first.”
+
+---
+
+# ⭐ 2. RESOURCE PREEMPTION ⭐⭐⭐⭐⭐
+
+---
+
+## 📖 Definition (Exam Ready)
+
+**Resource preemption is a technique in which resources are forcibly taken from one process and given to another process to break the deadlock.**
+
+---
+
+## 🧠 EASY MEANING
+
+👉 “Take resource back and give to another process.”
+
+---
+
+# 📊 DIAGRAM
+
+```text
+P1 holds R1 → stuck
+P2 needs R1
+
+OS takes R1 from P1 → gives to P2 ✔
+```
+
+---
+
+# 📌 STEPS OF RESOURCE PREEMPTION
+
+```text
+1. Select victim process
+2. Take resource from it
+3. Give to another process
+4. Restart victim later
+```
+
+---
+
+# ⚠️ PROBLEM: STARVATION
+
+👉 Same process may be repeatedly selected as victim
+
+---
+
+# 🧠 EASY MEANING
+
+👉 “OS steals resource to fix deadlock.”
+
+---
+
+# 📌 COST FACTORS (IMPORTANT THEORY POINT)
+
+OS tries to minimize:
+
+- Cost of process rollback
+    
+- Resource reallocation cost
+    
+- Restart cost
+    
+
+---
+
+# ⭐ COMPARISON OF RECOVERY METHODS ⭐⭐⭐⭐⭐
+
+|Method|Idea|Cost|
+|---|---|---|
+|Process Termination|Kill process|High loss|
+|Resource Preemption|Take resources back|Less severe but complex|
+
+---
+
+# 📊 COMPLETE RECOVERY VIEW
+
+```text
+Deadlock
+   ↓
+Detection
+   ↓
+Recovery
+   ├── Process Termination
+   └── Resource Preemption
+```
+
+---
+
+# 🧠 MEMORY TRICK ⭐⭐⭐⭐⭐
+
+```text
+Recovery = "Kill or Steal"
+
+Kill → Process termination
+Steal → Resource preemption
+```
+
+---
+
+# 📌 ADVANTAGES ⭐⭐⭐
+
+✔ Breaks deadlock quickly  
+✔ Restores system stability  
+✔ Works in real-time systems
+
+---
+
+# 📌 DISADVANTAGES ⭐⭐⭐⭐⭐
+
+❌ Loss of work (process termination)  
+❌ Overhead of restarting processes  
+❌ Possible starvation (preemption)
+
+---
+
+# 📌 5 MARK ANSWER (EXAM READY)
+
+**Deadlock recovery is a technique used by the operating system to break a deadlock after detection. It can be achieved using process termination or resource preemption. In process termination, one or more processes involved in deadlock are killed either all at once or one by one. In resource preemption, resources are forcibly taken from processes and allocated to others to break the deadlock cycle.**
+
+---
+
+# 📌 10–15 MARK ANSWER STRUCTURE
+
+Write in exam:
+
+1. Definition
+    
+2. Need for recovery
+    
+3. Flow diagram
+    
+4. Process termination (types + diagram)
+    
+5. Resource preemption (steps + diagram)
+    
+6. Advantages & disadvantages
+    
+7. Conclusion
+    
+
+---
+
+# 🔥 ONE-MINUTE REVISION
+
+```text
+Deadlock Recovery:
+
+→ After detection
+→ Two methods:
+
+1. Process termination → kill process
+2. Resource preemption → take resources
+
+→ Goal: break deadlock and restore system
+```
+
+---
+
