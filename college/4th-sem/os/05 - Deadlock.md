@@ -1423,8 +1423,5 @@ Deadlock Prevention:
 
 ---
 
-# ✔ NEXT TOPIC
 
-If you are ready, next I will teach:
 
-👉 **Deadlock Avoidance (Banker’s Algorithm – MOST IMPORTANT LONG + NUMERICAL TOPIC)**
