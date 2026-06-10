@@ -788,3 +788,410 @@ Talk through Letters
 ```
 
 This single analogy is often enough to recall the entire IPC chapter during the exam.
+
+
+---
+
+
+# SCHEDULING CRITERIA ⭐⭐⭐⭐⭐
+
+**Exam Probability: Very High**
+
+Frequently Asked Questions:
+
+- What is Scheduling Criteria?
+    
+- Explain Scheduling Criteria.
+    
+- What are the criteria used to evaluate CPU Scheduling?
+    
+- Write short notes on CPU Utilization, Throughput, Turnaround Time, Waiting Time, and Response Time.
+    
+
+---
+
+# Introduction
+
+CPU Scheduling is used to decide which process gets the CPU next.
+
+Different scheduling algorithms are evaluated using certain performance measures called **Scheduling Criteria**.
+
+---
+
+# Definition
+
+**Scheduling Criteria are the standards used to evaluate the performance and efficiency of CPU scheduling algorithms.**
+
+A good scheduling algorithm should maximize CPU usage and minimize process waiting time.
+
+---
+
+# Main Scheduling Criteria
+
+There are five important scheduling criteria:
+
+```text
+1. CPU Utilization
+2. Throughput
+3. Turnaround Time
+4. Waiting Time
+5. Response Time
+```
+
+---
+
+# Diagram
+
+Draw this simple diagram in exam.
+
+```text
+        Scheduling Criteria
+
+                 |
+------------------------------------------------
+|          |           |          |            |
+CPU     Throughput  Turnaround  Waiting   Response
+Utilization            Time      Time      Time
+```
+
+---
+
+# 1. CPU Utilization
+
+## Definition
+
+**CPU Utilization is the percentage of time during which the CPU remains busy executing processes.**
+
+---
+
+## Formula
+
+CPU\ Utilization=\frac{CPU\ Busy\ Time}{Total\ Time}\times100
+
+---
+
+## Goal
+
+CPU Utilization should be **maximum**.
+
+---
+
+## Example
+
+Suppose:
+
+```text
+CPU Busy = 90 seconds
+
+Total Time = 100 seconds
+```
+
+Then:
+
+```text
+CPU Utilization = 90%
+```
+
+---
+
+## Exam Point
+
+**Higher CPU Utilization means better system performance.**
+
+---
+
+# 2. Throughput
+
+## Definition
+
+**Throughput is the number of processes completed per unit time.**
+
+---
+
+## Formula
+
+Throughput=\frac{Number\ of\ Completed\ Processes}{Unit\ Time}
+
+---
+
+## Example
+
+If:
+
+```text
+20 Processes
+```
+
+are completed in:
+
+```text
+10 Seconds
+```
+
+Then:
+
+```text
+Throughput = 2 Processes/Second
+```
+
+---
+
+## Goal
+
+Throughput should be **maximum**.
+
+---
+
+## Exam Point
+
+**More completed processes = Higher Throughput.**
+
+---
+
+# 3. Turnaround Time (TAT)
+
+⭐⭐⭐⭐⭐ Most Important
+
+---
+
+## Definition
+
+**Turnaround Time is the total time taken by a process from its arrival to its completion.**
+
+---
+
+## Formula
+
+Turnaround\ Time=Completion\ Time-Arrival\ Time
+
+---
+
+## Example
+
+Suppose:
+
+```text
+Arrival Time = 2 ms
+
+Completion Time = 12 ms
+```
+
+Then:
+
+```text
+TAT = 12 - 2
+
+= 10 ms
+```
+
+---
+
+## Goal
+
+Turnaround Time should be **minimum**.
+
+---
+
+## Easy Memory Trick
+
+```text
+Entered System
+       ↓
+Completed
+
+Total Time
+
+= Turnaround Time
+```
+
+---
+
+# 4. Waiting Time (WT)
+
+⭐⭐⭐⭐⭐ Most Asked Numerical Concept
+
+---
+
+## Definition
+
+**Waiting Time is the total time a process spends waiting in the ready queue before getting CPU.**
+
+---
+
+## Formula
+
+Waiting\ Time=Turnaround\ Time-Burst\ Time
+
+---
+
+## Example
+
+Suppose:
+
+```text
+TAT = 20 ms
+
+Burst Time = 8 ms
+```
+
+Then:
+
+```text
+WT = 20 - 8
+
+= 12 ms
+```
+
+---
+
+## Goal
+
+Waiting Time should be **minimum**.
+
+---
+
+## Easy Memory Trick
+
+```text
+Process Waiting
+
+for CPU
+
+↓
+
+Waiting Time
+```
+
+---
+
+# 5. Response Time (RT)
+
+⭐⭐⭐⭐⭐ Very Important
+
+---
+
+## Definition
+
+**Response Time is the time between the submission of a process and its first response from the CPU.**
+
+---
+
+## Formula
+
+Response\ Time=First\ CPU\ Allocation\ Time-Arrival\ Time
+
+---
+
+## Example
+
+Suppose:
+
+```text
+Arrival Time = 0 ms
+
+First CPU Allocation = 4 ms
+```
+
+Then:
+
+```text
+RT = 4 ms
+```
+
+---
+
+## Goal
+
+Response Time should be **minimum**.
+
+---
+
+## Example
+
+When you click a browser icon:
+
+```text
+Click Chrome
+
+↓
+
+Chrome Starts Opening
+
+↓
+
+Response Time
+```
+
+---
+
+# Summary Table
+
+⭐⭐⭐⭐⭐ Most Important Revision Table
+
+|Criteria|Meaning|Goal|
+|---|---|---|
+|CPU Utilization|CPU busy time|Maximum|
+|Throughput|Processes completed per unit time|Maximum|
+|Turnaround Time|Arrival to Completion|Minimum|
+|Waiting Time|Time spent in Ready Queue|Minimum|
+|Response Time|Arrival to First Response|Minimum|
+
+---
+
+# 5 Marks Answer
+
+## Explain Scheduling Criteria
+
+**Scheduling Criteria are the measures used to evaluate CPU scheduling algorithms. The main scheduling criteria are CPU Utilization, Throughput, Turnaround Time, Waiting Time, and Response Time. CPU Utilization and Throughput should be maximized, whereas Turnaround Time, Waiting Time, and Response Time should be minimized for better system performance.**
+
+---
+
+# Exam Conclusion
+
+**Scheduling Criteria help in measuring the efficiency of CPU scheduling algorithms. A good scheduling algorithm maximizes CPU Utilization and Throughput while minimizing Turnaround Time, Waiting Time, and Response Time.**
+
+---
+
+# One-Minute Revision Before Exam
+
+```text
+Scheduling Criteria
+
+1. CPU Utilization → Maximum
+
+2. Throughput → Maximum
+
+3. Turnaround Time → Minimum
+
+4. Waiting Time → Minimum
+
+5. Response Time → Minimum
+```
+
+# Super Memory Trick
+
+Remember:
+
+### "UTTWR"
+
+```text
+U → Utilization
+
+T → Throughput
+
+T → Turnaround Time
+
+W → Waiting Time
+
+R → Response Time
+```
+
+And remember:
+
+```text
+First Two → MAXIMUM
+
+Last Three → MINIMUM
+```
+
+This single trick is enough to reproduce the entire answer in the exam.
