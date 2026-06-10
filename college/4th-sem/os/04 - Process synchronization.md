@@ -988,4 +988,339 @@ Counting = Multiple Resource Slots
 
 ---
 
-If you want next, I can teach you **Dining Philosopher Problem + Semaphore solution**, which is the most important long question from this unit and almost always comes in exams.
+# MUTUAL EXCLUSION ⭐⭐⭐⭐⭐
+
+**Very Important Foundation Topic of Process Synchronization**
+
+Frequently Asked Questions:
+
+- What is Mutual Exclusion?
+    
+- Why is Mutual Exclusion needed?
+    
+- Software solutions for Mutual Exclusion.
+    
+- Hardware solutions for Mutual Exclusion.
+    
+
+---
+
+# What is Mutual Exclusion?
+
+## Definition
+
+**Mutual Exclusion is a synchronization principle in which only one process is allowed to enter the critical section at a time while others are forced to wait.**
+
+---
+
+# Easy Meaning
+
+👉 “One process at a time rule”
+
+If one process is using a shared resource, others must wait.
+
+---
+
+# Real-Life Example
+
+```text
+Bathroom 🚪
+
+Only ONE person inside at a time
+Others wait outside
+```
+
+This is Mutual Exclusion.
+
+---
+
+# Diagram
+
+```text
+Process P1 ----\
+Process P2 ----- → Critical Section → Shared Resource
+Process P3 ----/
+
+Only ONE allowed at a time
+```
+
+---
+
+# Why is Mutual Exclusion Needed?
+
+Without Mutual Exclusion:
+
+```text
+Two processes access same data simultaneously
+→ Data inconsistency
+→ Wrong output
+→ Race condition
+```
+
+---
+
+# Example Problem
+
+```text
+Shared Variable = 10
+
+P1 → +5
+P2 → -3
+```
+
+If both run at same time:
+
+❌ Wrong final result may occur
+
+---
+
+# Goals of Mutual Exclusion
+
+1. Prevent race condition
+    
+2. Ensure correct execution
+    
+3. Protect shared data
+    
+4. Maintain system consistency
+    
+
+---
+
+# Requirements for Mutual Exclusion Solution
+
+(Already part of Critical Section Problem)
+
+```text
+1. Mutual Exclusion
+2. Progress
+3. Bounded Waiting
+```
+
+---
+
+# Methods of Mutual Exclusion
+
+There are TWO main approaches:
+
+```text
+Mutual Exclusion Methods
+
+1. Software Solutions
+2. Hardware Solutions
+```
+
+---
+
+# 1. SOFTWARE SOLUTIONS ⭐⭐⭐⭐⭐
+
+## Definition
+
+**Software solutions use programming algorithms to ensure only one process enters critical section at a time.**
+
+---
+
+# Important Software Methods
+
+## (A) Peterson’s Solution ⭐⭐⭐⭐
+
+Used for 2 processes.
+
+### Idea:
+
+Uses two variables:
+
+```text
+flag[2]
+turn
+```
+
+---
+
+### Working:
+
+- Process sets flag = true
+    
+- Gives turn to other process
+    
+- Ensures only one enters CS
+    
+
+---
+
+### Diagram
+
+```text
+P1 --------\
+            → Critical Section
+P2 --------/
+
+Controlled using flag & turn
+```
+
+---
+
+## (B) Dekker’s Algorithm (Less Important)
+
+- First correct software solution
+    
+- Complex
+    
+- Rarely asked now
+    
+
+---
+
+## Problems of Software Solutions
+
+1. Complex implementation
+    
+2. Busy waiting
+    
+3. Not efficient for modern systems
+    
+
+---
+
+# 2. HARDWARE SOLUTIONS ⭐⭐⭐⭐⭐
+
+## Definition
+
+**Hardware solutions use special CPU instructions to ensure mutual exclusion at machine level.**
+
+---
+
+# Important Hardware Methods
+
+## (A) Test and Set Lock (TSL) ⭐⭐⭐⭐⭐
+
+### Idea:
+
+```text
+Lock = 1 → Free
+Lock = 0 → Busy
+```
+
+---
+
+### Working:
+
+```text
+if lock == 0:
+   wait
+else:
+   enter critical section
+   set lock = 0
+```
+
+---
+
+### Diagram
+
+```text
+Process P1 → Lock = 0 → WAIT
+Process P2 → Lock = 1 → ENTER CS
+```
+
+---
+
+## (B) Compare and Swap (CAS)
+
+### Idea:
+
+Compares value and swaps if needed.
+
+Used in modern processors.
+
+---
+
+## (C) Disable Interrupts
+
+### Idea:
+
+CPU disables interrupts so no context switching occurs.
+
+```text
+Interrupt OFF → No interruption → Safe execution
+```
+
+---
+
+# Software vs Hardware Solutions ⭐⭐⭐⭐⭐
+
+|Feature|Software|Hardware|
+|---|---|---|
+|Speed|Slow|Fast|
+|Complexity|High|Low|
+|Efficiency|Low|High|
+|Type|Algorithm-based|Instruction-based|
+|Example|Peterson|TSL, CAS|
+
+---
+
+# Advantages of Mutual Exclusion
+
+1. Prevents data inconsistency
+    
+2. Avoids race conditions
+    
+3. Ensures correct output
+    
+4. Safe resource sharing
+    
+
+---
+
+# Disadvantages
+
+1. May cause waiting
+    
+2. Can lead to deadlock (if misused)
+    
+3. Performance overhead
+    
+
+---
+
+# 5 Marks Answer (Exam Ready)
+
+## What is Mutual Exclusion?
+
+Mutual Exclusion is a synchronization technique in which only one process is allowed to enter the critical section at a time while others must wait. It is necessary to avoid data inconsistency and race conditions in a multiprogramming system. Mutual exclusion can be achieved using software solutions like Peterson’s algorithm and hardware solutions like Test and Set Lock.
+
+---
+
+# One-Minute Revision
+
+```text
+Mutual Exclusion
+
+↓
+
+Only ONE process in CS
+
+↓
+
+Why?
+Avoid data inconsistency
+
+↓
+
+Methods:
+1. Software (Peterson)
+2. Hardware (TSL, CAS)
+```
+
+---
+
+# Super Memory Trick ⭐⭐⭐⭐⭐
+
+```text
+Mutual Exclusion = LOCK SYSTEM
+
+Software → Rules (Algorithms)
+Hardware → Physical Lock (CPU instruction)
+```
+
+---
+
