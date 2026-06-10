@@ -2847,51 +2847,7 @@ The Operating System uses three levels of scheduling:
     
 
 These schedulers help manage processes efficiently and improve system performance.
-
----
-
-# 10 Marks Answer Structure
-
-When asked:
-
-### "Explain CPU Scheduling and its Levels"
-
-Write:
-
-1. Definition of CPU Scheduling
-    
-2. Need of CPU Scheduling
-    
-3. CPU Scheduling Diagram
-    
-4. Long-Term Scheduler
-    
-    - Definition
-        
-    - Diagram
-        
-    - Functions
-        
-5. Medium-Term Scheduler
-    
-    - Definition
-        
-    - Diagram
-        
-    - Functions
-        
-6. Short-Term Scheduler
-    
-    - Definition
-        
-    - Diagram
-        
-    - Functions
-        
-7. Comparison Table
-    
-8. Conclusion
-    
+   
 
 ---
 
@@ -2973,3 +2929,7 @@ S → Select
 ```
 
 If you remember **LMS (Load–Move–Select)**, you can reconstruct the entire answer in the exam.
+
+
+---
+
