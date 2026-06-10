@@ -300,4 +300,336 @@ Sync     → Order (Correct Data)
 
 ---
 
-If you want next, I can teach you **Critical Section Problem + Semaphore + Dining Philosopher Problem**, which are the most important exam questions from this unit.
+# CRITICAL SECTION PROBLEM ⭐⭐⭐⭐⭐
+
+**Very Important (Almost Guaranteed in Exams)**
+
+Frequently Asked Questions:
+
+- What is Critical Section Problem?
+    
+- Explain Critical Section Problem.
+    
+- Requirements of Critical Section Problem.
+    
+- Draw and explain Critical Section Structure.
+    
+
+---
+
+# What is Critical Section?
+
+## Definition
+
+**Critical Section is the part of a program where a process accesses shared resources such as variables, files, or memory.**
+
+Only **one process should execute in the critical section at a time**.
+
+---
+
+# What is Critical Section Problem?
+
+## Definition (Most Important)
+
+**The Critical Section Problem is the problem of designing a system in which multiple processes can access shared resources safely without causing data inconsistency.**
+
+👉 The main challenge is to ensure that:
+
+> Only one process enters the critical section at a time.
+
+---
+
+# Easy Understanding
+
+Suppose:
+
+```text
+Shared Variable = 100
+```
+
+Two processes:
+
+```text
+P1 → adds 10
+P2 → subtracts 20
+```
+
+If both execute at same time:
+
+❌ Wrong result may occur
+
+This problem is called:
+
+👉 **Critical Section Problem**
+
+---
+
+# Real-Life Example
+
+```text
+ATM Machine
+
+Two people cannot withdraw same cash balance simultaneously
+```
+
+If not controlled:
+
+👉 Balance becomes incorrect
+
+---
+
+# Structure of a Process
+
+⭐⭐⭐⭐⭐ Very Important Diagram (Must Draw in Exam)
+
+```text
+        +------------------+
+        | Entry Section    |
+        +------------------+
+                 ↓
+        +------------------+
+        | Critical Section |
+        +------------------+
+                 ↓
+        +------------------+
+        | Exit Section     |
+        +------------------+
+                 ↓
+        +------------------+
+        | Remainder Part   |
+        +------------------+
+```
+
+---
+
+# Explanation of Each Section
+
+## 1. Entry Section
+
+Process requests permission to enter critical section.
+
+---
+
+## 2. Critical Section
+
+Process accesses shared resources.
+
+Example:
+
+- Updating variable
+    
+- Writing file
+    
+- Accessing database
+    
+
+---
+
+## 3. Exit Section
+
+Process leaves critical section and releases resource.
+
+---
+
+## 4. Remainder Section
+
+Other normal instructions of the program.
+
+---
+
+# Diagram of Critical Section Problem
+
+```text
+Process P1  --------\
+                     → Shared Resource → Conflict
+Process P2  --------/
+```
+
+Without control → Data inconsistency
+
+---
+
+# Requirements of Critical Section Solution
+
+⭐⭐⭐⭐⭐ Very Important (Exam Favorite)
+
+A correct solution must satisfy THREE conditions:
+
+---
+
+# 1. Mutual Exclusion
+
+## Meaning
+
+**Only one process can enter the critical section at a time.**
+
+### Simple Line:
+
+👉 “No two processes should execute critical section together.”
+
+---
+
+# 2. Progress
+
+## Meaning
+
+If no process is in the critical section, the decision of who enters next should not be delayed.
+
+### Simple Line:
+
+👉 “System should not unnecessarily wait.”
+
+---
+
+# 3. Bounded Waiting
+
+## Meaning
+
+A process should not wait forever to enter the critical section.
+
+### Simple Line:
+
+👉 “Every process gets a fair chance.”
+
+---
+
+# Summary Diagram of Requirements
+
+```text
+Critical Section Solution Must Ensure:
+
+        |
+-----------------------------
+|            |              |
+v            v              v
+
+Mutual     Progress     Bounded
+Exclusion               Waiting
+```
+
+---
+
+# Easy Memory Trick
+
+```text
+M → Mutual Exclusion (One at a time)
+
+P → Progress (No delay if free)
+
+B → Bounded Waiting (No starvation)
+```
+
+👉 Remember: **MPB Rule**
+
+---
+
+# Why Critical Section Problem is Important?
+
+1. Prevents data inconsistency
+    
+2. Avoids race condition
+    
+3. Ensures correct output
+    
+4. Required in multiprogramming systems
+    
+5. Used in OS synchronization
+    
+
+---
+
+# Real-Life Analogy
+
+```text
+Bathroom Example:
+
+Only ONE person inside (Mutual Exclusion)
+
+Next person allowed immediately (Progress)
+
+No one waits forever (Bounded Waiting)
+```
+
+---
+
+# 5 Marks Answer
+
+## Explain Critical Section Problem
+
+The Critical Section Problem is the problem of designing a system in which multiple processes can safely access shared resources without data inconsistency. A critical section is the part of a program where shared resources are accessed. The solution must satisfy three requirements: Mutual Exclusion, Progress, and Bounded Waiting.
+
+---
+
+# 10–15 Marks Answer Structure
+
+When asked:
+
+### “Explain Critical Section Problem with diagram”
+
+Write:
+
+1. Definition of Process Synchronization (1–2 lines)
+    
+2. Definition of Critical Section
+    
+3. Critical Section Structure Diagram
+    
+4. Explanation of each section
+    
+5. Critical Section Problem definition
+    
+6. Requirements:
+    
+    - Mutual Exclusion
+        
+    - Progress
+        
+    - Bounded Waiting
+        
+7. Real-life example
+    
+8. Conclusion
+    
+
+---
+
+# Final Exam Revision (1 Minute)
+
+```text
+Critical Section Problem
+
+↓
+
+Shared Resource Problem
+
+↓
+
+Only ONE process allowed inside CS
+
+↓
+
+Structure:
+Entry → Critical → Exit → Remainder
+
+↓
+
+Requirements:
+1. Mutual Exclusion
+2. Progress
+3. Bounded Waiting
+```
+
+---
+
+# Super Memory Trick
+
+```text
+Critical Section = Bathroom
+
+Entry → Lock Request
+Critical → Inside Bathroom
+Exit → Unlock
+Remainder → Outside Work
+```
+
+👉 If you remember this analogy, you can easily reproduce full answer in exam.
