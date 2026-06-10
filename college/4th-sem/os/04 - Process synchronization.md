@@ -1,6 +1,38 @@
 
 ---
 
+
+# 📌 If You Have Limited Time
+
+Study in this order:
+
+```text
+1. Critical Section Problem ⭐⭐⭐⭐⭐
+2. Semaphores ⭐⭐⭐⭐⭐
+3. Mutual Exclusion ⭐⭐⭐⭐⭐
+4. Dining Philosopher Problem ⭐⭐⭐⭐⭐
+5. Peterson's Algorithm ⭐⭐⭐⭐
+6. Hardware Solutions ⭐⭐⭐⭐
+7. Barber Shop Problem ⭐⭐⭐⭐
+```
+
+These 7 topics can cover a large portion of synchronization-unit marks in most B.Tech OS exams.
+
+### My Prediction for Highest Probability Questions
+
+```text
+1. Semaphores
+2. Critical Section Problem
+3. Dining Philosopher Problem
+4. Mutual Exclusion
+5. Peterson's Algorithm
+```
+
+If your exam is close, start with **Critical Section Problem**, because understanding it makes **Mutual Exclusion, Semaphores, Dining Philosopher, and Peterson's Algorithm** much easier.
+
+
+
+---
 # PROCESS SYNCHRONIZATION ⭐⭐⭐⭐⭐
 
 **Very Important Topic (High Probability in Exams)**
