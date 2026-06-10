@@ -1436,11 +1436,18 @@ Deadlock Prevention:
 
 # 📌 INTRODUCTION
 
-## 📖 Definition (Exam Ready)
+## 📖 Definition of Bankers Algorithm (Exam Ready)
 
 **Banker’s Algorithm is a deadlock avoidance algorithm used by the operating system to allocate resources safely by checking whether the system remains in a safe state after allocation.**
 
 👉 It ensures that the system never enters an unsafe state.
+
+
+## 📖 Definition of Deadlock Avoidance (Exam Ready)
+
+**Deadlock avoidance is a technique in which the operating system dynamically checks every resource request and allocates resources only if the system will remain in a safe state. Banker’s Algorithm is the most important deadlock avoidance method.**
+
+👉 It ensures the system never enters an unsafe state.
 
 ---
 
@@ -1458,6 +1465,14 @@ Deadlock Prevention:
     
 - OS gives resources only if system stays safe
     
+---
+
+# ⭐ BASIC IDEA OF BANKER’S ALGORITHM ⭐⭐⭐⭐⭐
+
+```
+Request → Check Safety → Allocate / Reject
+```
+
 
 ---
 
