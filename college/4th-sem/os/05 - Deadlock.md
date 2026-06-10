@@ -1486,6 +1486,8 @@ Request → Check Safety → Allocate / Reject
 
 **A safe state is a state in which the system can allocate resources to all processes in some order without leading to deadlock.**
 
+**A safe state is a state in which all processes can complete their execution in some order without causing deadlock.**
+
 ---
 
 ## 📊 DIAGRAM
