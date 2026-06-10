@@ -1195,3 +1195,336 @@ Last Three → MINIMUM
 ```
 
 This single trick is enough to reproduce the entire answer in the exam.
+
+
+---
+
+
+# PREEMPTIVE vs NON-PREEMPTIVE SCHEDULING ⭐⭐⭐⭐⭐
+
+**Exam Probability: Very High**
+
+Frequently Asked Questions:
+
+- What is Preemptive Scheduling?
+    
+- What is Non-Preemptive Scheduling?
+    
+- Differentiate between Preemptive and Non-Preemptive Scheduling.
+    
+- Compare Preemptive and Non-Preemptive CPU Scheduling.
+    
+
+---
+
+# What is CPU Scheduling?
+
+CPU Scheduling is the process of selecting a process from the ready queue and allocating the CPU to it.
+
+CPU Scheduling is of two types:
+
+```text
+CPU Scheduling
+      |
+---------------------
+|                   |
+v                   v
+Preemptive    Non-Preemptive
+```
+
+---
+
+# 1. Preemptive Scheduling
+
+## Definition
+
+**Preemptive Scheduling is a CPU scheduling technique in which the operating system can take the CPU away from a running process before it completes execution.**
+
+In simple words:
+
+> The OS can interrupt a running process and give the CPU to another process.
+
+---
+
+## Working
+
+Suppose:
+
+```text
+P1 = Long Process
+P2 = High Priority Process
+```
+
+Initially:
+
+```text
+P1 Running
+```
+
+Suddenly:
+
+```text
+P2 Arrives
+```
+
+OS stops P1 and gives CPU to P2.
+
+---
+
+## Diagram
+
+```text
+Time →
+
+P1 Running
+|---------|
+
+        P2 Arrives
+
+P1  |----|
+P2       |------|
+P1              |----|
+```
+
+P1 is interrupted and resumed later.
+
+---
+
+## Examples
+
+- Round Robin (RR)
+    
+- Shortest Remaining Time First (SRTF)
+    
+- Preemptive Priority Scheduling
+    
+
+---
+
+## Advantages
+
+1. Better response time.
+    
+2. Suitable for interactive systems.
+    
+3. Fair CPU sharing.
+    
+4. High-priority processes get CPU quickly.
+    
+
+---
+
+## Disadvantages
+
+1. More context switching.
+    
+2. Higher overhead.
+    
+3. Complex implementation.
+    
+
+---
+
+# 2. Non-Preemptive Scheduling
+
+## Definition
+
+**Non-Preemptive Scheduling is a CPU scheduling technique in which a running process keeps the CPU until it finishes execution or voluntarily releases it.**
+
+In simple words:
+
+> Once a process gets CPU, nobody can take it away.
+
+---
+
+## Working
+
+Suppose:
+
+```text
+P1 Running
+P2 Arrives
+```
+
+Even if P2 arrives,
+
+```text
+P1 continues execution
+```
+
+until completion.
+
+Only then CPU is given to P2.
+
+---
+
+## Diagram
+
+```text
+Time →
+
+P1          P2
+
+|---------|------|
+```
+
+P1 completes first.
+
+Then P2 runs.
+
+---
+
+## Examples
+
+- FCFS (First Come First Serve)
+    
+- Non-Preemptive SJF
+    
+- Non-Preemptive Priority Scheduling
+    
+
+---
+
+## Advantages
+
+1. Simple to implement.
+    
+2. Less overhead.
+    
+3. Fewer context switches.
+    
+4. Efficient for batch systems.
+    
+
+---
+
+## Disadvantages
+
+1. Poor response time.
+    
+2. Long waiting time possible.
+    
+3. Not suitable for interactive systems.
+    
+4. May cause starvation of short jobs.
+    
+
+---
+
+# Difference Between Preemptive and Non-Preemptive Scheduling
+
+⭐⭐⭐⭐⭐ Most Important Exam Question
+
+|Preemptive Scheduling|Non-Preemptive Scheduling|
+|---|---|
+|CPU can be taken from a running process|CPU cannot be taken from a running process|
+|Process may be interrupted|Process runs until completion|
+|Better response time|Poor response time|
+|More context switching|Less context switching|
+|Higher overhead|Lower overhead|
+|More complex|Simpler|
+|Suitable for time-sharing systems|Suitable for batch systems|
+|Examples: RR, SRTF|Examples: FCFS, Non-Preemptive SJF|
+
+---
+
+# Real-Life Example
+
+## Preemptive Scheduling
+
+Imagine a teacher is listening to Student A.
+
+Suddenly Principal arrives.
+
+Teacher immediately stops Student A and listens to Principal.
+
+```text
+Student A → Interrupted
+Principal → Gets Priority
+```
+
+This is Preemptive Scheduling.
+
+---
+
+## Non-Preemptive Scheduling
+
+Teacher listens to Student A completely.
+
+Only after Student A finishes,
+
+Teacher listens to Student B.
+
+```text
+Student A → Complete
+Student B → Start
+```
+
+This is Non-Preemptive Scheduling.
+
+---
+
+# 5 Marks Answer
+
+## Difference Between Preemptive and Non-Preemptive Scheduling
+
+Preemptive Scheduling allows the operating system to interrupt a running process and allocate the CPU to another process. It provides better response time but increases context switching overhead. Examples are Round Robin and SRTF.
+
+Non-Preemptive Scheduling does not allow interruption of a running process. A process keeps the CPU until completion or voluntary release. It is simple to implement and has less overhead. Examples are FCFS and Non-Preemptive SJF.
+
+---
+
+# Exam Conclusion
+
+**Preemptive Scheduling is suitable for interactive and time-sharing systems because it provides quick response time, whereas Non-Preemptive Scheduling is suitable for batch systems because of its simplicity and lower overhead.**
+
+---
+
+# One-Minute Revision Before Exam
+
+```text
+PREEMPTIVE
+
+CPU can be taken away
+
+Examples:
+RR
+SRTF
+Priority
+
+Advantages:
+Fast Response
+Fair Sharing
+
+Disadvantages:
+More Context Switching
+More Overhead
+```
+
+```text
+NON-PREEMPTIVE
+
+CPU cannot be taken away
+
+Examples:
+FCFS
+SJF
+
+Advantages:
+Simple
+Less Overhead
+
+Disadvantages:
+Slow Response
+Long Waiting Time
+```
+
+# Super Memory Trick
+
+Remember:
+
+### Preemptive = "Interrupt Allowed"
+
+### Non-Preemptive = "No Interrupt Allowed"
+
+If you remember just this one line, you can reconstruct the entire answer during the exam.
