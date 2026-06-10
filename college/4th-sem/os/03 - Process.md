@@ -2401,19 +2401,575 @@ Advantage:
 Best Resource Utilization
 ```
 
+---
+
+
+# PROCESSOR (CPU) SCHEDULING ⭐⭐⭐⭐
+
+**Exam Probability: High**
+
+Frequently Asked Questions:
+
+- What is CPU Scheduling?
+    
+- Explain Processor Scheduling.
+    
+- Explain Levels of Scheduling.
+    
+- Differentiate between Long-Term, Medium-Term, and Short-Term Schedulers.
+    
+
+---
+
+# What is CPU Scheduling?
+
+## Definition
+
+**CPU Scheduling is the process of selecting a process from the ready queue and allocating the CPU to it for execution.**
+
+In a multiprogramming system, many processes compete for the CPU. The Operating System decides which process gets the CPU next.
+
+---
+
+# Why CPU Scheduling is Needed?
+
+There is only one CPU (or limited CPUs), but many processes.
+
+Example:
+
+```text
+P1 → Ready
+P2 → Ready
+P3 → Ready
+P4 → Ready
+```
+
+All want CPU at the same time.
+
+The OS must decide:
+
+```text
+Who gets CPU first?
+```
+
+This decision is called **CPU Scheduling**.
+
+---
+
+# Objectives of CPU Scheduling
+
+A good scheduling algorithm should:
+
+1. Maximize CPU Utilization.
+    
+2. Maximize Throughput.
+    
+3. Minimize Waiting Time.
+    
+4. Minimize Turnaround Time.
+    
+5. Minimize Response Time.
+    
+
+---
+
+# CPU Scheduling Diagram
+
+Draw this in exam.
+
+```text
+            READY QUEUE
+
+      P1   P2   P3   P4
+
+               |
+               |
+               v
+
+          CPU SCHEDULER
+
+               |
+               v
+
+              CPU
+
+               |
+               v
+
+          Running Process
+```
+
+---
+
+# Levels of Scheduling
+
+⭐⭐⭐⭐⭐ Most Asked Theory Part
+
+The Operating System uses three schedulers:
+
+```text
+Scheduling Levels
+
+       |
+-------------------------
+|          |            |
+v          v            v
+
+Long     Medium      Short
+Term      Term        Term
+```
+
+---
+
+# Overall Diagram
+
+⭐⭐⭐⭐⭐ Very Important
+
+```text
+Job Pool
+   |
+   | Long-Term Scheduler
+   v
+
+Ready Queue
+   |
+   | Short-Term Scheduler
+   v
+
+Running
+   |
+   |
+Blocked/Waiting
+   ^
+   |
+Medium-Term Scheduler
+```
+
+---
+
+# 1. Long-Term Scheduler
+
+## Definition
+
+**The Long-Term Scheduler selects processes from the job pool and loads them into main memory (ready queue).**
+
+It decides:
+
+```text
+Which process should enter the system?
+```
+
+---
+
+## Function
+
+```text
+Job Pool
+    ↓
+Ready Queue
+```
+
+---
+
+## Diagram
+
+```text
+Job Pool
+
+P1
+P2
+P3
+P4
+
+    |
+    v
+
+Long-Term Scheduler
+
+    |
+    v
+
+Ready Queue
+```
+
+---
+
+## Characteristics
+
+- Controls degree of multiprogramming.
+    
+- Runs less frequently.
+    
+- Decides which jobs enter memory.
+    
+
+---
+
+## Easy Memory Trick
+
+```text
+Long-Term
+
+↓
+
+Admission Officer
+
+↓
+
+Allows entry into system
+```
+
+---
+
+# 2. Short-Term Scheduler
+
+## Definition
+
+**The Short-Term Scheduler selects a process from the ready queue and allocates the CPU to it.**
+
+It is also called:
+
+```text
+CPU Scheduler
+```
+
+---
+
+## Function
+
+```text
+Ready Queue
+      ↓
+Running State
+```
+
+---
+
+## Diagram
+
+```text
+Ready Queue
+
+P1
+P2
+P3
+
+   |
+   v
+
+Short-Term Scheduler
+
+   |
+   v
+
+CPU
+```
+
+---
+
+## Characteristics
+
+- Runs very frequently.
+    
+- Executes in milliseconds.
+    
+- Must be very fast.
+    
+
+---
+
+## Easy Memory Trick
+
+```text
+Short-Term
+
+↓
+
+CPU Distributor
+
+↓
+
+Decides who gets CPU
+```
+
+---
+
+# 3. Medium-Term Scheduler
+
+## Definition
+
+**The Medium-Term Scheduler temporarily removes processes from memory and later brings them back.**
+
+This process is called:
+
+```text
+Swapping
+```
+
+---
+
+## Function
+
+```text
+Memory Full
+
+↓
+
+Remove Process
+
+↓
+
+Bring Back Later
+```
+
+---
+
+## Diagram
+
+```text
+Ready Queue
+
+      |
+      v
+
+Medium-Term Scheduler
+
+      |
+      v
+
+Suspended Process
+
+      |
+      v
+
+Ready Queue Again
+```
+
+---
+
+## Characteristics
+
+- Controls swapping.
+    
+- Reduces memory load.
+    
+- Improves performance.
+    
+
+---
+
+## Easy Memory Trick
+
+```text
+Medium-Term
+
+↓
+
+Traffic Police
+
+↓
+
+Temporarily removes processes
+```
+
+---
+
+# Comparison of Schedulers
+
+⭐⭐⭐⭐⭐ Very Important Table
+
+|Feature|Long-Term Scheduler|Medium-Term Scheduler|Short-Term Scheduler|
+|---|---|---|---|
+|Also Called|Job Scheduler|Swapper|CPU Scheduler|
+|Selects From|Job Pool|Main Memory|Ready Queue|
+|Moves To|Ready Queue|Suspended State|CPU|
+|Frequency|Low|Medium|Very High|
+|Speed|Slow|Moderate|Fast|
+|Main Function|Admit Processes|Swapping|CPU Allocation|
+
+---
+
+# Real-Life Example
+
+Imagine a college.
+
+### Long-Term Scheduler
+
+```text
+Admission Department
+
+↓
+
+Selects Students
+```
+
+---
+
+### Medium-Term Scheduler
+
+```text
+Temporary Suspension
+
+↓
+
+Student Returns Later
+```
+
+---
+
+### Short-Term Scheduler
+
+```text
+Teacher
+
+↓
+
+Chooses Student
+
+↓
+
+Gives Chance to Speak
+```
+
+---
+
+# 5 Marks Answer
+
+## Explain Levels of Scheduling
+
+The Operating System uses three levels of scheduling:
+
+1. **Long-Term Scheduler** – Selects processes from the job pool and loads them into memory.
+    
+2. **Medium-Term Scheduler** – Removes and reintroduces processes using swapping.
+    
+3. **Short-Term Scheduler** – Selects processes from the ready queue and allocates the CPU.
+    
+
+These schedulers help manage processes efficiently and improve system performance.
+
+---
+
+# 10 Marks Answer Structure
+
+When asked:
+
+### "Explain CPU Scheduling and its Levels"
+
+Write:
+
+1. Definition of CPU Scheduling
+    
+2. Need of CPU Scheduling
+    
+3. CPU Scheduling Diagram
+    
+4. Long-Term Scheduler
+    
+    - Definition
+        
+    - Diagram
+        
+    - Functions
+        
+5. Medium-Term Scheduler
+    
+    - Definition
+        
+    - Diagram
+        
+    - Functions
+        
+6. Short-Term Scheduler
+    
+    - Definition
+        
+    - Diagram
+        
+    - Functions
+        
+7. Comparison Table
+    
+8. Conclusion
+    
+
+---
+
+# Exam Conclusion
+
+**CPU Scheduling is the process of allocating CPU time to processes. The Operating System uses Long-Term, Medium-Term, and Short-Term schedulers to manage process admission, swapping, and CPU allocation efficiently.**
+
+---
+
+# One-Minute Revision Before Exam
+
+```text
+CPU Scheduling
+
+↓
+
+Select Process
+
+↓
+
+Give CPU
+```
+
+```text
+Long-Term Scheduler
+
+Job Pool
+   ↓
+Ready Queue
+
+Function:
+Admission of Processes
+```
+
+```text
+Medium-Term Scheduler
+
+Memory
+  ↓
+Suspend
+  ↓
+Resume
+
+Function:
+Swapping
+```
+
+```text
+Short-Term Scheduler
+
+Ready Queue
+   ↓
+CPU
+
+Function:
+CPU Allocation
+```
+
 # Super Memory Trick
 
 Remember:
 
+### L → Load
+
+(Long-Term loads jobs into memory)
+
+### M → Move Out & Back
+
+(Medium-Term performs swapping)
+
+### S → Select CPU Process
+
+(Short-Term gives CPU)
+
 ```text
-Many-to-One
-= Many Students → One Teacher
-
-One-to-One
-= One Student → One Teacher
-
-Many-to-Many
-= Many Students → Many Teachers
+L → Load
+M → Move
+S → Select
 ```
 
-If you remember this analogy, you can easily draw the diagrams and explain all three threading models in the exam.
+If you remember **LMS (Load–Move–Select)**, you can reconstruct the entire answer in the exam.
