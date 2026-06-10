@@ -1838,4 +1838,317 @@ Whoever finishes first changes result
 
 ---
 
-If you want next, I can teach you **Dining Philosopher Problem (with full semaphore solution + diagram)** which is the MOST IMPORTANT case study in this entire unit.
+# 🍽️ DINING PHILOSOPHER PROBLEM ⭐⭐⭐⭐⭐
+
+**Most Important Case Study in Process Synchronization**
+
+Frequently Asked Questions:
+
+- Explain Dining Philosopher Problem.
+    
+- Solution using Semaphores.
+    
+- What is Deadlock in Dining Philosopher Problem?
+    
+
+---
+
+# What is Dining Philosopher Problem?
+
+## Definition
+
+**The Dining Philosopher Problem is a classic synchronization problem in which five philosophers sit around a circular table, each needing two chopsticks (resources) to eat.**
+
+Each philosopher alternates between:
+
+- Thinking 🤔
+    
+- Eating 🍝
+    
+
+But to eat, they need **two chopsticks (left and right)**.
+
+---
+
+# Problem Setup
+
+```text
+          Chopstick
+   P1 🍝 ----------- P2 🍝
+    |                 |
+Chopstick         Chopstick
+    |                 |
+   P5 🍝 ----------- P3 🍝
+          Chopstick
+            P4 🍝
+```
+
+👉 5 philosophers  
+👉 5 chopsticks (shared between neighbors)
+
+---
+
+# Rule
+
+Each philosopher needs:
+
+```text
+LEFT chopstick + RIGHT chopstick → Eat
+```
+
+---
+
+# Problem Statement
+
+If all philosophers pick one chopstick at the same time:
+
+❌ No one can get the second chopstick  
+❌ System gets stuck
+
+This leads to:
+
+👉 **Deadlock**
+
+---
+
+# What is Deadlock in this Problem?
+
+## Definition
+
+**Deadlock occurs when all philosophers hold one chopstick and wait indefinitely for the second one, causing a circular waiting condition.**
+
+---
+
+# Deadlock Situation Diagram
+
+⭐⭐⭐⭐⭐ Very Important
+
+```text
+P1 holds C1 → waits for C2
+P2 holds C2 → waits for C3
+P3 holds C3 → waits for C4
+P4 holds C4 → waits for C5
+P5 holds C5 → waits for C1
+
+👉 Circular Waiting ❌
+```
+
+---
+
+# Why Problem Occurs?
+
+1. Shared resources (chopsticks)
+    
+2. No coordination
+    
+3. Simultaneous resource request
+    
+4. Circular dependency
+    
+
+---
+
+# Conditions Leading to Deadlock
+
+(All 4 Coffman conditions apply)
+
+```text
+1. Mutual Exclusion
+2. Hold and Wait
+3. No Preemption
+4. Circular Wait
+```
+
+---
+
+# Solution Using Semaphores ⭐⭐⭐⭐⭐
+
+## Idea
+
+Each chopstick is treated as a semaphore.
+
+```text
+Semaphore chopstick[5] = {1,1,1,1,1}
+```
+
+---
+
+# Operations
+
+## Philosopher i:
+
+```text
+wait(chopstick[i])       // pick left chopstick
+wait(chopstick[i+1])     // pick right chopstick
+
+EAT
+
+signal(chopstick[i])     // release left
+signal(chopstick[i+1])   // release right
+```
+
+---
+
+# Semaphore Diagram
+
+```text
+P1 → wait(C1), wait(C2) → Eat → signal(C1), signal(C2)
+P2 → wait(C2), wait(C3) → Eat
+P3 → wait(C3), wait(C4) → Eat
+```
+
+---
+
+# Problem in This Solution
+
+Still may cause deadlock if all pick left chopstick first.
+
+---
+
+# Improved Solutions ⭐⭐⭐⭐
+
+## 1. Limit Number of Philosophers
+
+Allow only 4 philosophers to sit at a time.
+
+```text
+Semaphore room = 4
+```
+
+---
+
+## 2. Resource Ordering (Best Method)
+
+Always pick lower-numbered chopstick first.
+
+```text
+Pick C1 then C2 (not random order)
+```
+
+---
+
+## 3. One Philosopher Different Strategy
+
+One philosopher picks right first, others pick left first.
+
+Breaks circular wait.
+
+---
+
+# Diagram of Solution Idea
+
+```text
+P1 → wait → eat → signal
+P2 → wait → eat → signal
+P3 → wait → eat → signal
+
+(No circular waiting)
+```
+
+---
+
+# Real-Life Example
+
+```text
+Five people sitting with 2 spoons shared between neighbors
+
+If all pick one spoon → no one can eat ❌
+```
+
+---
+
+# Advantages of Solution
+
+1. Ensures synchronization
+    
+2. Avoids race condition
+    
+3. Prevents deadlock (with proper method)
+    
+
+---
+
+# Disadvantages
+
+1. Complex design
+    
+2. May reduce efficiency
+    
+3. Risk of starvation (in some solutions)
+    
+
+---
+
+# 5 Marks Answer (Exam Ready)
+
+**The Dining Philosopher Problem is a classical synchronization problem where five philosophers sit at a table with five chopsticks and need two chopsticks to eat. The problem arises when all philosophers pick one chopstick and wait for the other, leading to deadlock. It can be solved using semaphores by assigning a semaphore to each chopstick and ensuring proper synchronization using wait and signal operations.**
+
+---
+
+# 10–15 Marks Answer Structure
+
+When asked:
+
+### “Explain Dining Philosopher Problem with solution”
+
+Write:
+
+1. Definition of problem
+    
+2. Diagram of philosophers and chopsticks
+    
+3. Problem explanation
+    
+4. Deadlock situation + diagram
+    
+5. Conditions of deadlock
+    
+6. Semaphore solution
+    
+7. Problems in solution
+    
+8. Improved solutions
+    
+9. Conclusion
+    
+
+---
+
+# One-Minute Revision
+
+```text
+Dining Philosopher Problem
+
+↓
+
+5 philosophers + 5 chopsticks
+
+↓
+
+Need 2 chopsticks to eat
+
+↓
+
+Problem:
+Deadlock (circular wait)
+
+↓
+
+Solution:
+Semaphores + wait/signal
+```
+
+---
+
+# Super Memory Trick ⭐⭐⭐⭐⭐
+
+```text
+Philosophers = Processes
+
+Chopsticks = Resources
+
+Problem = Everyone picks 1 → no second available → DEADLOCK
+```
+
+---
+
