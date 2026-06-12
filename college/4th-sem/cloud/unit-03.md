@@ -1812,11 +1812,12 @@ Benefits:
        Physical Server
               |
 	      Hypervisor
+		      |
       ----------------
       |      |       |
      VM1    VM2    VM3
       |      |       |
-   App A  App B  App C
+    App A   App B   App C
 ```
 
 ---
@@ -1900,7 +1901,11 @@ Resource scheduling determines:
     
 - How long it will be used
     
+### Objectives
 
+- Reduce waiting time
+- Improve performance
+- Maximize utilization
 Proper scheduling improves performance and reduces delays.
 
 ---
