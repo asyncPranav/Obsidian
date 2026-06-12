@@ -1900,12 +1900,13 @@ Resource scheduling determines:
 - When it will be assigned
     
 - How long it will be used
-    
-### Objectives
 
+
+### Objectives
 - Reduce waiting time
 - Improve performance
 - Maximize utilization
+
 Proper scheduling improves performance and reduces delays.
 
 ---
@@ -2080,72 +2081,3 @@ Allocation   Monitoring   Load Balance   Auto Scaling
 Managing Cloud Resources is the process of allocating, monitoring, optimizing, and controlling cloud resources such as CPU, memory, storage, and network bandwidth. It ensures efficient resource utilization, high performance, scalability, reliability, and cost optimization. Techniques such as virtualization, load balancing, and auto scaling play a major role in effective cloud resource management.
 
 ---
-
-# ⭐ 5-Mark Answer Structure
-
-1. Introduction
-    
-2. Definition
-    
-3. Need for resource management
-    
-4. Resource management process
-    
-5. Diagram
-    
-6. Conclusion
-    
-
----
-
-# ⭐ 10-Mark Answer Structure
-
-1. Introduction
-    
-2. Definition
-    
-3. Types of cloud resources
-    
-4. Objectives
-    
-5. Resource management process
-    
-6. Virtualization
-    
-7. Load balancing
-    
-8. Auto scaling
-    
-9. Diagram
-    
-10. Benefits and challenges
-    
-11. Conclusion
-    
-
----
-
-# 🔥 Last-Minute Revision
-
-**Managing Cloud Resources = Right Resource + Right User + Right Time**
-
-Important Keywords:
-
-- Resource Allocation
-    
-- Monitoring
-    
-- Optimization
-    
-- Virtualization
-    
-- Load Balancing
-    
-- Auto Scaling
-    
-- Resource Scheduling
-    
-
-👉 One-line definition:
-
-**Cloud Resource Management is the process of efficiently allocating, monitoring, and optimizing cloud resources to provide reliable and scalable services.**
