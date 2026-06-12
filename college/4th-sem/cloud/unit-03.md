@@ -1786,6 +1786,15 @@ Benefits:
 
 Virtualization allows multiple virtual machines to run on a single physical server.
 
+Virtualization plays a major role in resource management.
+
+Through virtualization:
+
+- Multiple VMs run on one physical server.
+- Resources are shared efficiently.
+- Utilization increases.
+
+
 Benefits:
 
 - Better resource utilization
@@ -1802,6 +1811,7 @@ Benefits:
 ```text
        Physical Server
               |
+	      Hypervisor
       ----------------
       |      |       |
      VM1    VM2    VM3
