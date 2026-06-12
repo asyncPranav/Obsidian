@@ -1704,7 +1704,14 @@ Cloud may move applications to another server and shut down the unused one.
 
 ## Step 5: Resource Release
 
-After task completion, resources are returned to the cloud pool.
+When resources are no longer required, cloud releases them.
+
+Benefits:
+
+- Reduces cost
+- Improves availability
+- Prevents resource wastage
+
 
 ---
 
