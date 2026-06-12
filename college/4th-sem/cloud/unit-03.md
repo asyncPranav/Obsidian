@@ -1711,13 +1711,15 @@ Auto Scaling automatically increases or decreases resources based on demand.
 Normal Day:
 
 ```
-Users → 1000Servers → 2
+Users → 1000
+Servers → 2
 ```
 
 Festival Sale:
 
 ```
-Users → 100000Servers → 20
+Users → 100000
+Servers → 20
 ```
 
 Cloud automatically adds servers.
@@ -1727,12 +1729,19 @@ Cloud automatically adds servers.
 ## Auto Scaling Diagram
 
 ```
-          User Traffic               ↓        Monitoring System               ↓      ------------------      |                |Low Traffic      High Traffic      |                |Remove Servers   Add Servers
+          User Traffic
+               ↓
+        Monitoring System
+               ↓
+      ------------------
+      |                |
+Low Traffic      High Traffic
+      |                |
+Remove Servers   Add Servers
+
 ```
 
----
 
-# 5.
 
 ---
 ## Step 6: Resource Release
