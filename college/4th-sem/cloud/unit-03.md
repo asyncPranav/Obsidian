@@ -1637,37 +1637,68 @@ Example:
 
 ## Step 2: Resource Allocation
 
-The cloud system allocates required resources.
+Resource allocation means assigning resources to users according to their requirements.
 
-Example:
+### Example
+
+A company launches a website.
+
+Cloud provider allocates:
 
 - CPU
-    
-- RAM
-    
+- Memory
 - Storage
-    
+
+to run the website.
+
+### Benefits
+
+- Better utilization
+- Faster service delivery
+- Reduced wastage
 
 ---
 
 ## Step 3: Resource Monitoring
 
-The system continuously monitors usage.
+Cloud continuously monitors resource usage.
 
-Checks:
+Monitoring tracks:
 
 - CPU utilization
-    
-- Memory consumption
-    
-- Storage usage
-    
+- Memory usage
+- Network traffic
+- Storage consumption
+
+### Why Monitoring is Important
+
+Monitoring helps identify:
+
+- Overloaded servers
+- Security issues
+- Resource shortages
+
+### Example
+
+If CPU usage reaches 90%, cloud system detects it immediately.
 
 ---
 
 ## Step 4: Resource Optimization
 
-Unused resources are reclaimed and redistributed.
+Optimization means using resources efficiently.
+
+Cloud systems try to:
+
+- Remove idle resources
+- Balance workload
+- Improve performance
+
+### Example
+
+If a server is underutilized:
+
+Cloud may move applications to another server and shut down the unused one.
 
 ---
 
