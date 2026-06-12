@@ -1813,6 +1813,10 @@ Benefits:
 
 ## B. Load Balancing (Very Important)
 
+## Definition
+
+Load balancing is the process of distributing workload among multiple servers.
+
 Load balancing distributes workload among multiple servers.
 
 Purpose:
@@ -1838,6 +1842,11 @@ Purpose:
 Server1  Server2  Server3
 ```
 
+
+### Benefits
+- Better performance
+- Faster response
+- High availability
 ---
 
 ## C. Auto Scaling
