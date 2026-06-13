@@ -3650,49 +3650,6 @@ Used extensively in:
 AWS, Azure, Google Cloud
 ```
 
-## Most Expected Exam Questions
-
-### 2 Marks
-
-- Define Server Virtualization.
-    
-- What is a virtual machine?
-    
-
-### 5 Marks
-
-- Explain Server Virtualization with diagram.
-    
-- Advantages of Server Virtualization.
-    
-
-### 10 Marks
-
-- Explain Server Virtualization architecture and working with diagram.
-    
-- Discuss types of Server Virtualization with suitable diagrams.
-    
-
-✅ **Unit 4 is now effectively complete.** The highest-priority topics from Unit 4 for tomorrow's exam are:
-
-1. **Concept of Virtualization** ⭐⭐⭐⭐⭐
-    
-2. **Levels of Virtualization** ⭐⭐⭐⭐⭐
-    
-3. **Server Virtualization** ⭐⭐⭐⭐⭐
-    
-4. **Storage Virtualization** ⭐⭐⭐⭐
-    
-5. **Networking Virtualization** ⭐⭐⭐⭐
-    
-6. **Desktop Virtualization** ⭐⭐⭐
-    
-7. **Application Virtualization** ⭐⭐⭐
-    
-8. **Benefits, Advantages & Disadvantages of Virtualization** ⭐⭐⭐⭐
-    
-
-If time is short before the exam, revise these in the same order.
 
 
 ---
