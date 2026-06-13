@@ -3985,6 +3985,8 @@ Cloud computing is a model that provides **on-demand access to computing resourc
 ✔ **Exam Tip:**  
 Always remember one line:  
 👉 _Virtualization is a technology, Cloud computing is a service built on top of it._
+
+
 ---
 
 # ⭐ 5. WORKING DIFFERENCE (VERY IMPORTANT)
