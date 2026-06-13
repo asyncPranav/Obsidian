@@ -3956,19 +3956,35 @@ Cloud computing is a model that provides **on-demand access to computing resourc
 
 # ⭐ 4. KEY DIFFERENCES (MAIN EXAM CONTENT)
 
-|Feature|Virtualization|Cloud Computing|
-|---|---|---|
-|Definition|Technology to create virtual machines|Service model to deliver computing over internet|
-|Nature|Technique|Service|
-|Access|Local or private system|Internet-based|
-|Focus|Efficient hardware usage|Service delivery|
-|Dependency|Works independently|Depends on virtualization|
-|Users|System admins|End users + businesses|
-|Example|VMware, VirtualBox|AWS, Google Cloud, Azure|
-|Layer|Software/hypervisor level|Full cloud architecture|
-|Scalability|Limited|Highly scalable|
-|Cost model|One-time setup|Pay-as-you-use|
+# ⭐ Difference between Cloud Computing and Virtualization (Detailed Exam Table)
 
+|Basis|Virtualization|Cloud Computing|
+|---|---|---|
+|Definition|Virtualization is a technology that allows creation of multiple virtual machines (VMs) on a single physical machine using a hypervisor.|Cloud computing is a service model that provides computing resources (storage, servers, applications) over the internet on demand.|
+|Nature|It is a **technology / technique**.|It is a **service delivery model**.|
+|Main Purpose|To efficiently use physical hardware by running multiple virtual systems.|To provide computing services to users over the internet.|
+|Scope|Limited to system-level resource management.|Broad concept covering infrastructure, platform, and software services.|
+|Dependency|Does not depend on cloud computing.|Depends heavily on virtualization and distributed systems.|
+|Access Type|Mostly local or data-center based access.|Internet-based global access.|
+|User Type|Used mainly by system administrators and IT engineers.|Used by end users, developers, and organizations.|
+|Layer|Works at **hardware abstraction layer (hypervisor level)**.|Works at **service delivery layer (SaaS, PaaS, IaaS)**.|
+|Technology Used|Hypervisor (VMware, VirtualBox, KVM).|Virtualization + networking + distributed computing.|
+|Infrastructure|Requires physical servers to create VMs.|Uses large-scale distributed data centers.|
+|Scalability|Limited and manually configured.|Highly scalable and automatic (elastic scaling).|
+|Cost Model|One-time infrastructure/setup cost.|Pay-as-you-use (operational cost model).|
+|Resource Management|Manages CPU, memory, storage within a single host.|Manages global pool of computing resources dynamically.|
+|Maintenance|Managed by internal IT/admin team.|Managed by cloud service providers (AWS, Azure, GCP).|
+|Security|Isolation between VMs on same host.|Advanced multi-layer security at cloud level.|
+|Example|VMware, VirtualBox, Hyper-V|AWS, Google Cloud, Microsoft Azure|
+|Failure Handling|Failure affects host machine and all VMs on it.|High availability using distributed systems; failures are handled automatically.|
+|Performance|Slight overhead due to virtualization layer.|Optimized for large-scale distributed performance.|
+|Evolution Role|Foundation technology for cloud computing.|Advanced evolution of distributed systems using virtualization.|
+
+---
+
+✔ **Exam Tip:**  
+Always remember one line:  
+👉 _Virtualization is a technology, Cloud computing is a service built on top of it._
 ---
 
 # ⭐ 5. WORKING DIFFERENCE (VERY IMPORTANT)
