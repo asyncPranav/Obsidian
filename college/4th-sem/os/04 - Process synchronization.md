@@ -520,6 +520,13 @@ If no process is in the critical section, the decision of who enters next should
 
 A process should not wait forever to enter the critical section.
 
+After a process requests entry into its critical section, there exists a limit (bound) on the number of times other processes can enter their critical sections before the requesting process is granted access.
+
+**Purpose:**
+
+- Prevents **starvation**.
+- Ensures fairness among processes.
+
 ### Simple Line:
 
 👉 “Every process gets a fair chance.”
