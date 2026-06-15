@@ -2479,4 +2479,3 @@ Hardware = REAL CPU LOCK
 
 ---
 
-If you want next, I can give you a **FULL REVISION SHEET of Process Synchronization (ALL IMPORTANT QUESTIONS in 2–3 pages exam crash format)** which will help you revise everything in 10–15 minutes before exam.
