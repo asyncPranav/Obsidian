@@ -52,7 +52,7 @@ Frequently Asked Questions:
 
 ## Definition
 
-**Process Synchronization is the coordination of multiple processes so that they can execute in an orderly manner without causing data inconsistency when sharing common resources.**
+**Process Synchronization is the coordination of multiple processes that might need to share data or resources so that they can execute in an orderly manner without causing data inconsistency when sharing common resources.**
 
 ---
 
