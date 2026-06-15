@@ -530,6 +530,7 @@ After a process requests entry into its critical section, there exists a limit (
 ### Simple Line:
 
 👉 “Every process gets a fair chance.”
+👉 Bounded waiting guarantees that every process gets a fair chance to enter its critical section within a limited waiting time
 
 ---
 
