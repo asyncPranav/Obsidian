@@ -2479,3 +2479,683 @@ Hardware = REAL CPU LOCK
 
 ---
 
+# 🔥 PRODUCER-CONSUMER PROBLEM (BUSY WAITING / WHILE LOOP SOLUTION) ⭐⭐⭐⭐⭐
+
+## Classical Process Synchronization Problem
+
+### (Exam-Oriented Notes | Easy Language | Detailed Answer for 10–15 Marks)
+
+---
+
+# 📖 INTRODUCTION
+
+In a computer system, many processes execute simultaneously.
+
+Sometimes one process produces data while another process consumes that data.
+
+To exchange data safely, both processes use a common memory area called a **Buffer**.
+
+This situation creates the **Producer-Consumer Problem**.
+
+The Operating System must ensure proper synchronization between the Producer and Consumer so that:
+
+- Producer does not insert data into a full buffer.
+    
+- Consumer does not remove data from an empty buffer.
+    
+- Both processes do not access the buffer simultaneously.
+    
+
+---
+
+# 📖 DEFINITION (EXAM READY)
+
+**Producer-Consumer Problem is a synchronization problem in which one process called Producer generates data and stores it in a shared buffer, while another process called Consumer removes and uses that data. Proper synchronization is required to avoid data inconsistency and race conditions.**
+
+---
+
+# 🎯 BASIC CONCEPT
+
+There are three components:
+
+```text
+Producer
+    ↓
+ Shared Buffer
+    ↓
+Consumer
+```
+
+---
+
+# 📊 STRUCTURED DIAGRAM
+
+```text
+          PRODUCER
+              |
+              |
+       Produces Data
+              |
+              v
+
+      ------------------
+      |                |
+      | SHARED BUFFER  |
+      |                |
+      ------------------
+
+              |
+              |
+       Consumes Data
+              |
+              v
+
+          CONSUMER
+```
+
+---
+
+# 🧠 REAL LIFE EXAMPLE
+
+Consider a restaurant:
+
+```text
+Chef = Producer
+
+Dining Table = Buffer
+
+Customer = Consumer
+```
+
+### Working
+
+```text
+Chef cooks food
+       ↓
+Food placed on table
+       ↓
+Customer eats food
+```
+
+---
+
+# 📌 SHARED BUFFER
+
+The Producer and Consumer communicate through a shared buffer.
+
+```text
+Buffer Size = N
+```
+
+Example:
+
+```text
+BUFFER
+
++----+
+|    |
++----+
+|    |
++----+
+|    |
++----+
+|    |
++----+
+|    |
++----+
+```
+
+Suppose:
+
+```text
+Buffer Size = 5
+```
+
+Maximum 5 items can be stored.
+
+---
+
+# 📌 VARIABLES USED
+
+Three important variables are used:
+
+```c
+int in = 0;
+int out = 0;
+int count = 0;
+```
+
+---
+
+## 1. in
+
+Points to next free location.
+
+```text
+Used by Producer
+```
+
+---
+
+## 2. out
+
+Points to next item to consume.
+
+```text
+Used by Consumer
+```
+
+---
+
+## 3. count
+
+Stores current number of items in buffer.
+
+```text
+count = items present
+```
+
+---
+
+# 📌 BUFFER CONDITIONS
+
+---
+
+# CASE 1 : BUFFER FULL
+
+Buffer becomes full when:
+
+```c
+count == BUFFER_SIZE
+```
+
+Example:
+
+```text
+Buffer Size = 5
+
+count = 5
+```
+
+Diagram:
+
+```text
++----+
+| A  |
++----+
+| B  |
++----+
+| C  |
++----+
+| D  |
++----+
+| E  |
++----+
+
+FULL
+```
+
+Producer cannot insert more items.
+
+---
+
+# CASE 2 : BUFFER EMPTY
+
+Buffer becomes empty when:
+
+```c
+count == 0
+```
+
+Diagram:
+
+```text
++----+
+|    |
++----+
+|    |
++----+
+|    |
++----+
+|    |
++----+
+|    |
++----+
+
+EMPTY
+```
+
+Consumer cannot consume data.
+
+---
+
+# 🔥 PRODUCER CODE (WHILE LOOP SOLUTION)
+
+```c
+while(TRUE)
+{
+    while(count == BUFFER_SIZE)
+        ;
+
+    buffer[in] = item;
+
+    in = (in + 1) % BUFFER_SIZE;
+
+    count++;
+}
+```
+
+---
+
+# 📖 STEP-BY-STEP EXPLANATION
+
+---
+
+## Step 1
+
+```c
+while(TRUE)
+```
+
+Producer runs continuously.
+
+---
+
+## Step 2
+
+```c
+while(count == BUFFER_SIZE)
+    ;
+```
+
+Check if buffer is full.
+
+If full:
+
+```text
+Producer waits
+```
+
+This waiting is called:
+
+# Busy Waiting
+
+---
+
+## Step 3
+
+```c
+buffer[in] = item;
+```
+
+Store item into buffer.
+
+---
+
+## Step 4
+
+```c
+in = (in + 1) % BUFFER_SIZE;
+```
+
+Move to next location.
+
+Circular Buffer concept is used.
+
+---
+
+## Step 5
+
+```c
+count++;
+```
+
+Increase item count.
+
+---
+
+# 🔥 CONSUMER CODE (WHILE LOOP SOLUTION)
+
+```c
+while(TRUE)
+{
+    while(count == 0)
+        ;
+
+    item = buffer[out];
+
+    out = (out + 1) % BUFFER_SIZE;
+
+    count--;
+}
+```
+
+---
+
+# 📖 STEP-BY-STEP EXPLANATION
+
+---
+
+## Step 1
+
+```c
+while(TRUE)
+```
+
+Consumer runs continuously.
+
+---
+
+## Step 2
+
+```c
+while(count == 0)
+    ;
+```
+
+Check if buffer is empty.
+
+If empty:
+
+```text
+Consumer waits
+```
+
+Again Busy Waiting occurs.
+
+---
+
+## Step 3
+
+```c
+item = buffer[out];
+```
+
+Take item from buffer.
+
+---
+
+## Step 4
+
+```c
+out = (out + 1) % BUFFER_SIZE;
+```
+
+Move to next position.
+
+---
+
+## Step 5
+
+```c
+count--;
+```
+
+Decrease item count.
+
+---
+
+# 📌 CIRCULAR BUFFER CONCEPT ⭐⭐⭐⭐⭐
+
+Buffer behaves like a circle.
+
+Suppose:
+
+```text
+Buffer Size = 5
+```
+
+```text
+      0
+   /     \
+  4       1
+  |       |
+  3 ----- 2
+```
+
+After reaching last position:
+
+```c
+(in + 1) % BUFFER_SIZE
+```
+
+returns to first position.
+
+Example:
+
+```text
+4 + 1 = 5
+
+5 % 5 = 0
+```
+
+Thus pointer returns to position 0.
+
+---
+
+# 🔥 PROBLEM WITH THIS SOLUTION ⭐⭐⭐⭐⭐
+
+Although this solution appears correct, it has a major problem.
+
+---
+
+# RACE CONDITION
+
+## 📖 Definition
+
+**Race Condition occurs when two or more processes access and modify shared data simultaneously, resulting in incorrect output.**
+
+---
+
+# Example
+
+Suppose:
+
+```text
+count = 5
+```
+
+At the same time:
+
+```text
+Producer executes count++
+Consumer executes count--
+```
+
+Both access count simultaneously.
+
+Result:
+
+```text
+Incorrect count value
+```
+
+---
+
+# DIAGRAM
+
+```text
+Producer
+    |
+    |
+    ↓
+
+ Shared Variable (count)
+
+    ↑
+    |
+    |
+
+Consumer
+```
+
+Both modify the same variable simultaneously.
+
+---
+
+# WHY DOES RACE CONDITION OCCUR?
+
+Because:
+
+```text
+No Mutual Exclusion
+```
+
+is provided.
+
+Both processes access shared memory together.
+
+---
+
+# BUSY WAITING PROBLEM ⭐⭐⭐⭐
+
+Another disadvantage:
+
+```c
+while(count == 0)
+```
+
+or
+
+```c
+while(count == BUFFER_SIZE)
+```
+
+continuously checks condition.
+
+CPU keeps running these loops.
+
+Result:
+
+```text
+CPU Time Wasted
+```
+
+This is called:
+
+# Busy Waiting
+
+---
+
+# SOLUTION TO THESE PROBLEMS
+
+Operating System uses:
+
+```text
+Semaphore
+Mutex
+Monitor
+```
+
+instead of simple while loops.
+
+These provide:
+
+✔ Mutual Exclusion
+
+✔ Synchronization
+
+✔ No Race Condition
+
+---
+
+# ADVANTAGES OF WHILE LOOP APPROACH
+
+### 1. Easy to Understand
+
+Simple logic.
+
+### 2. Demonstrates Synchronization Problem
+
+Helps understand Producer-Consumer concept.
+
+### 3. Useful for Learning
+
+Foundation for semaphore solution.
+
+---
+
+# DISADVANTAGES
+
+### 1. Busy Waiting
+
+CPU wastage.
+
+### 2. Race Condition
+
+Incorrect results possible.
+
+### 3. No Mutual Exclusion
+
+Shared variables are not protected.
+
+### 4. Not Practical
+
+Real operating systems use semaphores.
+
+---
+
+# 📌 COMPARISON
+
+|Producer|Consumer|
+|---|---|
+|Generates Data|Uses Data|
+|Inserts into Buffer|Removes from Buffer|
+|Waits when Buffer Full|Waits when Buffer Empty|
+|Increases count|Decreases count|
+
+---
+
+# 📖 EXAM READY CONCLUSION
+
+**The Producer-Consumer Problem is a classical synchronization problem where Producer generates data and Consumer consumes data through a shared buffer. The simple while-loop solution demonstrates the problem but suffers from race conditions and busy waiting. Therefore, modern operating systems use synchronization mechanisms such as semaphores and mutexes to ensure safe and efficient communication between processes.**
+
+---
+
+# 🚀 LAST-MINUTE REVISION
+
+```text
+Producer → Creates Data
+
+Consumer → Uses Data
+
+Shared Resource → Buffer
+
+Variables:
+in
+out
+count
+
+Producer waits when:
+count == BUFFER_SIZE
+
+Consumer waits when:
+count == 0
+
+Problems:
+1. Race Condition
+2. Busy Waiting
+
+Solution:
+Semaphore
+Mutex
+```
+
+# ⭐ EXAM DIAGRAM TO DRAW
+
+```text
+          PRODUCER
+              |
+              v
+
+      ----------------
+      |    BUFFER    |
+      ----------------
+
+              |
+              v
+
+          CONSUMER
+```
+
+This diagram + definition + while-loop code + race condition explanation is exactly the style many OS professors expect in a long-answer semester exam question.
