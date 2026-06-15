@@ -504,7 +504,7 @@ A correct solution must satisfy THREE conditions:
 # 2. Progress
 
 ## Meaning
-
+If no process is in critical section 
 If no process is in the critical section, the decision of who enters next should not be delayed.
 
 ### Simple Line:
