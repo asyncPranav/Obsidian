@@ -621,3 +621,550 @@ C-SCAN = Circular Elevator
 ```
 
 These four algorithms + one solved numerical are usually enough to answer almost any disk-scheduling question in a semester examination.
+
+
+---
+
+
+# 🔥 DISK STRUCTURE ⭐⭐⭐⭐⭐
+
+# (Most Important Theory Topic of Unit 5)
+
+> **Exam Weightage:** Very Frequently Asked (5 Marks, 10 Marks, Sometimes 15 Marks)
+> 
+> Questions:
+> 
+> - Explain Disk Structure with neat diagram.
+>     
+> - Explain Tracks, Sectors and Cylinders.
+>     
+> - Organization of Magnetic Disk.
+>     
+> - Explain the working of a Hard Disk.
+>     
+
+---
+
+# 📖 INTRODUCTION
+
+Secondary storage devices such as Hard Disks are used to store large amounts of data permanently.
+
+Unlike RAM, data stored on a disk is not lost when power is turned off.
+
+A disk consists of one or more rotating circular plates called **Platters**. Data is stored on the surfaces of these platters in the form of tracks and sectors.
+
+Understanding disk structure helps in learning disk scheduling, file systems, and storage management.
+
+---
+
+# 📖 DEFINITION (EXAM READY)
+
+**Disk Structure refers to the physical organization of a magnetic disk, including platters, tracks, sectors, cylinders, and read/write heads used for storing and retrieving data.**
+
+---
+
+# 🏗 BASIC COMPONENTS OF A DISK
+
+A magnetic disk mainly consists of:
+
+```text
+1. Platters
+2. Tracks
+3. Sectors
+4. Cylinders
+5. Read/Write Head
+6. Disk Arm
+7. Spindle
+```
+
+---
+
+# 📊 OVERALL DISK STRUCTURE DIAGRAM
+
+### Neat Diagram for Exam
+
+```text
+                 Read/Write Head
+                        |
+                        v
+
+      =================================
+      |                               |
+      |           PLATTER             |
+      |                               |
+      =================================
+
+         Track 1   Track 2   Track 3
+
+       -----------------------------
+      /                             \
+     /                               \
+    |      Sector Sector Sector      |
+     \                               /
+      \-----------------------------/
+```
+
+---
+
+# 1. PLATTER ⭐⭐⭐⭐⭐
+
+## Definition
+
+**A Platter is a circular magnetic disk surface on which data is stored.**
+
+A hard disk may contain multiple platters stacked together.
+
+---
+
+## Characteristics
+
+- Made of metal or glass.
+    
+- Coated with magnetic material.
+    
+- Rotates at high speed.
+    
+
+Example:
+
+```text
+5400 RPM
+7200 RPM
+10000 RPM
+```
+
+(RPM = Revolutions Per Minute)
+
+---
+
+## Diagram
+
+```text
+          _____________
+        /             \
+       /   PLATTER     \
+       \               /
+        \_____________/
+```
+
+---
+
+# 2. TRACK ⭐⭐⭐⭐⭐
+
+## Definition
+
+**A Track is a circular path on the surface of a platter where data is stored.**
+
+Think of tracks like lanes on a circular race track.
+
+---
+
+## Characteristics
+
+- Data is written along tracks.
+    
+- Tracks are concentric circles.
+    
+- Numbered from outer to inner side.
+    
+
+---
+
+## Diagram
+
+```text
+        -----------------
+      /                   \
+     |     Track 1         |
+     |   ------------      |
+     |   Track 2           |
+     |   ------------      |
+     |   Track 3           |
+      \                   /
+        -----------------
+```
+
+---
+
+# 🧠 MEMORY TRICK
+
+```text
+Track = Circular Road
+```
+
+---
+
+# 3. SECTOR ⭐⭐⭐⭐⭐
+
+## Definition
+
+**A Sector is the smallest physical storage unit on a disk.**
+
+Each track is divided into several sectors.
+
+---
+
+## Characteristics
+
+- Stores actual data.
+    
+- Traditionally 512 bytes.
+    
+- Modern disks may use 4096 bytes.
+    
+
+---
+
+## Diagram
+
+```text
+                 Track
+
+          ----------------
+         /   |   |   |    \
+        /----|---|---|-----\
+       | S1  S2  S3  S4    |
+        \----|---|---|-----/
+         \   |   |   |    /
+          ----------------
+```
+
+---
+
+## Memory Trick
+
+```text
+Track = Pizza
+
+Sector = Pizza Slice
+```
+
+---
+
+# 4. CYLINDER ⭐⭐⭐⭐⭐
+
+## Definition
+
+**A Cylinder is a collection of tracks located at the same position on all platters.**
+
+When several platters are stacked:
+
+```text
+Track 1 of Platter 1
+Track 1 of Platter 2
+Track 1 of Platter 3
+```
+
+Together form a cylinder.
+
+---
+
+## Diagram
+
+```text
+Platter 1      Track 1
+    ||
+Platter 2      Track 1
+    ||
+Platter 3      Track 1
+
+      ↓
+
+   CYLINDER
+```
+
+---
+
+## Why Important?
+
+Accessing data within the same cylinder requires less head movement.
+
+Therefore:
+
+```text
+Seek Time decreases
+Performance increases
+```
+
+---
+
+# 5. READ/WRITE HEAD ⭐⭐⭐⭐⭐
+
+## Definition
+
+**The Read/Write Head is a device that reads data from and writes data to the disk surface.**
+
+Each platter surface has its own head.
+
+---
+
+## Functions
+
+### Read Operation
+
+```text
+Disk → Memory
+```
+
+Reads stored data.
+
+---
+
+### Write Operation
+
+```text
+Memory → Disk
+```
+
+Stores new data.
+
+---
+
+## Diagram
+
+```text
+          Head
+           |
+           v
+
+    =================
+    |    Platter    |
+    =================
+```
+
+---
+
+# 6. DISK ARM
+
+## Definition
+
+**Disk Arm moves the read/write head across tracks.**
+
+---
+
+## Diagram
+
+```text
+       Head
+         |
+         v
+     --------
+         |
+         |
+      Disk Arm
+```
+
+---
+
+# 7. SPINDLE
+
+## Definition
+
+**The spindle is the central shaft that rotates all platters together.**
+
+---
+
+## Diagram
+
+```text
+           |
+           |
+       Spindle
+           |
+           |
+
+      ==========
+      |Platter |
+      ==========
+```
+
+---
+
+# 📊 COMPLETE ORGANIZATION OF MAGNETIC DISK
+
+```text
+                   Read/Write Head
+                          |
+                          v
+
+                -----------------
+               /                 \
+              /     Platter       \
+             |                     |
+             |   Track Track       |
+             |                     |
+              \    Sectors        /
+               \                 /
+                -----------------
+
+                       |
+                    Spindle
+```
+
+---
+
+# 🔥 HOW DATA IS ACCESSED IN DISK
+
+When a process requests data:
+
+### Step 1
+
+Operating System identifies:
+
+```text
+Track Number
+Sector Number
+```
+
+---
+
+### Step 2
+
+Disk Arm moves the head to required track.
+
+This time is called:
+
+```text
+Seek Time
+```
+
+---
+
+### Step 3
+
+Disk rotates until required sector comes under head.
+
+This time is called:
+
+```text
+Rotational Latency
+```
+
+---
+
+### Step 4
+
+Data is transferred.
+
+This time is called:
+
+```text
+Transfer Time
+```
+
+---
+
+# 📊 DATA ACCESS DIAGRAM
+
+```text
+Request Data
+      |
+      v
+
+Move Head
+(Seek Time)
+      |
+      v
+
+Rotate Disk
+(Rotational Latency)
+      |
+      v
+
+Transfer Data
+(Transfer Time)
+      |
+      v
+
+Data Received
+```
+
+---
+
+# 🎯 ADVANTAGES OF DISK STORAGE
+
+### 1. Large Storage Capacity
+
+Stores GBs and TBs of data.
+
+---
+
+### 2. Permanent Storage
+
+Data remains even after power off.
+
+---
+
+### 3. Low Cost
+
+Cheaper than primary memory.
+
+---
+
+### 4. Reliable Storage
+
+Suitable for long-term data storage.
+
+---
+
+# 📊 DIFFERENCE BETWEEN TRACK, SECTOR AND CYLINDER
+
+|Track|Sector|Cylinder|
+|---|---|---|
+|Circular path on disk|Smallest storage unit|Collection of same tracks on all platters|
+|Stores sectors|Stores data|Group of tracks|
+|Concentric circle|Pie-shaped division|Vertical grouping|
+
+---
+
+# 📝 EXAM READY CONCLUSION
+
+**Disk Structure is the physical organization of a magnetic disk consisting of platters, tracks, sectors, cylinders, and read/write heads. Data is stored in sectors on tracks and accessed through read/write heads. Understanding disk structure is essential for disk scheduling, storage management, and overall operating system performance.**
+
+---
+
+# 🚀 LAST-MINUTE REVISION
+
+```text
+PLATTER
+→ Circular disk surface
+
+TRACK
+→ Circular path on platter
+
+SECTOR
+→ Smallest storage unit
+
+CYLINDER
+→ Same tracks on all platters
+
+READ/WRITE HEAD
+→ Reads/Writes data
+
+DISK ARM
+→ Moves head
+
+SPINDLE
+→ Rotates platter
+```
+
+# ⭐ MUST DRAW THIS DIAGRAM IN EXAM
+
+```text
+                 Read/Write Head
+                        |
+                        v
+
+          ======================
+          |      PLATTER       |
+          |                    |
+          |  Track  Track      |
+          |                    |
+          | Sector Sector      |
+          ======================
+
+                    |
+                 Spindle
+```
+
+This diagram + definitions of **Platter, Track, Sector, Cylinder, and Read/Write Head** is usually enough to score full marks on a Disk Structure question.
