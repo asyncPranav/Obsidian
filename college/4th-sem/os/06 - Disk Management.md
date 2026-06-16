@@ -2504,8 +2504,6 @@ This single line is often enough to earn marks in comparison-based questions.
 
 # (Most Repeated 5-Mark Comparison Question)
 
----
-
 
 ---
 
@@ -2643,23 +2641,23 @@ Handle Speed Difference
 # 📊 COMPARISON DIAGRAM
 
 ```text
-                CACHING
+----> CACHING
 
       Frequently Used Data
                 ↓
-            CACHE
+              CACHE
                 ↓
-          Fast Access
+            Fast Access
 
 
 
-               BUFFERING
+----> BUFFERING
 
           Data Transfer
                 ↓
-            BUFFER
+              BUFFER
                 ↓
-         I/O Device
+             I/O Device
 ```
 
 ---
