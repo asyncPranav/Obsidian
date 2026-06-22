@@ -1225,7 +1225,7 @@ The desktop runs on a remote server while users access it through the network.
 
 ### Definition
 
-Application virtualization 
+Application virtualization is the process of running an application in a virtual environment instead of installing it directly on user's operating system
 
 Applications are delivered in a virtual environment.
 
