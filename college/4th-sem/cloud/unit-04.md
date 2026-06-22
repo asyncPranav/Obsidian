@@ -1225,7 +1225,7 @@ The desktop runs on a remote server while users access it through the network.
 
 ### Definition
 
-Application virtualization allows applications to run independently from the underlying operating system.
+Application virtualization 
 
 Applications are delivered in a virtual environment.
 
