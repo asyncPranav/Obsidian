@@ -1033,7 +1033,7 @@ It allows multiple operating systems to run simultaneously on a single physical 
 
 ### Definition
 
-In OS-level virtualization, multiple isolated environments share the same operating system kernel.
+In OS-level virtualization is the process that allows running multiple isolated environments on the same operating system kernel.
 
 These isolated environments are called containers.
 
