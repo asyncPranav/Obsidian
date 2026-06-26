@@ -540,3 +540,487 @@ For Quantifiers:
 
 ---
 
+# UNIT–4 : LOGIC
+
+# Topic 2 : Propositional Logic vs First Order Logic (FOL) ⭐⭐⭐⭐⭐
+
+**(Very Important | Frequently Asked 5 Marks & 10 Marks Question)**
+
+---
+
+# Definition
+
+## Propositional Logic (PL)
+
+**Propositional Logic** is the simplest form of logic in which knowledge is represented using **propositions (statements)** that are either **True or False**. It does not describe the internal structure of a statement.
+
+### Exam Definition
+
+> **Propositional Logic** is a formal logic in which knowledge is represented using propositions (statements) having only two truth values: **True** or **False**.
+
+---
+
+## First Order Logic (FOL)
+
+**First Order Logic (FOL)** is an extension of propositional logic that represents **objects, their properties, and relationships** using predicates, variables, constants, functions, and quantifiers.
+
+### Exam Definition
+
+> **First Order Logic (FOL)** is a knowledge representation language that represents objects, properties, relationships, and supports logical reasoning using predicates, variables, constants, functions, and quantifiers.
+
+---
+
+# Why is FOL Needed?
+
+Consider the following facts:
+
+- Ram is a student.
+    
+- Shyam is a student.
+    
+- Mohan is a student.
+    
+
+### In Propositional Logic
+
+We write:
+
+```text
+P = Ram is a student
+
+Q = Shyam is a student
+
+R = Mohan is a student
+```
+
+Every statement must be written separately.
+
+If there are **100 students**, we need **100 propositions**.
+
+---
+
+### In First Order Logic
+
+We write
+
+```text
+Student(x)
+```
+
+where **x** can be Ram, Shyam, Mohan, or any student.
+
+Only **one expression** represents all students.
+
+Hence, FOL is more powerful.
+
+---
+
+# Basic Difference Diagram ⭐⭐⭐⭐
+
+```text
+                 KNOWLEDGE REPRESENTATION
+
+                     ┌───────────────┐
+                     │    LOGIC      │
+                     └──────┬────────┘
+                            │
+          ┌─────────────────┴─────────────────┐
+          │                                   │
+          ▼                                   ▼
+  Propositional Logic                 First Order Logic
+
+   Whole Statements                 Objects + Relationships
+
+      P, Q, R                     Student(Ram), Likes(x,y)
+
+   Less Expressive                 Highly Expressive
+```
+
+---
+
+# Example Comparison ⭐⭐⭐⭐⭐
+
+### Statement
+
+All students are intelligent.
+
+---
+
+## Propositional Logic
+
+Suppose there are only three students.
+
+```text
+P = Ram is intelligent
+
+Q = Shyam is intelligent
+
+R = Mohan is intelligent
+```
+
+Need to write
+
+```text
+P ∧ Q ∧ R
+```
+
+If another student comes, a new proposition must be added.
+
+---
+
+## First Order Logic
+
+Simply write
+
+```text
+∀x Student(x) → Intelligent(x)
+```
+
+This represents **every student**, even future students.
+
+Hence, FOL is flexible.
+
+---
+
+# Detailed Comparison Table ⭐⭐⭐⭐⭐
+
+|Basis|Propositional Logic|First Order Logic|
+|---|---|---|
+|Definition|Represents complete statements|Represents objects, properties, and relationships|
+|Representation|Uses propositions|Uses predicates|
+|Variables|Not used|Used|
+|Constants|Not available|Available|
+|Functions|Not available|Available|
+|Quantifiers|Not available|Uses ∀ and ∃|
+|Relationships|Cannot represent relationships|Can represent relationships|
+|Expressiveness|Less expressive|More expressive|
+|Knowledge Representation|Represents simple facts|Represents complex facts|
+|Reusability|Low|High|
+|Inference Power|Limited|Powerful|
+|Real-world Modelling|Difficult|Easy|
+|Memory Requirement|More statements required|Less repetition|
+|Complexity|Simple|Slightly complex|
+|Applications|Simple logical problems|AI, Expert Systems, Robotics, NLP|
+
+---
+
+# Symbol Comparison
+
+|Feature|PL|FOL|
+|---|---|---|
+|Proposition|✔|✔|
+|Predicate|✘|✔|
+|Variable|✘|✔|
+|Constant|✘|✔|
+|Function|✘|✔|
+|Universal Quantifier (∀)|✘|✔|
+|Existential Quantifier (∃)|✘|✔|
+
+---
+
+# Real-Life Example ⭐⭐⭐⭐
+
+### Statement
+
+Every teacher teaches students.
+
+---
+
+### Propositional Logic
+
+```text
+P = Ram teaches students
+
+Q = Mohan teaches students
+
+R = Shyam teaches students
+```
+
+Need separate propositions.
+
+---
+
+### First Order Logic
+
+```text
+∀x Teacher(x) → Teaches(x,Students)
+```
+
+One expression represents every teacher.
+
+---
+
+# Another Example
+
+### Statement
+
+Ram likes Mango.
+
+---
+
+### Propositional Logic
+
+```text
+P = Ram likes Mango
+```
+
+Only one statement.
+
+Cannot identify
+
+- Ram
+    
+- Mango
+    
+- Relationship
+    
+
+---
+
+### First Order Logic
+
+```text
+Likes(Ram,Mango)
+```
+
+Here,
+
+- Ram → Object
+    
+- Mango → Object
+    
+- Likes → Relationship
+    
+
+Thus FOL stores meaningful information.
+
+---
+
+# Advantages of Propositional Logic
+
+1. Simple to understand.
+    
+2. Easy to implement.
+    
+3. Fast logical operations.
+    
+4. Suitable for simple problems.
+    
+
+---
+
+# Limitations of Propositional Logic ⭐⭐⭐⭐
+
+1. Cannot represent objects individually.
+    
+2. Cannot represent relationships.
+    
+3. Cannot use variables.
+    
+4. Cannot use quantifiers.
+    
+5. Large knowledge base requires many propositions.
+    
+6. Less expressive.
+    
+
+---
+
+# Advantages of First Order Logic ⭐⭐⭐⭐
+
+1. Represents objects individually.
+    
+2. Represents relationships.
+    
+3. Supports variables.
+    
+4. Uses quantifiers.
+    
+5. Supports inference.
+    
+6. Less repetition.
+    
+7. More expressive.
+    
+8. Suitable for AI applications.
+    
+
+---
+
+# Limitations of First Order Logic
+
+1. More complex than propositional logic.
+    
+2. Requires more computation.
+    
+3. Needs inference algorithms.
+    
+4. Harder to implement.
+    
+
+---
+
+# Applications Comparison
+
+### Propositional Logic
+
+- Digital circuits
+    
+- Boolean reasoning
+    
+- Simple decision systems
+    
+- Basic theorem proving
+    
+
+---
+
+### First Order Logic
+
+- Knowledge Representation
+    
+- Expert Systems
+    
+- Medical Diagnosis
+    
+- Robotics
+    
+- Natural Language Processing
+    
+- Semantic Web
+    
+- Automated Reasoning
+    
+- Intelligent Agents
+    
+
+---
+
+# Memory Trick ⭐⭐⭐
+
+Remember:
+
+### **PL**
+
+```text
+P = Plain Statements
+```
+
+Only statements.
+
+---
+
+### **FOL**
+
+```text
+F = Facts
+
+O = Objects
+
+L = Links (Relationships)
+```
+
+Think of **FOL = Facts + Objects + Links**.
+
+---
+
+# Exam-Oriented Summary
+
+```text
+PROPOSITIONAL LOGIC
+
+• Represents statements
+• True or False
+• No variables
+• No quantifiers
+• Less expressive
+• Simple reasoning
+
+FIRST ORDER LOGIC
+
+• Represents objects
+• Represents relationships
+• Uses predicates
+• Uses variables
+• Uses quantifiers
+• More expressive
+• Powerful inference
+```
+
+---
+
+# Frequently Asked University Questions
+
+### 2 Marks
+
+- Define Propositional Logic.
+    
+- Define First Order Logic.
+    
+- What is the main difference between PL and FOL?
+    
+
+---
+
+### 5 Marks
+
+- Differentiate between Propositional Logic and First Order Logic.
+    
+- Explain why First Order Logic is more expressive than Propositional Logic.
+    
+
+---
+
+### 10 Marks
+
+- Compare Propositional Logic and First Order Logic with suitable examples.
+    
+- Explain the differences between PL and FOL along with their advantages, limitations, and applications.
+    
+
+---
+
+# 5-Mark Answer Format (Exam Ready)
+
+**Q. Differentiate between Propositional Logic and First Order Logic.**
+
+|Propositional Logic|First Order Logic|
+|---|---|
+|Represents complete statements.|Represents objects, properties, and relationships.|
+|Uses propositions (P, Q, R).|Uses predicates such as Student(x).|
+|Does not use variables.|Uses variables (x, y, z).|
+|Does not use quantifiers.|Uses ∀ (for all) and ∃ (there exists).|
+|Less expressive.|More expressive.|
+|Cannot represent relationships.|Can represent relationships.|
+|Suitable for simple logical problems.|Suitable for complex AI applications.|
+|Easier to implement.|More complex but more powerful.|
+
+**Conclusion:**  
+**Thus, First Order Logic is an extension of Propositional Logic that provides greater expressive power by representing objects, their properties, and relationships. Therefore, FOL is widely used in Artificial Intelligence for knowledge representation and logical reasoning.**
+
+---
+
+## ⭐ Examiner's Tip
+
+For a **10-mark question**, don't write only the comparison table. Write in this order:
+
+1. Definition of Propositional Logic
+    
+2. Definition of First Order Logic
+    
+3. Why FOL is needed (with a simple example)
+    
+4. One comparison diagram
+    
+5. Detailed comparison table (8–14 points)
+    
+6. One real-life example comparing both
+    
+7. Advantages and limitations of each
+    
+8. Applications
+    
+9. A 2–3 line conclusion
+    
+
+This structure is complete, easy to remember, and matches the style expected in most B.Tech semester examinations.
