@@ -1480,7 +1480,6 @@ If any one of these fails, **unification fails**.
 ---
 
 
-You're right. For a **B.Tech semester exam**, you don't need unnecessarily stretched notes. You need **concise, descriptive, exam-ready notes** that fit into a **5–10 mark answer**. Here's the format I'll use from now on.
 
 ---
 
@@ -1648,27 +1647,6 @@ Thus, **Ram is Mortal**.
 
 ---
 
-## Frequently Asked Questions
-
-**2 Marks**
-
-- Define Forward Chaining.
-    
-- Why is it called a data-driven approach?
-    
-
-**5 Marks**
-
-- Explain the working of Forward Chaining with an example.
-    
-
-**10 Marks**
-
-- Explain the Forward Chaining algorithm with a neat diagram and suitable example.
-    
-
----
-
 ## 30-Second Revision
 
 ```
@@ -1686,4 +1664,237 @@ Facts → Rule Matching → New Fact → Goal
 
 ---
 
-**This is the format I'll use for the remaining topics**—concise, descriptive, exam-oriented, with only the necessary diagrams and examples, without unnecessary spacing or filler text.
+# UNIT–4: LOGIC
+
+# Topic: Backward Chaining ⭐⭐⭐⭐⭐
+
+**(Very Important | Frequently Asked 5 & 10 Marks Question)**
+
+---
+
+# Definition
+
+**Backward Chaining** is a **goal-driven inference technique** in Artificial Intelligence that starts with the **goal (query)** and works backward by searching for rules and facts that can prove the goal. The process continues until the goal is proved or no supporting facts/rules are found.
+
+> **Exam Definition:**  
+> **Backward Chaining** is a goal-driven inference method that starts with the desired goal and works backward through inference rules to determine whether the goal can be satisfied using the available facts.
+
+---
+
+# Working of Backward Chaining
+
+Backward Chaining begins with the goal instead of the known facts. The inference engine searches for a rule whose conclusion matches the goal. It then checks whether the conditions (premises) of that rule are true. If they are not known, they become **sub-goals**. This process continues recursively until the required facts are found in the knowledge base or the goal cannot be proved.
+
+### Diagram
+
+```text
+           Goal
+             │
+             ▼
+      Find Matching Rule
+             │
+             ▼
+      Check Rule Conditions
+             │
+     ┌───────┴────────┐
+     │                │
+ Facts Found      Create Sub-goals
+     │                │
+     └───────┬────────┘
+             ▼
+        Goal Proved
+```
+
+---
+
+# Algorithm
+
+1. Start with the required goal.
+    
+2. Search for a rule whose conclusion matches the goal.
+    
+3. Check whether the rule's conditions are true.
+    
+4. If conditions are not known, treat them as sub-goals.
+    
+5. Continue searching until facts are found.
+    
+6. If all sub-goals are satisfied, the goal is proved; otherwise, it fails.
+    
+
+---
+
+# Example
+
+### Knowledge Base
+
+```text
+Student(Ram)
+```
+
+### Rules
+
+```text
+R1: Student(x) → Human(x)
+
+R2: Human(x) → Mortal(x)
+```
+
+### Goal
+
+```text
+Mortal(Ram)
+```
+
+### Solution
+
+To prove **Mortal(Ram)**:
+
+- Look for a rule that concludes `Mortal(x)`.
+    
+- Rule R2 says: `Human(x) → Mortal(x)`.
+    
+- Therefore, prove `Human(Ram)`.
+    
+- Rule R1 says: `Student(x) → Human(x)`.
+    
+- Check if `Student(Ram)` exists in the Knowledge Base.
+    
+- Since it exists, `Human(Ram)` is proved.
+    
+- Hence, **Mortal(Ram)** is also proved.
+    
+
+### Inference Diagram
+
+```text
+Mortal(Ram)
+      ▲
+      │
+Human(Ram)
+      ▲
+      │
+Student(Ram)
+```
+
+---
+
+# Characteristics
+
+- It is a **goal-driven** approach.
+    
+- Starts from the desired goal.
+    
+- Searches backward to known facts.
+    
+- Creates sub-goals when necessary.
+    
+- Efficient when the goal is specific.
+    
+
+---
+
+# Advantages
+
+- Efficient for solving a specific query.
+    
+- Does not generate unnecessary facts.
+    
+- Faster when the number of goals is small.
+    
+- Requires less memory than Forward Chaining.
+    
+- Widely used in expert systems and diagnosis systems.
+    
+
+---
+
+# Disadvantages
+
+- Not suitable when many goals need to be found.
+    
+- Performance decreases with a large number of rules.
+    
+- Recursive search may become complex.
+    
+- May fail if required facts are missing.
+    
+
+---
+
+# Applications
+
+- Expert Systems
+    
+- Medical Diagnosis
+    
+- Theorem Proving
+    
+- Fault Diagnosis
+    
+- Question Answering Systems
+    
+- Logic Programming (Prolog)
+    
+
+---
+
+# Difference Between Forward and Backward Chaining ⭐⭐⭐⭐⭐
+
+|Forward Chaining|Backward Chaining|
+|---|---|
+|Data-driven approach|Goal-driven approach|
+|Starts with known facts|Starts with the goal|
+|Moves from facts to conclusion|Moves from goal to facts|
+|Generates many new facts|Generates only required facts|
+|Suitable when many facts are available|Suitable when a specific goal is to be proved|
+|May consume more memory|Requires less memory|
+
+---
+
+# Frequently Asked Questions
+
+### 2 Marks
+
+- Define Backward Chaining.
+    
+- Why is Backward Chaining called a goal-driven approach?
+    
+
+### 5 Marks
+
+- Explain the working of Backward Chaining with an example.
+    
+- Differentiate between Forward and Backward Chaining.
+    
+
+### 10 Marks
+
+- Explain the Backward Chaining algorithm with a neat diagram and suitable example.
+    
+
+---
+
+# 1-Minute Revision
+
+```text
+Backward Chaining
+
+• Goal-driven inference technique
+• Starts with the goal
+• Searches rules backward
+• Creates sub-goals
+• Stops when the goal is proved
+
+Flow:
+Goal → Rule Matching → Sub-goals → Facts → Goal Proved
+```
+
+---
+  
+
+**Memory Trick:**
+
+- **Forward Chaining = Facts → Goal (Data-driven)**
+    
+- **Backward Chaining = Goal → Facts (Goal-driven)**
