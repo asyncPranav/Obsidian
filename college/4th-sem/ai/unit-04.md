@@ -1852,29 +1852,6 @@ Student(Ram)
 
 ---
 
-# Frequently Asked Questions
-
-### 2 Marks
-
-- Define Backward Chaining.
-    
-- Why is Backward Chaining called a goal-driven approach?
-    
-
-### 5 Marks
-
-- Explain the working of Backward Chaining with an example.
-    
-- Differentiate between Forward and Backward Chaining.
-    
-
-### 10 Marks
-
-- Explain the Backward Chaining algorithm with a neat diagram and suitable example.
-    
-
----
-
 # 1-Minute Revision
 
 ```text
@@ -1898,3 +1875,334 @@ Goal → Rule Matching → Sub-goals → Facts → Goal Proved
 - **Forward Chaining = Facts → Goal (Data-driven)**
     
 - **Backward Chaining = Goal → Facts (Goal-driven)**
+
+
+---
+
+
+# UNIT–4: LOGIC
+
+# Topic: Resolution ⭐⭐⭐⭐⭐
+
+**(Most Important Topic | Frequently Asked 5 & 10 Marks Question)**
+
+> **Exam Weightage:** ⭐⭐⭐⭐⭐  
+> Resolution is the **most important inference rule** in First Order Logic and is widely used in **Automated Theorem Proving, Expert Systems, and AI reasoning**.
+
+---
+
+# Definition
+
+**Resolution** is an inference technique used in Artificial Intelligence to prove whether a statement is true or false. It works by converting all statements into **Clause Form (Conjunctive Normal Form - CNF)** and deriving a contradiction. If a contradiction (empty clause) is obtained, the goal is proved.
+
+### Exam Definition
+
+> **Resolution** is a rule of inference that proves a conclusion by resolving two clauses containing complementary literals. If an empty clause (□) is obtained, the statement is proved.
+
+---
+
+# Basic Idea
+
+Resolution follows the **Proof by Contradiction** method.
+
+Instead of proving the goal directly:
+
+1. Negate the goal.
+    
+2. Add it to the Knowledge Base.
+    
+3. Apply the Resolution Rule repeatedly.
+    
+4. If an **empty clause (□)** is obtained, the original goal is true.
+    
+
+### Diagram
+
+```text
+Knowledge Base
+      │
+      ▼
+Negate Goal
+      │
+      ▼
+Convert to CNF
+      │
+      ▼
+Apply Resolution
+      │
+      ▼
+Empty Clause (□)?
+      │
+ ┌────┴────┐
+ │         │
+Yes       No
+ │         │
+Goal     Cannot
+Proved   Prove
+```
+
+---
+
+# Resolution Rule
+
+If two clauses contain complementary literals (P and ¬P), they can be resolved.
+
+General Rule:
+
+```text
+(P ∨ Q)
+
+(¬P ∨ R)
+
+────────────
+
+(Q ∨ R)
+```
+
+Here, **P** and **¬P** cancel each other, producing the new clause **Q ∨ R**.
+
+---
+
+# Steps of Resolution Algorithm
+
+1. Convert all statements into **Conjunctive Normal Form (CNF)**.
+    
+2. Negate the goal and add it to the Knowledge Base.
+    
+3. Select two clauses containing complementary literals.
+    
+4. Resolve them to produce a new clause.
+    
+5. Repeat until:
+    
+    - an **empty clause (□)** is obtained (goal proved), or
+        
+    - no further resolution is possible.
+        
+
+---
+
+# Example 1 (Very Important)
+
+### Knowledge Base
+
+```text
+1. Human(Ram)
+
+2. Human(x) → Mortal(x)
+```
+
+### Goal
+
+```text
+Mortal(Ram)
+```
+
+### Step 1: Convert to CNF
+
+Rule:
+
+```text
+¬Human(x) ∨ Mortal(x)
+```
+
+Negated Goal:
+
+```text
+¬Mortal(Ram)
+```
+
+Knowledge Base becomes:
+
+```text
+Human(Ram)
+
+¬Human(x) ∨ Mortal(x)
+
+¬Mortal(Ram)
+```
+
+### Step 2: Apply Resolution
+
+Resolve:
+
+```text
+Mortal(Ram)
+
+¬Mortal(Ram)
+```
+
+Result:
+
+```text
+Human(Ram)
+```
+
+Resolve again:
+
+```text
+Human(Ram)
+
+¬Human(Ram)
+```
+
+Result:
+
+```text
+□
+```
+
+Since the **empty clause (□)** is obtained, the goal **Mortal(Ram)** is proved.
+
+---
+
+# Example 2
+
+### Clauses
+
+```text
+P ∨ Q
+
+¬P
+```
+
+Applying Resolution:
+
+```text
+P ∨ Q
+
+¬P
+
+────────
+
+Q
+```
+
+Thus, the new clause is **Q**.
+
+---
+
+# Characteristics
+
+- Uses **proof by contradiction**.
+    
+- Works on **CNF clauses**.
+    
+- Uses complementary literals.
+    
+- Produces new clauses until proof is obtained.
+    
+- Fundamental inference method in AI.
+    
+
+---
+
+# Advantages
+
+- Simple and systematic inference technique.
+    
+- Sound and complete for First Order Logic.
+    
+- Widely used in Automated Theorem Proving.
+    
+- Efficient for logical reasoning.
+    
+- Forms the basis of many AI systems.
+    
+
+---
+
+# Disadvantages
+
+- All statements must be converted to CNF.
+    
+- Resolution may generate many intermediate clauses.
+    
+- Computationally expensive for large knowledge bases.
+    
+- Difficult to understand for beginners.
+    
+
+---
+
+# Applications
+
+- Automated Theorem Proving
+    
+- Expert Systems
+    
+- Logic Programming (Prolog)
+    
+- Knowledge Representation
+    
+- Question Answering Systems
+    
+- Artificial Intelligence Reasoning
+    
+
+---
+
+# Difference: Resolution vs Forward & Backward Chaining
+
+|Resolution|Forward Chaining|Backward Chaining|
+|---|---|---|
+|Uses proof by contradiction|Data-driven|Goal-driven|
+|Works on CNF clauses|Uses IF–THEN rules|Uses IF–THEN rules|
+|Based on complementary literals|Starts with facts|Starts with goal|
+|Produces empty clause (□)|Produces new facts|Produces sub-goals|
+
+---
+
+# Frequently Asked Questions
+
+### 2 Marks
+
+- Define Resolution.
+    
+- What is an empty clause?
+    
+- Why is CNF used in Resolution?
+    
+
+### 5 Marks
+
+- Explain the Resolution Rule with an example.
+    
+- Explain the steps involved in the Resolution algorithm.
+    
+
+### 10 Marks
+
+- Explain the Resolution method with a neat diagram and suitable example.
+    
+- Describe the Resolution algorithm, advantages, disadvantages, and applications.
+    
+
+---
+
+# 1-Minute Revision
+
+```text
+Resolution
+
+• Inference rule in AI
+• Uses proof by contradiction
+• Convert statements to CNF
+• Negate the goal
+• Apply resolution rule
+• Empty clause (□) means goal is proved
+
+Flow:
+Knowledge Base
+      ↓
+Negate Goal
+      ↓
+Convert to CNF
+      ↓
+Apply Resolution
+      ↓
+Empty Clause (□)
+      ↓
+Goal Proved
+```
+
