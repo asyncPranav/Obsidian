@@ -752,3 +752,729 @@ Hence, FOL is flexible.
 |Cannot represent relationships.|Can represent relationships.|
 |Suitable for simple logical problems.|Suitable for complex AI applications.|
 |Easier to implement.|More complex but more powerful.|
+
+
+---
+
+
+# UNIT–4 : LOGIC
+
+# Topic 3 : Unification ⭐⭐⭐⭐⭐
+
+**(Most Important Topic | Frequently Asked in 5 Marks & 10 Marks Questions)**
+
+> **Exam Weightage:** Very High  
+> Unification is the **foundation of First Order Logic inference, Resolution, Forward Chaining, and Backward Chaining.** Understand this topic well because it is used repeatedly in later topics.
+
+---
+
+# Definition
+
+**Unification** is the process of making two logical expressions identical by finding suitable substitutions for their variables.
+
+It is one of the most important techniques used in **First Order Logic (FOL)** to perform logical inference.
+
+### Exam Definition (Write Exactly)
+
+> **Unification** is the process of finding a substitution for variables so that two predicate expressions become identical. The substitution obtained is called a **Unifier**.
+
+---
+
+# Why is Unification Needed?
+
+Suppose our Knowledge Base contains:
+
+```text
+Human(Ram)
+```
+
+Now we want to prove
+
+```text
+Human(x)
+```
+
+Here,
+
+```text
+x = Ram
+```
+
+After substitution,
+
+```text
+Human(Ram)
+```
+
+Both expressions become identical.
+
+This matching process is called **Unification**.
+
+---
+
+# Need of Unification
+
+Unification is required because:
+
+- Knowledge Base contains variables.
+    
+- Queries may contain constants.
+    
+- AI systems must match facts with rules.
+    
+- Logical inference requires matching predicates.
+    
+
+Without unification, AI cannot derive new facts.
+
+---
+
+# Basic Idea of Unification
+
+```text
+          Expression 1
+
+          Human(x)
+
+              │
+      Substitute x = Ram
+              │
+              ▼
+
+        Human(Ram)
+
+              ▲
+
+      Human(Ram)
+
+          Expression 2
+
+Both expressions become identical.
+```
+
+---
+
+# Important Terms ⭐⭐⭐⭐
+
+## 1. Substitution
+
+Replacing a variable with a constant or another variable.
+
+Example
+
+```text
+Student(x)
+
+x = Ram
+
+↓
+
+Student(Ram)
+```
+
+---
+
+## 2. Unifier
+
+The substitution that makes two expressions identical.
+
+Example
+
+```text
+Likes(x,Mango)
+
+Likes(Ram,Mango)
+
+Unifier = {x/Ram}
+```
+
+---
+
+## 3. Most General Unifier (MGU) ⭐⭐⭐⭐⭐
+
+The **Most General Unifier (MGU)** is the simplest substitution that makes two expressions identical without adding unnecessary restrictions.
+
+### Exam Definition
+
+> **Most General Unifier (MGU)** is the simplest substitution that unifies two expressions while keeping them as general as possible.
+
+Example
+
+```text
+P(x)
+
+P(Ram)
+
+MGU = {x/Ram}
+```
+
+---
+
+# Components of Unification
+
+```text
+             Unification
+
+                  │
+
+      ┌───────────┼────────────┐
+
+      │           │            │
+
+ Variables    Constants    Predicates
+
+                  │
+
+            Substitution
+
+                  │
+
+             Matching
+
+                  │
+
+             Inference
+```
+
+---
+
+# Rules of Unification ⭐⭐⭐⭐⭐
+
+To unify two expressions, follow these rules.
+
+---
+
+## Rule 1
+
+If both constants are same
+
+Example
+
+```text
+Student(Ram)
+
+Student(Ram)
+```
+
+Result
+
+✔ Successfully Unified
+
+---
+
+## Rule 2
+
+If constants are different
+
+Example
+
+```text
+Student(Ram)
+
+Student(Shyam)
+```
+
+Result
+
+✘ Cannot be unified.
+
+---
+
+## Rule 3
+
+Variable can match a constant.
+
+Example
+
+```text
+Student(x)
+
+Student(Ram)
+```
+
+Substitution
+
+```text
+{x/Ram}
+```
+
+Unified.
+
+---
+
+## Rule 4
+
+Variable can match another variable.
+
+Example
+
+```text
+Student(x)
+
+Student(y)
+```
+
+Substitution
+
+```text
+{x/y}
+```
+
+Unified.
+
+---
+
+## Rule 5
+
+Predicate names must be same.
+
+Example
+
+```text
+Student(Ram)
+
+Teacher(Ram)
+```
+
+Cannot unify.
+
+Reason
+
+Predicate names differ.
+
+---
+
+## Rule 6
+
+Number of arguments must be same.
+
+Example
+
+```text
+Likes(Ram,Mango)
+
+Likes(Ram)
+```
+
+Cannot unify.
+
+---
+
+# Unification Algorithm ⭐⭐⭐⭐⭐
+
+### Step 1
+
+Compare predicate names.
+
+If different
+
+→ Fail.
+
+---
+
+### Step 2
+
+Compare number of arguments.
+
+If different
+
+→ Fail.
+
+---
+
+### Step 3
+
+Compare arguments one by one.
+
+- Same constants → Continue
+    
+- Variable → Substitute
+    
+- Different constants → Fail
+    
+
+---
+
+### Step 4
+
+Store substitutions.
+
+---
+
+### Step 5
+
+Apply substitutions.
+
+---
+
+### Step 6
+
+If expressions become identical
+
+→ Success.
+
+Otherwise
+
+→ Failure.
+
+---
+
+# Flow Diagram of Unification Algorithm
+
+```text
+          Start
+
+             │
+
+ Compare Predicate Name
+
+             │
+
+      Same ?──────No
+
+       │            │
+
+      Yes         Failure
+
+       │
+
+Compare Number of Arguments
+
+       │
+
+ Same ?──────No
+
+      │         │
+
+     Yes      Failure
+
+      │
+
+Compare Arguments
+
+      │
+
+Variable ?
+
+      │
+
+ Substitute
+
+      │
+
+Apply Substitution
+
+      │
+
+Expressions Match ?
+
+      │
+
+Yes ─────► Success
+
+No ──────► Failure
+```
+
+---
+
+# Solved Examples ⭐⭐⭐⭐⭐
+
+## Example 1
+
+Unify
+
+```text
+Student(x)
+
+Student(Ram)
+```
+
+Solution
+
+Predicate same ✔
+
+Arguments
+
+```text
+x = Ram
+```
+
+Result
+
+```text
+{x/Ram}
+```
+
+Successfully Unified.
+
+---
+
+## Example 2
+
+Unify
+
+```text
+Likes(x,Mango)
+
+Likes(Ram,Mango)
+```
+
+Solution
+
+Predicate same ✔
+
+Argument 1
+
+```text
+x = Ram
+```
+
+Argument 2
+
+Same constant.
+
+Result
+
+```text
+{x/Ram}
+```
+
+Unified.
+
+---
+
+## Example 3
+
+Unify
+
+```text
+Parent(x,y)
+
+Parent(Ram,Rohan)
+```
+
+Solution
+
+Substitutions
+
+```text
+x = Ram
+
+y = Rohan
+```
+
+Result
+
+```text
+{x/Ram, y/Rohan}
+```
+
+Unified.
+
+---
+
+## Example 4
+
+Unify
+
+```text
+Teacher(Ram)
+
+Student(Ram)
+```
+
+Predicate names differ.
+
+Result
+
+Not Unified.
+
+---
+
+## Example 5
+
+Unify
+
+```text
+Father(x,Rohan)
+
+Father(Ram,y)
+```
+
+Solution
+
+First argument
+
+```text
+x = Ram
+```
+
+Second argument
+
+```text
+y = Rohan
+```
+
+Result
+
+```text
+{x/Ram, y/Rohan}
+```
+
+Unified.
+
+---
+
+## Example 6
+
+Unify
+
+```text
+Likes(Ram,Mango)
+
+Likes(Shyam,Mango)
+```
+
+First arguments differ.
+
+Ram ≠ Shyam
+
+Result
+
+Cannot unify.
+
+---
+
+# Real-Life Example ⭐⭐⭐⭐
+
+Knowledge Base
+
+```text
+Teacher(Ram)
+
+∀x Teacher(x) → Employee(x)
+```
+
+Query
+
+```text
+Employee(Ram)
+```
+
+Unification
+
+```text
+Teacher(x)
+
+Teacher(Ram)
+```
+
+Substitution
+
+```text
+{x/Ram}
+```
+
+Inference
+
+```text
+Employee(Ram)
+```
+
+---
+
+# Advantages of Unification ⭐⭐⭐⭐
+
+1. Enables logical inference.
+    
+2. Matches facts with rules.
+    
+3. Reduces duplicate rules.
+    
+4. Used in Resolution.
+    
+5. Used in Forward Chaining.
+    
+6. Used in Backward Chaining.
+    
+7. Supports AI reasoning.
+    
+
+---
+
+# Limitations of Unification
+
+1. Works only when predicate names match.
+    
+2. Cannot unify different constants.
+    
+3. Complex for very large knowledge bases.
+    
+4. Recursive structures increase complexity.
+    
+
+---
+
+# Applications of Unification ⭐⭐⭐⭐
+
+- First Order Logic
+    
+- Automated Theorem Proving
+    
+- Resolution Method
+    
+- Expert Systems
+    
+- Natural Language Processing
+    
+- Logic Programming (e.g., Prolog)
+    
+- Question Answering Systems
+    
+- AI Reasoning Systems
+    
+
+---
+
+# Difference Between Matching and Unification ⭐⭐⭐
+
+|Matching|Unification|
+|---|---|
+|One-way substitution|Two-way substitution|
+|Less flexible|More flexible|
+|Used for simple matching|Used for logical inference|
+|Simpler|More powerful|
+
+---
+
+# Memory Trick ⭐⭐⭐
+
+Remember:
+
+```text
+UNIFY
+
+U → Understand predicates
+
+N → Names should match
+
+I → Identify variables
+
+F → Find substitutions
+
+Y → Yield identical expressions
+```
+
+Also remember the **3 Golden Rules**:
+
+```text
+Same Predicate ✔
+
+Same Number of Arguments ✔
+
+Variables can be substituted ✔
+```
+
+If any one of these fails, **unification fails**.
+
+---
