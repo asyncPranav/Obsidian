@@ -2390,12 +2390,149 @@ Statistical Learning = Learning from data using probability and statistics for p
 
 ---
 
-## ⭐ Exam Tip
+# UNIT–4: LOGIC
 
-Write in exam order:
-
-**Definition → Diagram → Example → Characteristics → Types → Advantages → Disadvantages → Applications**
+# Topic: Reinforcement Learning ⭐⭐⭐⭐⭐
 
 ---
 
-If you want, I can now give **Reinforcement Learning (last and very important Unit 4 topic)** in same ultra-concise exam format.
+# Definition
+
+**Reinforcement Learning (RL)** is a learning method in Artificial Intelligence in which an **agent learns by interacting with the environment and receiving rewards or penalties**.
+
+> **Exam Definition:**  
+> Reinforcement Learning is a learning technique in which an agent learns optimal behavior by taking actions in an environment and receiving feedback in the form of rewards or punishments.
+
+---
+
+# Key Idea
+
+**Action → Feedback → Improve Policy**
+
+---
+
+# Working
+
+Agent performs action in environment, gets reward or penalty, and updates its strategy to maximize future rewards.
+
+---
+
+# Diagram ⭐⭐⭐⭐⭐
+
+```text
+        Environment
+            ▲
+            │
+     Reward / State
+            │
+            ▼
+          Agent
+            │
+        Action Taken
+            │
+            ▼
+        Environment
+```
+
+---
+
+# Key Components
+
+- **Agent** → Learner
+    
+- **Environment** → World
+    
+- **Action** → Decision taken
+    
+- **State** → Situation
+    
+- **Reward** → Feedback (+ / -)
+    
+- **Policy** → Strategy
+    
+
+---
+
+# Example
+
+```text
+Robot learns walking:
+
+Fall → penalty (-)
+Step correctly → reward (+)
+Repeated practice → optimal walking
+```
+
+---
+
+# Types of Rewards
+
+- Positive reward (+) → correct action
+    
+- Negative reward (-) → wrong action
+    
+
+---
+
+# Characteristics
+
+- Trial and error learning
+    
+- No labeled data
+    
+- Goal-oriented
+    
+- Learns from feedback
+    
+
+---
+
+# Advantages
+
+- Learns optimal strategy
+    
+- No need of training dataset
+    
+- Works in dynamic environment
+    
+- Improves over time
+    
+
+---
+
+# Disadvantages
+
+- Needs many trials
+    
+- Slow learning
+    
+- Complex implementation
+    
+- Unstable in large environments
+    
+
+---
+
+# Applications
+
+- Robotics
+    
+- Game playing (Chess, AlphaGo)
+    
+- Self-driving cars
+    
+- Recommendation systems
+    
+- AI control systems
+    
+
+---
+
+# 1-Line Revision
+
+```text
+Reinforcement Learning = Learning by trial and error using rewards and penalties.
+```
+
+---
+
