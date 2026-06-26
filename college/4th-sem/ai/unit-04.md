@@ -2125,3 +2125,277 @@ Decision Tree = Tree structure used to make decisions using IF-ELSE style rules.
 
 ---
 
+# UNIT–4: LOGIC
+
+# Topic: Explanation Based Learning (EBL) ⭐⭐⭐⭐⭐
+
+---
+
+# Definition
+
+**Explanation Based Learning (EBL)** is a learning method in Artificial Intelligence in which the system learns by **explaining a single training example using prior knowledge** and then generalizes it into a rule.
+
+> **Exam Definition:**  
+> EBL is a learning technique where general rules are derived by explaining why a specific example is true using domain knowledge.
+
+---
+
+# Key Idea
+
+**Explain Example → Extract Rule → Generalize**
+
+---
+
+# Working
+
+System takes one example, uses background knowledge to explain why it is correct, then converts the explanation into a general rule.
+
+---
+
+# Diagram ⭐⭐⭐⭐⭐
+
+```text
+Training Example
+        │
+        ▼
+Domain Knowledge
+        │
+        ▼
+Explanation Generation
+        │
+        ▼
+General Rule Extraction
+        │
+        ▼
+Learned Concept
+```
+
+---
+
+# Example
+
+```text
+Example: Bird = Sparrow can fly  
+
+Domain Knowledge:
+Birds have wings → Wings help flying  
+
+Explanation:
+Sparrow has wings → can fly  
+
+General Rule:
+Birds with wings can fly
+```
+
+---
+
+# Characteristics
+
+- Uses prior knowledge
+    
+- Learns from single example
+    
+- Explanation-based reasoning
+    
+- Converts explanation into rule
+    
+- Goal-driven learning
+    
+
+---
+
+# Advantages
+
+- Requires less training data
+    
+- Fast learning
+    
+- Uses existing knowledge
+    
+- Produces clear rules
+    
+
+---
+
+# Disadvantages
+
+- Needs strong background knowledge
+    
+- Not suitable for unknown domains
+    
+- Cannot handle noisy data well
+    
+- Limited generalization sometimes
+    
+
+---
+
+# Applications
+
+- Expert systems
+    
+- Medical diagnosis
+    
+- Robotics
+    
+- Knowledge-based AI systems
+    
+- Rule learning systems
+    
+
+---
+
+# 1-Line Revision
+
+```text
+EBL = Learning general rules by explaining a single example using prior knowledge.
+```
+
+---
+
+# UNIT–4: LOGIC
+
+# Topic: Statistical Learning ⭐⭐⭐⭐⭐
+
+---
+
+# Definition
+
+**Statistical Learning** is a learning approach in AI where models learn patterns from data using **probability and statistics** to make predictions or decisions under uncertainty.
+
+> **Exam Definition:**  
+> Statistical Learning is a method in which learning is done from data using statistical techniques and probability to build predictive models.
+
+---
+
+# Key Idea
+
+**Data → Probability → Prediction**
+
+---
+
+# Working
+
+System analyzes training data, calculates probabilities, identifies patterns, and uses them to predict outcomes for new data.
+
+---
+
+# Diagram ⭐⭐⭐⭐⭐
+
+```text
+Training Data
+      │
+      ▼
+Statistical Analysis
+ (Mean, Probability)
+      │
+      ▼
+Model Building
+      │
+      ▼
+Prediction
+      │
+      ▼
+Decision / Output
+```
+
+---
+
+# Example
+
+```text
+Spam Email Detection:
+
+Emails → analyze words frequency → probability spam/non-spam → classification
+```
+
+---
+
+# Characteristics
+
+- Based on probability
+    
+- Works on large datasets
+    
+- Handles uncertainty
+    
+- Data-driven approach
+    
+- Used for prediction
+    
+
+---
+
+# Types
+
+- Bayesian Learning
+    
+- Hidden Markov Models (HMM)
+    
+- Regression Models
+    
+- Classification Models
+    
+
+---
+
+# Advantages
+
+- Works well with noisy data
+    
+- Handles uncertainty
+    
+- High accuracy with large data
+    
+- Strong predictive ability
+    
+
+---
+
+# Disadvantages
+
+- Needs large dataset
+    
+- Complex calculations
+    
+- Computationally expensive
+    
+- Requires statistical knowledge
+    
+
+---
+
+# Applications
+
+- Spam detection
+    
+- Speech recognition
+    
+- Weather forecasting
+    
+- Medical diagnosis
+    
+- Stock market prediction
+    
+- Machine learning systems
+    
+
+---
+
+# 1-Line Revision
+
+```text
+Statistical Learning = Learning from data using probability and statistics for prediction.
+```
+
+---
+
+## ⭐ Exam Tip
+
+Write in exam order:
+
+**Definition → Diagram → Example → Characteristics → Types → Advantages → Disadvantages → Applications**
+
+---
+
+If you want, I can now give **Reinforcement Learning (last and very important Unit 4 topic)** in same ultra-concise exam format.
