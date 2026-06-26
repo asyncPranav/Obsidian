@@ -1825,3 +1825,130 @@ Goal Proved
 ```
 
 ---
+
+
+# UNIT–4: LOGIC
+
+# Topic: Inductive Learning ⭐⭐⭐⭐
+
+---
+
+# Definition
+
+**Inductive Learning** is a machine learning method in AI in which general rules are learned from specific training examples.
+
+> **Exam Definition:**  
+> Inductive Learning is a learning method in which general hypotheses or rules are derived from specific observed examples.
+
+---
+
+# Key Idea
+
+**Examples → Pattern → Rule**
+
+---
+
+# Working
+
+AI system observes multiple input–output examples and finds a common pattern, then forms a general rule.
+
+---
+
+# Simple Flow
+
+```text
+Specific Examples
+        ↓
+Pattern Detection
+        ↓
+General Rule (Hypothesis)
+```
+
+---
+
+# Example
+
+```text
+Example 1: Bird → Fly  
+Example 2: Sparrow → Fly  
+Example 3: Parrot → Fly  
+
+Rule: All birds can fly
+```
+
+---
+
+# Types of Inductive Learning
+
+- Supervised learning
+    
+- Unsupervised learning (basic idea level)
+    
+
+---
+
+# Characteristics
+
+- Learns from examples
+    
+- Builds general rules
+    
+- Data-driven approach
+    
+- Improves with more data
+    
+
+---
+
+# Advantages
+
+- Easy learning method
+    
+- Works with real data
+    
+- Improves accuracy over time
+    
+- Useful for prediction
+    
+
+---
+
+# Disadvantages
+
+- Needs large data
+    
+- May produce wrong generalization
+    
+- Sensitive to noisy data
+    
+
+---
+
+# Applications
+
+- Pattern recognition
+    
+- Speech recognition
+    
+- Medical diagnosis
+    
+- Spam detection
+    
+- AI prediction systems
+    
+
+---
+
+# 1-Line Revision
+
+```text
+Inductive Learning = Learning general rules from specific examples.
+```
+
+---
+
+## ⭐ Exam Tip
+
+Write in order:
+
+**Definition → Example → Flow → Advantages → Applications**
