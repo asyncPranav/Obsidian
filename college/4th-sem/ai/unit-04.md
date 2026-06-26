@@ -2151,32 +2151,7 @@ Thus, the new clause is **Q**.
 |Based on complementary literals|Starts with facts|Starts with goal|
 |Produces empty clause (□)|Produces new facts|Produces sub-goals|
 
----
 
-# Frequently Asked Questions
-
-### 2 Marks
-
-- Define Resolution.
-    
-- What is an empty clause?
-    
-- Why is CNF used in Resolution?
-    
-
-### 5 Marks
-
-- Explain the Resolution Rule with an example.
-    
-- Explain the steps involved in the Resolution algorithm.
-    
-
-### 10 Marks
-
-- Explain the Resolution method with a neat diagram and suitable example.
-    
-- Describe the Resolution algorithm, advantages, disadvantages, and applications.
-    
 
 ---
 
@@ -2206,3 +2181,4 @@ Empty Clause (□)
 Goal Proved
 ```
 
+---
