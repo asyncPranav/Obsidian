@@ -1854,6 +1854,23 @@ AI system observes multiple input–output examples and finds a common pattern, 
 
 ---
 
+# Diagram ⭐⭐⭐⭐⭐
+
+```
+Training Examples
+        │
+        ▼
+Pattern Detection
+        │
+        ▼
+Hypothesis Formation (Rule)
+        │
+        ▼
+Prediction on New Data
+```
+
+---
+
 # Simple Flow
 
 ```text
