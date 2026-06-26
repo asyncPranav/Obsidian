@@ -1947,8 +1947,164 @@ Inductive Learning = Learning general rules from specific examples.
 
 ---
 
-## ⭐ Exam Tip
+# UNIT–4: LOGIC
 
-Write in order:
+# Topic: Decision Trees ⭐⭐⭐⭐⭐
 
-**Definition → Example → Flow → Advantages → Applications**
+---
+
+# Definition
+
+**Decision Tree** is a tree-structured model used in AI to make decisions based on a sequence of conditions, where each internal node represents a test and each leaf node represents a final decision or output.
+
+> **Exam Definition:**  
+> A Decision Tree is a tree-like structure used for decision making in which internal nodes represent attributes, branches represent conditions, and leaf nodes represent class labels or decisions.
+
+---
+
+# Key Idea
+
+**Condition → Split → Decision**
+
+---
+
+# Structure (Very Important)
+
+```text
+           Root Node
+          (Attribute)
+              │
+     ┌────────┼────────┐
+     │        │        │
+ Condition Condition Condition
+     │        │        │
+  Node     Node     Node
+     │        │        │
+   Leaf     Leaf     Leaf
+ (Result)  (Result)  (Result)
+```
+
+---
+
+# Example
+
+```text
+          Weather
+         /      \
+      Sunny     Rain
+      /           \
+   Play         Don’t Play
+```
+
+Meaning:
+
+- If Weather = Sunny → Play
+    
+- If Weather = Rain → Don’t Play
+    
+
+---
+
+# Working
+
+1. Start from root node
+    
+2. Check condition
+    
+3. Move to branch
+    
+4. Reach leaf node
+    
+5. Get decision
+    
+
+---
+
+# Types
+
+- Classification Tree (Class label output)
+    
+- Regression Tree (Numeric output)
+    
+
+---
+
+# Characteristics
+
+- Tree structured
+    
+- Easy interpretation
+    
+- Rule based
+    
+- Data driven
+    
+
+---
+
+# Advantages
+
+- Very easy to understand
+    
+- No complex math
+    
+- Fast decision making
+    
+- Works with categorical + numeric data
+    
+
+---
+
+# Disadvantages
+
+- Overfitting problem
+    
+- Sensitive to data changes
+    
+- Can become very large
+    
+- Less accurate than advanced models
+    
+
+---
+
+# Applications
+
+- Medical diagnosis
+    
+- Spam detection
+    
+- Credit approval
+    
+- Weather prediction
+    
+- AI classification systems
+    
+
+---
+
+# 1-Line Revision
+
+```text
+Decision Tree = Tree structure used to make decisions using IF-ELSE style rules.
+```
+
+---
+
+# Exam Diagram (Must Write)
+
+```text
+        [Root: Attribute]
+               │
+        ┌──────┴──────┐
+        │             │
+     [Condition]   [Condition]
+        │             │
+     [Branch]      [Branch]
+        │             │
+      [Leaf]       [Leaf]
+     (Output)     (Output)
+```
+
+---
+
