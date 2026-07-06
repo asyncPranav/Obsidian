@@ -481,6 +481,21 @@ import add from "./math.mjs";
 console.log(add(2, 3)); // 5
 ```
 
+- Only named imports
+	
+```js
+import { multiply, PI } from "./math.mjs";
+
+console.log(multiply(2, 3)); // 6
+console.log(PI);             // 3.14
+```
+
+- Import everything (named only, default NOT included)
+
+
+
+
+
 ---
 
 ## **3. Default vs Named – When to Use Which**
