@@ -157,6 +157,18 @@ log('Server started'); // Log: Server started
 
 ---
 
+#NOTE - When you call:
+
+```js
+require("./sum");
+require("./sum");
+require("./sum");
+```
+
+`sum.js` is **executed only once**. Node stores the loaded module in a cache, so subsequent `require()` calls return the cached `module.exports` object instead of running the file again. This improves performance and ensures that modules behave like singletons by default.
+
+---
+
 ## **4. ES Modules (ESM)**
 
 ### **Exporting**
