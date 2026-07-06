@@ -464,10 +464,22 @@ export default function add(a, b) {
 ```
 
 - Import default and named together
+	
 ```js
+import add, { multiply, PI } from "./math.mjs";
 
+console.log(add(2, 3));      // 5
+console.log(multiply(2, 3));  // 6
+console.log(PI);             // 3.14
 ```
 
+- Only default export
+	
+```js
+import add from "./math.mjs";
+
+console.log(add(2, 3)); // 5
+```
 
 ---
 
