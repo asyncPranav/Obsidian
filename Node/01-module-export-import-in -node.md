@@ -426,6 +426,11 @@ import math from "./math.mjs"; // ❌ Error (no default export)
 ```
 
 
+✅ **Default Export :**
+
+- Correct way
+``
+- 
 
 ---
 
