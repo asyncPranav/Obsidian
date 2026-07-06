@@ -428,8 +428,16 @@ import math from "./math.mjs"; // ❌ Error (no default export)
 
 ✅ **Default Export :**
 
-- Correct way
-``
+- file `math.mjs
+
+```
+export default function add(a, b) {  return a + b;}
+```
+
+- Correct way of importing
+```js
+import add from "./math.mjs"
+```
 - 
 
 ---
