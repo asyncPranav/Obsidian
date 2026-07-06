@@ -463,6 +463,10 @@ export default function add(a, b) {
 }
 ```
 
+- Import default and named together
+```js
+
+```
 
 
 ---
