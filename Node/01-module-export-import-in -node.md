@@ -396,7 +396,8 @@ Use **named exports** when your module **has multiple utilities or objects** and
 
 #DOUBT  - Can we use  `import math from './math.mjs';`
 
-**No**, if `math.mjs` do named export only then you can't import in this way
+**No**, if `math.mjs` do named export only then you can't import in this way.
+**Yes**, if `math.mjs` do default export only then you can import in this way.
 
 ---
 
