@@ -340,7 +340,7 @@ Timer
     
 - `setInterval`
     
-- I/O callbacks
+- `I/O callbacks`
     
 - `setImmediate`
     
