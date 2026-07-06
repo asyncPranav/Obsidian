@@ -400,7 +400,7 @@ Use **named exports** when your module **has multiple utilities or objects** and
 **Yes**, if `math.mjs` do default export only then you can import in this way.
 
 
-✅ **Named Export :**
+✅ **1. Named Export :**
 
 - Import only what you need 
 	
@@ -426,7 +426,7 @@ import math from "./math.mjs"; // ❌ Error (no default export)
 ```
 
 
-✅ **Default Export :**
+✅ **2. Default Export :**
 
 - file `math.mjs`
 	
@@ -445,6 +445,25 @@ import add from "./math.mjs"
 ```js
 import { add } from "./math.mjs"; // ❌ Error
 ```
+
+
+✅ **3. Mixed Export :**
+
+- File `math.mjs`
+	
+```js
+export function multiply(a, b) {
+  return a * b;
+}
+
+export const PI = 3.14;
+
+export default function add(a, b) {
+  return a + b;
+}
+```
+
+
 
 ---
 
