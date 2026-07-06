@@ -394,7 +394,9 @@ Use **named exports** when your module **has multiple utilities or objects** and
 - e.g., a utility library with many functions (`math.js`, `string-utils.js`).
 
 
-#DOUBT  - Can we use  `import * as math from './math.mjs';`
+#DOUBT  - Can we use  `import math from './math.mjs';`
+
+**No**, 
 
 ---
 
