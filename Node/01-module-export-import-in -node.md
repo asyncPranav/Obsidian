@@ -392,7 +392,9 @@ console.log(math.PI);               // 3.14
 Use **named exports** when your module **has multiple utilities or objects** and none of them is the single main feature.
 
 - e.g., a utility library with many functions (`math.js`, `string-utils.js`).
-    
+
+
+#DOUBT  - Can we use  `import * as math from './math.mjs';`
 
 ---
 
