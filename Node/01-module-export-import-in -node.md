@@ -399,6 +399,11 @@ Use **named exports** when your module **has multiple utilities or objects** and
 **No**, if `math.mjs` do named export only then you can't import in this way.
 **Yes**, if `math.mjs` do default export only then you can import in this way.
 
+
+**Named Export :**
+
+
+
 ---
 
 ## **3. Default vs Named – When to Use Which**
