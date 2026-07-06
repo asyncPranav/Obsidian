@@ -406,7 +406,12 @@ Use **named exports** when your module **has multiple utilities or objects** and
 	
 ```js
 import { add, PI } from "./math.mjs";
-// not imp
+// not imported multiply
+```
+
+- Import everything as an object
+```js
+import * as math from "./math.mjs";
 ```
 - 
 
