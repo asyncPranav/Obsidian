@@ -491,8 +491,21 @@ console.log(PI);             // 3.14
 ```
 
 - Import everything (named only, default NOT included)
+	
+```js
+import * as math from "./math.mjs";
+
+console.log(math.multiply(2, 3)); // 6
+console.log(math.PI);            // 3.14
+// math.default is NOT automatically included
+```
 
 
+#### FINAL MEMORY RULE
+
+- Named export → `{ add, multiply }` or `* as math`
+- Default export → `import anyName from ...`
+- Mixed export → `import anyName, { named } from ...`
 
 
 
