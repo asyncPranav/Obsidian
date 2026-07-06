@@ -410,10 +410,20 @@ import { add, PI } from "./math.mjs";
 ```
 
 - Import everything as an object
+	
 ```js
 import * as math from "./math.mjs";
+
+console.log(math.add(2, 3));      // 5
+console.log(math.multiply(2, 3)); // 6
+console.log(math.PI);            // 3.14
 ```
-- 
+
+- Wrong way for Named export
+	
+```js
+import math from "./math.mjs"; // ❌ Error (no default export)
+```
 
 
 
