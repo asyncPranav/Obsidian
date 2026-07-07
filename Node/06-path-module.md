@@ -549,7 +549,10 @@ path.relative(from, to)
 Example:
 
 ```
-path.relative(  "/home/user/project",  "/home/user/project/src/app.js");
+path.relative(
+  "/home/user/project",
+  "/home/user/project/src/app.js"
+);
 ```
 
 Output:
