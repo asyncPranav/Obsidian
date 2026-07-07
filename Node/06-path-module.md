@@ -455,7 +455,11 @@ path.format(pathObject)
 Example:
 
 ```js
-path.format({  dir: "/home/user",  name: "app",  ext: ".js"});
+path.format({
+  dir: "/home/user",
+  name: "app",
+  ext: ".js"
+});
 ```
 
 Output:
@@ -474,13 +478,13 @@ Checks whether a path is absolute.
 
 ### Syntax:
 
-```
+```js
 path.isAbsolute(path)
 ```
 
 Example:
 
-```
+```js
 path.isAbsolute("/home/user/file.txt");
 ```
 
