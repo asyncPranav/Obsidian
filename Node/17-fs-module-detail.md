@@ -1892,3 +1892,783 @@ Default Encoding:
     
 
 If you can complete these exercises, you'll have mastered one of the most commonly used file operations in Node.js.
+
+---
+
+
+# Node.js `fs` Module — Delete File and Rename File (Detailed Notes)
+
+After learning:
+
+- `readFile()` → Read data
+    
+- `writeFile()` → Create/overwrite data
+    
+- `appendFile()` → Add data
+    
+
+The next common file operations are:
+
+1. **Delete a file**
+    
+2. **Rename a file**
+    
+
+Node.js provides:
+
+|Operation|Async|Sync|Promise|
+|---|---|---|---|
+|Delete file|`fs.unlink()`|`fs.unlinkSync()`|`fs.promises.unlink()`|
+|Rename file|`fs.rename()`|`fs.renameSync()`|`fs.promises.rename()`|
+
+---
+
+# PART 1: Delete File (`unlink`)
+
+## What is `unlink()`?
+
+`unlink()` is used to **remove/delete a file from the file system**.
+
+Example:
+
+Before:
+
+```
+project
+│
+├── app.js
+└── notes.txt
+```
+
+Run:
+
+```javascript
+fs.unlink("notes.txt")
+```
+
+After:
+
+```
+project
+│
+└── app.js
+```
+
+`notes.txt` is deleted permanently.
+
+---
+
+# 1. `fs.unlink()` (Asynchronous)
+
+## Syntax
+
+```javascript
+fs.unlink(path, callback)
+```
+
+---
+
+## Parameters
+
+### 1. path
+
+The file path to delete.
+
+Type:
+
+```
+string | Buffer | URL
+```
+
+Example:
+
+```javascript
+"./notes.txt"
+```
+
+---
+
+### 2. callback
+
+Runs after deletion.
+
+Syntax:
+
+```javascript
+(err) => {}
+```
+
+Important:
+
+`unlink()` does not return deleted data.
+
+It only gives error information.
+
+---
+
+# Basic Example
+
+Folder:
+
+```
+project
+│
+├── app.js
+└── test.txt
+```
+
+`app.js`
+
+```javascript
+const fs = require("node:fs");
+
+
+fs.unlink("./test.txt", (err)=>{
+
+    if(err){
+        console.log(err);
+        return;
+    }
+
+    console.log("File deleted successfully");
+
+});
+```
+
+Output:
+
+```
+File deleted successfully
+```
+
+Now:
+
+```
+project
+│
+└── app.js
+```
+
+---
+
+# If File Does Not Exist
+
+Example:
+
+```javascript
+fs.unlink("./abc.txt",(err)=>{
+
+    if(err){
+        console.log(err);
+        return;
+    }
+
+});
+```
+
+Output:
+
+```
+Error: ENOENT: no such file or directory
+```
+
+---
+
+## Checking Error Code
+
+```javascript
+fs.unlink("./abc.txt",(err)=>{
+
+    if(err){
+
+        console.log(err.code);
+
+    }
+
+});
+```
+
+Output:
+
+```
+ENOENT
+```
+
+Meaning:
+
+```
+File does not exist
+```
+
+---
+
+# 2. `fs.unlinkSync()`
+
+Synchronous delete.
+
+## Syntax
+
+```javascript
+fs.unlinkSync(path)
+```
+
+---
+
+Example:
+
+```javascript
+const fs = require("node:fs");
+
+
+fs.unlinkSync("./test.txt");
+
+
+console.log("Deleted");
+```
+
+Output:
+
+```
+Deleted
+```
+
+---
+
+## Flow
+
+Async:
+
+```
+Start delete
+      |
+      |
+Continue program
+      |
+      |
+Delete complete
+      |
+      |
+Callback
+```
+
+Sync:
+
+```
+Start delete
+      |
+      |
+Wait
+      |
+      |
+Delete complete
+      |
+      |
+Continue
+```
+
+---
+
+## Error Handling
+
+Sync methods use:
+
+```javascript
+try...catch
+```
+
+Example:
+
+```javascript
+try{
+
+    fs.unlinkSync("./test.txt");
+
+    console.log("Deleted");
+
+}
+catch(err){
+
+    console.log(err);
+
+}
+```
+
+---
+
+# 3. `fs.promises.unlink()`
+
+Modern Promise approach.
+
+## Syntax
+
+```javascript
+await fs.promises.unlink(path)
+```
+
+---
+
+Example:
+
+```javascript
+const fs = require("node:fs/promises");
+
+
+async function deleteFile(){
+
+    try{
+
+        await fs.unlink("./test.txt");
+
+        console.log("Deleted");
+
+    }
+    catch(err){
+
+        console.log(err);
+
+    }
+
+}
+
+
+deleteFile();
+```
+
+---
+
+## Return Value
+
+|Method|Return|
+|---|---|
+|`unlink()`|undefined (callback)|
+|`unlinkSync()`|undefined|
+|`promises.unlink()`|Promise|
+
+---
+
+# Real World Uses of unlink()
+
+## 1. Delete Uploaded Files
+
+Example:
+
+```
+User uploads profile image
+
+↓
+
+Image saved
+
+↓
+
+User deletes profile
+
+↓
+
+unlink(image.jpg)
+```
+
+---
+
+## 2. Remove Temporary Files
+
+Example:
+
+```
+temp.pdf
+temp-image.png
+cache.txt
+```
+
+Delete after processing.
+
+---
+
+# PART 2: Rename File (`rename`)
+
+## What is `rename()`?
+
+`rename()` is used to:
+
+1. Change file name
+    
+2. Move file to another location
+    
+
+---
+
+Example:
+
+Before:
+
+```
+project
+
+notes.txt
+```
+
+Code:
+
+```javascript
+fs.rename(
+"notes.txt",
+"diary.txt"
+)
+```
+
+After:
+
+```
+project
+
+diary.txt
+```
+
+---
+
+# 1. `fs.rename()` (Async)
+
+## Syntax
+
+```javascript
+fs.rename(oldPath, newPath, callback)
+```
+
+---
+
+## Parameters
+
+### oldPath
+
+Current file location.
+
+Example:
+
+```javascript
+"./old.txt"
+```
+
+---
+
+### newPath
+
+New name/location.
+
+Example:
+
+```javascript
+"./new.txt"
+```
+
+---
+
+### callback
+
+```javascript
+(err)=>{}
+```
+
+---
+
+# Example: Rename File
+
+Before:
+
+```
+data.txt
+```
+
+Code:
+
+```javascript
+const fs = require("node:fs");
+
+
+fs.rename(
+    "./data.txt",
+    "./newData.txt",
+    (err)=>{
+
+        if(err){
+            console.log(err);
+            return;
+        }
+
+
+        console.log("File renamed");
+
+    }
+);
+```
+
+After:
+
+```
+newData.txt
+```
+
+---
+
+# Rename + Move File
+
+Suppose:
+
+Before:
+
+```
+project
+
+file.txt
+
+backup/
+```
+
+Code:
+
+```javascript
+fs.rename(
+"./file.txt",
+"./backup/file.txt",
+(err)=>{
+
+    if(err)
+        console.log(err);
+
+});
+```
+
+After:
+
+```
+project
+
+backup
+   |
+   file.txt
+```
+
+So `rename()` can move files too.
+
+---
+
+# 2. `fs.renameSync()`
+
+## Syntax
+
+```javascript
+fs.renameSync(oldPath,newPath)
+```
+
+---
+
+Example:
+
+```javascript
+const fs = require("node:fs");
+
+
+fs.renameSync(
+    "./old.txt",
+    "./new.txt"
+);
+
+
+console.log("Done");
+```
+
+---
+
+# Error Handling
+
+```javascript
+try{
+
+    fs.renameSync(
+        "./old.txt",
+        "./new.txt"
+    );
+
+}
+catch(err){
+
+    console.log(err);
+
+}
+```
+
+---
+
+# 3. `fs.promises.rename()`
+
+Modern approach.
+
+## Syntax
+
+```javascript
+await fs.promises.rename(oldPath,newPath)
+```
+
+---
+
+Example:
+
+```javascript
+const fs = require("node:fs/promises");
+
+
+async function renameFile(){
+
+    try{
+
+        await fs.rename(
+            "./old.txt",
+            "./new.txt"
+        );
+
+        console.log("Renamed");
+
+    }
+    catch(err){
+
+        console.log(err);
+
+    }
+
+}
+
+
+renameFile();
+```
+
+---
+
+# Difference Between Delete and Rename
+
+|Operation|Method|
+|---|---|
+|Delete file|`unlink()`|
+|Rename file|`rename()`|
+|Move file|`rename()`|
+
+---
+
+# Important Interview Questions
+
+## Q1. Does `unlink()` delete folders?
+
+❌ No.
+
+Only files.
+
+For folders use:
+
+```javascript
+fs.rmdir()
+```
+
+or
+
+```javascript
+fs.rm()
+```
+
+---
+
+## Q2. Can `rename()` move a file?
+
+✅ Yes.
+
+Example:
+
+```javascript
+fs.rename(
+"a.txt",
+"folder/a.txt"
+)
+```
+
+---
+
+## Q3. What happens if rename destination exists?
+
+Depends on OS.
+
+Usually it replaces the destination file.
+
+---
+
+## Q4. Does unlink return deleted data?
+
+❌ No.
+
+It only confirms success or error.
+
+---
+
+# Complete File Operation Summary
+
+```
+READ
+ |
+ ├── readFile()
+ ├── readFileSync()
+ └── promises.readFile()
+
+
+CREATE / WRITE
+ |
+ ├── writeFile()
+ ├── writeFileSync()
+ └── promises.writeFile()
+
+
+APPEND
+ |
+ ├── appendFile()
+ ├── appendFileSync()
+ └── promises.appendFile()
+
+
+DELETE
+ |
+ ├── unlink()
+ ├── unlinkSync()
+ └── promises.unlink()
+
+
+RENAME / MOVE
+ |
+ ├── rename()
+ ├── renameSync()
+ └── promises.rename()
+```
+
+---
+
+# Real Project Example
+
+A simple file manager:
+
+```
+Upload File
+      |
+      ↓
+writeFile()
+
+Update File
+      |
+      ↓
+appendFile()
+
+Rename File
+      |
+      ↓
+rename()
+
+Delete File
+      |
+      ↓
+unlink()
+```
+
+These four operations (`writeFile`, `appendFile`, `rename`, `unlink`) form the foundation of file handling in Node.js.
