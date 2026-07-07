@@ -2672,3 +2672,1015 @@ unlink()
 ```
 
 These four operations (`writeFile`, `appendFile`, `rename`, `unlink`) form the foundation of file handling in Node.js.
+
+
+---
+
+
+# Node.js `fs` Module — Creating Folders (`mkdir`) and Reading Folders (`readdir`) Detailed Notes
+
+After learning file operations:
+
+```
+readFile()       → Read files
+writeFile()      → Create/overwrite files
+appendFile()     → Add data
+unlink()         → Delete files
+rename()         → Rename/move files
+```
+
+Now we learn **directory (folder) operations**:
+
+```
+mkdir()          → Create folders
+readdir()        → Read folder contents
+```
+
+---
+
+# PART 1: Creating Folders (`fs.mkdir()`)
+
+## What is `mkdir()`?
+
+`mkdir` stands for:
+
+```
+make directory
+```
+
+It is used to **create a new folder/directory**.
+
+Example:
+
+Before:
+
+```
+project
+│
+└── app.js
+```
+
+Code:
+
+```javascript
+fs.mkdir("./images")
+```
+
+After:
+
+```
+project
+│
+├── app.js
+│
+└── images
+```
+
+---
+
+# Three Ways to Create Folder
+
+|Method|Type|Usage|
+|---|---|---|
+|`fs.mkdir()`|Async callback|Common|
+|`fs.mkdirSync()`|Sync|Small scripts|
+|`fs.promises.mkdir()`|Promise|Modern ⭐|
+
+---
+
+# 1. `fs.mkdir()` (Asynchronous)
+
+## Syntax
+
+```javascript
+fs.mkdir(path[, options], callback)
+```
+
+---
+
+## Parameters
+
+## 1. path
+
+Folder location.
+
+Type:
+
+```
+string | Buffer | URL
+```
+
+Example:
+
+```javascript
+"./uploads"
+```
+
+---
+
+## 2. options (Optional)
+
+Object containing:
+
+- recursive
+    
+- mode
+    
+
+Syntax:
+
+```javascript
+{
+    recursive: true,
+    mode: 0o777
+}
+```
+
+---
+
+## 3. callback
+
+Runs after folder creation.
+
+Syntax:
+
+```javascript
+(err)=>{
+}
+```
+
+---
+
+# Basic Example
+
+```javascript
+const fs = require("node:fs");
+
+
+fs.mkdir("./images",(err)=>{
+
+    if(err){
+        console.log(err);
+        return;
+    }
+
+    console.log("Folder created");
+
+});
+```
+
+Output:
+
+```
+Folder created
+```
+
+Folder:
+
+```
+project
+
+images/
+```
+
+---
+
+# Important: Creating Nested Folders
+
+Suppose you want:
+
+```
+project
+ |
+ └── uploads
+        |
+        └── images
+              |
+              └── profile
+```
+
+Without recursive:
+
+```javascript
+fs.mkdir("./uploads/images/profile")
+```
+
+Error:
+
+```
+ENOENT
+```
+
+because parent folders don't exist.
+
+---
+
+## Using `recursive:true`
+
+```javascript
+const fs = require("node:fs");
+
+
+fs.mkdir(
+    "./uploads/images/profile",
+    {
+        recursive:true
+    },
+    (err)=>{
+
+        if(err){
+            console.log(err);
+            return;
+        }
+
+        console.log("Folders created");
+
+    }
+);
+```
+
+Now Node creates:
+
+```
+uploads
+ |
+ images
+ |
+ profile
+```
+
+---
+
+# What does recursive do?
+
+Without:
+
+```
+Create profile
+
+❌ uploads does not exist
+```
+
+With:
+
+```
+Create uploads
+        |
+        ↓
+Create images
+        |
+        ↓
+Create profile
+```
+
+---
+
+# `mkdir()` with mode
+
+Mode controls permissions.
+
+Example:
+
+```javascript
+fs.mkdir(
+"./private",
+{
+    mode:0o700
+},
+callback
+);
+```
+
+Usually you don't modify this in normal applications.
+
+---
+
+# 2. `fs.mkdirSync()`
+
+Synchronous folder creation.
+
+## Syntax
+
+```javascript
+fs.mkdirSync(path[, options])
+```
+
+---
+
+Example:
+
+```javascript
+const fs = require("node:fs");
+
+
+fs.mkdirSync("./logs");
+
+
+console.log("Folder created");
+```
+
+Output:
+
+```
+Folder created
+```
+
+---
+
+## With recursive
+
+```javascript
+fs.mkdirSync(
+"./data/users/profile",
+{
+    recursive:true
+}
+);
+```
+
+Creates:
+
+```
+data
+ |
+ users
+    |
+    profile
+```
+
+---
+
+# Error Handling
+
+Sync methods use:
+
+```javascript
+try...catch
+```
+
+Example:
+
+```javascript
+try{
+
+    fs.mkdirSync("./images");
+
+}
+catch(err){
+
+    console.log(err);
+
+}
+```
+
+---
+
+# 3. `fs.promises.mkdir()`
+
+Modern async approach.
+
+## Syntax
+
+```javascript
+await fs.promises.mkdir(path[, options])
+```
+
+---
+
+Example:
+
+```javascript
+const fs = require("node:fs/promises");
+
+
+async function createFolder(){
+
+    try{
+
+        await fs.mkdir(
+            "./uploads",
+            {
+                recursive:true
+            }
+        );
+
+        console.log("Folder created");
+
+    }
+    catch(err){
+
+        console.log(err);
+
+    }
+
+}
+
+
+createFolder();
+```
+
+---
+
+# Return Value of mkdir
+
+|Method|Returns|
+|---|---|
+|`mkdir()`|callback result|
+|`mkdirSync()`|undefined|
+|`promises.mkdir()`|Promise|
+
+---
+
+# PART 2: Reading Folders (`fs.readdir()`)
+
+## What is `readdir()`?
+
+`readdir()` is used to **read the contents of a directory**.
+
+It returns:
+
+- files
+    
+- subfolders
+    
+
+inside a folder.
+
+---
+
+Example:
+
+Folder:
+
+```
+project
+
+├── app.js
+├── package.json
+└── images
+```
+
+Code:
+
+```javascript
+fs.readdir("./project")
+```
+
+Returns:
+
+```
+[
+ "app.js",
+ "package.json",
+ "images"
+]
+```
+
+---
+
+# Three Ways to Read Folder
+
+|Method|Type|
+|---|---|
+|`fs.readdir()`|Async callback|
+|`fs.readdirSync()`|Sync|
+|`fs.promises.readdir()`|Promise|
+
+---
+
+# 1. `fs.readdir()` (Async)
+
+## Syntax
+
+```javascript
+fs.readdir(path[, options], callback)
+```
+
+---
+
+## Parameters
+
+## path
+
+Folder path.
+
+Example:
+
+```javascript
+"./"
+```
+
+---
+
+## options
+
+Optional.
+
+Can specify:
+
+- encoding
+    
+- withFileTypes
+    
+
+Example:
+
+```javascript
+{
+ encoding:"utf-8",
+ withFileTypes:true
+}
+```
+
+---
+
+## callback
+
+Syntax:
+
+```javascript
+(err, files)=>{
+}
+```
+
+---
+
+# Basic Example
+
+Folder:
+
+```
+project
+
+├── app.js
+├── data.txt
+└── images
+```
+
+Code:
+
+```javascript
+const fs = require("node:fs");
+
+
+fs.readdir("./",(err,files)=>{
+
+    if(err){
+        console.log(err);
+        return;
+    }
+
+
+    console.log(files);
+
+});
+```
+
+Output:
+
+```
+[
+'app.js',
+'data.txt',
+'images'
+]
+```
+
+---
+
+# Reading with File Types
+
+Normally:
+
+```javascript
+fs.readdir("./",(err,files)=>{
+});
+```
+
+returns only names:
+
+```
+[
+'app.js',
+'images'
+]
+```
+
+You don't know:
+
+```
+app.js → file
+images → folder
+```
+
+---
+
+Use:
+
+```javascript
+withFileTypes:true
+```
+
+Example:
+
+```javascript
+fs.readdir(
+"./",
+{
+    withFileTypes:true
+},
+(err,files)=>{
+
+    files.forEach(file=>{
+
+        console.log(
+            file.name
+        );
+
+    });
+
+});
+```
+
+---
+
+Output:
+
+```
+app.js
+images
+```
+
+But now each item is a `Dirent` object.
+
+---
+
+# Dirent Object
+
+Example:
+
+```javascript
+{
+ name:"app.js"
+}
+```
+
+It provides methods:
+
+```
+isFile()
+isDirectory()
+isSymbolicLink()
+```
+
+---
+
+Example:
+
+```javascript
+fs.readdir(
+"./",
+{
+withFileTypes:true
+},
+(err,files)=>{
+
+
+files.forEach(file=>{
+
+
+if(file.isFile()){
+
+console.log(
+"File:",
+file.name
+);
+
+}
+
+
+if(file.isDirectory()){
+
+console.log(
+"Folder:",
+file.name
+);
+
+}
+
+
+});
+
+
+});
+```
+
+Output:
+
+```
+File: app.js
+Folder: images
+```
+
+---
+
+# 2. `fs.readdirSync()`
+
+Synchronous version.
+
+## Syntax
+
+```javascript
+fs.readdirSync(path[, options])
+```
+
+---
+
+Example:
+
+```javascript
+const fs = require("node:fs");
+
+
+const files = fs.readdirSync("./");
+
+
+console.log(files);
+```
+
+Output:
+
+```
+[
+'app.js',
+'package.json'
+]
+```
+
+---
+
+With types:
+
+```javascript
+const files =
+fs.readdirSync(
+"./",
+{
+withFileTypes:true
+}
+);
+```
+
+---
+
+# 3. `fs.promises.readdir()`
+
+Modern Promise version.
+
+## Syntax
+
+```javascript
+await fs.promises.readdir(path[, options])
+```
+
+---
+
+Example:
+
+```javascript
+const fs = require("node:fs/promises");
+
+
+async function readFolder(){
+
+try{
+
+const files =
+await fs.readdir("./");
+
+
+console.log(files);
+
+
+}
+catch(err){
+
+console.log(err);
+
+}
+
+}
+
+
+readFolder();
+```
+
+---
+
+# Real Example: List Only Files
+
+```javascript
+const fs = require("node:fs");
+
+
+fs.readdir(
+"./",
+{
+withFileTypes:true
+},
+(err,items)=>{
+
+
+items.forEach(item=>{
+
+
+if(item.isFile()){
+
+console.log(item.name);
+
+}
+
+
+});
+
+
+});
+```
+
+Output:
+
+```
+app.js
+package.json
+```
+
+---
+
+# Difference Between `readdir()` and `readFile()`
+
+|Method|Works On|Returns|
+|---|---|---|
+|`readFile()`|File|File content|
+|`readdir()`|Folder|Files/folders list|
+
+Example:
+
+```
+readFile()
+
+notes.txt
+    |
+    ↓
+"Hello Node"
+
+
+readdir()
+
+project/
+    |
+    ↓
+[
+app.js,
+notes.txt
+]
+```
+
+---
+
+# Complete Directory Operations Summary
+
+```
+CREATE FOLDER
+|
+├── mkdir()
+├── mkdirSync()
+└── promises.mkdir()
+
+
+READ FOLDER
+|
+├── readdir()
+├── readdirSync()
+└── promises.readdir()
+```
+
+---
+
+# Real Backend Examples
+
+## Upload System
+
+Create folder:
+
+```javascript
+fs.mkdir("./uploads")
+```
+
+Store:
+
+```
+uploads
+ |
+ images
+ |
+ videos
+```
+
+---
+
+## File Manager
+
+Read folder:
+
+```javascript
+fs.readdir("./uploads")
+```
+
+Show:
+
+```
+photo.jpg
+video.mp4
+document.pdf
+```
+
+---
+
+## Logging System
+
+Create:
+
+```
+logs/
+```
+
+Store:
+
+```
+error.log
+server.log
+```
+
+---
+
+# Quick Revision
+
+### mkdir()
+
+```
+Create folder
+
+Syntax:
+mkdir(path, options, callback)
+
+Important option:
+recursive:true
+
+Example:
+
+fs.mkdir(
+"./a/b/c",
+{recursive:true},
+callback
+)
+```
+
+---
+
+### readdir()
+
+```
+Read folder contents
+
+Syntax:
+readdir(path, options, callback)
+
+Important option:
+withFileTypes:true
+
+Example:
+
+fs.readdir(
+"./",
+{withFileTypes:true},
+callback
+)
+```
+
+---
+
+Next important `fs` topics after this:
+
+1. `fs.stat()` → Get file/folder information
+    
+2. `fs.access()` → Check permission/existence
+    
+3. `fs.copyFile()` → Copy files
+    
+4. `fs.watch()` → Monitor file changes
+    
+5. Streams (`createReadStream`, `createWriteStream`) → Handle large files efficiently
+
+
+---
+
