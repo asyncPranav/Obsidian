@@ -1122,3 +1122,875 @@ C:\Projects\NodeJS\uploads\images\photo.png
 |⭐ `dirname()`|Medium-High|
 
 These five methods cover the majority of `path` usage you'll encounter in Express applications, file uploads, static file serving, logging, and general backend development.
+
+---
+
+Excellent. These are the remaining methods of the `path` module. They are used less frequently than `join()` and `resolve()`, but they are very useful in real-world applications and interview questions.
+
+---
+
+# 6. `path.parse()` — Parse a Path into an Object
+
+## What is `path.parse()`?
+
+`path.parse()` breaks a file path into its individual components and returns them as an object.
+
+Instead of manually extracting the directory, filename, or extension, `parse()` gives everything at once.
+
+---
+
+## Syntax
+
+```javascript
+path.parse(path)
+```
+
+### Parameters
+
+|Parameter|Type|Description|
+|---|---|---|
+|`path`|`string`|Path to parse|
+
+### Return Type
+
+```text
+Object
+```
+
+---
+
+## Return Object
+
+```javascript
+{
+    root: "",
+    dir: "",
+    base: "",
+    ext: "",
+    name: ""
+}
+```
+
+---
+
+## Meaning of Each Property
+
+|Property|Description|
+|---|---|
+|`root`|Root directory|
+|`dir`|Directory path|
+|`base`|Complete filename (including extension)|
+|`ext`|File extension|
+|`name`|Filename without extension|
+
+---
+
+## Example
+
+Path:
+
+```text
+C:\Projects\NodeJS\uploads\photo.png
+```
+
+```javascript
+path.parse("C:\\Projects\\NodeJS\\uploads\\photo.png")
+```
+
+Returns
+
+```javascript
+{
+  root: 'C:\\',
+  dir: 'C:\\Projects\\NodeJS\\uploads',
+  base: 'photo.png',
+  ext: '.png',
+  name: 'photo'
+}
+```
+
+---
+
+## Visual Representation
+
+```text
+C:\Projects\NodeJS\uploads\photo.png
+
+│
+├── root → C:\
+├── dir  → C:\Projects\NodeJS\uploads
+├── base → photo.png
+├── ext  → .png
+└── name → photo
+```
+
+---
+
+## Why use `parse()`?
+
+Instead of writing
+
+```javascript
+basename()
+dirname()
+extname()
+```
+
+separately,
+
+you can use
+
+```javascript
+path.parse()
+```
+
+once.
+
+---
+
+## Real-world Example
+
+Suppose a user uploads
+
+```text
+resume.pdf
+```
+
+Using `parse()`:
+
+```javascript
+{
+    name: "resume",
+    ext: ".pdf"
+}
+```
+
+Now you can rename it
+
+```text
+resume_123.pdf
+```
+
+---
+
+# 7. `path.format()` — Create a Path from an Object
+
+## What is `format()`?
+
+`format()` is the opposite of `parse()`.
+
+- `parse()` → Path ➜ Object
+    
+- `format()` → Object ➜ Path
+    
+
+---
+
+## Syntax
+
+```javascript
+path.format(object)
+```
+
+---
+
+## Required Object
+
+```javascript
+{
+    root,
+    dir,
+    base,
+    ext,
+    name
+}
+```
+
+---
+
+## Example
+
+```javascript
+path.format({
+    dir: "uploads/images",
+    base: "photo.png"
+})
+```
+
+Output
+
+```text
+uploads/images/photo.png
+```
+
+---
+
+## Example
+
+```javascript
+path.format({
+    dir: "files",
+    name: "report",
+    ext: ".pdf"
+})
+```
+
+Output
+
+```text
+files/report.pdf
+```
+
+---
+
+## Visual
+
+```text
+Object
+
+↓
+
+format()
+
+↓
+
+Path String
+```
+
+---
+
+## Real-world Use
+
+Useful when
+
+- modifying filenames
+    
+- generating download paths
+    
+- creating upload paths
+    
+
+---
+
+# Difference
+
+```text
+parse()
+
+Path
+
+↓
+
+Object
+
+
+format()
+
+Object
+
+↓
+
+Path
+```
+
+---
+
+# 8. `path.normalize()` — Normalize a Path
+
+## What is `normalize()`?
+
+It cleans and simplifies a path.
+
+It
+
+- removes duplicate slashes
+    
+- resolves `.`
+    
+- resolves `..`
+    
+- converts separators to the current operating system
+    
+
+---
+
+## Syntax
+
+```javascript
+path.normalize(path)
+```
+
+---
+
+## Example
+
+```javascript
+path.normalize("users//images///photo.png")
+```
+
+Output
+
+```text
+users/images/photo.png
+```
+
+---
+
+## Example
+
+```javascript
+path.normalize("users/../images/photo.png")
+```
+
+Output
+
+```text
+images/photo.png
+```
+
+---
+
+## Example
+
+```javascript
+path.normalize("./uploads/./images")
+```
+
+Output
+
+```text
+uploads/images
+```
+
+---
+
+## Visual
+
+Before
+
+```text
+users//../images///photo.png
+```
+
+After
+
+```text
+images/photo.png
+```
+
+---
+
+## Real-world Use
+
+When users enter messy file paths.
+
+Example
+
+```text
+uploads////images//profile.jpg
+```
+
+Normalize
+
+↓
+
+```text
+uploads/images/profile.jpg
+```
+
+---
+
+# 9. `path.isAbsolute()` — Check if Path is Absolute
+
+## What is it?
+
+Checks whether a path is absolute.
+
+Returns
+
+```text
+true
+```
+
+or
+
+```text
+false
+```
+
+---
+
+## Syntax
+
+```javascript
+path.isAbsolute(path)
+```
+
+---
+
+## Return Type
+
+```text
+Boolean
+```
+
+---
+
+## Example
+
+Windows
+
+```javascript
+path.isAbsolute("C:\\Users\\Pranav")
+```
+
+Output
+
+```text
+true
+```
+
+---
+
+## Example
+
+```javascript
+path.isAbsolute("./uploads")
+```
+
+Output
+
+```text
+false
+```
+
+---
+
+## Linux
+
+```javascript
+path.isAbsolute("/home/user")
+```
+
+Output
+
+```text
+true
+```
+
+---
+
+## Real-world Example
+
+Suppose user enters
+
+```text
+uploads/photo.jpg
+```
+
+Check
+
+```javascript
+path.isAbsolute(userPath)
+```
+
+If
+
+```text
+false
+```
+
+Convert using
+
+```javascript
+path.resolve()
+```
+
+---
+
+# 10. `path.relative()` — Get Relative Path
+
+## What is it?
+
+Calculates the relative path from one location to another.
+
+---
+
+## Syntax
+
+```javascript
+path.relative(from, to)
+```
+
+---
+
+## Parameters
+
+|Parameter|Description|
+|---|---|
+|`from`|Starting location|
+|`to`|Destination|
+
+---
+
+## Return Type
+
+```text
+String
+```
+
+---
+
+## Example
+
+```javascript
+path.relative(
+"/users/images",
+"/users/images/profile"
+)
+```
+
+Output
+
+```text
+profile
+```
+
+---
+
+## Example
+
+```javascript
+path.relative(
+"/users",
+"/users/images/photo.png"
+)
+```
+
+Output
+
+```text
+images/photo.png
+```
+
+---
+
+## Example
+
+```javascript
+path.relative(
+"/users/images",
+"/users/docs"
+)
+```
+
+Output
+
+```text
+../docs
+```
+
+---
+
+## Visual
+
+```text
+/users/images
+
+↓
+
+../docs
+
+↓
+
+/users/docs
+```
+
+---
+
+## Real-world Use
+
+Useful for
+
+- file managers
+    
+- navigation
+    
+- comparing folders
+    
+
+---
+
+# 11. `path.sep` — Path Separator
+
+## What is it?
+
+Returns the separator used by the current operating system.
+
+---
+
+## Syntax
+
+```javascript
+path.sep
+```
+
+No parentheses.
+
+It is a **property**, not a function.
+
+---
+
+## Windows
+
+Output
+
+```text
+\
+```
+
+---
+
+## Linux/macOS
+
+Output
+
+```text
+/
+```
+
+---
+
+## Example
+
+```javascript
+console.log(path.sep)
+```
+
+Output (Windows)
+
+```text
+\
+```
+
+---
+
+## Real-world Example
+
+Split path
+
+```javascript
+filePath.split(path.sep)
+```
+
+Example
+
+```text
+uploads/images/photo.png
+```
+
+becomes
+
+```text
+[
+uploads,
+images,
+photo.png
+]
+```
+
+---
+
+# 12. `path.delimiter` — Environment Variable Separator
+
+## What is it?
+
+Returns the separator used in environment variables like `PATH`.
+
+**Important:** This is **not** the same as `path.sep`.
+
+---
+
+## Syntax
+
+```javascript
+path.delimiter
+```
+
+---
+
+## Windows
+
+Output
+
+```text
+;
+```
+
+---
+
+## Linux/macOS
+
+Output
+
+```text
+:
+```
+
+---
+
+## Why?
+
+Suppose
+
+Environment Variable
+
+```text
+PATH
+```
+
+Windows
+
+```text
+C:\Node;
+C:\Windows;
+C:\Git
+```
+
+Separator
+
+```text
+;
+```
+
+Linux
+
+```text
+/usr/bin:/usr/local/bin:/bin
+```
+
+Separator
+
+```text
+:
+```
+
+---
+
+## Example
+
+```javascript
+process.env.PATH.split(path.delimiter)
+```
+
+Returns
+
+```text
+[
+"C:\\Node",
+"C:\\Windows",
+"C:\\Git"
+]
+```
+
+---
+
+## Real-world Use
+
+Used while working with
+
+- PATH environment variable
+    
+- custom environment variables
+    
+- CLI tools
+    
+
+---
+
+# Complete Summary
+
+|Method|Purpose|Returns|
+|---|---|---|
+|`parse()`|Convert path into an object|Object|
+|`format()`|Convert object into a path|String|
+|`normalize()`|Clean and simplify a path|String|
+|`isAbsolute()`|Check if path is absolute|Boolean|
+|`relative()`|Find relative path between two paths|String|
+|`sep`|OS-specific path separator|String property|
+|`delimiter`|OS-specific environment variable separator|String property|
+
+---
+
+# Memory Trick
+
+```text
+join()
+        ↓
+Join path parts
+
+resolve()
+        ↓
+Create absolute path
+
+basename()
+        ↓
+Get filename
+
+dirname()
+        ↓
+Get folder
+
+extname()
+        ↓
+Get extension
+
+parse()
+        ↓
+Path → Object
+
+format()
+        ↓
+Object → Path
+
+normalize()
+        ↓
+Clean path
+
+isAbsolute()
+        ↓
+Absolute?
+
+relative()
+        ↓
+Distance between paths
+
+sep
+        ↓
+Folder separator (/ or \)
+
+delimiter
+        ↓
+PATH separator (: or ;)
+```
+
+---
+
+# Which Methods Are Used Most in Real Projects?
+
+|Method|Usage Frequency|
+|---|---|
+|⭐ `join()`|Very High|
+|⭐ `resolve()`|Very High|
+|⭐ `basename()`|High|
+|⭐ `dirname()`|High|
+|⭐ `extname()`|High|
+|⭐ `parse()`|Medium|
+|⭐ `normalize()`|Medium|
+|⭐ `isAbsolute()`|Medium|
+|⭐ `relative()`|Medium|
+|`format()`|Low–Medium|
+|`sep`|Low|
+|`delimiter`|Low|
+
+These twelve methods together cover virtually everything you'll need from the `path` module in everyday Node.js development.
