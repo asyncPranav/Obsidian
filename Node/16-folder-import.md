@@ -194,6 +194,291 @@ exports:
 
 Now index.js owns that export.
 
+----
+
+##### More detailed explanation of Line 2
+
+No problem. This line looks confusing because it combines **three concepts at once**:
+
+```javascript
+export { default as greet } from "./greet.js";
+```
+
+Let's break it into small pieces.
+
+---
+
+## First understand `greet.js`
+
+Your file:
+
+```javascript
+const greet = (name) => {
+  return `Welcome, ${name}!`;
+}
+
+export default greet;
+```
+
+At the end, `greet.js` is saying:
+
+> "I am giving my `greet` function to other files."
+
+But because it uses:
+
+```javascript
+export default greet;
+```
+
+the exported thing does **not have a name outside**.
+
+Think of it like a box:
+
+```
+greet.js
+
+┌─────────────────┐
+│ default export  │
+│                 │
+│ greet function  │
+└─────────────────┘
+```
+
+The label is only:
+
+```
+default
+```
+
+---
+
+# Now the confusing line
+
+```javascript
+export { default as greet } from "./greet.js";
+```
+
+Read it like English:
+
+> "Take the default export from `greet.js` and export it again with the name `greet`."
+
+---
+
+Let's split it:
+
+## Part 1
+
+```javascript
+from "./greet.js"
+```
+
+Means:
+
+> Get something from this file.
+
+So:
+
+```
+greet.js
+     |
+     |
+     ↓
+index.js
+```
+
+---
+
+## Part 2
+
+```javascript
+default
+```
+
+Means:
+
+> Take the default export.
+
+Your `greet.js` has:
+
+```
+default → greet function
+```
+
+So:
+
+```
+default
+   |
+   ↓
+greet function
+```
+
+---
+
+## Part 3
+
+```javascript
+as greet
+```
+
+Means:
+
+> Give it a new name: `greet`
+
+So:
+
+Before:
+
+```
+greet.js
+
+default
+  |
+  ↓
+greet function
+```
+
+After:
+
+```
+index.js
+
+greet
+  |
+  ↓
+greet function
+```
+
+---
+
+# Why do we need this?
+
+Because default exports do not have a fixed name.
+
+Example:
+
+You can import it like this:
+
+```javascript
+import abc from "./greet.js";
+```
+
+or:
+
+```javascript
+import hello from "./greet.js";
+```
+
+or:
+
+```javascript
+import xyz from "./greet.js";
+```
+
+All work.
+
+The name is chosen by the importer.
+
+---
+
+But in `index.js`, we want to create a fixed name.
+
+So:
+
+```javascript
+export { default as greet } from "./greet.js";
+```
+
+creates a named export called:
+
+```
+greet
+```
+
+Now another file can do:
+
+```javascript
+import { greet } from "./index.js";
+```
+
+---
+
+# Same thing written in beginner style
+
+The line:
+
+```javascript
+export { default as greet } from "./greet.js";
+```
+
+is just a shorter version of:
+
+```javascript
+import greetFunction from "./greet.js";
+
+export { greetFunction as greet };
+```
+
+Step by step:
+
+### 1. Import default export
+
+```javascript
+import greetFunction from "./greet.js";
+```
+
+Now:
+
+```
+greetFunction
+       |
+       ↓
+ actual greet function
+```
+
+### 2. Export it again
+
+```javascript
+export { greetFunction as greet };
+```
+
+Now:
+
+```
+index.js exports:
+
+greet
+ |
+ ↓
+greet function
+```
+
+---
+
+# The easiest way to remember
+
+For now, ignore the short syntax.
+
+Remember the long version:
+
+```javascript
+import something from "./file.js";
+
+export { something };
+```
+
+Later, when you understand that, the shorter version:
+
+```javascript
+export { default as name } from "./file.js";
+```
+
+will become easy.
+
+Think:
+
+**default export → rename it → export it again**.
+
 ---
 
 ## Line 3
