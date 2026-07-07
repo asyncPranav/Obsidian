@@ -688,7 +688,7 @@ app.js
 
 Most used in real Node.js projects:
 
-```
+```js
 join()
 resolve()
 basename()
