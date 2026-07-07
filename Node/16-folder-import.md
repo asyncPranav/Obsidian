@@ -526,7 +526,7 @@ app.js
 Instead of:
 
 ```javascript
-import greet from "./greet.js";
+import greet from "./utils/greet.js";
 import { add, subtract, multiply } from "./math.js";
 ```
 
