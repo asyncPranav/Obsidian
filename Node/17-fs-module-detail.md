@@ -1188,3 +1188,8 @@ In `app.js`, practice:
     
 
 Once you're comfortable with `writeFile()`, the next topic is **`appendFile()`**, which is where you'll learn how to **add content without overwriting the existing file**—a very common requirement in logging, reports, and data storage.
+
+---
+
+
+# appendFile -
