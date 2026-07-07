@@ -342,6 +342,11 @@ Don't try to memorize all methods at once. Study them in this order:
     
 
 The first five are used most frequently in everyday Node.js development. Once you're comfortable with them, the remaining methods become much easier to understand.
+
+
+----
+
+
 ## 1️⃣ What is the `path` module? (Deep Understanding)
 
 The **`path` module** is a **built-in Node.js core module** that helps us **work with file and directory paths in a safe, OS-independent way**.
