@@ -298,21 +298,22 @@ Creates an **absolute path**.
 
 ### Syntax:
 
-```
+```js
 path.resolve([...paths])
 ```
 
 Example:
 
-```
+```js
 path.resolve("folder", "file.txt");
 ```
 
 Output:
 
-```
+```sh
 /home/user/project/folder/file.txt
 ```
+
 
 ---
 
