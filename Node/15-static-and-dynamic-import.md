@@ -40,7 +40,16 @@ console.log(multiply(3, 7));
 ```
 
 - ### Output of app.js
--
+```sh
+math.js file executed
+xyz.js file exeecuted
+8
+6
+21
+```
+
+
+#DOUBT  - **`import("./utils/xyz.js")` is it different from `import "./xyz.js"`**
 
 
 
