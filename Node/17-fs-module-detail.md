@@ -3684,3 +3684,1045 @@ Next important `fs` topics after this:
 
 ---
 
+# Node.js `fs` Module — `stat()`, `access()`, `copyFile()`, `watch()` Detailed Notes
+
+So far we learned:
+
+```
+readFile()       → Read file content
+writeFile()      → Write file content
+appendFile()     → Add content
+unlink()         → Delete file
+rename()         → Rename/move file
+mkdir()          → Create folder
+readdir()        → Read folder contents
+```
+
+Now we learn advanced but very useful file system methods:
+
+```
+stat()       → Get information about file/folder
+access()     → Check file existence and permissions
+copyFile()   → Copy files
+watch()      → Monitor file changes
+```
+
+---
+
+# 1. `fs.stat()` — Get File/Folder Information
+
+## What is `stat()`?
+
+`stat()` is used to get **metadata/information** about a file or folder.
+
+It does not read the content.
+
+It gives information like:
+
+- File size
+    
+- Creation time
+    
+- Modification time
+    
+- Whether it is a file
+    
+- Whether it is a folder
+    
+- Permissions
+    
+- Path details
+    
+
+---
+
+## Example
+
+Suppose:
+
+```
+project
+│
+├── app.js
+└── images
+```
+
+Code:
+
+```javascript
+fs.stat("./app.js")
+```
+
+Returns information:
+
+```
+File:
+    Size: 2450 bytes
+    Created: 7 July 2026
+    Modified: 7 July 2026
+```
+
+---
+
+# Three Ways to Use stat()
+
+|Method|Type|
+|---|---|
+|`fs.stat()`|Async callback|
+|`fs.statSync()`|Sync|
+|`fs.promises.stat()`|Promise|
+
+---
+
+# 1. `fs.stat()` (Async)
+
+## Syntax
+
+```javascript
+fs.stat(path[, options], callback)
+```
+
+---
+
+## Parameters
+
+### path
+
+File/folder location.
+
+Example:
+
+```javascript
+"./app.js"
+```
+
+---
+
+### options
+
+Optional.
+
+Common:
+
+```javascript
+{
+    bigint: true
+}
+```
+
+---
+
+### callback
+
+Syntax:
+
+```javascript
+(err, stats)=>{
+}
+```
+
+Returns:
+
+- Error object
+    
+- Stats object
+    
+
+---
+
+# Basic Example
+
+```javascript
+const fs = require("node:fs");
+
+
+fs.stat("./app.js",(err,stats)=>{
+
+    if(err){
+        console.log(err);
+        return;
+    }
+
+
+    console.log(stats);
+
+});
+```
+
+Output:
+
+```
+Stats {
+  dev: 12345,
+  mode: 33206,
+  size: 1024,
+  ...
+}
+```
+
+---
+
+# Useful Stats Methods
+
+The returned `stats` object has methods.
+
+---
+
+## 1. `isFile()`
+
+Checks whether it is a file.
+
+Example:
+
+```javascript
+fs.stat("./app.js",(err,stats)=>{
+
+    console.log(stats.isFile());
+
+});
+```
+
+Output:
+
+```
+true
+```
+
+---
+
+## 2. `isDirectory()`
+
+Checks whether it is a folder.
+
+Example:
+
+```javascript
+fs.stat("./images",(err,stats)=>{
+
+    console.log(stats.isDirectory());
+
+});
+```
+
+Output:
+
+```
+true
+```
+
+---
+
+## 3. `size`
+
+File size in bytes.
+
+Example:
+
+```javascript
+console.log(stats.size);
+```
+
+Output:
+
+```
+2048
+```
+
+---
+
+## 4. `birthtime`
+
+Creation time.
+
+Example:
+
+```javascript
+console.log(stats.birthtime);
+```
+
+Output:
+
+```
+2026-07-07T10:20:00
+```
+
+---
+
+## 5. `mtime`
+
+Last modified time.
+
+Example:
+
+```javascript
+console.log(stats.mtime);
+```
+
+---
+
+## 6. `ctime`
+
+Metadata change time.
+
+---
+
+# Practical Example
+
+Check file information:
+
+```javascript
+const fs = require("node:fs");
+
+
+fs.stat("./data.txt",(err,stats)=>{
+
+    if(err){
+        console.log(err);
+        return;
+    }
+
+
+    console.log("Is File:",
+        stats.isFile()
+    );
+
+
+    console.log("Size:",
+        stats.size,
+        "bytes"
+    );
+
+
+    console.log("Created:",
+        stats.birthtime
+    );
+
+
+});
+```
+
+Output:
+
+```
+Is File: true
+Size: 500 bytes
+Created: Tue Jul 07 2026
+```
+
+---
+
+# `fs.statSync()`
+
+## Syntax
+
+```javascript
+fs.statSync(path[, options])
+```
+
+---
+
+Example:
+
+```javascript
+const fs = require("node:fs");
+
+
+const stats = fs.statSync("./app.js");
+
+
+console.log(stats.size);
+```
+
+Output:
+
+```
+1024
+```
+
+---
+
+# `fs.promises.stat()`
+
+Modern approach.
+
+Syntax:
+
+```javascript
+await fs.promises.stat(path)
+```
+
+---
+
+Example:
+
+```javascript
+const fs = require("node:fs/promises");
+
+
+async function check(){
+
+try{
+
+const stats =
+await fs.stat("./app.js");
+
+
+console.log(stats.size);
+
+}
+catch(err){
+
+console.log(err);
+
+}
+
+}
+
+
+check();
+```
+
+---
+
+# 2. `fs.access()` — Check Existence and Permission
+
+## What is `access()`?
+
+`access()` checks whether a file/folder:
+
+- Exists
+    
+- Can be read
+    
+- Can be written
+    
+- Can be executed
+    
+
+It does NOT open the file.
+
+---
+
+# Syntax
+
+```javascript
+fs.access(path[, mode], callback)
+```
+
+---
+
+## Parameters
+
+## path
+
+File/folder path.
+
+---
+
+## mode
+
+Permission mode.
+
+Constants:
+
+```javascript
+fs.constants
+```
+
+---
+
+Common modes:
+
+|Mode|Meaning|
+|---|---|
+|`F_OK`|Check existence|
+|`R_OK`|Check read permission|
+|`W_OK`|Check write permission|
+|`X_OK`|Check execute permission|
+
+---
+
+# Basic Example
+
+Check if file exists:
+
+```javascript
+const fs = require("node:fs");
+
+
+fs.access(
+"./data.txt",
+fs.constants.F_OK,
+(err)=>{
+
+    if(err){
+
+        console.log("File does not exist");
+
+    }
+    else{
+
+        console.log("File exists");
+
+    }
+
+});
+```
+
+---
+
+Output:
+
+```
+File exists
+```
+
+---
+
+# Check Multiple Permissions
+
+```javascript
+fs.access(
+"./app.js",
+fs.constants.R_OK |
+fs.constants.W_OK,
+(err)=>{
+
+if(err){
+
+console.log("No permission");
+
+}
+else{
+
+console.log("Readable and Writable");
+
+}
+
+});
+```
+
+---
+
+# Promise Version
+
+```javascript
+const fs = require("node:fs/promises");
+
+
+async function check(){
+
+try{
+
+await fs.access("./app.js");
+
+console.log("File exists");
+
+}
+catch(err){
+
+console.log("Not available");
+
+}
+
+}
+
+
+check();
+```
+
+---
+
+# Real Use Case
+
+Before deleting:
+
+```
+Does file exist?
+        |
+        |
+     access()
+        |
+        |
+     unlink()
+```
+
+---
+
+# 3. `fs.copyFile()` — Copy Files
+
+## What is copyFile()?
+
+Copies data from one file to another file.
+
+Example:
+
+Before:
+
+```
+project
+
+photo.jpg
+```
+
+Code:
+
+```javascript
+copyFile(
+photo.jpg,
+backup.jpg
+)
+```
+
+After:
+
+```
+project
+
+photo.jpg
+backup.jpg
+```
+
+---
+
+# Syntax
+
+```javascript
+fs.copyFile(src, dest[, mode], callback)
+```
+
+---
+
+## Parameters
+
+### src
+
+Source file.
+
+Example:
+
+```
+./image.jpg
+```
+
+---
+
+### dest
+
+Destination file.
+
+Example:
+
+```
+./backup/image.jpg
+```
+
+---
+
+### mode
+
+Optional.
+
+Controls overwrite behavior.
+
+---
+
+### callback
+
+```javascript
+(err)=>{}
+```
+
+---
+
+# Basic Example
+
+```javascript
+const fs = require("node:fs");
+
+
+fs.copyFile(
+"./data.txt",
+"./backup.txt",
+(err)=>{
+
+    if(err){
+        console.log(err);
+        return;
+    }
+
+    console.log("File copied");
+
+});
+```
+
+---
+
+Result:
+
+```
+data.txt
+
+backup.txt
+```
+
+---
+
+# Important
+
+If destination exists:
+
+```
+backup.txt
+```
+
+it will be overwritten.
+
+---
+
+# Prevent Overwrite
+
+Use:
+
+```javascript
+fs.constants.COPYFILE_EXCL
+```
+
+Example:
+
+```javascript
+fs.copyFile(
+"./a.txt",
+"./b.txt",
+fs.constants.COPYFILE_EXCL,
+(err)=>{
+
+console.log(err);
+
+});
+```
+
+If `b.txt` exists:
+
+```
+Error
+```
+
+---
+
+# Promise Version
+
+```javascript
+const fs = require("node:fs/promises");
+
+
+async function copy(){
+
+await fs.copyFile(
+"./a.txt",
+"./b.txt"
+);
+
+console.log("Copied");
+
+}
+
+copy();
+```
+
+---
+
+# 4. `fs.watch()` — Monitor File Changes
+
+## What is watch()?
+
+`watch()` watches a file or folder.
+
+Whenever something changes:
+
+- modify
+    
+- rename
+    
+- delete
+    
+
+it triggers an event.
+
+---
+
+# Syntax
+
+```javascript
+fs.watch(filename[, options][, listener])
+```
+
+---
+
+## Parameters
+
+### filename
+
+File/folder to watch.
+
+Example:
+
+```javascript
+"./app.js"
+```
+
+---
+
+### options
+
+Example:
+
+```javascript
+{
+persistent:true,
+recursive:true
+}
+```
+
+---
+
+### listener
+
+Syntax:
+
+```javascript
+(eventType, filename)=>{
+}
+```
+
+---
+
+# Basic Example
+
+```javascript
+const fs = require("node:fs");
+
+
+fs.watch(
+"./app.js",
+(event, filename)=>{
+
+console.log(event);
+console.log(filename);
+
+});
+```
+
+---
+
+Now edit `app.js`.
+
+Output:
+
+```
+change
+app.js
+```
+
+---
+
+# Events
+
+## change
+
+File content changed.
+
+Example:
+
+```
+Save file
+      |
+      |
+change event
+```
+
+---
+
+## rename
+
+File renamed or deleted.
+
+Example:
+
+```
+app.js
+ |
+rename
+ |
+new.js
+```
+
+---
+
+# Watching Folder
+
+```javascript
+fs.watch(
+"./uploads",
+(event,file)=>{
+
+console.log(
+event,
+file
+);
+
+});
+```
+
+Output:
+
+```
+change image.png
+rename test.txt
+```
+
+---
+
+# Real World Uses
+
+## 1. Development Servers
+
+Example:
+
+```
+Edit code
+
+↓
+
+watch()
+
+↓
+
+Restart server
+```
+
+Tools like:
+
+```
+nodemon
+```
+
+use this idea.
+
+---
+
+## 2. File Upload Monitoring
+
+```
+uploads/
+
+new file added
+
+↓
+
+watch()
+
+↓
+
+process image
+```
+
+---
+
+## 3. Log Monitoring
+
+```
+server.log
+
+new error added
+
+↓
+
+watch()
+
+↓
+
+send alert
+```
+
+---
+
+# Complete Comparison
+
+|Method|Purpose|
+|---|---|
+|`stat()`|Get file information|
+|`access()`|Check permission/existence|
+|`copyFile()`|Copy files|
+|`watch()`|Monitor changes|
+
+---
+
+# Complete FS Module Map
+
+```
+FILES
+│
+├── readFile()
+├── writeFile()
+├── appendFile()
+├── unlink()
+├── rename()
+├── copyFile()
+│
+DIRECTORIES
+│
+├── mkdir()
+├── readdir()
+│
+INFORMATION
+│
+├── stat()
+├── access()
+│
+MONITORING
+│
+└── watch()
+```
+
+---
+
+# Important Real-World Workflow Example
+
+A file upload system:
+
+```
+User uploads image
+
+        |
+        ↓
+
+access()
+(check folder exists)
+
+        |
+        ↓
+
+mkdir()
+(create folder)
+
+        |
+        ↓
+
+copyFile()
+(save backup)
+
+        |
+        ↓
+
+stat()
+(check size)
+
+        |
+        ↓
+
+watch()
+(monitor changes)
+```
+
+These four methods complete the **core file system knowledge needed for Node.js backend development**.
