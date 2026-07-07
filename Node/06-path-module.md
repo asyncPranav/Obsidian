@@ -228,6 +228,15 @@ Safely **joins multiple path segments** into one clean path.
 
 ---
 
+### Syntax
+
+```js
+path.join([...paths])
+```
+
+**Ex**
+---
+
 ### Example 1: Simple join
 
 ```js
