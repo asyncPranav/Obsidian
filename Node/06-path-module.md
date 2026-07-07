@@ -234,7 +234,18 @@ Safely **joins multiple path segments** into one clean path.
 path.join([...paths])
 ```
 
-**Ex**
+**Example**
+
+```js
+path.join("folder", "file.txt");
+```
+
+**Output**
+
+```sh
+folder/file.txt
+```
+
 ---
 
 ### Example 1: Simple join
@@ -282,6 +293,26 @@ user/docs/file.txt
 ### 🧠 What it does
 
 Creates an **absolute path**.
+
+---
+
+### Syntax:
+
+```
+path.resolve([...paths])
+```
+
+Example:
+
+```
+path.resolve("folder", "file.txt");
+```
+
+Output:
+
+```
+/home/user/project/folder/file.txt
+```
 
 ---
 
