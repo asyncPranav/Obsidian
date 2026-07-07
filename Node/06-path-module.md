@@ -414,6 +414,26 @@ Breaks a path into an **object with useful properties**.
 
 ---
 
+### Syntax:
+
+```
+path.resolve([...paths])
+```
+
+Example:
+
+```
+path.resolve("folder", "file.txt");
+```
+
+Output:
+
+```
+/home/user/project/folder/file.txt
+```
+
+---
+
 ### Example
 
 ```js
