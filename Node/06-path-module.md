@@ -127,6 +127,14 @@ file
 
 Returns the **directory (folder) portion** of a path.
 
+
+### Syntax
+
+```js
+path.extname(path)
+```
+
+
 ---
 
 ### Example
@@ -159,6 +167,13 @@ console.log(dir);
 ### 🧠 What it does
 
 Returns the **extension of a file** (including `.`).
+
+### Syntax
+
+```js
+path.extname(path)
+```
+
 
 ---
 
