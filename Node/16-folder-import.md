@@ -479,6 +479,11 @@ Think:
 
 **default export → rename it → export it again**.
 
+
+---
+
+#DOUBT - **If we do `import {default}`**
+
 ---
 
 ## Line 3
