@@ -548,7 +548,7 @@ path.relative(from, to)
 
 Example:
 
-```
+```js
 path.relative(
   "/home/user/project",
   "/home/user/project/src/app.js"
@@ -571,7 +571,7 @@ Returns the operating system path separator.
 
 ### Syntax:
 
-```
+```js
 path.sep
 ```
 
