@@ -597,7 +597,7 @@ Returns the delimiter used in environment paths.
 
 ### Syntax:
 
-```
+```js
 path.delimiter
 ```
 
@@ -623,19 +623,19 @@ Provides Windows path operations even on other systems.
 
 ### Syntax:
 
-```
+```js
 path.win32.method()
 ```
 
 Example:
 
-```
+```js
 path.win32.basename("C:\\Users\\app.js");
 ```
 
 Output:
 
-```
+```sh
 app.js
 ```
 
@@ -649,13 +649,13 @@ Provides POSIX/Linux path operations.
 
 ### Syntax:
 
-```
+```js
 path.posix.method()
 ```
 
 Example:
 
-```
+```js
 path.posix.basename("/home/app.js");
 ```
 
@@ -689,7 +689,13 @@ app.js
 Most used in real Node.js projects:
 
 ```
-join()resolve()basename()dirname()extname()parse()format()
+join()
+resolve()
+basename()
+dirname()
+extname()
+parse()
+format()
 ```
 
 give more detailed syntax if there are options available mention that too
