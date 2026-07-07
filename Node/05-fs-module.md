@@ -242,7 +242,7 @@ Reads the contents of a directory and returns a **list of files/folders**.
 
 ### 🧠 Syntax
 
-```
+```js
 fs.readdir(path, [options], callback)
 ```
 
