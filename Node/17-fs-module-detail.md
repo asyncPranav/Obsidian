@@ -1192,4 +1192,703 @@ Once you're comfortable with `writeFile()`, the next topic is **`appendFile()`**
 ---
 
 
-# appendFile -
+# appendFile() - FS module
+
+Excellent. `appendFile()` is one of the most useful methods in the `fs` module. You'll use it for **logs, reports, chat history, audit trails, and adding data to existing files**.
+
+---
+
+# `fs.appendFile()` - Append (Add) Data to a File
+
+## What is `appendFile()`?
+
+`appendFile()` is used to **add new data at the end of a file without removing the existing content**.
+
+### Important Rule
+
+- ✅ If the file exists → new data is added to the end.
+    
+- ✅ If the file doesn't exist → Node.js creates the file automatically.
+    
+
+---
+
+# Visual Example
+
+Suppose `notes.txt` contains:
+
+```text
+Java
+```
+
+Now append:
+
+```text
+Node.js
+```
+
+Final file:
+
+```text
+Java
+Node.js
+```
+
+Notice:
+
+- Old data remains.
+    
+- New data is added at the end.
+    
+
+---
+
+# Three Ways to Append
+
+|Method|Type|Blocks Program?|Modern?|
+|---|---|---|---|
+|`fs.appendFile()`|Async (Callback)|❌ No|✅ Yes|
+|`fs.appendFileSync()`|Sync|✅ Yes|Sometimes|
+|`fs.promises.appendFile()`|Async (Promise)|❌ No|⭐ Recommended|
+
+---
+
+# 1. `fs.appendFile()`
+
+## Syntax
+
+```javascript
+fs.appendFile(path, data[, options], callback)
+```
+
+---
+
+## Parameters
+
+### 1. `path`
+
+**Type**
+
+```text
+string | Buffer | URL | File Descriptor
+```
+
+Location of the file.
+
+Example
+
+```text
+"./notes.txt"
+"./logs/server.log"
+```
+
+---
+
+### 2. `data`
+
+**Type**
+
+```text
+string | Buffer | TypedArray | DataView
+```
+
+Content to append.
+
+Examples
+
+```text
+"Hello"
+```
+
+```text
+"\nNew Line"
+```
+
+---
+
+### 3. `options` (Optional)
+
+Can be:
+
+```javascript
+"utf-8"
+```
+
+or
+
+```javascript
+{
+    encoding: "utf-8",
+    mode: 0o666,
+    flag: "a"
+}
+```
+
+---
+
+### 4. `callback`
+
+```javascript
+(err) => {}
+```
+
+If successful
+
+```text
+err = null
+```
+
+If failed
+
+```text
+err = Error object
+```
+
+---
+
+# Program 1 - Basic Append
+
+Initial file:
+
+`notes.txt`
+
+```text
+Java
+```
+
+Program:
+
+```javascript
+const fs = require("node:fs");
+
+fs.appendFile(
+    "./notes.txt",
+    "\nNode.js",
+    "utf-8",
+    (err) => {
+
+        if (err) {
+            console.error(err);
+            return;
+        }
+
+        console.log("Content appended successfully.");
+    }
+);
+```
+
+Output:
+
+```text
+Content appended successfully.
+```
+
+File becomes:
+
+```text
+Java
+Node.js
+```
+
+---
+
+# Program 2 - File Doesn't Exist
+
+Suppose
+
+```text
+students.txt
+```
+
+doesn't exist.
+
+Program:
+
+```javascript
+const fs = require("node:fs");
+
+fs.appendFile(
+    "./students.txt",
+    "Pranav",
+    "utf-8",
+    (err) => {
+
+        if (err) {
+            console.error(err);
+            return;
+        }
+
+        console.log("File created and data appended.");
+    }
+);
+```
+
+After execution:
+
+```text
+students.txt
+
+Pranav
+```
+
+Node automatically created the file.
+
+---
+
+# Program 3 - Append Multiple Lines
+
+```javascript
+const fs = require("node:fs");
+
+fs.appendFile(
+    "./log.txt",
+    "\nServer Started",
+    (err) => {
+
+        if(err){
+            console.error(err);
+            return;
+        }
+
+        console.log("Log Updated");
+    }
+);
+```
+
+Run multiple times:
+
+```
+Server Started
+Server Started
+Server Started
+Server Started
+```
+
+This is how log files work.
+
+---
+
+# Options Object
+
+Instead of
+
+```javascript
+"utf-8"
+```
+
+you can write
+
+```javascript
+{
+    encoding: "utf-8"
+}
+```
+
+or
+
+```javascript
+{
+    encoding: "utf-8",
+    flag: "a"
+}
+```
+
+---
+
+# Common Options
+
+## encoding
+
+Default
+
+```text
+utf8
+```
+
+Example
+
+```javascript
+{
+    encoding: "utf-8"
+}
+```
+
+---
+
+## flag
+
+Default
+
+```text
+a
+```
+
+Meaning
+
+```text
+Append Mode
+```
+
+Other useful flags:
+
+|Flag|Meaning|
+|---|---|
+|`a`|Append. Create file if it doesn't exist.|
+|`ax`|Append only if file doesn't exist (fails if file exists).|
+
+> **Note:** `appendFile()` already uses `flag: "a"` by default, so you rarely need to specify it yourself.
+
+---
+
+## mode
+
+Default
+
+```text
+0o666
+```
+
+File permissions.
+
+Usually left unchanged.
+
+---
+
+# Return Value
+
+```javascript
+fs.appendFile(...)
+```
+
+Returns
+
+```text
+undefined
+```
+
+Result comes through the callback.
+
+---
+
+# `appendFileSync()`
+
+Synchronous version.
+
+---
+
+## Syntax
+
+```javascript
+fs.appendFileSync(path, data[, options])
+```
+
+---
+
+Program
+
+```javascript
+const fs = require("node:fs");
+
+fs.appendFileSync(
+    "./sync.txt",
+    "\nHello Sync",
+    "utf-8"
+);
+
+console.log("Done");
+```
+
+File
+
+```
+Hello Sync
+```
+
+Run again
+
+```
+Hello Sync
+Hello Sync
+```
+
+---
+
+## Return Value
+
+```text
+undefined
+```
+
+If something goes wrong
+
+↓
+
+Throws Error.
+
+---
+
+# `fs.promises.appendFile()`
+
+Modern Promise version.
+
+---
+
+## Syntax
+
+```javascript
+await fs.promises.appendFile(path, data[, options])
+```
+
+---
+
+Program
+
+```javascript
+const fs = require("node:fs/promises");
+
+async function appendData() {
+
+    try {
+
+        await fs.appendFile(
+            "./promise.txt",
+            "\nPromise Data",
+            "utf-8"
+        );
+
+        console.log("Append Successful");
+
+    } catch(err) {
+
+        console.error(err);
+
+    }
+
+}
+
+appendData();
+```
+
+---
+
+# Return Value
+
+Returns
+
+```text
+Promise<void>
+```
+
+---
+
+# Difference Between `writeFile()` and `appendFile()`
+
+Suppose file contains:
+
+```
+Java
+```
+
+---
+
+Using
+
+```javascript
+fs.writeFile()
+```
+
+Write
+
+```
+Node.js
+```
+
+Final file
+
+```
+Node.js
+```
+
+Old content is deleted.
+
+---
+
+Using
+
+```javascript
+fs.appendFile()
+```
+
+Append
+
+```
+Node.js
+```
+
+Final file
+
+```
+Java
+Node.js
+```
+
+Old content remains.
+
+---
+
+# Real-World Uses
+
+### 1. Server Logs
+
+```
+10:00 Server Started
+10:05 User Logged In
+10:06 Product Added
+10:10 Payment Success
+```
+
+Each event is appended.
+
+---
+
+### 2. Chat History
+
+```
+Alice : Hello
+Bob : Hi
+Alice : How are you?
+```
+
+Messages are appended.
+
+---
+
+### 3. Attendance
+
+```
+Rahul
+Aman
+Pranav
+```
+
+Every new student is appended.
+
+---
+
+### 4. Error Logs
+
+```
+404 Error
+500 Error
+Database Failed
+```
+
+Errors are appended.
+
+---
+
+# Common Mistakes
+
+### ❌ Forgetting `\n`
+
+```javascript
+fs.appendFile("a.txt","Hello");
+fs.appendFile("a.txt","World");
+```
+
+Output
+
+```
+HelloWorld
+```
+
+---
+
+Correct
+
+```javascript
+fs.appendFile("a.txt","\nWorld");
+```
+
+Output
+
+```
+Hello
+World
+```
+
+---
+
+### ❌ Expecting Callback Data
+
+Wrong
+
+```javascript
+(err, data) => {}
+```
+
+Correct
+
+```javascript
+(err) => {}
+```
+
+There is **no `data` parameter** because `appendFile()` only writes data; it doesn't return file content.
+
+---
+
+# Comparison
+
+|Method|Async|Sync|Promise|Creates File?|Overwrites?|Appends?|
+|---|---|---|---|---|---|---|
+|`writeFile()`|✅|❌|❌|✅|✅|❌|
+|`writeFileSync()`|❌|✅|❌|✅|✅|❌|
+|`appendFile()`|✅|❌|❌|✅|❌|✅|
+|`appendFileSync()`|❌|✅|❌|✅|❌|✅|
+|`promises.appendFile()`|✅|❌|✅|✅|❌|✅|
+
+---
+
+# Quick Revision
+
+```text
+appendFile()
+
+Purpose:
+→ Add data at the end of a file.
+
+If file exists:
+→ Append content.
+
+If file doesn't exist:
+→ Create file and write content.
+
+Methods:
+→ appendFile()
+→ appendFileSync()
+→ fs.promises.appendFile()
+
+Returns:
+→ Callback version: undefined
+→ Sync version: undefined
+→ Promise version: Promise<void>
+
+Default Flag:
+→ "a" (append)
+
+Default Encoding:
+→ "utf8"
+```
+
+## Practice Exercises
+
+1. Create a file `diary.txt` and append three diary entries, each on a new line.
+    
+2. Create a `server.log` file and append the current date/time each time you run the program.
+    
+3. Build a simple "to-do list" program where each new task is appended to `tasks.txt`.
+    
+4. Read the contents of `tasks.txt` after appending to verify that all tasks are preserved.
+    
+
+If you can complete these exercises, you'll have mastered one of the most commonly used file operations in Node.js.
