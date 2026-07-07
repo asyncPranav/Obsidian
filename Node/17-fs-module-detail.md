@@ -602,3 +602,605 @@ Next in `fs` module after reading files, learn in this order:
     
 
 This order matches how Node.js developers actually use `fs`.
+
+
+---
+
+Since you're learning **Node.js from scratch**, I recommend learning the `fs` module in the same order you'll use it in real projects. Don't try to memorize every API at once.
+
+Here's the roadmap:
+
+```
+1. Reading Files        ✅ (Completed)
+2. Writing Files        ← Next
+3. Appending Files
+4. Deleting Files
+5. Renaming Files
+6. Copying Files
+7. File Information
+8. Directory Operations
+9. File Streams
+10. Watching Files
+```
+
+Let's learn **Writing Files** in detail.
+
+---
+
+# `fs.writeFile()` - Writing Files
+
+## What is it?
+
+`writeFile()` is used to **create a new file** or **overwrite an existing file**.
+
+> **Important Rule**
+> 
+> - If the file **doesn't exist**, Node.js creates it.
+>     
+> - If the file **already exists**, its old content is **completely replaced**.
+>     
+
+---
+
+# Three Ways to Write Files
+
+|Method|Type|Modern?|
+|---|---|---|
+|`fs.writeFile()`|Async (Callback)|Yes|
+|`fs.writeFileSync()`|Sync|Sometimes|
+|`fs.promises.writeFile()`|Async (Promise)|⭐ Most Recommended|
+
+---
+
+# 1. `fs.writeFile()`
+
+## Syntax
+
+```javascript
+fs.writeFile(file, data[, options], callback)
+```
+
+---
+
+## Parameters
+
+### 1. `file`
+
+**Type:** `string | Buffer | URL | File Descriptor`
+
+The location where the file should be created or updated.
+
+Example:
+
+```text
+"./notes.txt"
+"./data/user.json"
+```
+
+---
+
+### 2. `data`
+
+**Type:** `string | Buffer | TypedArray | DataView`
+
+The content to write into the file.
+
+Example:
+
+```text
+"Hello World"
+```
+
+or
+
+```javascript
+JSON.stringify(user)
+```
+
+---
+
+### 3. `options` (Optional)
+
+Can be either:
+
+```javascript
+"utf-8"
+```
+
+or
+
+```javascript
+{
+    encoding: "utf-8",
+    mode: 0o666,
+    flag: "w"
+}
+```
+
+---
+
+### 4. `callback`
+
+```javascript
+(err) => {}
+```
+
+Runs after writing completes.
+
+If successful:
+
+```text
+err = null
+```
+
+Otherwise:
+
+```text
+err = Error object
+```
+
+---
+
+# Example 1
+
+```javascript
+const fs = require("node:fs");
+
+fs.writeFile(
+    "./hello.txt",
+    "Hello Node.js",
+    "utf-8",
+    (err) => {
+
+        if (err) {
+            console.error(err);
+            return;
+        }
+
+        console.log("File written successfully");
+    }
+);
+```
+
+---
+
+# Execution
+
+Before
+
+```
+project
+│
+└── app.js
+```
+
+Run program
+
+↓
+
+After
+
+```
+project
+│
+├── app.js
+└── hello.txt
+```
+
+Content
+
+```
+Hello Node.js
+```
+
+---
+
+# Example 2
+
+Suppose
+
+```
+hello.txt
+```
+
+contains
+
+```
+ABC
+```
+
+Now run
+
+```javascript
+fs.writeFile(
+"./hello.txt",
+"XYZ",
+callback
+);
+```
+
+Result
+
+```
+hello.txt
+
+XYZ
+```
+
+Old content
+
+```
+ABC
+```
+
+is gone.
+
+---
+
+# Why?
+
+Because
+
+```text
+writeFile()
+
+↓
+
+Overwrite
+```
+
+It **does not append**.
+
+Appending is a different method (`appendFile()`).
+
+---
+
+# Options Object
+
+Instead of
+
+```javascript
+"utf-8"
+```
+
+You can write
+
+```javascript
+{
+    encoding: "utf-8"
+}
+```
+
+or
+
+```javascript
+{
+    encoding: "utf-8",
+    flag: "w"
+}
+```
+
+---
+
+# Important Options
+
+## encoding
+
+Default
+
+```
+utf8
+```
+
+Example
+
+```javascript
+{
+    encoding:"utf-8"
+}
+```
+
+---
+
+## flag
+
+Determines **how** the file is opened.
+
+Default
+
+```
+w
+```
+
+Meaning
+
+```
+Write
+
+If file exists
+↓
+
+Overwrite
+```
+
+---
+
+Common flags
+
+|Flag|Meaning|
+|---|---|
+|`w`|Write (overwrite or create)|
+|`wx`|Write only if file doesn't exist|
+|`a`|Append|
+|`ax`|Append only if file doesn't exist|
+
+We'll study all flags later.
+
+---
+
+## mode
+
+Permissions
+
+Default
+
+```
+0o666
+```
+
+Mostly ignored while learning.
+
+---
+
+# Callback
+
+```javascript
+(err)=>{
+}
+```
+
+Only one parameter.
+
+Unlike `readFile()`
+
+there is **no data** returned.
+
+Because writing a file doesn't produce file content.
+
+---
+
+# `writeFileSync()`
+
+## Syntax
+
+```javascript
+fs.writeFileSync(
+file,
+data,
+options
+);
+```
+
+Returns
+
+```
+undefined
+```
+
+If successful.
+
+If failure
+
+↓
+
+Throws Error.
+
+---
+
+Example
+
+```javascript
+fs.writeFileSync(
+"./sync.txt",
+"Hello Sync",
+"utf-8"
+);
+
+console.log("Done");
+```
+
+Output
+
+```
+Done
+```
+
+---
+
+# `fs.promises.writeFile()`
+
+Modern version.
+
+Example
+
+```javascript
+const fs = require("node:fs/promises");
+
+async function write(){
+
+    try{
+
+        await fs.writeFile(
+            "./promise.txt",
+            "Hello Promise",
+            "utf-8"
+        );
+
+        console.log("Done");
+
+    }catch(err){
+
+        console.error(err);
+
+    }
+
+}
+
+write();
+```
+
+---
+
+# Return Values
+
+|Method|Returns|
+|---|---|
+|`writeFile()`|Nothing (uses callback)|
+|`writeFileSync()`|`undefined`|
+|`promises.writeFile()`|Promise|
+
+---
+
+# Interview Question
+
+### Does `writeFile()` create a file?
+
+✅ Yes.
+
+If missing.
+
+---
+
+### Does `writeFile()` overwrite?
+
+✅ Yes.
+
+---
+
+### Does `writeFile()` append?
+
+❌ No.
+
+Use
+
+```
+appendFile()
+```
+
+---
+
+# Real Example
+
+Imagine user registration.
+
+```
+User submits form
+
+↓
+
+Node receives data
+
+↓
+
+writeFile()
+
+↓
+
+users.json updated
+```
+
+---
+
+# Common Mistakes
+
+## Wrong
+
+```javascript
+fs.writeFile(
+"./a.txt",
+callback
+);
+```
+
+Missing
+
+```
+data
+```
+
+---
+
+## Wrong
+
+Expecting
+
+```javascript
+callback(err,data)
+```
+
+There is
+
+```
+NO data
+```
+
+Only
+
+```javascript
+callback(err)
+```
+
+---
+
+# Summary
+
+|Method|Async|Sync|Modern|
+|---|---|---|---|
+|`writeFile()`|✅|❌|Good|
+|`writeFileSync()`|❌|✅|Sometimes|
+|`promises.writeFile()`|✅|❌|⭐ Best|
+
+---
+
+# Memory Trick
+
+```
+readFile()
+        ↓
+Returns file content
+
+writeFile()
+        ↓
+Takes file content
+
+appendFile()
+        ↓
+Adds new content
+
+unlink()
+        ↓
+Deletes file
+```
+
+## Practice Challenge
+
+Create a small project with these files:
+
+```
+project/
+├── app.js
+└── (no other files initially)
+```
+
+In `app.js`, practice:
+
+1. Create a new file called `notes.txt` and write `"Learning Node.js FS Module"` into it using `fs.writeFile()`.
+    
+2. Run the program again with different content (for example, `"FS Module is awesome"`). Observe that the previous content is overwritten.
+    
+3. Repeat the same exercise using `fs.writeFileSync()`.
+    
+4. Repeat it using `fs.promises.writeFile()` with `async/await` and proper `try...catch`.
+    
+
+Once you're comfortable with `writeFile()`, the next topic is **`appendFile()`**, which is where you'll learn how to **add content without overwriting the existing file**—a very common requirement in logging, reports, and data storage.
