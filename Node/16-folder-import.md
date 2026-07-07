@@ -482,7 +482,167 @@ Think:
 
 ---
 
-#DOUBT - **If we do `import {default}`**
+#DOUBT - **If we do `export { default } from "./greet.js"` in index.js**
+
+Good question. This is the next step.
+
+If you write:
+
+```javascript
+export { default } from "./greet.js";
+```
+
+it means:
+
+> "Take the default export from `greet.js` and re-export it as the default export of this file."
+
+---
+
+Let's see with your files.
+
+### `greet.js`
+
+```javascript
+const greet = (name) => {
+  return `Welcome, ${name}!`;
+}
+
+export default greet;
+```
+
+Here:
+
+```
+greet.js
+
+default
+   |
+   ↓
+ greet function
+```
+
+---
+
+### `index.js`
+
+```javascript
+export { default } from "./greet.js";
+```
+
+Now `index.js` also has:
+
+```
+index.js
+
+default
+   |
+   ↓
+ greet function
+```
+
+It simply **passes the default export forward**.
+
+---
+
+Now another file can import from `index.js`:
+
+### `app.js`
+
+```javascript
+import greet from "./index.js";
+
+console.log(greet("Pranav"));
+```
+
+Output:
+
+```
+Welcome, Pranav!
+```
+
+---
+
+## Difference between these two
+
+### 1. Keep it as default
+
+```javascript
+export { default } from "./greet.js";
+```
+
+Flow:
+
+```
+greet.js
+   |
+   | default
+   ↓
+index.js
+   |
+   | default
+   ↓
+app.js
+
+import greet from "./index.js"
+```
+
+The export name remains **default**.
+
+---
+
+### 2. Rename default export
+
+```javascript
+export { default as greet } from "./greet.js";
+```
+
+Flow:
+
+```
+greet.js
+   |
+   | default
+   ↓
+index.js
+   |
+   | named export: greet
+   ↓
+app.js
+
+import { greet } from "./index.js"
+```
+
+Now it becomes a **named export**.
+
+---
+
+## Simple memory:
+
+### `export { default } from`
+
+➡️ Forward default export as default
+
+```
+default → default
+```
+
+---
+
+### `export { default as xyz } from`
+
+➡️ Take default export and give it a new named export
+
+```
+default → xyz
+```
+
+---
+
+For a beginner, remember:
+
+- `default` without `as` → keep it default
+    
+- `default as name` → convert it into a named export with that name.
 
 ---
 
