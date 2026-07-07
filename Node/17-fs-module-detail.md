@@ -605,23 +605,7 @@ This order matches how Node.js developers actually use `fs`.
 
 
 ---
-
-Since you're learning **Node.js from scratch**, I recommend learning the `fs` module in the same order you'll use it in real projects. Don't try to memorize every API at once.
-
-Here's the roadmap:
-
-```
-1. Reading Files        ✅ (Completed)
-2. Writing Files        ← Next
-3. Appending Files
-4. Deleting Files
-5. Renaming Files
-6. Copying Files
-7. File Information
-8. Directory Operations
-9. File Streams
-10. Watching Files
-```
+# ✍️ Write - FS Module
 
 Let's learn **Writing Files** in detail.
 
