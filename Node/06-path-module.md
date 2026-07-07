@@ -490,19 +490,19 @@ path.isAbsolute("/home/user/file.txt");
 
 Output:
 
-```
+```sh
 true
 ```
 
 Example:
 
-```
+```js
 path.isAbsolute("file.txt");
 ```
 
 Output:
 
-```
+```sh
 false
 ```
 
@@ -516,19 +516,19 @@ Normalizes a path by removing unnecessary parts.
 
 ### Syntax:
 
-```
+```js
 path.normalize(path)
 ```
 
 Example:
 
-```
+```js
 path.normalize("/home/user/../app");
 ```
 
 Output:
 
-```
+```sh
 /home/app
 ```
 
@@ -542,7 +542,7 @@ Finds the relative path from one location to another.
 
 ### Syntax:
 
-```
+```js
 path.relative(from, to)
 ```
 
