@@ -463,6 +463,97 @@ users
 
 `..` moves one directory up.
 
+
+---
+
+
+```javascript
+const path = require("node:path");
+
+const path4 = path.join("users", "..", "profile.jpg");
+console.log(path4);
+```
+
+### Explanation
+
+- `users` → Go inside the `users` folder.
+    
+- `..` → Go back **one folder** (parent directory).
+    
+- `profile.jpg` → Add the file `profile.jpg`.
+    
+
+### Step by step
+
+```text
+Start
+  ↓
+users
+  ↓
+users/..
+  ↓
+(back to current folder)
+  ↓
+profile.jpg
+```
+
+### Final Output
+
+```text
+profile.jpg
+```
+
+### Easy rule to remember
+
+- `.` → Stay in the current folder.
+    
+- `..` → Go back one folder.
+    
+- `path.join()` → Joins all parts and removes unnecessary `.` and `..` automatically.
+    
+
+### More Examples
+
+```javascript
+path.join("users", "images", "photo.png");
+```
+
+Output:
+
+```text
+users/images/photo.png
+```
+
+---
+
+```javascript
+path.join("users", ".", "photo.png");
+```
+
+Output:
+
+```text
+users/photo.png
+```
+
+(`.` does nothing.)
+
+---
+
+```javascript
+path.join("users", "images", "..", "photo.png");
+```
+
+Output:
+
+```text
+users/photo.png
+```
+
+(`..` removes the `images` folder.)
+
+> **Memory Tip:** Think of `..` as pressing the **Back** button in your file explorer—it takes you up one folder.
+
 ---
 
 ## Example 5
