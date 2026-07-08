@@ -30,6 +30,189 @@ app.get('/', (req, res) => {
 
 ---
 
+# app.use(express.json())
+
+`app.use(express.json())` is a built-in middleware in **Express.js** that parses incoming requests with **JSON** data.
+
+### Why do we use it?
+
+When a client (browser, frontend, Postman, etc.) sends JSON data to your server, the data arrives as a raw stream of bytes. `express.json()` reads that stream and converts it into a JavaScript object.
+
+```javascript
+const express = require("express");
+const app = express();
+
+app.use(express.json());
+
+app.post("/user", (req, res) => {
+    console.log(req.body);
+    res.send(req.body);
+});
+
+app.listen(3000);
+```
+
+If you send this JSON:
+
+```json
+{
+  "name": "John",
+  "age": 25
+}
+```
+
+Then:
+
+```javascript
+req.body
+```
+
+becomes
+
+```javascript
+{
+  name: "John",
+  age: 25
+}
+```
+
+---
+
+## What happens if you don't use it?
+
+Without:
+
+```javascript
+app.use(express.json());
+```
+
+`req.body` will usually be `undefined` for JSON requests.
+
+Example:
+
+```javascript
+const express = require("express");
+const app = express();
+
+// app.use(express.json());  <-- Missing
+
+app.post("/user", (req, res) => {
+    console.log(req.body);
+    res.send("Done");
+});
+```
+
+If you send:
+
+```json
+{
+  "name": "John"
+}
+```
+
+Output:
+
+```javascript
+undefined
+```
+
+because Express doesn't automatically parse JSON request bodies.
+
+---
+
+## When should you use it?
+
+Use it whenever your API receives JSON data.
+
+For example:
+
+- ✅ Login API
+    
+
+```json
+{
+  "email": "abc@gmail.com",
+  "password": "123456"
+}
+```
+
+- ✅ Register API
+    
+
+```json
+{
+  "username": "Sam",
+  "age": 20
+}
+```
+
+- ✅ Update profile API
+    
+
+```json
+{
+  "city": "Delhi"
+}
+```
+
+---
+
+## When is it NOT needed?
+
+If your routes never receive JSON request bodies, you may not need it.
+
+For example:
+
+```javascript
+app.get("/users", (req, res) => {
+    res.send("Users");
+});
+```
+
+A GET request typically doesn't have a JSON body, so `express.json()` isn't required for that endpoint.
+
+---
+
+## How it works internally
+
+When a request like this arrives:
+
+```
+POST /user
+Content-Type: application/json
+
+{
+  "name": "John"
+}
+```
+
+The middleware:
+
+1. Checks whether the `Content-Type` is `application/json`.
+    
+2. Reads the raw request body.
+    
+3. Parses it using `JSON.parse()`.
+    
+4. Stores the resulting object in `req.body`.
+    
+5. Calls `next()` so the next middleware or route handler runs.
+    
+
+---
+
+### Summary
+
+|With `express.json()`|Without `express.json()`|
+|---|---|
+|JSON is parsed automatically|JSON is not parsed|
+|`req.body` contains a JavaScript object|`req.body` is usually `undefined`|
+|Suitable for POST, PUT, PATCH APIs that accept JSON|JSON request bodies cannot be accessed directly|
+
+So, `app.use(express.json())` is essential whenever your Express server needs to receive and work with JSON data from clients. Without it, Express doesn't know how to interpret the JSON payload, and `req.body` won't contain the parsed data.
+
+---
+
 # 1. req.params
 
 ## What is it?
