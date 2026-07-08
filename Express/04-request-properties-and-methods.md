@@ -211,6 +211,10 @@ The middleware:
 
 So, `app.use(express.json())` is essential whenever your Express server needs to receive and work with JSON data from clients. Without it, Express doesn't know how to interpret the JSON payload, and `req.body` won't contain the parsed data.
 
+
+#DOUBT - **how json is send and how will i get to know when req body will send json**
+
+
 ---
 
 # 1. req.params
