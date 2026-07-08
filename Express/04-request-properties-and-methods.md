@@ -211,11 +211,248 @@ The middleware:
 
 So, `app.use(express.json())` is essential whenever your Express server needs to receive and work with JSON data from clients. Without it, Express doesn't know how to interpret the JSON payload, and `req.body` won't contain the parsed data.
 
+---
 
 #DOUBT - **how json is send and how will i get to know when req body will send json**
 
 
+This is an excellent question. The key idea is that **`req.body` doesn't "send" JSON**. The **client** (browser, frontend, Postman, mobile app, etc.) sends JSON to the server, and Express receives it in `req.body` after `express.json()` parses it.
+
+## How is JSON sent?
+
+A client sends an HTTP request with:
+
+- Method: `POST`, `PUT`, or `PATCH` (most commonly)
+    
+- Header:
+    
+    ```
+    Content-Type: application/json
+    ```
+    
+- Body:
+    
+    ```json
+    {
+      "name": "Alice",
+      "age": 22
+    }
+    ```
+    
+
+For example, if you use Postman:
+
+- Method: `POST`
+    
+- URL:
+    
+    ```
+    http://localhost:3000/user
+    ```
+    
+- Headers:
+    
+    ```
+    Content-Type: application/json
+    ```
+    
+- Body (raw → JSON):
+    
+    ```json
+    {
+      "name": "Alice",
+      "age": 22
+    }
+    ```
+    
+
+Your Express server:
+
+```javascript
+const express = require("express");
+const app = express();
+
+app.use(express.json());
+
+app.post("/user", (req, res) => {
+    console.log(req.body);
+    res.send("Received");
+});
+
+app.listen(3000);
+```
+
+Output:
+
+```javascript
+{ name: "Alice", age: 22 }
+```
+
 ---
+
+## How do you know when `req.body` contains JSON?
+
+Look at the request's **`Content-Type`** header.
+
+If the client sends:
+
+```
+Content-Type: application/json
+```
+
+and you've added:
+
+```javascript
+app.use(express.json());
+```
+
+then Express parses the JSON and stores it in:
+
+```javascript
+req.body
+```
+
+You can even check the content type:
+
+```javascript
+app.post("/user", (req, res) => {
+    console.log(req.headers["content-type"]);
+    console.log(req.body);
+});
+```
+
+Output:
+
+```
+application/json
+{ name: 'Alice', age: 22 }
+```
+
+---
+
+## When does `req.body` exist?
+
+`req.body` is used when the client sends data in the **request body**.
+
+For example:
+
+### POST
+
+```http
+POST /login
+```
+
+Body:
+
+```json
+{
+  "email": "abc@gmail.com",
+  "password": "1234"
+}
+```
+
+Access it with:
+
+```javascript
+console.log(req.body.email);
+```
+
+---
+
+### PUT
+
+```http
+PUT /user/1
+```
+
+Body:
+
+```json
+{
+  "name": "Bob"
+}
+```
+
+Access it with:
+
+```javascript
+console.log(req.body.name);
+```
+
+---
+
+### PATCH
+
+```http
+PATCH /user/1
+```
+
+Body:
+
+```json
+{
+  "age": 25
+}
+```
+
+Access it with:
+
+```javascript
+console.log(req.body.age);
+```
+
+---
+
+## What about GET requests?
+
+Usually, **GET requests do not send a request body**.
+
+Instead, they send data in the URL.
+
+Example:
+
+```
+GET /user?id=10
+```
+
+Then you use:
+
+```javascript
+req.query.id
+```
+
+not
+
+```javascript
+req.body
+```
+
+---
+
+## Quick comparison
+
+|Client sends data in...|Example|Express reads it using|
+|---|---|---|
+|URL parameter|`/user/10`|`req.params.id`|
+|Query string|`/user?id=10`|`req.query.id`|
+|JSON request body|`{ "name": "Alice" }`|`req.body.name`|
+
+### Easy way to remember
+
+Imagine you're filling out a form:
+
+- **URL parameters (`req.params`)** → Part of the address (e.g., `/users/5`)
+    
+- **Query parameters (`req.query`)** → Extra information after `?` (e.g., `?sort=name`)
+    
+- **Request body (`req.body`)** → The actual form data or payload sent to the server (often as JSON)
+    
+
+Whenever you're creating or updating data (like logging in, registering, or saving information), the client will typically send that data in the **request body**, and you'll access it through `req.body` after enabling `express.json()`.
+
+---
+
+# **Request Methods**
 
 # 1. req.params
 
