@@ -138,7 +138,6 @@ For example:
 
 - ✅ Register API
     
-
 ```json
 {
   "username": "Sam",
@@ -148,7 +147,6 @@ For example:
 
 - ✅ Update profile API
     
-
 ```json
 {
   "city": "Delhi"
