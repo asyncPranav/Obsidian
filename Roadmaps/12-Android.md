@@ -391,3 +391,214 @@ Build Production-style App
 ```
 
 This roadmap focuses on the technologies that are common in modern Android development while avoiding older approaches unless you need them for maintaining existing code. It also fits well with your MERN background because you'll be able to connect Android apps to your own backend APIs instead of relying only on Firebase.
+
+
+---
+
+
+Since you **can't use your phone or laptop in class**, you want resources that are **text-first**, concise, and easy to print or copy into a notebook.
+
+These are the ones I'd recommend.
+
+## 1. Kotlin (Best Overall)
+
+📖 **Kotlin Official Documentation**
+
+- [https://kotlinlang.org/docs/home.html](https://kotlinlang.org/docs/home.html)
+    
+
+Read in this order:
+
+1. Basic syntax
+    
+2. Basic types
+    
+3. Control flow
+    
+4. Classes
+    
+5. Functions
+    
+6. Null safety
+    
+7. Collections
+    
+8. Generics
+    
+9. Lambdas
+    
+10. Coroutines (later)
+    
+
+**Why?**
+
+- Short
+    
+- Accurate
+    
+- No fluff
+    
+- Easy to convert into handwritten notes
+    
+
+---
+
+## 2. Android
+
+📖 **Android Developers Documentation**
+
+- [https://developer.android.com/develop](https://developer.android.com/develop)
+    
+
+Read only the sections you need according to your roadmap.
+
+Start with:
+
+- App Basics
+    
+- Activities
+    
+- App Architecture
+    
+- Navigation
+    
+- State
+    
+
+Don't try to read the whole site.
+
+---
+
+## 3. Jetpack Compose (Best)
+
+📖 **Compose Documentation**
+
+- [https://developer.android.com/develop/ui/compose](https://developer.android.com/develop/ui/compose)
+    
+
+Learn in this order:
+
+- Text
+    
+- Button
+    
+- Image
+    
+- Column
+    
+- Row
+    
+- Box
+    
+- Modifier
+    
+- State
+    
+- LazyColumn
+    
+- Navigation
+    
+
+Skip animations initially.
+
+---
+
+## 4. Kotlin + Android Cheat Sheets
+
+Google provides excellent cheat sheets.
+
+Search:
+
+- **Android Kotlin Cheat Sheet**
+    
+- **Jetpack Compose Cheat Sheet**
+    
+
+These are great for revision before coding.
+
+---
+
+## 5. Android Codelabs (Highly Recommended)
+
+[https://developer.android.com/codelabs](https://developer.android.com/codelabs)
+
+These are project-based lessons where each codelab teaches one concept.
+
+For example:
+
+- Build a Dice Roller
+    
+- Build a Tip Calculator
+    
+- Build a Birthday Card
+    
+
+Read the codelab in class and implement it at home.
+
+---
+
+# For notes, I recommend this structure
+
+Instead of copying everything, write only:
+
+```
+Topic
+
+Definition
+
+Syntax
+
+Important Points
+
+Example
+
+Common Mistakes
+```
+
+Example:
+
+```
+State in Compose
+
+Definition:
+Stores UI data.
+
+Syntax:
+remember { mutableStateOf(0) }
+
+Example:
+Counter App
+
+Mistakes:
+Don't use normal variables for UI state.
+```
+
+One page per topic is usually enough.
+
+---
+
+# If you like books
+
+These are excellent references (don't try to read cover to cover):
+
+- **Head First Kotlin** (great for learning Kotlin concepts)
+    
+- **Android Programming: The Big Nerd Ranch Guide** (strong Android fundamentals)
+    
+- **Kotlin in Action** (best after you're comfortable with the basics)
+    
+
+---
+
+## Since you're balancing DSA + MERN + Android
+
+I'd keep your resources minimal:
+
+- **Kotlin:** Official Kotlin docs
+    
+- **Android & Compose:** Official Android Developers docs + Codelabs
+    
+- **Videos:** Only when a concept doesn't click after reading
+    
+
+This avoids jumping between multiple YouTube playlists and helps you spend more time building than consuming content.
