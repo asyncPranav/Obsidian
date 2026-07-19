@@ -371,6 +371,51 @@ app.use(express.json());
 
 👉 Parses JSON request body
 
+### Purpose
+
+Parses **JSON data** sent in the request body.
+
+### Without it
+
+```js
+POST /students
+
+{
+  "name": "Pranav"
+}
+```
+
+```js
+console.log(req.body);
+```
+
+Output:
+
+```js
+undefined
+```
+
+### With it
+
+```js
+app.use(express.json());
+```
+
+Output:
+
+```js
+{
+  name: "Pranav"
+}
+```
+
+**Used for:**
+
+- REST APIs
+- React frontend
+- Postman
+- Mobile apps
+
 ---
 
 ## 2. URL Encoded
@@ -379,6 +424,36 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 ```
 
+### Purpose
+
+Parses **form data** (`application/x-www-form-urlencoded`).
+
+Example HTML form:
+
+```
+<form method="POST">
+  <input name="username">
+</form>
+```
+
+Then:
+
+```
+console.log(req.body);
+```
+
+Output:
+
+```
+{
+  username: "Pranav"
+}
+```
+
+**Used for:**
+
+- HTML forms
+- Traditional websites
 ---
 
 ## 3. Static Files
