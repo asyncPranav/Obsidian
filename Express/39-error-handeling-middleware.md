@@ -2090,7 +2090,7 @@ Building it incrementally makes the implementation much easier to understand tha
 
 ---
 
-#DOUBT - **Is anything left after phase 4**
+#DOUBT - `Is anything left after phase 4`
 
 Yes. In fact, what you've learned so far is only the **foundation**. Professional Express applications build several more layers on top of it.
 
