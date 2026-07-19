@@ -430,7 +430,7 @@ Parses **form data** (`application/x-www-form-urlencoded`).
 
 Example HTML form:
 
-```
+```html
 <form method="POST">
   <input name="username">
 </form>
@@ -438,13 +438,13 @@ Example HTML form:
 
 Then:
 
-```
+```js
 console.log(req.body);
 ```
 
 Output:
 
-```
+```js
 {
   username: "Pranav"
 }
@@ -463,6 +463,36 @@ app.use(express.static("public"));
 ```
 
 👉 Serves static files like images, CSS, JS
+
+### Purpose
+
+Serves static files directly.
+
+Folder:
+
+```
+public/
+│
+├── logo.png
+├── style.css
+└── app.js
+```
+
+Browser:
+
+```
+http://localhost:3000/logo.png
+```
+
+Express automatically returns the file.
+
+**Used for:**
+
+- Images
+- CSS
+- JavaScript
+- PDFs
+- Fonts
 
 ---
 
