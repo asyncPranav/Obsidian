@@ -43,6 +43,31 @@ app.METHOD()
 
 👉 It runs **for the entire application (globally)** or for specific paths.
 
+Attached to the entire app using `app.use()` or `app.METHOD()`.
+
+```js
+app.use((req, res, next) => {
+  console.log("Request received");
+  next();
+});
+```
+
+or
+
+```js
+app.get("/about", (req, res, next) => {
+  console.log("About page");
+  next();
+});
+```
+
+Used for:
+
+- Logging
+- Authentication
+- Parsing JSON
+- CORS
+
 ---
 
 # 🔹 Types of Application Middleware
