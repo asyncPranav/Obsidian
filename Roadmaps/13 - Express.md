@@ -1,7 +1,29 @@
 
 ---
 
+Great progress. At this point you've covered:
 
+- ✅ Routing
+- ✅ Request methods (`req`)
+- ✅ Response methods (`res`)
+- ✅ MVC structure
+- ✅ CRUD with Mongoose
+- ✅ Application middleware
+- ✅ Error-handling middleware (including `ApiError` and `asyncHandler`)
+
+You're now moving from **basic Express** to **real backend development**.
+
+# Express 80/20 Roadmap
+
+## ✅ Phase 1 (Done)
+
+- Express setup
+- Routing
+- req/res
+- MVC
+- CRUD
+- Middleware
+- Error handling
 
 ---
 
@@ -344,3 +366,8 @@ src/
     
 
 These 10 topics cover the majority of concepts you'll use in everyday Express backend development. After completing them, you'll be well prepared to build projects like authentication systems, blogs, e-commerce backends, social apps, and portfolio APIs.
+
+
+---
+
+# 
