@@ -702,3 +702,591 @@ next(error);
 ```
 
 This is the pattern used in many production Express applications.
+
+---
+
+Excellent. Now you're entering the **professional way** of handling errors in Express.
+
+# Phase 3 — Custom Error Class (`ApiError`)
+
+This is where many developers first see OOP (Object-Oriented Programming) applied in backend development.
+
+---
+
+# Why do we need a Custom Error Class?
+
+In Phase 2 we wrote:
+
+```javascript
+const error = new Error("Student not found");
+
+error.status = 404;
+
+next(error);
+```
+
+It works.
+
+But imagine a project with **100+ controllers**.
+
+You'll repeatedly write:
+
+```javascript
+const error = new Error("User not found");
+error.status = 404;
+next(error);
+```
+
+Again...
+
+Again...
+
+Again...
+
+Again...
+
+This is repetitive.
+
+Instead, create one class that does everything.
+
+---
+
+# Understanding Classes
+
+Before writing `ApiError`, understand what a class is.
+
+Example:
+
+```javascript
+class Student {
+
+    constructor(name, age){
+
+        this.name = name;
+        this.age = age;
+
+    }
+
+}
+```
+
+Create object
+
+```javascript
+const s1 = new Student("Pranav",20);
+
+console.log(s1);
+```
+
+Output
+
+```text
+Student {
+
+ name:"Pranav",
+
+ age:20
+
+}
+```
+
+The constructor automatically creates the object.
+
+---
+
+# Error is also a Class
+
+When you write
+
+```javascript
+const error = new Error("Something wrong");
+```
+
+You're actually doing
+
+```javascript
+new Error(...)
+```
+
+which means
+
+> Error itself is a class.
+
+We can extend it.
+
+---
+
+# What does `extends` mean?
+
+Suppose
+
+```javascript
+class Animal{
+
+    eat(){
+
+        console.log("Eating");
+
+    }
+
+}
+```
+
+Dog is also an animal.
+
+```javascript
+class Dog extends Animal{
+
+}
+```
+
+Now
+
+```javascript
+const d = new Dog();
+
+d.eat();
+```
+
+Output
+
+```text
+Eating
+```
+
+Dog inherited Animal.
+
+---
+
+Same idea.
+
+```javascript
+class ApiError extends Error{
+
+}
+```
+
+ApiError inherits everything from Error.
+
+---
+
+# First ApiError
+
+```javascript
+class ApiError extends Error{
+
+    constructor(message){
+
+        super(message);
+
+    }
+
+}
+```
+
+Notice
+
+```javascript
+super(message)
+```
+
+What is super?
+
+---
+
+# What is super()?
+
+Parent class
+
+```javascript
+class Animal{
+
+    constructor(name){
+
+        this.name = name;
+
+    }
+
+}
+```
+
+Child
+
+```javascript
+class Dog extends Animal{
+
+    constructor(name){
+
+        super(name);
+
+    }
+
+}
+```
+
+`super()` calls the parent constructor.
+
+Exactly the same.
+
+Error's constructor accepts
+
+```javascript
+new Error(message)
+```
+
+So
+
+```javascript
+super(message)
+```
+
+means
+
+```javascript
+Error(message)
+```
+
+---
+
+# Add Status Code
+
+Now improve it.
+
+```javascript
+class ApiError extends Error{
+
+    constructor(statusCode,message){
+
+        super(message);
+
+        this.statusCode=statusCode;
+
+    }
+
+}
+```
+
+Now create one.
+
+```javascript
+const error=new ApiError(
+
+404,
+
+"Student not found"
+
+);
+
+console.log(error);
+```
+
+Output
+
+```text
+ApiError {
+
+ message:"Student not found",
+
+ statusCode:404
+
+}
+```
+
+Amazing.
+
+We don't need
+
+```javascript
+error.status=404;
+```
+
+anymore.
+
+---
+
+# Folder Structure
+
+Industry
+
+```text
+src
+
+|
+
+utils
+
+   |
+
+   ApiError.js
+```
+
+---
+
+ApiError.js
+
+```javascript
+class ApiError extends Error{
+
+    constructor(statusCode,message){
+
+        super(message);
+
+        this.statusCode=statusCode;
+
+    }
+
+}
+
+module.exports=ApiError;
+```
+
+---
+
+# Using It
+
+Controller
+
+```javascript
+const ApiError=require("../utils/ApiError");
+```
+
+Instead of
+
+```javascript
+const error=new Error(
+
+"Student not found"
+
+);
+
+error.status=404;
+
+next(error);
+```
+
+Write
+
+```javascript
+next(
+
+new ApiError(
+
+404,
+
+"Student not found"
+
+)
+
+);
+```
+
+Much cleaner.
+
+---
+
+# Error Middleware
+
+Instead of
+
+```javascript
+res.status(
+
+err.status ||500
+
+)
+```
+
+Now
+
+```javascript
+app.use((err,req,res,next)=>{
+
+res.status(
+
+err.statusCode ||500
+
+).json({
+
+success:false,
+
+message:err.message
+
+});
+
+});
+```
+
+Done.
+
+---
+
+# Complete Flow
+
+```text
+Controller
+
+       |
+
+Student not found
+
+       |
+
+new ApiError(404,"Student not found")
+
+       |
+
+next(error)
+
+       |
+
+Error Middleware
+
+       |
+
+err.statusCode
+
+err.message
+
+       |
+
+JSON Response
+```
+
+---
+
+# Real Example
+
+```javascript
+app.get("/student/:id",(req,res,next)=>{
+
+const found=false;
+
+if(!found){
+
+return next(
+
+new ApiError(
+
+404,
+
+"Student not found"
+
+)
+
+);
+
+}
+
+});
+```
+
+Response
+
+```json
+{
+    "success":false,
+    "message":"Student not found"
+}
+```
+
+Status
+
+```text
+404
+```
+
+---
+
+# Why Big Companies Use This
+
+Imagine these errors
+
+```text
+User not found
+
+Email already exists
+
+Token expired
+
+Password incorrect
+
+Product unavailable
+
+Order cancelled
+
+Payment failed
+```
+
+Instead of
+
+```javascript
+const error=new Error(...);
+
+error.status=...
+
+next(error);
+```
+
+Everywhere
+
+they simply do
+
+```javascript
+throw new ApiError(404,"User not found");
+```
+
+or
+
+```javascript
+return next(
+
+new ApiError(
+
+401,
+
+"Login required"
+
+)
+
+);
+```
+
+One clean line.
+
+---
+
+# Phase 3 Summary
+
+### Normal Error
+
+```javascript
+const error=new Error("User not found");
+
+error.status=404;
+
+next(error);
+```
+
+### ApiError
+
+```javascript
+next(
+
+new ApiError(
+
+404,
+
+"User not found"
+
+)
+
+);
+```
+
+Cleaner, reusable, and easier to maintain.
+
+---
+
+# One important note
+
+This is **not the final stage** of error handling. The next step in professional Express apps is **Phase 4: `asyncHandler`**, where you'll remove repetitive `try...catch` blocks from your async controllers. It's one of the biggest quality-of-life improvements in Express development and naturally builds on `ApiError`.
