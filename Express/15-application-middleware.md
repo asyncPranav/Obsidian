@@ -159,6 +159,186 @@ app.get("/dashboard", checkAuth, (req, res) => {
 
 ---
 
+# ✍️ Difference among three
+
+The easiest way to understand them is by **where they are attached** and **when they run**.
+
+|Type|Attached To|Runs When|
+|---|---|---|
+|**Global Application Middleware**|`app.use()`|Every request|
+|**Path-specific Application Middleware**|`app.use("/path", ...)`|Any request whose path starts with that prefix|
+|**Route-level Middleware**|`app.get()`, `app.post()`, etc.|Only that specific route and HTTP method|
+
+---
+
+# 1. Global Application Middleware
+
+```javascript
+app.use((req, res, next) => {
+  console.log("Global");
+  next();
+});
+```
+
+Runs for:
+
+```text
+GET /
+GET /about
+POST /login
+DELETE /students/1
+
+✅ Everything
+```
+
+Think of it as a security guard at the **main entrance** of the building.
+
+---
+
+# 2. Path-specific Application Middleware
+
+```javascript
+app.use("/about", (req, res, next) => {
+  console.log("About middleware");
+  next();
+});
+```
+
+Runs for:
+
+```text
+GET /about
+GET /about/team
+POST /about
+DELETE /about/123
+
+✅ Anything starting with /about
+```
+
+Does **not** run for:
+
+```text
+GET /
+GET /contact
+GET /student
+```
+
+Think of it as a security guard for the **About department**.
+
+---
+
+# 3. Route-level Middleware
+
+```javascript
+app.get("/contact", middleware, (req, res) => {
+  res.send("Contact");
+});
+```
+
+Runs **only** for:
+
+```text
+GET /contact
+```
+
+Does **not** run for:
+
+```text
+POST /contact
+GET /contact/team
+DELETE /contact
+
+❌ Doesn't run
+```
+
+Think of it as a guard standing **outside one specific room**.
+
+---
+
+---
+
+# Example
+
+```javascript
+app.use(globalMiddleware);
+
+app.use("/about", aboutMiddleware);
+
+app.get("/about", routeMiddleware, (req, res) => {
+  res.send("About");
+});
+```
+
+Now send:
+
+```
+GET /about
+```
+
+Execution order:
+
+```text
+Global Middleware
+        ↓
+About Middleware
+        ↓
+Route Middleware
+        ↓
+Route Handler
+```
+
+---
+
+Send:
+
+```
+GET /
+```
+
+Execution:
+
+```text
+Global Middleware
+        ↓
+Home Route
+```
+
+---
+
+Send:
+
+```
+GET /about/team
+```
+
+Execution:
+
+```text
+Global Middleware
+        ↓
+About Middleware
+```
+
+The route middleware **doesn't run** because it is attached only to:
+
+```javascript
+app.get("/about", ...)
+```
+
+not `/about/team`.
+
+---
+
+## Rule to Remember
+
+- **`app.use()`** → Middleware for the whole app or a path prefix.
+    
+- **`app.use("/path")`** → Middleware for all routes starting with that path.
+    
+- **`app.get("/path", middleware, handler)`** → Middleware for one specific HTTP method and route.
+
+---
+
 # 🔹 How Middleware Works (Flow)
 
 ### Flow Diagram:
