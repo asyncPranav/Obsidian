@@ -550,6 +550,8 @@ This step-by-step approach is much more effective than reading one giant wall of
 
 ----
 
+`In this way you can ask chatGPT to give detailed lessons of all modules then study lesson by lesson`
+
 
 
 
