@@ -481,7 +481,8 @@ app.use(session({
 With this setup, sessions are saved as documents in your MongoDB database. They survive server restarts and work across multiple server instances. This is what you'll use in real Node.js/MongoDB projects.
 
 
-#DOUBT - **About ttl and cookie.maxAge**
+#DOUBT - `About ttl and cookie.maxAge**`
+
 ```js
 app.use(
   session({
