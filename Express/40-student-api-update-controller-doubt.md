@@ -2,50 +2,50 @@
 ---
 
 
-  
-bhai mera ek doubt hai  
-suppose ek simple student api hai  
-jiske schema me name rollno profilepic hai  
-  
-suppose user ne patch request dala  
-update student controller me maine existing Student nikala id lekar  
-  
+## Doubt Regarding Updating Profile Image
 
+Suppose I have a simple **Student API** with the following schema:
+
+- `name`
+- `rollNo`
+- `profile`
+
+When a user sends a **PATCH** request to update the student, I first fetch the existing student by ID:
+
+```js
 const existingStudent = await Student.findById(req.params.id);
+```
 
-  
-  
-then aisa bolte hai phle student object ko update kr do uske baad old profile pic delete kro  
-  
+Then, I prepare the update object and update the student document:
 
+```js
 const updatedData = {};
 
-    // update only those fields which are present in the request body
-    // if (name) updatedData.name = name;
-    // if (newRollNo) updatedData.rollNo = newRollNo;
+// Update only the fields provided in the request
+if (name !== undefined) updatedData.name = name;
+if (newRollNo !== undefined) updatedData.rollNo = newRollNo;
+if (req.file) updatedData.profile = req.file.path;
 
-    
-    if (name !== undefined) updatedData.name = name;
-    if (newRollNo !== undefined) updatedData.rollNo = newRollNo;
-    if (req.file) updatedData.profile = req.file.path;
+const updatedStudent = await Student.findByIdAndUpdate(
+  req.params.id,
+  updatedData,
+  {
+    new: true,
+    runValidators: true,
+  }
+);
+```
 
-    const updatedStudent = await Student.findByIdAndUpdate(
-      req.params.id,
-      updatedData,
-      { new: true, runValidators: true },
-    );
+After the database update is successful, I delete the old profile image for cleanup:
 
-  
-  
-ab iske successfully student object update hone ke baad old image ko delete krenge for cleanup  
-  
-
+```js
 if (req.file && existingStudent.profile) {
-      await deleteFile(existingStudent.profile);
-    }
+  await deleteFile(existingStudent.profile);
+}
+```
 
-  
-  
-  
-  
-mera doubt ye hai ki student update krne ke baad delete kr rhe hai to existingStudent.profile to new profile ko point krne lagega na ??
+## My Doubt
+
+Since the student document has already been updated, won't `existingStudent.profile` now point to the **new profile image** instead of the old one?
+
+Or does `existingStudent` still hold the old document data that was fetched before `findByIdAndUpdate()` was executed?
