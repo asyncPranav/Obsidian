@@ -1,8 +1,233 @@
 
 ---
+## Doubt regarding order of middleware in route
 
+The order is important because **middleware runs from top to bottom in the exact order you write it in the route**.
 
-## Doubt Regarding Updating Profile Image in Controller
+Express does not automatically understand that "validation should happen after file parsing". You decide the flow.
+
+---
+
+Suppose your route was like this (your wrong order):
+
+```js
+router.post(
+  "/",
+  createStudentValidator,
+  upload.single("profile"),
+  createStudent
+);
+```
+
+The request flow becomes:
+
+```
+Request
+   |
+   ↓
+createStudentValidator
+   |
+   ↓
+upload.single("profile")
+   |
+   ↓
+createStudent controller
+```
+
+Now the problem:
+
+Your request is:
+
+```
+Content-Type: multipart/form-data
+```
+
+because you are sending:
+
+```
+name     Aryan
+rollNo   101
+profile  image.png
+```
+
+But Express itself does not parse `multipart/form-data`.
+
+Only Multer does that.
+
+Before Multer runs:
+
+```js
+req.body
+```
+
+is:
+
+```js
+{}
+```
+
+and:
+
+```js
+req.file
+```
+
+is:
+
+```js
+undefined
+```
+
+So your validator checks:
+
+```js
+body("name")
+.notEmpty()
+```
+
+against:
+
+```js
+req.body.name
+```
+
+which is:
+
+```js
+undefined
+```
+
+Therefore it says:
+
+```json
+{
+  "msg": "name is required"
+}
+```
+
+---
+
+Now the correct order:
+
+```js
+router.post(
+  "/",
+  upload.single("profile"),
+  createStudentValidator,
+  createStudent
+);
+```
+
+Flow:
+
+```
+Request
+   |
+   ↓
+Multer
+   |
+   ↓
+Parse multipart/form-data
+   |
+   ↓
+req.body created
+req.file created
+   |
+   ↓
+Validator
+   |
+   ↓
+Controller
+```
+
+After Multer:
+
+```js
+req.body
+```
+
+becomes:
+
+```js
+{
+  name: "Aryan",
+  rollNo: "101"
+}
+```
+
+and:
+
+```js
+req.file
+```
+
+becomes:
+
+```js
+{
+  fieldname: "profile",
+  path: "uploads/image.png"
+}
+```
+
+Now validator can correctly check:
+
+```js
+name exists ✅
+rollNo exists ✅
+```
+
+---
+
+Think of it like a pipeline:
+
+Wrong:
+
+```
+Check passport
+     |
+     ↓
+Create passport
+```
+
+You cannot validate something before it exists.
+
+Correct:
+
+```
+Create passport
+     |
+     ↓
+Check passport
+```
+
+---
+
+For APIs, a common order is:
+
+```js
+router.post(
+  "/",
+  upload.single("profile"),  // Parse files + body
+  createStudentValidator,   // Validate parsed data
+  createStudent             // Business logic
+);
+```
+
+Because:
+
+1. **Multer** → extracts data from the request
+    
+2. **Validator** → checks whether extracted data is correct
+    
+3. **Controller** → saves/processes the data
+    
+
+Your order was wrong because you were trying to validate data **before the middleware responsible for creating that data had executed**.
+
+---
+
+# ✅ Doubt Regarding Updating Profile Image in Controller
 
 Suppose I have a simple **Student API** with the following schema:
 
