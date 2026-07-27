@@ -188,6 +188,11 @@ if (req.file && existingStudent.profile) {
 
 To tumhara doubt valid tha, lekin is case me `existingStudent.profile` **old image path hi rahega**, isi wajah se uska use cleanup ke liye kiya jata hai.
 
+
+---
+
+# Detail Answer
+
 Short answer: **No.** `existingStudent.profile` will **not** point to the new profile image. It will still contain the **old profile path** that was fetched by `findById()`.
 
 ---
