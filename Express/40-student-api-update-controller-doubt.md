@@ -2,7 +2,7 @@
 ---
 
 
-## Doubt Regarding Updating Profile Image
+## Doubt Regarding Updating Profile Image in Controller
 
 Suppose I have a simple **Student API** with the following schema:
 
