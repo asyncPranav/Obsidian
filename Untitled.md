@@ -2,4 +2,4 @@
 
 ---
 
-Test new remote url works or not for auto push pull
+Test new remote URL works or not for auto push pull
