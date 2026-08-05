@@ -178,8 +178,8 @@ Now that you understand the structure, let's trace the complete flow:
 
 ```
 ┌──────────────────────────────────────────────────────────────────┐
-│                       REGISTRATION                                │
-│                                                                   │
+│                       REGISTRATION                               │
+│                                                                  │
 │  Client → POST /auth/register { username, email, password }      │
 │  Server → validates input                                        │
 │  Server → checks email not already registered                    │
@@ -190,8 +190,8 @@ Now that you understand the structure, let's trace the complete flow:
 └──────────────────────────────────────────────────────────────────┘
 
 ┌──────────────────────────────────────────────────────────────────┐
-│                          LOGIN                                    │
-│                                                                   │
+│                          LOGIN                                   │
+│                                                                  │
 │  Client → POST /auth/login { email, password }                   │
 │  Server → finds user by email in DB                              │
 │  Server → bcrypt.compare(submittedPassword, storedHash)          │
@@ -201,11 +201,11 @@ Now that you understand the structure, let's trace the complete flow:
 └──────────────────────────────────────────────────────────────────┘
 
 ┌──────────────────────────────────────────────────────────────────┐
-│                    AUTHENTICATED REQUEST                          │
-│                                                                   │
+│                    AUTHENTICATED REQUEST                         │
+│                                                                  │
 │  Client → GET /api/profile                                       │
-│           Authorization: Bearer eyJhbGciOiJIUzI1NiIs...         │
-│                                                                   │
+│           Authorization: Bearer eyJhbGciOiJIUzI1NiIs...          │
+│                                                                  │
 │  Server auth middleware:                                         │
 │    1. Extract token from Authorization header                    │
 │    2. jwt.verify(token, secret) → decode + verify signature      │
@@ -213,12 +213,12 @@ Now that you understand the structure, let's trace the complete flow:
 │    4. Optionally: fetch user from DB to confirm still exists     │
 │    5. Attach user to req.user                                    │
 │    6. Call next() → route handler runs                           │
-│                                                                   │
+│                                                                  │
 │  Server → returns profile data                                   │
 └──────────────────────────────────────────────────────────────────┘
 
 ┌──────────────────────────────────────────────────────────────────┐
-│                          LOGOUT                                   │
+│                          LOGOUT                                  │
 │                                                                   │
 │  With JWT: Server does nothing (stateless — there is nothing     │
 │  to destroy on the server side)                                  │
