@@ -307,25 +307,25 @@ A **refresh token** is a long-lived token (7 days to 30 days) stored in an httpO
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                ACCESS + REFRESH TOKEN FLOW                       │
-│                                                                  │
-│  Login:                                                          │
-│    Server creates:                                               │
+│                ACCESS + REFRESH TOKEN FLOW                      │
+│                                                                 │
+│  Login:                                                         │
+│    Server creates:                                              │
 │      accessToken  (expires in 15 min) → sent in JSON body       │
 │      refreshToken (expires in 7 days) → set as httpOnly cookie  │
-│                                                                  │
+│                                                                 │
 │  Normal requests (first 15 minutes):                            │
 │    Client sends: Authorization: Bearer <accessToken>            │
 │    Server verifies accessToken → processes request              │
-│                                                                  │
+│                                                                 │
 │  After 15 minutes (access token expires):                       │
 │    Client receives 401 Unauthorized                             │
 │    Client sends: POST /auth/refresh                             │
-│      (refreshToken cookie is sent automatically)               │
+│      (refreshToken cookie is sent automatically)                │
 │    Server verifies refreshToken → issues new accessToken        │
 │    Client stores new accessToken → retries original request     │
-│                                                                  │
-│  Logout:                                                         │
+│                                                                 │
+│  Logout:                                                        │
 │    Server adds refreshToken to a blocklist (in DB or Redis)     │
 │    Server clears the refreshToken cookie                        │
 │    Client deletes accessToken from storage                      │
