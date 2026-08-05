@@ -498,7 +498,7 @@ Eventually our request pipeline should look something like:
                             │
                             ▼
                   ┌───────────────────┐
-                  │ authenticateUser() │
+                  │ authenticateUser()│
                   └─────────┬─────────┘
                             │
                        req.user
