@@ -219,11 +219,11 @@ Now that you understand the structure, let's trace the complete flow:
 
 ┌──────────────────────────────────────────────────────────────────┐
 │                          LOGOUT                                  │
-│                                                                   │
+│                                                                  │
 │  With JWT: Server does nothing (stateless — there is nothing     │
 │  to destroy on the server side)                                  │
 │  Client → deletes the token from storage                         │
-│                                                                   │
+│                                                                  │
 │  Problem: token is still valid until its expiry even after logout│
 │  Solution: short expiry times + refresh tokens (covered below)   │
 └──────────────────────────────────────────────────────────────────┘
