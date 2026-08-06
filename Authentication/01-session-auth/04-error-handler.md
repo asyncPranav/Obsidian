@@ -1217,6 +1217,8 @@ errorHandler
 JSON response
 ```
 
+And the client could receive:
+
 ```json
 {
   "status": "fail",
