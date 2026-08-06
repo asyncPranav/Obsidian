@@ -672,3 +672,11 @@ try {
 ```
 
 Once you understand async error handling, `throw new ApiError(...)` becomes much cleaner.
+
+
+---
+
+
+# ⚡Updated ApiError and Global error handler
+
+
