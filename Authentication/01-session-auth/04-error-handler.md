@@ -679,6 +679,8 @@ Once you understand async error handling, `throw new ApiError(...)` becomes much
 
 # ⚡Updated ApiError and Global error handler
 
+
+
 `ApiError.js`
 ```js
 class ApiError extends Error {
@@ -693,5 +695,29 @@ class ApiError extends Error {
 export default ApiError;
 ```
 
+`errorHandler.middleware.js`
+```js
+import { validationResult } from "express-validator";
 
+import ApiError from "../utils/ApiError.js";
+
+const createUserValidate = (req, res, next) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    const errorMessages = errors.array().map((error) => ({
+      field: error.path,
+      message: error.msg,
+    }));
+
+    return next(
+      new ApiError(400, "Validation failed", errorMessages)
+    );
+  }
+
+  next();
+};
+
+export default createUserValidate;
+```
 
