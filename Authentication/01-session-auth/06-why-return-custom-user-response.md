@@ -1,5 +1,9 @@
 
 ---
+```js
+const createUser = async (req, res, next) => { try { const { name, email, password } = req.body; const existingUser = await User.findOne({ email }); if (existingUser) { return next(new ApiError(409, "Email is already registered")); } const user = await User.create({ name, email, password, }); res.status(201).json({ status: "success", data: { user: { id: user._id, name: user.name, email: user.email, role: user.role, createdAt: user.createdAt, updatedAt: user.updatedAt, }, }, }); } catch (err) { if (err.code === 11000) { return next(new ApiError(409, "Email is already registered")); } next(err); } };
+
+```
 
 Because you usually **don't want to send the entire MongoDB/Mongoose `user` document back to the client**.
 
