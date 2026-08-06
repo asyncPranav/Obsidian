@@ -679,7 +679,9 @@ Once you understand async error handling, `throw new ApiError(...)` becomes much
 
 # ⚡Updated ApiError and Global error handler
 
+**Why** -  because `createUserValidate.middleware.js` has three fields but `ApiError` only accepts two fields
 
+``
 
 `ApiError.js`
 ```js
