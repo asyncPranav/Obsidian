@@ -1190,5 +1190,28 @@ errorHandler
 response
 ```
 
+
+Client
+  ↓
+POST /users
+  ↓
+body("email")
+body("password")
+  ↓
+createUserValidate
+  ↓
+validationResult(req)
+  ↓
+errors found?
+  ↓ YES
+errorMessages
+  ↓
+new ApiError(400, "Validation failed", errorMessages)
+  ↓
+next(error)
+  ↓
+errorHandler
+  ↓
+JSON response
 So your first `errorHandler` is a good choice for the structure you're building.
 
