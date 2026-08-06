@@ -1190,7 +1190,9 @@ errorHandler
 response
 ```
 
+Then the whole flow becomes:
 
+```
 Client
   ↓
 POST /users
@@ -1213,5 +1215,26 @@ next(error)
 errorHandler
   ↓
 JSON response
+```
+
+```json
+{
+  "status": "fail",
+  "statusCode": 400,
+  "message": "Validation failed",
+  "errors": [
+    {
+      "field": "email",
+      "message": "Invalid email"
+    },
+    {
+      "field": "password",
+      "message": "Password must be at least 6 characters"
+    }
+  ]
+}
+
+```
+
 So your first `errorHandler` is a good choice for the structure you're building.
 
