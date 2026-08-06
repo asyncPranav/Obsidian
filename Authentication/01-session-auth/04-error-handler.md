@@ -705,9 +705,10 @@ const createUserValidate = (req, res, next) => {
 
 export default createUserValidate;
 ```
-	|
-	|
-	|
+
+Now need to update below file
+
+
 `ApiError.js`
 ```js
 class ApiError extends Error {
