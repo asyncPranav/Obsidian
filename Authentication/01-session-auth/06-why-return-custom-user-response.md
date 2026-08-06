@@ -6,7 +6,6 @@ const createUser = async (req, res, next) => {
     const { name, email, password } = req.body;
 
     const existingUser = await User.findOne({ email });
-
     if (existingUser) {
       return next(new ApiError(409, "Email is already registered"));
     }
