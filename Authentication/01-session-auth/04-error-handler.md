@@ -745,5 +745,450 @@ export default errorHandler;
 We can write `errorHandler.middleware.js` in another way too 
 
 ```js
+const errorHandler = (err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
 
+  res.status(statusCode).json({
+    status: "fail",
+    statusCode,
+    message,
+    errors: err.errors || undefined,
+  });
+};
+
+export default errorHandler;
 ```
+
+---
+
+### what's difference between both
+
+
+Both work, but they behave **slightly differently**. The main difference is what happens when `err.errors` is missing or empty.
+
+## 1. Your first version
+
+```js
+const errorHandler = (err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
+
+  res.status(statusCode).json({
+    status: "fail",
+    statusCode,
+    message,
+    ...(err.errors?.length && { errors: err.errors }),
+  });
+};
+```
+
+This uses **spread syntax + optional chaining + short-circuiting**.
+
+The confusing part is:
+
+```js
+...(err.errors?.length && { errors: err.errors })
+```
+
+Let's break it down.
+
+### If errors exist
+
+Suppose:
+
+```js
+err.errors = [
+  {
+    field: "email",
+    message: "Invalid email"
+  }
+];
+```
+
+Then:
+
+```js
+err.errors?.length
+```
+
+is:
+
+```js
+1
+```
+
+So:
+
+```js
+1 && { errors: err.errors }
+```
+
+becomes:
+
+```js
+{
+  errors: [
+    {
+      field: "email",
+      message: "Invalid email"
+    }
+  ]
+}
+```
+
+Then the spread:
+
+```js
+...{
+  errors: err.errors
+}
+```
+
+adds the property.
+
+Response:
+
+```json
+{
+  "status": "fail",
+  "statusCode": 400,
+  "message": "Validation failed",
+  "errors": [
+    {
+      "field": "email",
+      "message": "Invalid email"
+    }
+  ]
+}
+```
+
+### If errors don't exist
+
+Suppose:
+
+```js
+err.errors = undefined;
+```
+
+Then:
+
+```js
+err.errors?.length
+```
+
+is:
+
+```js
+undefined
+```
+
+So:
+
+```js
+undefined && { errors: err.errors }
+```
+
+becomes:
+
+```js
+undefined
+```
+
+The spread effectively adds **nothing**.
+
+Response:
+
+```json
+{
+  "status": "fail",
+  "statusCode": 500,
+  "message": "Something went wrong"
+}
+```
+
+There is **no `errors` property**.
+
+---
+
+# 2. Your second version
+
+```js
+const errorHandler = (err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
+
+  res.status(statusCode).json({
+    status: "fail",
+    statusCode,
+    message,
+    errors: err.errors || undefined,
+  });
+};
+```
+
+Here you are **always defining the `errors` property**.
+
+If:
+
+```js
+err.errors = [
+  {
+    field: "email",
+    message: "Invalid email"
+  }
+];
+```
+
+you get:
+
+```json
+{
+  "status": "fail",
+  "statusCode": 400,
+  "message": "Validation failed",
+  "errors": [
+    {
+      "field": "email",
+      "message": "Invalid email"
+    }
+  ]
+}
+```
+
+So far, same as the first.
+
+But if:
+
+```js
+err.errors === undefined
+```
+
+then:
+
+```js
+errors: err.errors || undefined
+```
+
+becomes:
+
+```js
+errors: undefined
+```
+
+Now you might think JSON will contain:
+
+```json
+{
+  "errors": undefined
+}
+```
+
+But JSON **doesn't support `undefined`**.
+
+When `JSON.stringify()` processes an object, properties whose value is `undefined` are omitted.
+
+So the actual response is effectively:
+
+```json
+{
+  "status": "fail",
+  "statusCode": 500,
+  "message": "Internal Server Error"
+}
+```
+
+So for a normal JSON response, these two versions can produce the **same output when `err.errors` is undefined**.
+
+---
+
+# 3. But there is an important difference: empty array
+
+Suppose:
+
+```js
+err.errors = [];
+```
+
+This is where the difference becomes interesting.
+
+### First version
+
+```js
+...(err.errors?.length && { errors: err.errors })
+```
+
+An empty array has:
+
+```js
+[].length
+// 0
+```
+
+So:
+
+```js
+0 && { errors: err.errors }
+```
+
+becomes:
+
+```js
+0
+```
+
+Therefore, `errors` is **not added**.
+
+Response:
+
+```json
+{
+  "status": "fail",
+  "statusCode": 400,
+  "message": "Validation failed"
+}
+```
+
+### Second version
+
+```js
+errors: err.errors || undefined
+```
+
+An empty array is **truthy** in JavaScript:
+
+```js
+Boolean([])
+// true
+```
+
+So:
+
+```js
+err.errors || undefined
+```
+
+returns:
+
+```js
+[]
+```
+
+Therefore the response contains:
+
+```json
+{
+  "status": "fail",
+  "statusCode": 400,
+  "message": "Validation failed",
+  "errors": []
+}
+```
+
+That's the actual behavioral difference.
+
+---
+
+# 4. Think about the intent
+
+Your first version says:
+
+> **Only include `errors` if there are actual errors inside it.**
+
+Your second version says:
+
+> **Include `errors` whenever `err.errors` exists, even if it's an empty array.**
+
+So:
+
+|`err.errors`|First|Second|
+|---|---|---|
+|`undefined`|omitted|omitted in JSON|
+|`null`|omitted|omitted in JSON|
+|`[]`|omitted|`"errors": []`|
+|`[error]`|included|included|
+
+---
+
+# 5. Which one would I use?
+
+For your API, I prefer the **first**:
+
+```js
+...(err.errors?.length && { errors: err.errors })
+```
+
+because you're basically saying:
+
+> "Don't send an `errors` field unless there are actual validation errors."
+
+That's a nice API response.
+
+For example, a normal server error:
+
+```json
+{
+  "status": "fail",
+  "statusCode": 500,
+  "message": "Internal Server Error"
+}
+```
+
+While validation failure gives:
+
+```json
+{
+  "status": "fail",
+  "statusCode": 400,
+  "message": "Validation failed",
+  "errors": [
+    {
+      "field": "email",
+      "message": "Invalid email"
+    },
+    {
+      "field": "password",
+      "message": "Password too short"
+    }
+  ]
+}
+```
+
+That distinction is clean.
+
+---
+
+## One thing I'd change
+
+I would make your `ApiError` support `errors`:
+
+```js
+class ApiError extends Error {
+  constructor(statusCode, message, errors = null) {
+    super(message);
+    this.statusCode = statusCode;
+    this.errors = errors;
+  }
+}
+```
+
+Then your architecture becomes:
+
+```text
+express-validator
+       ↓
+validationResult(req)
+       ↓
+errors.array()
+       ↓
+new ApiError(400, "Validation failed", errors)
+       ↓
+next(error)
+       ↓
+errorHandler
+       ↓
+response
+```
+
+So your first `errorHandler` is a good choice for the structure you're building.
+
