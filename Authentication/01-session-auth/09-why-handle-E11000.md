@@ -151,3 +151,10 @@ That's the key concept:
 > **Application checks improve behavior; database constraints guarantee data integrity.**
 
 So the `catch (error.code === 11000)` isn't redundant. It's the **fallback protection against the database rejecting a duplicate despite our earlier check**.
+
+
+----
+#DOUBT  - cant next(error) able to handle it why we define saperately
+
+
+
