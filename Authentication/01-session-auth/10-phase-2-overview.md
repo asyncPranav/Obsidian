@@ -1,5 +1,25 @@
 
 ---
+### Phase 2 — Session Authentication 🔐
+
+We'll focus only on **authentication**, not full authorization yet.
+
+- 👤 Create **Register** endpoint
+- 🔒 Hash passwords before storing them
+- 🔑 Create **Login** endpoint
+- ✅ Verify email + password
+- 🪪 Introduce **sessions**
+- 🍪 Understand **session cookies**
+- 🗄️ Understand where session data is stored
+- 👤 Identify the logged-in user from the session
+- `req.user` — attach authenticated user to request
+- 🚪 Create **Logout** endpoint
+- ⏱️ Understand session expiration
+- 🛡️ Create **authentication middleware**
+- 🔐 Protect selected routes using that middleware
+- 🧪 Test the complete auth flow in Postman
+
+---
 
 Yes. Let's begin **Phase 2 from the mental model**, not code.
 
