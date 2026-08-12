@@ -153,7 +153,7 @@ Client                         Server
   │                              │
   │◄─────────────────────────────│
   │       Set-Cookie             │
-  │       session ID              │
+  │       session ID             │
   │                              │
 ```
 
