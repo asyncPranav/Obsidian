@@ -236,7 +236,7 @@ Get stored password hash
        ↓
 Compare submitted password
        ↓
-Correct?
+	Correct?
     /      \
   NO        YES
   ↓          ↓
