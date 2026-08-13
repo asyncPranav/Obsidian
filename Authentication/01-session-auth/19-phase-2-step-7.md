@@ -673,6 +673,145 @@ That proves our middleware is actually protecting the route.
 
 ---
 
+You don't need to change any code for this part.
+
+### In Postman
+
+#### 1. First, make sure `/me` works while logged in
+
+You should have already done:
+
+```http
+POST /api/auth/login
+```
+
+Then:
+
+```http
+GET /api/auth/me
+```
+
+and received your user information.
+
+That means Postman currently has your session cookie.
+
+---
+
+#### 2. Remove the session cookie
+
+In Postman:
+
+1. Find your request, for example:
+    
+    ```http
+    GET http://localhost:5000/api/auth/me
+    ```
+    
+2. Look near the top for **Cookies**.
+    
+3. Click **Cookies**.
+    
+4. Find the cookie belonging to your API domain, usually something like:
+    
+    ```text
+    localhost
+    ```
+    
+5. Find your session cookie. If you're using the default `express-session` setup, it is commonly:
+    
+    ```text
+    connect.sid
+    ```
+    
+6. Delete that cookie.
+    
+7. Close the cookie window.
+    
+
+**Important:** Don't delete your whole Postman collection—just remove the session cookie.
+
+---
+
+#### 3. Send `/me` again
+
+Now send:
+
+```http
+GET /api/auth/me
+```
+
+This time there is **no session cookie**.
+
+Your middleware executes:
+
+```js
+const userId = req.session.userId;
+
+if (!userId) {
+  return next(new ApiError(401, "You are not authenticated"));
+}
+```
+
+Because there is no valid session:
+
+```text
+req.session.userId
+        ↓
+    undefined
+        ↓
+    !userId
+        ↓
+      true
+        ↓
+     401
+```
+
+You should get something like:
+
+```json
+{
+  "status": "fail",
+  "statusCode": 401,
+  "message": "You are not authenticated"
+}
+```
+
+### 4. What this proves
+
+You've now tested both sides:
+
+```text
+LOGIN
+  ↓
+session cookie
+  ↓
+GET /me
+  ↓
+req.session.userId
+  ↓
+req.user
+  ↓
+200 ✅
+```
+
+And:
+
+```text
+NO COOKIE
+  ↓
+GET /me
+  ↓
+no req.session.userId
+  ↓
+401 ❌
+```
+
+If you get **401 without the cookie**, your authentication middleware is protecting the route correctly.
+
+**One small warning:** If you delete the cookie and then `/me` still returns the user, check Postman's **Headers** tab for a manually added `Cookie` header and remove it too.
+
+---
+
 # The complete Step 7 flow
 
 Keep this in your notes:
