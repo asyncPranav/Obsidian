@@ -191,6 +191,153 @@ contains:
 123
 ```
 
+
+----
+
+Yes — the confusing part is that **the cookie does not directly contain `userId: 123`**.
+
+Let's slow it down.
+
+### Think of it like a locker key 🔑
+
+When the user logs in, your server creates a session:
+
+```js
+req.session.userId = 123;
+```
+
+Express-session stores something like this in MongoDB:
+
+```text
+Session ID: abc789
+
+{
+  userId: 123
+}
+```
+
+Then Express sends the browser a cookie containing the **session ID**:
+
+```text
+connect.sid = abc789
+```
+
+So the browser has:
+
+```text
+Cookie
+  ↓
+abc789
+```
+
+It does **not** have:
+
+```text
+userId = 123
+```
+
+---
+
+### Now Postman makes this request
+
+```http
+PATCH /api/tasks/456
+Cookie: connect.sid=abc789
+```
+
+The request enters Express.
+
+Your `sessionMiddleware` sees:
+
+```text
+connect.sid=abc789
+```
+
+It says:
+
+> "Okay, this request belongs to session `abc789`."
+
+Then Express-session looks in MongoDB:
+
+```text
+MongoDB
+
+abc789 → {
+    userId: 123
+}
+```
+
+It finds the session.
+
+Then Express-session puts that session information into:
+
+```js
+req.session
+```
+
+So now, inside your route:
+
+```js
+req.session
+```
+
+is conceptually:
+
+```js
+{
+    userId: 123
+}
+```
+
+Therefore:
+
+```js
+req.session.userId
+```
+
+gives:
+
+```text
+123
+```
+
+### The entire flow
+
+```text
+Postman
+   │
+   │ Cookie: connect.sid=abc789
+   ↓
+Express
+   │
+   ↓
+sessionMiddleware
+   │
+   │ "What's session abc789?"
+   ↓
+MongoDB
+   │
+   │ abc789 → { userId: 123 }
+   ↓
+sessionMiddleware
+   │
+   │ puts session into req
+   ↓
+req.session
+   │
+   └── userId: 123
+```
+
+So remember this important distinction:
+
+**Cookie → identifies the session**
+
+**MongoDB → contains the session data**
+
+**`req.session` → gives your Express code access to that session data**
+
+That's why `req.session.userId` can be `123` even though the cookie itself only contains the session ID.
+
 ---
 
 # 4. Then `authenticate` runs
