@@ -698,7 +698,7 @@ PATCH /api/tasks/456
 the request goes:
 
 ```text
-                    PATCH /api/tasks/456
+                     PATCH /api/tasks/456
                               │
                               ▼
                     sessionMiddleware
@@ -707,20 +707,34 @@ the request goes:
                     Read session cookie
                               │
                               ▼
-                    MongoDB session lookup
+                    Cookie contains:
+                    sessionId = abc789
                               │
                               ▼
-                     req.session.userId
+                    Find session in MongoDB
                               │
                               ▼
-                        authenticate
+                  Session found:
+                  { userId: 123 }
+                              │
+                              ▼
+                     req.session
+                              │
+                              ▼
+                  req.session.userId
+                              │
+                              ▼
+                           123
+                              │
+                              ▼
+                         authenticate
                               │
                     ┌─────────┴─────────┐
                     │                   │
                  no user             user exists
                     │                   │
                    401                  ▼
-                                User.findById()
+                                User.findById(123)
                                       │
                                       ▼
                                   req.user
