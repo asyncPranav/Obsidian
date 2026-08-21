@@ -1982,4 +1982,3 @@ If your exam asks **"Explain Network Models"**, structure your answer like this:
 6. Conclusion
     
 
-That structure is enough for a **long-answer/10-mark question** and is much safer than simply memorizing the seven layer names.
