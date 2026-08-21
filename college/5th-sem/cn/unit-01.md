@@ -1188,3 +1188,798 @@ Then, if your syllabus includes them, mention **CAN, HAN and WLAN** as additiona
 > **PAN = Person → LAN = Building → MAN = City → WAN = Country/World**
 
 This is the simplest way to remember the hierarchy for an exam.
+
+
+---
+
+
+# Network Models — Detailed Exam Notes
+
+## 1. What is a Network Model?
+
+A **network model** is a conceptual framework that describes **how communication between two or more devices takes place over a computer network**.
+
+It divides the complicated networking process into **different layers**, where each layer performs a specific set of functions.
+
+### Why do we need network models?
+
+Network communication involves many activities:
+
+```text
+Application
+    ↓
+Data formatting
+    ↓
+Reliable delivery
+    ↓
+Addressing
+    ↓
+Routing
+    ↓
+Transmission
+    ↓
+Physical medium
+```
+
+Instead of handling everything together, network models divide these responsibilities into layers.
+
+### Main Network Models
+
+There are two important network models:
+
+1. **OSI Model**
+    
+2. **TCP/IP Model**
+    
+
+---
+
+# 2. OSI Model
+
+**OSI** stands for **Open Systems Interconnection**.
+
+It was developed by the **International Organization for Standardization (ISO)**.
+
+The OSI model consists of **7 layers**.
+
+```text
+┌──────────────────────────┐
+│  7. Application          │
+├──────────────────────────┤
+│  6. Presentation         │
+├──────────────────────────┤
+│  5. Session              │
+├──────────────────────────┤
+│  4. Transport            │
+├──────────────────────────┤
+│  3. Network              │
+├──────────────────────────┤
+│  2. Data Link            │
+├──────────────────────────┤
+│  1. Physical             │
+└──────────────────────────┘
+```
+
+### Easy way to remember
+
+From **top to bottom**:
+
+> **A P S T N D P**
+
+**All People Seem To Need Data Processing**
+
+From **bottom to top**:
+
+> **P D N T S P A**
+
+---
+
+# 3. Seven Layers of OSI Model
+
+---
+
+## Layer 1 — Physical Layer
+
+The **Physical Layer** is the lowest layer of the OSI model.
+
+It is responsible for transmitting **raw bits (0s and 1s)** through the physical communication medium.
+
+### Main functions
+
+- Transmission of bits.
+    
+- Defines physical characteristics of the network.
+    
+- Defines cables, connectors and interfaces.
+    
+- Defines voltage/signal levels.
+    
+- Defines data transmission rate.
+    
+- Defines physical topology.
+    
+
+### Examples
+
+- Ethernet cables
+    
+- Fiber-optic cables
+    
+- Radio signals
+    
+- Hubs
+    
+- Repeaters
+    
+
+### Data unit
+
+**Bits**
+
+```text
+Sender
+  |
+  |  10110101
+  ↓
+Physical Medium
+  |
+  ↓
+Receiver
+```
+
+### Exam definition
+
+> **The Physical Layer is responsible for transmitting raw bits over a physical communication medium.**
+
+---
+
+# Layer 2 — Data Link Layer
+
+The **Data Link Layer** provides **node-to-node delivery** of data.
+
+It takes raw bits from the Physical Layer and organizes them into **frames**.
+
+### Main functions
+
+1. **Framing**
+    
+    - Converts data into frames.
+        
+2. **MAC addressing**
+    
+    - Uses MAC addresses to identify devices on a local network.
+        
+3. **Error detection**
+    
+    - Detects errors that occur during transmission.
+        
+4. **Flow control**
+    
+    - Controls the rate of data transmission between directly connected devices.
+        
+5. **Access control**
+    
+    - Determines which device can use a shared transmission medium.
+        
+
+### Devices
+
+- Switch
+    
+- Bridge
+    
+
+### Protocol/examples
+
+- Ethernet
+    
+- PPP
+    
+- HDLC
+    
+
+### Data unit
+
+**Frame**
+
+```text
+Network Layer
+      ↓
+  ┌───────────┐
+  │   Frame   │
+  └───────────┘
+      ↓
+Physical Layer
+```
+
+### Exam definition
+
+> **The Data Link Layer provides reliable node-to-node delivery and organizes data into frames.**
+
+---
+
+# Layer 3 — Network Layer
+
+The **Network Layer** is responsible for **source-to-destination delivery across different networks**.
+
+Its most important functions are **logical addressing and routing**.
+
+### Main functions
+
+### 1. Logical addressing
+
+It uses logical addresses such as **IP addresses**.
+
+Example:
+
+```text
+192.168.1.10
+```
+
+### 2. Routing
+
+Determines the best path for data to travel from source to destination.
+
+```text
+Computer A
+    |
+ Router 1
+   /   \
+  /     \
+R2       R3
+  \     /
+   \   /
+  Router 4
+      |
+Computer B
+```
+
+### 3. Packet forwarding
+
+Forwards packets toward their destination.
+
+### Device
+
+**Router**
+
+### Protocols
+
+- IP
+    
+- ICMP
+    
+- IPsec (network-layer security)
+    
+
+### Data unit
+
+**Packet**
+
+### Exam definition
+
+> **The Network Layer is responsible for logical addressing, routing, and delivery of packets from source to destination across interconnected networks.**
+
+---
+
+# Layer 4 — Transport Layer
+
+The **Transport Layer** provides **end-to-end communication** between applications running on different devices.
+
+It is one of the most important layers.
+
+### Main functions
+
+1. **Segmentation**
+    
+    - Breaks large data into smaller units.
+        
+2. **Reassembly**
+    
+    - Reconstructs the original data at the destination.
+        
+3. **Flow control**
+    
+    - Prevents the sender from overwhelming the receiver.
+        
+4. **Error control**
+    
+    - Detects and handles transmission problems.
+        
+5. **Reliable delivery**
+    
+    - Ensures data reaches the destination correctly when the protocol provides reliability.
+        
+6. **Port addressing**
+    
+    - Uses port numbers to identify applications.
+        
+
+Example:
+
+```text
+IP Address + Port Number
+
+192.168.1.5 : 443
+```
+
+### Important protocols
+
+- **TCP** — reliable, connection-oriented
+    
+- **UDP** — connectionless, faster but does not provide TCP-style reliability
+    
+
+### Data unit
+
+- **Segment** — commonly associated with TCP
+    
+- **Datagram** — commonly associated with UDP
+    
+
+### Exam definition
+
+> **The Transport Layer provides end-to-end delivery, segmentation, flow control, error control, and process-to-process communication.**
+
+---
+
+# Layer 5 — Session Layer
+
+The **Session Layer** establishes, manages, and terminates communication sessions between applications.
+
+### Main functions
+
+- Establishes a session.
+    
+- Maintains a session.
+    
+- Terminates a session.
+    
+- Provides synchronization.
+    
+- Helps manage communication between applications.
+    
+
+### Example
+
+Suppose two systems are communicating:
+
+```text
+System A                  System B
+
+   |                         |
+   |---- Session Start ----->|
+   |                         |
+   |<---- Data Exchange ---->|
+   |                         |
+   |----- Session End ------>|
+```
+
+### Exam definition
+
+> **The Session Layer establishes, manages, synchronizes, and terminates communication sessions between applications.**
+
+---
+
+# Layer 6 — Presentation Layer
+
+The **Presentation Layer** is concerned with the **format and representation of data**.
+
+It ensures that data sent by one system can be understood by another system.
+
+### Main functions
+
+### 1. Translation
+
+Converts data between different formats.
+
+Example:
+
+```text
+Sender format
+      ↓
+Translation
+      ↓
+Receiver format
+```
+
+### 2. Encryption/Decryption
+
+Used to transform data into a protected form and back.
+
+### 3. Compression/Decompression
+
+Reduces the size of data before transmission.
+
+### Examples
+
+- Data encoding
+    
+- Character encoding
+    
+- Encryption
+    
+- Compression
+    
+- JPEG
+    
+- MPEG
+    
+- ASCII/Unicode
+    
+
+### Exam definition
+
+> **The Presentation Layer handles data translation, encryption, decryption, compression, and decompression.**
+
+---
+
+# Layer 7 — Application Layer
+
+The **Application Layer** is the highest layer of the OSI model.
+
+It provides network services directly to **user applications**.
+
+### Important protocols
+
+- HTTP / HTTPS → Web
+    
+- FTP → File transfer
+    
+- SMTP → Email sending
+    
+- DNS → Domain name resolution
+    
+- SSH → Secure remote access
+    
+
+### Examples
+
+When you open a website:
+
+```text
+Browser
+   ↓
+HTTP/HTTPS
+   ↓
+Application Layer
+```
+
+### Important point
+
+The Application Layer is **not the application itself**.
+
+For example:
+
+```text
+Chrome
+  ↓
+Uses HTTP/HTTPS
+  ↓
+Application Layer
+```
+
+### Exam definition
+
+> **The Application Layer provides network services and interfaces that allow user applications to communicate over a network.**
+
+---
+
+# 4. Complete OSI Layer Table
+
+|Layer|Name|Main Function|Data Unit|Examples/Devices|
+|---|---|---|---|---|
+|**7**|Application|Network services to applications|Data|HTTP, FTP, SMTP, DNS|
+|**6**|Presentation|Translation, encryption, compression|Data|JPEG, encoding, encryption|
+|**5**|Session|Establish/manage/terminate sessions|Data|Session management|
+|**4**|Transport|End-to-end delivery, reliability, ports|Segment/Datagram|TCP, UDP|
+|**3**|Network|Routing and logical addressing|Packet|IP, Router|
+|**2**|Data Link|Framing, MAC, error detection|Frame|Ethernet, Switch|
+|**1**|Physical|Transmission of raw bits|Bits|Cable, Hub, Repeater|
+
+---
+
+# 5. How Data Travels Through the OSI Model
+
+Suppose **Computer A sends a message to Computer B**.
+
+### At the sender
+
+```text
+Application
+     ↓
+Presentation
+     ↓
+Session
+     ↓
+Transport       → Segment
+     ↓
+Network         → Packet
+     ↓
+Data Link       → Frame
+     ↓
+Physical        → Bits
+```
+
+At the receiver, the process is reversed:
+
+```text
+Bits
+ ↓
+Frame
+ ↓
+Packet
+ ↓
+Segment
+ ↓
+Session
+ ↓
+Presentation
+ ↓
+Application
+```
+
+This process is called:
+
+### Encapsulation
+
+At the sender, each lower layer adds its own control information.
+
+```text
+Application Data
+      ↓
+   Segment
+      ↓
+    Packet
+      ↓
+    Frame
+      ↓
+     Bits
+```
+
+At the receiver, headers are removed layer by layer.
+
+This is called:
+
+### Decapsulation
+
+```text
+Bits
+ ↓
+Frame
+ ↓
+Packet
+ ↓
+Segment
+ ↓
+Data
+```
+
+---
+
+# 6. TCP/IP Model
+
+The **TCP/IP model** is the practical networking model used as the foundation of the modern Internet.
+
+TCP/IP stands for:
+
+> **Transmission Control Protocol / Internet Protocol**
+
+Unlike OSI's seven layers, the commonly taught TCP/IP model has **4 layers**.
+
+```text
+┌──────────────────────────┐
+│  Application             │
+├──────────────────────────┤
+│  Transport               │
+├──────────────────────────┤
+│  Internet                │
+├──────────────────────────┤
+│  Network Access/Link     │
+└──────────────────────────┘
+```
+
+---
+
+# 7. Layers of TCP/IP Model
+
+## 1. Application Layer
+
+Provides services to applications.
+
+It combines the functions of:
+
+- OSI Application
+    
+- OSI Presentation
+    
+- OSI Session
+    
+
+### Protocols
+
+- HTTP/HTTPS
+    
+- FTP
+    
+- SMTP
+    
+- DNS
+    
+- SSH
+    
+
+---
+
+## 2. Transport Layer
+
+Provides communication between applications/processes.
+
+### Protocols
+
+- TCP
+    
+- UDP
+    
+
+### Functions
+
+- Segmentation
+    
+- Reliability
+    
+- Flow control
+    
+- Error control
+    
+- Port addressing
+    
+
+---
+
+## 3. Internet Layer
+
+Responsible for logical addressing and routing.
+
+### Main protocol
+
+**IP**
+
+Other examples:
+
+- ICMP
+    
+- IPsec
+    
+
+### Device
+
+**Router**
+
+### Data unit
+
+**Packet**
+
+---
+
+## 4. Network Access / Link Layer
+
+Responsible for communication over the local network and physical medium.
+
+It combines the functions of:
+
+- OSI Data Link Layer
+    
+- OSI Physical Layer
+    
+
+### Examples
+
+- Ethernet
+    
+- Wi-Fi
+    
+- PPP
+    
+
+---
+
+# 8. OSI vs TCP/IP Model
+
+This is a **very important exam question**.
+
+|OSI Model|TCP/IP Model|
+|---|---|
+|7 layers|4 layers commonly|
+|Developed by ISO|Developed around DARPA/Internet protocols|
+|Mainly a reference/conceptual model|Practical protocol suite/model|
+|Session is separate|Session functions are part of Application|
+|Presentation is separate|Presentation functions are part of Application|
+|Physical is separate|Combined into Network Access/Link|
+|Protocol-independent reference model|Built around TCP/IP protocols|
+|More detailed layer separation|More practical and less granular|
+
+### Layer mapping
+
+```text
+OSI MODEL                    TCP/IP MODEL
+
+Application ───────┐
+Presentation ──────┼──────→ Application
+Session ───────────┘
+
+Transport ─────────────────→ Transport
+
+Network ───────────────────→ Internet
+
+Data Link ────────┐
+Physical ─────────┴───────→ Network Access / Link
+```
+
+---
+
+# 9. OSI vs TCP/IP — Short Answer
+
+If asked **"Differentiate between OSI and TCP/IP"**, write:
+
+> The OSI model is a seven-layer reference model developed by ISO, whereas the TCP/IP model is a practical networking model/protocol suite used for Internet communication. OSI has separate Application, Presentation, Session, Transport, Network, Data Link, and Physical layers, while TCP/IP commonly has Application, Transport, Internet, and Network Access/Link layers.
+
+---
+
+# ⭐ 10. Most Important Points for Exam
+
+Remember this table:
+
+|OSI Layer|Keyword|
+|---|---|
+|**7. Application**|Services|
+|**6. Presentation**|Translation|
+|**5. Session**|Session|
+|**4. Transport**|End-to-end|
+|**3. Network**|Routing|
+|**2. Data Link**|Frame/MAC|
+|**1. Physical**|Bits|
+
+### One-line memory trick
+
+> **Application → Presentation → Session → Transport → Network → Data Link → Physical**
+
+**A P S T N D P**
+
+> **All People Seem To Need Data Processing**
+
+---
+
+## 🎯 What to write for a 10-mark question
+
+If your exam asks **"Explain Network Models"**, structure your answer like this:
+
+1. Definition of network model
+    
+2. Need/importance of network models
+    
+3. **OSI model**
+    
+    - Definition
+        
+    - Diagram
+        
+    - All 7 layers
+        
+    - Functions of each layer
+        
+    - Examples
+        
+4. **TCP/IP model**
+    
+    - Definition
+        
+    - Diagram
+        
+    - Four layers
+        
+5. OSI vs TCP/IP comparison
+    
+6. Conclusion
+    
+
+That structure is enough for a **long-answer/10-mark question** and is much safer than simply memorizing the seven layer names.
