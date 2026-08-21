@@ -2415,3 +2415,773 @@ Uses service    ↓
         ↓
 Simpler + Modular + Standard + Easier to troubleshoot
 ```
+
+
+---
+
+
+# Switching in Computer Networks — Detailed Exam Notes
+
+## 1. What is Switching?
+
+**Switching** is the technique used in computer networks to **forward data from a source device to a destination device through one or more intermediate network devices**.
+
+When the source and destination are not directly connected, the data must travel through intermediate devices. The process of selecting and using a path for transferring data is called **switching**.
+
+### Simple example
+
+```text
+Computer A
+    |
+    |
+  Switch
+    |
+    |
+Computer B
+```
+
+In a larger network:
+
+```text
+A ─── S1 ─── S2 ─── S3 ─── B
+      ↑       ↑       ↑
+   Switching devices
+```
+
+---
+
+# 2. Why is Switching Needed?
+
+Imagine 100 computers communicating with each other.
+
+If every computer had a direct connection to every other computer:
+
+```text
+A ───── B
+|\     /|
+| \   / |
+|  \ /  |
+|  / \  |
+| /   \ |
+|/     \|
+C ───── D
+```
+
+The number of connections would become very large.
+
+Switching solves this problem by allowing devices to **share communication paths and forward data when required**.
+
+### Main purposes
+
+- Efficient use of network resources
+    
+- Connecting multiple devices
+    
+- Forwarding data toward its destination
+    
+- Reducing the need for dedicated physical connections
+    
+- Supporting communication between distant devices
+    
+
+---
+
+# 3. Types of Switching
+
+The three major types traditionally studied in computer networks are:
+
+```text
+                    Switching
+                       |
+        ┌──────────────┼──────────────┐
+        ↓              ↓              ↓
+   Circuit          Message        Packet
+   Switching        Switching      Switching
+                                      |
+                               ┌──────┴──────┐
+                               ↓             ↓
+                           Datagram      Virtual
+                           Network        Circuit
+```
+
+### Main types:
+
+1. **Circuit Switching**
+    
+2. **Message Switching**
+    
+3. **Packet Switching**
+    
+
+---
+
+# 4. Circuit Switching
+
+## Definition
+
+**Circuit switching** is a switching technique in which a **dedicated communication path (circuit) is established between the sender and receiver before data transmission begins**.
+
+The same path is generally used throughout the communication session.
+
+### Simple diagram
+
+```text
+Sender A                                      Receiver B
+
+   |                                               |
+   |                                               |
+   +---- Switch 1 ---- Switch 2 ---- Switch 3 ----+
+                    Dedicated Path
+```
+
+Once the circuit is established:
+
+```text
+A → S1 → S2 → S3 → B
+```
+
+Data follows this established path.
+
+---
+
+# 5. Three Phases of Circuit Switching
+
+Circuit switching generally involves **three phases**.
+
+```text
+┌─────────────────┐
+│ 1. Setup Phase  │
+└────────┬────────┘
+         ↓
+┌─────────────────┐
+│ 2. Data Transfer│
+└────────┬────────┘
+         ↓
+┌─────────────────┐
+│ 3. Teardown     │
+└─────────────────┘
+```
+
+## Phase 1 — Circuit Establishment
+
+A dedicated path is established between the source and destination.
+
+```text
+A → S1 → S2 → S3 → B
+      Dedicated Circuit
+```
+
+If a suitable path cannot be established, communication cannot begin.
+
+---
+
+## Phase 2 — Data Transfer
+
+Once the circuit is established, data is transmitted through the same path.
+
+```text
+A
+ ↓
+S1
+ ↓
+S2
+ ↓
+S3
+ ↓
+B
+```
+
+The path remains reserved for that communication.
+
+---
+
+## Phase 3 — Circuit Teardown
+
+After communication is completed, the dedicated circuit is released.
+
+The network resources become available for other communications.
+
+---
+
+# 6. Example of Circuit Switching
+
+Traditional **telephone networks** are the classic example.
+
+When you make a traditional circuit-switched telephone call:
+
+```text
+Caller
+  ↓
+Telephone Exchange
+  ↓
+Exchange
+  ↓
+Receiver
+```
+
+A communication circuit is established before the conversation takes place.
+
+> Modern telephone systems increasingly use packet-based technologies, so traditional circuit-switched telephony is mainly a textbook/classical example.
+
+---
+
+# 7. Advantages of Circuit Switching
+
+### 1. Dedicated path
+
+A dedicated path is available throughout the session.
+
+### 2. Predictable performance
+
+Once established, transmission has relatively predictable characteristics.
+
+### 3. Constant bandwidth
+
+The allocated resources remain available during the connection.
+
+### 4. Suitable for continuous communication
+
+It was well suited to traditional voice communication.
+
+### 5. No store-and-forward delay for each packet
+
+After setup, data can flow continuously through the established circuit.
+
+---
+
+# 8. Disadvantages of Circuit Switching
+
+### 1. Wastage of resources
+
+If no data is being sent, the reserved resources may remain unused.
+
+```text
+Reserved circuit:
+
+A ─── S1 ─── S2 ─── B
+
+       No data
+         ↓
+Resources still reserved
+```
+
+### 2. Setup time
+
+Communication cannot begin until the circuit is established.
+
+### 3. Failure of circuit
+
+If the established path fails, communication may be interrupted.
+
+### 4. Expensive
+
+Dedicated resources can make circuit switching inefficient for bursty computer data.
+
+### 5. Poor resource utilization
+
+The channel cannot be efficiently shared among many bursty communications.
+
+---
+
+# 9. Message Switching
+
+## Definition
+
+**Message switching** is a technique in which the **entire message is treated as one unit and stored at an intermediate device before being forwarded to the next device**.
+
+There is **no dedicated path** between source and destination.
+
+It is called **store-and-forward switching**.
+
+### Diagram
+
+```text
+A
+|
+↓
+S1
+|   Store entire message
+↓
+S2
+|   Store entire message
+↓
+S3
+|   Store entire message
+↓
+B
+```
+
+The message travels from one node to another.
+
+---
+
+# 10. How Message Switching Works
+
+Suppose A wants to send a message to B.
+
+```text
+A → S1 → S2 → S3 → B
+```
+
+### Step 1
+
+A sends the complete message to S1.
+
+### Step 2
+
+S1 stores the complete message.
+
+### Step 3
+
+S1 forwards it to S2.
+
+### Step 4
+
+S2 stores the complete message and forwards it to S3.
+
+### Step 5
+
+S3 forwards it to B.
+
+This is:
+
+> **Store → Forward → Store → Forward**
+
+---
+
+# 11. Example of Message Switching
+
+Historically, **telegraph networks** are commonly used as examples.
+
+Message switching was also associated with early store-and-forward communication systems.
+
+---
+
+# 12. Advantages of Message Switching
+
+### 1. No dedicated path
+
+Resources are not reserved for one communication.
+
+### 2. Better resource utilization
+
+Network links can be shared among different messages.
+
+### 3. Routing flexibility
+
+A message can potentially be routed through different intermediate nodes.
+
+### 4. Priority can be supported
+
+Messages can be given different priorities in some systems.
+
+---
+
+# 13. Disadvantages of Message Switching
+
+### 1. Large storage requirement
+
+The intermediate device must store the **entire message**.
+
+### 2. High delay
+
+A message may have to wait at every intermediate node.
+
+### 3. Not suitable for real-time communication
+
+Large delays make it unsuitable for applications requiring immediate communication.
+
+### 4. Large buffer requirement
+
+Intermediate devices need sufficient storage capacity.
+
+---
+
+# 14. Packet Switching
+
+## Definition
+
+**Packet switching** is a switching technique in which a message is **divided into smaller units called packets**, and these packets are transmitted through the network.
+
+It is the fundamental switching technique used by modern computer networks and the Internet.
+
+### Diagram
+
+```text
+Original Message
+       |
+       ↓
+ ┌────┬────┬────┬────┐
+ │ P1 │ P2 │ P3 │ P4 │
+ └────┴────┴────┴────┘
+       |
+       ↓
+     Network
+       |
+       ↓
+ ┌────┬────┬────┬────┐
+ │ P1 │ P2 │ P3 │ P4 │
+ └────┴────┴────┴────┘
+       |
+       ↓
+Original Message
+```
+
+---
+
+# 15. How Packet Switching Works
+
+Suppose the sender has a large message:
+
+```text
+MESSAGE
+```
+
+It is divided into packets:
+
+```text
+P1   P2   P3   P4
+```
+
+Each packet contains information such as:
+
+- Source address
+    
+- Destination address
+    
+- Sequence/identification information
+    
+- Data
+    
+- Control information
+    
+
+Packets are forwarded through the network.
+
+At the destination, packets are reassembled to recover the original data.
+
+---
+
+# 16. Types of Packet Switching
+
+There are two major types:
+
+1. **Datagram Packet Switching**
+    
+2. **Virtual Circuit Packet Switching**
+    
+
+---
+
+# 17. Datagram Packet Switching
+
+In **datagram packet switching**, each packet is treated **independently**.
+
+Packets from the same message may take **different routes**.
+
+### Example
+
+```text
+             ┌── S2 ──┐
+A ── S1 ─────┤         ├── S5 ── B
+             └── S3 ──┘
+```
+
+Suppose:
+
+```text
+P1 → S2 → S5 → B
+P2 → S3 → S4 → B
+P3 → S2 → S4 → B
+```
+
+The packets may arrive:
+
+```text
+P2 → P1 → P3
+```
+
+instead of:
+
+```text
+P1 → P2 → P3
+```
+
+The destination uses sequence information to reconstruct the data correctly when required.
+
+### Characteristics
+
+- No dedicated path.
+    
+- Each packet is routed independently.
+    
+- Packets can take different routes.
+    
+- Packets may arrive out of order.
+    
+- Packets may be delayed or lost.
+    
+
+### Example
+
+**IP networks / Internet Protocol** use datagram-style packet forwarding.
+
+---
+
+# 18. Virtual Circuit Packet Switching
+
+In **virtual circuit packet switching**, a logical path is established before packets are transmitted.
+
+However, unlike circuit switching, the physical resources are not necessarily dedicated exclusively to one communication.
+
+### Diagram
+
+```text
+A ─── S1 ─── S2 ─── S3 ─── B
+      <---- Virtual Circuit ---->
+```
+
+Once the virtual circuit is established:
+
+```text
+P1 → S1 → S2 → S3 → B
+P2 → S1 → S2 → S3 → B
+P3 → S1 → S2 → S3 → B
+```
+
+Packets generally follow the same logical path.
+
+### Characteristics
+
+- Logical path is established.
+    
+- Packets generally follow the same route.
+    
+- Packets usually arrive in order.
+    
+- Network resources are shared.
+    
+- Requires setup and teardown.
+    
+
+### Examples
+
+- Frame Relay
+    
+- ATM
+    
+- X.25
+    
+
+---
+
+# 19. Circuit Switching vs Packet Switching
+
+|Feature|Circuit Switching|Packet Switching|
+|---|---|---|
+|Path|Dedicated|Shared|
+|Setup|Required|Depends on type|
+|Data|Continuous stream|Packets|
+|Resource usage|Reserved|Shared|
+|Efficiency|Lower for bursty data|Generally higher|
+|Delay|Setup delay, then predictable|Variable|
+|Failure|Circuit failure can disrupt session|Packets may be rerouted depending on network|
+|Suitable for|Traditional voice|Computer/data networks|
+|Example|Traditional telephone network|Internet|
+
+---
+
+# 20. Message Switching vs Packet Switching
+
+|Feature|Message Switching|Packet Switching|
+|---|---|---|
+|Data unit|Complete message|Packet|
+|Division|Message is not divided|Message is divided|
+|Storage|Entire message stored|Packets stored/forwarded|
+|Delay|High|Generally lower|
+|Buffer requirement|Large|Smaller|
+|Real-time communication|Not suitable|Better suited|
+|Network usage|Store-and-forward|Packet-based forwarding|
+
+---
+
+# 21. Three Switching Techniques — Important Table
+
+|Feature|Circuit|Message|Packet|
+|---|---|---|---|
+|Dedicated path|Yes|No|No|
+|Data unit|Continuous stream|Entire message|Packet|
+|Setup|Yes|No|Depends on type|
+|Store-and-forward|No, after setup|Yes|Yes|
+|Resource utilization|Lower|Better|High|
+|Delay|Setup + transmission|High|Generally lower|
+|Suitable for|Traditional voice|Non-real-time messages|Internet/data|
+|Example|Traditional telephone|Telegraph|Internet|
+
+---
+
+# 22. Circuit vs Message vs Packet — Diagram
+
+```text
+                 SWITCHING
+                     |
+       ┌─────────────┼─────────────┐
+       ↓             ↓             ↓
+   CIRCUIT         MESSAGE       PACKET
+   SWITCHING       SWITCHING     SWITCHING
+       |             |             |
+ Dedicated        Entire         Data divided
+   path           message        into packets
+       |             |             |
+       ↓             ↓             ↓
+   Setup          Store &       Store &
+   required       Forward       Forward
+                                   |
+                         ┌─────────┴─────────┐
+                         ↓                   ↓
+                     Datagram          Virtual Circuit
+                     Independent        Logical path
+                      packets            established
+```
+
+---
+
+# 23. Switching and Multiplexing — Difference
+
+These two terms are sometimes confused.
+
+### Switching
+
+Determines **where data should be forwarded**.
+
+### Multiplexing
+
+Allows **multiple signals/data streams to share one communication channel**.
+
+Simple idea:
+
+```text
+Multiple Sources
+      ↓
+  Multiplexer
+      ↓
+ Single Channel
+      ↓
+  Demultiplexer
+      ↓
+Multiple Destinations
+```
+
+---
+
+# ⭐ 24. Important Exam Definitions
+
+### Switching
+
+> **Switching is the technique of forwarding data from a source to a destination through intermediate network devices by selecting an appropriate communication path.**
+
+### Circuit Switching
+
+> **Circuit switching establishes a dedicated communication path between the sender and receiver before data transmission.**
+
+### Message Switching
+
+> **Message switching transmits the entire message using a store-and-forward technique without establishing a dedicated path.**
+
+### Packet Switching
+
+> **Packet switching divides a message into smaller packets and forwards them through a shared network toward the destination.**
+
+---
+
+# ⭐ 25. Exam Memory Trick
+
+Remember:
+
+### Circuit = **Dedicated Path**
+
+```text
+A ───────────── B
+   Fixed path
+```
+
+### Message = **Whole Message**
+
+```text
+MESSAGE
+   ↓
+Store → Forward → Store → Forward
+```
+
+### Packet = **Small Pieces**
+
+```text
+MESSAGE
+ ↓
+P1 P2 P3 P4
+ ↓
+Network
+ ↓
+P1 P2 P3 P4
+```
+
+And for packet switching:
+
+> **Datagram = Every packet thinks independently**
+
+> **Virtual Circuit = Packets follow an established logical path**
+
+---
+
+## 26. 10-Mark Answer Structure
+
+If the exam asks **"Explain switching and its types"**, write in this order:
+
+1. Definition of switching
+    
+2. Need for switching
+    
+3. Types of switching
+    
+4. **Circuit switching**
+    
+    - Definition
+        
+    - Diagram
+        
+    - Three phases
+        
+    - Advantages
+        
+    - Disadvantages
+        
+    - Example
+        
+5. **Message switching**
+    
+    - Definition
+        
+    - Working
+        
+    - Advantages
+        
+    - Disadvantages
+        
+    - Example
+        
+6. **Packet switching**
+    
+    - Definition
+        
+    - Working
+        
+    - Datagram
+        
+    - Virtual circuit
+        
+7. Comparison table
+    
+8. Conclusion
+    
+
+That gives you a strong **long-answer exam response** without unnecessary material.
