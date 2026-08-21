@@ -1949,36 +1949,469 @@ Remember this table:
 
 ---
 
-## 🎯 What to write for a 10-mark question
+# Layered Architecture in Computer Networks
 
-If your exam asks **"Explain Network Models"**, structure your answer like this:
+## 1. Definition
 
-1. Definition of network model
+**Layered architecture** is a networking design approach in which the communication process is divided into **multiple layers**, and each layer performs a **specific set of functions**.
+
+Each layer:
+
+- Provides services to the layer above it.
     
-2. Need/importance of network models
+- Uses services provided by the layer below it.
     
-3. **OSI model**
-    
-    - Definition
-        
-    - Diagram
-        
-    - All 7 layers
-        
-    - Functions of each layer
-        
-    - Examples
-        
-4. **TCP/IP model**
-    
-    - Definition
-        
-    - Diagram
-        
-    - Four layers
-        
-5. OSI vs TCP/IP comparison
-    
-6. Conclusion
+- Communicates logically with the corresponding layer on the other computer.
     
 
+### Simple idea
+
+Instead of making one huge system handle everything:
+
+```text
+Sending data
+ ├── Application
+ ├── Formatting
+ ├── Reliable delivery
+ ├── Routing
+ ├── Framing
+ └── Physical transmission
+```
+
+we divide it into layers:
+
+```text
+┌──────────────────────┐
+│      Layer 3         │
+├──────────────────────┤
+│      Layer 2         │
+├──────────────────────┤
+│      Layer 1         │
+└──────────────────────┘
+```
+
+---
+
+# 2. Why is Layered Architecture Needed?
+
+Network communication is very complicated. Layering makes it easier to **design, understand, develop, maintain, and troubleshoot** a network.
+
+### Major reasons:
+
+### 1. Reduces complexity
+
+A large networking problem is divided into smaller problems.
+
+```text
+Complex Network Communication
+             ↓
+     ┌───────┼───────┐
+     ↓       ↓       ↓
+   Layer   Layer   Layer
+```
+
+Each layer focuses on its own task.
+
+---
+
+### 2. Modularity
+
+Each layer works as a separate module.
+
+If one layer needs modification, other layers generally don't need to be redesigned completely.
+
+**Example:**
+
+You can change from Ethernet to Wi-Fi at the lower networking layers without changing how an application such as a web browser works.
+
+---
+
+### 3. Standardization
+
+Layering provides standard interfaces and responsibilities.
+
+Different manufacturers can create networking hardware/software that can work together by following common standards.
+
+---
+
+### 4. Easier troubleshooting
+
+If communication fails, engineers can identify which layer is responsible.
+
+For example:
+
+```text
+Website not loading
+       ↓
+Check Application
+       ↓
+Check Transport
+       ↓
+Check Network
+       ↓
+Check Data Link
+       ↓
+Check Physical
+```
+
+---
+
+### 5. Easier development
+
+Developers can concentrate on one particular layer instead of understanding the entire network implementation.
+
+---
+
+### 6. Interoperability
+
+Different systems and devices can communicate even when they are produced by different manufacturers.
+
+---
+
+# 3. Basic Structure of Layered Architecture
+
+Consider two computers communicating:
+
+```text
+        COMPUTER A                         COMPUTER B
+
+     Application Layer  <-------------->  Application Layer
+            ↑                                  ↑
+            │                                  │
+      Transport Layer    <-------------->  Transport Layer
+            ↑                                  ↑
+            │                                  │
+       Network Layer     <-------------->  Network Layer
+            ↑                                  ↑
+            │                                  │
+       Data Link Layer   <-------------->  Data Link Layer
+            ↑                                  ↑
+            │                                  │
+       Physical Layer    <-------------->  Physical Layer
+            │
+            └────── Physical Medium ───────────┘
+```
+
+### Important concept
+
+The layers on the **same level** communicate logically with each other.
+
+For example:
+
+```text
+Computer A                         Computer B
+
+Transport Layer  ←──────────────→  Transport Layer
+```
+
+But physically, data actually moves **down through the layers on the sender**, travels through the network, and then moves **up through the layers on the receiver**.
+
+---
+
+# 4. How Layered Communication Works
+
+Suppose you send:
+
+> **HELLO**
+
+from Computer A to Computer B.
+
+### Sender side
+
+```text
+Application
+    ↓
+     HELLO
+    ↓
+Transport
+    ↓
+  [Header + HELLO]
+    ↓
+Network
+    ↓
+[Header + Header + HELLO]
+    ↓
+Data Link
+    ↓
+[Header + Packet + Trailer]
+    ↓
+Physical
+    ↓
+101010101010...
+```
+
+The data is gradually prepared for transmission.
+
+At the receiver:
+
+```text
+101010101010...
+       ↓
+Physical
+       ↓
+Data Link
+       ↓
+Network
+       ↓
+Transport
+       ↓
+Application
+       ↓
+     HELLO
+```
+
+This is called:
+
+### Encapsulation
+
+At the sender, each layer adds its own control information.
+
+```text
+Data
+ ↓
+Segment
+ ↓
+Packet
+ ↓
+Frame
+ ↓
+Bits
+```
+
+At the receiver, this information is removed.
+
+This is called:
+
+### Decapsulation
+
+```text
+Bits
+ ↓
+Frame
+ ↓
+Packet
+ ↓
+Segment
+ ↓
+Data
+```
+
+---
+
+# 5. Protocols in Layered Architecture
+
+Each layer generally uses specific **protocols**.
+
+For example, in the TCP/IP model:
+
+```text
+Application
+    │
+    ├── HTTP
+    ├── DNS
+    ├── FTP
+    └── SMTP
+    ↓
+Transport
+    │
+    ├── TCP
+    └── UDP
+    ↓
+Internet
+    │
+    └── IP
+    ↓
+Network Access / Link
+    │
+    ├── Ethernet
+    └── Wi-Fi
+```
+
+A **protocol** is a set of rules that determines how communication takes place.
+
+---
+
+# 6. Important Principles of Layered Architecture
+
+### 1. Each layer has a specific function
+
+For example:
+
+- Transport → end-to-end communication
+    
+- Network → routing
+    
+- Data Link → framing
+    
+- Physical → bit transmission
+    
+
+---
+
+### 2. Each layer provides services to the layer above
+
+```text
+       Application
+            ↑
+     uses services of
+            │
+       Transport
+            ↑
+     uses services of
+            │
+        Network
+```
+
+---
+
+### 3. Each layer uses services of the layer below
+
+For example:
+
+```text
+Application
+     ↓ uses
+Transport
+     ↓ uses
+Network
+     ↓ uses
+Data Link
+     ↓ uses
+Physical
+```
+
+---
+
+### 4. Changes should be localized
+
+A change in one layer should ideally have minimal impact on other layers.
+
+For example, changing the physical medium from copper cable to fiber should not require rewriting an application such as a web browser.
+
+---
+
+# 7. Advantages of Layered Architecture
+
+### 1. Simplicity
+
+Complex networking tasks are divided into manageable layers.
+
+### 2. Modularity
+
+Each layer can be designed and maintained separately.
+
+### 3. Standardization
+
+Provides common standards for communication.
+
+### 4. Easy troubleshooting
+
+Problems can be isolated to particular layers.
+
+### 5. Flexibility
+
+Changes in one layer can often be made without changing the entire system.
+
+### 6. Interoperability
+
+Devices and software from different manufacturers can communicate.
+
+### 7. Easier learning
+
+Students and engineers can understand networking one layer at a time.
+
+---
+
+# 8. Disadvantages of Layered Architecture
+
+Layering also has some disadvantages.
+
+### 1. Overhead
+
+Each layer may add headers or trailers.
+
+```text
+Data
+ ↓
+Header + Data
+ ↓
+Header + Header + Data
+ ↓
+Header + Header + Header + Data + Trailer
+```
+
+This increases the amount of transmitted information.
+
+### 2. Duplicate functionality
+
+Sometimes different layers may perform related functions, leading to redundancy.
+
+### 3. Reduced efficiency
+
+Strict separation between layers can sometimes make communication less efficient.
+
+### 4. Difficulty in defining layers
+
+It can be difficult to decide exactly which function should belong to which layer.
+
+---
+
+# 9. Layered Architecture vs Network Model
+
+These terms are related but not exactly the same.
+
+|Layered Architecture|Network Model|
+|---|---|
+|General design approach|Specific conceptual model|
+|Divides communication into layers|Defines the particular layers|
+|Explains how layers interact|Describes functions/protocols associated with layers|
+|Used as a design principle|Examples: OSI, TCP/IP|
+
+### Example
+
+**Layered architecture** is the concept.
+
+**OSI and TCP/IP** are models that implement the idea of layering.
+
+---
+
+# 10. OSI as a Layered Architecture
+
+The OSI model uses **7 layers**:
+
+```text
+7 ─ Application
+6 ─ Presentation
+5 ─ Session
+4 ─ Transport
+3 ─ Network
+2 ─ Data Link
+1 ─ Physical
+```
+
+Each layer has a specific responsibility and provides services to the layer above it.
+
+---
+
+# ⭐ Exam Answer — Short Version
+
+If the question is **"What is layered architecture?"**, write:
+
+> **Layered architecture is a network design approach in which the communication process is divided into a number of independent layers. Each layer performs a specific function, provides services to the layer above it, and uses services of the layer below it. This approach reduces complexity, provides modularity and standardization, makes troubleshooting easier, and allows different systems to communicate efficiently. OSI and TCP/IP are examples of network models based on layered architecture.**
+
+### Remember:
+
+```text
+Layered Architecture
+        ↓
+Divide complex communication
+        ↓
+      Layers
+        ↓
+Each layer has a specific function
+        ↓
+Provides service ↑
+Uses service    ↓
+        ↓
+Simpler + Modular + Standard + Easier to troubleshoot
+```
