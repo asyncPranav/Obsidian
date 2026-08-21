@@ -646,3 +646,545 @@ HYBRID → Combination of different topologies
 
 ----
 
+# Types of Computer Networks — Exam Perspective
+
+A **computer network** can be classified into different types mainly on the basis of **geographical area/coverage**, size, purpose, and ownership.
+
+For exams, the **most important classification is based on geographical coverage**:
+
+> **PAN → LAN → MAN → WAN**
+
+---
+
+## 1. PAN — Personal Area Network
+
+**PAN (Personal Area Network)** is a network used to connect devices located around a **single person**, usually within a very small area.
+
+### Coverage
+
+- Approximately **1–10 meters**
+    
+- Usually centered around an individual.
+    
+
+### Examples
+
+- Connecting a smartphone with Bluetooth headphones.
+    
+- Connecting a phone with a smartwatch.
+    
+- Connecting a laptop with a wireless mouse.
+    
+
+### Technologies
+
+- Bluetooth
+    
+- USB
+    
+- Infrared
+    
+- Wi-Fi (for some personal connections)
+    
+
+### Advantages
+
+- Easy to set up.
+    
+- Low cost.
+    
+- Requires very little infrastructure.
+    
+- Suitable for personal devices.
+    
+
+### Disadvantages
+
+- Very short range.
+    
+- Generally supports fewer devices.
+    
+- Lower capacity compared with larger networks.
+    
+
+### Example diagram
+
+```text
+          Smartwatch
+              |
+              | Bluetooth
+              |
+       +-------------+
+       | Smartphone  |
+       +-------------+
+          /       \
+         /         \
+   Earbuds        Laptop
+```
+
+### Exam definition
+
+> **PAN is a small network used to connect personal electronic devices within a short range around an individual.**
+
+---
+
+# 2. LAN — Local Area Network
+
+**LAN (Local Area Network)** is a network that connects computers and devices within a **small geographical area**, such as a room, home, office, school, or building.
+
+### Coverage
+
+Usually within:
+
+- Room
+    
+- Home
+    
+- Office
+    
+- School
+    
+- Building
+    
+- Small campus
+    
+
+### Examples
+
+- Computer lab network.
+    
+- Office network.
+    
+- Home Wi-Fi network.
+    
+- Network connecting computers in a school.
+    
+
+### Technologies
+
+- Ethernet
+    
+- Wi-Fi
+    
+
+### Characteristics
+
+- High data transfer speed.
+    
+- Usually privately owned.
+    
+- Relatively inexpensive.
+    
+- Covers a limited geographical area.
+    
+- Easy to manage.
+    
+
+### Advantages
+
+1. **High speed** — Data can be transferred quickly.
+    
+2. **Resource sharing** — Printers, files, applications, and Internet connections can be shared.
+    
+3. **Low cost** — Less expensive than large-scale networks.
+    
+4. **Easy management** — Network can generally be controlled by one organization.
+    
+5. **Better security** — Easier to control access.
+    
+
+### Disadvantages
+
+- Limited geographical coverage.
+    
+- Initial installation requires networking equipment.
+    
+- Failure of important network devices can affect many users.
+    
+
+### Example diagram
+
+```text
+             +-------------+
+             |   Switch    |
+             +-------------+
+              /     |     \
+             /      |      \
+        PC-1       PC-2    PC-3
+                              |
+                           Printer
+```
+
+### Exam definition
+
+> **LAN is a computer network that connects devices within a limited geographical area such as a home, office, school, or building.**
+
+---
+
+# 3. MAN — Metropolitan Area Network
+
+**MAN (Metropolitan Area Network)** is a network that covers a **larger geographical area than a LAN but smaller than a WAN**, generally covering a city or metropolitan area.
+
+### Coverage
+
+It can cover:
+
+- A city
+    
+- Large campus
+    
+- Multiple buildings
+    
+- Metropolitan region
+    
+
+### Example
+
+Suppose a university has several campuses located in different parts of a city and connects them using a high-speed network.
+
+```text
+      Campus A
+          |
+          |
+          |
+    +-----------+
+    |   MAN     |
+    |  Network  |
+    +-----------+
+       /     \
+      /       \
+Campus B     Campus C
+```
+
+### Characteristics
+
+- Larger than LAN.
+    
+- Smaller than WAN.
+    
+- Often connects multiple LANs.
+    
+- Can be operated by a private organization or service provider.
+    
+- Usually uses high-speed communication links.
+    
+
+### Advantages
+
+1. Covers a large geographical area.
+    
+2. Connects multiple LANs.
+    
+3. Allows sharing of resources between different locations.
+    
+4. Provides high-speed communication within a metropolitan region.
+    
+
+### Disadvantages
+
+- More expensive than LAN.
+    
+- More complex to manage.
+    
+- Security management is more difficult.
+    
+- Infrastructure installation can be costly.
+    
+
+### Exam definition
+
+> **MAN is a network that connects multiple LANs across a city or metropolitan area.**
+
+---
+
+# 4. WAN — Wide Area Network
+
+**WAN (Wide Area Network)** is a network that covers a **very large geographical area**, such as countries, continents, or the entire world.
+
+It connects multiple LANs and MANs over long distances.
+
+### Coverage
+
+- Country
+    
+- Multiple countries
+    
+- Continents
+    
+- Worldwide
+    
+
+### Example
+
+The **Internet** is the most well-known example of a WAN.
+
+```text
+       LAN
+        |
+        |
+    +-------+
+    | Router|
+    +-------+
+        |
+        |
+   =====WAN=====
+    /          \
+   /            \
+ LAN            LAN
+Office A       Office B
+```
+
+### Technologies
+
+WAN may use:
+
+- Fiber-optic cables
+    
+- Microwave links
+    
+- Satellite communication
+    
+- Leased lines
+    
+- Cellular networks
+    
+
+### Characteristics
+
+- Very large geographical coverage.
+    
+- Connects LANs and MANs.
+    
+- Usually involves telecommunications/service providers.
+    
+- More expensive and complex than LAN.
+    
+- Data transmission may involve multiple networks and routers.
+    
+
+### Advantages
+
+1. Covers very large areas.
+    
+2. Connects geographically distant offices.
+    
+3. Enables global communication.
+    
+4. Allows organizations to share resources across locations.
+    
+
+### Disadvantages
+
+1. Expensive to establish and maintain.
+    
+2. More complex to manage.
+    
+3. Generally has higher latency than LAN.
+    
+4. Security is more challenging.
+    
+5. Dependence on communication service providers may exist.
+    
+
+### Exam definition
+
+> **WAN is a computer network that connects computers and smaller networks over a large geographical area such as a country, continent, or the entire world.**
+
+---
+
+# 5. CAN — Campus Area Network
+
+**CAN (Campus Area Network)** connects multiple LANs within a **university, college, corporate campus, or similar organization**.
+
+It is generally larger than a LAN but smaller than a MAN.
+
+### Example
+
+```text
+       College Campus
+   _______________________
+
+   [Engineering Building]
+            |
+            |
+       +---------+
+       | Campus  |
+       | Network |
+       +---------+
+        /       \
+       /         \
+ [Library]    [Admin Block]
+```
+
+### Characteristics
+
+- Covers a campus or group of nearby buildings.
+    
+- Usually privately owned.
+    
+- Connects multiple LANs.
+    
+- Common in universities and large organizations.
+    
+
+### Exam definition
+
+> **CAN is a network that connects multiple LANs within a limited campus or organizational area.**
+
+---
+
+# 6. HAN — Home Area Network
+
+**HAN (Home Area Network)** is a network used to connect devices within a **home**.
+
+### Examples
+
+- Smartphone
+    
+- Laptop
+    
+- Smart TV
+    
+- Printer
+    
+- Smart speaker
+    
+- IoT devices
+    
+
+```text
+             Internet
+                |
+             Router
+          /     |      \
+         /      |       \
+     Laptop   Smart TV  Phone
+                       |
+                  Smart Watch
+```
+
+### Characteristics
+
+- Small geographical area.
+    
+- Usually privately owned.
+    
+- Uses Wi-Fi, Ethernet, Bluetooth, etc.
+    
+- Allows sharing of Internet and devices.
+    
+
+### Exam definition
+
+> **HAN is a network that connects digital devices within a home for communication and resource sharing.**
+
+---
+
+# 7. WLAN — Wireless Local Area Network
+
+**WLAN (Wireless Local Area Network)** is essentially a LAN in which devices communicate primarily through **wireless communication**, commonly Wi-Fi.
+
+### Example
+
+```text
+             Internet
+                 |
+              Router
+                 |
+        )))) Wi-Fi ((((
+        /       |       \
+      Laptop   Phone    Tablet
+```
+
+### Advantages
+
+- No need for extensive cables.
+    
+- Easy to install.
+    
+- Devices can move within the coverage area.
+    
+- Easy to expand.
+    
+
+### Disadvantages
+
+- Security risks if poorly configured.
+    
+- Interference can affect performance.
+    
+- Generally less predictable than wired Ethernet.
+    
+- Range is limited.
+    
+
+---
+
+# Comparison Table — Very Important for Exams
+
+|Type|Full Form|Approx. Coverage|Example|
+|---|---|---|---|
+|**PAN**|Personal Area Network|Very small/personal range|Phone + smartwatch|
+|**LAN**|Local Area Network|Room/building|Computer lab|
+|**CAN**|Campus Area Network|Campus/organization|University campus|
+|**MAN**|Metropolitan Area Network|City|City-wide network|
+|**WAN**|Wide Area Network|Country/continent/world|Internet|
+|**HAN**|Home Area Network|Home|Home Wi-Fi|
+|**WLAN**|Wireless LAN|Local wireless area|Wi-Fi network|
+
+### Easy order to remember
+
+```text
+PAN
+ ↓
+LAN
+ ↓
+CAN
+ ↓
+MAN
+ ↓
+WAN
+
+Small -------------------------> Large
+```
+
+---
+
+# Most Important Difference: LAN vs MAN vs WAN
+
+|Feature|LAN|MAN|WAN|
+|---|---|---|---|
+|Coverage|Small|City/metropolitan|Very large|
+|Connects|Devices|Multiple LANs|LANs/MANs|
+|Speed|Generally high|High|Varies|
+|Cost|Low|Medium/High|High|
+|Complexity|Low|Medium|High|
+|Example|Office|City network|Internet|
+|Ownership|Usually private|Private/provider|Often multiple providers|
+
+---
+
+## ⭐ Exam Trick
+
+If the question is:
+
+**"Explain types of networks based on geographical area."**
+
+Write these **four first**:
+
+1. **PAN — Personal Area Network**
+    
+2. **LAN — Local Area Network**
+    
+3. **MAN — Metropolitan Area Network**
+    
+4. **WAN — Wide Area Network**
+    
+
+Then, if your syllabus includes them, mention **CAN, HAN and WLAN** as additional classifications.
+
+### One-line revision
+
+> **PAN = Person → LAN = Building → MAN = City → WAN = Country/World**
+
+This is the simplest way to remember the hierarchy for an exam.
