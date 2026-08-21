@@ -4161,3 +4161,991 @@ ROUTING
 ---
 
 
+# Network Devices — Detailed Exam Notes
+
+## 1. What are Network Devices?
+
+**Network devices** are hardware components used to **connect computers and other devices, transmit data, control network traffic, and enable communication between different networks**.
+
+Examples include:
+
+- Repeater
+    
+- Hub
+    
+- Bridge
+    
+- Switch
+    
+- Router
+    
+- Gateway
+    
+- Modem
+    
+- Wireless Access Point
+    
+- NIC
+    
+
+---
+
+# 2. Classification of Network Devices
+
+A useful exam-oriented classification is:
+
+```text
+                    NETWORK DEVICES
+                          │
+        ┌─────────────────┴─────────────────┐
+        ↓                                   ↓
+  Connecting/Forwarding               Access/Communication
+        │                                   │
+   ┌────┼────┬────┬────┐              ┌────┼────┐
+   ↓    ↓    ↓    ↓    ↓              ↓    ↓    ↓
+Repeater Hub Bridge Switch Router    NIC  Modem  AP
+                                     
+                         ↓
+                      Gateway
+```
+
+---
+
+# 3. Repeater
+
+## Definition
+
+A **repeater** is a network device that **receives a weak or degraded signal, regenerates/reshapes it, and retransmits it** to extend the communication distance.
+
+It operates at the **Physical Layer (Layer 1)** of the OSI model.
+
+### Diagram
+
+```text
+Computer A
+    |
+    | Weak signal
+    ↓
++-----------+
+| Repeater  |
++-----------+
+    |
+    | Regenerated signal
+    ↓
+Computer B
+```
+
+### Why is it needed?
+
+Signals can become weaker as they travel over a communication medium. This phenomenon is called **attenuation**.
+
+A repeater helps extend the transmission distance by regenerating the signal.
+
+### Functions
+
+- Receives signal.
+    
+- Regenerates signal.
+    
+- Retransmits signal.
+    
+- Extends network distance.
+    
+
+### Advantages
+
+- Simple device.
+    
+- Extends transmission distance.
+    
+- Helps overcome signal attenuation.
+    
+- Relatively inexpensive.
+    
+
+### Disadvantages
+
+- Does not filter traffic.
+    
+- Does not understand destination addresses.
+    
+- Does not reduce network traffic.
+    
+- Operates only at the Physical Layer.
+    
+
+### Exam definition
+
+> **A repeater is a Layer 1 device that regenerates and retransmits signals to extend the transmission distance of a network.**
+
+---
+
+# 4. Hub
+
+## Definition
+
+A **hub** is a basic networking device used to connect multiple devices in a LAN. When it receives a signal/frame from one port, it **repeats the signal out through its other ports**.
+
+It operates at the **Physical Layer (Layer 1)**.
+
+### Diagram
+
+```text
+             PC1
+              |
+              |
+         +----------+
+PC2 -----|   HUB    |----- PC3
+         +----------+
+              |
+             PC4
+```
+
+If PC1 sends data to PC3:
+
+```text
+PC1
+ ↓
+HUB
+ ↓ ↓ ↓
+PC2 PC3 PC4
+```
+
+The hub does not know which port leads to PC3, so it repeats the signal to the other ports.
+
+### Types of Hub
+
+#### 1. Active Hub
+
+- Receives and regenerates signals.
+    
+- Requires power.
+    
+
+#### 2. Passive Hub
+
+- Mainly acts as a connection point.
+    
+- Does not regenerate signals.
+    
+
+#### 3. Intelligent Hub
+
+- Provides additional monitoring/management features compared with basic hubs.
+    
+
+### Advantages
+
+- Simple.
+    
+- Easy to install.
+    
+- Relatively inexpensive.
+    
+- Can connect multiple devices.
+    
+
+### Disadvantages
+
+- Sends traffic to multiple ports.
+    
+- Creates one shared collision domain.
+    
+- Less efficient than switches.
+    
+- Offers little traffic control.
+    
+- Generally operates in half-duplex Ethernet environments.
+    
+
+### Exam definition
+
+> **A hub is a Layer 1 networking device that connects multiple devices and repeats incoming signals to multiple ports.**
+
+---
+
+# 5. Bridge
+
+## Definition
+
+A **bridge** is a networking device that connects **two or more LAN segments** and forwards or filters frames using **MAC addresses**.
+
+It operates at the **Data Link Layer (Layer 2)**.
+
+### Diagram
+
+```text
+ LAN 1                         LAN 2
+
+PC1 ── PC2 ──┐             ┌── PC4 ── PC5
+             │             │
+             └── Bridge ───┘
+```
+
+### How does a bridge work?
+
+A bridge examines the **MAC address** of an Ethernet frame and decides whether the frame should be:
+
+- Forwarded
+    
+- Filtered
+    
+
+### Functions
+
+- Connects LAN segments.
+    
+- Uses MAC addresses.
+    
+- Filters frames.
+    
+- Reduces unnecessary traffic between segments.
+    
+- Separates collision domains.
+    
+
+### Advantages
+
+- Better than a hub.
+    
+- Filters unnecessary traffic.
+    
+- Reduces collisions.
+    
+- Connects different LAN segments.
+    
+
+### Disadvantages
+
+- More expensive/complex than a hub.
+    
+- Limited scalability compared with modern switches.
+    
+- Primarily a Layer 2 device.
+    
+
+### Exam definition
+
+> **A bridge is a Layer 2 device that connects LAN segments and forwards or filters frames based on MAC addresses.**
+
+---
+
+# 6. Switch
+
+## Definition
+
+A **network switch** is a multi-port Layer 2 device that connects devices in a LAN and **forwards Ethernet frames to the appropriate port based on MAC addresses**.
+
+Modern switches may also perform **Layer 3 routing** if they are Layer 3 switches.
+
+### Diagram
+
+```text
+             PC1
+              |
+              |
+         +----------+
+PC2 -----|  SWITCH  |----- PC3
+         +----------+
+              |
+             PC4
+```
+
+Suppose PC1 wants to send data to PC3:
+
+```text
+PC1
+ ↓
+Switch
+ ↓
+PC3
+```
+
+Unlike a basic hub, the switch normally sends the frame only through the port associated with the destination MAC address.
+
+---
+
+## How does a switch learn MAC addresses?
+
+A switch maintains a **MAC address table**.
+
+Example:
+
+|MAC Address|Port|
+|---|---|
+|AA:AA:AA:AA:AA:AA|Port 1|
+|BB:BB:BB:BB:BB:BB|Port 2|
+|CC:CC:CC:CC:CC:CC|Port 3|
+
+When a frame arrives, the switch can:
+
+1. Learn the **source MAC address** and associate it with the incoming port.
+    
+2. Look up the **destination MAC address**.
+    
+3. Forward the frame to the appropriate port if known.
+    
+4. If the destination is unknown, flood the frame within the relevant VLAN/broadcast domain.
+    
+
+### Types of Switches
+
+#### 1. Unmanaged Switch
+
+- Plug-and-play.
+    
+- Little/no configuration.
+    
+- Suitable for simple networks.
+    
+
+#### 2. Managed Switch
+
+- Can be configured and monitored.
+    
+- Supports features such as VLANs, STP, and management interfaces.
+    
+
+#### 3. Layer 3 Switch
+
+- Performs switching and can also perform IP routing.
+    
+
+### Advantages
+
+- Efficient forwarding.
+    
+- Reduces unnecessary traffic compared with hubs.
+    
+- Each switch port is generally its own collision domain.
+    
+- Supports full-duplex communication.
+    
+- Can provide VLANs and other management features.
+    
+
+### Disadvantages
+
+- More expensive than a basic hub.
+    
+- Configuration can be complex.
+    
+- Broadcasts are still propagated within a VLAN unless controlled by routing or other mechanisms.
+    
+
+### Exam definition
+
+> **A switch is a Layer 2 device that connects devices in a LAN and forwards frames using MAC addresses.**
+
+---
+
+# 7. Router
+
+## Definition
+
+A **router** is a networking device that **connects different IP networks and forwards packets between them using IP addresses and routing information**.
+
+It primarily operates at the **Network Layer (Layer 3)**.
+
+### Diagram
+
+```text
+     LAN A
+       |
+       |
+   +--------+
+   | Router |
+   +--------+
+       |
+       |
+     LAN B
+```
+
+A router can connect:
+
+```text
+Home Network ── Router ── Internet
+```
+
+### Main functions
+
+#### 1. Routing
+
+Determines the appropriate path for packets.
+
+#### 2. Packet forwarding
+
+Forwards packets toward their destination.
+
+#### 3. Inter-network communication
+
+Connects different networks.
+
+#### 4. Logical addressing
+
+Uses IP addresses.
+
+#### 5. Broadcast domain separation
+
+Routers separate broadcast domains.
+
+### Routing table
+
+A router maintains routing information such as:
+
+```text
+Destination       Next Hop
+--------------------------------
+192.168.1.0/24    Direct
+10.0.0.0/8        192.168.1.1
+0.0.0.0/0         ISP Gateway
+```
+
+### Advantages
+
+- Connects different networks.
+    
+- Determines routes.
+    
+- Controls packet forwarding.
+    
+- Separates broadcast domains.
+    
+- Can provide security-related functions such as ACLs.
+    
+
+### Disadvantages
+
+- More complex than switches/hubs.
+    
+- Usually more expensive.
+    
+- Packet processing can introduce latency.
+    
+
+### Exam definition
+
+> **A router is a Layer 3 device that connects different networks and forwards packets based on logical IP addresses and routing information.**
+
+---
+
+# 8. Gateway
+
+## Definition
+
+A **gateway** is a device or software component that acts as an **entry/exit point between networks and can perform protocol or architectural translation when required**.
+
+The term "gateway" is broad and is used in different contexts.
+
+### Diagram
+
+```text
+Network A
+    |
+    |
++----------+
+| Gateway  |
++----------+
+    |
+    |
+Network B
+```
+
+### Example
+
+A network may use a gateway to communicate with an external network that uses a different protocol or architecture.
+
+### Functions
+
+- Connects different networks.
+    
+- Can translate between protocols/formats.
+    
+- Acts as an entry/exit point.
+    
+- Can perform protocol conversion.
+    
+
+### Important exam point
+
+You may see textbooks say:
+
+> **Gateway operates at all layers of the OSI model.**
+
+This is an oversimplification. A gateway is **not limited to one specific OSI layer**; its exact function depends on what kind of gateway is being discussed.
+
+### Exam definition
+
+> **A gateway is a device or software component that connects dissimilar networks and, when necessary, performs protocol or format translation between them.**
+
+---
+
+# 9. Modem
+
+## Definition
+
+**Modem** stands for:
+
+> **MO**dulator + **DE**Modulator
+
+A modem converts digital data into signals suitable for a particular transmission medium and converts received signals back into digital data.
+
+### Basic concept
+
+```text
+Digital Data
+     ↓
+  Modulation
+     ↓
+Suitable Signal
+     ↓
+Communication Medium
+     ↓
+  Demodulation
+     ↓
+Digital Data
+```
+
+### Diagram
+
+```text
+Computer
+   |
+Digital Data
+   ↓
++--------+
+| Modem  |
++--------+
+   |
+Communication Line
+   |
++--------+
+| Modem  |
++--------+
+   |
+   ↓
+Computer/Network
+```
+
+### Functions
+
+- Modulation.
+    
+- Demodulation.
+    
+- Provides connectivity over certain communication services.
+    
+
+### Types
+
+Depending on technology:
+
+- DSL modem
+    
+- Cable modem
+    
+- Cellular modem
+    
+- Dial-up modem
+    
+
+### Advantages
+
+- Enables digital devices to communicate over compatible communication services.
+    
+- Converts signals between required forms.
+    
+
+### Disadvantages
+
+- Performance depends on the underlying access technology.
+    
+- Some traditional modem technologies have limited speed.
+    
+
+### Exam definition
+
+> **A modem is a device that performs modulation and demodulation to enable data communication over a suitable transmission medium.**
+
+---
+
+# 10. Wireless Access Point (WAP/AP)
+
+## Definition
+
+A **Wireless Access Point (AP)** is a networking device that provides **wireless network access to Wi-Fi devices** and connects them to a wired LAN or other network infrastructure.
+
+### Diagram
+
+```text
+             Laptop
+                )))
+               )))
+              )))
+        +---------------+
+        | Wireless AP   |
+        +---------------+
+                |
+             Ethernet
+                |
+             Switch
+                |
+             Network
+```
+
+### Functions
+
+- Provides Wi-Fi connectivity.
+    
+- Connects wireless clients to a wired network.
+    
+- Manages wireless communication within its coverage area.
+    
+- Can provide wireless security/authentication features.
+    
+
+### Examples of connected devices
+
+- Smartphones
+    
+- Laptops
+    
+- Tablets
+    
+- IoT devices
+    
+
+### Exam definition
+
+> **A wireless access point is a device that allows wireless devices to connect to a network, typically using Wi-Fi.**
+
+---
+
+# 11. NIC — Network Interface Card
+
+## Definition
+
+A **Network Interface Card (NIC)** is a hardware component that provides a device with a **network interface for communicating over a network**.
+
+NICs can be:
+
+- Wired
+    
+- Wireless
+    
+
+### Diagram
+
+```text
+Computer
+   |
+   ↓
++---------+
+|   NIC   |
++---------+
+   |
+   ↓
+Network
+```
+
+### Main functions
+
+- Provides network connectivity.
+    
+- Sends and receives network data.
+    
+- Uses a MAC address for Layer 2 communication.
+    
+- Converts data between the computer's internal representation and network signaling.
+    
+
+### Types
+
+#### Ethernet NIC
+
+Uses wired Ethernet.
+
+```text
+PC → Ethernet NIC → Ethernet Cable → Switch
+```
+
+#### Wireless NIC
+
+Uses Wi-Fi.
+
+```text
+Laptop → Wireless NIC ))) Access Point
+```
+
+### Exam definition
+
+> **A NIC is a hardware interface that enables a computer or other device to connect and communicate with a network.**
+
+---
+
+# 12. Firewall
+
+## Definition
+
+A **firewall** is a security system that **monitors and controls network traffic according to defined security rules**.
+
+It can be implemented as hardware, software, or a combination.
+
+### Diagram
+
+```text
+Internet
+   |
+   ↓
++----------+
+| Firewall |
++----------+
+   |
+   ↓
+Internal Network
+```
+
+### Functions
+
+- Filters traffic.
+    
+- Blocks unauthorized connections.
+    
+- Allows permitted traffic.
+    
+- Helps protect internal networks.
+    
+- Can enforce security policies.
+    
+
+### Types
+
+- Packet-filtering firewall
+    
+- Stateful firewall
+    
+- Application/proxy firewall
+    
+- Next-generation firewall (NGFW)
+    
+
+### Exam definition
+
+> **A firewall is a hardware or software security system that monitors and controls incoming and outgoing network traffic according to predefined security rules.**
+
+---
+
+# 13. Network Devices According to OSI Layer
+
+This is **very important for exams**.
+
+```text
+OSI Layer                    Devices
+
+Layer 7 ─ Application
+Layer 6 ─ Presentation
+Layer 5 ─ Session
+Layer 4 ─ Transport
+
+Layer 3 ─ Network          → Router
+
+Layer 2 ─ Data Link        → Bridge
+                             Switch
+                             NIC*
+
+Layer 1 ─ Physical         → Repeater
+                             Hub
+                             Cable
+                             Modem*
+                             NIC*
+```
+
+**Important:** Some devices span multiple layers depending on their implementation. For exam purposes, the common associations are:
+
+|Device|Common OSI Layer|
+|---|---|
+|Repeater|Layer 1 — Physical|
+|Hub|Layer 1 — Physical|
+|Bridge|Layer 2 — Data Link|
+|Switch|Layer 2 — Data Link|
+|Router|Layer 3 — Network|
+|Gateway|Depends on function|
+|Modem|Depends on technology; traditionally associated with lower layers|
+|Access Point|Commonly Layer 2|
+|NIC|Primarily Layer 1/2 functions|
+|Firewall|Depends on type; can operate at multiple layers|
+
+---
+
+# 14. Hub vs Switch vs Router
+
+This is one of the **most important exam comparisons**.
+
+|Feature|Hub|Switch|Router|
+|---|---|---|---|
+|Main OSI layer|Layer 1|Layer 2|Layer 3|
+|Address used|None|MAC|IP|
+|Connects|Devices in LAN|Devices in LAN|Different networks|
+|Forwarding|Repeats to ports|Based on MAC|Based on IP/routing table|
+|Collision domains|One shared collision domain|Separate per port|Separate|
+|Broadcast domains|One|Usually one per VLAN|Separates broadcast domains|
+|Intelligence|Very low|Higher|Higher|
+|Example|Old Ethernet hub|LAN switch|Home/enterprise router|
+
+---
+
+# 15. Repeater vs Hub vs Bridge vs Switch vs Router
+
+|Device|Main Purpose|Address|Layer|
+|---|---|---|---|
+|**Repeater**|Regenerate signal|None|L1|
+|**Hub**|Repeat signal to multiple ports|None|L1|
+|**Bridge**|Connect/filter LAN segments|MAC|L2|
+|**Switch**|Efficiently forward LAN frames|MAC|L2|
+|**Router**|Connect networks and route packets|IP|L3|
+
+### Easy memory
+
+```text
+Repeater → Regenerate
+Hub      → Repeat
+Bridge   → Connect LAN segments
+Switch   → MAC-based forwarding
+Router   → IP-based routing
+```
+
+---
+
+# 16. Bridge vs Switch
+
+A switch is essentially a **multi-port Layer 2 forwarding device** and can be viewed as an evolution of the traditional bridge concept.
+
+|Bridge|Switch|
+|---|---|
+|Usually fewer ports|Usually many ports|
+|Older technology/concept|Modern LAN technology|
+|Layer 2|Primarily Layer 2|
+|Uses MAC addresses|Uses MAC addresses|
+|Connects LAN segments|Connects many LAN devices|
+
+---
+
+# 17. Access Point vs Router
+
+These are also commonly confused.
+
+### Access Point
+
+Primarily provides **wireless connectivity** to a network.
+
+```text
+Phone )))
+Laptop ))) → AP → Wired Network
+```
+
+### Router
+
+Primarily connects **different IP networks** and performs routing.
+
+```text
+LAN → Router → Internet
+```
+
+A typical home "Wi-Fi router" often combines:
+
+```text
+Router
+   +
+Switch
+   +
+Wireless Access Point
+   +
+Other functions
+```
+
+---
+
+# 18. Complete Network Devices Diagram
+
+```text
+                         INTERNET
+                            |
+                            |
+                         ROUTER
+                            |
+                       +----+----+
+                       |         |
+                    SWITCH       AP
+                    /  |  \       )))
+                   /   |   \      )))
+                 PC1  PC2  PC3   Laptop
+                  |
+                 NIC
+                  |
+               Network
+
+          Older/other devices:
+
+        Repeater → Extends signal
+        Hub      → Repeats to ports
+        Bridge   → Connects LAN segments
+        Modem    → Modulates/Demodulates
+        Gateway  → Connects/Translates networks
+        Firewall → Filters traffic
+```
+
+---
+
+# ⭐ 19. One-Line Definitions for Revision
+
+|Device|One-line definition|
+|---|---|
+|**Repeater**|Regenerates and retransmits signals to extend network distance.|
+|**Hub**|Repeats incoming signals to multiple ports.|
+|**Bridge**|Connects LAN segments and filters frames using MAC addresses.|
+|**Switch**|Forwards LAN frames to appropriate ports using MAC addresses.|
+|**Router**|Connects different networks and forwards packets using IP/routing information.|
+|**Gateway**|Connects networks and may translate between protocols or architectures.|
+|**Modem**|Performs modulation and demodulation for communication over a suitable medium.|
+|**Access Point**|Provides wireless network connectivity to Wi-Fi devices.|
+|**NIC**|Provides a device with an interface for network communication.|
+|**Firewall**|Monitors and controls network traffic according to security rules.|
+
+---
+
+# 🎯 Most Important Devices for Exams
+
+If you have limited time, study these **first**:
+
+### Must know
+
+1. **Repeater**
+    
+2. **Hub**
+    
+3. **Bridge**
+    
+4. **Switch**
+    
+5. **Router**
+    
+6. **Gateway**
+    
+7. **Modem**
+    
+8. **Wireless Access Point**
+    
+9. **NIC**
+    
+10. **Firewall**
+    
+
+And especially memorize:
+
+> **Repeater/Hub → Layer 1 → Signal**  
+> **Bridge/Switch → Layer 2 → MAC/Frame**  
+> **Router → Layer 3 → IP/Packet**  
+> **Gateway → Protocol/Network Translation**  
+> **Firewall → Security/Traffic Filtering**
+
+These layer associations, definitions, functions, diagrams, and comparisons are the **highest-value material for theory questions**.
