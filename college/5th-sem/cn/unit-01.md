@@ -3132,3 +3132,1032 @@ And for packet switching:
 > **Virtual Circuit = Packets follow an established logical path**
 
 ---
+
+# Routing in Computer Networks — Detailed Exam Notes
+
+## 1. What is Routing?
+
+**Routing** is the process of **selecting the best path for data packets to travel from a source network/device to a destination network/device**.
+
+Routing mainly happens at the **Network Layer (Layer 3) of the OSI model**.
+
+### Simple example
+
+```text
+Source
+  |
+  ↓
+Router A
+  |
+  ├──────── Router B ────────┐
+  |                          |
+  └──────── Router C ────────┤
+                             ↓
+                         Destination
+```
+
+The router decides whether the packet should go through **Router B or Router C** based on available routing information.
+
+### Exam definition
+
+> **Routing is the process of determining and selecting an appropriate path for forwarding data packets from a source to a destination across one or more interconnected networks.**
+
+---
+
+# 2. Why is Routing Needed?
+
+In a small network, devices may communicate directly.
+
+```text
+A ───────── B
+```
+
+But in a large network:
+
+```text
+A ─ Router 1 ─ Router 2 ─ Router 3 ─ B
+```
+
+The source cannot know everything about the entire network.
+
+Routers help determine:
+
+- Where the destination is.
+    
+- Which next router should receive the packet.
+    
+- Which available path should be used.
+    
+- How packets should be forwarded.
+    
+
+---
+
+# 3. Routing vs Forwarding
+
+These two terms are very important and are often confused.
+
+### Routing
+
+**Routing = deciding the path.**
+
+It determines how packets should reach their destination.
+
+### Forwarding
+
+**Forwarding = sending the packet to the next hop.**
+
+Example:
+
+```text
+Routing:
+"To reach B, use Router 2."
+
+Forwarding:
+"Send this packet to Router 2."
+```
+
+### Simple comparison
+
+|Routing|Forwarding|
+|---|---|
+|Determines the path|Moves packet to next hop|
+|Network-wide process|Local router operation|
+|Builds/uses routing information|Uses forwarding table|
+|"Where should it go?"|"Send it there now."|
+
+---
+
+# 4. Router
+
+A **router** is a networking device that connects different networks and forwards packets between them based on destination addressing and routing information.
+
+### Basic diagram
+
+```text
+Network A
+   |
+   |
+ Router
+   |
+   |
+Network B
+```
+
+A router has interfaces connected to different networks.
+
+```text
+          Router
+       ┌──────────┐
+LAN A ─┤          ├─ LAN B
+       │          │
+WAN  ──┤          ├─ LAN C
+       └──────────┘
+```
+
+---
+
+# 5. Routing Table
+
+A router uses a **routing table** to determine where packets should be forwarded.
+
+A simplified routing table might look like:
+
+```text
+Destination       Next Hop       Interface
+------------------------------------------------
+192.168.1.0/24    Direct         eth0
+10.0.0.0/8        192.168.1.2    eth1
+172.16.0.0/16     192.168.1.3    eth2
+Default           192.168.1.1    eth1
+```
+
+### Important fields
+
+**Destination Network**
+
+- Network the router wants to reach.
+    
+
+**Next Hop**
+
+- The next router/device to which the packet should be sent.
+    
+
+**Interface**
+
+- Router interface through which the packet should leave.
+    
+
+**Metric**
+
+- A value used to compare possible routes.
+    
+
+---
+
+# 6. How Routing Works
+
+Suppose:
+
+```text
+Computer A
+192.168.1.10
+
+        |
+        ↓
+
+Router R1
+        |
+        ↓
+
+Router R2
+        |
+        ↓
+
+Computer B
+192.168.3.10
+```
+
+Computer A sends a packet to `192.168.3.10`.
+
+### Step 1 — Packet creation
+
+The source creates a packet containing the destination IP address.
+
+```text
+Source IP:      192.168.1.10
+Destination IP: 192.168.3.10
+```
+
+### Step 2 — Packet reaches router
+
+Router R1 receives the packet.
+
+### Step 3 — Router checks destination
+
+R1 looks at:
+
+```text
+Destination = 192.168.3.10
+```
+
+### Step 4 — Routing table lookup
+
+R1 checks its routing table to determine the best matching route.
+
+### Step 5 — Forwarding
+
+R1 forwards the packet to the appropriate next hop.
+
+```text
+A → R1 → R2 → B
+```
+
+### Step 6 — Destination receives packet
+
+The packet eventually reaches Computer B.
+
+---
+
+# 7. Routing Metrics
+
+A **routing metric** is a value used to determine how desirable one route is compared with another.
+
+Common metrics include:
+
+### 1. Hop Count
+
+Number of routers that a packet must pass through.
+
+```text
+A → R1 → R2 → B
+
+Hop count = 2
+```
+
+Lower hop count is generally preferred by protocols that use hop count as their metric.
+
+---
+
+### 2. Bandwidth
+
+The capacity of a network link.
+
+A route with higher available bandwidth may be preferred depending on the routing protocol.
+
+---
+
+### 3. Delay
+
+Time required for data to travel through the network.
+
+Lower delay is generally preferable.
+
+---
+
+### 4. Cost
+
+A numerical value assigned to a link or route.
+
+```text
+Route A = Cost 10
+Route B = Cost 25
+
+Preferred → Route A
+```
+
+---
+
+### 5. Reliability
+
+Measures how dependable a communication link is.
+
+A more reliable path may be preferred.
+
+---
+
+### 6. Load
+
+Represents how heavily a network link is being used.
+
+A less congested route may be preferred in systems that consider load.
+
+---
+
+# 8. Types of Routing
+
+Routing can be classified in several ways.
+
+The most important classification for exams is:
+
+```text
+                    ROUTING
+                       |
+          ┌────────────┴────────────┐
+          ↓                         ↓
+      Static                     Dynamic
+      Routing                    Routing
+                                   |
+                       ┌───────────┼───────────┐
+                       ↓           ↓           ↓
+                     RIP          OSPF         BGP
+```
+
+Another important classification is:
+
+```text
+                    ROUTING
+                       |
+             ┌─────────┴─────────┐
+             ↓                   ↓
+          Interior             Exterior
+          Routing               Routing
+             |                     |
+        Within AS             Between ASes
+```
+
+---
+
+# 9. Static Routing
+
+## Definition
+
+**Static routing** is a routing method in which routes are **manually configured by a network administrator**.
+
+The router does not automatically learn routes from other routers.
+
+### Example
+
+Administrator configures:
+
+```text
+Network: 192.168.3.0/24
+Next Hop: 192.168.1.2
+```
+
+### Diagram
+
+```text
+A ─── R1 ─── R2 ─── B
+      ↑
+      |
+Manually configured route
+```
+
+---
+
+## Advantages of Static Routing
+
+### 1. Simple for small networks
+
+Easy to understand and configure when there are few routes.
+
+### 2. No routing protocol overhead
+
+Routers do not need to exchange routing updates.
+
+### 3. More predictable
+
+The administrator explicitly determines the route.
+
+### 4. Can improve security
+
+No routing protocol updates need to be exchanged with neighboring routers.
+
+---
+
+## Disadvantages
+
+### 1. Manual configuration
+
+Every route must be configured manually.
+
+### 2. Poor scalability
+
+Difficult to manage in large networks.
+
+### 3. Does not automatically adapt
+
+If a link fails, the administrator may need to modify the route.
+
+### 4. Configuration errors
+
+Incorrect configuration can cause routing problems.
+
+---
+
+# 10. Dynamic Routing
+
+## Definition
+
+**Dynamic routing** is a routing method in which routers **automatically learn and update routes using routing protocols**.
+
+```text
+        R1
+       /  \
+      /    \
+     R2────R3
+      \    /
+       \  /
+        R4
+```
+
+Routers exchange routing information and calculate routes.
+
+---
+
+## Advantages
+
+### 1. Automatic updates
+
+Routes can be updated when network conditions change.
+
+### 2. Suitable for large networks
+
+Can handle many routes.
+
+### 3. Fault tolerance
+
+Can potentially find alternative paths when a link fails.
+
+### 4. Less manual work
+
+Administrators don't have to manually configure every route.
+
+---
+
+## Disadvantages
+
+- More complex.
+    
+- Uses CPU and memory.
+    
+- Routing protocols generate network traffic.
+    
+- Configuration and troubleshooting can be more difficult.
+    
+
+---
+
+# 11. Static vs Dynamic Routing
+
+|Feature|Static Routing|Dynamic Routing|
+|---|---|---|
+|Configuration|Manual|Automatic/learned|
+|Updates|Manual|Automatic|
+|Complexity|Low for small networks|Higher|
+|Scalability|Poor|Good|
+|Failure adaptation|Usually manual|Can adapt automatically|
+|Resource usage|Low|Higher|
+|Suitable for|Small/simple networks|Medium/large networks|
+
+---
+
+# 12. Routing Protocols
+
+A **routing protocol** is a set of rules used by routers to **exchange routing information and determine routes**.
+
+Important routing protocols include:
+
+### RIP
+
+**Routing Information Protocol**
+
+- Distance-vector protocol.
+    
+- Uses **hop count** as its primary metric.
+    
+- Maximum usable hop count is **15**; 16 represents unreachable.
+    
+- Simple but limited for large networks.
+    
+
+---
+
+### OSPF
+
+**Open Shortest Path First**
+
+- Link-state routing protocol.
+    
+- Uses a cost metric.
+    
+- Uses **Dijkstra's shortest-path algorithm**.
+    
+- Commonly used inside large enterprise networks.
+    
+
+---
+
+### BGP
+
+**Border Gateway Protocol**
+
+- Used to exchange routing information **between Autonomous Systems**.
+    
+- It is the primary inter-domain routing protocol of the Internet.
+    
+- Path-vector protocol.
+    
+
+---
+
+# 13. Classification of Routing Protocols
+
+## A. Interior Gateway Protocols — IGP
+
+Used for routing **within a single Autonomous System (AS)**.
+
+Examples:
+
+- RIP
+    
+- OSPF
+    
+- IS-IS
+    
+- EIGRP
+    
+
+```text
+       Autonomous System
+   ┌─────────────────────┐
+   │ R1 ─ R2 ─ R3 ─ R4   │
+   │                     │
+   └─────────────────────┘
+```
+
+---
+
+## B. Exterior Gateway Protocol — EGP
+
+Used for routing **between Autonomous Systems**.
+
+The main modern example is:
+
+> **BGP**
+
+```text
+       AS 100                 AS 200
+   ┌───────────┐          ┌───────────┐
+   │ R1 ─ R2   │──────────│ R3 ─ R4   │
+   └───────────┘   BGP    └───────────┘
+```
+
+---
+
+# 14. Distance Vector Routing
+
+In **distance-vector routing**, a router learns routes by exchanging information with neighboring routers.
+
+Each router generally maintains information such as:
+
+```text
+Destination → Distance → Next Hop
+```
+
+Example:
+
+```text
+Destination    Distance    Next Hop
+------------------------------------
+Network A      2           R2
+Network B      4           R3
+```
+
+### Main idea
+
+> **"I can reach destination X at distance Y through neighbor Z."**
+
+### Example
+
+```text
+A ─── R1 ─── R2 ─── R3 ─── B
+
+R1 learns:
+B → 3 hops via R2
+```
+
+### Example protocol
+
+**RIP**
+
+---
+
+# 15. Link-State Routing
+
+In **link-state routing**, routers build a more complete view of the network topology by exchanging information about their links.
+
+Then each router calculates the shortest/best paths.
+
+### Basic idea
+
+```text
+        R1
+       /  \
+      /    \
+     R2────R3
+      \    /
+       \  /
+        R4
+```
+
+Routers learn the topology and calculate paths.
+
+### Algorithm
+
+**Dijkstra's Shortest Path First (SPF)** algorithm is commonly associated with link-state routing.
+
+### Example protocol
+
+**OSPF**
+
+---
+
+# 16. Distance Vector vs Link State
+
+|Feature|Distance Vector|Link State|
+|---|---|---|
+|Knowledge|Information from neighbors|Broader topology information|
+|Algorithm|Bellman-Ford family|Dijkstra SPF|
+|Updates|Typically exchanged with neighbors|Link-state information is flooded within an area/domain|
+|Convergence|Generally slower|Generally faster|
+|Complexity|Simpler|More complex|
+|Example|RIP|OSPF|
+
+---
+
+# 17. Path Vector Routing
+
+**Path-vector routing** maintains information about the path or sequence of Autonomous Systems toward a destination.
+
+The best-known example is:
+
+> **BGP**
+
+Example:
+
+```text
+AS 100 → AS 200 → AS 300 → Destination
+```
+
+BGP can use the AS path and other routing attributes to select routes.
+
+### Exam definition
+
+> **Path-vector routing is a routing technique in which routing information includes the path through Autonomous Systems to reach a destination.**
+
+---
+
+# 18. Default Routing
+
+**Default routing** is used when a router does not have a more specific route for a destination.
+
+A default route is commonly represented as:
+
+```text
+0.0.0.0/0
+```
+
+Example:
+
+```text
+LAN
+ |
+Router
+ |
+Default Route
+ |
+Internet
+```
+
+### Example
+
+If the router doesn't know a specific route:
+
+```text
+Destination = Unknown
+       ↓
+Use Default Route
+       ↓
+Internet Gateway
+```
+
+### Exam definition
+
+> **Default routing provides a route to use when no more specific route to the destination exists in the routing table.**
+
+---
+
+# 19. Unicast, Broadcast, Multicast and Anycast Routing
+
+Routing can also be discussed based on how destinations are addressed.
+
+## 1. Unicast
+
+**One sender → One receiver**
+
+```text
+A ─────────→ B
+```
+
+Example:
+
+- Normal web request to a particular server.
+    
+
+---
+
+## 2. Broadcast
+
+**One sender → All devices in a broadcast domain**
+
+```text
+          B
+         ↑
+         |
+A ───────┼────── C
+         |
+         ↓
+         D
+```
+
+---
+
+## 3. Multicast
+
+**One sender → Selected group of receivers**
+
+```text
+          B
+         ↑
+         |
+A ───────┼────── C
+         
+         D
+      (not selected)
+```
+
+---
+
+## 4. Anycast
+
+**One sender → One suitable/nearest member of a group**
+
+```text
+             Server B
+            /
+Client ────┼──── Server C
+            \
+             Server D
+
+      → One suitable server selected
+```
+
+Anycast is widely used in distributed Internet services.
+
+---
+
+# 20. Routing Algorithms
+
+A **routing algorithm** is a procedure used to determine the best route between source and destination.
+
+Important concepts include:
+
+### 1. Shortest Path Algorithm
+
+Finds a path with the lowest cost according to the chosen metric.
+
+Example:
+
+```text
+A ──2── B ──3── D
+ \             /
+  \4           /1
+   \           /
+      C ─────
+```
+
+Possible paths:
+
+```text
+A → B → D = 2 + 3 = 5
+```
+
+The algorithm compares possible routes according to the routing metric.
+
+---
+
+### 2. Dijkstra's Algorithm
+
+Used in **link-state routing**.
+
+It calculates shortest paths from one source to all reachable destinations.
+
+Used conceptually by protocols such as:
+
+> **OSPF**
+
+---
+
+### 3. Bellman-Ford Algorithm
+
+Used as the basis for **distance-vector routing**.
+
+It calculates routes based on information exchanged with neighboring routers.
+
+Associated with:
+
+> **RIP**
+
+---
+
+# 21. Routing Process — Complete Diagram
+
+```text
+             SOURCE
+                |
+                ↓
+        +---------------+
+        |    Router     |
+        +---------------+
+                |
+                ↓
+       Check Destination IP
+                |
+                ↓
+        Search Routing Table
+                |
+                ↓
+        Select Best Route
+                |
+                ↓
+           Next Hop
+                |
+                ↓
+        +---------------+
+        | Next Router   |
+        +---------------+
+                |
+                ↓
+             Repeat
+                |
+                ↓
+          DESTINATION
+```
+
+---
+
+# 22. Routing Loops
+
+A **routing loop** occurs when packets continuously circulate between routers instead of reaching their destination.
+
+Example:
+
+```text
+       ┌──── R2 ────┐
+       ↓            |
+      R1             R3
+       ↑            |
+       └────────────┘
+
+Packet:
+R1 → R2 → R3 → R1 → R2 → ...
+```
+
+### Problems caused
+
+- Wastes bandwidth.
+    
+- Increases network congestion.
+    
+- Packets may never reach the destination.
+    
+- Can cause excessive resource consumption.
+    
+
+Routing protocols use mechanisms to prevent or limit loops.
+
+---
+
+# 23. Routing Metrics vs Routing Protocols
+
+Don't confuse these.
+
+### Routing metric
+
+A **value used to evaluate a route**.
+
+Examples:
+
+- Hop count
+    
+- Cost
+    
+- Delay
+    
+- Bandwidth
+    
+
+### Routing protocol
+
+A **set of rules used to exchange routing information and calculate/select routes**.
+
+Examples:
+
+- RIP
+    
+- OSPF
+    
+- BGP
+    
+
+```text
+Routing Protocol
+       ↓
+Collects/uses routing information
+       ↓
+Calculates/selects route
+       ↓
+Uses routing metric/attributes
+```
+
+---
+
+# 24. Important Routing Terms
+
+|Term|Meaning|
+|---|---|
+|**Router**|Device that forwards packets between networks|
+|**Route**|Path toward a destination|
+|**Routing Table**|Information used to determine where packets should go|
+|**Next Hop**|Next router/device on the path|
+|**Metric**|Value used to compare routes|
+|**Routing Protocol**|Rules for exchanging routing information|
+|**Static Routing**|Manually configured routes|
+|**Dynamic Routing**|Routes learned/updated automatically|
+|**Default Route**|Route used when no more specific route matches|
+|**Hop**|A step from one router to the next|
+|**Autonomous System**|Network/domain under a common routing administration|
+
+---
+
+# ⭐ 25. Static, Dynamic, Distance Vector, Link State — Don't Confuse Them
+
+These classifications describe **different aspects**.
+
+```text
+                    ROUTING
+                       |
+          ┌────────────┴────────────┐
+          ↓                         ↓
+       Static                    Dynamic
+       Manual                    Automatic
+                                  |
+                    ┌─────────────┼─────────────┐
+                    ↓             ↓             ↓
+              Distance Vector  Link State   Path Vector
+                    ↓             ↓             ↓
+                   RIP           OSPF          BGP
+```
+
+This distinction is **very important for exams**.
+
+---
+
+# ⭐ 26. Most Important Exam Comparison
+
+## Distance Vector vs Link State vs Path Vector
+
+|Feature|Distance Vector|Link State|Path Vector|
+|---|---|---|---|
+|Basic idea|Distance via neighbors|Network topology|Path through ASes|
+|Information|Distance + direction|Link-state/topology information|AS path + attributes|
+|Example|RIP|OSPF|BGP|
+|Algorithm/approach|Bellman-Ford family|Dijkstra SPF|Path-vector|
+|Typical use|Small/simple networks|Internal networks|Inter-AS Internet routing|
+
+---
+
+# ⭐ 27. One-Page Revision
+
+```text
+ROUTING
+   │
+   ├── Purpose
+   │     └── Select best path + forward packets
+   │
+   ├── Main Device
+   │     └── Router
+   │
+   ├── Routing Table
+   │     ├── Destination
+   │     ├── Next Hop
+   │     ├── Interface
+   │     └── Metric
+   │
+   ├── Configuration
+   │     ├── Static
+   │     └── Dynamic
+   │
+   ├── Dynamic Routing Approaches
+   │     ├── Distance Vector → RIP
+   │     ├── Link State → OSPF
+   │     └── Path Vector → BGP
+   │
+   ├── Scope
+   │     ├── IGP → Within AS
+   │     └── BGP → Between ASes
+   │
+   └── Routing Types by Delivery
+         ├── Unicast
+         ├── Broadcast
+         ├── Multicast
+         └── Anycast
+```
+
+
+---
+
+
