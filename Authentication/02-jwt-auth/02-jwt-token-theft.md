@@ -33,6 +33,15 @@ const getMe = async (req, res, next) => {
 
 ```
 
+---
+
+### Problem :
+In a JWT-based authentication system, if User B obtains User A's valid access token, User B can use it to authenticate as User A because JWT bearer tokens identify the token holder as the user represented by the token.
+
+**Problem:** Design the authentication system to securely handle tokens, minimize the impact of stolen access tokens, and ensure proper authorization so users cannot access resources they are not permitted to access.
+
+---
+
 Yes — you have identified a **very important real-world authentication/security issue**.
 
 But there is one subtle point to understand first:
