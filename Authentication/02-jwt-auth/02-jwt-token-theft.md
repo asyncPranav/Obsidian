@@ -16,7 +16,7 @@ const getMe = async (req, res, next) => {
     const userId = decoded.sub; // Get user ID from the JWT token payload
     // console.log("Decoded token:", decoded);
 
-    //
+    // Find the user by ID
     const user = await userModel.findById(userId);
 
     res.status(200).json({
