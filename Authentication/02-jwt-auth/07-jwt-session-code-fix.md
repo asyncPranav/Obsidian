@@ -1064,7 +1064,7 @@ This gives every login a unique session identity.
 
 ---
 
-#DOUBT  - **2. **If we don't pass** `sessionId`while generating the refresh token, what problem will happen? When** `**/refresh-token**` **generates a new access/refresh token, why does it need to know which session the client's refresh token belongs to ?**
+#DOUBT  - **2. If we don't pass `sessionId` while generating the refresh token, what problem will happen? When `/refresh-token generates a new access/refresh token, why does it need to know which session the client's refresh token belongs to?**
 
 
 
