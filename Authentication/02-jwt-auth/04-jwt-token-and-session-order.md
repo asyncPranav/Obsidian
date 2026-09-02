@@ -202,7 +202,7 @@ Both can work.
 
 ---
 
-# 4. Recommended order for our project
+### Recommended order for our project
 
 Since your tutor is teaching you:
 
@@ -228,7 +228,7 @@ a clean order is:
 
 For example:
 
-```
+```js
 const refreshToken = token.generateRefreshToken(newUser._id);
 
 const accessToken = token.generateAccessToken(newUser._id);
@@ -248,11 +248,6 @@ return res.status(201).json({
   accessToken,
 });
 ```
-
----
-
-# 5. W
-
 
 ---
 
