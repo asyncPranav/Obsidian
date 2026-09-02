@@ -70,7 +70,7 @@ Frontend sends request to /refresh-token
 
 ---
 
-# Step-by-Step Flow
+# Step-by-Step Flow (if time allows)
 
 ## Step 1 — Get Refresh Token from Cookie
 
