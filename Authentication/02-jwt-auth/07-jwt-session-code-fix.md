@@ -566,7 +566,7 @@ sid → Session ID
 ```
 
 
-#DOUBT - **Why do we need `sessionId` in  `generateRefreshToken(userId, sessionId)`**
+#DOUBT - **Why do we need `sessionId` in  `generateRefreshToken()`**
 
 
 ---
