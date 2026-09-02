@@ -793,7 +793,7 @@ The frontend can't use it anymore.
 So the frontend calls:
 
 ```text
-POST /api/auth/refresh
+POST /api/auth/refresh-token
 ```
 
 The browser automatically sends:
