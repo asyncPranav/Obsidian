@@ -1063,6 +1063,9 @@ sessionId
 This gives every login a unique session identity.
 
 ---
+---
+---
+---
 
 ## Updated register flow
 
