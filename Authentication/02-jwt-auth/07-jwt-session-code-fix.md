@@ -1064,9 +1064,183 @@ This gives every login a unique session identity.
 
 ---
 
-#DOUBT  - **2. If we don't pass `sessionId` while generating the refresh token, what problem will happen? When `/refresh-token generates a new access/refresh token, why does it need to know which session the client's refresh token belongs to?**
+#DOUBT  - **2. If we don't pass `sessionId` while generating the refresh token, what problem will happen? When `/refresh-token` generates a new access/refresh token, why does it need to know which session the client's refresh token belongs to ?**
 
+Yes — this is the **main reason `sessionId` (`sid`) is useful** in your architecture.
 
+Think of it this way:
+
+```text
+sub = WHO is the user?
+sid = WHICH login/session is being used?
+```
+
+### What happens if you don't pass `sessionId`?
+
+Suppose the same user logs in from 3 devices:
+
+```text
+User 123
+
+Laptop  → Session A → Refresh Token A
+Phone   → Session B → Refresh Token B
+Tablet  → Session C → Refresh Token C
+```
+
+If your refresh token contains only:
+
+```js
+{
+  sub: "123"
+}
+```
+
+then when `/refresh-token` receives a refresh token, the server learns:
+
+```text
+This belongs to User 123
+```
+
+But it **doesn't know which session** it belongs to.
+
+That becomes a problem because your database has:
+
+```text
+Session A → User 123 → refresh token hash A
+Session B → User 123 → refresh token hash B
+Session C → User 123 → refresh token hash C
+```
+
+The server needs to know:
+
+> "Which of these sessions should I check?"
+
+---
+
+### With `sessionId`
+
+Your refresh token contains:
+
+```js
+{
+  sub: "123",
+  sid: "session-B"
+}
+```
+
+Now `/refresh-token` can say:
+
+```text
+User = 123
+Session = B
+```
+
+and query:
+
+```js
+const session = await sessionModel.findOne({
+  _id: decoded.sid,
+  user: decoded.sub,
+});
+```
+
+So it gets exactly:
+
+```text
+Session B
+```
+
+Then it can check:
+
+```text
+Does session exist?
+↓
+Is it revoked?
+↓
+Has it expired?
+↓
+Does the refresh token match the hash stored in Session B?
+↓
+Yes → generate new access token
+```
+
+---
+
+### But your question is important: "Why does the new refresh token need to know which session?"
+
+There are actually **two separate things** here.
+
+#### 1. Finding the existing session
+
+The incoming refresh token needs `sid` so the server can identify:
+
+```text
+"This refresh request belongs to Session B."
+```
+
+That's the most important reason.
+
+#### 2. Generating a new refresh token
+
+If you're doing **refresh-token rotation**, you may generate a new refresh token.
+
+That new refresh token should also contain the same `sid`:
+
+```js
+{
+  sub: "123",
+  sid: "session-B"
+}
+```
+
+because it is still the **same login session**.
+
+You're not creating a new login session every time the access token is refreshed.
+
+```text
+Session B
+   │
+   ├── old refresh token
+   │
+   ├── new refresh token
+   │
+   ├── access token
+   │
+   └── another access token
+```
+
+All of them belong to **Session B**.
+
+### Simple analogy
+
+Imagine a hotel:
+
+```text
+Guest = User ID
+Room = Session ID
+Room key = Refresh Token
+```
+
+The hotel knows:
+
+```text
+Alice → Room 201
+Alice → Room 305
+```
+
+If Alice gives you a key, you need to know **which room that key belongs to**.
+
+`sub` tells you:
+
+> "This is Alice."
+
+`sid` tells you:
+
+> "This is Alice's Room 305 session."
+
+So **`sid` connects the JWT to the exact database session**.
+
+That's why your tutor is adding `sessionId` to the access and refresh tokens.
 
 ---
 ---
