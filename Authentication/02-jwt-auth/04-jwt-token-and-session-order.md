@@ -857,7 +857,7 @@ Later:
 ```text
 Access Token expires
         ↓
-POST /refresh
+POST /refresh-token
         ↓
 Browser sends HttpOnly Cookie
         ↓
