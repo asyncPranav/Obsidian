@@ -79,6 +79,182 @@ For example:
 The session allows the server to keep track of a login/refresh session.
 
 ---
+###  The main confusion
+
+When we register/login a user, we may do these things:
+
+```
+Generate Refresh Token
+Generate Access Token
+Create Session in DB
+Set Refresh Token Cookie
+Send Access Token to frontend
+```
+
+The question is:
+
+> **Does this have to happen in exactly this order?**
+
+### Short answer
+
+**No.** The exact order is not a JWT security requirement.
+
+What matters is the **dependency between the operations**.
+
+---
+
+###  Understand the dependency
+
+The important relationship is:
+
+```
+Refresh Token
+      ↓
+   Session
+```
+
+Why?
+
+Because our session stores information related to the refresh token:
+
+```js
+await sessionModel.create({
+  user: newUser._id,
+  refreshToken,
+  ip: req.ip,
+  userAgent: req.get("User-Agent"),
+  expiresAt: ...
+});
+```
+
+Therefore:
+
+```
+First:
+refreshToken must exist
+
+Then:
+session can be created using refreshToken
+```
+
+So this is logical:
+
+```
+Generate Refresh Token
+        ↓
+Create Session
+```
+
+But this is impossible:
+
+```
+Create Session
+        ↓
+Generate Refresh Token
+```
+
+because the session needs the refresh token.
+
+---
+
+###  What about the Access Token?
+
+The access token is **independent of the session**.
+
+Think of it like this:
+
+```
+                ┌──→ Session
+                │
+Refresh Token ──┤
+                │
+                └──→ HttpOnly Cookie
+
+
+Access Token ─────────→ Frontend Memory
+```
+
+The session does not need the access token.
+
+Therefore, these are both technically possible:
+
+### Option A
+
+```
+Generate Refresh Token
+        ↓
+Create Session
+        ↓
+Generate Access Token
+```
+
+### Option B
+
+```
+Generate Refresh Token
+        ↓
+Generate Access Token
+        ↓
+Create Session
+```
+
+Both can work.
+
+---
+
+# 4. Recommended order for our project
+
+Since your tutor is teaching you:
+
+```
+Access Token  → Memory
+Refresh Token → HttpOnly Cookie
+Session       → Database
+```
+
+a clean order is:
+
+```
+1. Generate Refresh Token
+          ↓
+2. Generate Access Token
+          ↓
+3. Create Session in DB
+          ↓
+4. Set Refresh Token Cookie
+          ↓
+5. Send Access Token to frontend
+```
+
+For example:
+
+```
+const refreshToken = token.generateRefreshToken(newUser._id);
+
+const accessToken = token.generateAccessToken(newUser._id);
+
+await sessionModel.create({
+  user: newUser._id,
+  refreshToken,
+  ip: req.ip,
+  userAgent: req.get("User-Agent"),
+  expiresAt: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
+});
+
+cookie.setRefreshTokenCookie(res, refreshToken);
+
+return res.status(201).json({
+  success: true,
+  accessToken,
+});
+```
+
+---
+
+# 5. W
+
+
+---
 
 # 2. Think about login/register
 
