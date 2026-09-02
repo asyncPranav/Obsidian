@@ -570,7 +570,7 @@ sid → Session ID
 ---
 ---
 
-#DOUBT - **Why do we need `sessionId` in  `generateRefreshToken()`**
+#DOUBT - **1. Why do we need `sessionId` in  `generateRefreshToken()`**
 
 Yes — this is the key point. Let's make it very simple.
 
@@ -1061,6 +1061,10 @@ sessionId
 ```
 
 This gives every login a unique session identity.
+
+---
+
+#DOUBT  - **2. **
 
 ---
 ---
