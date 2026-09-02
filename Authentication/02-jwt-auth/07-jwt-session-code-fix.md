@@ -1586,7 +1586,7 @@ The same `sessionId` connects everything:
 
 ---
 
-## Updated `refreshToken()` flow
+## Updated `/refresh-token` flow
 
 Now when the refresh request comes:
 
