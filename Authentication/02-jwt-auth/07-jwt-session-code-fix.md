@@ -565,6 +565,10 @@ sub → User ID
 sid → Session ID
 ```
 
+---
+---
+---
+---
 
 #DOUBT - **Why do we need `sessionId` in  `generateRefreshToken()`**
 
