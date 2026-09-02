@@ -10,7 +10,7 @@ Our original refresh-token code was:
 
 ```js
 
-// 
+// auth.controller.js -> in `refreshToken` controller
 
 // Generate a new access token
 const newAccessToken = token.generateAccessToken(
