@@ -2122,3 +2122,281 @@ Test these three cases:
     
 
 Once that works, the next step is **Step 11 — validation + security hardening for the email-verification endpoints**.
+
+
+---
+
+
+## Step 11 — Add Validation to Email Verification
+
+Your email verification flow is working now. Before adding more features, let's make the two new endpoints reject bad input properly.
+
+We need to validate:
+
+### `/verify-email`
+
+Required:
+
+- `email` → valid email
+    
+- `otp` → exactly **6 digits**
+    
+
+### `/resend-verification`
+
+Required:
+
+- `email` → valid email
+    
+
+---
+
+### 11.1 Install `express-validator`
+
+If you don't already have it in this project:
+
+```bash
+npm install express-validator
+```
+
+---
+
+### 11.2 Create validator file
+
+Create:
+
+```text
+src/validators/
+└── auth.validator.js
+```
+
+Add:
+
+```js
+import { body } from "express-validator";
+
+const verifyEmailValidator = [
+  body("email")
+    .trim()
+    .isEmail()
+    .withMessage("Please provide a valid email"),
+
+  body("otp")
+    .trim()
+    .matches(/^\d{6}$/)
+    .withMessage("OTP must be exactly 6 digits"),
+];
+
+const resendVerificationOtpValidator = [
+  body("email")
+    .trim()
+    .isEmail()
+    .withMessage("Please provide a valid email"),
+];
+
+export {
+  verifyEmailValidator,
+  resendVerificationOtpValidator,
+};
+```
+
+### 11.3 Create validation middleware
+
+Create:
+
+```text
+src/middlewares/validation.middleware.js
+```
+
+```js
+import { validationResult } from "express-validator";
+
+const validate = (req, res, next) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      success: false,
+      errors: errors.array(),
+    });
+  }
+
+  next();
+};
+
+export default validate;
+```
+
+The flow becomes:
+
+```text
+Request
+   ↓
+Validator
+   ↓
+Validation Middleware
+   ↓
+Controller
+```
+
+So the controller doesn't have to worry about things like:
+
+```text
+otp = "hello"
+otp = "123"
+otp = "1234567"
+email = "abc"
+```
+
+---
+
+## 11.4 Update `auth.routes.js`
+
+Import:
+
+```js
+import validate from "../middlewares/validation.middleware.js";
+
+import {
+  register,
+  login,
+  getMe,
+  refreshTokens,
+  logout,
+  logoutAll,
+  getSessions,
+  verifyEmail,
+  resendVerificationOtp,
+} from "../controllers/auth.controller.js";
+
+import {
+  verifyEmailValidator,
+  resendVerificationOtpValidator,
+} from "../validators/auth.validator.js";
+```
+
+Then:
+
+```js
+router.post(
+  "/verify-email",
+  verifyEmailValidator,
+  validate,
+  verifyEmail,
+);
+
+router.post(
+  "/resend-verification",
+  resendVerificationOtpValidator,
+  validate,
+  resendVerificationOtp,
+);
+```
+
+---
+
+## 11.5 Test it
+
+### Invalid OTP
+
+```http
+POST /api/auth/verify-email
+```
+
+```json
+{
+  "email": "asyncpranav@gmail.com",
+  "otp": "123"
+}
+```
+
+You should get a `400`.
+
+---
+
+### Invalid email
+
+```json
+{
+  "email": "hello",
+  "otp": "123456"
+}
+```
+
+Again → `400`.
+
+---
+
+### Correct request
+
+```json
+{
+  "email": "asyncpranav@gmail.com",
+  "otp": "123456"
+}
+```
+
+Then the request reaches `verifyEmail()`.
+
+---
+
+### Important
+
+Your controller can now assume:
+
+```js
+email → valid email
+otp → exactly 6 digits
+```
+
+But **do not remove the other checks from `verifyEmail()`**:
+
+```js
+if (!otpRecord)
+if (otpRecord.attempts >= 3)
+if (otpRecord.expiresAt < new Date())
+bcrypt.compare(...)
+```
+
+Those are business/security checks, not input validation.
+
+### ✅ Checkpoint
+
+At this point you have:
+
+```text
+/register
+    ↓
+Create unverified user
+    ↓
+Generate + hash OTP
+    ↓
+Send OTP
+    ↓
+/verify-email
+    ↓
+Validate input
+    ↓
+Check OTP
+    ↓
+Mark email verified
+    ↓
+Create session
+    ↓
+Access + Refresh token
+
+
+/resend-verification
+    ↓
+Validate email
+    ↓
+Generate new OTP
+    ↓
+Delete old OTP
+    ↓
+Store new hashed OTP
+    ↓
+Send email
+```
+
+**Stop here and implement Step 11.** After you test both endpoints successfully, the next step should be **OTP resend rate limiting/cooldown**, because right now someone could repeatedly hit `/resend-verification` and send unlimited emails.
