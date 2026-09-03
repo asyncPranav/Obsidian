@@ -2638,6 +2638,27 @@ means:
 
 > If less than 60 seconds have passed, reject the request.
 
+
+#### Why HTTP status 429
+We use:
+
+```js
+429
+```
+
+because HTTP `429 Too Many Requests` is designed for situations where a client is making requests too frequently.
+
+So:
+
+```js
+throw new ApiError(
+  429,
+  "Please wait before requesting another OTP",
+);
+```
+
+is more appropriate than using `400`.
+
 ---
 
 # 12.5 Complete function
