@@ -2470,18 +2470,20 @@ createdAt
 updatedAt
 ```
 
+So every OTP document already has the time at which it was created.
+
 For example:
 
 ```json
 {
   "email": "abc@gmail.com",
+  "otpHash": "...",
   "createdAt": "2026-09-03T13:20:00.000Z"
 }
 ```
 
-We'll use `createdAt` to determine when the last OTP was created.
+Therefore, **we don't need to add another field or create another model.** We'll use `createdAt` to determine when the last OTP was created.
 
-**No new model is required.**
 
 ---
 
