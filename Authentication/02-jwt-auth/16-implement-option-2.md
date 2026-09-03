@@ -2963,58 +2963,49 @@ It should work:
 And you'll receive a new OTP.
 
 ---
+# Important Security Properties
 
-# Important detail
+After Step 12:
 
-We check the cooldown **before**:
+|Feature|Status|
+|---|---|
+|Random 6-digit OTP|✅|
+|OTP hashed before storage|✅|
+|10-minute OTP expiry|✅|
+|Maximum 3 verification attempts|✅|
+|Old OTP replaced on resend|✅|
+|OTP deleted after successful verification|✅|
+|Email validation|✅|
+|60-second resend cooldown|✅|
+|Expired OTP cleanup|✅|
 
-```js
-await otpModel.deleteMany(...)
+---
+
+# 📝 Step 12 — Key Notes
+
+> **OTP resend cooldown** prevents repeated OTP requests within a defined period.
+
+> **`createdAt`** is used to calculate how much time has passed since the OTP was generated.
+
+> **`expiresAt`** determines whether the OTP itself is still valid.
+
+> **Cooldown and expiry are different:** cooldown is 60 seconds, while OTP validity is 10 minutes.
+
+> **HTTP 429** is appropriate when the user is requesting the OTP too frequently.
+
+> When replacing an existing OTP, use `deleteOne()` with its `_id` because the application is designed to maintain one OTP per email/purpose.
+
+> Only the latest OTP should remain valid.
+
+### Current Step 12 status
+
+```
+Step 12 — OTP Resend Cooldown
+        ↓
+60-second cooldown       ✅
+Expired OTP handling     ✅
+Old OTP replacement     ✅
+Precise deleteOne()     ✅
 ```
 
-This is important.
-
-If we deleted the OTP first, we'd lose the `createdAt` information needed to determine whether 60 seconds have passed.
-
-The correct order is:
-
-```text
-Find existing OTP
-       ↓
-Check createdAt
-       ↓
-Is 60 seconds over?
-    ↙       ↘
-   NO       YES
-   ↓         ↓
-429       Generate OTP
-             ↓
-        Delete old OTP
-             ↓
-        Create new OTP
-             ↓
-        Send email
-```
-
-## ✅ Step 12 checkpoint
-
-After this step your OTP system has:
-
-- ✅ Random 6-digit OTP
-    
-- ✅ Hashed OTP storage
-    
-- ✅ 10-minute OTP expiry
-    
-- ✅ Maximum 3 verification attempts
-    
-- ✅ Old OTP replaced on resend
-    
-- ✅ OTP deleted after successful verification
-    
-- ✅ **60-second resend cooldown**
-    
-- ✅ Input validation
-    
-
-**Implement and test this step only.** Once it works, we'll move to the next security improvement.
+**Implement and test Step 12 only. Then we'll move to Step 13.**
