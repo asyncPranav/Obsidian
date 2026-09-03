@@ -644,4 +644,50 @@ Either:
 
 ---
 
-## But if we want immediate 
+## But if we want immediate access token revocation
+
+Since you're specifically trying to understand authentication deeply, **we should implement Option A temporarily**.
+
+Not because every API should necessarily do this in production, but because it teaches you exactly how:
+
+> **JWT + server-side session state = immediate token revocation**
+
+We'll modify your existing `authenticate` middleware rather than creating a new blacklist model.
+
+Something conceptually like:
+
+```js
+const decoded = jwt.verify(token, config.jwtSecret);
+
+const session = await sessionModel.findOne({
+  _id: decoded.sid,
+  user: decoded.sub,
+});
+
+if (!session) {
+  throw new ApiError(401, "Session not found");
+}
+
+if (session.revoked) {
+  throw new ApiError(401, "Session has been revoked");
+}
+
+if (session.expiresAt < new Date()) {
+  throw new ApiError(401, "Session has expired");
+}
+
+req.user = decoded;
+next();
+```
+
+Then your logout becomes **immediately effective**.
+
+### One correction to our earlier explanation
+
+Your comment currently says:
+
+> `revoked` means the session cannot be used to refresh tokens **or access protected resources**
+
+That statement becomes **true only after we make `authenticate` check the session**.
+
+Right now, it's only true for refresh operations.
