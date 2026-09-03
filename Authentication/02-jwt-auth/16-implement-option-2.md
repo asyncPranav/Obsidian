@@ -1831,7 +1831,7 @@ const resendVerificationEmail = async (req, res, next) => {
     }
 
     // 3. Generate new OTP
-    const otp = generateOtp();
+    const otp = generateOTP();
 
     // 4. Hash OTP
     const hashedOtp = await bcrypt.hash(otp, 10);
