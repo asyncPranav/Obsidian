@@ -556,6 +556,495 @@ And importantly, **no session/JWT will be created during registration**.
 
 ---
 
+# Step 7 — Modify `register()`
+
+Now we connect everything we created:
+
+```text
+User Model
+    ↓
+OTP Model
+    ↓
+OTP Generator
+    ↓
+Email Service
+```
+
+Our registration flow becomes:
+
+```text
+POST /register
+      ↓
+Check existing user
+      ↓
+Hash password
+      ↓
+Create User
+isEmailVerified = false
+      ↓
+Generate 6-digit OTP
+      ↓
+Hash OTP
+      ↓
+Delete previous verification OTP
+      ↓
+Store new OTP
+      ↓
+Send OTP email
+      ↓
+Registration successful
+```
+
+**Important:** We will **NOT** create a session, access token, or refresh token here.
+
+---
+
+## 7.1 Add these imports
+
+Open:
+
+```text
+src/controllers/auth.controller.js
+```
+
+You already have:
+
+```js
+import bcrypt from "bcrypt";
+import mongoose from "mongoose";
+
+import userModel from "../models/user.model.js";
+import sessionModel from "../models/session.model.js";
+
+import ApiError from "../utils/ApiError.js";
+import * as token from "../utils/token.util.js";
+import * as cookie from "../utils/cookie.util.js";
+```
+
+Add these three imports:
+
+```js
+import otpModel from "../models/otp.model.js";
+import generateOtp from "../utils/otp.util.js";
+import sendEmail from "../services/email.service.js";
+```
+
+So the imports become:
+
+```js
+import bcrypt from "bcrypt";
+import mongoose from "mongoose";
+
+import userModel from "../models/user.model.js";
+import sessionModel from "../models/session.model.js";
+import otpModel from "../models/otp.model.js";
+
+import ApiError from "../utils/ApiError.js";
+import * as token from "../utils/token.util.js";
+import * as cookie from "../utils/cookie.util.js";
+import generateOtp from "../utils/otp.util.js";
+import sendEmail from "../services/email.service.js";
+```
+
+---
+
+# 7.2 Replace the existing `register()`
+
+Your old `register()` was creating:
+
+```text
+User
+ ↓
+Session
+ ↓
+Access Token
+ ↓
+Refresh Token
+```
+
+Replace **only the `register()` function** with this:
+
+```js
+const register = async (req, res, next) => {
+  try {
+    const { username, email, password } = req.body;
+
+    // 1. Check if user already exists
+    const isAlreadyRegistered = await userModel.findOne({
+      $or: [{ username }, { email }],
+    });
+
+    if (isAlreadyRegistered) {
+      throw new ApiError(409, "User already registered");
+    }
+
+    // 2. Hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // 3. Create user
+    const newUser = await userModel.create({
+      username,
+      email,
+      password: hashedPassword,
+      isEmailVerified: false,
+    });
+
+    // 4. Generate OTP
+    const otp = generateOtp();
+
+    // 5. Hash OTP
+    const hashedOtp = await bcrypt.hash(otp, 10);
+
+    // 6. Remove any previous verification OTP
+    await otpModel.deleteMany({
+      email,
+      purpose: "email_verification",
+    });
+
+    // 7. Store new OTP
+    await otpModel.create({
+      email,
+      otpHash: hashedOtp,
+      purpose: "email_verification",
+      expiresAt: new Date(Date.now() + 5 * 60 * 1000),
+    });
+
+    // 8. Send OTP email
+    await sendEmail(
+      email,
+      "Verify your email",
+      `Your email verification OTP is ${otp}. It will expire in 5 minutes.`,
+      `
+        <h2>Verify your email</h2>
+        <p>Your email verification OTP is:</p>
+        <h1>${otp}</h1>
+        <p>This OTP will expire in 5 minutes.</p>
+      `,
+    );
+
+    // 9. Registration successful
+    return res.status(201).json({
+      message: "Registration successful. Please verify your email.",
+      user: {
+        id: newUser._id,
+        username: newUser.username,
+        email: newUser.email,
+        isEmailVerified: newUser.isEmailVerified,
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+```
+
+---
+
+# 7.3 Understand each part
+
+### 1. Create user
+
+```js
+const newUser = await userModel.create({
+  username,
+  email,
+  password: hashedPassword,
+  isEmailVerified: false,
+});
+```
+
+The user exists, but:
+
+```text
+isEmailVerified = false
+```
+
+Therefore the account isn't verified yet.
+
+---
+
+### 2. Generate OTP
+
+```js
+const otp = generateOtp();
+```
+
+Example:
+
+```text
+583214
+```
+
+This is the **plain OTP** temporarily held in memory.
+
+We need it to send to the user.
+
+---
+
+### 3. Hash OTP
+
+```js
+const hashedOtp = await bcrypt.hash(otp, 10);
+```
+
+MongoDB receives:
+
+```text
+583214
+```
+
+❌ No.
+
+Instead it receives something like:
+
+```text
+$2b$10$..............
+```
+
+✅
+
+So even if someone gets access to your OTP collection, they don't directly see the OTP.
+
+---
+
+### 4. Delete previous OTP
+
+```js
+await otpModel.deleteMany({
+  email,
+  purpose: "email_verification",
+});
+```
+
+Suppose the user somehow requests another verification OTP later.
+
+We don't want:
+
+```text
+OTP 1 → valid
+OTP 2 → valid
+OTP 3 → valid
+```
+
+Instead, the previous verification OTP is removed before creating the new one.
+
+---
+
+### 5. Store OTP
+
+```js
+await otpModel.create({
+  email,
+  otpHash: hashedOtp,
+  purpose: "email_verification",
+  expiresAt: new Date(Date.now() + 5 * 60 * 1000),
+});
+```
+
+The OTP is valid for:
+
+```text
+5 minutes
+```
+
+MongoDB roughly contains:
+
+```text
+email
+otpHash
+purpose: "email_verification"
+expiresAt
+attempts: 0
+```
+
+---
+
+### 6. Send email
+
+```js
+await sendEmail(...)
+```
+
+The plain OTP is used here:
+
+```js
+${otp}
+```
+
+The user receives something like:
+
+```text
+Subject: Verify your email
+
+Your email verification OTP is:
+
+583214
+
+This OTP will expire in 5 minutes.
+```
+
+The plain OTP is **not stored in MongoDB**.
+
+---
+
+# 7.4 What changed from your old registration?
+
+### ❌ Old
+
+```text
+/register
+   ↓
+Create User
+   ↓
+Create Session
+   ↓
+Generate Access Token
+   ↓
+Generate Refresh Token
+   ↓
+Set Cookie
+   ↓
+Return Access Token
+```
+
+### ✅ New
+
+```text
+/register
+   ↓
+Create User
+   ↓
+isEmailVerified = false
+   ↓
+Generate OTP
+   ↓
+Hash OTP
+   ↓
+Store OTP
+   ↓
+Send Email
+   ↓
+Return success
+```
+
+Therefore, after registration:
+
+- ❌ No session
+    
+- ❌ No access token
+    
+- ❌ No refresh token
+    
+- ❌ No refresh-token cookie
+    
+- ✅ User created
+    
+- ✅ OTP created
+    
+- ✅ Email sent
+    
+- ✅ `isEmailVerified = false`
+    
+
+---
+
+# 7.5 Test it in Postman
+
+Send:
+
+```http
+POST /api/auth/register
+```
+
+Body:
+
+```json
+{
+  "username": "testuser",
+  "email": "your-email@gmail.com",
+  "password": "12345678"
+}
+```
+
+You should receive:
+
+```json
+{
+  "message": "Registration successful. Please verify your email.",
+  "user": {
+    "id": "...",
+    "username": "testuser",
+    "email": "your-email@gmail.com",
+    "isEmailVerified": false
+  }
+}
+```
+
+### Check MongoDB
+
+User:
+
+```text
+isEmailVerified: false
+```
+
+OTP collection:
+
+```text
+email: your-email@gmail.com
+otpHash: $2b$10$...
+purpose: email_verification
+expiresAt: ...
+attempts: 0
+```
+
+And your Gmail inbox should contain the OTP.
+
+---
+
+## ⚠️ One important thing
+
+If `sendEmail()` fails, it now throws the error:
+
+```js
+throw error;
+```
+
+So this:
+
+```js
+await sendEmail(...)
+```
+
+will go to:
+
+```js
+catch (error) {
+  next(error);
+}
+```
+
+That's why changing the email service to re-throw the error was important.
+
+---
+
+### Step 7 checkpoint
+
+Don't implement `/verify-email` yet.
+
+First confirm these **four things**:
+
+```text
+[ ] User created with isEmailVerified: false
+[ ] OTP stored as a hash
+[ ] OTP expires after 5 minutes
+[ ] OTP actually arrives in Gmail
+```
+
+Once these work, **Step 8 will be `/verify-email`**, where the OTP is checked and only then we create the session and issue the JWT tokens.
+
+
+---
 
 Perfect. **Step 7 is fully tested and working.** Your OTP is actually reaching the user's email, so now we can move to the important part.
 
