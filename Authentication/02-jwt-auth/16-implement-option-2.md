@@ -2401,3 +2401,436 @@ Send email
 ```
 
 **Stop here and implement Step 11.** After you test both endpoints successfully, the next step should be **OTP resend rate limiting/cooldown**, because right now someone could repeatedly hit `/resend-verification` and send unlimited emails.
+
+
+---
+
+
+Absolutely. Let's do **Step 12 — OTP Resend Cooldown from scratch**, using your existing code and keeping it simple.
+
+# Step 12 — OTP Resend Cooldown
+
+### Why are we adding this?
+
+Currently, someone can call:
+
+```text
+POST /resend-verification
+```
+
+again and again:
+
+```text
+Request 1 → OTP sent
+Request 2 → OTP sent
+Request 3 → OTP sent
+Request 4 → OTP sent
+...
+```
+
+That's bad because it can:
+
+- Spam the user's email
+    
+- Waste email-service resources
+    
+- Be abused by attackers
+    
+
+We'll add a **60-second cooldown**.
+
+So:
+
+```text
+Request OTP
+     ↓
+OTP sent
+     ↓
+Wait 60 seconds
+     ↓
+Request again
+     ↓
+New OTP sent
+```
+
+---
+
+# 12.1 We already have what we need
+
+Your `Otp` model already has:
+
+```js
+timestamps: true,
+```
+
+Therefore MongoDB automatically gives each OTP:
+
+```js
+createdAt
+updatedAt
+```
+
+For example:
+
+```json
+{
+  "email": "abc@gmail.com",
+  "createdAt": "2026-09-03T13:20:00.000Z"
+}
+```
+
+We'll use `createdAt` to determine when the last OTP was created.
+
+**No new model is required.**
+
+---
+
+# 12.2 Modify `resendVerificationOtp()`
+
+Your current function is approximately:
+
+```js
+const resendVerificationOtp = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+
+    const user = await userModel.findOne({ email });
+
+    if (!user) {
+      throw new ApiError(404, "User not found");
+    }
+
+    if (user.isEmailVerified) {
+      throw new ApiError(400, "Email is already verified");
+    }
+
+    const otp = generateOTP();
+    const hashedOtp = await bcrypt.hash(otp, 10);
+
+    await otpModel.deleteMany({
+      email,
+      purpose: "email_verification",
+    });
+
+    await otpModel.create({
+      email,
+      otpHash: hashedOtp,
+      purpose: "email_verification",
+      expiresAt: new Date(Date.now() + 10 * 60 * 1000),
+    });
+
+    await sendEmail(
+      email,
+      "Verify your email",
+      `Your new email verification OTP is ${otp}. It will expire in 10 minutes.`,
+      `
+        <h2>Verify your email</h2>
+        <p>Your new email verification OTP is:</p>
+        <h1>${otp}</h1>
+        <p>This OTP will expire in 10 minutes.</p>
+      `,
+    );
+
+    return res.status(200).json({
+      message: "Verification OTP sent successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+```
+
+We are going to add the cooldown **before deleting the old OTP**.
+
+---
+
+# 12.3 Find the existing OTP
+
+After:
+
+```js
+if (user.isEmailVerified) {
+  throw new ApiError(400, "Email is already verified");
+}
+```
+
+add:
+
+```js
+const existingOtp = await otpModel.findOne({
+  email,
+  purpose: "email_verification",
+});
+```
+
+Now we know whether an OTP already exists.
+
+---
+
+# 12.4 Check the cooldown
+
+Add:
+
+```js
+if (existingOtp) {
+  const cooldown = 60 * 1000;
+
+  const timePassed =
+    Date.now() - existingOtp.createdAt.getTime();
+
+  if (timePassed < cooldown) {
+    throw new ApiError(
+      429,
+      "Please wait before requesting another OTP",
+    );
+  }
+}
+```
+
+### Understand this carefully
+
+```js
+const cooldown = 60 * 1000;
+```
+
+means:
+
+```text
+60 seconds × 1000 milliseconds
+= 60,000 milliseconds
+```
+
+Then:
+
+```js
+Date.now()
+```
+
+gives the current time.
+
+And:
+
+```js
+existingOtp.createdAt.getTime()
+```
+
+gives the time when the OTP was created.
+
+So:
+
+```js
+Date.now() - existingOtp.createdAt.getTime()
+```
+
+means:
+
+> How much time has passed since the OTP was created?
+
+Then:
+
+```js
+if (timePassed < cooldown)
+```
+
+means:
+
+> If less than 60 seconds have passed, reject the request.
+
+---
+
+# 12.5 Complete function
+
+Replace your current `resendVerificationOtp()` with this:
+
+```js
+const resendVerificationOtp = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+
+    const user = await userModel.findOne({ email });
+
+    if (!user) {
+      throw new ApiError(404, "User not found");
+    }
+
+    if (user.isEmailVerified) {
+      throw new ApiError(400, "Email is already verified");
+    }
+
+    const existingOtp = await otpModel.findOne({
+      email,
+      purpose: "email_verification",
+    });
+
+    if (existingOtp) {
+      const cooldown = 60 * 1000;
+
+      const timePassed =
+        Date.now() - existingOtp.createdAt.getTime();
+
+      if (timePassed < cooldown) {
+        throw new ApiError(
+          429,
+          "Please wait before requesting another OTP",
+        );
+      }
+    }
+
+    const otp = generateOTP();
+
+    const hashedOtp = await bcrypt.hash(otp, 10);
+
+    await otpModel.deleteMany({
+      email,
+      purpose: "email_verification",
+    });
+
+    await otpModel.create({
+      email,
+      otpHash: hashedOtp,
+      purpose: "email_verification",
+      expiresAt: new Date(Date.now() + 10 * 60 * 1000),
+    });
+
+    await sendEmail(
+      email,
+      "Verify your email",
+      `Your new email verification OTP is ${otp}. It will expire in 10 minutes.`,
+      `
+        <h2>Verify your email</h2>
+        <p>Your new email verification OTP is:</p>
+        <h1>${otp}</h1>
+        <p>This OTP will expire in 10 minutes.</p>
+      `,
+    );
+
+    return res.status(200).json({
+      message: "Verification OTP sent successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+```
+
+---
+
+# 12.6 Test in Postman
+
+Use:
+
+```http
+POST /api/auth/resend-verification
+```
+
+Body:
+
+```json
+{
+  "email": "your-email@gmail.com"
+}
+```
+
+### First request
+
+You should get:
+
+```json
+{
+  "message": "Verification OTP sent successfully"
+}
+```
+
+And receive the email.
+
+---
+
+### Immediately send the same request again
+
+You should now get:
+
+```json
+{
+  "success": false,
+  "message": "Please wait before requesting another OTP"
+}
+```
+
+with HTTP status:
+
+```text
+429 Too Many Requests
+```
+
+---
+
+### Wait 60+ seconds
+
+Send the request again.
+
+It should work:
+
+```json
+{
+  "message": "Verification OTP sent successfully"
+}
+```
+
+And you'll receive a new OTP.
+
+---
+
+# Important detail
+
+We check the cooldown **before**:
+
+```js
+await otpModel.deleteMany(...)
+```
+
+This is important.
+
+If we deleted the OTP first, we'd lose the `createdAt` information needed to determine whether 60 seconds have passed.
+
+The correct order is:
+
+```text
+Find existing OTP
+       ↓
+Check createdAt
+       ↓
+Is 60 seconds over?
+    ↙       ↘
+   NO       YES
+   ↓         ↓
+429       Generate OTP
+             ↓
+        Delete old OTP
+             ↓
+        Create new OTP
+             ↓
+        Send email
+```
+
+## ✅ Step 12 checkpoint
+
+After this step your OTP system has:
+
+- ✅ Random 6-digit OTP
+    
+- ✅ Hashed OTP storage
+    
+- ✅ 10-minute OTP expiry
+    
+- ✅ Maximum 3 verification attempts
+    
+- ✅ Old OTP replaced on resend
+    
+- ✅ OTP deleted after successful verification
+    
+- ✅ **60-second resend cooldown**
+    
+- ✅ Input validation
+    
+
+**Implement and test this step only.** Once it works, we'll move to the next security improvement.
