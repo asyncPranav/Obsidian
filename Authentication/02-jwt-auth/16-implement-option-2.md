@@ -333,18 +333,4 @@ For development, we have two good approaches:
 2. **Temporarily log the OTP** to the terminal so we can finish and test the authentication logic before integrating email delivery.
     
 
-I recommend **option 2 first**. It keeps our learning focused on the authentication flow:
-
-```text
-Generate OTP
-   ↓
-Hash OTP
-   ↓
-Store OTP
-   ↓
-Verify OTP
-```
-
-Then we'll replace the temporary `console.log()` with the email service.
-
-So next, we'll modify **only your `register()` controller** to create the unverified user and OTP.
+---
