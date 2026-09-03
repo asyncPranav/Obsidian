@@ -2737,44 +2737,65 @@ const resendVerificationOtp = async (req, res, next) => {
   try {
     const { email } = req.body;
 
+    // 1. Find user
     const user = await userModel.findOne({ email });
 
     if (!user) {
       throw new ApiError(404, "User not found");
     }
 
+    // 2. Check if email is already verified
     if (user.isEmailVerified) {
       throw new ApiError(400, "Email is already verified");
     }
 
+    // 3. Find existing OTP
     const existingOtp = await otpModel.findOne({
       email,
       purpose: "email_verification",
     });
 
+    // 4. Handle existing OTP
     if (existingOtp) {
-      const cooldown = 60 * 1000;
+      const now = new Date();
 
-      const timePassed =
-        Date.now() - existingOtp.createdAt.getTime();
+      // 4a. If OTP has expired, delete it
+      if (existingOtp.expiresAt <= now) {
+        await otpModel.deleteOne({
+          _id: existingOtp._id,
+        });
+      } else {
+        // 4b. OTP is still valid → check 60-second cooldown
+        const cooldown = 60 * 1000;
 
-      if (timePassed < cooldown) {
-        throw new ApiError(
-          429,
-          "Please wait before requesting another OTP",
-        );
+        const timePassed =
+          Date.now() - existingOtp.createdAt.getTime();
+
+        if (timePassed < cooldown) {
+          const timeLeft = Math.ceil(
+            (cooldown - timePassed) / 1000,
+          );
+
+          throw new ApiError(
+            429,
+            `Please wait ${timeLeft} seconds before requesting a new verification OTP.`,
+          );
+        }
+
+        // 4c. Cooldown has passed → delete old OTP
+        await otpModel.deleteOne({
+          _id: existingOtp._id,
+        });
       }
     }
 
+    // 5. Generate new OTP
     const otp = generateOTP();
 
+    // 6. Hash OTP
     const hashedOtp = await bcrypt.hash(otp, 10);
 
-    await otpModel.deleteMany({
-      email,
-      purpose: "email_verification",
-    });
-
+    // 7. Store new OTP
     await otpModel.create({
       email,
       otpHash: hashedOtp,
@@ -2782,6 +2803,7 @@ const resendVerificationOtp = async (req, res, next) => {
       expiresAt: new Date(Date.now() + 10 * 60 * 1000),
     });
 
+    // 8. Send new OTP
     await sendEmail(
       email,
       "Verify your email",
@@ -2794,6 +2816,7 @@ const resendVerificationOtp = async (req, res, next) => {
       `,
     );
 
+    // 9. Success response
     return res.status(200).json({
       message: "Verification OTP sent successfully",
     });
@@ -2802,6 +2825,37 @@ const resendVerificationOtp = async (req, res, next) => {
   }
 };
 ```
+
+### Why `deleteOne()` instead of `deleteMany()`?
+
+We intentionally removed:
+
+```js
+await otpModel.deleteMany({
+  email,
+  purpose: "email_verification",
+});
+```
+
+because our application is designed to maintain **one active OTP per email and purpose**.
+
+We already have the exact OTP document:
+
+```js
+existingOtp._id
+```
+
+so:
+
+```js
+await otpModel.deleteOne({
+  _id: existingOtp._id,
+});
+```
+
+is sufficient and more precise.
+
+`deleteMany()` would only be useful as defensive cleanup if multiple OTP records somehow existed.
 
 ---
 
