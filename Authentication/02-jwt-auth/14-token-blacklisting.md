@@ -389,6 +389,26 @@ sid → which session
 jti → which exact JWT
 ```
 
+The blacklist can store:
+
+```
+jti
+expiresAt
+```
+
+For example:
+
+```
+{
+  jti: "unique-token-id",
+  expiresAt: Date
+}
+```
+
+The blacklist entry only needs to exist until the original token would have expired.
+
+---
+
 When the token is revoked:
 
 ```text
