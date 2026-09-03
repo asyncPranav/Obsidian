@@ -2886,7 +2886,7 @@ POST /resend-verification
                 |           ↓        ↓
                 |          429    Delete OTP
                 |                    ↓
-                |---------------->Generate OTP
+                |------------>   Generate OTP
                                     ↓
                                Hash OTP
                                     ↓
@@ -2936,7 +2936,7 @@ You should now get:
 ```json
 {
   "success": false,
-  "message": "Please wait before requesting another OTP"
+  "message": "Please wait XX seconds before requesting a new verification OTP."
 }
 ```
 
