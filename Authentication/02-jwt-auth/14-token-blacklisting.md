@@ -297,6 +297,8 @@ Therefore, the access-token validation is no longer purely stateless.
 
 # 7. Option B — Access Token Blacklisting
 
+Token blacklisting means maintaining server-side state containing tokens that are no longer allowed.
+
 Instead of checking the entire session on every request, we can maintain a **revocation list** for access tokens.
 
 Conceptually:
