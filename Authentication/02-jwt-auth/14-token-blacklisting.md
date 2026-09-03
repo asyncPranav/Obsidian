@@ -1,6 +1,8 @@
 
 ---
 
+`- We have not implemented it - Read it for knowledge`
+
 # Access Token Revocation, Stateful vs Stateless Auth & Token Blacklisting
 
 ## 1. First Understand: Stateful vs Stateless Authentication
