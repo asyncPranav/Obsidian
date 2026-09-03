@@ -2859,6 +2859,46 @@ is sufficient and more precise.
 
 ---
 
+### Final flow
+
+```
+POST /resend-verification
+          ↓
+     Find user
+          ↓
+   Email verified?
+      ↙       ↘
+    Yes        No
+     ↓          ↓
+   Error    Find OTP
+               ↓
+          OTP exists?
+          ↙         ↘
+        No           Yes
+        ↓             ↓
+    Generate     OTP expired?
+    new OTP       ↙       ↘
+                Yes        No
+                 ↓          ↓
+              Delete    Check cooldown
+                OTP       ↙       ↘
+                         <60s     ≥60s
+                           ↓        ↓
+                          429    Delete OTP
+                                    ↓
+                              Generate OTP
+                                    ↓
+                               Hash OTP
+                                    ↓
+                               Store OTP
+                                    ↓
+                               Send Email
+
+```
+
+
+---
+
 # 12.6 Test in Postman
 
 Use:
