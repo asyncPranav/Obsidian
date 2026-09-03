@@ -2886,7 +2886,7 @@ POST /resend-verification
         |       |           ↓        ↓
         |       |          429    Delete OTP
         |       |                    ↓
-                |------------>   Generate OTP
+        |-------|------------>   Generate OTP
                                     ↓
                                Hash OTP
                                     ↓
