@@ -334,35 +334,68 @@ For development, we have two good approaches:
     
 
 ---
-Yes. Since **we are using Nodemailer**, and you already have Google OAuth configuration in your `config.js`, we can build `email.service.js` using **Gmail OAuth2** rather than `SMTP_PASSWORD`.
 
-Your existing environment variables are:
+## Step 6 — Create the Email Service
 
-```env
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
-GOOGLE_REFRESH_TOKEN=
-GOOGLE_USER=
+Since you want to **actually send the OTP through Gmail**, we'll use **Nodemailer + Gmail OAuth2**.
+
+Your current architecture already has:
+
+```text
+src/
+└── services/
+    └── email.service.js
 ```
 
-## Step 6 — Create `email.service.js`
+### 6.1 Install Nodemailer
 
-First make sure Nodemailer is installed:
+If you haven't already:
 
 ```bash
 npm install nodemailer
 ```
 
-Then create:
+---
+
+### 6.2 Environment variables
+
+You already have the Google OAuth2 configuration:
+
+```env
+GOOGLE_CLIENT_ID=...
+GOOGLE_CLIENT_SECRET=...
+GOOGLE_REFRESH_TOKEN=...
+GOOGLE_USER=yourgmail@gmail.com
+```
+
+**Do not share these secret values with me.**
+
+Your `config.js` should expose them:
+
+```js
+googleClientId: process.env.GOOGLE_CLIENT_ID,
+googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
+googleRefreshToken: process.env.GOOGLE_REFRESH_TOKEN,
+googleUser: process.env.GOOGLE_USER,
+```
+
+And these should be included in your required environment variables.
+
+---
+
+### 6.3 Create `email.service.js`
+
+Create:
 
 ```text
 src/services/email.service.js
 ```
 
-Use:
+Put this inside:
 
 ```js
 import nodemailer from "nodemailer";
+
 import config from "../config/config.js";
 
 const transporter = nodemailer.createTransport({
@@ -376,83 +409,146 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendVerificationEmail = async (email, otp) => {
-  await transporter.sendMail({
-    from: config.googleUser,
-    to: email,
-    subject: "Verify your email",
-    text: `Your email verification OTP is ${otp}. It will expire in 5 minutes.`,
-  });
+// Verify the connection configuration
+transporter.verify((error, success) => {
+  if (error) {
+    console.error("Error connecting to email server:", error);
+  } else {
+    console.log("Email server is ready to send messages");
+  }
+});
+
+const sendEmail = async (to, subject, text, html) => {
+  try {
+    const info = await transporter.sendMail({
+      from: `"Pranav" <${config.googleUser}>`,
+      to,
+      subject,
+      text,
+      html,
+    });
+
+    console.log("Message sent:", info.messageId);
+
+    return info;
+  } catch (error) {
+    console.error("Error sending email:", error);
+    throw error;
+  }
 };
 
-export { sendVerificationEmail };
+export default sendEmail;
 ```
 
-### What is happening here?
+### Why `throw error`?
 
-```text
-config.js
-   │
-   ├── googleUser
-   ├── googleClientId
-   ├── googleClientSecret
-   └── googleRefreshToken
-          ↓
-     Nodemailer
-          ↓
-       Gmail
-          ↓
-    User's email
-```
-
-The important part is:
+This part is important:
 
 ```js
-auth: {
-  type: "OAuth2",
-  user: config.googleUser,
-  clientId: config.googleClientId,
-  clientSecret: config.googleClientSecret,
-  refreshToken: config.googleRefreshToken,
+catch (error) {
+  console.error("Error sending email:", error);
+  throw error;
 }
 ```
 
-Nodemailer uses your **Google OAuth2 refresh token** to authenticate instead of storing your Gmail password.
+The email service shouldn't silently hide a failure.
 
-### Your `.env`
+Later:
 
-It should therefore have something like:
-
-```env
-GOOGLE_CLIENT_ID=your_client_id
-GOOGLE_CLIENT_SECRET=your_client_secret
-GOOGLE_REFRESH_TOKEN=your_refresh_token
-GOOGLE_USER=yourgmail@gmail.com
+```text
+register()
+    ↓
+sendEmail()
+    ↓
+Gmail fails
+    ↓
+error thrown
+    ↓
+register() catch
+    ↓
+next(error)
+    ↓
+global error middleware
 ```
-
-**Don't send these actual values here**, especially the refresh token.
 
 ---
 
-## Step 6.1 — One small test
+### 6.4 One thing to remove from your version
 
-Before connecting this to registration, we should test that the email service itself works.
-
-Temporarily add this at the bottom of `email.service.js`:
+If you currently have:
 
 ```js
-sendVerificationEmail(
-  "your-test-email@example.com",
-  "123456",
-)
-  .then(() => console.log("Verification email sent successfully"))
-  .catch((error) => console.error("Email sending failed:", error.message));
+console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 ```
 
-Run your server.
+**remove it.**
 
-If everything is configured correctly, you should receive the email.
+`getTestMessageUrl()` is useful with Nodemailer's test/Ethereal transport. You're using your real Gmail account, so you don't need it.
 
-**After testing, remove that test code.**
+---
 
-Then we'll move to **Step 7 — modify `register()` to call `sendVerificationEmail(email, otp)`**.
+## What Step 6 accomplishes
+
+We now have a reusable email service:
+
+```text
+Controller
+    ↓
+sendEmail(to, subject, text, html)
+    ↓
+Nodemailer
+    ↓
+Gmail OAuth2
+    ↓
+User's email inbox
+```
+
+The controller will later simply do:
+
+```js
+await sendEmail(
+  email,
+  "Verify your email",
+  "Your OTP is 123456",
+  "<h1>Your OTP is 123456</h1>",
+);
+```
+
+We **do not modify `register()` yet**.
+
+### Your current structure
+
+```text
+src/
+├── models/
+│   ├── user.model.js
+│   ├── session.model.js
+│   └── otp.model.js
+│
+├── utils/
+│   ├── otp.util.js
+│   └── ...
+│
+└── services/
+    └── email.service.js   ← Step 6
+```
+
+**Step 6 is complete when `email.service.js` is created and the Gmail OAuth2 transporter is configured.**
+
+After that, **Step 7 will modify `register()`** to:
+
+```text
+Create User
+    ↓
+Generate OTP
+    ↓
+Hash OTP
+    ↓
+Store OTP
+    ↓
+sendEmail()
+    ↓
+Return success
+```
+
+And importantly, **no session/JWT will be created during registration**.
