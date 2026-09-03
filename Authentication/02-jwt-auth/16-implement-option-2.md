@@ -2608,7 +2608,7 @@ Then:
 Date.now()
 ```
 
-gives the current time.
+gives the current time in milliseconds.
 
 And:
 
@@ -2616,7 +2616,7 @@ And:
 existingOtp.createdAt.getTime()
 ```
 
-gives the time when the OTP was created.
+gives the time when the OTP was created in milliseconds.
 
 So:
 
