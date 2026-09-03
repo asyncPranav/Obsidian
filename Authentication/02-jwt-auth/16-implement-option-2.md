@@ -2,7 +2,7 @@
 ---
 
 #### Here we are implementing option-02 of email verification
-
+`Check these notes` - [[15-way-of-email-verification]]
 
 Yes. Let's implement **Option 2** in our existing project, one step at a time.
 
