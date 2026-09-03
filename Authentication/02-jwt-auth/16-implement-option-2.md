@@ -2255,7 +2255,6 @@ email = "abc"
 Import:
 
 ```js
-import validate from "../middlewares/validation.middleware.js";
 
 import {
   register,
@@ -2273,6 +2272,8 @@ import {
   verifyEmailValidator,
   resendVerificationOtpValidator,
 } from "../validators/auth.validator.js";
+
+import validate from "../middlewares/validation.middleware.js";
 ```
 
 Then:
