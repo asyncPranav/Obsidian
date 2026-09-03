@@ -522,15 +522,15 @@ Therefore, blacklisting should be used because there is a **specific revocation 
 
 Both provide server-side revocation, but they solve slightly different problems.
 
-||Session Check|Token Blacklist|
-|---|---|---|
-|Checks|Session state|Token revocation|
-|Typical identifier|`sid`|`jti`|
-|Revokes|Session/device|Specific token|
-|Immediate access revocation|Yes|Yes|
-|Server-side lookup|Yes|Yes|
-|Fits our existing Session model|Very well|Requires additional store|
-|Complexity|Lower for our architecture|Higher|
+|                                 | Session Check              | Token Blacklist           |
+| ------------------------------- | -------------------------- | ------------------------- |
+| Checks                          | Session state              | Token revocation          |
+| Typical identifier              | `sid`                      | `jti`                     |
+| Revokes                         | Session/device             | Specific token            |
+| Immediate access revocation     | Yes                        | Yes                       |
+| Server-side lookup              | Yes                        | Yes                       |
+| Fits our existing Session model | Very well                  | Requires additional store |
+| Complexity                      | Lower for our architecture | Higher                    |
 
 For our application, **checking the existing session state is usually simpler if immediate revocation is required**, because we already have a session database.
 
