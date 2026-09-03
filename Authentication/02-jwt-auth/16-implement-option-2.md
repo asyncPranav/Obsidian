@@ -334,3 +334,125 @@ For development, we have two good approaches:
     
 
 ---
+Yes. Since **we are using Nodemailer**, and you already have Google OAuth configuration in your `config.js`, we can build `email.service.js` using **Gmail OAuth2** rather than `SMTP_PASSWORD`.
+
+Your existing environment variables are:
+
+```env
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GOOGLE_REFRESH_TOKEN=
+GOOGLE_USER=
+```
+
+## Step 6 — Create `email.service.js`
+
+First make sure Nodemailer is installed:
+
+```bash
+npm install nodemailer
+```
+
+Then create:
+
+```text
+src/services/email.service.js
+```
+
+Use:
+
+```js
+import nodemailer from "nodemailer";
+import config from "../config/config.js";
+
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    type: "OAuth2",
+    user: config.googleUser,
+    clientId: config.googleClientId,
+    clientSecret: config.googleClientSecret,
+    refreshToken: config.googleRefreshToken,
+  },
+});
+
+const sendVerificationEmail = async (email, otp) => {
+  await transporter.sendMail({
+    from: config.googleUser,
+    to: email,
+    subject: "Verify your email",
+    text: `Your email verification OTP is ${otp}. It will expire in 5 minutes.`,
+  });
+};
+
+export { sendVerificationEmail };
+```
+
+### What is happening here?
+
+```text
+config.js
+   │
+   ├── googleUser
+   ├── googleClientId
+   ├── googleClientSecret
+   └── googleRefreshToken
+          ↓
+     Nodemailer
+          ↓
+       Gmail
+          ↓
+    User's email
+```
+
+The important part is:
+
+```js
+auth: {
+  type: "OAuth2",
+  user: config.googleUser,
+  clientId: config.googleClientId,
+  clientSecret: config.googleClientSecret,
+  refreshToken: config.googleRefreshToken,
+}
+```
+
+Nodemailer uses your **Google OAuth2 refresh token** to authenticate instead of storing your Gmail password.
+
+### Your `.env`
+
+It should therefore have something like:
+
+```env
+GOOGLE_CLIENT_ID=your_client_id
+GOOGLE_CLIENT_SECRET=your_client_secret
+GOOGLE_REFRESH_TOKEN=your_refresh_token
+GOOGLE_USER=yourgmail@gmail.com
+```
+
+**Don't send these actual values here**, especially the refresh token.
+
+---
+
+## Step 6.1 — One small test
+
+Before connecting this to registration, we should test that the email service itself works.
+
+Temporarily add this at the bottom of `email.service.js`:
+
+```js
+sendVerificationEmail(
+  "your-test-email@example.com",
+  "123456",
+)
+  .then(() => console.log("Verification email sent successfully"))
+  .catch((error) => console.error("Email sending failed:", error.message));
+```
+
+Run your server.
+
+If everything is configured correctly, you should receive the email.
+
+**After testing, remove that test code.**
+
+Then we'll move to **Step 7 — modify `register()` to call `sendVerificationEmail(email, otp)`**.
