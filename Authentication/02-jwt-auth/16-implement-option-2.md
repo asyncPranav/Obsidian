@@ -2569,7 +2569,7 @@ Now we know whether an OTP already exists.
 
 ---
 
-# 12.4 Check the cooldown
+# 12.4 Check the 60-seconds cooldown
 
 Add:
 
