@@ -2882,11 +2882,11 @@ POST /resend-verification
                  ↓          ↓
               Delete    Check cooldown
                 OTP       ↙       ↘
-                         <60s     ≥60s
-                           ↓        ↓
-                          429    Delete OTP
-                                    ↓
-                              Generate OTP
+                |         <60s     ≥60s
+                |           ↓        ↓
+                |          429    Delete OTP
+                |                    ↓
+                |---------------->Generate OTP
                                     ↓
                                Hash OTP
                                     ↓
