@@ -1487,3 +1487,8 @@ Refresh Cookie → set
 ```
 
 **Stop after testing Step 8.** Don't modify `login()` yet. Once this works, the next step will be making sure an **unverified user cannot log in**, which completes the email-verification flow.
+
+
+---
+
+
