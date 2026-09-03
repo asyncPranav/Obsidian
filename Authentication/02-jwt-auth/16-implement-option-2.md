@@ -266,3 +266,85 @@ So **your immediate task is only these two changes**:
     
 
 Once you've done and tested that, we'll modify your existing `register()` controller.
+
+---
+
+
+Perfect. **Foundation is complete.** Now we move to the actual registration flow.
+
+## Step 5 — Modify `register()`
+
+Our current flow is:
+
+```text
+/register
+   ↓
+Create User
+   ↓
+Create Session
+   ↓
+Issue JWT
+```
+
+We now change it to:
+
+```text
+/register
+   ↓
+Check existing user
+   ↓
+Hash password
+   ↓
+Create User
+   ↓
+Generate OTP
+   ↓
+Hash OTP
+   ↓
+Store OTP
+   ↓
+Send OTP
+   ↓
+Return registration success
+```
+
+### Important change
+
+We **will not create a session or issue JWT during registration**.
+
+The user is:
+
+```js
+isEmailVerified: false
+```
+
+until OTP verification succeeds.
+
+---
+
+### Before we modify the controller
+
+There's one piece we need first: **how we're going to send the OTP email**.
+
+For development, we have two good approaches:
+
+1. **Actually send email** using an email service such as Resend/Nodemailer.
+    
+2. **Temporarily log the OTP** to the terminal so we can finish and test the authentication logic before integrating email delivery.
+    
+
+I recommend **option 2 first**. It keeps our learning focused on the authentication flow:
+
+```text
+Generate OTP
+   ↓
+Hash OTP
+   ↓
+Store OTP
+   ↓
+Verify OTP
+```
+
+Then we'll replace the temporary `console.log()` with the email service.
+
+So next, we'll modify **only your `register()` controller** to create the unverified user and OTP.
