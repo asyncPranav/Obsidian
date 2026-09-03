@@ -2864,7 +2864,7 @@ is sufficient and more precise.
 ```
 POST /resend-verification
           ↓
-     Find user
+      Find User
           ↓
    Email verified?
       ↙       ↘
@@ -2875,24 +2875,28 @@ POST /resend-verification
           OTP exists?
           ↙         ↘
         No           Yes
-        ↓             ↓
-		|         OTP expired?
-        |       ↙       ↘
-	    |        Yes        No
-        |        ↓          ↓
-        |     Delete    Check cooldown
-        |       OTP       ↙       ↘
-        |       |         <60s     ≥60s
-        |       |           ↓        ↓
-        |       |          429    Delete OTP
-        |       |                    ↓
-        |-------|------------>   Generate OTP
-                                    ↓
-                               Hash OTP
-                                    ↓
-                               Store OTP
-                                    ↓
-                               Send Email
+        │             ↓
+        │        OTP expired?
+        │        ↙         ↘
+        │      Yes          No
+        │       ↓            ↓
+        │   Delete OTP   Check cooldown
+        │       │          ↙      ↘
+        │       │        <60s     ≥60s
+        │       │          ↓        ↓
+        │       │         429   Delete OTP
+        │       │                   │
+        └───────┴───────────────────┘
+				                    ↓
+				              Generate OTP
+				                    ↓
+				                Hash OTP
+				                    ↓
+				                Store OTP
+				                    ↓
+				               Send Email
+				                    ↓
+				                 Success
 
 ```
 
