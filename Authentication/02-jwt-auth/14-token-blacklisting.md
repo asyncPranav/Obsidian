@@ -303,17 +303,31 @@ Instead of checking the entire session on every request, we can maintain a **rev
 
 Conceptually:
 
-```text
-Request
-  ↓
-Verify JWT
-  ↓
-Check token revocation list
-  ↓
-Revoked?
- ├── Yes → 401
- └── No  → Allow
 ```
+Access Token
+     ↓
+jwt.verify()
+     ↓
+Check blacklist
+     ↓
+Blacklisted?
+ ┌───┴────┐
+Yes       No
+ ↓         ↓
+401      Allow
+```
+
+For example:
+
+```
+Blacklisted Access Token
+        ↓
+token identifier
+        ↓
+expiresAt
+```
+
+A revoked token is rejected even though its JWT `exp` has not yet been reached.
 
 This is called **token blacklisting** or a **deny-list**.
 
