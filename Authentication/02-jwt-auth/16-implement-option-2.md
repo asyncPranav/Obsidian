@@ -1492,3 +1492,286 @@ Refresh Cookie → set
 ---
 
 
+# Step 9 — Prevent Unverified Users from Logging In
+
+Now that `/verify-email` is working, we need to protect the `/login` endpoint.
+
+Currently, an unverified user can still do:
+
+```text
+/register
+   ↓
+isEmailVerified = false
+   ↓
+/login
+   ↓
+Session created ❌
+   ↓
+JWT issued ❌
+```
+
+We want:
+
+```text
+/register
+   ↓
+isEmailVerified = false
+   ↓
+/login
+   ↓
+Check email verification
+   ↓
+NOT verified → reject ❌
+```
+
+Only this should be allowed:
+
+```text
+/register
+   ↓
+/verify-email
+   ↓
+isEmailVerified = true
+   ↓
+/login
+   ↓
+Session + JWT
+```
+
+---
+
+## 9.1 Modify `login()`
+
+Open:
+
+```text
+src/controllers/auth.controller.js
+```
+
+Find this section:
+
+```js
+const user = await userModel.findOne({ email }).select("+password");
+
+if (!user) {
+  throw new ApiError(401, "Invalid email or password");
+}
+```
+
+Immediately **after** the user existence check, add:
+
+```js
+if (!user.isEmailVerified) {
+  throw new ApiError(
+    403,
+    "Please verify your email before logging in",
+  );
+}
+```
+
+So it becomes:
+
+```js
+const user = await userModel.findOne({ email }).select("+password");
+
+if (!user) {
+  throw new ApiError(401, "Invalid email or password");
+}
+
+if (!user.isEmailVerified) {
+  throw new ApiError(
+    403,
+    "Please verify your email before logging in",
+  );
+}
+```
+
+---
+
+## 9.2 Why do we check this before the password?
+
+The flow is now:
+
+```text
+Find user
+   ↓
+Does user exist?
+   ↓
+NO → Invalid email/password
+   ↓
+YES
+   ↓
+Email verified?
+   ↓
+NO → 403
+   ↓
+YES
+   ↓
+Compare password
+   ↓
+Create session
+   ↓
+Generate tokens
+```
+
+This prevents an unverified account from creating a session.
+
+---
+
+# 9.3 Test it
+
+### Test 1 — New unverified account
+
+Create another user:
+
+```json
+{
+  "username": "testuser2",
+  "email": "test@example.com",
+  "password": "12345678"
+}
+```
+
+Don't verify the email.
+
+Then:
+
+```http
+POST /api/auth/login
+```
+
+```json
+{
+  "email": "test@example.com",
+  "password": "12345678"
+}
+```
+
+Expected:
+
+```json
+{
+  "success": false,
+  "message": "Please verify your email before logging in"
+}
+```
+
+There should be:
+
+```text
+❌ No session
+❌ No access token
+❌ No refresh-token cookie
+```
+
+---
+
+### Test 2 — Verify the account
+
+Use:
+
+```http
+POST /api/auth/verify-email
+```
+
+with the OTP you received.
+
+After successful verification:
+
+```text
+isEmailVerified: true
+```
+
+A session should also be created by your current `/verify-email` implementation.
+
+---
+
+### Test 3 — Login after verification
+
+Now:
+
+```http
+POST /api/auth/login
+```
+
+```json
+{
+  "email": "test@example.com",
+  "password": "12345678"
+}
+```
+
+Expected:
+
+```json
+{
+  "message": "Login successful",
+  "user": {
+    "id": "...",
+    "username": "testuser2",
+    "email": "test@example.com"
+  },
+  "accessToken": "eyJ..."
+}
+```
+
+And a new session should be created.
+
+---
+
+# Step 9 complete
+
+Your authentication flow is now:
+
+```text
+                    REGISTER
+                       │
+                       ▼
+                 Create User
+                       │
+                       ▼
+          isEmailVerified = false
+                       │
+                       ▼
+                  Generate OTP
+                       │
+                       ▼
+                 Send OTP Email
+                       │
+                       ▼
+                VERIFY EMAIL
+                       │
+                       ▼
+          isEmailVerified = true
+                       │
+                       ▼
+                 Create Session
+                       │
+                       ▼
+              Issue JWT Tokens
+                       │
+                       ▼
+                    LOGIN
+                       │
+              ┌────────┴────────┐
+              ▼                 ▼
+         Not verified        Verified
+              │                 │
+              ▼                 ▼
+            Reject         Create Session
+                              │
+                              ▼
+                           Issue JWT
+```
+
+### One important observation
+
+Your `/verify-email` endpoint **already logs the user in** by creating a session and issuing tokens. Therefore, after successful verification, the user technically doesn't need to immediately call `/login`.
+
+That's intentional in the flow we designed.
+
+**Next step should be Step 10: handle the “resend verification OTP” flow**, including expiry and replacing the previous OTP.
+
+
+---
+
