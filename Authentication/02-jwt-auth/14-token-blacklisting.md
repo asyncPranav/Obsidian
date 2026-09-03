@@ -405,20 +405,8 @@ For example:
 }
 ```
 
-The blacklist entry only needs to exist until the original token would have expired.
+The blacklist entry only needs to exist until the original token would have expired i.e keep blacklist entry until access token did not get expired
 
----
-
-When the token is revoked:
-
-```text
-Blacklist
-    ↓
-jti
-expiresAt
-```
-
-Then authentication checks whether that `jti` is revoked.
 
 ---
 
