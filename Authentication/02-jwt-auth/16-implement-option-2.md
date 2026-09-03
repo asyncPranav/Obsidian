@@ -2661,6 +2661,73 @@ is more appropriate than using `400`.
 
 ---
 
+# 2.6 Handling an Expired OTP
+
+The cooldown and OTP expiry are **two different concepts**.
+
+```
+OTP lifetime       = 10 minutes
+Resend cooldown    = 60 seconds
+```
+
+When an existing OTP is found, we should first check whether it has expired.
+
+```js
+if (existingOtp) {
+  const now = new Date();
+
+  if (existingOtp.expiresAt <= now) {
+    await otpModel.deleteOne({
+      _id: existingOtp._id,
+    });
+  } else {
+    // OTP is still valid → check 60-second cooldown
+  }
+}
+```
+
+### Behavior
+
+#### OTP expired
+
+```
+Existing OTP
+     ↓
+Expired
+     ↓
+Delete old OTP
+     ↓
+Generate new OTP
+```
+
+#### OTP still valid + cooldown not completed
+
+```
+Existing OTP
+     ↓
+Still valid
+     ↓
+Less than 60 seconds passed
+     ↓
+429
+```
+
+#### OTP still valid + cooldown completed
+
+```
+Existing OTP
+     ↓
+Still valid
+     ↓
+60+ seconds passed
+     ↓
+Delete old OTP
+     ↓
+Generate new OTP
+```
+
+---
+
 # 12.5 Complete function
 
 Replace your current `resendVerificationOtp()` with this:
