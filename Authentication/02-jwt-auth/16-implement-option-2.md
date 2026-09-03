@@ -2408,6 +2408,7 @@ Send email
 
 Absolutely. Let's do **Step 12 — OTP Resend Cooldown from scratch**, using your existing code and keeping it simple.
 
+
 # Step 12 — OTP Resend Cooldown
 
 ### Why are we adding this?
@@ -2483,7 +2484,6 @@ For example:
 ```
 
 Therefore, **we don't need to add another field or create another model.** We'll use `createdAt` to determine when the last OTP was created.
-
 
 ---
 
@@ -2638,8 +2638,8 @@ means:
 
 > If less than 60 seconds have passed, reject the request.
 
-
 #### Why HTTP status 429
+
 We use:
 
 ```js
@@ -2665,7 +2665,7 @@ is more appropriate than using `400`.
 
 The cooldown and OTP expiry are **two different concepts**.
 
-```
+```text
 OTP lifetime       = 10 minutes
 Resend cooldown    = 60 seconds
 ```
@@ -2690,7 +2690,7 @@ if (existingOtp) {
 
 #### OTP expired
 
-```
+```text
 Existing OTP
      ↓
 Expired
@@ -2702,7 +2702,7 @@ Generate new OTP
 
 #### OTP still valid + cooldown not completed
 
-```
+```text
 Existing OTP
      ↓
 Still valid
@@ -2714,7 +2714,7 @@ Less than 60 seconds passed
 
 #### OTP still valid + cooldown completed
 
-```
+```text
 Existing OTP
      ↓
 Still valid
@@ -2861,7 +2861,7 @@ is sufficient and more precise.
 
 ### Final flow
 
-```
+```text
 POST /resend-verification
           ↓
       Find User
@@ -2887,19 +2887,17 @@ POST /resend-verification
         │       │         429   Delete OTP
         │       │                   │
         └───────┴───────────────────┘
-				                    ↓
-				              Generate OTP
-				                    ↓
-				                Hash OTP
-				                    ↓
-				                Store OTP
-				                    ↓
-				               Send Email
-				                    ↓
-				                 Success
-
+                    ↓
+              Generate OTP
+                    ↓
+                Hash OTP
+                    ↓
+                Store OTP
+                    ↓
+               Send Email
+                    ↓
+                 Success
 ```
-
 
 ---
 
@@ -2967,11 +2965,12 @@ It should work:
 And you'll receive a new OTP.
 
 ---
+
 # Important Security Properties
 
 After Step 12:
 
-|Feature|Status|
+|Feature Status||
 |---|---|
 |Random 6-digit OTP|✅|
 |OTP hashed before storage|✅|
@@ -3003,13 +3002,13 @@ After Step 12:
 
 ### Current Step 12 status
 
-```
+```text
 Step 12 — OTP Resend Cooldown
         ↓
 60-second cooldown       ✅
 Expired OTP handling     ✅
-Old OTP replacement     ✅
-Precise deleteOne()     ✅
+Old OTP replacement      ✅
+Precise deleteOne()      ✅
 ```
 
 **Implement and test Step 12 only. Then we'll move to Step 13.**
