@@ -1775,3 +1775,350 @@ That's intentional in the flow we designed.
 
 ---
 
+# Step 10 — Resend Verification OTP
+
+Now we handle an important real-world case:
+
+> User registered, but the OTP expired or they didn't receive it.
+
+We need:
+
+```text
+POST /resend-verification
+          ↓
+Find user
+          ↓
+Already verified?
+    ├── YES → reject
+    └── NO
+          ↓
+Generate new OTP
+          ↓
+Hash OTP
+          ↓
+Delete old OTP
+          ↓
+Store new OTP
+          ↓
+Send email
+```
+
+## 10.1 Add `resendVerificationEmail()`
+
+Open:
+
+```text
+src/controllers/auth.controller.js
+```
+
+Add this function below `verifyEmail()`:
+
+```js
+const resendVerificationEmail = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+
+    // 1. Find user
+    const user = await userModel.findOne({ email });
+
+    if (!user) {
+      throw new ApiError(404, "User not found");
+    }
+
+    // 2. Check if email is already verified
+    if (user.isEmailVerified) {
+      throw new ApiError(400, "Email is already verified");
+    }
+
+    // 3. Generate new OTP
+    const otp = generateOtp();
+
+    // 4. Hash OTP
+    const hashedOtp = await bcrypt.hash(otp, 10);
+
+    // 5. Delete previous OTP
+    await otpModel.deleteMany({
+      email,
+      purpose: "email_verification",
+    });
+
+    // 6. Store new OTP
+    await otpModel.create({
+      email,
+      otpHash: hashedOtp,
+      purpose: "email_verification",
+      expiresAt: new Date(Date.now() + 5 * 60 * 1000),
+    });
+
+    // 7. Send new OTP
+    await sendEmail(
+      email,
+      "Verify your email",
+      `Your new email verification OTP is ${otp}. It will expire in 5 minutes.`,
+      `
+        <h2>Verify your email</h2>
+        <p>Your new email verification OTP is:</p>
+        <h1>${otp}</h1>
+        <p>This OTP will expire in 5 minutes.</p>
+      `,
+    );
+
+    return res.status(200).json({
+      message: "Verification OTP sent successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+```
+
+---
+
+# 10.2 Export the controller
+
+At the bottom:
+
+```js
+export {
+  register,
+  verifyEmail,
+  resendVerificationEmail,
+  login,
+  getMe,
+  refreshTokens,
+  logout,
+  logoutAll,
+  getSessions,
+};
+```
+
+---
+
+# 10.3 Add the route
+
+Open:
+
+```text
+src/routes/auth.routes.js
+```
+
+Add `resendVerificationEmail` to the imports:
+
+```js
+import {
+  register,
+  verifyEmail,
+  resendVerificationEmail,
+  login,
+  getMe,
+  refreshTokens,
+  logout,
+  logoutAll,
+  getSessions,
+} from "../controllers/auth.controller.js";
+```
+
+Then add:
+
+```js
+router.post(
+  "/resend-verification",
+  resendVerificationEmail,
+);
+```
+
+Your public authentication routes should now include:
+
+```js
+router.post("/register", register);
+
+router.post("/verify-email", verifyEmail);
+
+router.post(
+  "/resend-verification",
+  resendVerificationEmail,
+);
+
+router.post("/login", login);
+```
+
+---
+
+# 10.4 Test it
+
+Register a new account:
+
+```http
+POST /api/auth/register
+```
+
+Then don't use the OTP.
+
+Request a new one:
+
+```http
+POST /api/auth/resend-verification
+```
+
+Body:
+
+```json
+{
+  "email": "your-email@gmail.com"
+}
+```
+
+Expected:
+
+```json
+{
+  "message": "Verification OTP sent successfully"
+}
+```
+
+You should receive a **new OTP** in your email.
+
+---
+
+## 10.5 Check MongoDB
+
+Before resend:
+
+```text
+OTP A
+expiresAt: ...
+attempts: 0
+```
+
+After resend:
+
+```text
+OTP A → deleted
+
+OTP B
+expiresAt: new expiry
+attempts: 0
+```
+
+This is important because the old OTP should no longer work.
+
+---
+
+# 10.6 Test that old OTP doesn't work
+
+Suppose:
+
+```text
+Old OTP = 123456
+New OTP = 789012
+```
+
+Try:
+
+```json
+{
+  "email": "your-email@gmail.com",
+  "otp": "123456"
+}
+```
+
+It should return:
+
+```text
+Invalid OTP
+```
+
+Then use:
+
+```json
+{
+  "email": "your-email@gmail.com",
+  "otp": "789012"
+}
+```
+
+It should successfully verify the account.
+
+---
+
+# ⚠️ One security issue we haven't solved yet
+
+Right now someone could repeatedly call:
+
+```text
+POST /resend-verification
+```
+
+and generate hundreds of emails.
+
+That's an **OTP resend abuse/rate-limiting** problem.
+
+For this learning project, we'll keep the basic implementation first. Later, we can add something like:
+
+```text
+Maximum 1 resend / 60 seconds
+Maximum X resends / hour
+```
+
+Don't implement that yet.
+
+---
+
+## Current authentication flow
+
+You now have:
+
+```text
+REGISTER
+   │
+   ├── Create user
+   ├── isEmailVerified = false
+   ├── Generate OTP
+   ├── Hash OTP
+   ├── Store OTP
+   └── Send email
+            │
+            ▼
+      VERIFY EMAIL
+            │
+       ┌────┴────┐
+       │         │
+    Invalid     Valid
+       │         │
+       ▼         ▼
+    attempts   Verify user
+                  │
+                  ▼
+             Create session
+                  │
+                  ▼
+               JWTs
+
+
+RESEND VERIFICATION
+        │
+        ▼
+Generate new OTP
+        │
+        ▼
+Delete old OTP
+        │
+        ▼
+Store new OTP
+        │
+        ▼
+Send email
+```
+
+### Step 10 checkpoint
+
+Test these three cases:
+
+- ✅ Resend OTP successfully
+    
+- ✅ Old OTP becomes invalid
+    
+- ✅ New OTP verifies successfully
+    
+
+Once that works, the next step is **Step 11 — validation + security hardening for the email-verification endpoints**.
