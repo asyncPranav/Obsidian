@@ -639,3 +639,9 @@ Either:
 ### One sentence to remember
 
 > **JWT expiration controls how long a token naturally lives; session revocation controls whether the server allows the session to continue; immediate access-token revocation requires the server to check some revocation state.**
+
+
+
+---
+
+## But if we want immediate 
