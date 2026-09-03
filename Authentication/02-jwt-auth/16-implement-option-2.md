@@ -552,3 +552,449 @@ Return success
 ```
 
 And importantly, **no session/JWT will be created during registration**.
+
+
+---
+
+
+Perfect. **Step 7 is fully tested and working.** Your OTP is actually reaching the user's email, so now we can move to the important part.
+
+# Step 8 — Create `/verify-email`
+
+Now we'll verify the OTP and, **only after successful verification**, create the session and issue JWT tokens.
+
+Our flow:
+
+```text
+POST /verify-email
+        ↓
+Find OTP
+        ↓
+Check attempts
+        ↓
+Check expiry
+        ↓
+Compare OTP with hash
+        ↓
+        ├── Invalid → increase attempts
+        │
+        └── Valid
+              ↓
+        Find User
+              ↓
+        isEmailVerified = true
+              ↓
+        Delete OTP
+              ↓
+        Create Session
+              ↓
+        Generate Access Token
+              ↓
+        Generate Refresh Token
+              ↓
+        Set Refresh Cookie
+```
+
+## 8.1 Modify `auth.controller.js`
+
+We already imported:
+
+```js
+import otpModel from "../models/otp.model.js";
+```
+
+So we don't need another import.
+
+Add this new controller **below `register()`**:
+
+```js
+const verifyEmail = async (req, res, next) => {
+  try {
+    const { email, otp } = req.body;
+
+    // 1. Find OTP
+    const otpRecord = await otpModel.findOne({
+      email,
+      purpose: "email_verification",
+    });
+
+    if (!otpRecord) {
+      throw new ApiError(400, "OTP not found or expired");
+    }
+
+    // 2. Check maximum attempts
+    if (otpRecord.attempts >= 5) {
+      throw new ApiError(429, "Too many invalid OTP attempts");
+    }
+
+    // 3. Check expiry
+    if (otpRecord.expiresAt < new Date()) {
+      throw new ApiError(400, "OTP has expired");
+    }
+
+    // 4. Compare entered OTP with stored hash
+    const isOtpValid = await bcrypt.compare(
+      otp,
+      otpRecord.otpHash,
+    );
+
+    if (!isOtpValid) {
+      otpRecord.attempts += 1;
+      await otpRecord.save();
+
+      throw new ApiError(400, "Invalid OTP");
+    }
+
+    // 5. Find user
+    const user = await userModel.findOne({ email });
+
+    if (!user) {
+      throw new ApiError(404, "User not found");
+    }
+
+    // 6. Mark email as verified
+    user.isEmailVerified = true;
+    await user.save();
+
+    // 7. Delete OTP after successful verification
+    await otpModel.deleteOne({
+      _id: otpRecord._id,
+    });
+
+    // 8. Create session
+    const sessionId = new mongoose.Types.ObjectId();
+
+    const refreshToken = token.generateRefreshToken(
+      user._id,
+      sessionId,
+    );
+
+    const hashedRefreshToken = await bcrypt.hash(
+      refreshToken,
+      10,
+    );
+
+    const session = await sessionModel.create({
+      _id: sessionId,
+      user: user._id,
+      refreshToken: hashedRefreshToken,
+      ip: req.ip,
+      userAgent: req.get("User-Agent"),
+      expiresAt: new Date(
+        Date.now() + 15 * 24 * 60 * 60 * 1000,
+      ),
+    });
+
+    // 9. Generate access token
+    const accessToken = token.generateAccessToken(
+      user._id,
+      session._id,
+    );
+
+    // 10. Set refresh token cookie
+    cookie.setRefreshTokenCookie(res, refreshToken);
+
+    return res.status(200).json({
+      message: "Email verified successfully",
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+        isEmailVerified: user.isEmailVerified,
+      },
+      accessToken,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+```
+
+---
+
+# 8.2 Export `verifyEmail`
+
+At the bottom of `auth.controller.js`, you currently have something like:
+
+```js
+export {
+  register,
+  login,
+  getMe,
+  refreshTokens,
+  logout,
+  logoutAll,
+  getSessions,
+};
+```
+
+Add `verifyEmail`:
+
+```js
+export {
+  register,
+  verifyEmail,
+  login,
+  getMe,
+  refreshTokens,
+  logout,
+  logoutAll,
+  getSessions,
+};
+```
+
+---
+
+# 8.3 Add the route
+
+Open:
+
+```text
+src/routes/auth.routes.js
+```
+
+Your imports currently look something like:
+
+```js
+import {
+  register,
+  login,
+  getMe,
+  refreshTokens,
+  logout,
+  logoutAll,
+  getSessions,
+} from "../controllers/auth.controller.js";
+```
+
+Add `verifyEmail`:
+
+```js
+import {
+  register,
+  verifyEmail,
+  login,
+  getMe,
+  refreshTokens,
+  logout,
+  logoutAll,
+  getSessions,
+} from "../controllers/auth.controller.js";
+```
+
+Then add this route:
+
+```js
+router.post("/verify-email", verifyEmail);
+```
+
+So your relevant routes become:
+
+```js
+router.post("/register", register);
+
+router.post("/verify-email", verifyEmail);
+
+router.post("/login", login);
+
+router.get("/me", authenticate, getMe);
+
+router.post("/refresh", refreshTokens);
+
+router.get("/sessions", authenticate, getSessions);
+
+router.post("/logout", authenticate, logout);
+
+router.post("/logout-all", authenticate, logoutAll);
+```
+
+---
+
+# 8.4 Test `/verify-email`
+
+You already received the OTP in:
+
+```text
+asyncpranav@gmail.com
+```
+
+Suppose your OTP is:
+
+```text
+123456
+```
+
+Send:
+
+```http
+POST /api/auth/verify-email
+```
+
+Body:
+
+```json
+{
+  "email": "asyncpranav@gmail.com",
+  "otp": "123456"
+}
+```
+
+Use the **actual OTP from your email**, of course.
+
+---
+
+## 8.5 Expected successful response
+
+You should get something like:
+
+```json
+{
+  "message": "Email verified successfully",
+  "user": {
+    "id": "6a99a334b6e723896ec57b6a",
+    "username": "pranav",
+    "email": "asyncpranav@gmail.com",
+    "isEmailVerified": true
+  },
+  "accessToken": "eyJhbGciOi..."
+}
+```
+
+And Postman should receive the refresh-token cookie.
+
+---
+
+# 8.6 Check MongoDB
+
+### User
+
+Before verification:
+
+```text
+isEmailVerified: false
+```
+
+After successful verification:
+
+```text
+isEmailVerified: true
+```
+
+### OTP
+
+Before:
+
+```text
+Otp document exists
+```
+
+After successful verification:
+
+```text
+Otp document deleted
+```
+
+### Session
+
+Before verification:
+
+```text
+No session
+```
+
+After verification:
+
+```text
+Session created
+refreshToken: hashed
+revoked: false
+expiresAt: ...
+```
+
+So we're finally getting the architecture we wanted:
+
+```text
+/register
+    ↓
+User created
+    ↓
+Email verification pending
+```
+
+then:
+
+```text
+/verify-email
+    ↓
+Email verified
+    ↓
+Session created
+    ↓
+Access + Refresh tokens issued
+```
+
+---
+
+## ⚠️ Test the security behavior too
+
+Don't test only the successful OTP.
+
+### Wrong OTP
+
+```json
+{
+  "email": "asyncpranav@gmail.com",
+  "otp": "111111"
+}
+```
+
+Expected:
+
+```json
+{
+  "success": false,
+  "message": "Invalid OTP"
+}
+```
+
+And MongoDB:
+
+```text
+attempts: 1
+```
+
+Try another wrong OTP:
+
+```text
+attempts: 2
+```
+
+After 5 failed attempts:
+
+```text
+Too many invalid OTP attempts
+```
+
+### Expired OTP
+
+Wait until `expiresAt` passes and try it.
+
+Expected:
+
+```text
+OTP has expired
+```
+
+### Successful OTP
+
+Use the correct OTP:
+
+```text
+isEmailVerified → true
+OTP → deleted
+Session → created
+Access Token → issued
+Refresh Cookie → set
+```
+
+**Stop after testing Step 8.** Don't modify `login()` yet. Once this works, the next step will be making sure an **unverified user cannot log in**, which completes the email-verification flow.
