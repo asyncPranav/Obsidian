@@ -370,8 +370,8 @@ Rejected
 Therefore, blacklisting provides **immediate server-side revocation of access tokens**.
 
 ##### What should be blacklisted
-
-Give each access token a unique `jti`:
+Do not normally store the entire access token unnecessarily.
+Give each access token a unique `jti` - JWT id:
 
 ```js
 {
