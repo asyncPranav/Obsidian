@@ -335,6 +335,42 @@ This is called **token blacklisting** or a **deny-list**.
 
 # 8. How Blacklisting Works
 
+Without blacklist:
+
+```
+Access Token
+     ↓
+Logout
+     ↓
+Session revoked
+     ↓
+Access token still works
+     ↓
+Until JWT expiration
+```
+
+With blacklist:
+
+```
+Access Token
+     ↓
+Logout
+     ↓
+Add token to blacklist
+     ↓
+Access-token request
+     ↓
+JWT valid?
+     ↓
+Blacklist check
+     ↓
+Rejected
+```
+
+Therefore, blacklisting provides **immediate server-side revocation of access tokens**.
+
+##### What should be blacklisted
+
 Give each access token a unique `jti`:
 
 ```js
