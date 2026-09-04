@@ -408,7 +408,9 @@ maximum 3 attempts
 ```
 
 ---
+**`NOTE`**  : You have to first hit /forget-password route to get an OTP with  
 
+---
 # 13.12 Complete `forgotPassword()` Controller
 
 Add this function to:
