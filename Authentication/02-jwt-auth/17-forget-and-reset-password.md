@@ -408,7 +408,23 @@ maximum 3 attempts
 ```
 
 ---
-**`NOTE`**  : You have to first hit `/forget-password route to get an OTP with `password_reset` purpose then thereafter you can use that OTP in `reset-password` request body to reset password  
+
+##### NOTE :
+You have to first hit `/forget-password` route to get an OTP with `password_reset` purpose then thereafter you can use that OTP in `reset-password` request body to reset password  
+
+```
+POST /forgot-password
+        ↓
+Send email with OTP
+        ↓
+User receives OTP
+        ↓
+POST /reset-password
+        ↓
+Send email + OTP + new password
+        ↓
+Password gets changed
+```
 
 ---
 # 13.12 Complete `forgotPassword()` Controller
