@@ -408,7 +408,7 @@ maximum 3 attempts
 ```
 
 ---
-**`NOTE`**  : You have to first hit /forget-password route to get an OTP with  
+**`NOTE`**  : You have to first hit `/forget-password route to get an OTP with `password_reset` purpose then thereafter you can use that OTP in `reset-password` request body to reset password  
 
 ---
 # 13.12 Complete `forgotPassword()` Controller
