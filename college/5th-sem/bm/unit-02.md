@@ -878,6 +878,8 @@ to achieve organizational goals.
 
 Staffing means:
 
+> **Recruting, selecting **
+
 > **Acquiring, developing and maintaining the right people for the right jobs.**
 
 ### Activities
