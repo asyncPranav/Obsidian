@@ -306,7 +306,6 @@ He believed organizations should operate through:
 - Impersonal relationships
     
 - Merit-based selection
-    
 
 ---
 
