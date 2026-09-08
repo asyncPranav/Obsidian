@@ -113,7 +113,6 @@ Taylor believed that work should be studied scientifically instead of relying on
 - Traditional methods
     
 - Personal judgment
-    
 
 ---
 
