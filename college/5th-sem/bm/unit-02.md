@@ -696,7 +696,7 @@ Marketing
     ↕
 Finance
     ↕
-HR
+   HR
 ```
 
 Management coordinates these departments.
