@@ -1,1288 +1,406 @@
 
+---
 
-----
+Perfect. **Authenticate middleware + `/me` tested means the access-token side is working.** Now we build the other half of your authentication system: **refresh tokens**.
 
+# Step 2 — Refresh Token Endpoint
 
-Yes. This is one of the **most important pieces of your JWT architecture**, and if you only memorize these 12 steps, you'll get confused later.
+We'll create:
 
-Let's understand the **problem first**, then the **reason for every line**, and finally the complete flow.
-
-# Refresh Token Flow — Detailed Notes
-
-## 1. First understand: Why do we even need a refresh token?
-
-We have two tokens:
-
-```text
-ACCESS TOKEN
-├── Short-lived
-├── Used to access protected APIs
-└── Example: 15 minutes
-
-REFRESH TOKEN
-├── Long-lived
-├── Used to get a new access token
-└── Example: 15 days
+```http
+POST /api/auth/refresh
 ```
 
-Suppose the user logs in at 10:00 AM.
+### What it does
+
+When the short-lived access token expires:
 
 ```text
-10:00 AM
-   ↓
-Access Token → expires at 10:15 AM
-Refresh Token → expires at 15 days
+Access Token
+15 minutes
+     ↓
+Expired ❌
+     ↓
+Client calls /refresh
+     ↓
+Browser automatically sends
+httpOnly refreshToken cookie
+     ↓
+Verify refresh JWT
+     ↓
+Validate Session in MongoDB
+     ↓
+Generate NEW access token
+     ↓
+Return access token
 ```
 
-At 10:20 AM:
-
-```text
-Access Token ❌ expired
-Refresh Token ✅ still valid
-```
-
-The frontend doesn't want to force the user to log in again.
-
-So it sends:
-
-```text
-Refresh Token
-      ↓
-POST /auth/refresh
-      ↓
-Backend verifies it
-      ↓
-New Access Token
-```
-
-That's the entire purpose of this controller.
+Your refresh token remains in the cookie; we don't return it in JSON.
 
 ---
 
-# 2. Why don't we simply generate a new access token?
+## 1. Create the refresh controller
 
-Because a refresh token is **not automatically trusted just because it is a JWT**.
-
-Remember your architecture:
+In your existing:
 
 ```text
-                 LOGIN / REGISTER
-                       ↓
-                Create session
-                       ↓
-        ┌──────────────┴──────────────┐
-        ↓                             ↓
- Access Token                   Refresh Token
- short-lived                    long-lived
-        ↓                             ↓
- used for APIs                HTTP-only cookie
-                                      ↓
-                                Database stores
-                                HASHED version
+src/controllers/auth.controller.js
 ```
 
-When `/refresh` is called, we need to answer:
+add:
 
-> "Is this refresh token still legitimate, belongs to this session, hasn't been revoked, hasn't expired, and matches the token we issued?"
+```js
+const refresh = async (req, res, next) => {
+  try {
+    // 1. Get refresh token from cookie
+    const refreshToken = req.cookies.refreshToken;
 
-That's why your controller has so many checks.
+    if (!refreshToken) {
+      throw new ApiError(401, "Refresh token is required");
+    }
+
+    // 2. Verify refresh JWT
+    const decoded = verifyRefreshToken(refreshToken);
+
+    const { sub: userId, sid: sessionId } = decoded;
+
+    // 3. Find the session
+    const session = await sessionModel
+      .findById(sessionId)
+      .select("+refreshToken");
+
+    if (!session) {
+      throw new ApiError(401, "Invalid session");
+    }
+
+    // 4. Check session belongs to the same user
+    if (session.user.toString() !== userId) {
+      throw new ApiError(401, "Invalid session");
+    }
+
+    // 5. Check if session has been revoked
+    if (session.revoked) {
+      throw new ApiError(401, "Session has been revoked");
+    }
+
+    // 6. Check session expiration
+    if (session.expiresAt <= new Date()) {
+      throw new ApiError(401, "Session has expired");
+    }
+
+    // 7. Compare cookie token with hashed token in DB
+    const isRefreshTokenValid = await bcrypt.compare(
+      refreshToken,
+      session.refreshToken,
+    );
+
+    if (!isRefreshTokenValid) {
+      throw new ApiError(401, "Invalid refresh token");
+    }
+
+    // 8. Generate a new access token
+    const accessToken = generateAccessToken(
+      userId,
+      sessionId,
+    );
+
+    // 9. Return new access token
+    return res.status(200).json({
+      status: "success",
+      message: "Access token refreshed successfully",
+      data: {
+        accessToken,
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+```
+
+Then update your export:
+
+```js
+export { register, login, refresh };
+```
 
 ---
 
-# 3. Your complete refresh flow
+# 2. Why each check matters
 
-Think of it as a security checkpoint:
+This is the important part of this implementation.
 
-```text
-Refresh Request
-      ↓
-Is refresh token present?
-      ↓
-Is JWT valid?
-      ↓
-Does session exist?
-      ↓
-Is session revoked?
-      ↓
-Is session expired?
-      ↓
-Does token match database hash?
-      ↓
-Generate new access token
-      ↓
-Generate new refresh token
-      ↓
-Replace old refresh-token hash
-      ↓
-Send new refresh token as cookie
-      ↓
-Send new access token
-```
-
-Every step has a specific purpose.
-
----
-
-# 4. Step 1 — Get refresh token from cookie
+### Check 1 — Cookie exists
 
 ```js
 const refreshToken = req.cookies.refreshToken;
 ```
 
-Remember:
-
-```text
-Browser
-   │
-   │ HTTP request
-   ↓
-Server
-```
-
-The browser automatically sends the HTTP-only cookie with the request.
-
-So:
+Because we configured:
 
 ```js
-req.cookies
+httpOnly: true
 ```
 
-contains your cookies.
-
-For example:
-
-```text
-req.cookies = {
-    refreshToken: "eyJhbGciOi..."
-}
-```
-
-Therefore:
-
-```js
-const refreshToken = req.cookies.refreshToken;
-```
-
-extracts it.
+JavaScript running in the browser can't read it, but the browser automatically sends it with the request.
 
 ---
 
-## Why HTTP-only cookie?
-
-Because JavaScript running in the browser cannot directly access an HTTP-only cookie.
-
-So:
-
-```js
-document.cookie
-```
-
-cannot read your refresh token.
-
-But the browser can still automatically send it to your backend.
-
-That's useful because refresh tokens are extremely sensitive.
-
----
-
-# 5. Step 2 — Check if token exists
-
-```js
-if (!refreshToken) {
-  throw new ApiError(401, "Refresh token is missing");
-}
-```
-
-Imagine somebody calls:
-
-```text
-POST /auth/refresh
-```
-
-without having a refresh cookie.
-
-There is nothing to verify.
-
-So:
-
-```text
-No refresh token
-       ↓
-401 Unauthorized
-```
-
----
-
-# 6. Step 3 — Verify the JWT
+### Check 2 — JWT is valid
 
 ```js
 const decoded = verifyRefreshToken(refreshToken);
 ```
 
-This checks the **cryptographic signature** of the JWT.
-
-Remember your refresh token contains something like:
-
-```js
-{
-    sub: "USER_ID",
-    sid: "SESSION_ID"
-}
-```
-
-After verification, you might get:
-
-```js
-decoded = {
-    sub: "68abc...",
-    sid: "69xyz...",
-    iat: ...,
-    exp: ...
-}
-```
-
-Here:
+Your utility verifies:
 
 ```text
-sub → user ID
-sid → session ID
-```
-
-### Important distinction
-
-JWT verification answers:
-
-> "Was this token correctly signed and is it structurally valid?"
-
-It does **NOT** answer:
-
-> "Has this session been revoked?"
-
-That's why you still need the database checks.
-
----
-
-# 7. Step 4 — Find the session
-
-You wrote:
-
-```js
-const session = await sessionModel.findById({
-  _id: decoded.sid,
-  user: decoded.sub,
-});
-```
-
-⚠️ **There is a mistake here.**
-
-`findById()` expects the ID itself, not a filter object.
-
-You should use:
-
-```js
-const session = await sessionModel.findOne({
-  _id: decoded.sid,
-  user: decoded.sub,
-});
-```
-
-This is important.
-
----
-
-## Why search by BOTH session ID and user ID?
-
-Suppose:
-
-```text
-decoded.sid = SESSION_A
-decoded.sub = USER_A
-```
-
-We want:
-
-```text
-Session A
-    AND
-User A
-```
-
-So:
-
-```js
-{
-    _id: decoded.sid,
-    user: decoded.sub
-}
-```
-
-means:
-
-> "Find the session with this session ID that belongs to this user."
-
-This creates an additional security check.
-
----
-
-# 8. What does the database session look like?
-
-Your session might look approximately like:
-
-```text
-Session
-├── _id
-│     └── SESSION_ID
-│
-├── user
-│     └── USER_ID
-│
-├── refreshToken
-│     └── HASHED_REFRESH_TOKEN
-│
-├── ip
-├── userAgent
-├── revoked
-│     └── false
-│
-└── expiresAt
-      └── 15 days later
-```
-
-The JWT says:
-
-```text
-USER_ID + SESSION_ID
-```
-
-The database says:
-
-```text
-SESSION_ID + USER_ID + HASHED_REFRESH_TOKEN + STATUS + EXPIRY
-```
-
-Now we can cross-check them.
-
----
-
-# 9. Step 5 — Check whether session exists
-
-```js
-if (!session) {
-  throw new ApiError(401, "Session not found");
-}
-```
-
-Why could the session not exist?
-
-For example:
-
-```text
-User logs in
-      ↓
-Session created
-      ↓
-User logs out
-      ↓
-Session deleted
-```
-
-Later somebody tries to use the old refresh token.
-
-JWT itself might still have a valid signature.
-
-But:
-
-```text
-JWT
- ↓
-sessionId = ABC
- ↓
-Database
- ↓
-Session ABC doesn't exist
-```
-
-Therefore:
-
-```text
-❌ Reject
-```
-
-This is one of the major advantages of keeping sessions in the database.
-
----
-
-# 10. Step 6 — Check revoked status
-
-```js
-if (session.revoked) {
-  throw new ApiError(401, "Session has been revoked");
-}
-```
-
-Suppose the user clicks:
-
-```text
-Logout
-```
-
-Instead of necessarily deleting the session, you can mark:
-
-```text
-revoked = true
-```
-
-Then:
-
-```text
-Refresh Token
-      ↓
-Session found
-      ↓
-revoked = true
-      ↓
-❌ Reject
-```
-
-This gives you session control.
-
-For example:
-
-```text
-Laptop Session → active
-Phone Session  → revoked
-Tablet Session → active
-```
-
-You can revoke one device without destroying every session.
-
----
-
-# 11. Step 7 — Check session expiration
-
-```js
-if (session.expiresAt < new Date()) {
-  throw new ApiError(401, "Session has expired");
-}
-```
-
-Your session has:
-
-```text
-expiresAt = 15 days from creation
-```
-
-Suppose:
-
-```text
-Current time = September 13
-expiresAt    = September 10
-```
-
-Then:
-
-```text
-expiresAt < current time
-```
-
-is true.
-
-Therefore:
-
-```text
-Session expired
-      ↓
-❌ Reject
-```
-
----
-
-# 12. Why check expiration if JWT already has `exp`?
-
-Excellent question.
-
-You potentially have **two expiration mechanisms**:
-
-```text
+JWT signature
 JWT expiration
-        +
-Database session expiration
+correct refresh secret
 ```
 
-JWT expiration protects the token itself.
-
-Database expiration gives you **server-side session control**.
-
-For example:
-
-```text
-JWT says:
-"I am valid until September 20."
-
-Database says:
-"This session expires September 15."
-```
-
-The database can therefore impose an additional limit.
-
-For your learning project, this is a useful design because you're learning **session-based refresh token management**.
+If any fails → `401`.
 
 ---
 
-# 13. Step 8 — Compare refresh token with database hash
-
-This is probably the most confusing part.
-
-During registration/login, you did:
+### Check 3 — Session exists
 
 ```js
-const hashedRefreshToken = await bcrypt.hash(refreshToken, 10);
+const session = await sessionModel.findById(sessionId);
 ```
 
-And stored:
+This is what makes your refresh-token system **session-backed**.
+
+A mathematically valid JWT isn't enough.
 
 ```text
-Database
-
-refreshToken:
-$2b$10$......
-```
-
-You did NOT store:
-
-```text
-eyJhbGciOiJIUzI1Ni...
-```
-
-You stored its hash.
-
-Why?
-
-Same basic principle as passwords.
-
----
-
-## During registration/login
-
-```text
-Actual refresh token
-        ↓
-bcrypt.hash()
-        ↓
-HASH
-        ↓
-Database
-```
-
-The browser has:
-
-```text
-REAL TOKEN
-```
-
-Database has:
-
-```text
-HASH
+Valid JWT
+    +
+Valid DB session
+    +
+Not revoked
+    +
+Not expired
+    +
+Hash matches
+    ↓
+Valid refresh request
 ```
 
 ---
 
-## During refresh
+### Check 4 — User/session relationship
 
-Browser sends:
-
-```text
-REAL TOKEN
-```
-
-You do:
+We have:
 
 ```js
-const isRefreshTokenValid = await bcrypt.compare(
+sub = userId
+sid = sessionId
+```
+
+So we make sure:
+
+```js
+session.user === userId
+```
+
+This prevents a mismatched session from being used with another user's token.
+
+---
+
+### Check 5 — Revocation
+
+```js
+if (session.revoked)
+```
+
+This is why we added:
+
+```js
+revoked: {
+  type: Boolean,
+  default: false,
+}
+```
+
+During logout we'll set:
+
+```js
+revoked: true
+```
+
+Then even if somebody possesses the refresh JWT, it won't work anymore.
+
+---
+
+### Check 6 — Database expiration
+
+We already have:
+
+```js
+expiresAt
+```
+
+in the session.
+
+So we're checking expiration at the database level too.
+
+---
+
+### Check 7 — Hash comparison
+
+Your MongoDB contains:
+
+```text
+refreshToken: "$2b$10$..."
+```
+
+not the real refresh token.
+
+Therefore:
+
+```js
+bcrypt.compare(
   refreshToken,
   session.refreshToken
 );
 ```
 
-bcrypt checks:
-
-```text
-             ┌── REAL TOKEN
-             │
-bcrypt.compare
-             │
-             └── HASH FROM DATABASE
-```
-
-If they match:
-
-```text
-true
-```
-
-Otherwise:
-
-```text
-false
-```
+proves that the cookie contains the same refresh token that was issued for that session.
 
 ---
 
-# 14. Why do we need this check if we already verified the JWT?
+# 3. Add the route
 
-Because **JWT verification and token-hash verification solve different problems.**
-
-### JWT verification
+In:
 
 ```text
-Was this token signed by our server?
-Is its JWT structure/signature valid?
+src/routes/auth.routes.js
 ```
 
-### bcrypt comparison
-
-```text
-Is this EXACT refresh token the one
-currently associated with this database session?
-```
-
-This is extremely important.
-
----
-
-# 15. Step 9 — Generate new access token
+add:
 
 ```js
-const newAccessToken = generateAccessToken(
-  decoded.sub,
-  decoded.sid
+router.post("/refresh", refresh);
+```
+
+You'll need to import it:
+
+```js
+import {
+  register,
+  login,
+  refresh,
+} from "../controllers/auth.controller.js";
+```
+
+So your auth routes should now roughly be:
+
+```js
+router.post(
+  "/register",
+  registerValidator,
+  validate,
+  register,
 );
-```
 
-We already know:
-
-```text
-decoded.sub = userId
-decoded.sid = sessionId
-```
-
-So:
-
-```text
-newAccessToken
-       ↓
-userId + sessionId
-```
-
-The new access token gets sent to the frontend.
-
----
-
-# 16. Why generate a new refresh token too?
-
-You have:
-
-```js
-const newRefreshToken = generateRefreshToken(
-  decoded.sub,
-  decoded.sid
+router.post(
+  "/login",
+  loginValidator,
+  validate,
+  login,
 );
-```
 
-This is called **refresh token rotation**.
+router.post("/refresh", refresh);
 
-Instead of:
-
-```text
-Old Refresh Token
-      ↓
-New Access Token
-      ↓
-Old Refresh Token remains valid
-```
-
-you do:
-
-```text
-Old Refresh Token
-      ↓
-Verify
-      ↓
-Generate New Refresh Token
-      ↓
-Invalidate old one
-      ↓
-Store new token's hash
-```
-
-So every refresh changes the refresh token.
-
----
-
-# 17. Why hash the new refresh token?
-
-Again:
-
-```js
-const hashedNewRefreshToken =
-  await bcrypt.hash(newRefreshToken, 10);
-```
-
-Because you never want the raw refresh token sitting in your database.
-
-You store:
-
-```text
-HASH(newRefreshToken)
-```
-
-not:
-
-```text
-newRefreshToken
-```
-
----
-
-# 18. Step 10 — Replace the stored token
-
-```js
-session.refreshToken = hashedNewRefreshToken;
-```
-
-Before:
-
-```text
-Database
-refreshToken = HASH(old token)
-```
-
-After:
-
-```text
-Database
-refreshToken = HASH(new token)
-```
-
-This effectively makes the old token invalid.
-
-Because if someone tries the old token:
-
-```text
-Old token
-   ↓
-bcrypt.compare(old token, HASH(new token))
-   ↓
-false
-   ↓
-❌ Reject
-```
-
-This is the core idea behind rotation.
-
----
-
-# 19. Extend the session expiration
-
-You have:
-
-```js
-session.expiresAt = new Date(
-  Date.now() + 15 * 24 * 60 * 60 * 1000
-);
-```
-
-This makes the session valid for another 15 days.
-
-So every successful refresh can keep the user's session alive.
-
-For example:
-
-```text
-Day 1
-Login
-Session expires Day 16
-
-Day 10
-Refresh
-Session expires Day 25
-
-Day 20
-Refresh
-Session expires Day 35
-```
-
-This is called a **sliding session**.
-
-However, there's an architectural choice here: some systems use a fixed maximum session lifetime instead of endlessly extending it. For your learning project, understand that your current code implements the sliding behavior.
-
----
-
-# 20. Save the updated session
-
-```js
-await session.save();
-```
-
-Until this line, you've only modified the Mongoose object in memory.
-
-You need:
-
-```text
-session.save()
-       ↓
-MongoDB updated
-```
-
-Now the database contains:
-
-```text
-new hashed refresh token
-new expiration
-```
-
----
-
-# 21. Set the new refresh token in cookie
-
-```js
-setRefreshTokenCookie(res, newRefreshToken);
-```
-
-Remember:
-
-```text
-req → client → server
-res → server → client
-```
-
-Here you're sending a **new cookie back to the browser**.
-
-The browser replaces the old cookie:
-
-```text
-OLD refreshToken
-       ↓
-      ❌
-       ↓
-NEW refreshToken
-       ↓
-HTTP-only cookie
-```
-
-That's why you pass `res`.
-
----
-
-# 22. Return the new access token
-
-```js
-return res.status(200).json({
-  status: "success",
-  message: "Access token refreshed successfully",
-  data: {
-    accessToken: newAccessToken,
-  },
+router.get("/me", authenticate, (req, res) => {
+  return res.status(200).json({
+    status: "success",
+    data: {
+      user: req.user,
+    },
+  });
 });
 ```
 
-The frontend gets:
-
-```json
-{
-  "accessToken": "NEW_ACCESS_TOKEN"
-}
-```
-
-The refresh token is **not returned in JSON**.
-
-Instead:
-
-```text
-Access Token
-    ↓
-Response JSON
-
-Refresh Token
-    ↓
-HTTP-only Cookie
-```
-
-This separation is intentional.
-
 ---
 
-# 23. Complete real-world example
+# 4. Test `/refresh`
 
-Let's say:
+First login:
+
+```http
+POST /api/auth/login
+```
+
+Make sure Postman has received/stored the:
 
 ```text
-User = Pranav
-User ID = U123
-
-Session ID = S456
+refreshToken
 ```
 
-During login:
-
-```text
-                LOGIN
-                  ↓
-           User credentials
-                  ↓
-            Create session
-                  ↓
-              S456
-                  ↓
-       ┌──────────┴──────────┐
-       ↓                     ↓
- Access Token           Refresh Token
- U123 + S456            U123 + S456
-                             ↓
-                         bcrypt hash
-                             ↓
-                         MongoDB
-```
-
-Browser:
-
-```text
-Cookie:
-refreshToken = RT_ABC
-```
-
-Database:
-
-```text
-Session:
-_id = S456
-user = U123
-refreshToken = HASH(RT_ABC)
-revoked = false
-expiresAt = ...
-```
-
----
-
-# 24. Now access token expires
-
-Frontend makes:
-
-```text
-GET /api/profile
-Authorization: Bearer OLD_ACCESS_TOKEN
-```
-
-Server:
-
-```text
-Access token expired
-       ↓
-401
-```
-
-Frontend then calls:
-
-```text
-POST /auth/refresh
-```
-
-Browser automatically sends:
-
-```text
-Cookie:
-refreshToken = RT_ABC
-```
-
----
-
-# 25. Backend performs the security checks
-
-```text
-RT_ABC
-  ↓
-Is token present?
-  ↓ YES
-Verify JWT
-  ↓
-Get U123 + S456
-  ↓
-Find session S456 belonging to U123
-  ↓
-Does it exist?
-  ↓ YES
-Is revoked?
-  ↓ NO
-Is expired?
-  ↓ NO
-bcrypt.compare(RT_ABC, HASH(RT_ABC))
-  ↓
-true
-```
-
-Now the server trusts the refresh request.
-
----
-
-# 26. Token rotation happens
-
-Generate:
-
-```text
-New Access Token = AT_NEW
-New Refresh Token = RT_NEW
-```
-
-Hash:
-
-```text
-HASH(RT_NEW)
-```
-
-Database changes:
-
-```text
-Before:
-
-S456
-├── user: U123
-└── refreshToken: HASH(RT_ABC)
-
-
-After:
-
-S456
-├── user: U123
-└── refreshToken: HASH(RT_NEW)
-```
-
-Cookie changes:
-
-```text
-RT_ABC ❌
-     ↓
-RT_NEW ✅
-```
-
-Response:
-
-```json
-{
-  "accessToken": "AT_NEW"
-}
-```
-
----
-
-# 27. Why is the old refresh token now invalid?
-
-Suppose an attacker somehow has:
-
-```text
-RT_ABC
-```
-
-They try:
-
-```text
-POST /auth/refresh
-Cookie: RT_ABC
-```
-
-JWT verification might still succeed depending on its expiry.
-
-But database contains:
-
-```text
-HASH(RT_NEW)
-```
-
-So:
-
-```js
-bcrypt.compare(RT_ABC, HASH(RT_NEW))
-```
-
-returns:
-
-```text
-false
-```
-
-Therefore:
-
-```text
-❌ Invalid refresh token
-```
-
-This is the important security benefit of rotation.
-
----
-
-# 28. Your controller's logic in one diagram
-
-```text
-                 POST /auth/refresh
-                         │
-                         ↓
-              Get refreshToken cookie
-                         │
-                  Token exists?
-                   /           \
-                 NO             YES
-                 ↓               ↓
-               401       verifyRefreshToken()
-                                 │
-                          Valid JWT?
-                           /       \
-                         NO         YES
-                         ↓           ↓
-                       401     Get sub + sid
-                                     │
-                                     ↓
-                           Find session in DB
-                                     │
-                              Session exists?
-                               /          \
-                             NO            YES
-                             ↓              ↓
-                           401       revoked?
-                                      /      \
-                                    YES       NO
-                                    ↓          ↓
-                                  401      expired?
-                                             /   \
-                                           YES    NO
-                                           ↓       ↓
-                                         401   bcrypt.compare()
-                                                   │
-                                            Token matches?
-                                             /          \
-                                           NO            YES
-                                           ↓              ↓
-                                         401       Generate new
-                                                   access token
-                                                        │
-                                                        ↓
-                                               Generate new
-                                               refresh token
-                                                        │
-                                                        ↓
-                                               Hash refresh token
-                                                        │
-                                                        ↓
-                                               Update session
-                                                        │
-                                                        ↓
-                                               Set new cookie
-                                                        │
-                                                        ↓
-                                               Return access token
-```
-
-# 29. The 4 layers of security you're implementing
-
-Your refresh endpoint is not just "make a new JWT."
-
-It's doing four important things:
-
-|Layer|Check|Purpose|
-|---|---|---|
-|1|JWT signature|Token was issued by your server|
-|2|Session lookup|Session still exists|
-|3|Revocation + expiry|Session is still active|
-|4|bcrypt comparison|Exact current refresh token matches|
+cookie.
 
 Then:
 
-```text
-Successful verification
-        ↓
-Rotate refresh token
-        ↓
-Issue new access token
+```http
+POST /api/auth/refresh
+```
+
+**No Authorization header is required.**
+
+The refresh token comes from the cookie.
+
+Expected:
+
+```json
+{
+  "status": "success",
+  "message": "Access token refreshed successfully",
+  "data": {
+    "accessToken": "eyJ..."
+  }
+}
 ```
 
 ---
 
-# 30. One correction you MUST make
+# 5. Important test
 
-Change:
+Delete the `refreshToken` cookie from Postman and call:
 
-```js
-const session = await sessionModel.findById({
-  _id: decoded.sid,
-  user: decoded.sub,
-});
+```http
+POST /api/auth/refresh
 ```
 
-to:
+Expected:
 
-```js
-const session = await sessionModel.findOne({
-  _id: decoded.sid,
-  user: decoded.sub,
-});
+```http
+401 Unauthorized
 ```
 
-Because:
+with:
 
 ```text
-findById()
-    ↓
-expects ONE ID
-
-findOne()
-    ↓
-accepts a filter object
+Refresh token is required
 ```
 
-Your intended query has **two conditions**, so `findOne()` is correct.
+Then restore/login again and test `/refresh`.
 
 ---
 
-# 31. And remember this mental model
-
-Don't memorize 12 lines.
-
-Remember this:
-
-> **Access token proves authentication temporarily. Refresh token lets us renew that authentication. Session in MongoDB gives us control over whether that refresh token is still allowed.**
-
-So:
+## Current Phase 1 status
 
 ```text
-ACCESS TOKEN
-"What can I access right now?"
-
-REFRESH TOKEN
-"Can I get a new access token?"
-
-SESSION
-"Is this login still allowed?"
+Register                       ✅
+Login                          ✅
+Authenticate middleware        ✅
+Protected /me                  ✅
+Refresh endpoint               ⏭️ YOU ARE HERE
+Logout                         ⏭️
+Final security testing         ⏭️
+Duplicate-key handling         ⏭️
 ```
 
-And the complete relationship is:
-
-```text
-User
- │
- └── Session
-      │
-      ├── sessionId ──────────┐
-      │                       │
-      └── hashed refresh token│
-                              │
-                              ↓
-                    Refresh JWT
-                    ├── userId
-                    └── sessionId
-                              │
-                              ↓
-                    Access JWT
-                    ├── userId
-                    └── sessionId
-```
-
-**That's the architecture you're building.** Once this relationship is clear, the controller stops looking like 12 random security checks and becomes one logical process: **identify the session → validate the session → validate the exact refresh token → rotate it → issue a fresh access token.**
+**Build and test `/refresh` now.** After it works, the next step is **logout + session revocation**, which will complete the actual authentication lifecycle.
