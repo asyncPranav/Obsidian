@@ -715,7 +715,7 @@ Your second validator is:
 
 ```js
 
-// 
+// POST /request/review/:status/:requestId
 const reviewRequestValidator = [
   param("status")
     .isIn(["accepted", "rejected"])
@@ -732,6 +732,91 @@ This is for:
 ```text
 POST /request/review/:status/:requestId
 ```
+
+#### What is `:requestId` here
+
+`requestId` is the **unique MongoDB `_id` of a connection request document**.
+
+For example, when A sends a request to B, MongoDB creates:
+
+```js
+{
+  _id: "68ca1234abcd5678ef901234",
+  fromUserId: "A_user_id",
+  toUserId: "B_user_id",
+  status: "interested"
+}
+```
+
+That `_id` is the **`requestId`**.
+
+### Why do we need it?
+
+When B wants to accept/reject the request, the API needs to know **which specific request** B is reviewing:
+
+```http
+POST /request/review/accepted/68ca1234abcd5678ef901234
+```
+
+Here:
+
+```text
+accepted                    → new status
+68ca1234abcd5678ef901234    → requestId
+```
+
+The controller then does:
+
+```js
+const request = await ConnectionRequest.findById(req.params.requestId);
+```
+
+and verifies:
+
+```text
+Is this request actually addressed to the logged-in user?
+        ↓
+Is its current status "interested"?
+        ↓
+Change status → "accepted"
+```
+
+### `toUserId` vs `requestId`
+
+This distinction is important:
+
+```text
+POST /request/send/interested/:toUserId
+                         ↑
+                  User we want to connect with
+
+
+POST /request/review/accepted/:requestId
+                              ↑
+                     Specific request document
+```
+
+So:
+
+**`toUserId` = WHO you're sending the request to**
+
+**`requestId` = WHICH connection-request record you're reviewing**
+
+For example:
+
+```text
+User A ────── sends ──────> User B
+              ↓
+      ConnectionRequest
+              ↓
+        _id = ABC123
+              ↓
+User B reviews request ABC123
+              ↓
+       accepted/rejected
+```
+
+That's why your validator uses `requestId` for the **review route**, not the send route.
 
 ---
 
