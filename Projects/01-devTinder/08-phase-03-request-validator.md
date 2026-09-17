@@ -787,12 +787,12 @@ This distinction is important:
 
 ```text
 POST /request/send/interested/:toUserId
-                         ↑
+                                ↑
                   User we want to connect with
 
 
 POST /request/review/accepted/:requestId
-                              ↑
+                                ↑
                      Specific request document
 ```
 
