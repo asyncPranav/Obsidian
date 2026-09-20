@@ -69,7 +69,7 @@ The MAC sublayer determines **who can transmit and when**.
 
 # 2. CHANNEL ALLOCATION
 
-## 2.1 Meaning
+## 2.1 Meaning 
 
 **Channel allocation** is the process of determining **how a communication channel is shared among multiple stations**.
 
