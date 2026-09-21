@@ -5,6 +5,8 @@
 
 Both are valid JavaScript, but they produce **different JSON response structures**.
 
+---
+
 ### 1. `data: connection`
 
 Here, the value of `data` is directly the `connection` object.
