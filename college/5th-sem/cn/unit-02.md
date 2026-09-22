@@ -342,9 +342,9 @@ If two stations transmit in the same slot:
 
 ```
 Slot 3
-┌─────────────────┐
-│ A + B → Collision│
-└─────────────────┘
+┌───────────────────┐
+│ A + B → Collision │
+└───────────────────┘
 ```
 
 ---
