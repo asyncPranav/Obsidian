@@ -517,8 +517,8 @@ Only some devices have connections to multiple other devices.
 ```text
        [PC1]────────[PC2]
          │  \        │
-         │   \       │
-         │    \      │
+         │     \     │
+         │        \  │
        [PC3]────────[PC4]
 ```
 
