@@ -373,13 +373,11 @@ All devices are connected to a **single main cable called the backbone**.
 
 ```text
         Main Backbone Cable
-══════════════════════════════════════
+══════════════════════════════════════════════
     │          │          │          │
     │          │          │          │
   [PC1]      [PC2]      [PC3]      [PC4]
-
-                         │
-                    Terminator
+r
 ```
 
 **Advantages:**
