@@ -933,7 +933,7 @@ During login:
                   ↓
             Create session
                   ↓
-              S456
+                S456
                   ↓
        ┌──────────┴──────────┐
        ↓                     ↓
