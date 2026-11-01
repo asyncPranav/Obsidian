@@ -1,23 +1,82 @@
+# UNIT 3 – NETWORK LAYER
 
-----
+**Subject:** Computer Networks  
+**Examination:** Mid-Semester  
+**Preparation:** Complete and exam-oriented notes
 
+---
 
-# UNIT 3: NETWORK LAYER
+# MOST IMPORTANT TOPICS FOR MID-SEM EXAM
 
-## Complete Detailed Notes — Computer Networks
+Prepare these topics first. They cover the major concepts, diagrams, comparisons and numericals of this unit. These are likely examination areas, not guaranteed questions.
 
-**Syllabus covered**
+## Priority 1 – Very Important
 
-1. Network Layer and Point-to-Point Networks
-2. Routing
-3. Congestion Control
-4. Internetworking
-5. TCP/IP Model
-6. IP Packet
-7. IP Addressing
-8. IPv6
+|Topic|What to Prepare|
+|---|---|
+|IPv4 vs IPv6|Differences, features, address format and diagrams|
+|IPv4 Packet Format|Header diagram and explanation of all fields|
+|IPv6 Header Format|Header diagram, fields and characteristics|
+|TCP/IP Model|Four layers, functions and diagram|
+|Routing|Static vs dynamic, routing protocols and algorithms|
+|Congestion Control|Open-loop, closed-loop, Leaky Bucket and Token Bucket|
+|IP Addressing|Classes, CIDR, subnet mask and numericals|
 
-These notes follow the syllabus topic by topic, with diagrams, important comparisons, examples, and numerical concepts relevant to university examinations.
+## Priority 2 – Important
+
+|Topic|What to Prepare|
+|---|---|
+|Point-to-Point Networks|Definition, diagram and characteristics|
+|Datagram vs Virtual Circuit|Differences and examples|
+|Internetworking|Definition, need, components and working|
+|Routing Protocols|RIP, OSPF and BGP|
+|Distance Vector vs Link State|Working and comparison|
+|Flow Control vs Congestion Control|Differences|
+|IPv6 Address Types|Unicast, Multicast and Anycast|
+
+## Priority 3 – Additional Preparation
+
+1. Routing metrics and routing tables.
+    
+2. Routing vs forwarding.
+    
+3. Encapsulation and decapsulation.
+    
+4. Public vs private IP addresses.
+    
+5. NAT and its working.
+    
+6. IPv4 fragmentation.
+    
+7. IPv6 address shortening rules.
+    
+8. IPv4-to-IPv6 transition mechanisms.
+    
+
+## Important Diagrams to Practise
+
+1. OSI Model showing Network Layer.
+    
+2. Point-to-Point Network.
+    
+3. Datagram and Virtual Circuit Networks.
+    
+4. Routing diagram.
+    
+5. Leaky Bucket Algorithm.
+    
+6. Token Bucket Algorithm.
+    
+7. TCP/IP Model.
+    
+8. IPv4 Header Format.
+    
+9. IPv6 Header Format.
+    
+10. IPv4-to-IPv6 Dual Stack.
+    
+
+**Exam tip:** Practise drawing IPv4 and IPv6 headers carefully. Learn the TCP/IP layers and congestion-control algorithms with their working.
 
 ---
 
@@ -25,72 +84,74 @@ These notes follow the syllabus topic by topic, with diagrams, important compari
 
 ## 1.1 Definition
 
-The **Network Layer is Layer 3 of the OSI model**. It is responsible for delivering packets from a source device to a destination across one or more interconnected networks.
+The Network Layer is the third layer (Layer 3) of the OSI model. It is responsible for delivering data packets from the source to the destination across different interconnected networks.
 
-It primarily uses **logical addressing, routing, and packet forwarding** to accomplish this task.
+It uses logical addressing, routing and packet forwarding to transfer data between networks.
 
-### Position in the OSI Model
+## 1.2 Position in the OSI Model
 
 ```
-┌────────────────────────────┐
-│  Application Layer         │
-├────────────────────────────┤
-│  Presentation Layer        │
-├────────────────────────────┤
-│  Session Layer             │
-├────────────────────────────┤
-│  Transport Layer           │
-├════════════════════════════┤
-│  NETWORK LAYER             │ ← Layer 3
-├────────────────────────────┤
-│  Data Link Layer           │
-├────────────────────────────┤
-│  Physical Layer            │
-└────────────────────────────┘
+   +--------------------------+
+   |  Application Layer       |
+   +--------------------------+
+   |  Presentation Layer      |
+   +--------------------------+
+   |  Session Layer           |
+   +--------------------------+
+   |  Transport Layer         |
+   +==========================+
+   |  Network Layer           |  <- Layer 3
+   +--------------------------+
+   |  Data Link Layer         |
+   +--------------------------+
+   |  Physical Layer          |
+   +--------------------------+
 ```
 
-## 1.2 Functions of the Network Layer
+## 1.3 Functions of Network Layer
 
 |Function|Explanation|
 |---|---|
-|Logical addressing|Uses IP addresses to identify source and destination devices.|
-|Routing|Determines suitable paths through interconnected networks.|
-|Packet forwarding|Sends packets to the appropriate next hop.|
-|Internetworking|Enables communication across different interconnected networks.|
-|Fragmentation|In IPv4, packets may be divided to accommodate link MTU restrictions.|
-|Congestion management|Supports mechanisms that help detect, prevent, or control network congestion.|
+|Logical Addressing|Uses IP addresses to identify source and destination interfaces.|
+|Routing|Determines the suitable path for data transmission.|
+|Forwarding|Transfers packets to the appropriate next router.|
+|Internetworking|Connects different networks for communication.|
+|Fragmentation|IPv4 can divide large packets into smaller fragments when required.|
+|Congestion Management|Supports mechanisms that help detect and control network congestion.|
 
-### Data unit
+**Data Unit:** Packet (IP Datagram).
 
-The Network Layer's data unit is called a **packet** or, in IP terminology, an **IP datagram**.
+**Main Device:** Router.
 
-### Basic working
+## 1.4 Working of Network Layer
 
-```
-Source Application
-        |
-        v
-   Transport Layer
-        |
-        | Segment
-        v
-   Network Layer
-        |
-        | Adds IP header
-        v
-    IP Packet
-        |
-        v
-   Data Link Layer
-        |
-        | Frame
-        v
-   Physical Network
-```
+1. Receives data from the Transport Layer.
+    
+2. Adds an IP header containing source and destination addresses.
+    
+3. Forms an IP packet.
+    
+4. Determines the appropriate next hop.
+    
+5. Forwards the packet toward the destination.
+    
 
-At the destination, the packet moves upward through the receiving device's networking layers.
+## 1.5 Best-Effort Delivery
 
-**Important:** IP provides best-effort delivery. It does not, by itself, guarantee that packets will arrive, arrive in order, or arrive exactly once.
+IP provides connectionless, best-effort delivery.
+
+It means:
+
+- IP attempts to deliver packets to the destination.
+    
+- It does not guarantee successful delivery.
+    
+- It does not guarantee packet ordering.
+    
+- It does not provide retransmission of lost packets by itself.
+    
+
+When reliability is required, protocols such as TCP provide additional mechanisms.
 
 ---
 
@@ -98,141 +159,138 @@ At the destination, the packet moves upward through the receiving device's netwo
 
 ## 2.1 Definition
 
-A **point-to-point network link** is a communication link that connects exactly two endpoints.
+A Point-to-Point Network is a communication arrangement in which a direct link connects exactly two devices or network endpoints.
 
-The endpoints may be two computers, two routers, or a computer and a network device.
+It is commonly used to connect two routers.
 
-### Diagram
-
-```
-       Point-to-Point Link
-
-    Router A ------------- Router B
-                 Link
-```
-
-The link may use copper cable, fiber-optic cable, a wireless connection, or another suitable transmission medium.
-
-Point-to-point links are frequently used to connect routers in larger networks.
-
-## 2.2 Working
-
-Suppose two routers are directly connected:
+## 2.2 Diagram
 
 ```
-Network A                         Network B
-    |                                 |
-    v                                 v
-+---------+     Direct Link      +---------+
-| Router A| ==================== | Router B|
-+---------+                      +---------+
+        Network A                 Network B
+            |                         |
+            v                         v
+       +----------+              +----------+
+       | Router A |==============| Router B |
+       +----------+  Direct Link +----------+
 ```
-
-1. Router A receives a packet that must reach Network B.
-2. Router A determines that Router B is the appropriate next hop.
-3. Router A sends the packet through the point-to-point link.
-4. Router B receives the packet and processes its destination address.
-5. Router B forwards the packet toward its destination.
-
-A packet travelling across a large network may pass through several point-to-point links.
 
 ## 2.3 Characteristics
 
-- Connects two endpoints.
-- Does not require multiple stations to compete for the same link.
-- Can provide predictable link capacity, depending on the technology and service.
-- Makes it relatively easy to identify the two endpoints.
-- Can be used between routers to build larger networks.
+1. Connects two endpoints.
+    
+2. Provides direct communication between connected devices.
+    
+3. Usually does not require multiple stations to compete for access to the same link.
+    
+4. Can use wired or wireless communication.
+    
+5. Commonly used in WAN connections.
+    
+6. Can provide predictable link capacity depending on the technology.
+    
 
 ## 2.4 Advantages
 
-**1. Simple communication:** Only two endpoints share the link.
-
-**2. Predictable performance:** A dedicated link can provide predictable capacity and delay characteristics.
-
-**3. Easier troubleshooting:** The two endpoints and their connecting link can be tested independently.
-
-**4. Controlled access:** Multiple stations do not compete to transmit on the same point-to-point link.
+1. Simple communication between two endpoints.
+    
+2. Easier troubleshooting.
+    
+3. Controlled access to the communication link.
+    
+4. Predictable performance when a dedicated link is used.
+    
 
 ## 2.5 Limitations
 
-- Establishing a separate physical link for every pair of devices may be expensive.
-- A link failure interrupts communication over that link until an alternative route or replacement link is used.
-- A point-to-point link alone does not provide communication between every device in a large network.
+1. Establishing separate physical links between many devices can be expensive.
+    
+2. Link failure interrupts communication over that link until an alternative path is used.
+    
+3. A single point-to-point link cannot connect every device in a large network.
+    
 
-### Point-to-point vs broadcast network
+## 2.6 Point-to-Point vs Broadcast Network
 
-|Feature|Point-to-Point|Broadcast/Shared-Medium Network|
-|---|---|---|
-|Connection|Two endpoints per link|Multiple stations share a medium|
-|Channel access competition|Usually absent between endpoints|May require medium-access coordination|
-|Example|Router-to-router leased line|Traditional shared Ethernet|
-|Data delivery|Sent to the other endpoint|Depending on the technology, transmissions may be visible to multiple stations|
+|Point-to-Point|Broadcast Network|
+|---|---|
+|Connects two endpoints per link.|Multiple stations share a communication medium.|
+|Usually no competition between multiple stations for the same link.|Multiple stations may need to coordinate channel access.|
+|Direct communication between endpoints.|A transmission may be visible to multiple stations.|
+|Example: Router-to-router link.|Example: Traditional shared Ethernet.|
 
-### Important distinction
+## 2.7 Types of Packet-Switched Network Services
 
-**Point-to-point describes the connection between two endpoints.** Routing determines how packets travel across multiple links to reach a destination.
-
-In many textbooks, point-to-point connectivity is also discussed alongside two network-layer service models: datagram networks and virtual-circuit networks.
-
-## 2.6 Datagram and Virtual-Circuit Networks
-
-These models describe two different approaches to packet delivery.
+Two important packet delivery approaches are:
 
 ### A. Datagram Network
 
-In a datagram network, each packet is handled independently using its destination address.
+Definition: In a datagram network, each packet is treated independently and may follow a different route to reach the destination.
+
+Diagram:
 
 ```
-              +---- Router B ----+
-             /                    \
-Source ---- Router A               Router D ---- Destination
-             \                    /
-              +---- Router C ----+
+                 Router B
+                /        \
+               /          \
+Source ---- Router A       Router D ---- Destination
+               \          /
+                \        /
+                 Router C
 ```
 
-Different packets belonging to the same communication may take different routes.
+Characteristics:
 
-**Characteristics:**
+1. No connection setup is required at the network layer.
+    
+2. Each packet contains destination-address information.
+    
+3. Packets may follow different routes.
+    
+4. Packets may arrive out of order.
+    
+5. Routers do not require per-connection virtual-circuit state.
+    
 
-- No network-layer connection setup is required before sending each datagram.
-- Routers use destination-address information to forward packets.
-- Packets may take different paths.
-- Packets can arrive out of order.
+Example: Internet Protocol (IPv4 and IPv6).
 
-**Example:** IPv4 and IPv6 use datagram-based packet delivery.
+### B. Virtual Circuit Network
 
-### B. Virtual-Circuit Network
+Definition: A virtual-circuit network establishes a logical path before transmitting packets.
 
-In a virtual-circuit network, a logical path is established before the data packets are transmitted.
+Diagram:
 
 ```
-Source → Router A → Router B → Router C → Destination
-        <-------- Logical Path --------->
+Source -> Router A -> Router B -> Router C -> Destination
+          <--------- Logical Path --------->
 ```
 
-Packets associated with the virtual circuit generally follow the established logical path.
+Characteristics:
 
-**Characteristics:**
+1. Connection setup is required.
+    
+2. Routers maintain virtual-circuit information.
+    
+3. Packets generally follow the same logical path.
+    
+4. Packets generally arrive in sequence.
+    
+5. Packets use virtual-circuit identifiers or labels.
+    
 
-- Requires connection or virtual-circuit setup.
-- Intermediate devices maintain relevant connection state.
-- Packets use virtual-circuit identifiers or labels.
-- Packets generally follow the same logical path.
+Examples: ATM, Frame Relay and X.25.
 
-**Examples:** X.25, Frame Relay, and ATM are associated with virtual-circuit networking.
+### Datagram vs Virtual Circuit
 
-### Datagram vs virtual circuit
+|Datagram Network|Virtual Circuit Network|
+|---|---|
+|No connection setup required at network layer.|Connection setup required.|
+|Packets routed independently.|Packets follow an established logical path.|
+|Different paths are possible.|Generally follows the same logical path.|
+|Routers need no per-connection virtual-circuit state.|Routers maintain virtual-circuit state.|
+|Packets may arrive out of order.|Packets generally arrive in sequence.|
+|Example: IP.|Example: ATM.|
 
-|Feature|Datagram Network|Virtual-Circuit Network|
-|---|---|---|
-|Setup|Not required at the network layer|Required|
-|Routing|Each packet is forwarded independently|Packets follow an established logical circuit|
-|Router state|No per-connection virtual-circuit state is required|Virtual-circuit state is maintained|
-|Path|Packets may take different paths|Usually follows one established logical path|
-|Example|IP networks|ATM and Frame Relay|
-
-**Exam point:** A virtual circuit is a logical packet-switched path; it is not necessarily a physically dedicated circuit.
+**Remember:** Point-to-point describes a link between two endpoints, whereas datagram and virtual circuit describe packet-delivery approaches.
 
 ---
 
@@ -240,246 +298,279 @@ Packets associated with the virtual circuit generally follow the established log
 
 ## 3.1 Definition
 
-**Routing is the process of determining a suitable path through a network for delivering packets from a source to a destination.**
+Routing is the process of selecting the best available path for transferring data packets from a source to a destination through interconnected networks.
 
-Routers use destination addresses and routing information to make routing decisions.
+A router performs routing at the Network Layer.
 
-### Example
+## 3.2 Routing Diagram
 
 ```
-                 +------ Router B ------+
-                /                        \
-Source -- Router A                      Router D -- Destination
-                \                        /
-                 +------ Router C ------+
+               Router B
+              /        \
+             /          \
+Source -> Router A       Router D -> Destination
+             \          /
+              \        /
+               Router C
 ```
 
-Router A must select a suitable next hop to move the packet toward its destination.
+## 3.3 Functions of Routing
 
-## 3.2 Routing and Forwarding
+1. Selects the appropriate path for packet transmission.
+    
+2. Uses destination IP addresses.
+    
+3. Maintains routing information.
+    
+4. Identifies the next hop.
+    
+5. Finds alternative paths when supported and required.
+    
 
-These terms describe related but distinct operations.
+## 3.4 Routing Table
 
-|Routing|Forwarding|
+A routing table stores information about available network routes.
+
+Example:
+
+|Destination|Next Hop|
 |---|---|
-|Determines suitable paths|Transfers packets to the selected next hop|
-|Uses routing information and algorithms|Uses the forwarding table|
-|Can involve information from the wider network|Is performed locally by a router|
+|192.168.1.0/24|Direct|
+|10.0.0.0/8|192.168.1.2|
+|172.16.0.0/16|192.168.1.3|
+|0.0.0.0/0|Default Gateway|
 
-## 3.3 Routing Table
+**Next Hop:** The next router or device to which a packet should be forwarded.
 
-A **routing table** stores information used by a router to choose where packets should go.
+`0.0.0.0/0` represents an IPv4 default route.
 
-A simplified example:
+### Longest Prefix Matching
 
-|Destination Network|Next Hop|Interface|
-|---|---|---|
-|192.168.1.0/24|Directly connected|Ethernet 0|
-|10.0.0.0/8|192.168.1.2|Ethernet 1|
-|172.16.0.0/16|192.168.1.3|Ethernet 2|
-|0.0.0.0/0|192.168.1.1|Ethernet 1|
+When multiple routes match a destination IP address, the router generally selects the route with the longest matching prefix.
 
-Here, `0.0.0.0/0` represents an IPv4 default route.
+Example:
 
-When multiple routes match a destination, routers generally use **longest-prefix matching** to select the most specific matching route. Other criteria, such as administrative preference and route metrics, can also affect route selection.
+|Destination|Next Hop|
+|---|---|
+|192.168.0.0/16|Router A|
+|192.168.1.0/24|Router B|
+|192.168.1.128/25|Router C|
 
-## 3.4 Routing Metrics
+For destination `192.168.1.150`, Router C is selected because `/25` is the most specific matching prefix.
+
+## 3.5 Routing Metrics
 
 A routing metric is a value used to evaluate the desirability of a route.
 
 |Metric|Meaning|
 |---|---|
-|Hop count|Number of routers traversed|
-|Bandwidth|Link transmission capacity|
-|Delay|Time required for packets to travel|
-|Cost|Numerical value assigned to a link or route|
-|Reliability|Dependability of the path|
-|Load|Traffic carried by a link|
+|Hop Count|Number of routers traversed.|
+|Bandwidth|Data-carrying capacity of a link.|
+|Delay|Time required for data to travel.|
+|Cost|Numerical value assigned to a route or link.|
+|Reliability|Dependability of a network path.|
+|Load|Traffic carried by a link.|
 
-The metric used depends on the routing protocol. A route with fewer hops is not necessarily the fastest route.
+The routing protocol determines which metrics are used.
 
-## 3.5 Types of Routing
+## 3.6 Types of Routing
 
 ### A. Static Routing
 
-Static routes are configured manually by a network administrator.
+Definition: Static routing is a method in which routes are manually configured by a network administrator.
 
-**Advantages:**
+Advantages:
 
-- Simple for small networks.
-- No dynamic routing-update traffic.
-- Provides explicit control over routes.
+1. Simple for small networks.
+    
+2. No dynamic routing-update traffic.
+    
+3. Provides manual control over routes.
+    
+4. Requires fewer routing resources.
+    
 
-**Disadvantages:**
+Disadvantages:
 
-- Requires manual configuration.
-- Becomes difficult to maintain at scale.
-- Does not automatically adapt to link failures unless alternate routes and suitable mechanisms are configured.
+1. Manual configuration is required.
+    
+2. Difficult to manage in large networks.
+    
+3. Does not automatically adapt to failures unless alternatives are configured.
+    
 
 ### B. Dynamic Routing
 
-Dynamic routing allows routers to learn and update routes through routing protocols.
+Definition: Dynamic routing allows routers to automatically learn and update routes using routing protocols.
 
-**Advantages:**
+Advantages:
 
-- Suitable for larger networks.
-- Can adapt to topology changes.
-- Reduces the need to configure every route manually.
+1. Suitable for large networks.
+    
+2. Automatically updates routes.
+    
+3. Can adapt to network changes.
+    
+4. Can find alternative paths when network topology changes.
+    
 
-**Disadvantages:**
+Disadvantages:
 
-- Uses CPU and memory.
-- Requires additional configuration.
-- Routing updates and convergence can consume resources.
+1. More complex to configure.
+    
+2. Requires CPU and memory.
+    
+3. Routing updates consume network resources.
+    
 
-### Static vs dynamic routing
+### Static vs Dynamic Routing
 
-|Feature|Static|Dynamic|
-|---|---|---|
-|Route configuration|Manual|Learned using protocols|
-|Response to topology changes|Usually requires manual action or preconfigured mechanisms|Can update automatically|
-|Resource requirements|Generally lower|Generally higher|
-|Suitability|Small or stable networks|Larger or changing networks|
+|Static Routing|Dynamic Routing|
+|---|---|
+|Manual configuration.|Automatic route learning.|
+|Suitable for small networks.|Suitable for large networks.|
+|Lower resource usage.|Higher resource usage.|
+|Does not automatically adapt to failures.|Can adapt to network changes.|
+|Simple to configure initially.|More complex.|
 
-## 3.6 Routing Protocols
+## 3.7 Important Routing Protocols
 
 A routing protocol allows routers to exchange routing information.
 
-|Protocol|Type|Main Characteristics|
+|Protocol|Full Form|Type|
 |---|---|---|
-|**RIP**|Distance vector|Uses hop count; 15 is the maximum usable hop count, while 16 indicates an unreachable destination.|
-|**OSPF**|Link state|Uses link-state information and Dijkstra's shortest-path-first algorithm.|
-|**IS-IS**|Link state|Calculates routes using link-state information.|
-|**BGP**|Path vector|Exchanges routing information between Autonomous Systems and uses path attributes for route selection.|
+|RIP|Routing Information Protocol|Distance Vector|
+|OSPF|Open Shortest Path First|Link State|
+|BGP|Border Gateway Protocol|Path Vector|
+|IS-IS|Intermediate System to Intermediate System|Link State|
 
-### Routing protocol classification
+### 1. RIP
+
+- Distance-vector routing protocol.
+    
+- Uses hop count as its routing metric.
+    
+- Maximum usable hop count is 15.
+    
+- A hop count of 16 represents an unreachable destination.
+    
+
+### 2. OSPF
+
+- Link-state routing protocol.
+    
+- Uses network topology information.
+    
+- Uses Dijkstra's Shortest Path First algorithm.
+    
+- Commonly used within large IP networks.
+    
+
+### 3. BGP
+
+- Path-vector routing protocol.
+    
+- Used for routing between Autonomous Systems.
+    
+- Plays an important role in inter-domain Internet routing.
+    
+
+## 3.8 Autonomous System (AS)
+
+An Autonomous System is a group of IP networks managed under a common routing administration and coordinated routing policy.
+
+Routing protocols are divided into two categories:
 
 ```
               ROUTING PROTOCOLS
-                     |
-          +----------+----------+
-          |                     |
-          v                     v
-         IGP                   EGP
-          |                     |
-          v                     v
-   Within one AS           Between ASes
-          |                     |
-     +----+----+                |
-     v         v                v
-    RIP       OSPF             BGP
+                      |
+             +--------+--------+
+             |                 |
+             v                 v
+            IGP               EGP
+             |                 |
+             v                 v
+        Within an AS      Between ASes
+             |                 |
+          RIP/OSPF            BGP
 ```
 
-An **Autonomous System (AS)** is a group of IP networks under a common routing administration that presents a coordinated routing policy to other systems.
+- IGP: Interior Gateway Protocol, used within an Autonomous System.
+    
+- EGP: Exterior Gateway Protocol, used between Autonomous Systems.
+    
+- BGP is the principal modern inter-domain routing protocol.
+    
 
-- **IGP:** Interior Gateway Protocol, used within an AS.
-- **EGP:** Exterior Gateway Protocol, used between ASes. BGP is the principal modern interdomain routing protocol.
+## 3.9 Distance-Vector Routing
 
-## 3.7 Distance-Vector Routing
+Definition: In distance-vector routing, routers exchange routing information with their neighbouring routers to determine suitable paths.
 
-In distance-vector routing, routers learn routes by exchanging routing information with their neighbours.
-
-Each router maintains information conceptually represented as:
-
-```
-Destination → Distance/Metric → Next Hop
-```
-
-### Working
+Working:
 
 1. Each router knows its directly connected networks.
+    
 2. Routers exchange routing information with neighbours.
-3. Each router calculates routes using received information and its routing algorithm.
-4. Routing information is updated when routes or metrics change.
+    
+3. Each router calculates routes using received information.
+    
+4. Routing tables are updated when routes or their costs change.
+    
 
-**Example protocol:** RIP.
+Example: RIP.
 
-Distance-vector routing is associated with the Bellman–Ford algorithm family.
+Algorithm family: Bellman-Ford.
 
-## 3.8 Link-State Routing
+## 3.10 Link-State Routing
 
-In link-state routing, routers build a topology database from link-state information distributed through the routing domain.
+Definition: In link-state routing, routers build a network topology database using information about the state and cost of network links.
 
-```
-        Router A
-         /    \
-        /      \
-   Router B----Router C
-        \      /
-         \    /
-        Router D
-```
+Working:
 
-### Working
-
-1. Routers discover their neighbours.
+1. Routers discover neighbouring routers.
+    
 2. They identify the state and cost of their links.
+    
 3. Link-state information is distributed through the routing domain.
+    
 4. Each router builds a topology database.
-5. Each router calculates the shortest paths from itself to destinations.
+    
+5. Each router calculates shortest paths using Dijkstra's algorithm.
+    
 
-**Example protocol:** OSPF.
+Example: OSPF.
 
-Link-state routing uses Dijkstra's shortest-path-first algorithm.
+### Distance Vector vs Link State
 
-### Distance vector vs link state
+|Distance Vector|Link State|
+|---|---|
+|Exchanges route information with neighbours.|Distributes link-state information.|
+|Has a more limited view of network topology.|Builds a topology database.|
+|Uses Bellman-Ford algorithm family.|Uses Dijkstra's algorithm.|
+|Example: RIP.|Example: OSPF.|
 
-|Feature|Distance Vector|Link State|
-|---|---|---|
-|Main information|Route distances learned from neighbours|Network topology and link costs|
-|Knowledge of topology|More limited|Broader view of the routing domain|
-|Example|RIP|OSPF|
-|Algorithm|Bellman–Ford family|Dijkstra SPF|
+## 3.11 Routing vs Forwarding
 
-## 3.9 Shortest-Path Calculation
+|Routing|Forwarding|
+|---|---|
+|Selects the path.|Transfers packets to the next hop.|
+|Uses routing information and algorithms.|Uses a forwarding table.|
+|Determines where the packet should go.|Performs the actual local packet transfer.|
 
-Routing algorithms may select paths using the sum of link costs.
+## 3.12 Routing Loop
 
-Consider the following network:
+A routing loop occurs when packets repeatedly travel between routers instead of reaching their destination.
 
-```
-          2           3
-     A -------- B -------- D
-      \                    /
-       \4                1/
-        \                /
-         ------- C ------
-               2
-```
+Effects:
 
-Possible routes from A to D:
+1. Wastes bandwidth.
+    
+2. Increases network congestion.
+    
+3. Causes packet delay and loss.
+    
 
-**Route 1: A → B → D**
-
-\[ \text{Cost}=2+3=5 \]
-
-**Route 2: A → C → D**
-
-\[ \text{Cost}=4+2=6 \]
-
-If these are the only possible paths and the route metric is additive link cost, the first route is preferred because its cost is lower.
-
-## 3.10 Routing Loops
-
-A routing loop occurs when packets circulate repeatedly between routers rather than reaching their destination.
-
-```
-        +------ R2 ------+
-        |                |
-        v                |
-       R1                R3
-        ^                |
-        |                |
-        +----------------+
-```
-
-**Effects:**
-
-- Wastes bandwidth.
-- Increases congestion.
-- Delays or prevents delivery.
-
-Routing protocols use mechanisms such as split horizon, route poisoning, or loop-free topology calculations to reduce routing-loop problems, depending on the protocol.
+Routing protocols use mechanisms to reduce routing loops.
 
 ---
 
@@ -487,268 +578,282 @@ Routing protocols use mechanisms such as split horizon, route poisoning, or loop
 
 ## 4.1 Definition
 
-**Network congestion occurs when the amount of traffic entering a network exceeds its available forwarding or buffering capacity.**
+Congestion occurs when too many packets enter a network and the network cannot handle them efficiently because of limited bandwidth, buffer space or processing capacity.
 
-When too many packets compete for limited resources, queues grow and packets may be delayed or dropped.
+In simple words, when network traffic exceeds network capacity, congestion occurs.
 
-### Diagram
+## 4.2 Diagram
 
 ```
-Multiple Sources
-   |    |    |
-   v    v    v
-+----------------+
-| Router Queue   |  ← Buffer becomes full
-+----------------+
-        |
-        v
-   Limited-Capacity
-       Link
+ Computer A ----\
+ Computer B -----+----> +----------------+
+ Computer C ----/       | Router         |
+                        | Full Buffer    |
+                        +----------------+
+                                |
+                                v
+                         Limited Capacity
+                              Link
 ```
 
-## 4.2 Causes of Congestion
+## 4.3 Causes of Congestion
 
-1. Too many packets enter the network simultaneously.
-2. A link has insufficient capacity for the offered traffic.
-3. Routers have limited buffer space.
-4. Traffic is concentrated on a particular path.
-5. Retransmissions increase traffic when packets are lost.
-6. Some traffic bursts exceed the rate at which packets can be forwarded.
+1. Excessive network traffic.
+    
+2. Limited bandwidth.
+    
+3. Insufficient router buffer space.
+    
+4. Slow processing of packets.
+    
+5. Too many retransmissions.
+    
+6. Sudden traffic bursts.
+    
 
-## 4.3 Effects of Congestion
+## 4.4 Effects of Congestion
 
-- Increased delay.
-- Packet loss.
-- Reduced throughput.
-- Excessive retransmissions.
-- Poor application performance.
-- In severe cases, congestion can reduce the useful data delivered despite substantial traffic.
+1. Packet loss.
+    
+2. Increased delay.
+    
+3. Reduced throughput.
+    
+4. Increased retransmissions.
+    
+5. Poor network performance.
+    
 
-## 4.4 Flow Control vs Congestion Control
-
-These are not the same.
+## 4.5 Flow Control vs Congestion Control
 
 |Flow Control|Congestion Control|
 |---|---|
-|Prevents a sender from overwhelming its receiver|Prevents excessive traffic from overwhelming network resources|
-|Focuses on sender–receiver capacity|Focuses on the network's available capacity|
-|Receiver capacity is central|Router queues, links, and aggregate traffic are central|
-|Example: receiver-advertised TCP window|Example: TCP congestion window and network congestion signalling|
+|Protects the receiver from a fast sender.|Protects the network from excessive traffic.|
+|Focuses on sender-receiver capacity.|Focuses on network capacity.|
+|Controls the rate at which the receiver can accept data.|Controls excessive traffic entering the network.|
+|Example: TCP receiver window.|Example: TCP congestion window and ECN.|
 
-**Remember:** Flow control protects the receiver; congestion control protects the network from excessive traffic.
+## 4.6 Types of Congestion Control
 
-## 4.5 Approaches to Congestion Control
-
-The major approaches are:
+There are two major approaches:
 
 ```
-             CONGESTION CONTROL
-                     |
-            +--------+--------+
-            |                 |
-            v                 v
-       Open-Loop           Closed-Loop
-       Prevention          Feedback
+           CONGESTION CONTROL
+                    |
+          +---------+---------+
+          |                   |
+          v                   v
+      Open-Loop            Closed-Loop
+      Prevention           Feedback
 ```
 
 ### A. Open-Loop Congestion Control
 
-Open-loop methods try to prevent congestion **before it develops**, without relying on feedback about the current congestion state.
+Definition: Open-loop congestion control attempts to prevent congestion before it occurs without depending on feedback about the current congestion state.
 
-Examples include:
+Techniques:
 
-- Retransmission policies.
-- Window policies.
-- Acknowledgement policies.
-- Packet-discard policies.
-- Admission policies.
-
-These policies are intended to reduce unnecessary traffic or avoid admitting more traffic than the network can handle.
+1. Retransmission policy.
+    
+2. Window policy.
+    
+3. Acknowledgement policy.
+    
+4. Packet-discard policy.
+    
+5. Admission policy.
+    
 
 ### B. Closed-Loop Congestion Control
 
-Closed-loop methods use information about network conditions to detect and respond to congestion.
+Definition: Closed-loop congestion control detects existing congestion and uses feedback to reduce it.
 
-The general process is:
+Techniques:
 
-```
-Network congestion
-        |
-        v
-Detect congestion
-        |
-        v
-Send feedback
-        |
-        v
-Reduce traffic or adjust routes
-        |
-        v
-Congestion decreases
-```
+1. Choke packets.
+    
+2. Backpressure.
+    
+3. Explicit Congestion Notification (ECN).
+    
+4. Load shedding.
+    
 
-Examples include:
+### Open-Loop vs Closed-Loop
 
-- Choke packets.
-- Explicit Congestion Notification (ECN).
-- Backpressure.
-- Feedback-based transmission-rate adjustment.
+|Open-Loop|Closed-Loop|
+|---|---|
+|Prevents congestion.|Detects and controls congestion.|
+|No current congestion feedback required.|Uses feedback.|
+|Preventive approach.|Feedback-based approach.|
+|Uses predefined policies.|Adjusts based on network conditions.|
 
-## 4.6 Traffic Shaping
+## 4.7 Traffic Shaping
 
-**Traffic shaping** controls the rate at which traffic enters a network. It smooths traffic bursts and helps reduce congestion.
+Traffic shaping is a technique used to control the rate at which packets enter a network.
 
-Two classical mechanisms are:
+It smooths sudden traffic bursts and helps reduce congestion.
 
-1. Leaky Bucket
-2. Token Bucket
+Two important algorithms are:
+
+1. Leaky Bucket.
+    
+2. Token Bucket.
+    
 
 ### A. Leaky Bucket Algorithm
 
-The leaky bucket algorithm allows packets to be transmitted at a controlled rate from a buffer.
+Definition: The Leaky Bucket Algorithm controls the outgoing rate of packets by sending them at a relatively fixed rate.
+
+Diagram:
 
 ```
-Bursty Input
-     |
-     v
-+------------+
-| Bucket/    |
-| Queue      |
-+------------+
-     |
-     | Controlled output rate
-     v
-   Network
+       Bursty Input
+             |
+             v
+      +--------------+
+      |    Bucket    |
+      |    / Queue   |
+      +--------------+
+             |
+             v
+       Fixed-Rate Output
+             |
+             v
+           Network
 ```
 
-### Working
+Working:
 
-1. Incoming packets enter the bucket or queue.
-2. Packets leave at a configured rate.
-3. Incoming traffic may temporarily accumulate in the queue.
-4. If the buffer becomes full, additional packets may be discarded.
+1. Incoming packets enter the bucket or buffer.
+    
+2. Packets leave at a fixed configured rate.
+    
+3. Packets wait in the queue if the output is busy.
+    
+4. If the buffer becomes full, additional packets are discarded.
+    
+5. It smooths bursty network traffic.
+    
 
-### Advantages
+Advantages:
 
-- Smooths bursts.
-- Controls the output rate.
-- Helps limit sudden traffic surges.
+- Controls output rate.
+    
+- Smooths traffic bursts.
+    
+- Helps prevent sudden traffic overload.
+    
 
-### Limitation
-
-Traffic above the available buffer capacity may be discarded even if the network is idle shortly afterward.
+Limitation: Packets may be discarded when the buffer becomes full.
 
 ### B. Token Bucket Algorithm
 
-The token bucket algorithm allows controlled bursts while limiting the long-term transmission rate.
+Definition: The Token Bucket Algorithm controls the average transmission rate while allowing controlled bursts of data.
 
-Tokens are generated at a configured rate and stored up to a maximum capacity.
+Diagram:
 
 ```
-Token Generator
-       |
-       v
-+---------------+
-| Token Bucket  |
-+---------------+
-       |
-       v
-Packets + Tokens
-       |
-       v
-     Network
+      Token Generator
+             |
+             v
+       +-------------+
+       |Token Bucket |
+       +-------------+
+             |
+             v
+      Packet Transmission
+             |
+             v
+           Network
 ```
 
-### Working
+Working:
 
 1. Tokens are generated at a fixed rate.
-2. Tokens accumulate up to the bucket limit.
-3. A packet requires sufficient tokens before it can be transmitted under the policy.
-4. If enough tokens have accumulated, a burst can be transmitted.
+    
+2. Tokens are stored in the bucket.
+    
+3. A packet requires sufficient tokens for transmission.
+    
+4. Accumulated tokens allow bursts of packets.
+    
 5. If insufficient tokens are available, packets wait or are handled according to the configured policy.
+    
 
-### Advantages
+Advantages:
 
-- Limits the long-term traffic rate.
-- Permits bursts when tokens have accumulated.
-- Is suitable for traffic that fluctuates over time.
+- Controls average traffic rate.
+    
+- Allows controlled bursts.
+    
+- Suitable for variable network traffic.
+    
 
-### Leaky bucket vs token bucket
+### Leaky Bucket vs Token Bucket
 
-|Feature|Leaky Bucket|Token Bucket|
-|---|---|---|
-|Main purpose|Smooths traffic output|Controls average rate while allowing bursts|
-|Burst handling|Output is paced at a controlled rate|Accumulated tokens permit bursts|
-|Excess traffic|May be queued or dropped|May wait, be shaped, or be dropped according to policy|
-|Output behaviour|Generally smoother|May be bursty within the configured limits|
-
-## 4.7 Backpressure
-
-Backpressure is a congestion-control technique in which a congested node signals upstream nodes to reduce or stop sending traffic.
-
-```
-Source → Router A → Router B → Router C
-                     |
-                     | Congested
-                     v
-             Signal upstream nodes
-```
-
-The signal can propagate upstream until the traffic entering the congested area is reduced.
-
-This technique is associated with networks that provide suitable feedback mechanisms.
-
-## 4.8 Choke Packets
-
-A **choke packet** is a control packet sent by a congested router to notify a source that it should reduce its transmission rate.
-
-```
-Source --------------------> Router
-  ^                           |
-  |                           | Congestion detected
-  +------ Choke Packet -------+
-```
-
-On receiving the notification, the source reduces its sending rate according to the protocol's policy.
-
-## 4.9 Load Shedding
-
-**Load shedding** means deliberately discarding some packets when a router or network cannot process all incoming traffic.
-
-A router may discard:
-
-- Lower-priority packets.
-- Packets from selected traffic classes.
-- Packets according to a configured discard policy.
-
-Load shedding sacrifices some traffic to preserve the operation of the network and reduce overload.
-
-## 4.10 Explicit Congestion Notification (ECN)
-
-ECN allows capable network devices to signal congestion without necessarily discarding the packet to communicate that signal.
-
-A congestion-aware router marks a packet, and the receiving endpoint or transport protocol can inform the sender. The sender can then reduce its sending rate.
-
-ECN requires compatible support and appropriate configuration throughout the relevant communication path.
-
-## 4.11 Admission Control
-
-Admission control determines whether a new flow or connection should be allowed to use the network.
-
-If the network cannot provide the required resources or service guarantees, the request may be rejected.
-
-This approach is especially relevant to networks that reserve resources or provide quality-of-service guarantees.
-
-### Congestion-control techniques: summary
-
-|Technique|Main Idea|
+|Leaky Bucket|Token Bucket|
 |---|---|
-|Traffic shaping|Regulates the rate at which traffic enters the network|
-|Backpressure|Signals upstream nodes to reduce transmission|
-|Choke packet|Notifies a source to reduce its sending rate|
-|Load shedding|Discards selected traffic during overload|
-|ECN|Explicitly signals congestion through packet marking|
-|Admission control|Limits new traffic when sufficient resources are unavailable|
+|Fixed-rate output.|Allows controlled bursts.|
+|Smooths traffic.|Controls average traffic rate.|
+|Excess packets may be dropped if the buffer is full.|Packets may wait or be dropped depending on policy.|
+|Does not preserve accumulated permission to transmit bursts.|Accumulated tokens permit bursts.|
+
+## 4.8 Choke Packet
+
+A choke packet is a special control packet sent by a congested router to the source, asking it to reduce its transmission rate.
+
+Working:
+
+1. Router detects congestion.
+    
+2. It sends a choke packet to the source.
+    
+3. Source receives the notification.
+    
+4. Source reduces its sending rate.
+    
+
+## 4.9 Backpressure
+
+Backpressure is a congestion-control technique in which a congested router signals upstream routers to reduce or stop sending traffic.
+
+```
+Source -> Router A -> Router B -> Router C
+                     |
+                     v
+                  Congested
+                     |
+                     v
+             Signal upstream routers
+```
+
+## 4.10 Load Shedding
+
+Load shedding is a technique in which a router deliberately discards selected packets when it cannot handle all incoming traffic.
+
+It helps reduce overload and preserve network operation.
+
+## 4.11 Explicit Congestion Notification (ECN)
+
+ECN is a mechanism that allows network devices to indicate congestion by marking packets instead of necessarily dropping them.
+
+Working:
+
+1. A router detects congestion.
+    
+2. It marks an ECN-capable packet.
+    
+3. Congestion information is communicated to the sender.
+    
+4. The sender reduces its transmission rate.
+    
+
+## 4.12 Admission Control
+
+Admission control decides whether a new traffic flow or connection should be allowed into a network.
+
+If sufficient network resources are unavailable, the new request may be rejected to prevent congestion.
 
 ---
 
@@ -756,62 +861,53 @@ This approach is especially relevant to networks that reserve resources or provi
 
 ## 5.1 Definition
 
-**Internetworking is the process of connecting two or more independent networks so that devices on different networks can communicate.**
+Internetworking is the process of connecting two or more independent networks so that devices on different networks can communicate with each other.
 
-Networks may use different link technologies and have different physical architectures.
+It is mainly achieved using routers and common network protocols such as IP.
 
-The Network Layer makes communication possible across these heterogeneous networks by using common addressing and packet-forwarding mechanisms.
-
-### Diagram
+## 5.2 Diagram
 
 ```
-       Network A                  Network B
-    +-------------+            +-------------+
-    | Computers   |            | Computers   |
-    +-------------+            +-------------+
-           |                          |
-           v                          v
-       +--------+                +--------+
-       | Router |================| Router |
-       +--------+    Inter-      +--------+
-                     network
+       Network A                 Network B
+    +-------------+           +-------------+
+    | Computers   |           | Computers   |
+    +-------------+           +-------------+
+           |                         |
+           v                         v
+       +--------+               +--------+
+       | Router |===============| Router |
+       +--------+    Internet   +--------+
 ```
 
-## 5.2 Need for Internetworking
+## 5.3 Need for Internetworking
 
-Internetworking enables:
+1. Connects different networks.
+    
+2. Allows communication between distant computers.
+    
+3. Enables resource sharing.
+    
+4. Supports global communication.
+    
+5. Allows different network technologies to work together.
+    
 
-- Communication between different LANs.
-- Connections between organizational networks.
-- Communication across geographically separated locations.
-- Access to servers and services on remote networks.
-- Communication between networks using different link technologies.
+## 5.4 Components of Internetworking
 
-## 5.3 Components of Internetworking
+1. Hosts: Computers, servers and other end devices.
+    
+2. Routers: Forward packets between networks.
+    
+3. Communication Links: Carry packets between devices.
+    
+4. Network Protocols: Define addressing, packet formats and communication.
+    
+5. Gateways: Provide translation between different protocols or systems when required.
+    
 
-### 1. Hosts
+## 5.5 Working of Internetworking
 
-Computers, servers, smartphones, and other end devices that send or receive data.
-
-### 2. Routers
-
-Forward IP packets between networks.
-
-### 3. Communication links
-
-Carry packets between devices and networks.
-
-### 4. Protocols
-
-Define addressing, packet formats, routing, and communication behaviour.
-
-### 5. Gateways and translation mechanisms
-
-Some networks or applications require gateways to translate between different protocols, addressing schemes, or representations.
-
-## 5.4 How Internetworking Works
-
-Suppose a computer in one LAN communicates with a server on another network.
+Suppose a computer in Network A wants to communicate with a server in Network B.
 
 ```
 Computer A
@@ -823,7 +919,7 @@ Computer A
  Router A
     |
     v
- Network / Internet
+ Internet / Other Networks
     |
     v
  Router B
@@ -832,27 +928,37 @@ Computer A
  Server B
 ```
 
-The process is:
+Steps:
 
-1. Computer A determines that the destination IP address is outside its local IP subnet.
-2. It sends the packet to its configured default gateway.
-3. Router A examines the destination address and selects the next hop.
-4. Intermediate routers forward the packet toward the destination network.
-5. Router B forwards it into the destination LAN.
-6. Server B receives the packet.
+1. Computer A checks the destination IP address.
+    
+2. If the destination is outside its local subnet, it sends the packet to its default gateway.
+    
+3. Router A checks the destination address.
+    
+4. Router A selects the next hop using its routing table.
+    
+5. Intermediate routers forward the packet toward Network B.
+    
+6. Router B forwards the packet into the destination network.
+    
+7. Server B receives the packet.
+    
 
-At each router, the link-layer frame is processed and a new frame is created for the next link. The IP packet is forwarded toward the destination, subject to any required network-layer processing.
+At every router, the incoming link-layer frame is processed and a new frame is created for the next link. The IP packet is forwarded toward the destination.
 
-## 5.5 Challenges in Internetworking
+## 5.6 Challenges in Internetworking
 
-|Challenge|Explanation|
-|---|---|
-|Heterogeneous technologies|Networks may use Ethernet, Wi-Fi, fiber, or other link technologies.|
-|Addressing|Devices need logical addresses that identify source and destination IP endpoints.|
-|Routing|Routers need paths through multiple interconnected networks.|
-|Different MTUs|A packet may be larger than the maximum transmission unit supported by a link.|
-|Congestion|Traffic may exceed the capacity of links or routers.|
-|Security|Traffic crosses network boundaries and may require filtering and protection.|
+1. Different network technologies.
+    
+2. Different MTU sizes.
+    
+3. Addressing and routing requirements.
+    
+4. Network congestion.
+    
+5. Security between interconnected networks.
+    
 
 ---
 
@@ -860,127 +966,137 @@ At each router, the link-layer frame is processed and a new frame is created for
 
 ## 6.1 Definition
 
-**TCP/IP is the protocol suite that forms the foundation of communication over the Internet.**
+TCP/IP is a set of communication protocols used for data transmission over the Internet.
 
-TCP/IP is also commonly taught as a four-layer networking model.
+TCP/IP stands for Transmission Control Protocol / Internet Protocol.
 
-TCP/IP stands for **Transmission Control Protocol / Internet Protocol**.
+It is commonly represented using four layers.
 
-## 6.2 Layers of the TCP/IP Model
+## 6.2 TCP/IP Model Diagram
 
 ```
-┌───────────────────────────────┐
-│  4. Application Layer         │
-├───────────────────────────────┤
-│  3. Transport Layer           │
-├───────────────────────────────┤
-│  2. Internet Layer            │
-├───────────────────────────────┤
-│  1. Network Access / Link     │
-└───────────────────────────────┘
++------------------------------+
+|  4. Application Layer        |
++------------------------------+
+|  3. Transport Layer          |
++------------------------------+
+|  2. Internet Layer           |
++------------------------------+
+|  1. Network Access / Link    |
++------------------------------+
 ```
 
-## 6.3 Functions of Each Layer
-
-|Layer|Main Responsibilities|Examples|
-|---|---|---|
-|Application|Provides application-level communication protocols|HTTP, HTTPS, DNS, SMTP, SSH|
-|Transport|Provides process-to-process communication|TCP, UDP|
-|Internet|Provides logical addressing and packet delivery across networks|IPv4, IPv6, ICMP|
-|Network Access/Link|Handles local-link transmission and framing|Ethernet, Wi-Fi, PPP|
+## 6.3 Functions of TCP/IP Layers
 
 ### 1. Application Layer
 
-Provides protocols for applications to exchange information.
-
-Examples:
-
-- HTTP/HTTPS for web communication.
-- DNS for translating domain names into IP addresses.
-- SMTP for sending email.
-- SSH for secure remote access.
+- Provides services to user applications.
+    
+- Handles application-level communication.
+    
+- Protocols: HTTP, HTTPS, FTP, SMTP, DNS and SSH.
+    
 
 ### 2. Transport Layer
 
-Provides communication between applications running on different devices.
-
-**TCP:**
-
-- Connection-oriented.
-- Provides reliable, ordered byte-stream delivery.
-- Uses acknowledgements, retransmissions, flow control, and congestion control.
-
-**UDP:**
-
-- Connectionless.
-- Does not provide TCP-style reliability or ordered delivery.
-- Offers a simpler transport service with lower protocol overhead.
+- Provides process-to-process communication.
+    
+- Performs segmentation and reassembly.
+    
+- Uses port numbers.
+    
+- TCP provides reliable, ordered data delivery.
+    
+- UDP provides connectionless communication without TCP-style reliability.
+    
 
 ### 3. Internet Layer
 
-Provides logical addressing and delivery of packets across interconnected networks.
+- Provides logical addressing.
+    
+- Performs packet routing and forwarding.
+    
+- Protocols: IPv4, IPv6 and ICMP.
+    
 
-Important protocols include IPv4, IPv6, and ICMP.
+### 4. Network Access / Link Layer
 
-The Internet Layer does not guarantee delivery or ordering.
+- Handles transmission over the local network.
+    
+- Performs framing and link-level communication.
+    
+- Examples: Ethernet, Wi-Fi and PPP.
+    
 
-### 4. Network Access/Link Layer
+## 6.4 TCP/IP vs OSI Model
 
-Handles transmission over the local link, including link-layer framing and access to the transmission medium.
+|OSI Model|TCP/IP Model|
+|---|---|
+|Has 7 layers.|Commonly represented using 4 layers.|
+|Reference model.|Practical protocol suite and commonly taught model.|
+|Application, Presentation and Session are separate.|Their functions are generally combined into Application.|
+|Network Layer.|Internet Layer.|
+|Data Link and Physical are separate.|Combined into Network Access/Link.|
 
-Examples include Ethernet, Wi-Fi, and PPP.
+## 6.5 TCP vs IP
 
-## 6.4 Encapsulation in TCP/IP
+|TCP|IP|
+|---|---|
+|Transport Layer protocol.|Network/Internet Layer protocol.|
+|Provides reliable, ordered byte-stream delivery.|Provides best-effort packet delivery.|
+|Uses port numbers.|Uses IP addresses.|
+|Handles retransmission and flow control.|Handles addressing and routing.|
 
-Encapsulation occurs when each layer adds protocol information to the data it receives.
+## 6.6 TCP vs UDP
+
+|TCP|UDP|
+|---|---|
+|Connection-oriented.|Connectionless.|
+|Reliable data delivery.|Does not provide TCP-style reliability.|
+|Maintains data order.|Does not guarantee data order.|
+|Uses acknowledgements and retransmissions.|No TCP-style acknowledgements and retransmissions.|
+|More protocol overhead.|Less protocol overhead.|
+
+## 6.7 Encapsulation in TCP/IP
+
+Encapsulation means adding protocol information at each layer as data moves down the network stack.
 
 ```
-Application Data
-       |
-       v
-Transport Layer
-       |
-       v
-TCP Segment / UDP Datagram
-       |
-       v
-Internet Layer
-       |
-       v
-IP Packet
-       |
-       v
-Link Layer
-       |
-       v
-Frame
-       |
-       v
-Physical Transmission
+       Application Data
+              |
+              v
+          TCP / UDP
+              |
+              v
+      Segment / Datagram
+              |
+              v
+          IP Header
+              |
+              v
+           IP Packet
+              |
+              v
+         Link Header
+              |
+              v
+            Frame
+              |
+              v
+       Physical Transmission
 ```
 
-### Protocol data units
+At the receiver, the process is reversed. It is called decapsulation.
+
+### Protocol Data Units (PDU)
 
 |Layer|Data Unit|
 |---|---|
-|Application|Data / message|
-|Transport|TCP segment or UDP datagram|
-|Internet|IP packet/datagram|
-|Link|Frame|
-|Physical transmission|Bits/signals|
-
-At the receiving end, decapsulation occurs as data moves upward through the layers.
-
-## 6.5 OSI vs TCP/IP
-
-|Feature|OSI|TCP/IP|
-|---|---|---|
-|Number of layers|7|Commonly 4|
-|Nature|Reference model|Protocol suite and commonly taught model|
-|Session layer|Separate|Functions are generally included in the Application layer|
-|Presentation layer|Separate|Functions are generally included in the Application layer|
-|Physical and Data Link|Separate|Combined in the Network Access/Link layer|
-|Usage|Conceptual and educational reference|Foundation of modern Internet communication|
+|Application|Data / Message|
+|Transport|TCP Segment / UDP Datagram|
+|Internet|IP Packet|
+|Network Access|Frame|
+|Physical transmission|Bits / Signals|
 
 ---
 
@@ -988,85 +1104,172 @@ At the receiving end, decapsulation occurs as data moves upward through the laye
 
 ## 7.1 Definition
 
-An **IP packet** is the data unit used by the Internet Protocol to carry data from a source IP address toward a destination IP address.
+An IP packet is a unit of data transmitted using the Internet Protocol. It contains a header and a payload.
 
-An IP packet consists of:
+The IP header contains control information, including source and destination IP addresses.
 
-1. An IP header containing control and addressing information.
-2. A payload carrying the data from the upper layer.
+Diagram:
 
-The IPv4 and IPv6 packet headers have different formats.
+```
+       IP PACKET
++----------------------+
+|      IP Header       |
++----------------------+
+|       Payload        |
+|     (Actual Data)    |
++----------------------+
+```
+
+There are two main versions:
+
+1. IPv4 packet.
+    
+2. IPv6 packet.
+    
 
 ---
 
 # 8. IPv4 PACKET FORMAT
 
-## 8.1 IPv4 Header
+## 8.1 Definition
 
-An IPv4 header is normally **20 bytes** long without options. Its maximum size is **60 bytes**.
+IPv4 is Internet Protocol Version 4. It uses 32-bit addresses to identify source and destination interfaces.
 
-### Diagram
+An IPv4 header has a minimum size of 20 bytes and a maximum size of 60 bytes.
+
+## 8.2 IPv4 Header Diagram
 
 ```
-                 IPv4 HEADER
-  0                   15                  31
-  +---------+---------+---------------------+
-  | Version |   IHL   | DSCP | ECN | Total  |
-  |   4     |    4    |  6   |  2  | Length |
-  +---------+---------+---------------------+
-  | Identification    |Flags| Fragment Offset|
-  +-------------------+-----+----------------+
-  | TTL       | Protocol     | Header Checksum|
-  +------------------------------------------+
-  |              Source IP Address           |
-  +------------------------------------------+
-  |           Destination IP Address          |
-  +------------------------------------------+
-  |     Options and Padding (if present)      |
-  +------------------------------------------+
-  |                  Payload                  |
-  +------------------------------------------+
+       0                 15                31
+       +---------+---------+-----+----+------+
+       | Version |   IHL   |DSCP |ECN | Total|
+       | 4 bits  | 4 bits  |6 bit|2bit| Length|
+       +---------+---------+-----+----+------+
+       | Identification  |Flags| Fragment    |
+       |     16 bits     |3 bit| Offset      |
+       +-----------------+-----+--------------+
+       | TTL  | Protocol | Header Checksum   |
+       | 8 bit| 8 bits   | 16 bits           |
+       +-------------------------------------+
+       |       Source IP Address             |
+       |             32 bits                 |
+       +-------------------------------------+
+       |     Destination IP Address          |
+       |             32 bits                 |
+       +-------------------------------------+
+       |       Options and Padding            |
+       |          (If present)                |
+       +-------------------------------------+
+       |             Payload                  |
+       +-------------------------------------+
 ```
 
-_Diagram fields are arranged for examination purposes; their sizes are specified in the descriptions below._
-
-## 8.2 IPv4 Header Fields
+## 8.3 Important IPv4 Header Fields
 
 |Field|Size|Function|
 |---|---|---|
-|Version|4 bits|Identifies the IP version; IPv4 uses value 4.|
-|IHL|4 bits|Specifies the header length in 32-bit words.|
+|Version|4 bits|Identifies the IP version. IPv4 = 4.|
+|IHL|4 bits|Specifies the header length.|
 |DSCP|6 bits|Supports differentiated traffic treatment.|
 |ECN|2 bits|Supports explicit congestion notification.|
-|Total Length|16 bits|Specifies the total size of the IP packet in bytes, including header and data.|
-|Identification|16 bits|Identifies fragments belonging to the same original datagram.|
-|Flags|3 bits|Includes fragmentation-related controls, such as DF and MF.|
-|Fragment Offset|13 bits|Identifies a fragment's position in the original datagram in 8-byte units.|
-|TTL|8 bits|Limits packet lifetime by being reduced as the packet traverses routers.|
-|Protocol|8 bits|Identifies the next-layer payload protocol.|
-|Header Checksum|16 bits|Detects corruption in the IPv4 header.|
-|Source Address|32 bits|Identifies the source IPv4 address.|
-|Destination Address|32 bits|Identifies the destination IPv4 address.|
-|Options and Padding|Variable|Provides optional functions and aligns the header when required.|
+|Total Length|16 bits|Specifies total packet size in bytes.|
+|Identification|16 bits|Identifies fragments of the original packet.|
+|Flags|3 bits|Controls fragmentation.|
+|Fragment Offset|13 bits|Specifies fragment position.|
+|TTL|8 bits|Limits packet lifetime.|
+|Protocol|8 bits|Identifies the upper-layer protocol.|
+|Header Checksum|16 bits|Detects errors in the IPv4 header.|
+|Source Address|32 bits|IP address of sender.|
+|Destination Address|32 bits|IP address of receiver.|
+|Options and Padding|Variable|Provides optional functions and alignment.|
 
-### Important fields explained
+## 8.4 Important Fields Explained
 
-**TTL (Time to Live):** A router reduces the TTL value as it forwards a packet. When the TTL expires, the router discards the packet. This prevents a packet from circulating indefinitely.
+**Version:** Specifies the IP version. IPv4 uses value 4.
 
-**Protocol:** Identifies the upper-layer protocol carried by the packet. Common values include TCP (6), UDP (17), and ICMP (1).
+**IHL:** Specifies the length of the IPv4 header in 32-bit words.
 
-**Fragmentation:** If IPv4 fragmentation is performed, fragments carry information that allows the original datagram to be reconstructed at the destination. The DF flag indicates that fragmentation is prohibited for that packet; the MF flag indicates that more fragments follow.
+**Total Length:** Specifies the total size of the entire IPv4 packet, including header and payload.
 
-**Header checksum:** Covers only the IPv4 header, not the payload. It must be updated when header fields affecting the checksum change, including TTL during normal forwarding.
+**Identification:** Identifies fragments belonging to the same original packet.
 
-## 8.3 IPv4 Packet Characteristics
+**Flags:** Controls fragmentation. Important bits include:
 
-- Uses 32-bit source and destination addresses.
+- DF: Don't Fragment.
+    
+- MF: More Fragments.
+    
+
+**Fragment Offset:** Identifies the position of a fragment in the original packet. It is measured in units of 8 bytes.
+
+**TTL (Time To Live):** A router reduces the TTL value while forwarding the packet. When it reaches zero, the router discards the packet. It prevents endless circulation.
+
+**Protocol:** Identifies the upper-layer protocol.
+
+Common values:
+
+|Protocol|Number|
+|---|---|
+|ICMP|1|
+|TCP|6|
+|UDP|17|
+
+**Header Checksum:** Detects errors in the IPv4 header only, not in the payload.
+
+**Source Address:** Identifies the sender's IP address.
+
+**Destination Address:** Identifies the receiver's IP address.
+
+## 8.5 IPv4 Fragmentation
+
+IPv4 fragmentation divides a large IP packet into smaller fragments when necessary to accommodate a link's MTU.
+
+Diagram:
+
+```
+       Original Packet
+              |
+              v
+        Fragmentation
+              |
+         +----+----+
+         |         |
+         v         v
+     Fragment 1  Fragment 2
+         |         |
+         +----+----+
+              |
+              v
+       Destination Reassembles
+```
+
+Important fields:
+
+1. Identification: Identifies fragments of the original packet.
+    
+2. DF: Indicates that the packet must not be fragmented.
+    
+3. MF: Indicates that more fragments follow.
+    
+4. Fragment Offset: Indicates the fragment's position.
+    
+
+**Important:** Reassembly takes place at the destination.
+
+## 8.6 IPv4 Packet Characteristics
+
+- Address size = 32 bits.
+    
+- Header size = 20–60 bytes.
+    
+- Maximum total packet length = 65,535 bytes.
+    
+- Supports fragmentation.
+    
+- Has a header checksum.
+    
 - Provides connectionless, best-effort delivery.
-- Allows variable-length headers.
-- Supports fragmentation and reassembly.
-- Includes a header checksum.
-- Has a maximum total packet length of 65,535 bytes, although practical link MTUs are commonly much smaller.
+    
 
 ---
 
@@ -1074,568 +1277,814 @@ _Diagram fields are arranged for examination purposes; their sizes are specified
 
 ## 9.1 Definition
 
-An **IP address is a logical address assigned to a network interface for communication using the Internet Protocol**.
+An IP address is a logical address assigned to a network interface to identify it and enable communication over an IP network.
 
-It identifies an interface within an IP network and allows packets to be routed toward their destination.
+There are two main versions:
 
-Two main IP versions are used:
-
-1. IPv4
-2. IPv6
+1. IPv4.
+    
+2. IPv6.
+    
 
 ## 9.2 IPv4 Address
 
-An IPv4 address contains **32 bits**, divided into four 8-bit groups called octets.
+IPv4 uses a 32-bit address divided into four octets.
+
+Each octet contains 8 bits and has a decimal value from 0 to 255.
 
 Example:
 
 ```
 192.168.1.10
+
+192      .168      .1        .10
+8 bits   8 bits    8 bits    8 bits
+
+Total = 32 bits
 ```
 
-Each octet is represented in decimal, with a value from 0 to 255.
-
-### Binary representation
+### Binary Representation
 
 ```
 192       168       1         10
 11000000.10101000.00000001.00001010
 ```
 
-## 9.3 Network and Host Parts
+## 9.3 Classful IPv4 Addressing
 
-An IP address is interpreted using a network prefix.
+Historically, IPv4 addresses were divided into five classes.
 
-- **Network portion:** Identifies the IP network or subnet.
-- **Host portion:** Identifies an address within that subnet.
-
-The prefix length determines how many bits belong to the network portion.
-
-### Example
-
-```
-IP Address: 192.168.1.10/24
-
-Network bits: 24
-Host bits:     8
-```
-
-The `/24` prefix means that the first 24 bits form the network prefix.
-
-The corresponding subnet mask is:
-
-```
-255.255.255.0
-```
-
-For this conventional IPv4 subnet:
-
-- Network address: `192.168.1.0`
-- Example host address: `192.168.1.10`
-- Broadcast address: `192.168.1.255`
-
-A `/24` subnet has 256 total addresses. Under conventional IPv4 subnetting, 254 are available for ordinary host assignments because the network and broadcast addresses are reserved. Special cases such as `/31` point-to-point subnets follow different rules.
-
----
-
-## 9.4 Classful IPv4 Addressing
-
-Classful addressing is the historical method of dividing IPv4 addresses into fixed classes.
-
-Although modern networks use CIDR, classful addressing remains relevant to many examinations.
-
-|Class|First Octet Range|Default Mask|Traditional Use|
+|Class|First Octet Range|Default Mask|Purpose|
 |---|---|---|---|
-|A|1–126|255.0.0.0 (`/8`)|Large networks|
-|B|128–191|255.255.0.0 (`/16`)|Medium-sized networks|
-|C|192–223|255.255.255.0 (`/24`)|Smaller networks|
+|A|1–126|255.0.0.0|Large networks|
+|B|128–191|255.255.0.0|Medium networks|
+|C|192–223|255.255.255.0|Small networks|
 |D|224–239|Not applicable|Multicast|
-|E|240–255|Not applicable|Reserved/experimental range|
+|E|240–255|Not applicable|Reserved/experimental|
 
-**Important notes:**
+Important points:
 
-- `127.0.0.0/8` is reserved for loopback.
-- `0.0.0.0` has special meanings, including an unspecified source address in relevant contexts.
-- Classes A, B, and C are historical classifications; modern routing primarily uses classless addressing.
+- 127 is reserved for loopback.
+    
+- Class A, B and C have traditional network and host portions.
+    
+- Modern networks use CIDR instead of classful addressing.
+    
 
-## 9.5 Classless Inter-Domain Routing (CIDR)
+## 9.4 Network ID and Host ID
 
-**CIDR** allows IP networks to use variable-length prefixes instead of fixed class-based network sizes.
+An IP address has two logical parts:
 
-It represents an address with a slash followed by the prefix length.
+**Network ID:** Identifies the network.
 
-Examples:
-
-```
-192.168.1.0/24
-10.20.0.0/16
-172.20.10.0/24
-```
-
-The number after the slash indicates the number of network-prefix bits.
-
-### Why CIDR is useful
-
-- Supports flexible subnet sizes.
-- Reduces address wastage.
-- Allows aggregation of multiple routes into larger prefixes.
-- Is the standard approach used in modern IP addressing and routing.
-
-### Host-count formula
-
-For an ordinary IPv4 subnet with \(h\) host bits, the conventional number of usable host addresses is:
-
-\[ \boxed{2^h-2} \]
-
-For example, a `/24` prefix leaves:
-
-\[ h=32-24=8 \]
-
-Thus:
-
-\[ 2^8-2=254 \]
-
-This formula assumes conventional subnetting and does not apply unchanged to all special-purpose prefixes.
-
-## 9.6 Private IPv4 Addresses
-
-Private IPv4 addresses are used within private networks and are not directly routed across the public Internet.
-
-|Private Range|CIDR|
-|---|---|
-|`10.0.0.0` – `10.255.255.255`|`10.0.0.0/8`|
-|`172.16.0.0` – `172.31.255.255`|`172.16.0.0/12`|
-|`192.168.0.0` – `192.168.255.255`|`192.168.0.0/16`|
-
-A network commonly uses private addressing internally and may use Network Address Translation (NAT) to enable communication with the public IPv4 Internet.
-
-### Public vs private IP addresses
-
-|Public IP|Private IP|
-|---|---|
-|Used for globally routed communication|Used within private networks|
-|Must be globally coordinated to avoid address conflicts|Can be reused in separate private networks|
-|Public reachability depends on routing, filtering, and configuration|Usually requires routing/NAT or a suitable gateway to reach the public Internet|
-
----
-
-# 10. IPV6
-
-## 10.1 Definition
-
-**IPv6 (Internet Protocol version 6) is the successor to IPv4, designed primarily to provide a much larger address space and improve the IP protocol's base-header design.**
-
-IPv6 uses **128-bit addresses**, compared with IPv4's 32-bit addresses.
-
-## 10.2 Why Was IPv6 Introduced?
-
-IPv4 offers approximately 4.3 billion possible addresses in its 32-bit address space. The rapid growth of the Internet made this space insufficient for unrestricted global allocation.
-
-IPv6 was introduced to provide a much larger address space and support the continued growth of Internet-connected devices.
-
-Other design improvements include:
-
-- A simplified fixed-length base header.
-- Support for extension headers.
-- Removal of the IPv4 header checksum.
-- A redesigned fragmentation mechanism.
-
-## 10.3 Characteristics of IPv6
-
-|Feature|Description|
-|---|---|
-|Address size|128 bits|
-|Address notation|Eight groups of hexadecimal digits, separated by colons|
-|Base header size|Fixed at 40 bytes|
-|Address space|Vastly larger than IPv4|
-|Broadcast|No broadcast addressing; multicast serves group-delivery purposes|
-|Header checksum|No IPv6 base-header checksum|
-|Fragmentation|Routers do not fragment IPv6 packets; the source may use a Fragment extension header|
-|Configuration|Supports manual configuration, SLAAC, DHCPv6, and other mechanisms|
-|Address resolution|Uses Neighbor Discovery through ICMPv6 rather than ARP|
-
-## 10.4 IPv6 Address Format
-
-An IPv6 address consists of **128 bits**, written as eight groups of four hexadecimal digits.
+**Host ID:** Identifies an address within that network.
 
 Example:
 
 ```
-2001:0db8:0000:0000:02aa:00ff:fe28:9c5a
+IP Address: 192.168.1.10/24
+
+Network ID = 192.168.1
+Host ID    = 10
 ```
 
-Each group represents 16 bits.
+The prefix length determines the number of network bits.
 
-### Shortening an IPv6 Address
+## 9.5 CIDR (Classless Inter-Domain Routing)
 
-IPv6 allows two main abbreviation rules:
+CIDR is a method of assigning IP addresses using variable-length network prefixes rather than fixed address classes.
 
-**Rule 1: Omit leading zeros within a group.**
-
-For example:
+Example:
 
 ```
-0db8 → db8
-00ff → ff
+192.168.1.10/24
 ```
 
-**Rule 2: Replace one consecutive run of all-zero groups with `::`.**
+`/24` means the first 24 bits are the network portion.
 
-For example:
+Advantages:
+
+1. Allows flexible subnet sizes.
+    
+2. Reduces IP address wastage.
+    
+3. Supports route aggregation.
+    
+4. Is used in modern IP addressing and routing.
+    
+
+## 9.6 Subnet Mask
+
+A subnet mask is used to identify the network portion and host portion of an IPv4 address.
+
+Example:
+
+```
+IP Address : 192.168.1.10/24
+Subnet Mask: 255.255.255.0
+```
+
+Here:
+
+- Network bits = 24.
+    
+- Host bits = 8.
+    
+- Network Address = 192.168.1.0.
+    
+- Broadcast Address = 192.168.1.255.
+    
+
+## 9.7 Network Address and Broadcast Address
+
+**Network Address:** Identifies the subnet itself. The host portion contains all zeros.
+
+**Broadcast Address:** Identifies all hosts on a conventional IPv4 subnet. The host portion contains all ones.
+
+## 9.8 Private IPv4 Address Ranges
+
+Private IP addresses are commonly used in homes, colleges and offices.
+
+|Range|CIDR|
+|---|---|
+|10.0.0.0 – 10.255.255.255|10.0.0.0/8|
+|172.16.0.0 – 172.31.255.255|172.16.0.0/12|
+|192.168.0.0 – 192.168.255.255|192.168.0.0/16|
+
+Private IP addresses are not directly routed across the public Internet.
+
+## 9.9 Public vs Private IP
+
+|Public IP|Private IP|
+|---|---|
+|Used for globally routed communication.|Used within private networks.|
+|Globally coordinated.|Can be reused in separate private networks.|
+|Public reachability depends on routing and security configuration.|Generally uses NAT or a suitable gateway for public IPv4 access.|
+
+## 9.10 NAT (Network Address Translation)
+
+NAT is a technique that translates IP addresses, commonly allowing devices using private IPv4 addresses to communicate through a public IPv4 address.
+
+Diagram:
+
+```
+ Computer 1: 192.168.1.10
+ Computer 2: 192.168.1.11
+ Computer 3: 192.168.1.12
+              |
+              v
+          NAT Router
+              |
+              v
+        Public IP Address
+              |
+              v
+            Internet
+```
+
+NAT is commonly used in homes, colleges and offices to share public IPv4 connectivity.
+
+---
+
+# 10. IPV6 (INTERNET PROTOCOL VERSION 6)
+
+## 10.1 Definition
+
+IPv6 is the newer version of the Internet Protocol, designed mainly to overcome the shortage of IPv4 addresses and improve the IP packet header design.
+
+IPv4 = 32 bits.
+
+IPv6 = 128 bits.
+
+## 10.2 Need for IPv6
+
+1. Shortage of IPv4 addresses.
+    
+2. Increasing number of Internet-connected devices.
+    
+3. Need for a larger address space.
+    
+4. Improved base-header design.
+    
+5. Better support for modern network communication.
+    
+
+## 10.3 Characteristics of IPv6
+
+1. Uses 128-bit addresses.
+    
+2. Provides a very large address space.
+    
+3. Uses hexadecimal notation.
+    
+4. Has a fixed 40-byte base header.
+    
+5. Does not use broadcast addresses.
+    
+6. Supports multicast and anycast.
+    
+7. Does not have a base-header checksum.
+    
+8. Routers do not fragment IPv6 packets.
+    
+9. Uses extension headers for optional information.
+    
+10. Supports automatic address configuration.
+    
+
+## 10.4 IPv6 Address Format
+
+An IPv6 address is written as eight groups of hexadecimal digits separated by colons.
+
+Example:
+
+```
+2001:0DB8:0000:0000:0000:0000:0000:0001
+```
+
+Short form:
+
+```
+2001:DB8::1
+```
+
+### IPv6 Address Shortening Rules
+
+Rule 1: Leading zeros within a group can be removed.
+
+Example:
+
+```
+0db8 -> db8
+00ff -> ff
+0001 -> 1
+```
+
+Rule 2: One consecutive sequence of zero groups can be replaced with `::`.
+
+Example:
 
 ```
 2001:0db8:0000:0000:0000:0000:0000:0001
 ```
 
-can be written as:
+Short form:
 
 ```
 2001:db8::1
 ```
 
-**Important:** The `::` notation can be used only once in a single address because it represents an unknown number of omitted zero groups.
+Important: `::` can be used only once in a single IPv6 address.
 
-## 10.5 IPv6 Address Types
+## 10.5 Types of IPv6 Addresses
 
-### A. Unicast
+### 1. Unicast
 
-Identifies a single interface. A packet sent to a unicast address is intended for that interface.
+Identifies a single network interface. Data is delivered to that interface.
 
-Common categories include:
+### 2. Multicast
 
-- Global unicast
-- Link-local unicast
-- Unique local addresses
+Identifies a group of interfaces. Data is delivered to group members.
 
-### B. Multicast
+### 3. Anycast
 
-Identifies a group of interfaces. Packets sent to a multicast address are delivered to members of the group according to the network's multicast mechanisms.
+Identifies multiple interfaces, but data is delivered to one suitable member, usually according to routing.
 
-### C. Anycast
-
-The same address is assigned to multiple interfaces. A packet sent to that address is delivered to one suitable member of the group, according to routing and the network's forwarding behaviour.
-
-**IPv6 does not use broadcast addresses.** Multicast is used for many purposes that would otherwise require broadcasting.
+**Important:** IPv6 does not support broadcast.
 
 ## 10.6 Important IPv6 Address Ranges
 
-|Prefix/Address|Purpose|
+|Address / Prefix|Purpose|
 |---|---|
-|`2000::/3`|Global unicast address space|
-|`fe80::/10`|Link-local addresses|
-|`fc00::/7`|Unique local address space|
-|`ff00::/8`|Multicast addresses|
-|`::1`|Loopback address|
-|`::`|Unspecified address|
+|2000::/3|Global Unicast|
+|fe80::/10|Link-Local|
+|fc00::/7|Unique Local|
+|ff00::/8|Multicast|
+|::1|Loopback|
+|::|Unspecified Address|
 
-Link-local addresses are used on the local link and are not globally routable.
+## 10.7 IPv6 Header Format
 
-## 10.7 IPv6 Packet Header
+IPv6 has a fixed 40-byte base header.
 
-IPv6 has a **fixed 40-byte base header**.
-
-### Diagram
+Diagram:
 
 ```
-                    IPv6 BASE HEADER
-
-  +---------+----------------+----------------------+
-  | Version | Traffic Class  | Flow Label           |
-  |  4 bits |    8 bits      | 20 bits              |
-  +---------+----------------+----------------------+
-  | Payload Length | Next Header | Hop Limit         |
-  |   16 bits      |   8 bits    | 8 bits            |
-  +----------------------------------------------- -+
-  |                                                 |
-  |               Source Address                    |
-  |                   128 bits                      |
-  |                                                 |
-  +-------------------------------------------------+
-  |                                                 |
-  |            Destination Address                  |
-  |                   128 bits                      |
-  |                                                 |
-  +-------------------------------------------------+
-  |              Extension Headers                  |
-  |                  (Optional)                     |
-  +-------------------------------------------------+
-  |                    Payload                      |
-  +-------------------------------------------------+
++----------+---------------+----------------+
+| Version  | Traffic Class | Flow Label     |
+| 4 bits   | 8 bits        | 20 bits        |
++----------+---------------+----------------+
+| Payload Length | Next Header | Hop Limit   |
+| 16 bits        | 8 bits      | 8 bits      |
++-------------------------------------------+
+|                                           |
+|             Source Address                |
+|                128 bits                   |
+|                                           |
++-------------------------------------------+
+|                                           |
+|          Destination Address              |
+|                128 bits                   |
+|                                           |
++-------------------------------------------+
+|              Payload                      |
++-------------------------------------------+
 ```
+
+The payload may contain extension headers followed by upper-layer data.
 
 ## 10.8 IPv6 Header Fields
 
 |Field|Size|Function|
 |---|---|---|
-|Version|4 bits|Identifies IPv6; value is 6.|
-|Traffic Class|8 bits|Supports traffic classification and differentiated handling.|
-|Flow Label|20 bits|Identifies packets belonging to a flow for specialised handling where supported.|
-|Payload Length|16 bits|Specifies the size of the data after the 40-byte base header, including extension headers.|
-|Next Header|8 bits|Identifies an extension header or the upper-layer protocol.|
-|Hop Limit|8 bits|Limits how many router hops the packet may traverse.|
-|Source Address|128 bits|Identifies the source interface's IPv6 address.|
-|Destination Address|128 bits|Identifies the destination IPv6 address.|
+|Version|4 bits|Identifies IPv6. Value = 6.|
+|Traffic Class|8 bits|Indicates traffic priority/handling.|
+|Flow Label|20 bits|Identifies packets belonging to a flow.|
+|Payload Length|16 bits|Specifies the length after the base header.|
+|Next Header|8 bits|Identifies the next extension header or upper-layer protocol.|
+|Hop Limit|8 bits|Limits the number of router hops.|
+|Source Address|128 bits|Identifies the sender.|
+|Destination Address|128 bits|Identifies the receiver.|
 
-### Important differences from IPv4
+### Important IPv6 Header Facts
 
-IPv6:
+- Fixed base header size = 40 bytes.
+    
+- No IHL field because header size is fixed.
+    
+- No base-header checksum.
+    
+- Hop Limit is used instead of TTL.
+    
+- Optional information is carried through extension headers.
+    
+- Routers do not fragment IPv6 packets.
+    
+- The source can perform fragmentation using a Fragment extension header.
+    
 
-- Does not have the IPv4 IHL field because its base header has a fixed size.
-- Does not have a base-header checksum.
-- Uses Hop Limit instead of TTL.
-- Uses extension headers for optional information.
-- Does not allow routers to fragment packets.
-- Allows the sending host to perform fragmentation using a Fragment extension header when appropriate.
+## 10.9 IPv6 Extension Headers
 
-## 10.9 IPv4 vs IPv6
+IPv6 uses extension headers to carry optional information outside the fixed base header.
 
-This is a very important examination question.
+Examples:
+
+1. Fragment Header.
+    
+2. Routing Header.
+    
+3. Hop-by-Hop Options Header.
+    
+4. Destination Options Header.
+    
+
+The Next Header field identifies the next extension header or upper-layer protocol.
+
+## 10.10 IPv4 vs IPv6
+
+This is one of the most important questions for examination.
 
 |Feature|IPv4|IPv6|
 |---|---|---|
-|Address size|32 bits|128 bits|
-|Example|`192.168.1.10`|`2001:db8::1`|
-|Address notation|Decimal octets|Hexadecimal groups|
-|Base header size|20–60 bytes|40 bytes|
-|Header checksum|Present|Absent|
+|Address Size|32 bits|128 bits|
+|Address Format|Decimal|Hexadecimal|
+|Example|192.168.1.1|2001:db8::1|
+|Header Size|20–60 bytes|Fixed 40 bytes|
+|Address Space|Smaller|Very large|
+|Checksum|Present|Absent|
 |Broadcast|Supported|Not supported|
-|Multicast|Supported|Supported|
 |Fragmentation|Routers may fragment unless prohibited|Routers do not fragment|
-|Address resolution|ARP is commonly used on Ethernet|Neighbor Discovery using ICMPv6|
-|Configuration|Manual, DHCP, and other methods|Manual, SLAAC, DHCPv6, and other methods|
-|Address space|Smaller|Vastly larger|
+|Address Resolution|ARP commonly used|Neighbor Discovery|
+|Configuration|Manual/DHCP etc.|SLAAC/DHCPv6 etc.|
+|Header Design|Variable length|Fixed base header|
+|Hop Control|TTL|Hop Limit|
 
-## 10.10 IPv6 Advantages
+## 10.11 Advantages of IPv6
 
-1. **Large address space:** Provides many more addresses than IPv4.
-2. **Simplified base header:** Uses a fixed-size base header, reducing certain aspects of header processing.
-3. **Improved support for extension headers:** Optional information can be carried separately from the base header.
-4. **No broadcast:** Uses multicast and other address types instead.
-5. **Modern network support:** Supports current networking requirements, including large-scale addressing and autoconfiguration.
+1. Large address space.
+    
+2. Simplified fixed-length base header.
+    
+3. Better support for extension headers.
+    
+4. No broadcast addressing.
+    
+5. Supports modern network requirements.
+    
+6. Supports automatic address configuration.
+    
 
-### Limitations and challenges
+## 10.12 Limitations of IPv6
 
-- IPv4 and IPv6 are not directly interoperable without dual-stack operation or suitable transition mechanisms.
-- Network administrators may need to update software, hardware, monitoring, and security rules.
-- IPv6 does not automatically make a network secure.
-- IPv4 and IPv6 often need to coexist during migration.
+1. IPv4 and IPv6 are not directly interoperable without suitable mechanisms.
+    
+2. Network devices and software may require upgrades.
+    
+3. Migration can require additional planning.
+    
+4. IPv6 does not automatically make a network secure.
+    
 
-## 10.11 IPv4-to-IPv6 Transition
+## 10.13 IPv4-to-IPv6 Transition Mechanisms
 
-Three important transition approaches are:
+Three important methods are:
 
 ### 1. Dual Stack
 
-A device or network operates both IPv4 and IPv6.
+A device supports both IPv4 and IPv6.
 
 ```
-            Device
-               |
-          +----+----+
-          |         |
-          v         v
-        IPv4       IPv6
-          |         |
-          +----+----+
-               |
-             Network
+              Device
+                 |
+           +-----+-----+
+           |           |
+           v           v
+          IPv4        IPv6
+           |           |
+           +-----+-----+
+                 |
+               Network
 ```
 
 ### 2. Tunneling
 
-Packets of one protocol are carried inside packets of another protocol across a network that does not natively support the carried protocol.
+One IP protocol's packets are carried inside packets of another protocol to cross a network that does not natively support the carried protocol.
 
 ### 3. Translation
 
-A translation mechanism converts between IPv4 and IPv6 communication where necessary. For example, NAT64 supports communication between IPv6 clients and IPv4 servers in suitable deployments.
+Converts communication between IPv4 and IPv6 networks where necessary.
+
+Example: NAT64.
 
 ---
 
-# 11. IMPORTANT COMPARISONS FOR EXAMS
+# 11. IMPORTANT FORMULAS AND NUMERICALS
 
-These are the key comparisons from Unit 3.
+These formulas are important for IP addressing and subnetting questions.
 
-## A. TCP vs IP
+## 11.1 IPv4 Address Size
 
-|TCP|IP|
+IPv4 uses 32 bits.
+
+Number of possible bit patterns:
+
+2^32 = 4,294,967,296
+
+## 11.2 IPv6 Address Size
+
+IPv6 uses 128 bits.
+
+Number of possible bit patterns:
+
+2^128 ≈ 3.4 × 10^38
+
+## 11.3 Number of Host Bits
+
+h = 32 - Prefix Length
+
+## 11.4 Total Number of Addresses
+
+Total addresses = 2^h
+
+## 11.5 Usable IPv4 Host Addresses
+
+For conventional IPv4 subnets:
+
+Usable hosts = 2^h - 2
+
+The formula excludes the network and broadcast addresses. Special prefixes such as /31 have different rules.
+
+## 11.6 Example: /24 Subnet
+
+Given:
+
+IP Address = 192.168.1.10/24
+
+Step 1: Find host bits.
+
+h = 32 - 24 = 8
+
+Step 2: Find total addresses.
+
+2^8 = 256
+
+Step 3: Find usable hosts.
+
+2^8 - 2 = 254
+
+Answer: 254 usable host addresses.
+
+## 11.7 Example: /26 Subnet
+
+Given:
+
+IP Address = 192.168.1.70/26
+
+Step 1: Subnet mask.
+
+255.255.255.192
+
+Step 2: Host bits.
+
+h = 32 - 26 = 6
+
+Step 3: Total addresses.
+
+2^6 = 64
+
+Step 4: Usable hosts.
+
+2^6 - 2 = 62
+
+Step 5: Block size.
+
+256 - 192 = 64
+
+Subnet ranges:
+
+0–63  
+64–127  
+128–191  
+192–255
+
+Since 70 belongs to 64–127:
+
+|Detail|Answer|
 |---|---|
-|Transport-layer protocol|Network-layer protocol|
-|Provides reliable, ordered byte-stream delivery|Provides best-effort packet delivery|
-|Uses port numbers|Uses IP addresses|
-|Performs retransmission and congestion-control functions|Routes and forwards packets toward destinations|
-
-## B. Routing vs Congestion Control
-
-|Routing|Congestion Control|
-|---|---|
-|Selects paths toward destinations|Manages excessive traffic relative to network capacity|
-|Uses route information and metrics|Uses traffic control, feedback, and resource-management mechanisms|
-|Primarily concerns path selection|Primarily concerns network load and available resources|
-
-## C. IPv4 vs IPv6
-
-Focus particularly on address size, header length, broadcast support, fragmentation, header checksum, and address notation.
-
-The full comparison is provided in Section 10.9.
+|Network Address|192.168.1.64|
+|First Usable Host|192.168.1.65|
+|Last Usable Host|192.168.1.126|
+|Broadcast Address|192.168.1.127|
+|Total Addresses|64|
+|Usable Hosts|62|
 
 ---
 
-# 12. IMPORTANT FORMULAS AND NUMERICAL CONCEPTS
+# 12. IMPORTANT EXAM QUESTIONS
 
-## 12.1 IPv4 Address Length
+## A. Long-Answer Questions (5–10 Marks)
 
-\[ \boxed{\text{IPv4 address length}=32\text{ bits}} \]
-
-## 12.2 IPv6 Address Length
-
-\[ \boxed{\text{IPv6 address length}=128\text{ bits}} \]
-
-## 12.3 Number of Possible Addresses
-
-For an address space of \(n\) bits:
-
-\[ \boxed{\text{Number of possible bit patterns}=2^n} \]
-
-IPv4:
-
-\[ 2^{32}=4,294,967,296 \]
-
-IPv6:
-
-\[ 2^{128}\approx3.4\times10^{38} \]
-
-These are the theoretical sizes of the address spaces; not every address is available for ordinary global unicast assignment.
-
-## 12.4 Number of Host Bits
-
-For ordinary IPv4 subnetting:
-
-\[ \boxed{h=32-\text{prefix length}} \]
-
-## 12.5 Number of Usable IPv4 Host Addresses
-
-For a conventional IPv4 subnet:
-
-\[ \boxed{\text{Usable hosts}=2^h-2} \]
-
-Example: `/26`
-
-\[ h=32-26=6 \]\[ 2^6-2=62 \]
-
-Therefore, a conventional `/26` subnet provides **62 usable host addresses**.
-
----
-
-# 13. EXAM-IMPORTANT QUESTIONS — UNIT 3
-
-## Long-answer questions
-
-1. Define the Network Layer and explain its major functions.
+1. Define the Network Layer and explain its major functions with a diagram.
+    
 2. Explain point-to-point networks with a suitable diagram.
+    
 3. Differentiate datagram networks and virtual-circuit networks.
-4. Explain routing and the functions of a routing table.
-5. Differentiate static routing and dynamic routing.
-6. Explain distance-vector and link-state routing.
-7. Explain RIP, OSPF, and BGP.
-8. Define congestion and discuss its causes and effects.
-9. Differentiate flow control and congestion control.
-10. Explain open-loop and closed-loop congestion-control approaches.
-11. Explain the leaky bucket and token bucket algorithms.
-12. Define internetworking and explain its working.
-13. Explain the TCP/IP model and the functions of its layers.
-14. Draw and explain the IPv4 packet format.
-15. Explain IPv4 addressing and classful address ranges.
-16. Explain CIDR and subnet masks with examples.
-17. Explain IPv6 addressing and the IPv6 header format.
-18. Differentiate IPv4 and IPv6.
-19. Explain the transition mechanisms used for IPv4 and IPv6 coexistence.
+    
+4. Define routing. Explain static and dynamic routing.
+    
+5. Explain distance-vector and link-state routing.
+    
+6. Explain RIP, OSPF and BGP routing protocols.
+    
+7. Define congestion. Explain its causes and effects.
+    
+8. Explain open-loop and closed-loop congestion control.
+    
+9. Explain Leaky Bucket and Token Bucket algorithms with diagrams.
+    
+10. Define internetworking and explain its need and working.
+    
+11. Explain the TCP/IP model with a diagram and functions of each layer.
+    
+12. Draw and explain the IPv4 packet format.
+    
+13. Explain IPv4 addressing and classful addressing.
+    
+14. Explain CIDR and subnetting with an example.
+    
+15. Draw and explain the IPv6 header format.
+    
+16. Explain IPv6 addressing and its address types.
+    
+17. Differentiate IPv4 and IPv6.
+    
+18. Explain IPv4-to-IPv6 transition mechanisms.
+    
 
-## Numerical and short-problem preparation
+## B. Short-Answer Questions (2–3 Marks)
 
-Prepare these areas particularly well:
+1. What is a Network Layer?
+    
+2. Define point-to-point network.
+    
+3. What is a datagram network?
+    
+4. What is a virtual-circuit network?
+    
+5. Define routing and forwarding.
+    
+6. What is a routing table?
+    
+7. Define routing metrics.
+    
+8. What is an Autonomous System?
+    
+9. What is congestion?
+    
+10. Differentiate flow control and congestion control.
+    
+11. What is a choke packet?
+    
+12. Define backpressure.
+    
+13. What is load shedding?
+    
+14. What is ECN?
+    
+15. Define internetworking.
+    
+16. What is encapsulation?
+    
+17. What is an IP packet?
+    
+18. What is CIDR?
+    
+19. What is a subnet mask?
+    
+20. What is NAT?
+    
+21. What is TTL?
+    
+22. What is fragmentation?
+    
+23. Define IPv6 anycast.
+    
+24. What is an IPv6 extension header?
+    
+25. What are the IPv4 and IPv6 address lengths?
+    
 
-- Finding an IPv4 network address from an IP address and prefix.
-- Finding the number of host bits and usable host addresses.
-- Identifying IPv4 address classes.
-- Calculating the total size of IPv4 and IPv6 address spaces.
-- Comparing the costs of candidate routes.
-- Understanding IPv4 packet length and fragmentation fields.
-- Tracing how packets are forwarded across multiple networks.
+## C. Numerical Questions
+
+Practise:
+
+1. Finding the number of host bits.
+    
+2. Finding total and usable addresses.
+    
+3. Calculating subnet masks.
+    
+4. Finding network and broadcast addresses.
+    
+5. Identifying IPv4 address classes.
+    
+6. Calculating the size of IPv4 and IPv6 address spaces.
+    
+7. Comparing route costs using link weights.
+    
 
 ---
 
-# 14. LAST-MINUTE REVISION SHEET
+# 13. LAST-MINUTE REVISION SHEET
 
-```
-UNIT 3 — NETWORK LAYER
+## Network Layer
 
-1. NETWORK LAYER
-   Layer 3
-   Logical addressing
-   Routing
-   Packet forwarding
-   Internetworking
+- OSI Layer 3.
+    
+- Data unit: Packet.
+    
+- Main device: Router.
+    
+- Functions: Addressing, routing and forwarding.
+    
 
-2. POINT-TO-POINT NETWORKS
-   Two endpoints per link
-   Used to connect routers
-   Datagram network → Independent packets
-   Virtual circuit → Established logical path
+## Point-to-Point
 
-3. ROUTING
-   Static → Manually configured
-   Dynamic → Routes learned using protocols
+- Connects two endpoints.
+    
+- Commonly used between routers.
+    
+- Datagram: Independent packets.
+    
+- Virtual Circuit: Established logical path.
+    
 
-   RIP   → Distance vector
-   OSPF  → Link state + Dijkstra
-   BGP   → Path vector + inter-AS routing
+## Routing
 
-4. CONGESTION CONTROL
-   Congestion → Traffic exceeds network capacity
-   Flow control → Protects receiver
-   Congestion control → Protects network resources
+- Static: Manual configuration.
+    
+- Dynamic: Automatic route learning.
+    
+- RIP: Distance Vector.
+    
+- OSPF: Link State.
+    
+- BGP: Path Vector.
+    
+- Dijkstra: Shortest-path algorithm.
+    
+- Bellman-Ford: Distance-vector algorithm family.
+    
 
-   Leaky bucket → Smooths output
-   Token bucket → Allows controlled bursts
-   Choke packet → Signals source to reduce rate
-   Load shedding → Discards selected traffic
-   ECN → Signals congestion through packet marking
+## Congestion Control
 
-5. INTERNETWORKING
-   Connects independent networks
-   Routers forward packets between networks
+- Congestion: Traffic exceeds network capacity.
+    
+- Flow Control: Protects the receiver.
+    
+- Congestion Control: Protects the network.
+    
+- Open Loop: Prevention.
+    
+- Closed Loop: Feedback.
+    
+- Leaky Bucket: Fixed-rate output.
+    
+- Token Bucket: Controlled bursts.
+    
+- Choke Packet: Requests source to reduce traffic.
+    
+- Backpressure: Signals upstream routers.
+    
+- Load Shedding: Discards selected packets.
+    
+- ECN: Congestion marking.
+    
 
-6. TCP/IP MODEL
-   Application
-   Transport
-   Internet
-   Network Access / Link
+## Internetworking
 
-7. IPv4 PACKET
-   Address length = 32 bits
-   Header = 20–60 bytes
-   Header checksum = Present
-   TTL limits packet lifetime
-   Fragmentation supported
+- Connects independent networks.
+    
+- Routers forward packets between networks.
+    
+- Uses IP addressing and routing.
+    
 
-8. IPv4 ADDRESSING
-   Class A → 1–126
-   Class B → 128–191
-   Class C → 192–223
-   Class D → 224–239
-   Class E → 240–255
+## TCP/IP Model
 
-   CIDR → Variable-length network prefixes
+1. Application.
+    
+2. Transport.
+    
+3. Internet.
+    
+4. Network Access/Link.
+    
 
-9. IPv6
-   Address length = 128 bits
-   Base header = 40 bytes
-   Header checksum = Absent
-   No broadcast
-   Routers do not fragment
-   Uses extension headers
-```
+## IPv4
 
-## What to prioritise for the examination
+- Address = 32 bits.
+    
+- Header = 20–60 bytes.
+    
+- TTL limits packet lifetime.
+    
+- Header checksum present.
+    
+- Fragmentation supported.
+    
 
-Study these topics thoroughly first: **IPv4 packet format, IPv4 addressing and CIDR, IPv6 header and addressing, TCP/IP model, routing protocols, and congestion-control techniques.** These provide the core definitions, diagrams, comparisons, and numerical concepts needed to answer most types of questions from Unit 3.
+## IPv4 Classes
+
+- A: 1–126.
+    
+- B: 128–191.
+    
+- C: 192–223.
+    
+- D: 224–239.
+    
+- E: 240–255.
+    
+
+## IPv6
+
+- Address = 128 bits.
+    
+- Base header = 40 bytes.
+    
+- Header checksum absent.
+    
+- No broadcast.
+    
+- Routers do not fragment.
+    
+- Uses hexadecimal notation.
+    
+- Supports extension headers.
+    
+
+---
+
+# 14. FINAL STUDY STRATEGY
+
+Recommended order for preparing this unit:
+
+1. IPv4 and IPv6 – Learn the header diagrams and differences.
+    
+2. IP Addressing – Study classes, CIDR, subnet masks and practise numericals.
+    
+3. TCP/IP Model – Learn the four layers and encapsulation.
+    
+4. Routing – Understand routing types, protocols and algorithms.
+    
+5. Congestion Control – Learn causes, effects, open/closed loop and both bucket algorithms.
+    
+6. Point-to-Point Networks – Prepare datagram and virtual circuit.
+    
+7. Internetworking – Learn definition, components and working.
+    
+
+**Final examination advice:** For every long-answer question, try to write the definition first, followed by a labelled diagram, working or explanation, and important characteristics. For comparison questions, use tables. For algorithms, practise the diagrams and write the working in steps.
+
+Do not waste time memorising every sentence. Understand the concepts and practise reproducing the diagrams, definitions, comparison tables and important formulas.
